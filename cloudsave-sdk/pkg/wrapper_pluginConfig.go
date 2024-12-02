@@ -9,7 +9,6 @@ package cloudsave
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/plugin_config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PluginConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PluginConfigService) GetPluginConfigShort(input *plugin_config.GetPluginConfigParams) (*cloudsaveclientmodels.ModelsPluginResponse, error) {
+func (aaa *PluginConfigService) GetPluginConfigShort(input *plugin_config.GetPluginConfigParams) (*plugin_config.GetPluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PluginConfigService) GetPluginConfigShort(input *plugin_config.GetPlu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PluginConfigService) CreatePluginConfigShort(input *plugin_config.CreatePluginConfigParams) (*cloudsaveclientmodels.ModelsPluginResponse, error) {
+func (aaa *PluginConfigService) CreatePluginConfigShort(input *plugin_config.CreatePluginConfigParams) (*plugin_config.CreatePluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *PluginConfigService) CreatePluginConfigShort(input *plugin_config.Cre
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *PluginConfigService) DeletePluginConfigShort(input *plugin_config.DeletePluginConfigParams) error {
@@ -127,7 +126,7 @@ func (aaa *PluginConfigService) DeletePluginConfigShort(input *plugin_config.Del
 	return nil
 }
 
-func (aaa *PluginConfigService) UpdatePluginConfigShort(input *plugin_config.UpdatePluginConfigParams) (*cloudsaveclientmodels.ModelsPluginResponse, error) {
+func (aaa *PluginConfigService) UpdatePluginConfigShort(input *plugin_config.UpdatePluginConfigParams) (*plugin_config.UpdatePluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,5 +153,5 @@ func (aaa *PluginConfigService) UpdatePluginConfigShort(input *plugin_config.Upd
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

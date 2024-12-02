@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryIAPClawbackHistoryShort(params *QueryIAPClawbackHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIAPClawbackHistoryOK, error)
-	MockPlayStationStreamEventShort(params *MockPlayStationStreamEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockPlayStationStreamEventOK, error)
-	MockXblClawbackEventShort(params *MockXblClawbackEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockXblClawbackEventOK, error)
+	QueryIAPClawbackHistoryShort(params *QueryIAPClawbackHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIAPClawbackHistoryResponse, error)
+	MockPlayStationStreamEventShort(params *MockPlayStationStreamEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockPlayStationStreamEventResponse, error)
+	MockXblClawbackEventShort(params *MockXblClawbackEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockXblClawbackEventResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ Other detail info:
 
   * Returns : paginated clawback history
 */
-func (a *Client) QueryIAPClawbackHistoryShort(params *QueryIAPClawbackHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIAPClawbackHistoryOK, error) {
+func (a *Client) QueryIAPClawbackHistoryShort(params *QueryIAPClawbackHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIAPClawbackHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryIAPClawbackHistoryParams()
@@ -82,7 +82,12 @@ func (a *Client) QueryIAPClawbackHistoryShort(params *QueryIAPClawbackHistoryPar
 	switch v := result.(type) {
 
 	case *QueryIAPClawbackHistoryOK:
-		return v, nil
+		response := &QueryIAPClawbackHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -93,7 +98,7 @@ func (a *Client) QueryIAPClawbackHistoryShort(params *QueryIAPClawbackHistoryPar
 MockPlayStationStreamEventShort mock sync playstation clawback event.
 Mock Sync PlayStation Clawback event..
 */
-func (a *Client) MockPlayStationStreamEventShort(params *MockPlayStationStreamEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockPlayStationStreamEventOK, error) {
+func (a *Client) MockPlayStationStreamEventShort(params *MockPlayStationStreamEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockPlayStationStreamEventResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewMockPlayStationStreamEventParams()
@@ -131,7 +136,12 @@ func (a *Client) MockPlayStationStreamEventShort(params *MockPlayStationStreamEv
 	switch v := result.(type) {
 
 	case *MockPlayStationStreamEventOK:
-		return v, nil
+		response := &MockPlayStationStreamEventResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -142,7 +152,7 @@ func (a *Client) MockPlayStationStreamEventShort(params *MockPlayStationStreamEv
 MockXblClawbackEventShort mock sync xbox clawback event.
 Mock Sync XBox Clawback event.
 */
-func (a *Client) MockXblClawbackEventShort(params *MockXblClawbackEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockXblClawbackEventOK, error) {
+func (a *Client) MockXblClawbackEventShort(params *MockXblClawbackEventParams, authInfo runtime.ClientAuthInfoWriter) (*MockXblClawbackEventResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewMockXblClawbackEventParams()
@@ -180,7 +190,12 @@ func (a *Client) MockXblClawbackEventShort(params *MockXblClawbackEventParams, a
 	switch v := result.(type) {
 
 	case *MockXblClawbackEventOK:
-		return v, nil
+		response := &MockXblClawbackEventResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

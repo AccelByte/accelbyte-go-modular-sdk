@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 )
 
+type AdminGetUserPersonalDataRequestsResponse struct {
+	gdprclientmodels.ApiResponse
+	Data *gdprclientmodels.ModelsUserPersonalDataResponse
+
+	Error400 *gdprclientmodels.ResponseError
+	Error401 *gdprclientmodels.ResponseError
+	Error500 *gdprclientmodels.ResponseError
+}
+
+func (m *AdminGetUserPersonalDataRequestsResponse) Unpack() (*gdprclientmodels.ModelsUserPersonalDataResponse, *gdprclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &gdprclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetUserPersonalDataRequestsReader is a Reader for the AdminGetUserPersonalDataRequests structure.
 type AdminGetUserPersonalDataRequestsReader struct {
 	formats strfmt.Registry

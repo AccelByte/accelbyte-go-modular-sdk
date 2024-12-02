@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/payment_config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PaymentConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PaymentConfigService) GetPaymentMerchantConfigShort(input *payment_config.GetPaymentMerchantConfigParams) (*platformclientmodels.PaymentDomainWhitelistConfigInfo, error) {
+func (aaa *PaymentConfigService) GetPaymentMerchantConfigShort(input *payment_config.GetPaymentMerchantConfigParams) (*payment_config.GetPaymentMerchantConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PaymentConfigService) GetPaymentMerchantConfigShort(input *payment_co
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdatePaymentDomainWhitelistConfigShort(input *payment_config.UpdatePaymentDomainWhitelistConfigParams) (*platformclientmodels.PaymentDomainWhitelistConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdatePaymentDomainWhitelistConfigShort(input *payment_config.UpdatePaymentDomainWhitelistConfigParams) (*payment_config.UpdatePaymentDomainWhitelistConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PaymentConfigService) UpdatePaymentDomainWhitelistConfigShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestAdyenConfigShort(input *payment_config.TestAdyenConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestAdyenConfigShort(input *payment_config.TestAdyenConfigParams) (*payment_config.TestAdyenConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *PaymentConfigService) TestAdyenConfigShort(input *payment_config.Test
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestAliPayConfigShort(input *payment_config.TestAliPayConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestAliPayConfigShort(input *payment_config.TestAliPayConfigParams) (*payment_config.TestAliPayConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *PaymentConfigService) TestAliPayConfigShort(input *payment_config.Tes
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestCheckoutConfigShort(input *payment_config.TestCheckoutConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestCheckoutConfigShort(input *payment_config.TestCheckoutConfigParams) (*payment_config.TestCheckoutConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *PaymentConfigService) TestCheckoutConfigShort(input *payment_config.T
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) DebugMatchedPaymentMerchantConfigShort(input *payment_config.DebugMatchedPaymentMerchantConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) DebugMatchedPaymentMerchantConfigShort(input *payment_config.DebugMatchedPaymentMerchantConfigParams) (*payment_config.DebugMatchedPaymentMerchantConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *PaymentConfigService) DebugMatchedPaymentMerchantConfigShort(input *p
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestNeonPayConfigShort(input *payment_config.TestNeonPayConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestNeonPayConfigShort(input *payment_config.TestNeonPayConfigParams) (*payment_config.TestNeonPayConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *PaymentConfigService) TestNeonPayConfigShort(input *payment_config.Te
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestPayPalConfigShort(input *payment_config.TestPayPalConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestPayPalConfigShort(input *payment_config.TestPayPalConfigParams) (*payment_config.TestPayPalConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *PaymentConfigService) TestPayPalConfigShort(input *payment_config.Tes
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestStripeConfigShort(input *payment_config.TestStripeConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestStripeConfigShort(input *payment_config.TestStripeConfigParams) (*payment_config.TestStripeConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *PaymentConfigService) TestStripeConfigShort(input *payment_config.Tes
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestWxPayConfigShort(input *payment_config.TestWxPayConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestWxPayConfigShort(input *payment_config.TestWxPayConfigParams) (*payment_config.TestWxPayConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *PaymentConfigService) TestWxPayConfigShort(input *payment_config.Test
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestXsollaConfigShort(input *payment_config.TestXsollaConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestXsollaConfigShort(input *payment_config.TestXsollaConfigParams) (*payment_config.TestXsollaConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *PaymentConfigService) TestXsollaConfigShort(input *payment_config.Tes
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) GetPaymentMerchantConfig1Short(input *payment_config.GetPaymentMerchantConfig1Params) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) GetPaymentMerchantConfig1Short(input *payment_config.GetPaymentMerchantConfig1Params) (*payment_config.GetPaymentMerchantConfig1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *PaymentConfigService) GetPaymentMerchantConfig1Short(input *payment_c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateAdyenConfigShort(input *payment_config.UpdateAdyenConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateAdyenConfigShort(input *payment_config.UpdateAdyenConfigParams) (*payment_config.UpdateAdyenConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,10 +423,10 @@ func (aaa *PaymentConfigService) UpdateAdyenConfigShort(input *payment_config.Up
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestAdyenConfigByIDShort(input *payment_config.TestAdyenConfigByIDParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestAdyenConfigByIDShort(input *payment_config.TestAdyenConfigByIDParams) (*payment_config.TestAdyenConfigByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *PaymentConfigService) TestAdyenConfigByIDShort(input *payment_config.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateAliPayConfigShort(input *payment_config.UpdateAliPayConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateAliPayConfigShort(input *payment_config.UpdateAliPayConfigParams) (*payment_config.UpdateAliPayConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,10 +483,10 @@ func (aaa *PaymentConfigService) UpdateAliPayConfigShort(input *payment_config.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestAliPayConfigByIDShort(input *payment_config.TestAliPayConfigByIDParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestAliPayConfigByIDShort(input *payment_config.TestAliPayConfigByIDParams) (*payment_config.TestAliPayConfigByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,10 +513,10 @@ func (aaa *PaymentConfigService) TestAliPayConfigByIDShort(input *payment_config
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateCheckoutConfigShort(input *payment_config.UpdateCheckoutConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateCheckoutConfigShort(input *payment_config.UpdateCheckoutConfigParams) (*payment_config.UpdateCheckoutConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -544,10 +543,10 @@ func (aaa *PaymentConfigService) UpdateCheckoutConfigShort(input *payment_config
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestCheckoutConfigByIDShort(input *payment_config.TestCheckoutConfigByIDParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestCheckoutConfigByIDShort(input *payment_config.TestCheckoutConfigByIDParams) (*payment_config.TestCheckoutConfigByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -574,10 +573,10 @@ func (aaa *PaymentConfigService) TestCheckoutConfigByIDShort(input *payment_conf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateNeonPayConfigShort(input *payment_config.UpdateNeonPayConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateNeonPayConfigShort(input *payment_config.UpdateNeonPayConfigParams) (*payment_config.UpdateNeonPayConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -604,10 +603,10 @@ func (aaa *PaymentConfigService) UpdateNeonPayConfigShort(input *payment_config.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestNeonPayConfigByIDShort(input *payment_config.TestNeonPayConfigByIDParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestNeonPayConfigByIDShort(input *payment_config.TestNeonPayConfigByIDParams) (*payment_config.TestNeonPayConfigByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -634,10 +633,10 @@ func (aaa *PaymentConfigService) TestNeonPayConfigByIDShort(input *payment_confi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdatePayPalConfigShort(input *payment_config.UpdatePayPalConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdatePayPalConfigShort(input *payment_config.UpdatePayPalConfigParams) (*payment_config.UpdatePayPalConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -664,10 +663,10 @@ func (aaa *PaymentConfigService) UpdatePayPalConfigShort(input *payment_config.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestPayPalConfigByIDShort(input *payment_config.TestPayPalConfigByIDParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestPayPalConfigByIDShort(input *payment_config.TestPayPalConfigByIDParams) (*payment_config.TestPayPalConfigByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -694,10 +693,10 @@ func (aaa *PaymentConfigService) TestPayPalConfigByIDShort(input *payment_config
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateStripeConfigShort(input *payment_config.UpdateStripeConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateStripeConfigShort(input *payment_config.UpdateStripeConfigParams) (*payment_config.UpdateStripeConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -724,10 +723,10 @@ func (aaa *PaymentConfigService) UpdateStripeConfigShort(input *payment_config.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestStripeConfigByIDShort(input *payment_config.TestStripeConfigByIDParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestStripeConfigByIDShort(input *payment_config.TestStripeConfigByIDParams) (*payment_config.TestStripeConfigByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -754,10 +753,10 @@ func (aaa *PaymentConfigService) TestStripeConfigByIDShort(input *payment_config
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateWxPayConfigShort(input *payment_config.UpdateWxPayConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateWxPayConfigShort(input *payment_config.UpdateWxPayConfigParams) (*payment_config.UpdateWxPayConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -784,10 +783,10 @@ func (aaa *PaymentConfigService) UpdateWxPayConfigShort(input *payment_config.Up
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateWxPayConfigCertShort(input *payment_config.UpdateWxPayConfigCertParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateWxPayConfigCertShort(input *payment_config.UpdateWxPayConfigCertParams) (*payment_config.UpdateWxPayConfigCertResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -814,10 +813,10 @@ func (aaa *PaymentConfigService) UpdateWxPayConfigCertShort(input *payment_confi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestWxPayConfigByIDShort(input *payment_config.TestWxPayConfigByIDParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestWxPayConfigByIDShort(input *payment_config.TestWxPayConfigByIDParams) (*payment_config.TestWxPayConfigByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -844,10 +843,10 @@ func (aaa *PaymentConfigService) TestWxPayConfigByIDShort(input *payment_config.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateXsollaConfigShort(input *payment_config.UpdateXsollaConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateXsollaConfigShort(input *payment_config.UpdateXsollaConfigParams) (*payment_config.UpdateXsollaConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -874,10 +873,10 @@ func (aaa *PaymentConfigService) UpdateXsollaConfigShort(input *payment_config.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) TestXsollaConfigByIDShort(input *payment_config.TestXsollaConfigByIDParams) (*platformclientmodels.TestResult, error) {
+func (aaa *PaymentConfigService) TestXsollaConfigByIDShort(input *payment_config.TestXsollaConfigByIDParams) (*payment_config.TestXsollaConfigByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -904,10 +903,10 @@ func (aaa *PaymentConfigService) TestXsollaConfigByIDShort(input *payment_config
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdateXsollaUIConfigShort(input *payment_config.UpdateXsollaUIConfigParams) (*platformclientmodels.PaymentMerchantConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdateXsollaUIConfigShort(input *payment_config.UpdateXsollaUIConfigParams) (*payment_config.UpdateXsollaUIConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -934,10 +933,10 @@ func (aaa *PaymentConfigService) UpdateXsollaUIConfigShort(input *payment_config
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) QueryPaymentProviderConfigShort(input *payment_config.QueryPaymentProviderConfigParams) (*platformclientmodels.PaymentProviderConfigPagingSlicedResult, error) {
+func (aaa *PaymentConfigService) QueryPaymentProviderConfigShort(input *payment_config.QueryPaymentProviderConfigParams) (*payment_config.QueryPaymentProviderConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -964,10 +963,10 @@ func (aaa *PaymentConfigService) QueryPaymentProviderConfigShort(input *payment_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) CreatePaymentProviderConfigShort(input *payment_config.CreatePaymentProviderConfigParams) (*platformclientmodels.PaymentProviderConfigInfo, error) {
+func (aaa *PaymentConfigService) CreatePaymentProviderConfigShort(input *payment_config.CreatePaymentProviderConfigParams) (*payment_config.CreatePaymentProviderConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -994,10 +993,10 @@ func (aaa *PaymentConfigService) CreatePaymentProviderConfigShort(input *payment
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) GetAggregatePaymentProvidersShort(input *payment_config.GetAggregatePaymentProvidersParams) ([]string, error) {
+func (aaa *PaymentConfigService) GetAggregatePaymentProvidersShort(input *payment_config.GetAggregatePaymentProvidersParams) (*payment_config.GetAggregatePaymentProvidersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1024,10 +1023,10 @@ func (aaa *PaymentConfigService) GetAggregatePaymentProvidersShort(input *paymen
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) DebugMatchedPaymentProviderConfigShort(input *payment_config.DebugMatchedPaymentProviderConfigParams) (*platformclientmodels.PaymentProviderConfigInfo, error) {
+func (aaa *PaymentConfigService) DebugMatchedPaymentProviderConfigShort(input *payment_config.DebugMatchedPaymentProviderConfigParams) (*payment_config.DebugMatchedPaymentProviderConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1054,10 +1053,10 @@ func (aaa *PaymentConfigService) DebugMatchedPaymentProviderConfigShort(input *p
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) GetSpecialPaymentProvidersShort(input *payment_config.GetSpecialPaymentProvidersParams) ([]string, error) {
+func (aaa *PaymentConfigService) GetSpecialPaymentProvidersShort(input *payment_config.GetSpecialPaymentProvidersParams) (*payment_config.GetSpecialPaymentProvidersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1084,10 +1083,10 @@ func (aaa *PaymentConfigService) GetSpecialPaymentProvidersShort(input *payment_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdatePaymentProviderConfigShort(input *payment_config.UpdatePaymentProviderConfigParams) (*platformclientmodels.PaymentProviderConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdatePaymentProviderConfigShort(input *payment_config.UpdatePaymentProviderConfigParams) (*payment_config.UpdatePaymentProviderConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1114,7 +1113,7 @@ func (aaa *PaymentConfigService) UpdatePaymentProviderConfigShort(input *payment
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PaymentConfigService) DeletePaymentProviderConfigShort(input *payment_config.DeletePaymentProviderConfigParams) error {
@@ -1147,7 +1146,7 @@ func (aaa *PaymentConfigService) DeletePaymentProviderConfigShort(input *payment
 	return nil
 }
 
-func (aaa *PaymentConfigService) GetPaymentTaxConfigShort(input *payment_config.GetPaymentTaxConfigParams) (*platformclientmodels.PaymentTaxConfigInfo, error) {
+func (aaa *PaymentConfigService) GetPaymentTaxConfigShort(input *payment_config.GetPaymentTaxConfigParams) (*payment_config.GetPaymentTaxConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1174,10 +1173,10 @@ func (aaa *PaymentConfigService) GetPaymentTaxConfigShort(input *payment_config.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PaymentConfigService) UpdatePaymentTaxConfigShort(input *payment_config.UpdatePaymentTaxConfigParams) (*platformclientmodels.PaymentTaxConfigInfo, error) {
+func (aaa *PaymentConfigService) UpdatePaymentTaxConfigShort(input *payment_config.UpdatePaymentTaxConfigParams) (*payment_config.UpdatePaymentTaxConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1204,5 +1203,5 @@ func (aaa *PaymentConfigService) UpdatePaymentTaxConfigShort(input *payment_conf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

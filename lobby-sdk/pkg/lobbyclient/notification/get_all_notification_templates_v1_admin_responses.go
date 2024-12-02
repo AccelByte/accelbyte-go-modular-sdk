@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type GetAllNotificationTemplatesV1AdminResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data []*lobbyclientmodels.ModelNotificationTemplateResponse
+
+	Error400 *lobbyclientmodels.RestapiErrorResponseV1
+	Error401 *lobbyclientmodels.RestapiErrorResponseV1
+	Error403 *lobbyclientmodels.RestapiErrorResponseV1
+	Error404 *lobbyclientmodels.RestapiErrorResponseV1
+	Error500 *lobbyclientmodels.RestapiErrorResponseV1
+}
+
+func (m *GetAllNotificationTemplatesV1AdminResponse) Unpack() ([]*lobbyclientmodels.ModelNotificationTemplateResponse, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetAllNotificationTemplatesV1AdminReader is a Reader for the GetAllNotificationTemplatesV1Admin structure.
 type GetAllNotificationTemplatesV1AdminReader struct {
 	formats strfmt.Registry

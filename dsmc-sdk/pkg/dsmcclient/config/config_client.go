@@ -31,18 +31,18 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListConfigShort(params *ListConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ListConfigOK, error)
-	SaveConfigShort(params *SaveConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SaveConfigNoContent, error)
-	GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigOK, error)
-	CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigCreated, error)
-	DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigNoContent, error)
-	UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigOK, error)
-	ClearCacheShort(params *ClearCacheParams, authInfo runtime.ClientAuthInfoWriter) (*ClearCacheNoContent, error)
-	AddPortShort(params *AddPortParams, authInfo runtime.ClientAuthInfoWriter) (*AddPortCreated, error)
-	DeletePortShort(params *DeletePortParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePortOK, error)
-	UpdatePortShort(params *UpdatePortParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePortOK, error)
-	ExportConfigV1Short(params *ExportConfigV1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportConfigV1OK, error)
-	ImportConfigV1Short(params *ImportConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportConfigV1OK, error)
+	ListConfigShort(params *ListConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ListConfigResponse, error)
+	SaveConfigShort(params *SaveConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SaveConfigResponse, error)
+	GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigResponse, error)
+	CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigResponse, error)
+	DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigResponse, error)
+	UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigResponse, error)
+	ClearCacheShort(params *ClearCacheParams, authInfo runtime.ClientAuthInfoWriter) (*ClearCacheResponse, error)
+	AddPortShort(params *AddPortParams, authInfo runtime.ClientAuthInfoWriter) (*AddPortResponse, error)
+	DeletePortShort(params *DeletePortParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePortResponse, error)
+	UpdatePortShort(params *UpdatePortParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePortResponse, error)
+	ExportConfigV1Short(params *ExportConfigV1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportConfigV1Response, error)
+	ImportConfigV1Short(params *ImportConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportConfigV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -55,7 +55,7 @@ Required scope: social
 
 This endpoint lists all of dedicated servers configs.
 */
-func (a *Client) ListConfigShort(params *ListConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ListConfigOK, error) {
+func (a *Client) ListConfigShort(params *ListConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ListConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListConfigParams()
@@ -93,11 +93,26 @@ func (a *Client) ListConfigShort(params *ListConfigParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *ListConfigOK:
-		return v, nil
+		response := &ListConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListConfigUnauthorized:
-		return nil, v
+		response := &ListConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListConfigInternalServerError:
-		return nil, v
+		response := &ListConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,7 +196,7 @@ Sample config:
 }
 ```
 */
-func (a *Client) SaveConfigShort(params *SaveConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SaveConfigNoContent, error) {
+func (a *Client) SaveConfigShort(params *SaveConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SaveConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSaveConfigParams()
@@ -219,13 +234,32 @@ func (a *Client) SaveConfigShort(params *SaveConfigParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *SaveConfigNoContent:
-		return v, nil
+		response := &SaveConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SaveConfigBadRequest:
-		return nil, v
+		response := &SaveConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveConfigUnauthorized:
-		return nil, v
+		response := &SaveConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveConfigInternalServerError:
-		return nil, v
+		response := &SaveConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -240,7 +274,7 @@ Required scope: social
 
 This endpoint get a dedicated servers config in a namespace.
 */
-func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigOK, error) {
+func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetConfigParams()
@@ -278,13 +312,33 @@ func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetConfigOK:
-		return v, nil
+		response := &GetConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetConfigUnauthorized:
-		return nil, v
+		response := &GetConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetConfigNotFound:
-		return nil, v
+		response := &GetConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetConfigInternalServerError:
-		return nil, v
+		response := &GetConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -327,7 +381,7 @@ Sample config:
 }
 ```
 */
-func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigCreated, error) {
+func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateConfigParams()
@@ -365,15 +419,40 @@ func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *CreateConfigCreated:
-		return v, nil
+		response := &CreateConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateConfigBadRequest:
-		return nil, v
+		response := &CreateConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateConfigUnauthorized:
-		return nil, v
+		response := &CreateConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateConfigConflict:
-		return nil, v
+		response := &CreateConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateConfigInternalServerError:
-		return nil, v
+		response := &CreateConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -390,7 +469,7 @@ This endpoint removes config. When there are ready servers,
 those servers will be removed.
 ```
 */
-func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigNoContent, error) {
+func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteConfigParams()
@@ -428,15 +507,39 @@ func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteConfigNoContent:
-		return v, nil
+		response := &DeleteConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteConfigBadRequest:
-		return nil, v
+		response := &DeleteConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteConfigUnauthorized:
-		return nil, v
+		response := &DeleteConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteConfigNotFound:
-		return nil, v
+		response := &DeleteConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteConfigInternalServerError:
-		return nil, v
+		response := &DeleteConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -480,7 +583,7 @@ Sample config:
 }
 ```
 */
-func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigOK, error) {
+func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateConfigParams()
@@ -518,15 +621,40 @@ func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UpdateConfigOK:
-		return v, nil
+		response := &UpdateConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateConfigBadRequest:
-		return nil, v
+		response := &UpdateConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateConfigUnauthorized:
-		return nil, v
+		response := &UpdateConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateConfigNotFound:
-		return nil, v
+		response := &UpdateConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateConfigInternalServerError:
-		return nil, v
+		response := &UpdateConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -541,7 +669,7 @@ Required scope: social
 
 This endpoint clears config cache in a namespace
 */
-func (a *Client) ClearCacheShort(params *ClearCacheParams, authInfo runtime.ClientAuthInfoWriter) (*ClearCacheNoContent, error) {
+func (a *Client) ClearCacheShort(params *ClearCacheParams, authInfo runtime.ClientAuthInfoWriter) (*ClearCacheResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClearCacheParams()
@@ -579,11 +707,25 @@ func (a *Client) ClearCacheShort(params *ClearCacheParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *ClearCacheNoContent:
-		return v, nil
+		response := &ClearCacheResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ClearCacheUnauthorized:
-		return nil, v
+		response := &ClearCacheResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ClearCacheInternalServerError:
-		return nil, v
+		response := &ClearCacheResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -598,7 +740,7 @@ Required scope: social
 
 This endpoint create a dedicated servers port config in a namespace.
 */
-func (a *Client) AddPortShort(params *AddPortParams, authInfo runtime.ClientAuthInfoWriter) (*AddPortCreated, error) {
+func (a *Client) AddPortShort(params *AddPortParams, authInfo runtime.ClientAuthInfoWriter) (*AddPortResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddPortParams()
@@ -636,17 +778,47 @@ func (a *Client) AddPortShort(params *AddPortParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *AddPortCreated:
-		return v, nil
+		response := &AddPortResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddPortBadRequest:
-		return nil, v
+		response := &AddPortResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddPortUnauthorized:
-		return nil, v
+		response := &AddPortResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddPortNotFound:
-		return nil, v
+		response := &AddPortResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddPortConflict:
-		return nil, v
+		response := &AddPortResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddPortInternalServerError:
-		return nil, v
+		response := &AddPortResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -661,7 +833,7 @@ Required scope: social
 
 This endpoint delete a dedicated server port config in a namespace
 */
-func (a *Client) DeletePortShort(params *DeletePortParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePortOK, error) {
+func (a *Client) DeletePortShort(params *DeletePortParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePortResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePortParams()
@@ -699,15 +871,40 @@ func (a *Client) DeletePortShort(params *DeletePortParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *DeletePortOK:
-		return v, nil
+		response := &DeletePortResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePortBadRequest:
-		return nil, v
+		response := &DeletePortResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePortUnauthorized:
-		return nil, v
+		response := &DeletePortResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePortNotFound:
-		return nil, v
+		response := &DeletePortResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePortInternalServerError:
-		return nil, v
+		response := &DeletePortResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -722,7 +919,7 @@ Required scope: social
 
 This endpoint update a dedicated servers port config in a namespace.
 */
-func (a *Client) UpdatePortShort(params *UpdatePortParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePortOK, error) {
+func (a *Client) UpdatePortShort(params *UpdatePortParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePortResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePortParams()
@@ -760,15 +957,40 @@ func (a *Client) UpdatePortShort(params *UpdatePortParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UpdatePortOK:
-		return v, nil
+		response := &UpdatePortResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePortBadRequest:
-		return nil, v
+		response := &UpdatePortResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePortUnauthorized:
-		return nil, v
+		response := &UpdatePortResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePortNotFound:
-		return nil, v
+		response := &UpdatePortResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePortInternalServerError:
-		return nil, v
+		response := &UpdatePortResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -783,7 +1005,7 @@ Required scope: social
 
 This endpoint export a dedicated servers config in a namespace.
 */
-func (a *Client) ExportConfigV1Short(params *ExportConfigV1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportConfigV1OK, error) {
+func (a *Client) ExportConfigV1Short(params *ExportConfigV1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportConfigV1Params()
@@ -821,15 +1043,40 @@ func (a *Client) ExportConfigV1Short(params *ExportConfigV1Params, authInfo runt
 	switch v := result.(type) {
 
 	case *ExportConfigV1OK:
-		return v, nil
+		response := &ExportConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportConfigV1Unauthorized:
-		return nil, v
+		response := &ExportConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportConfigV1Forbidden:
-		return nil, v
+		response := &ExportConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportConfigV1NotFound:
-		return nil, v
+		response := &ExportConfigV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportConfigV1InternalServerError:
-		return nil, v
+		response := &ExportConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -846,7 +1093,7 @@ This endpoint import a dedicated servers config in a namespace.
 
 If there is an existing configuration, the configuration would be replaced.
 */
-func (a *Client) ImportConfigV1Short(params *ImportConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportConfigV1OK, error) {
+func (a *Client) ImportConfigV1Short(params *ImportConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImportConfigV1Params()
@@ -884,17 +1131,47 @@ func (a *Client) ImportConfigV1Short(params *ImportConfigV1Params, authInfo runt
 	switch v := result.(type) {
 
 	case *ImportConfigV1OK:
-		return v, nil
+		response := &ImportConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImportConfigV1BadRequest:
-		return nil, v
+		response := &ImportConfigV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportConfigV1Unauthorized:
-		return nil, v
+		response := &ImportConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportConfigV1Forbidden:
-		return nil, v
+		response := &ImportConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportConfigV1NotFound:
-		return nil, v
+		response := &ImportConfigV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportConfigV1InternalServerError:
-		return nil, v
+		response := &ImportConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

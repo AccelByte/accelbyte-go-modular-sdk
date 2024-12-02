@@ -9,7 +9,6 @@ package cloudsave
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/admin_player_record"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AdminPlayerRecordService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminPlayerRecordService) BulkGetPlayerRecordSizeHandlerV1Short(input *admin_player_record.BulkGetPlayerRecordSizeHandlerV1Params) (*cloudsaveclientmodels.ModelsBulkGetPlayerRecordSizeResponse, error) {
+func (aaa *AdminPlayerRecordService) BulkGetPlayerRecordSizeHandlerV1Short(input *admin_player_record.BulkGetPlayerRecordSizeHandlerV1Params) (*admin_player_record.BulkGetPlayerRecordSizeHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AdminPlayerRecordService) BulkGetPlayerRecordSizeHandlerV1Short(input
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) ListPlayerRecordHandlerV1Short(input *admin_player_record.ListPlayerRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsListPlayerRecordKeysResponse, error) {
+func (aaa *AdminPlayerRecordService) ListPlayerRecordHandlerV1Short(input *admin_player_record.ListPlayerRecordHandlerV1Params) (*admin_player_record.ListPlayerRecordHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AdminPlayerRecordService) ListPlayerRecordHandlerV1Short(input *admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminBulkPutPlayerRecordsByKeyHandlerV1Short(input *admin_player_record.AdminBulkPutPlayerRecordsByKeyHandlerV1Params) ([]*cloudsaveclientmodels.ModelsBulkUpdatePlayerRecordByKeyResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminBulkPutPlayerRecordsByKeyHandlerV1Short(input *admin_player_record.AdminBulkPutPlayerRecordsByKeyHandlerV1Params) (*admin_player_record.AdminBulkPutPlayerRecordsByKeyHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *AdminPlayerRecordService) AdminBulkPutPlayerRecordsByKeyHandlerV1Shor
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(input *admin_player_record.AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params) (*cloudsaveclientmodels.ModelsBulkGetPlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(input *admin_player_record.AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params) (*admin_player_record.AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *AdminPlayerRecordService) AdminBulkGetPlayerRecordsByUserIDsHandlerV1
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminRetrievePlayerRecordsShort(input *admin_player_record.AdminRetrievePlayerRecordsParams) (*cloudsaveclientmodels.ModelsListPlayerRecordKeysResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminRetrievePlayerRecordsShort(input *admin_player_record.AdminRetrievePlayerRecordsParams) (*admin_player_record.AdminRetrievePlayerRecordsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *AdminPlayerRecordService) AdminRetrievePlayerRecordsShort(input *admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminPutPlayerRecordsHandlerV1Short(input *admin_player_record.AdminPutPlayerRecordsHandlerV1Params) ([]*cloudsaveclientmodels.ModelsBulkUpdatePlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminPutPlayerRecordsHandlerV1Short(input *admin_player_record.AdminPutPlayerRecordsHandlerV1Params) (*admin_player_record.AdminPutPlayerRecordsHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *AdminPlayerRecordService) AdminPutPlayerRecordsHandlerV1Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordsHandlerV1Short(input *admin_player_record.AdminGetPlayerRecordsHandlerV1Params) (*cloudsaveclientmodels.ModelsBulkGetAdminPlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordsHandlerV1Short(input *admin_player_record.AdminGetPlayerRecordsHandlerV1Params) (*admin_player_record.AdminGetPlayerRecordsHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordsHandlerV1Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordHandlerV1Short(input *admin_player_record.AdminGetPlayerRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordHandlerV1Short(input *admin_player_record.AdminGetPlayerRecordHandlerV1Params) (*admin_player_record.AdminGetPlayerRecordHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordHandlerV1Short(input *a
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminPutPlayerRecordHandlerV1Short(input *admin_player_record.AdminPutPlayerRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminPutPlayerRecordHandlerV1Short(input *admin_player_record.AdminPutPlayerRecordHandlerV1Params) (*admin_player_record.AdminPutPlayerRecordHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *AdminPlayerRecordService) AdminPutPlayerRecordHandlerV1Short(input *a
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminPostPlayerRecordHandlerV1Short(input *admin_player_record.AdminPostPlayerRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminPostPlayerRecordHandlerV1Short(input *admin_player_record.AdminPostPlayerRecordHandlerV1Params) (*admin_player_record.AdminPostPlayerRecordHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,7 +335,7 @@ func (aaa *AdminPlayerRecordService) AdminPostPlayerRecordHandlerV1Short(input *
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *AdminPlayerRecordService) AdminDeletePlayerRecordHandlerV1Short(input *admin_player_record.AdminDeletePlayerRecordHandlerV1Params) error {
@@ -369,7 +368,7 @@ func (aaa *AdminPlayerRecordService) AdminDeletePlayerRecordHandlerV1Short(input
 	return nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminGetPlayerPublicRecordHandlerV1Short(input *admin_player_record.AdminGetPlayerPublicRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminGetPlayerPublicRecordHandlerV1Short(input *admin_player_record.AdminGetPlayerPublicRecordHandlerV1Params) (*admin_player_record.AdminGetPlayerPublicRecordHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,10 +395,10 @@ func (aaa *AdminPlayerRecordService) AdminGetPlayerPublicRecordHandlerV1Short(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminPutPlayerPublicRecordHandlerV1Short(input *admin_player_record.AdminPutPlayerPublicRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminPutPlayerPublicRecordHandlerV1Short(input *admin_player_record.AdminPutPlayerPublicRecordHandlerV1Params) (*admin_player_record.AdminPutPlayerPublicRecordHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -426,10 +425,10 @@ func (aaa *AdminPlayerRecordService) AdminPutPlayerPublicRecordHandlerV1Short(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminPostPlayerPublicRecordHandlerV1Short(input *admin_player_record.AdminPostPlayerPublicRecordHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminPostPlayerPublicRecordHandlerV1Short(input *admin_player_record.AdminPostPlayerPublicRecordHandlerV1Params) (*admin_player_record.AdminPostPlayerPublicRecordHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -456,7 +455,7 @@ func (aaa *AdminPlayerRecordService) AdminPostPlayerPublicRecordHandlerV1Short(i
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *AdminPlayerRecordService) AdminDeletePlayerPublicRecordHandlerV1Short(input *admin_player_record.AdminDeletePlayerPublicRecordHandlerV1Params) error {
@@ -489,7 +488,7 @@ func (aaa *AdminPlayerRecordService) AdminDeletePlayerPublicRecordHandlerV1Short
 	return nil
 }
 
-func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordSizeHandlerV1Short(input *admin_player_record.AdminGetPlayerRecordSizeHandlerV1Params) (*cloudsaveclientmodels.ModelsPlayerRecordSizeResponse, error) {
+func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordSizeHandlerV1Short(input *admin_player_record.AdminGetPlayerRecordSizeHandlerV1Params) (*admin_player_record.AdminGetPlayerRecordSizeHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -516,5 +515,5 @@ func (aaa *AdminPlayerRecordService) AdminGetPlayerRecordSizeHandlerV1Short(inpu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

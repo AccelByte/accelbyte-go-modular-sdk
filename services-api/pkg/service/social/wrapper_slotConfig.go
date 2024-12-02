@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/slot_config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
 // SlotConfigService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *SlotConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *SlotConfigService) GetNamespaceSlotConfigShort(input *slot_config.GetNamespaceSlotConfigParams) (*socialclientmodels.NamespaceSlotConfigInfo, error) {
+func (aaa *SlotConfigService) GetNamespaceSlotConfigShort(input *slot_config.GetNamespaceSlotConfigParams) (*slot_config.GetNamespaceSlotConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *SlotConfigService) GetNamespaceSlotConfigShort(input *slot_config.Get
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SlotConfigService) UpdateNamespaceSlotConfigShort(input *slot_config.UpdateNamespaceSlotConfigParams) (*socialclientmodels.NamespaceSlotConfigInfo, error) {
+func (aaa *SlotConfigService) UpdateNamespaceSlotConfigShort(input *slot_config.UpdateNamespaceSlotConfigParams) (*slot_config.UpdateNamespaceSlotConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *SlotConfigService) UpdateNamespaceSlotConfigShort(input *slot_config.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *SlotConfigService) DeleteNamespaceSlotConfigShort(input *slot_config.DeleteNamespaceSlotConfigParams) error {
@@ -129,7 +128,7 @@ func (aaa *SlotConfigService) DeleteNamespaceSlotConfigShort(input *slot_config.
 	return nil
 }
 
-func (aaa *SlotConfigService) GetUserSlotConfigShort(input *slot_config.GetUserSlotConfigParams) (*socialclientmodels.UserSlotConfigInfo, error) {
+func (aaa *SlotConfigService) GetUserSlotConfigShort(input *slot_config.GetUserSlotConfigParams) (*slot_config.GetUserSlotConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *SlotConfigService) GetUserSlotConfigShort(input *slot_config.GetUserS
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SlotConfigService) UpdateUserSlotConfigShort(input *slot_config.UpdateUserSlotConfigParams) (*socialclientmodels.UserSlotConfigInfo, error) {
+func (aaa *SlotConfigService) UpdateUserSlotConfigShort(input *slot_config.UpdateUserSlotConfigParams) (*slot_config.UpdateUserSlotConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *SlotConfigService) UpdateUserSlotConfigShort(input *slot_config.Updat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *SlotConfigService) DeleteUserSlotConfigShort(input *slot_config.DeleteUserSlotConfigParams) error {

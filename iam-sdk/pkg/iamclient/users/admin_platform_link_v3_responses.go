@@ -19,6 +19,65 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type AdminPlatformLinkV3Response struct {
+	iamclientmodels.ApiResponse
+
+	Error400 string
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 *iamclientmodels.RestErrorResponse
+	Error404 string
+	Error409 string
+	Error500 *iamclientmodels.RestErrorResponse
+}
+
+func (m *AdminPlatformLinkV3Response) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			return &iamclientmodels.ApiError{Code: "400", Message: m.Error400}
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			return &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		case 409:
+			return &iamclientmodels.ApiError{Code: "409", Message: m.Error409}
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminPlatformLinkV3Reader is a Reader for the AdminPlatformLinkV3 structure.
 type AdminPlatformLinkV3Reader struct {
 	formats strfmt.Registry

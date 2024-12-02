@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 )
 
+type RunGhostCleanerRequestHandlerResponse struct {
+	dsmcclientmodels.ApiResponse
+
+	Error401 *dsmcclientmodels.ResponseError
+}
+
+func (m *RunGhostCleanerRequestHandlerResponse) Unpack() *dsmcclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &dsmcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // RunGhostCleanerRequestHandlerReader is a Reader for the RunGhostCleanerRequestHandler structure.
 type RunGhostCleanerRequestHandlerReader struct {
 	formats strfmt.Registry

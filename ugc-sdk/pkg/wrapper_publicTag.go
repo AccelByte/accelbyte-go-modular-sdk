@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_tag"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type PublicTagService struct {
@@ -37,7 +36,7 @@ func (aaa *PublicTagService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicTagService) GetTagShort(input *public_tag.GetTagParams) (*ugcclientmodels.ModelsPaginatedGetTagResponse, error) {
+func (aaa *PublicTagService) GetTagShort(input *public_tag.GetTagParams) (*public_tag.GetTagResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *PublicTagService) GetTagShort(input *public_tag.GetTagParams) (*ugccl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

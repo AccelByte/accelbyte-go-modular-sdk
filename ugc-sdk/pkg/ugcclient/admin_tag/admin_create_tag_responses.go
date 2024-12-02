@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
+type AdminCreateTagResponse struct {
+	ugcclientmodels.ApiResponse
+	Data *ugcclientmodels.ModelsCreateTagResponse
+
+	Error400 *ugcclientmodels.ResponseError
+	Error401 *ugcclientmodels.ResponseError
+	Error409 *ugcclientmodels.ResponseError
+	Error500 *ugcclientmodels.ResponseError
+}
+
+func (m *AdminCreateTagResponse) Unpack() (*ugcclientmodels.ModelsCreateTagResponse, *ugcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &ugcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminCreateTagReader is a Reader for the AdminCreateTag structure.
 type AdminCreateTagReader struct {
 	formats strfmt.Registry

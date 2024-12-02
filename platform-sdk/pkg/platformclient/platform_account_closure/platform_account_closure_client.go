@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserPlatformAccountClosureHistoriesShort(params *GetUserPlatformAccountClosureHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserPlatformAccountClosureHistoriesOK, error)
+	GetUserPlatformAccountClosureHistoriesShort(params *GetUserPlatformAccountClosureHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserPlatformAccountClosureHistoriesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 GetUserPlatformAccountClosureHistoriesShort get user platform account closure history
 Get user platform account closure history.
 */
-func (a *Client) GetUserPlatformAccountClosureHistoriesShort(params *GetUserPlatformAccountClosureHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserPlatformAccountClosureHistoriesOK, error) {
+func (a *Client) GetUserPlatformAccountClosureHistoriesShort(params *GetUserPlatformAccountClosureHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserPlatformAccountClosureHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserPlatformAccountClosureHistoriesParams()
@@ -77,7 +77,12 @@ func (a *Client) GetUserPlatformAccountClosureHistoriesShort(params *GetUserPlat
 	switch v := result.(type) {
 
 	case *GetUserPlatformAccountClosureHistoriesOK:
-		return v, nil
+		response := &GetUserPlatformAccountClosureHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -13,7 +13,28 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
+
+type SyncUserInfoResponse struct {
+	legalclientmodels.ApiResponse
+}
+
+func (m *SyncUserInfoResponse) Unpack() *legalclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // SyncUserInfoReader is a Reader for the SyncUserInfo structure.
 type SyncUserInfoReader struct {

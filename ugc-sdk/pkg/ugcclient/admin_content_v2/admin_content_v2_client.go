@@ -30,31 +30,31 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetContentByChannelIDV2Short(params *AdminGetContentByChannelIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByChannelIDV2OK, error)
-	AdminCreateContentV2Short(params *AdminCreateContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateContentV2Created, error)
-	AdminDeleteOfficialContentV2Short(params *AdminDeleteOfficialContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteOfficialContentV2NoContent, error)
-	AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateOfficialContentV2OK, error)
-	AdminCopyContentShort(params *AdminCopyContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCopyContentCreated, error)
-	AdminUpdateOfficialContentFileLocationShort(params *AdminUpdateOfficialContentFileLocationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateOfficialContentFileLocationOK, error)
-	AdminGenerateOfficialContentUploadURLV2Short(params *AdminGenerateOfficialContentUploadURLV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateOfficialContentUploadURLV2OK, error)
-	AdminListContentV2Short(params *AdminListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListContentV2OK, error)
-	AdminBulkGetContentByIDsV2Short(params *AdminBulkGetContentByIDsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetContentByIDsV2OK, error)
-	AdminGetContentBulkByShareCodesV2Short(params *AdminGetContentBulkByShareCodesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentBulkByShareCodesV2OK, error)
-	AdminGetContentByShareCodeV2Short(params *AdminGetContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByShareCodeV2OK, error)
-	AdminGetContentByContentIDV2Short(params *AdminGetContentByContentIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByContentIDV2OK, error)
-	RollbackContentVersionV2Short(params *RollbackContentVersionV2Params, authInfo runtime.ClientAuthInfoWriter) (*RollbackContentVersionV2OK, error)
-	AdminUpdateScreenshotsV2Short(params *AdminUpdateScreenshotsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateScreenshotsV2OK, error)
-	AdminUploadContentScreenshotV2Short(params *AdminUploadContentScreenshotV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentScreenshotV2Created, error)
-	AdminDeleteContentScreenshotV2Short(params *AdminDeleteContentScreenshotV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentScreenshotV2NoContent, error)
-	ListContentVersionsV2Short(params *ListContentVersionsV2Params, authInfo runtime.ClientAuthInfoWriter) (*ListContentVersionsV2OK, error)
-	AdminUpdateContentByShareCodeV2Short(params *AdminUpdateContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentByShareCodeV2OK, error)
-	AdminDeleteContentByShareCodeV2Short(params *AdminDeleteContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentByShareCodeV2NoContent, error)
-	AdminDeleteUserContentV2Short(params *AdminDeleteUserContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserContentV2NoContent, error)
-	AdminUpdateUserContentV2Short(params *AdminUpdateUserContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserContentV2OK, error)
-	AdminUpdateUserContentFileLocationShort(params *AdminUpdateUserContentFileLocationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserContentFileLocationOK, error)
-	AdminGenerateUserContentUploadURLV2Short(params *AdminGenerateUserContentUploadURLV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateUserContentUploadURLV2OK, error)
-	AdminGetContentByUserIDV2Short(params *AdminGetContentByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByUserIDV2OK, error)
-	AdminUpdateContentHideStatusV2Short(params *AdminUpdateContentHideStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentHideStatusV2OK, error)
+	AdminGetContentByChannelIDV2Short(params *AdminGetContentByChannelIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByChannelIDV2Response, error)
+	AdminCreateContentV2Short(params *AdminCreateContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateContentV2Response, error)
+	AdminDeleteOfficialContentV2Short(params *AdminDeleteOfficialContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteOfficialContentV2Response, error)
+	AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateOfficialContentV2Response, error)
+	AdminCopyContentShort(params *AdminCopyContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCopyContentResponse, error)
+	AdminUpdateOfficialContentFileLocationShort(params *AdminUpdateOfficialContentFileLocationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateOfficialContentFileLocationResponse, error)
+	AdminGenerateOfficialContentUploadURLV2Short(params *AdminGenerateOfficialContentUploadURLV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateOfficialContentUploadURLV2Response, error)
+	AdminListContentV2Short(params *AdminListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListContentV2Response, error)
+	AdminBulkGetContentByIDsV2Short(params *AdminBulkGetContentByIDsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetContentByIDsV2Response, error)
+	AdminGetContentBulkByShareCodesV2Short(params *AdminGetContentBulkByShareCodesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentBulkByShareCodesV2Response, error)
+	AdminGetContentByShareCodeV2Short(params *AdminGetContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByShareCodeV2Response, error)
+	AdminGetContentByContentIDV2Short(params *AdminGetContentByContentIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByContentIDV2Response, error)
+	RollbackContentVersionV2Short(params *RollbackContentVersionV2Params, authInfo runtime.ClientAuthInfoWriter) (*RollbackContentVersionV2Response, error)
+	AdminUpdateScreenshotsV2Short(params *AdminUpdateScreenshotsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateScreenshotsV2Response, error)
+	AdminUploadContentScreenshotV2Short(params *AdminUploadContentScreenshotV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentScreenshotV2Response, error)
+	AdminDeleteContentScreenshotV2Short(params *AdminDeleteContentScreenshotV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentScreenshotV2Response, error)
+	ListContentVersionsV2Short(params *ListContentVersionsV2Params, authInfo runtime.ClientAuthInfoWriter) (*ListContentVersionsV2Response, error)
+	AdminUpdateContentByShareCodeV2Short(params *AdminUpdateContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentByShareCodeV2Response, error)
+	AdminDeleteContentByShareCodeV2Short(params *AdminDeleteContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentByShareCodeV2Response, error)
+	AdminDeleteUserContentV2Short(params *AdminDeleteUserContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserContentV2Response, error)
+	AdminUpdateUserContentV2Short(params *AdminUpdateUserContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserContentV2Response, error)
+	AdminUpdateUserContentFileLocationShort(params *AdminUpdateUserContentFileLocationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserContentFileLocationResponse, error)
+	AdminGenerateUserContentUploadURLV2Short(params *AdminGenerateUserContentUploadURLV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateUserContentUploadURLV2Response, error)
+	AdminGetContentByUserIDV2Short(params *AdminGetContentByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByUserIDV2Response, error)
+	AdminUpdateContentHideStatusV2Short(params *AdminUpdateContentHideStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentHideStatusV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -63,7 +63,7 @@ type ClientService interface {
 AdminGetContentByChannelIDV2Short list contents specific to a channel
 List content specific to a channel
 */
-func (a *Client) AdminGetContentByChannelIDV2Short(params *AdminGetContentByChannelIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByChannelIDV2OK, error) {
+func (a *Client) AdminGetContentByChannelIDV2Short(params *AdminGetContentByChannelIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByChannelIDV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetContentByChannelIDV2Params()
@@ -101,13 +101,33 @@ func (a *Client) AdminGetContentByChannelIDV2Short(params *AdminGetContentByChan
 	switch v := result.(type) {
 
 	case *AdminGetContentByChannelIDV2OK:
-		return v, nil
+		response := &AdminGetContentByChannelIDV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetContentByChannelIDV2BadRequest:
-		return nil, v
+		response := &AdminGetContentByChannelIDV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentByChannelIDV2Unauthorized:
-		return nil, v
+		response := &AdminGetContentByChannelIDV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentByChannelIDV2InternalServerError:
-		return nil, v
+		response := &AdminGetContentByChannelIDV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -118,7 +138,7 @@ func (a *Client) AdminGetContentByChannelIDV2Short(params *AdminGetContentByChan
 AdminCreateContentV2Short create a content
 Create official content
 */
-func (a *Client) AdminCreateContentV2Short(params *AdminCreateContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateContentV2Created, error) {
+func (a *Client) AdminCreateContentV2Short(params *AdminCreateContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateContentV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateContentV2Params()
@@ -156,17 +176,47 @@ func (a *Client) AdminCreateContentV2Short(params *AdminCreateContentV2Params, a
 	switch v := result.(type) {
 
 	case *AdminCreateContentV2Created:
-		return v, nil
+		response := &AdminCreateContentV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateContentV2BadRequest:
-		return nil, v
+		response := &AdminCreateContentV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateContentV2Unauthorized:
-		return nil, v
+		response := &AdminCreateContentV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateContentV2NotFound:
-		return nil, v
+		response := &AdminCreateContentV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateContentV2Conflict:
-		return nil, v
+		response := &AdminCreateContentV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateContentV2InternalServerError:
-		return nil, v
+		response := &AdminCreateContentV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -177,7 +227,7 @@ func (a *Client) AdminCreateContentV2Short(params *AdminCreateContentV2Params, a
 AdminDeleteOfficialContentV2Short delete official content
 Delete existing official content
 */
-func (a *Client) AdminDeleteOfficialContentV2Short(params *AdminDeleteOfficialContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteOfficialContentV2NoContent, error) {
+func (a *Client) AdminDeleteOfficialContentV2Short(params *AdminDeleteOfficialContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteOfficialContentV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteOfficialContentV2Params()
@@ -215,13 +265,32 @@ func (a *Client) AdminDeleteOfficialContentV2Short(params *AdminDeleteOfficialCo
 	switch v := result.(type) {
 
 	case *AdminDeleteOfficialContentV2NoContent:
-		return v, nil
+		response := &AdminDeleteOfficialContentV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteOfficialContentV2Unauthorized:
-		return nil, v
+		response := &AdminDeleteOfficialContentV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteOfficialContentV2NotFound:
-		return nil, v
+		response := &AdminDeleteOfficialContentV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteOfficialContentV2InternalServerError:
-		return nil, v
+		response := &AdminDeleteOfficialContentV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -232,7 +301,7 @@ func (a *Client) AdminDeleteOfficialContentV2Short(params *AdminDeleteOfficialCo
 AdminUpdateOfficialContentV2Short update official content
 Update existing official content
 */
-func (a *Client) AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateOfficialContentV2OK, error) {
+func (a *Client) AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateOfficialContentV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateOfficialContentV2Params()
@@ -270,17 +339,47 @@ func (a *Client) AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialCo
 	switch v := result.(type) {
 
 	case *AdminUpdateOfficialContentV2OK:
-		return v, nil
+		response := &AdminUpdateOfficialContentV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateOfficialContentV2BadRequest:
-		return nil, v
+		response := &AdminUpdateOfficialContentV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateOfficialContentV2Unauthorized:
-		return nil, v
+		response := &AdminUpdateOfficialContentV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateOfficialContentV2NotFound:
-		return nil, v
+		response := &AdminUpdateOfficialContentV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateOfficialContentV2Conflict:
-		return nil, v
+		response := &AdminUpdateOfficialContentV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateOfficialContentV2InternalServerError:
-		return nil, v
+		response := &AdminUpdateOfficialContentV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -291,7 +390,7 @@ func (a *Client) AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialCo
 AdminCopyContentShort copy contents from a channel to another
 Copy existing content from source channel to target channel.
 */
-func (a *Client) AdminCopyContentShort(params *AdminCopyContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCopyContentCreated, error) {
+func (a *Client) AdminCopyContentShort(params *AdminCopyContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCopyContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCopyContentParams()
@@ -329,17 +428,47 @@ func (a *Client) AdminCopyContentShort(params *AdminCopyContentParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminCopyContentCreated:
-		return v, nil
+		response := &AdminCopyContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCopyContentBadRequest:
-		return nil, v
+		response := &AdminCopyContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCopyContentUnauthorized:
-		return nil, v
+		response := &AdminCopyContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCopyContentForbidden:
-		return nil, v
+		response := &AdminCopyContentResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCopyContentNotFound:
-		return nil, v
+		response := &AdminCopyContentResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCopyContentInternalServerError:
-		return nil, v
+		response := &AdminCopyContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -350,7 +479,7 @@ func (a *Client) AdminCopyContentShort(params *AdminCopyContentParams, authInfo 
 AdminUpdateOfficialContentFileLocationShort update content file location
 This endpoint should be used after calling generate official content upload url endpoint to commit the changes
 */
-func (a *Client) AdminUpdateOfficialContentFileLocationShort(params *AdminUpdateOfficialContentFileLocationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateOfficialContentFileLocationOK, error) {
+func (a *Client) AdminUpdateOfficialContentFileLocationShort(params *AdminUpdateOfficialContentFileLocationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateOfficialContentFileLocationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateOfficialContentFileLocationParams()
@@ -388,17 +517,47 @@ func (a *Client) AdminUpdateOfficialContentFileLocationShort(params *AdminUpdate
 	switch v := result.(type) {
 
 	case *AdminUpdateOfficialContentFileLocationOK:
-		return v, nil
+		response := &AdminUpdateOfficialContentFileLocationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateOfficialContentFileLocationBadRequest:
-		return nil, v
+		response := &AdminUpdateOfficialContentFileLocationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateOfficialContentFileLocationUnauthorized:
-		return nil, v
+		response := &AdminUpdateOfficialContentFileLocationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateOfficialContentFileLocationForbidden:
-		return nil, v
+		response := &AdminUpdateOfficialContentFileLocationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateOfficialContentFileLocationNotFound:
-		return nil, v
+		response := &AdminUpdateOfficialContentFileLocationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateOfficialContentFileLocationInternalServerError:
-		return nil, v
+		response := &AdminUpdateOfficialContentFileLocationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -409,7 +568,7 @@ func (a *Client) AdminUpdateOfficialContentFileLocationShort(params *AdminUpdate
 AdminGenerateOfficialContentUploadURLV2Short generate official content upload url
 Generate official content upload URL
 */
-func (a *Client) AdminGenerateOfficialContentUploadURLV2Short(params *AdminGenerateOfficialContentUploadURLV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateOfficialContentUploadURLV2OK, error) {
+func (a *Client) AdminGenerateOfficialContentUploadURLV2Short(params *AdminGenerateOfficialContentUploadURLV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateOfficialContentUploadURLV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGenerateOfficialContentUploadURLV2Params()
@@ -447,15 +606,40 @@ func (a *Client) AdminGenerateOfficialContentUploadURLV2Short(params *AdminGener
 	switch v := result.(type) {
 
 	case *AdminGenerateOfficialContentUploadURLV2OK:
-		return v, nil
+		response := &AdminGenerateOfficialContentUploadURLV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGenerateOfficialContentUploadURLV2BadRequest:
-		return nil, v
+		response := &AdminGenerateOfficialContentUploadURLV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateOfficialContentUploadURLV2Unauthorized:
-		return nil, v
+		response := &AdminGenerateOfficialContentUploadURLV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateOfficialContentUploadURLV2NotFound:
-		return nil, v
+		response := &AdminGenerateOfficialContentUploadURLV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateOfficialContentUploadURLV2InternalServerError:
-		return nil, v
+		response := &AdminGenerateOfficialContentUploadURLV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -482,7 +666,7 @@ Allowed character for operator: & | ( )
 
 **Please note that value of tags query param should be URL encoded**
 */
-func (a *Client) AdminListContentV2Short(params *AdminListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListContentV2OK, error) {
+func (a *Client) AdminListContentV2Short(params *AdminListContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListContentV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListContentV2Params()
@@ -520,13 +704,33 @@ func (a *Client) AdminListContentV2Short(params *AdminListContentV2Params, authI
 	switch v := result.(type) {
 
 	case *AdminListContentV2OK:
-		return v, nil
+		response := &AdminListContentV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListContentV2BadRequest:
-		return nil, v
+		response := &AdminListContentV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListContentV2Unauthorized:
-		return nil, v
+		response := &AdminListContentV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListContentV2InternalServerError:
-		return nil, v
+		response := &AdminListContentV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -537,7 +741,7 @@ func (a *Client) AdminListContentV2Short(params *AdminListContentV2Params, authI
 AdminBulkGetContentByIDsV2Short bulk get content by content ids
 Maximum contentId per request 100
 */
-func (a *Client) AdminBulkGetContentByIDsV2Short(params *AdminBulkGetContentByIDsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetContentByIDsV2OK, error) {
+func (a *Client) AdminBulkGetContentByIDsV2Short(params *AdminBulkGetContentByIDsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetContentByIDsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkGetContentByIDsV2Params()
@@ -575,15 +779,40 @@ func (a *Client) AdminBulkGetContentByIDsV2Short(params *AdminBulkGetContentByID
 	switch v := result.(type) {
 
 	case *AdminBulkGetContentByIDsV2OK:
-		return v, nil
+		response := &AdminBulkGetContentByIDsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkGetContentByIDsV2BadRequest:
-		return nil, v
+		response := &AdminBulkGetContentByIDsV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkGetContentByIDsV2Unauthorized:
-		return nil, v
+		response := &AdminBulkGetContentByIDsV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkGetContentByIDsV2Forbidden:
-		return nil, v
+		response := &AdminBulkGetContentByIDsV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkGetContentByIDsV2InternalServerError:
-		return nil, v
+		response := &AdminBulkGetContentByIDsV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -594,7 +823,7 @@ func (a *Client) AdminBulkGetContentByIDsV2Short(params *AdminBulkGetContentByID
 AdminGetContentBulkByShareCodesV2Short bulk get content by content sharecodes
 Maximum sharecodes per request 100
 */
-func (a *Client) AdminGetContentBulkByShareCodesV2Short(params *AdminGetContentBulkByShareCodesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentBulkByShareCodesV2OK, error) {
+func (a *Client) AdminGetContentBulkByShareCodesV2Short(params *AdminGetContentBulkByShareCodesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentBulkByShareCodesV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetContentBulkByShareCodesV2Params()
@@ -632,15 +861,40 @@ func (a *Client) AdminGetContentBulkByShareCodesV2Short(params *AdminGetContentB
 	switch v := result.(type) {
 
 	case *AdminGetContentBulkByShareCodesV2OK:
-		return v, nil
+		response := &AdminGetContentBulkByShareCodesV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetContentBulkByShareCodesV2BadRequest:
-		return nil, v
+		response := &AdminGetContentBulkByShareCodesV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentBulkByShareCodesV2Unauthorized:
-		return nil, v
+		response := &AdminGetContentBulkByShareCodesV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentBulkByShareCodesV2Forbidden:
-		return nil, v
+		response := &AdminGetContentBulkByShareCodesV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentBulkByShareCodesV2InternalServerError:
-		return nil, v
+		response := &AdminGetContentBulkByShareCodesV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -651,7 +905,7 @@ func (a *Client) AdminGetContentBulkByShareCodesV2Short(params *AdminGetContentB
 AdminGetContentByShareCodeV2Short get content by sharecode
 Get content by share code
 */
-func (a *Client) AdminGetContentByShareCodeV2Short(params *AdminGetContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByShareCodeV2OK, error) {
+func (a *Client) AdminGetContentByShareCodeV2Short(params *AdminGetContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByShareCodeV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetContentByShareCodeV2Params()
@@ -689,13 +943,33 @@ func (a *Client) AdminGetContentByShareCodeV2Short(params *AdminGetContentByShar
 	switch v := result.(type) {
 
 	case *AdminGetContentByShareCodeV2OK:
-		return v, nil
+		response := &AdminGetContentByShareCodeV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetContentByShareCodeV2Unauthorized:
-		return nil, v
+		response := &AdminGetContentByShareCodeV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentByShareCodeV2NotFound:
-		return nil, v
+		response := &AdminGetContentByShareCodeV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentByShareCodeV2InternalServerError:
-		return nil, v
+		response := &AdminGetContentByShareCodeV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -706,7 +980,7 @@ func (a *Client) AdminGetContentByShareCodeV2Short(params *AdminGetContentByShar
 AdminGetContentByContentIDV2Short get content by content id
 Get content by content ID
 */
-func (a *Client) AdminGetContentByContentIDV2Short(params *AdminGetContentByContentIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByContentIDV2OK, error) {
+func (a *Client) AdminGetContentByContentIDV2Short(params *AdminGetContentByContentIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByContentIDV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetContentByContentIDV2Params()
@@ -744,13 +1018,33 @@ func (a *Client) AdminGetContentByContentIDV2Short(params *AdminGetContentByCont
 	switch v := result.(type) {
 
 	case *AdminGetContentByContentIDV2OK:
-		return v, nil
+		response := &AdminGetContentByContentIDV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetContentByContentIDV2Unauthorized:
-		return nil, v
+		response := &AdminGetContentByContentIDV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentByContentIDV2NotFound:
-		return nil, v
+		response := &AdminGetContentByContentIDV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentByContentIDV2InternalServerError:
-		return nil, v
+		response := &AdminGetContentByContentIDV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -761,7 +1055,7 @@ func (a *Client) AdminGetContentByContentIDV2Short(params *AdminGetContentByCont
 RollbackContentVersionV2Short rollback content's payload version
 Rollback content's payload to specified version
 */
-func (a *Client) RollbackContentVersionV2Short(params *RollbackContentVersionV2Params, authInfo runtime.ClientAuthInfoWriter) (*RollbackContentVersionV2OK, error) {
+func (a *Client) RollbackContentVersionV2Short(params *RollbackContentVersionV2Params, authInfo runtime.ClientAuthInfoWriter) (*RollbackContentVersionV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRollbackContentVersionV2Params()
@@ -799,15 +1093,40 @@ func (a *Client) RollbackContentVersionV2Short(params *RollbackContentVersionV2P
 	switch v := result.(type) {
 
 	case *RollbackContentVersionV2OK:
-		return v, nil
+		response := &RollbackContentVersionV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RollbackContentVersionV2Unauthorized:
-		return nil, v
+		response := &RollbackContentVersionV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RollbackContentVersionV2NotFound:
-		return nil, v
+		response := &RollbackContentVersionV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RollbackContentVersionV2UnprocessableEntity:
-		return nil, v
+		response := &RollbackContentVersionV2Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RollbackContentVersionV2InternalServerError:
-		return nil, v
+		response := &RollbackContentVersionV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -818,7 +1137,7 @@ func (a *Client) RollbackContentVersionV2Short(params *RollbackContentVersionV2P
 AdminUpdateScreenshotsV2Short update screenshot of content
 Maximum description length: 1024
 */
-func (a *Client) AdminUpdateScreenshotsV2Short(params *AdminUpdateScreenshotsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateScreenshotsV2OK, error) {
+func (a *Client) AdminUpdateScreenshotsV2Short(params *AdminUpdateScreenshotsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateScreenshotsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateScreenshotsV2Params()
@@ -856,17 +1175,47 @@ func (a *Client) AdminUpdateScreenshotsV2Short(params *AdminUpdateScreenshotsV2P
 	switch v := result.(type) {
 
 	case *AdminUpdateScreenshotsV2OK:
-		return v, nil
+		response := &AdminUpdateScreenshotsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateScreenshotsV2BadRequest:
-		return nil, v
+		response := &AdminUpdateScreenshotsV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateScreenshotsV2Unauthorized:
-		return nil, v
+		response := &AdminUpdateScreenshotsV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateScreenshotsV2Forbidden:
-		return nil, v
+		response := &AdminUpdateScreenshotsV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateScreenshotsV2NotFound:
-		return nil, v
+		response := &AdminUpdateScreenshotsV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateScreenshotsV2InternalServerError:
-		return nil, v
+		response := &AdminUpdateScreenshotsV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -880,7 +1229,7 @@ If *contentType* is not specified, it will use *fileExtension* value.
 Supported file extensions: pjp, jpg, jpeg, jfif, bmp, png.
 Maximum description length: 1024
 */
-func (a *Client) AdminUploadContentScreenshotV2Short(params *AdminUploadContentScreenshotV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentScreenshotV2Created, error) {
+func (a *Client) AdminUploadContentScreenshotV2Short(params *AdminUploadContentScreenshotV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentScreenshotV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUploadContentScreenshotV2Params()
@@ -918,17 +1267,47 @@ func (a *Client) AdminUploadContentScreenshotV2Short(params *AdminUploadContentS
 	switch v := result.(type) {
 
 	case *AdminUploadContentScreenshotV2Created:
-		return v, nil
+		response := &AdminUploadContentScreenshotV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUploadContentScreenshotV2BadRequest:
-		return nil, v
+		response := &AdminUploadContentScreenshotV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUploadContentScreenshotV2Unauthorized:
-		return nil, v
+		response := &AdminUploadContentScreenshotV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUploadContentScreenshotV2Forbidden:
-		return nil, v
+		response := &AdminUploadContentScreenshotV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUploadContentScreenshotV2NotFound:
-		return nil, v
+		response := &AdminUploadContentScreenshotV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUploadContentScreenshotV2InternalServerError:
-		return nil, v
+		response := &AdminUploadContentScreenshotV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -939,7 +1318,7 @@ func (a *Client) AdminUploadContentScreenshotV2Short(params *AdminUploadContentS
 AdminDeleteContentScreenshotV2Short delete screenshots content
 Delete screenshot from a content
 */
-func (a *Client) AdminDeleteContentScreenshotV2Short(params *AdminDeleteContentScreenshotV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentScreenshotV2NoContent, error) {
+func (a *Client) AdminDeleteContentScreenshotV2Short(params *AdminDeleteContentScreenshotV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentScreenshotV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteContentScreenshotV2Params()
@@ -977,17 +1356,46 @@ func (a *Client) AdminDeleteContentScreenshotV2Short(params *AdminDeleteContentS
 	switch v := result.(type) {
 
 	case *AdminDeleteContentScreenshotV2NoContent:
-		return v, nil
+		response := &AdminDeleteContentScreenshotV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteContentScreenshotV2BadRequest:
-		return nil, v
+		response := &AdminDeleteContentScreenshotV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteContentScreenshotV2Unauthorized:
-		return nil, v
+		response := &AdminDeleteContentScreenshotV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteContentScreenshotV2Forbidden:
-		return nil, v
+		response := &AdminDeleteContentScreenshotV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteContentScreenshotV2NotFound:
-		return nil, v
+		response := &AdminDeleteContentScreenshotV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteContentScreenshotV2InternalServerError:
-		return nil, v
+		response := &AdminDeleteContentScreenshotV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -998,7 +1406,7 @@ func (a *Client) AdminDeleteContentScreenshotV2Short(params *AdminDeleteContentS
 ListContentVersionsV2Short list content's payload versions
 Content's payload versions created when UGC is created or updated with `updateContentFile` set to true. Only list up to 10 latest versions.
 */
-func (a *Client) ListContentVersionsV2Short(params *ListContentVersionsV2Params, authInfo runtime.ClientAuthInfoWriter) (*ListContentVersionsV2OK, error) {
+func (a *Client) ListContentVersionsV2Short(params *ListContentVersionsV2Params, authInfo runtime.ClientAuthInfoWriter) (*ListContentVersionsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListContentVersionsV2Params()
@@ -1036,13 +1444,33 @@ func (a *Client) ListContentVersionsV2Short(params *ListContentVersionsV2Params,
 	switch v := result.(type) {
 
 	case *ListContentVersionsV2OK:
-		return v, nil
+		response := &ListContentVersionsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListContentVersionsV2Unauthorized:
-		return nil, v
+		response := &ListContentVersionsV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListContentVersionsV2NotFound:
-		return nil, v
+		response := &ListContentVersionsV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListContentVersionsV2InternalServerError:
-		return nil, v
+		response := &ListContentVersionsV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1056,7 +1484,7 @@ AdminUpdateContentByShareCodeV2Short update content to s3 bucket by share code
 "Max length: 7
 "Available characters: abcdefhkpqrstuxyz
 */
-func (a *Client) AdminUpdateContentByShareCodeV2Short(params *AdminUpdateContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentByShareCodeV2OK, error) {
+func (a *Client) AdminUpdateContentByShareCodeV2Short(params *AdminUpdateContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentByShareCodeV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateContentByShareCodeV2Params()
@@ -1094,19 +1522,54 @@ func (a *Client) AdminUpdateContentByShareCodeV2Short(params *AdminUpdateContent
 	switch v := result.(type) {
 
 	case *AdminUpdateContentByShareCodeV2OK:
-		return v, nil
+		response := &AdminUpdateContentByShareCodeV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateContentByShareCodeV2BadRequest:
-		return nil, v
+		response := &AdminUpdateContentByShareCodeV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentByShareCodeV2Unauthorized:
-		return nil, v
+		response := &AdminUpdateContentByShareCodeV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentByShareCodeV2Forbidden:
-		return nil, v
+		response := &AdminUpdateContentByShareCodeV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentByShareCodeV2NotFound:
-		return nil, v
+		response := &AdminUpdateContentByShareCodeV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentByShareCodeV2Conflict:
-		return nil, v
+		response := &AdminUpdateContentByShareCodeV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentByShareCodeV2InternalServerError:
-		return nil, v
+		response := &AdminUpdateContentByShareCodeV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1117,7 +1580,7 @@ func (a *Client) AdminUpdateContentByShareCodeV2Short(params *AdminUpdateContent
 AdminDeleteContentByShareCodeV2Short delete content by share code
 Delete content by share code
 */
-func (a *Client) AdminDeleteContentByShareCodeV2Short(params *AdminDeleteContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentByShareCodeV2NoContent, error) {
+func (a *Client) AdminDeleteContentByShareCodeV2Short(params *AdminDeleteContentByShareCodeV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteContentByShareCodeV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteContentByShareCodeV2Params()
@@ -1155,13 +1618,32 @@ func (a *Client) AdminDeleteContentByShareCodeV2Short(params *AdminDeleteContent
 	switch v := result.(type) {
 
 	case *AdminDeleteContentByShareCodeV2NoContent:
-		return v, nil
+		response := &AdminDeleteContentByShareCodeV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteContentByShareCodeV2Unauthorized:
-		return nil, v
+		response := &AdminDeleteContentByShareCodeV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteContentByShareCodeV2NotFound:
-		return nil, v
+		response := &AdminDeleteContentByShareCodeV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteContentByShareCodeV2InternalServerError:
-		return nil, v
+		response := &AdminDeleteContentByShareCodeV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1172,7 +1654,7 @@ func (a *Client) AdminDeleteContentByShareCodeV2Short(params *AdminDeleteContent
 AdminDeleteUserContentV2Short delete user content
 Delete user content by content ID
 */
-func (a *Client) AdminDeleteUserContentV2Short(params *AdminDeleteUserContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserContentV2NoContent, error) {
+func (a *Client) AdminDeleteUserContentV2Short(params *AdminDeleteUserContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserContentV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserContentV2Params()
@@ -1210,13 +1692,32 @@ func (a *Client) AdminDeleteUserContentV2Short(params *AdminDeleteUserContentV2P
 	switch v := result.(type) {
 
 	case *AdminDeleteUserContentV2NoContent:
-		return v, nil
+		response := &AdminDeleteUserContentV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserContentV2Unauthorized:
-		return nil, v
+		response := &AdminDeleteUserContentV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserContentV2NotFound:
-		return nil, v
+		response := &AdminDeleteUserContentV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserContentV2InternalServerError:
-		return nil, v
+		response := &AdminDeleteUserContentV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1227,7 +1728,7 @@ func (a *Client) AdminDeleteUserContentV2Short(params *AdminDeleteUserContentV2P
 AdminUpdateUserContentV2Short update user content
 Update existing user content
 */
-func (a *Client) AdminUpdateUserContentV2Short(params *AdminUpdateUserContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserContentV2OK, error) {
+func (a *Client) AdminUpdateUserContentV2Short(params *AdminUpdateUserContentV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserContentV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserContentV2Params()
@@ -1265,17 +1766,47 @@ func (a *Client) AdminUpdateUserContentV2Short(params *AdminUpdateUserContentV2P
 	switch v := result.(type) {
 
 	case *AdminUpdateUserContentV2OK:
-		return v, nil
+		response := &AdminUpdateUserContentV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserContentV2BadRequest:
-		return nil, v
+		response := &AdminUpdateUserContentV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserContentV2Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserContentV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserContentV2NotFound:
-		return nil, v
+		response := &AdminUpdateUserContentV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserContentV2Conflict:
-		return nil, v
+		response := &AdminUpdateUserContentV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserContentV2InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserContentV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1286,7 +1817,7 @@ func (a *Client) AdminUpdateUserContentV2Short(params *AdminUpdateUserContentV2P
 AdminUpdateUserContentFileLocationShort update user content file location
 This endpoint should be used after calling generate user content upload url endpoint to commit the changes
 */
-func (a *Client) AdminUpdateUserContentFileLocationShort(params *AdminUpdateUserContentFileLocationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserContentFileLocationOK, error) {
+func (a *Client) AdminUpdateUserContentFileLocationShort(params *AdminUpdateUserContentFileLocationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserContentFileLocationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserContentFileLocationParams()
@@ -1324,17 +1855,47 @@ func (a *Client) AdminUpdateUserContentFileLocationShort(params *AdminUpdateUser
 	switch v := result.(type) {
 
 	case *AdminUpdateUserContentFileLocationOK:
-		return v, nil
+		response := &AdminUpdateUserContentFileLocationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserContentFileLocationBadRequest:
-		return nil, v
+		response := &AdminUpdateUserContentFileLocationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserContentFileLocationUnauthorized:
-		return nil, v
+		response := &AdminUpdateUserContentFileLocationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserContentFileLocationForbidden:
-		return nil, v
+		response := &AdminUpdateUserContentFileLocationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserContentFileLocationNotFound:
-		return nil, v
+		response := &AdminUpdateUserContentFileLocationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserContentFileLocationInternalServerError:
-		return nil, v
+		response := &AdminUpdateUserContentFileLocationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1345,7 +1906,7 @@ func (a *Client) AdminUpdateUserContentFileLocationShort(params *AdminUpdateUser
 AdminGenerateUserContentUploadURLV2Short generate user content upload url
 generate user content upload URL
 */
-func (a *Client) AdminGenerateUserContentUploadURLV2Short(params *AdminGenerateUserContentUploadURLV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateUserContentUploadURLV2OK, error) {
+func (a *Client) AdminGenerateUserContentUploadURLV2Short(params *AdminGenerateUserContentUploadURLV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateUserContentUploadURLV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGenerateUserContentUploadURLV2Params()
@@ -1383,15 +1944,40 @@ func (a *Client) AdminGenerateUserContentUploadURLV2Short(params *AdminGenerateU
 	switch v := result.(type) {
 
 	case *AdminGenerateUserContentUploadURLV2OK:
-		return v, nil
+		response := &AdminGenerateUserContentUploadURLV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGenerateUserContentUploadURLV2BadRequest:
-		return nil, v
+		response := &AdminGenerateUserContentUploadURLV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateUserContentUploadURLV2Unauthorized:
-		return nil, v
+		response := &AdminGenerateUserContentUploadURLV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateUserContentUploadURLV2NotFound:
-		return nil, v
+		response := &AdminGenerateUserContentUploadURLV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateUserContentUploadURLV2InternalServerError:
-		return nil, v
+		response := &AdminGenerateUserContentUploadURLV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1402,7 +1988,7 @@ func (a *Client) AdminGenerateUserContentUploadURLV2Short(params *AdminGenerateU
 AdminGetContentByUserIDV2Short get user's generated contents
 Get user cotent
 */
-func (a *Client) AdminGetContentByUserIDV2Short(params *AdminGetContentByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByUserIDV2OK, error) {
+func (a *Client) AdminGetContentByUserIDV2Short(params *AdminGetContentByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetContentByUserIDV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetContentByUserIDV2Params()
@@ -1440,13 +2026,33 @@ func (a *Client) AdminGetContentByUserIDV2Short(params *AdminGetContentByUserIDV
 	switch v := result.(type) {
 
 	case *AdminGetContentByUserIDV2OK:
-		return v, nil
+		response := &AdminGetContentByUserIDV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetContentByUserIDV2BadRequest:
-		return nil, v
+		response := &AdminGetContentByUserIDV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentByUserIDV2Unauthorized:
-		return nil, v
+		response := &AdminGetContentByUserIDV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetContentByUserIDV2InternalServerError:
-		return nil, v
+		response := &AdminGetContentByUserIDV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1457,7 +2063,7 @@ func (a *Client) AdminGetContentByUserIDV2Short(params *AdminGetContentByUserIDV
 AdminUpdateContentHideStatusV2Short hide/unhide user's generated contents
 Hide/Unhide user's generated contents
 */
-func (a *Client) AdminUpdateContentHideStatusV2Short(params *AdminUpdateContentHideStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentHideStatusV2OK, error) {
+func (a *Client) AdminUpdateContentHideStatusV2Short(params *AdminUpdateContentHideStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentHideStatusV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateContentHideStatusV2Params()
@@ -1495,17 +2101,47 @@ func (a *Client) AdminUpdateContentHideStatusV2Short(params *AdminUpdateContentH
 	switch v := result.(type) {
 
 	case *AdminUpdateContentHideStatusV2OK:
-		return v, nil
+		response := &AdminUpdateContentHideStatusV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateContentHideStatusV2BadRequest:
-		return nil, v
+		response := &AdminUpdateContentHideStatusV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentHideStatusV2Unauthorized:
-		return nil, v
+		response := &AdminUpdateContentHideStatusV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentHideStatusV2Forbidden:
-		return nil, v
+		response := &AdminUpdateContentHideStatusV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentHideStatusV2NotFound:
-		return nil, v
+		response := &AdminUpdateContentHideStatusV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateContentHideStatusV2InternalServerError:
-		return nil, v
+		response := &AdminUpdateContentHideStatusV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
+type AdminGetTypeResponse struct {
+	ugcclientmodels.ApiResponse
+	Data *ugcclientmodels.ModelsPaginatedGetTypeResponse
+
+	Error400 *ugcclientmodels.ResponseError
+	Error401 *ugcclientmodels.ResponseError
+	Error500 *ugcclientmodels.ResponseError
+}
+
+func (m *AdminGetTypeResponse) Unpack() (*ugcclientmodels.ModelsPaginatedGetTypeResponse, *ugcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &ugcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetTypeReader is a Reader for the AdminGetType structure.
 type AdminGetTypeReader struct {
 	formats strfmt.Registry

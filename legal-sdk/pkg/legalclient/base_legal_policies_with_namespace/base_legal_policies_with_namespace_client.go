@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RetrieveAllLegalPoliciesByNamespaceShort(params *RetrieveAllLegalPoliciesByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesByNamespaceOK, error)
-	CreatePolicy1Short(params *CreatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicy1Created, error)
-	RetrieveSinglePolicy1Short(params *RetrieveSinglePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicy1OK, error)
-	DeleteBasePolicyShort(params *DeleteBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBasePolicyNoContent, error)
-	PartialUpdatePolicy1Short(params *PartialUpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicy1OK, error)
-	RetrievePolicyCountry1Short(params *RetrievePolicyCountry1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrievePolicyCountry1OK, error)
-	RetrieveAllPoliciesFromBasePolicyShort(params *RetrieveAllPoliciesFromBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPoliciesFromBasePolicyOK, error)
-	CreatePolicyUnderBasePolicyShort(params *CreatePolicyUnderBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyUnderBasePolicyCreated, error)
-	RetrieveAllPolicyTypes1Short(params *RetrieveAllPolicyTypes1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPolicyTypes1OK, error)
+	RetrieveAllLegalPoliciesByNamespaceShort(params *RetrieveAllLegalPoliciesByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesByNamespaceResponse, error)
+	CreatePolicy1Short(params *CreatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicy1Response, error)
+	RetrieveSinglePolicy1Short(params *RetrieveSinglePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicy1Response, error)
+	DeleteBasePolicyShort(params *DeleteBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBasePolicyResponse, error)
+	PartialUpdatePolicy1Short(params *PartialUpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicy1Response, error)
+	RetrievePolicyCountry1Short(params *RetrievePolicyCountry1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrievePolicyCountry1Response, error)
+	RetrieveAllPoliciesFromBasePolicyShort(params *RetrieveAllPoliciesFromBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPoliciesFromBasePolicyResponse, error)
+	CreatePolicyUnderBasePolicyShort(params *CreatePolicyUnderBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyUnderBasePolicyResponse, error)
+	RetrieveAllPolicyTypes1Short(params *RetrieveAllPolicyTypes1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPolicyTypes1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ type ClientService interface {
 RetrieveAllLegalPoliciesByNamespaceShort retrieve all base legal policy in the namespace
 Retrieve all base policies in the namespace.
 */
-func (a *Client) RetrieveAllLegalPoliciesByNamespaceShort(params *RetrieveAllLegalPoliciesByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesByNamespaceOK, error) {
+func (a *Client) RetrieveAllLegalPoliciesByNamespaceShort(params *RetrieveAllLegalPoliciesByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesByNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAllLegalPoliciesByNamespaceParams()
@@ -85,7 +85,12 @@ func (a *Client) RetrieveAllLegalPoliciesByNamespaceShort(params *RetrieveAllLeg
 	switch v := result.(type) {
 
 	case *RetrieveAllLegalPoliciesByNamespaceOK:
-		return v, nil
+		response := &RetrieveAllLegalPoliciesByNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +109,7 @@ Note:
 
 * policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */
-func (a *Client) CreatePolicy1Short(params *CreatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicy1Created, error) {
+func (a *Client) CreatePolicy1Short(params *CreatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicy1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePolicy1Params()
@@ -142,13 +147,33 @@ func (a *Client) CreatePolicy1Short(params *CreatePolicy1Params, authInfo runtim
 	switch v := result.(type) {
 
 	case *CreatePolicy1Created:
-		return v, nil
+		response := &CreatePolicy1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePolicy1BadRequest:
-		return nil, v
+		response := &CreatePolicy1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePolicy1Conflict:
-		return nil, v
+		response := &CreatePolicy1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePolicy1UnprocessableEntity:
-		return nil, v
+		response := &CreatePolicy1Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,7 +184,7 @@ func (a *Client) CreatePolicy1Short(params *CreatePolicy1Params, authInfo runtim
 RetrieveSinglePolicy1Short retrieve a base legal policy
 Retrieve a base policy.
 */
-func (a *Client) RetrieveSinglePolicy1Short(params *RetrieveSinglePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicy1OK, error) {
+func (a *Client) RetrieveSinglePolicy1Short(params *RetrieveSinglePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicy1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveSinglePolicy1Params()
@@ -197,9 +222,19 @@ func (a *Client) RetrieveSinglePolicy1Short(params *RetrieveSinglePolicy1Params,
 	switch v := result.(type) {
 
 	case *RetrieveSinglePolicy1OK:
-		return v, nil
+		response := &RetrieveSinglePolicy1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveSinglePolicy1NotFound:
-		return nil, v
+		response := &RetrieveSinglePolicy1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -214,7 +249,7 @@ Delete base legal policy.Can only be deleted if match these criteria:
   * Base policy don't have published policy version
   * Policy version under base policy has never been accepted by any user
 */
-func (a *Client) DeleteBasePolicyShort(params *DeleteBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBasePolicyNoContent, error) {
+func (a *Client) DeleteBasePolicyShort(params *DeleteBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBasePolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteBasePolicyParams()
@@ -252,9 +287,18 @@ func (a *Client) DeleteBasePolicyShort(params *DeleteBasePolicyParams, authInfo 
 	switch v := result.(type) {
 
 	case *DeleteBasePolicyNoContent:
-		return v, nil
+		response := &DeleteBasePolicyResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteBasePolicyBadRequest:
-		return nil, v
+		response := &DeleteBasePolicyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -273,7 +317,7 @@ Note:
 
 * policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */
-func (a *Client) PartialUpdatePolicy1Short(params *PartialUpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicy1OK, error) {
+func (a *Client) PartialUpdatePolicy1Short(params *PartialUpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdatePolicy1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPartialUpdatePolicy1Params()
@@ -311,9 +355,19 @@ func (a *Client) PartialUpdatePolicy1Short(params *PartialUpdatePolicy1Params, a
 	switch v := result.(type) {
 
 	case *PartialUpdatePolicy1OK:
-		return v, nil
+		response := &PartialUpdatePolicy1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PartialUpdatePolicy1BadRequest:
-		return nil, v
+		response := &PartialUpdatePolicy1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -324,7 +378,7 @@ func (a *Client) PartialUpdatePolicy1Short(params *PartialUpdatePolicy1Params, a
 RetrievePolicyCountry1Short retrieve a base legal policy based on a particular country
 Retrieve a Base Legal Policy based on a Particular Country.
 */
-func (a *Client) RetrievePolicyCountry1Short(params *RetrievePolicyCountry1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrievePolicyCountry1OK, error) {
+func (a *Client) RetrievePolicyCountry1Short(params *RetrievePolicyCountry1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrievePolicyCountry1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrievePolicyCountry1Params()
@@ -362,9 +416,19 @@ func (a *Client) RetrievePolicyCountry1Short(params *RetrievePolicyCountry1Param
 	switch v := result.(type) {
 
 	case *RetrievePolicyCountry1OK:
-		return v, nil
+		response := &RetrievePolicyCountry1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrievePolicyCountry1NotFound:
-		return nil, v
+		response := &RetrievePolicyCountry1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -375,7 +439,7 @@ func (a *Client) RetrievePolicyCountry1Short(params *RetrievePolicyCountry1Param
 RetrieveAllPoliciesFromBasePolicyShort retrieve all policies from base legal policy
 Retrieve all policies from Base Legal Policy.
 */
-func (a *Client) RetrieveAllPoliciesFromBasePolicyShort(params *RetrieveAllPoliciesFromBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPoliciesFromBasePolicyOK, error) {
+func (a *Client) RetrieveAllPoliciesFromBasePolicyShort(params *RetrieveAllPoliciesFromBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPoliciesFromBasePolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAllPoliciesFromBasePolicyParams()
@@ -413,9 +477,19 @@ func (a *Client) RetrieveAllPoliciesFromBasePolicyShort(params *RetrieveAllPolic
 	switch v := result.(type) {
 
 	case *RetrieveAllPoliciesFromBasePolicyOK:
-		return v, nil
+		response := &RetrieveAllPoliciesFromBasePolicyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveAllPoliciesFromBasePolicyNotFound:
-		return nil, v
+		response := &RetrieveAllPoliciesFromBasePolicyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -434,7 +508,7 @@ Note:
 
 * policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */
-func (a *Client) CreatePolicyUnderBasePolicyShort(params *CreatePolicyUnderBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyUnderBasePolicyCreated, error) {
+func (a *Client) CreatePolicyUnderBasePolicyShort(params *CreatePolicyUnderBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyUnderBasePolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePolicyUnderBasePolicyParams()
@@ -472,9 +546,19 @@ func (a *Client) CreatePolicyUnderBasePolicyShort(params *CreatePolicyUnderBaseP
 	switch v := result.(type) {
 
 	case *CreatePolicyUnderBasePolicyCreated:
-		return v, nil
+		response := &CreatePolicyUnderBasePolicyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePolicyUnderBasePolicyBadRequest:
-		return nil, v
+		response := &CreatePolicyUnderBasePolicyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -485,7 +569,7 @@ func (a *Client) CreatePolicyUnderBasePolicyShort(params *CreatePolicyUnderBaseP
 RetrieveAllPolicyTypes1Short retrieve all policy type
 Retrieve all supported policy types.
 */
-func (a *Client) RetrieveAllPolicyTypes1Short(params *RetrieveAllPolicyTypes1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPolicyTypes1OK, error) {
+func (a *Client) RetrieveAllPolicyTypes1Short(params *RetrieveAllPolicyTypes1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllPolicyTypes1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAllPolicyTypes1Params()
@@ -523,7 +607,12 @@ func (a *Client) RetrieveAllPolicyTypes1Short(params *RetrieveAllPolicyTypes1Par
 	switch v := result.(type) {
 
 	case *RetrieveAllPolicyTypes1OK:
-		return v, nil
+		response := &RetrieveAllPolicyTypes1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

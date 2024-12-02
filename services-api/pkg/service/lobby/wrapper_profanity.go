@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/profanity"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ProfanityService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ProfanityService) AdminDebugProfanityFiltersShort(input *profanity.AdminDebugProfanityFiltersParams) ([]*lobbyclientmodels.ModelsProfanityFilter, error) {
+func (aaa *ProfanityService) AdminDebugProfanityFiltersShort(input *profanity.AdminDebugProfanityFiltersParams) (*profanity.AdminDebugProfanityFiltersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ProfanityService) AdminDebugProfanityFiltersShort(input *profanity.Ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfanityService) AdminGetProfanityListFiltersV1Short(input *profanity.AdminGetProfanityListFiltersV1Params) (*lobbyclientmodels.ModelsAdminGetProfanityListFiltersV1Response, error) {
+func (aaa *ProfanityService) AdminGetProfanityListFiltersV1Short(input *profanity.AdminGetProfanityListFiltersV1Params) (*profanity.AdminGetProfanityListFiltersV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *ProfanityService) AdminGetProfanityListFiltersV1Short(input *profanit
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ProfanityService) AdminAddProfanityFilterIntoListShort(input *profanity.AdminAddProfanityFilterIntoListParams) error {
@@ -189,7 +188,7 @@ func (aaa *ProfanityService) AdminImportProfanityFiltersFromFileShort(input *pro
 	return nil
 }
 
-func (aaa *ProfanityService) AdminDeleteProfanityFilterShort(input *profanity.AdminDeleteProfanityFilterParams) ([]*lobbyclientmodels.ModelsProfanityFilter, error) {
+func (aaa *ProfanityService) AdminDeleteProfanityFilterShort(input *profanity.AdminDeleteProfanityFilterParams) (*profanity.AdminDeleteProfanityFilterResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *ProfanityService) AdminDeleteProfanityFilterShort(input *profanity.Ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfanityService) AdminGetProfanityListsShort(input *profanity.AdminGetProfanityListsParams) ([]*lobbyclientmodels.ModelsAdminGetProfanityListsListResponse, error) {
+func (aaa *ProfanityService) AdminGetProfanityListsShort(input *profanity.AdminGetProfanityListsParams) (*profanity.AdminGetProfanityListsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,7 +245,7 @@ func (aaa *ProfanityService) AdminGetProfanityListsShort(input *profanity.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ProfanityService) AdminCreateProfanityListShort(input *profanity.AdminCreateProfanityListParams) error {
@@ -339,7 +338,7 @@ func (aaa *ProfanityService) AdminDeleteProfanityListShort(input *profanity.Admi
 	return nil
 }
 
-func (aaa *ProfanityService) AdminGetProfanityRuleShort(input *profanity.AdminGetProfanityRuleParams) (*lobbyclientmodels.ModelsProfanityRule, error) {
+func (aaa *ProfanityService) AdminGetProfanityRuleShort(input *profanity.AdminGetProfanityRuleParams) (*profanity.AdminGetProfanityRuleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,7 +365,7 @@ func (aaa *ProfanityService) AdminGetProfanityRuleShort(input *profanity.AdminGe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ProfanityService) AdminSetProfanityRuleForNamespaceShort(input *profanity.AdminSetProfanityRuleForNamespaceParams) error {
@@ -399,7 +398,7 @@ func (aaa *ProfanityService) AdminSetProfanityRuleForNamespaceShort(input *profa
 	return nil
 }
 
-func (aaa *ProfanityService) AdminVerifyMessageProfanityResponseShort(input *profanity.AdminVerifyMessageProfanityResponseParams) (*lobbyclientmodels.ModelsAdminVerifyMessageProfanityResponse, error) {
+func (aaa *ProfanityService) AdminVerifyMessageProfanityResponseShort(input *profanity.AdminVerifyMessageProfanityResponseParams) (*profanity.AdminVerifyMessageProfanityResponseResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -426,5 +425,5 @@ func (aaa *ProfanityService) AdminVerifyMessageProfanityResponseShort(input *pro
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

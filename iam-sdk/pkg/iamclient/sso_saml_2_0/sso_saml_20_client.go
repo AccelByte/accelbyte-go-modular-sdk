@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PlatformAuthenticateSAMLV3HandlerShort(params *PlatformAuthenticateSAMLV3HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticateSAMLV3HandlerFound, error)
+	PlatformAuthenticateSAMLV3HandlerShort(params *PlatformAuthenticateSAMLV3HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticateSAMLV3HandlerResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ respective platforms. Deactivated or login-banned users are unable to login.
 Microsoft login page will redirects to this endpoint after login success
 as previously defined on authentication request SAML
 */
-func (a *Client) PlatformAuthenticateSAMLV3HandlerShort(params *PlatformAuthenticateSAMLV3HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticateSAMLV3HandlerFound, error) {
+func (a *Client) PlatformAuthenticateSAMLV3HandlerShort(params *PlatformAuthenticateSAMLV3HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticateSAMLV3HandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformAuthenticateSAMLV3HandlerParams()
@@ -82,7 +82,12 @@ func (a *Client) PlatformAuthenticateSAMLV3HandlerShort(params *PlatformAuthenti
 	switch v := result.(type) {
 
 	case *PlatformAuthenticateSAMLV3HandlerFound:
-		return v, nil
+		response := &PlatformAuthenticateSAMLV3HandlerResponse{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

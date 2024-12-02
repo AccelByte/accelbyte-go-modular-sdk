@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesOK, error)
-	PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsOK, error)
+	GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesResponse, error)
+	PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ GetChallengesShort list challenges
 
     * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesOK, error) {
+func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetChallengesParams()
@@ -79,13 +79,33 @@ func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetChallengesOK:
-		return v, nil
+		response := &GetChallengesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetChallengesUnauthorized:
-		return nil, v
+		response := &GetChallengesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetChallengesForbidden:
-		return nil, v
+		response := &GetChallengesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetChallengesInternalServerError:
-		return nil, v
+		response := &GetChallengesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +117,7 @@ PublicGetScheduledGoalsShort list goals of a challenge
 
     * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsOK, error) {
+func (a *Client) PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetScheduledGoalsParams()
@@ -135,15 +155,40 @@ func (a *Client) PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsPar
 	switch v := result.(type) {
 
 	case *PublicGetScheduledGoalsOK:
-		return v, nil
+		response := &PublicGetScheduledGoalsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetScheduledGoalsUnauthorized:
-		return nil, v
+		response := &PublicGetScheduledGoalsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetScheduledGoalsForbidden:
-		return nil, v
+		response := &PublicGetScheduledGoalsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetScheduledGoalsNotFound:
-		return nil, v
+		response := &PublicGetScheduledGoalsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetScheduledGoalsInternalServerError:
-		return nil, v
+		response := &PublicGetScheduledGoalsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

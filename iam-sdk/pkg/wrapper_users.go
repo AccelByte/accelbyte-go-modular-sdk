@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *UsersService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *UsersService) CreateUserShort(input *users.CreateUserParams) (*iamclientmodels.ModelUserCreateResponse, error) {
+func (aaa *UsersService) CreateUserShort(input *users.CreateUserParams) (*users.CreateUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *UsersService) CreateUserShort(input *users.CreateUserParams) (*iamcli
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersService) GetAdminUsersByRoleIDShort(input *users.GetAdminUsersByRoleIDParams) (*iamclientmodels.ModelGetAdminUsersResponse, error) {
+func (aaa *UsersService) GetAdminUsersByRoleIDShort(input *users.GetAdminUsersByRoleIDParams) (*users.GetAdminUsersByRoleIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *UsersService) GetAdminUsersByRoleIDShort(input *users.GetAdminUsersBy
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) GetUserByLoginIDShort(input *users.GetUserByLoginIDParams) (*iamclientmodels.ModelPublicUserResponse, error) {
+func (aaa *UsersService) GetUserByLoginIDShort(input *users.GetUserByLoginIDParams) (*users.GetUserByLoginIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *UsersService) GetUserByLoginIDShort(input *users.GetUserByLoginIDPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) GetUserByPlatformUserIDShort(input *users.GetUserByPlatformUserIDParams) (*iamclientmodels.ModelPublicUserResponse, error) {
+func (aaa *UsersService) GetUserByPlatformUserIDShort(input *users.GetUserByPlatformUserIDParams) (*users.GetUserByPlatformUserIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,7 +153,7 @@ func (aaa *UsersService) GetUserByPlatformUserIDShort(input *users.GetUserByPlat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) ForgotPasswordShort(input *users.ForgotPasswordParams) error {
@@ -188,7 +187,7 @@ func (aaa *UsersService) ForgotPasswordShort(input *users.ForgotPasswordParams) 
 	return nil
 }
 
-func (aaa *UsersService) GetUsersByLoginIdsShort(input *users.GetUsersByLoginIdsParams) (*iamclientmodels.ModelPublicUsersResponse, error) {
+func (aaa *UsersService) GetUsersByLoginIdsShort(input *users.GetUsersByLoginIdsParams) (*users.GetUsersByLoginIdsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -215,7 +214,7 @@ func (aaa *UsersService) GetUsersByLoginIdsShort(input *users.GetUsersByLoginIds
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) ResetPasswordShort(input *users.ResetPasswordParams) error {
@@ -249,7 +248,7 @@ func (aaa *UsersService) ResetPasswordShort(input *users.ResetPasswordParams) er
 	return nil
 }
 
-func (aaa *UsersService) SearchUserShort(input *users.SearchUserParams) (*iamclientmodels.ModelSearchUsersResponse, error) {
+func (aaa *UsersService) SearchUserShort(input *users.SearchUserParams) (*users.SearchUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *UsersService) SearchUserShort(input *users.SearchUserParams) (*iamcli
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) GetUserByUserIDShort(input *users.GetUserByUserIDParams) (*iamclientmodels.ModelUserResponse, error) {
+func (aaa *UsersService) GetUserByUserIDShort(input *users.GetUserByUserIDParams) (*users.GetUserByUserIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *UsersService) GetUserByUserIDShort(input *users.GetUserByUserIDParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) UpdateUserShort(input *users.UpdateUserParams) (*iamclientmodels.ModelUserResponse, error) {
+func (aaa *UsersService) UpdateUserShort(input *users.UpdateUserParams) (*users.UpdateUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,7 +335,7 @@ func (aaa *UsersService) UpdateUserShort(input *users.UpdateUserParams) (*iamcli
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) DeleteUserShort(input *users.DeleteUserParams) error {
@@ -369,7 +368,7 @@ func (aaa *UsersService) DeleteUserShort(input *users.DeleteUserParams) error {
 	return nil
 }
 
-func (aaa *UsersService) BanUserShort(input *users.BanUserParams) (*iamclientmodels.ModelUserBanResponse, error) {
+func (aaa *UsersService) BanUserShort(input *users.BanUserParams) (*users.BanUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,10 +395,10 @@ func (aaa *UsersService) BanUserShort(input *users.BanUserParams) (*iamclientmod
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersService) GetUserBanHistoryShort(input *users.GetUserBanHistoryParams) ([]*iamclientmodels.ModelUserBanResponse, error) {
+func (aaa *UsersService) GetUserBanHistoryShort(input *users.GetUserBanHistoryParams) (*users.GetUserBanHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -426,10 +425,10 @@ func (aaa *UsersService) GetUserBanHistoryShort(input *users.GetUserBanHistoryPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) DisableUserBanShort(input *users.DisableUserBanParams) (*iamclientmodels.ModelUserBanResponse, error) {
+func (aaa *UsersService) DisableUserBanShort(input *users.DisableUserBanParams) (*users.DisableUserBanResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -456,10 +455,10 @@ func (aaa *UsersService) DisableUserBanShort(input *users.DisableUserBanParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) EnableUserBanShort(input *users.EnableUserBanParams) (*iamclientmodels.ModelUserBanResponse, error) {
+func (aaa *UsersService) EnableUserBanShort(input *users.EnableUserBanParams) (*users.EnableUserBanResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -486,7 +485,7 @@ func (aaa *UsersService) EnableUserBanShort(input *users.EnableUserBanParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) ListCrossNamespaceAccountLinkShort(input *users.ListCrossNamespaceAccountLinkParams) error {
@@ -579,7 +578,7 @@ func (aaa *UsersService) EnableUserShort(input *users.EnableUserParams) error {
 	return nil
 }
 
-func (aaa *UsersService) GetUserInformationShort(input *users.GetUserInformationParams) (*iamclientmodels.ModelUserInformation, error) {
+func (aaa *UsersService) GetUserInformationShort(input *users.GetUserInformationParams) (*users.GetUserInformationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -606,7 +605,7 @@ func (aaa *UsersService) GetUserInformationShort(input *users.GetUserInformation
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) DeleteUserInformationShort(input *users.DeleteUserInformationParams) error {
@@ -639,7 +638,7 @@ func (aaa *UsersService) DeleteUserInformationShort(input *users.DeleteUserInfor
 	return nil
 }
 
-func (aaa *UsersService) GetUserLoginHistoriesShort(input *users.GetUserLoginHistoriesParams) (*iamclientmodels.ModelLoginHistoriesResponse, error) {
+func (aaa *UsersService) GetUserLoginHistoriesShort(input *users.GetUserLoginHistoriesParams) (*users.GetUserLoginHistoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -666,7 +665,7 @@ func (aaa *UsersService) GetUserLoginHistoriesShort(input *users.GetUserLoginHis
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) UpdatePasswordShort(input *users.UpdatePasswordParams) error {
@@ -789,7 +788,7 @@ func (aaa *UsersService) DeleteUserPermissionShort(input *users.DeleteUserPermis
 	return nil
 }
 
-func (aaa *UsersService) GetUserPlatformAccountsShort(input *users.GetUserPlatformAccountsParams) ([]*iamclientmodels.AccountcommonUserLinkedPlatform, error) {
+func (aaa *UsersService) GetUserPlatformAccountsShort(input *users.GetUserPlatformAccountsParams) (*users.GetUserPlatformAccountsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -816,10 +815,10 @@ func (aaa *UsersService) GetUserPlatformAccountsShort(input *users.GetUserPlatfo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) GetUserMappingShort(input *users.GetUserMappingParams) (*iamclientmodels.ModelGetUserMapping, error) {
+func (aaa *UsersService) GetUserMappingShort(input *users.GetUserMappingParams) (*users.GetUserMappingResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -846,10 +845,10 @@ func (aaa *UsersService) GetUserMappingShort(input *users.GetUserMappingParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) GetUserJusticePlatformAccountShort(input *users.GetUserJusticePlatformAccountParams) (*iamclientmodels.ModelGetUserJusticePlatformAccountResponse, error) {
+func (aaa *UsersService) GetUserJusticePlatformAccountShort(input *users.GetUserJusticePlatformAccountParams) (*users.GetUserJusticePlatformAccountResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -876,7 +875,7 @@ func (aaa *UsersService) GetUserJusticePlatformAccountShort(input *users.GetUser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PlatformLinkShort(input *users.PlatformLinkParams) error {
@@ -939,7 +938,7 @@ func (aaa *UsersService) PlatformUnlinkShort(input *users.PlatformUnlinkParams) 
 	return nil
 }
 
-func (aaa *UsersService) GetPublisherUserShort(input *users.GetPublisherUserParams) (*iamclientmodels.ModelGetPublisherUserResponse, error) {
+func (aaa *UsersService) GetPublisherUserShort(input *users.GetPublisherUserParams) (*users.GetPublisherUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -966,7 +965,7 @@ func (aaa *UsersService) GetPublisherUserShort(input *users.GetPublisherUserPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) SaveUserRolesShort(input *users.SaveUserRolesParams) error {
@@ -1059,7 +1058,7 @@ func (aaa *UsersService) DeleteUserRoleShort(input *users.DeleteUserRoleParams) 
 	return nil
 }
 
-func (aaa *UsersService) UpgradeHeadlessAccountShort(input *users.UpgradeHeadlessAccountParams) (*iamclientmodels.ModelUserResponse, error) {
+func (aaa *UsersService) UpgradeHeadlessAccountShort(input *users.UpgradeHeadlessAccountParams) (*users.UpgradeHeadlessAccountResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1086,10 +1085,10 @@ func (aaa *UsersService) UpgradeHeadlessAccountShort(input *users.UpgradeHeadles
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) UpgradeHeadlessAccountWithVerificationCodeShort(input *users.UpgradeHeadlessAccountWithVerificationCodeParams) (*iamclientmodels.ModelUserResponse, error) {
+func (aaa *UsersService) UpgradeHeadlessAccountWithVerificationCodeShort(input *users.UpgradeHeadlessAccountWithVerificationCodeParams) (*users.UpgradeHeadlessAccountWithVerificationCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1116,7 +1115,7 @@ func (aaa *UsersService) UpgradeHeadlessAccountWithVerificationCodeShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) UserVerificationShort(input *users.UserVerificationParams) error {
@@ -1179,7 +1178,7 @@ func (aaa *UsersService) SendVerificationCodeShort(input *users.SendVerification
 	return nil
 }
 
-func (aaa *UsersService) AdminGetAgeRestrictionStatusV2Short(input *users.AdminGetAgeRestrictionStatusV2Params) (*iamclientmodels.ModelAgeRestrictionResponse, error) {
+func (aaa *UsersService) AdminGetAgeRestrictionStatusV2Short(input *users.AdminGetAgeRestrictionStatusV2Params) (*users.AdminGetAgeRestrictionStatusV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1206,10 +1205,10 @@ func (aaa *UsersService) AdminGetAgeRestrictionStatusV2Short(input *users.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV2Short(input *users.AdminUpdateAgeRestrictionConfigV2Params) (*iamclientmodels.ModelAgeRestrictionResponse, error) {
+func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV2Short(input *users.AdminUpdateAgeRestrictionConfigV2Params) (*users.AdminUpdateAgeRestrictionConfigV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1236,10 +1235,10 @@ func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV2Short(input *users.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) GetListCountryAgeRestrictionShort(input *users.GetListCountryAgeRestrictionParams) ([]*iamclientmodels.AccountcommonCountryAgeRestriction, error) {
+func (aaa *UsersService) GetListCountryAgeRestrictionShort(input *users.GetListCountryAgeRestrictionParams) (*users.GetListCountryAgeRestrictionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1266,10 +1265,10 @@ func (aaa *UsersService) GetListCountryAgeRestrictionShort(input *users.GetListC
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) UpdateCountryAgeRestrictionShort(input *users.UpdateCountryAgeRestrictionParams) (*iamclientmodels.ModelCountry, error) {
+func (aaa *UsersService) UpdateCountryAgeRestrictionShort(input *users.UpdateCountryAgeRestrictionParams) (*users.UpdateCountryAgeRestrictionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1296,10 +1295,10 @@ func (aaa *UsersService) UpdateCountryAgeRestrictionShort(input *users.UpdateCou
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminSearchUsersV2Short(input *users.AdminSearchUsersV2Params) (*iamclientmodels.ModelSearchUsersByPlatformIDResponse, error) {
+func (aaa *UsersService) AdminSearchUsersV2Short(input *users.AdminSearchUsersV2Params) (*users.AdminSearchUsersV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1326,10 +1325,10 @@ func (aaa *UsersService) AdminSearchUsersV2Short(input *users.AdminSearchUsersV2
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetUserByUserIDV2Short(input *users.AdminGetUserByUserIDV2Params) (*iamclientmodels.ModelUserResponse, error) {
+func (aaa *UsersService) AdminGetUserByUserIDV2Short(input *users.AdminGetUserByUserIDV2Params) (*users.AdminGetUserByUserIDV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1356,10 +1355,10 @@ func (aaa *UsersService) AdminGetUserByUserIDV2Short(input *users.AdminGetUserBy
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminUpdateUserV2Short(input *users.AdminUpdateUserV2Params) (*iamclientmodels.ModelUserResponse, error) {
+func (aaa *UsersService) AdminUpdateUserV2Short(input *users.AdminUpdateUserV2Params) (*users.AdminUpdateUserV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1386,10 +1385,10 @@ func (aaa *UsersService) AdminUpdateUserV2Short(input *users.AdminUpdateUserV2Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminBanUserV2Short(input *users.AdminBanUserV2Params) (*iamclientmodels.ModelUserBanResponse, error) {
+func (aaa *UsersService) AdminBanUserV2Short(input *users.AdminBanUserV2Params) (*users.AdminBanUserV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1416,10 +1415,10 @@ func (aaa *UsersService) AdminBanUserV2Short(input *users.AdminBanUserV2Params) 
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersService) AdminGetUserBanV2Short(input *users.AdminGetUserBanV2Params) ([]*iamclientmodels.ModelUserBanResponse, error) {
+func (aaa *UsersService) AdminGetUserBanV2Short(input *users.AdminGetUserBanV2Params) (*users.AdminGetUserBanV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1446,7 +1445,7 @@ func (aaa *UsersService) AdminGetUserBanV2Short(input *users.AdminGetUserBanV2Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) AdminDisableUserV2Short(input *users.AdminDisableUserV2Params) error {
@@ -1629,7 +1628,7 @@ func (aaa *UsersService) AdminCreateUserRolesV2Short(input *users.AdminCreateUse
 	return nil
 }
 
-func (aaa *UsersService) PublicGetCountryAgeRestrictionShort(input *users.PublicGetCountryAgeRestrictionParams) (*iamclientmodels.AccountcommonCountry, error) {
+func (aaa *UsersService) PublicGetCountryAgeRestrictionShort(input *users.PublicGetCountryAgeRestrictionParams) (*users.PublicGetCountryAgeRestrictionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1656,10 +1655,10 @@ func (aaa *UsersService) PublicGetCountryAgeRestrictionShort(input *users.Public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicCreateUserV2Short(input *users.PublicCreateUserV2Params) (*iamclientmodels.ModelUserCreateResponse, error) {
+func (aaa *UsersService) PublicCreateUserV2Short(input *users.PublicCreateUserV2Params) (*users.PublicCreateUserV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1686,7 +1685,7 @@ func (aaa *UsersService) PublicCreateUserV2Short(input *users.PublicCreateUserV2
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *UsersService) PublicForgotPasswordV2Short(input *users.PublicForgotPasswordV2Params) error {
@@ -1749,7 +1748,7 @@ func (aaa *UsersService) PublicResetPasswordV2Short(input *users.PublicResetPass
 	return nil
 }
 
-func (aaa *UsersService) PublicGetUserByUserIDV2Short(input *users.PublicGetUserByUserIDV2Params) (*iamclientmodels.ModelUserResponse, error) {
+func (aaa *UsersService) PublicGetUserByUserIDV2Short(input *users.PublicGetUserByUserIDV2Params) (*users.PublicGetUserByUserIDV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1776,10 +1775,10 @@ func (aaa *UsersService) PublicGetUserByUserIDV2Short(input *users.PublicGetUser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicUpdateUserV2Short(input *users.PublicUpdateUserV2Params) ([]*iamclientmodels.ModelUserResponse, error) {
+func (aaa *UsersService) PublicUpdateUserV2Short(input *users.PublicUpdateUserV2Params) (*users.PublicUpdateUserV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1806,10 +1805,10 @@ func (aaa *UsersService) PublicUpdateUserV2Short(input *users.PublicUpdateUserV2
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetUserBanShort(input *users.PublicGetUserBanParams) ([]*iamclientmodels.ModelUserBanResponse, error) {
+func (aaa *UsersService) PublicGetUserBanShort(input *users.PublicGetUserBanParams) (*users.PublicGetUserBanResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1836,7 +1835,7 @@ func (aaa *UsersService) PublicGetUserBanShort(input *users.PublicGetUserBanPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicUpdatePasswordV2Short(input *users.PublicUpdatePasswordV2Params) error {
@@ -1869,7 +1868,7 @@ func (aaa *UsersService) PublicUpdatePasswordV2Short(input *users.PublicUpdatePa
 	return nil
 }
 
-func (aaa *UsersService) GetListJusticePlatformAccountsShort(input *users.GetListJusticePlatformAccountsParams) ([]*iamclientmodels.ModelGetUserMapping, error) {
+func (aaa *UsersService) GetListJusticePlatformAccountsShort(input *users.GetListJusticePlatformAccountsParams) (*users.GetListJusticePlatformAccountsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1896,7 +1895,7 @@ func (aaa *UsersService) GetListJusticePlatformAccountsShort(input *users.GetLis
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicPlatformLinkV2Short(input *users.PublicPlatformLinkV2Params) error {
@@ -1959,7 +1958,7 @@ func (aaa *UsersService) PublicDeletePlatformLinkV2Short(input *users.PublicDele
 	return nil
 }
 
-func (aaa *UsersService) ListAdminsV3Short(input *users.ListAdminsV3Params) (*iamclientmodels.ModelGetUsersResponseWithPaginationV3, error) {
+func (aaa *UsersService) ListAdminsV3Short(input *users.ListAdminsV3Params) (*users.ListAdminsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1986,10 +1985,10 @@ func (aaa *UsersService) ListAdminsV3Short(input *users.ListAdminsV3Params) (*ia
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetAgeRestrictionStatusV3Short(input *users.AdminGetAgeRestrictionStatusV3Params) (*iamclientmodels.ModelAgeRestrictionResponseV3, error) {
+func (aaa *UsersService) AdminGetAgeRestrictionStatusV3Short(input *users.AdminGetAgeRestrictionStatusV3Params) (*users.AdminGetAgeRestrictionStatusV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2016,10 +2015,10 @@ func (aaa *UsersService) AdminGetAgeRestrictionStatusV3Short(input *users.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV3Short(input *users.AdminUpdateAgeRestrictionConfigV3Params) (*iamclientmodels.ModelAgeRestrictionResponseV3, error) {
+func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV3Short(input *users.AdminUpdateAgeRestrictionConfigV3Params) (*users.AdminUpdateAgeRestrictionConfigV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2046,10 +2045,10 @@ func (aaa *UsersService) AdminUpdateAgeRestrictionConfigV3Short(input *users.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetListCountryAgeRestrictionV3Short(input *users.AdminGetListCountryAgeRestrictionV3Params) ([]*iamclientmodels.ModelCountryV3Response, error) {
+func (aaa *UsersService) AdminGetListCountryAgeRestrictionV3Short(input *users.AdminGetListCountryAgeRestrictionV3Params) (*users.AdminGetListCountryAgeRestrictionV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2076,10 +2075,10 @@ func (aaa *UsersService) AdminGetListCountryAgeRestrictionV3Short(input *users.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminUpdateCountryAgeRestrictionV3Short(input *users.AdminUpdateCountryAgeRestrictionV3Params) (*iamclientmodels.ModelCountryV3Response, error) {
+func (aaa *UsersService) AdminUpdateCountryAgeRestrictionV3Short(input *users.AdminUpdateCountryAgeRestrictionV3Params) (*users.AdminUpdateCountryAgeRestrictionV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2106,10 +2105,10 @@ func (aaa *UsersService) AdminUpdateCountryAgeRestrictionV3Short(input *users.Ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminListUserIDByPlatformUserIDsV3Short(input *users.AdminListUserIDByPlatformUserIDsV3Params) (*iamclientmodels.AccountcommonUserPlatforms, error) {
+func (aaa *UsersService) AdminListUserIDByPlatformUserIDsV3Short(input *users.AdminListUserIDByPlatformUserIDsV3Params) (*users.AdminListUserIDByPlatformUserIDsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2136,10 +2135,10 @@ func (aaa *UsersService) AdminListUserIDByPlatformUserIDsV3Short(input *users.Ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetUserByPlatformUserIDV3Short(input *users.AdminGetUserByPlatformUserIDV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) AdminGetUserByPlatformUserIDV3Short(input *users.AdminGetUserByPlatformUserIDV3Params) (*users.AdminGetUserByPlatformUserIDV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2166,10 +2165,10 @@ func (aaa *UsersService) AdminGetUserByPlatformUserIDV3Short(input *users.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) GetAdminUsersByRoleIDV3Short(input *users.GetAdminUsersByRoleIDV3Params) (*iamclientmodels.ModelGetUsersResponseWithPaginationV3, error) {
+func (aaa *UsersService) GetAdminUsersByRoleIDV3Short(input *users.GetAdminUsersByRoleIDV3Params) (*users.GetAdminUsersByRoleIDV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2196,10 +2195,10 @@ func (aaa *UsersService) GetAdminUsersByRoleIDV3Short(input *users.GetAdminUsers
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetUserByEmailAddressV3Short(input *users.AdminGetUserByEmailAddressV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) AdminGetUserByEmailAddressV3Short(input *users.AdminGetUserByEmailAddressV3Params) (*users.AdminGetUserByEmailAddressV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2226,7 +2225,7 @@ func (aaa *UsersService) AdminGetUserByEmailAddressV3Short(input *users.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) AdminBulkUpdateUsersV3Short(input *users.AdminBulkUpdateUsersV3Params) error {
@@ -2259,7 +2258,7 @@ func (aaa *UsersService) AdminBulkUpdateUsersV3Short(input *users.AdminBulkUpdat
 	return nil
 }
 
-func (aaa *UsersService) AdminGetBulkUserBanV3Short(input *users.AdminGetBulkUserBanV3Params) (*iamclientmodels.ModelGetUserBanV3Response, error) {
+func (aaa *UsersService) AdminGetBulkUserBanV3Short(input *users.AdminGetBulkUserBanV3Params) (*users.AdminGetBulkUserBanV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2286,10 +2285,10 @@ func (aaa *UsersService) AdminGetBulkUserBanV3Short(input *users.AdminGetBulkUse
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminListUserIDByUserIDsV3Short(input *users.AdminListUserIDByUserIDsV3Params) (*iamclientmodels.ModelListUserInformationResult, error) {
+func (aaa *UsersService) AdminListUserIDByUserIDsV3Short(input *users.AdminListUserIDByUserIDsV3Params) (*users.AdminListUserIDByUserIDsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2316,10 +2315,10 @@ func (aaa *UsersService) AdminListUserIDByUserIDsV3Short(input *users.AdminListU
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminBulkGetUsersPlatformShort(input *users.AdminBulkGetUsersPlatformParams) (*iamclientmodels.ModelListBulkUserPlatformsResponse, error) {
+func (aaa *UsersService) AdminBulkGetUsersPlatformShort(input *users.AdminBulkGetUsersPlatformParams) (*users.AdminBulkGetUsersPlatformResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2346,10 +2345,10 @@ func (aaa *UsersService) AdminBulkGetUsersPlatformShort(input *users.AdminBulkGe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminInviteUserV3Short(input *users.AdminInviteUserV3Params) (*iamclientmodels.ModelInviteUserResponseV3, error) {
+func (aaa *UsersService) AdminInviteUserV3Short(input *users.AdminInviteUserV3Params) (*users.AdminInviteUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2376,10 +2375,10 @@ func (aaa *UsersService) AdminInviteUserV3Short(input *users.AdminInviteUserV3Pa
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersService) AdminQueryThirdPlatformLinkHistoryV3Short(input *users.AdminQueryThirdPlatformLinkHistoryV3Params) (*iamclientmodels.ModelLinkingHistoryResponseWithPaginationV3, error) {
+func (aaa *UsersService) AdminQueryThirdPlatformLinkHistoryV3Short(input *users.AdminQueryThirdPlatformLinkHistoryV3Params) (*users.AdminQueryThirdPlatformLinkHistoryV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2406,10 +2405,10 @@ func (aaa *UsersService) AdminQueryThirdPlatformLinkHistoryV3Short(input *users.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminListUsersV3Short(input *users.AdminListUsersV3Params) (*iamclientmodels.AccountcommonListUsersWithPlatformAccountsResponse, error) {
+func (aaa *UsersService) AdminListUsersV3Short(input *users.AdminListUsersV3Params) (*users.AdminListUsersV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2436,10 +2435,10 @@ func (aaa *UsersService) AdminListUsersV3Short(input *users.AdminListUsersV3Para
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminSearchUserV3Short(input *users.AdminSearchUserV3Params) (*iamclientmodels.ModelSearchUsersResponseWithPaginationV3, error) {
+func (aaa *UsersService) AdminSearchUserV3Short(input *users.AdminSearchUserV3Params) (*users.AdminSearchUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2466,10 +2465,10 @@ func (aaa *UsersService) AdminSearchUserV3Short(input *users.AdminSearchUserV3Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetBulkUserByEmailAddressV3Short(input *users.AdminGetBulkUserByEmailAddressV3Params) (*iamclientmodels.ModelListUserResponseV3, error) {
+func (aaa *UsersService) AdminGetBulkUserByEmailAddressV3Short(input *users.AdminGetBulkUserByEmailAddressV3Params) (*users.AdminGetBulkUserByEmailAddressV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2496,10 +2495,10 @@ func (aaa *UsersService) AdminGetBulkUserByEmailAddressV3Short(input *users.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetUserByUserIDV3Short(input *users.AdminGetUserByUserIDV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) AdminGetUserByUserIDV3Short(input *users.AdminGetUserByUserIDV3Params) (*users.AdminGetUserByUserIDV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2526,10 +2525,10 @@ func (aaa *UsersService) AdminGetUserByUserIDV3Short(input *users.AdminGetUserBy
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminUpdateUserV3Short(input *users.AdminUpdateUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) AdminUpdateUserV3Short(input *users.AdminUpdateUserV3Params) (*users.AdminUpdateUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2556,10 +2555,10 @@ func (aaa *UsersService) AdminUpdateUserV3Short(input *users.AdminUpdateUserV3Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetUserBanV3Short(input *users.AdminGetUserBanV3Params) (*iamclientmodels.ModelGetUserBanV3Response, error) {
+func (aaa *UsersService) AdminGetUserBanV3Short(input *users.AdminGetUserBanV3Params) (*users.AdminGetUserBanV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2586,10 +2585,10 @@ func (aaa *UsersService) AdminGetUserBanV3Short(input *users.AdminGetUserBanV3Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminBanUserV3Short(input *users.AdminBanUserV3Params) (*iamclientmodels.ModelUserBanResponseV3, error) {
+func (aaa *UsersService) AdminBanUserV3Short(input *users.AdminBanUserV3Params) (*users.AdminBanUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2616,10 +2615,10 @@ func (aaa *UsersService) AdminBanUserV3Short(input *users.AdminBanUserV3Params) 
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersService) AdminGetUserBanSummaryV3Short(input *users.AdminGetUserBanSummaryV3Params) (*iamclientmodels.ModelGetUserBanSummaryV3, error) {
+func (aaa *UsersService) AdminGetUserBanSummaryV3Short(input *users.AdminGetUserBanSummaryV3Params) (*users.AdminGetUserBanSummaryV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2646,10 +2645,10 @@ func (aaa *UsersService) AdminGetUserBanSummaryV3Short(input *users.AdminGetUser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminUpdateUserBanV3Short(input *users.AdminUpdateUserBanV3Params) (*iamclientmodels.ModelUserBanResponseV3, error) {
+func (aaa *UsersService) AdminUpdateUserBanV3Short(input *users.AdminUpdateUserBanV3Params) (*users.AdminUpdateUserBanV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2676,7 +2675,7 @@ func (aaa *UsersService) AdminUpdateUserBanV3Short(input *users.AdminUpdateUserB
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) AdminSendVerificationCodeV3Short(input *users.AdminSendVerificationCodeV3Params) error {
@@ -2739,7 +2738,7 @@ func (aaa *UsersService) AdminVerifyAccountV3Short(input *users.AdminVerifyAccou
 	return nil
 }
 
-func (aaa *UsersService) GetUserVerificationCodeShort(input *users.GetUserVerificationCodeParams) (*iamclientmodels.ModelVerificationCodeResponse, error) {
+func (aaa *UsersService) GetUserVerificationCodeShort(input *users.GetUserVerificationCodeParams) (*users.GetUserVerificationCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2766,10 +2765,10 @@ func (aaa *UsersService) GetUserVerificationCodeShort(input *users.GetUserVerifi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetUserDeletionStatusV3Short(input *users.AdminGetUserDeletionStatusV3Params) (*iamclientmodels.ModelUserDeletionStatusResponse, error) {
+func (aaa *UsersService) AdminGetUserDeletionStatusV3Short(input *users.AdminGetUserDeletionStatusV3Params) (*users.AdminGetUserDeletionStatusV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2796,7 +2795,7 @@ func (aaa *UsersService) AdminGetUserDeletionStatusV3Short(input *users.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) AdminUpdateUserDeletionStatusV3Short(input *users.AdminUpdateUserDeletionStatusV3Params) error {
@@ -2829,7 +2828,7 @@ func (aaa *UsersService) AdminUpdateUserDeletionStatusV3Short(input *users.Admin
 	return nil
 }
 
-func (aaa *UsersService) AdminListUserAllPlatformAccountsDistinctV3Short(input *users.AdminListUserAllPlatformAccountsDistinctV3Params) (*iamclientmodels.AccountcommonDistinctPlatformResponseV3, error) {
+func (aaa *UsersService) AdminListUserAllPlatformAccountsDistinctV3Short(input *users.AdminListUserAllPlatformAccountsDistinctV3Params) (*users.AdminListUserAllPlatformAccountsDistinctV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2856,10 +2855,10 @@ func (aaa *UsersService) AdminListUserAllPlatformAccountsDistinctV3Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminUpgradeHeadlessAccountV3Short(input *users.AdminUpgradeHeadlessAccountV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) AdminUpgradeHeadlessAccountV3Short(input *users.AdminUpgradeHeadlessAccountV3Params) (*users.AdminUpgradeHeadlessAccountV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2886,7 +2885,7 @@ func (aaa *UsersService) AdminUpgradeHeadlessAccountV3Short(input *users.AdminUp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) AdminDeleteUserInformationV3Short(input *users.AdminDeleteUserInformationV3Params) error {
@@ -2919,7 +2918,7 @@ func (aaa *UsersService) AdminDeleteUserInformationV3Short(input *users.AdminDel
 	return nil
 }
 
-func (aaa *UsersService) AdminGetUserLoginHistoriesV3Short(input *users.AdminGetUserLoginHistoriesV3Params) (*iamclientmodels.ModelLoginHistoriesResponse, error) {
+func (aaa *UsersService) AdminGetUserLoginHistoriesV3Short(input *users.AdminGetUserLoginHistoriesV3Params) (*users.AdminGetUserLoginHistoriesV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2946,7 +2945,7 @@ func (aaa *UsersService) AdminGetUserLoginHistoriesV3Short(input *users.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) AdminResetPasswordV3Short(input *users.AdminResetPasswordV3Params) error {
@@ -3099,7 +3098,7 @@ func (aaa *UsersService) AdminDeleteUserPermissionV3Short(input *users.AdminDele
 	return nil
 }
 
-func (aaa *UsersService) AdminGetUserPlatformAccountsV3Short(input *users.AdminGetUserPlatformAccountsV3Params) (*iamclientmodels.AccountcommonUserLinkedPlatformsResponseV3, error) {
+func (aaa *UsersService) AdminGetUserPlatformAccountsV3Short(input *users.AdminGetUserPlatformAccountsV3Params) (*users.AdminGetUserPlatformAccountsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3126,10 +3125,10 @@ func (aaa *UsersService) AdminGetUserPlatformAccountsV3Short(input *users.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminListAllDistinctPlatformAccountsV3Short(input *users.AdminListAllDistinctPlatformAccountsV3Params) (*iamclientmodels.AccountcommonDistinctPlatformResponseV3, error) {
+func (aaa *UsersService) AdminListAllDistinctPlatformAccountsV3Short(input *users.AdminListAllDistinctPlatformAccountsV3Params) (*users.AdminListAllDistinctPlatformAccountsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3156,10 +3155,10 @@ func (aaa *UsersService) AdminListAllDistinctPlatformAccountsV3Short(input *user
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetListJusticePlatformAccountsShort(input *users.AdminGetListJusticePlatformAccountsParams) ([]*iamclientmodels.ModelGetUserMapping, error) {
+func (aaa *UsersService) AdminGetListJusticePlatformAccountsShort(input *users.AdminGetListJusticePlatformAccountsParams) (*users.AdminGetListJusticePlatformAccountsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3186,10 +3185,10 @@ func (aaa *UsersService) AdminGetListJusticePlatformAccountsShort(input *users.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetUserMappingShort(input *users.AdminGetUserMappingParams) (*iamclientmodels.ModelGetUserMappingV3, error) {
+func (aaa *UsersService) AdminGetUserMappingShort(input *users.AdminGetUserMappingParams) (*users.AdminGetUserMappingResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3216,10 +3215,10 @@ func (aaa *UsersService) AdminGetUserMappingShort(input *users.AdminGetUserMappi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminCreateJusticeUserShort(input *users.AdminCreateJusticeUserParams) (*iamclientmodels.ModelCreateJusticeUserResponse, error) {
+func (aaa *UsersService) AdminCreateJusticeUserShort(input *users.AdminCreateJusticeUserParams) (*users.AdminCreateJusticeUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3246,7 +3245,7 @@ func (aaa *UsersService) AdminCreateJusticeUserShort(input *users.AdminCreateJus
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *UsersService) AdminLinkPlatformAccountShort(input *users.AdminLinkPlatformAccountParams) error {
@@ -3279,7 +3278,7 @@ func (aaa *UsersService) AdminLinkPlatformAccountShort(input *users.AdminLinkPla
 	return nil
 }
 
-func (aaa *UsersService) AdminGetUserLinkHistoriesV3Short(input *users.AdminGetUserLinkHistoriesV3Params) (*iamclientmodels.ModelUserPlatformLinkHistories, error) {
+func (aaa *UsersService) AdminGetUserLinkHistoriesV3Short(input *users.AdminGetUserLinkHistoriesV3Params) (*users.AdminGetUserLinkHistoriesV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3306,7 +3305,7 @@ func (aaa *UsersService) AdminGetUserLinkHistoriesV3Short(input *users.AdminGetU
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) AdminPlatformUnlinkV3Short(input *users.AdminPlatformUnlinkV3Params) error {
@@ -3459,7 +3458,7 @@ func (aaa *UsersService) AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(in
 	return nil
 }
 
-func (aaa *UsersService) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(input *users.AdminGetThirdPartyPlatformTokenLinkStatusV3Params) (*iamclientmodels.ModelTokenThirdPartyLinkStatusResponse, error) {
+func (aaa *UsersService) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(input *users.AdminGetThirdPartyPlatformTokenLinkStatusV3Params) (*users.AdminGetThirdPartyPlatformTokenLinkStatusV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3486,10 +3485,10 @@ func (aaa *UsersService) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) AdminGetUserSinglePlatformAccountShort(input *users.AdminGetUserSinglePlatformAccountParams) (*iamclientmodels.ModelUserPlatformMetadata, error) {
+func (aaa *UsersService) AdminGetUserSinglePlatformAccountShort(input *users.AdminGetUserSinglePlatformAccountParams) (*users.AdminGetUserSinglePlatformAccountResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3516,7 +3515,7 @@ func (aaa *UsersService) AdminGetUserSinglePlatformAccountShort(input *users.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) AdminDeleteUserRolesV3Short(input *users.AdminDeleteUserRolesV3Params) error {
@@ -3729,7 +3728,7 @@ func (aaa *UsersService) AdminVerifyUserWithoutVerificationCodeV3Short(input *us
 	return nil
 }
 
-func (aaa *UsersService) AdminGetMyUserV3Short(input *users.AdminGetMyUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) AdminGetMyUserV3Short(input *users.AdminGetMyUserV3Params) (*users.AdminGetMyUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3756,10 +3755,10 @@ func (aaa *UsersService) AdminGetMyUserV3Short(input *users.AdminGetMyUserV3Para
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetCountryAgeRestrictionV3Short(input *users.PublicGetCountryAgeRestrictionV3Params) (*iamclientmodels.ModelCountryV3Response, error) {
+func (aaa *UsersService) PublicGetCountryAgeRestrictionV3Short(input *users.PublicGetCountryAgeRestrictionV3Params) (*users.PublicGetCountryAgeRestrictionV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3786,10 +3785,10 @@ func (aaa *UsersService) PublicGetCountryAgeRestrictionV3Short(input *users.Publ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicListUserIDByPlatformUserIDsV3Short(input *users.PublicListUserIDByPlatformUserIDsV3Params) (*iamclientmodels.AccountcommonUserPlatforms, error) {
+func (aaa *UsersService) PublicListUserIDByPlatformUserIDsV3Short(input *users.PublicListUserIDByPlatformUserIDsV3Params) (*users.PublicListUserIDByPlatformUserIDsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3816,10 +3815,10 @@ func (aaa *UsersService) PublicListUserIDByPlatformUserIDsV3Short(input *users.P
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetUserByPlatformUserIDV3Short(input *users.PublicGetUserByPlatformUserIDV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) PublicGetUserByPlatformUserIDV3Short(input *users.PublicGetUserByPlatformUserIDV3Params) (*users.PublicGetUserByPlatformUserIDV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3846,10 +3845,10 @@ func (aaa *UsersService) PublicGetUserByPlatformUserIDV3Short(input *users.Publi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetAsyncStatusShort(input *users.PublicGetAsyncStatusParams) (*iamclientmodels.ModelLinkRequest, error) {
+func (aaa *UsersService) PublicGetAsyncStatusShort(input *users.PublicGetAsyncStatusParams) (*users.PublicGetAsyncStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3876,10 +3875,10 @@ func (aaa *UsersService) PublicGetAsyncStatusShort(input *users.PublicGetAsyncSt
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicSearchUserV3Short(input *users.PublicSearchUserV3Params) (*iamclientmodels.ModelPublicUserInformationResponseV3, error) {
+func (aaa *UsersService) PublicSearchUserV3Short(input *users.PublicSearchUserV3Params) (*users.PublicSearchUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3906,10 +3905,10 @@ func (aaa *UsersService) PublicSearchUserV3Short(input *users.PublicSearchUserV3
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicCreateUserV3Short(input *users.PublicCreateUserV3Params) (*iamclientmodels.ModelUserCreateResponseV3, error) {
+func (aaa *UsersService) PublicCreateUserV3Short(input *users.PublicCreateUserV3Params) (*users.PublicCreateUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3936,7 +3935,7 @@ func (aaa *UsersService) PublicCreateUserV3Short(input *users.PublicCreateUserV3
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *UsersService) CheckUserAvailabilityShort(input *users.CheckUserAvailabilityParams) error {
@@ -3969,7 +3968,7 @@ func (aaa *UsersService) CheckUserAvailabilityShort(input *users.CheckUserAvaila
 	return nil
 }
 
-func (aaa *UsersService) PublicBulkGetUsersShort(input *users.PublicBulkGetUsersParams) (*iamclientmodels.ModelListBulkUserResponse, error) {
+func (aaa *UsersService) PublicBulkGetUsersShort(input *users.PublicBulkGetUsersParams) (*users.PublicBulkGetUsersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -3996,7 +3995,7 @@ func (aaa *UsersService) PublicBulkGetUsersShort(input *users.PublicBulkGetUsers
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicSendRegistrationCodeShort(input *users.PublicSendRegistrationCodeParams) error {
@@ -4089,7 +4088,7 @@ func (aaa *UsersService) PublicForgotPasswordV3Short(input *users.PublicForgotPa
 	return nil
 }
 
-func (aaa *UsersService) PublicValidateUserInputShort(input *users.PublicValidateUserInputParams) (*iamclientmodels.ModelUserInputValidationResponse, error) {
+func (aaa *UsersService) PublicValidateUserInputShort(input *users.PublicValidateUserInputParams) (*users.PublicValidateUserInputResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4116,10 +4115,10 @@ func (aaa *UsersService) PublicValidateUserInputShort(input *users.PublicValidat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) GetAdminInvitationV3Short(input *users.GetAdminInvitationV3Params) (*iamclientmodels.ModelUserInvitationV3, error) {
+func (aaa *UsersService) GetAdminInvitationV3Short(input *users.GetAdminInvitationV3Params) (*users.GetAdminInvitationV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4146,10 +4145,10 @@ func (aaa *UsersService) GetAdminInvitationV3Short(input *users.GetAdminInvitati
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) CreateUserFromInvitationV3Short(input *users.CreateUserFromInvitationV3Params) (*iamclientmodels.ModelUserCreateResponseV3, error) {
+func (aaa *UsersService) CreateUserFromInvitationV3Short(input *users.CreateUserFromInvitationV3Params) (*users.CreateUserFromInvitationV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4176,10 +4175,10 @@ func (aaa *UsersService) CreateUserFromInvitationV3Short(input *users.CreateUser
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersService) UpdateUserV3Short(input *users.UpdateUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) UpdateUserV3Short(input *users.UpdateUserV3Params) (*users.UpdateUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4206,10 +4205,10 @@ func (aaa *UsersService) UpdateUserV3Short(input *users.UpdateUserV3Params) (*ia
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicPartialUpdateUserV3Short(input *users.PublicPartialUpdateUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) PublicPartialUpdateUserV3Short(input *users.PublicPartialUpdateUserV3Params) (*users.PublicPartialUpdateUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4236,7 +4235,7 @@ func (aaa *UsersService) PublicPartialUpdateUserV3Short(input *users.PublicParti
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicSendVerificationCodeV3Short(input *users.PublicSendVerificationCodeV3Params) error {
@@ -4299,7 +4298,7 @@ func (aaa *UsersService) PublicUserVerificationV3Short(input *users.PublicUserVe
 	return nil
 }
 
-func (aaa *UsersService) PublicUpgradeHeadlessAccountV3Short(input *users.PublicUpgradeHeadlessAccountV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) PublicUpgradeHeadlessAccountV3Short(input *users.PublicUpgradeHeadlessAccountV3Params) (*users.PublicUpgradeHeadlessAccountV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4326,10 +4325,10 @@ func (aaa *UsersService) PublicUpgradeHeadlessAccountV3Short(input *users.Public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicVerifyHeadlessAccountV3Short(input *users.PublicVerifyHeadlessAccountV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) PublicVerifyHeadlessAccountV3Short(input *users.PublicVerifyHeadlessAccountV3Params) (*users.PublicVerifyHeadlessAccountV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4356,7 +4355,7 @@ func (aaa *UsersService) PublicVerifyHeadlessAccountV3Short(input *users.PublicV
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicUpdatePasswordV3Short(input *users.PublicUpdatePasswordV3Params) error {
@@ -4389,7 +4388,7 @@ func (aaa *UsersService) PublicUpdatePasswordV3Short(input *users.PublicUpdatePa
 	return nil
 }
 
-func (aaa *UsersService) PublicCreateJusticeUserShort(input *users.PublicCreateJusticeUserParams) (*iamclientmodels.ModelCreateJusticeUserResponse, error) {
+func (aaa *UsersService) PublicCreateJusticeUserShort(input *users.PublicCreateJusticeUserParams) (*users.PublicCreateJusticeUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4416,7 +4415,7 @@ func (aaa *UsersService) PublicCreateJusticeUserShort(input *users.PublicCreateJ
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *UsersService) PublicPlatformLinkV3Short(input *users.PublicPlatformLinkV3Params) error {
@@ -4539,7 +4538,7 @@ func (aaa *UsersService) PublicForcePlatformLinkV3Short(input *users.PublicForce
 	return nil
 }
 
-func (aaa *UsersService) PublicWebLinkPlatformShort(input *users.PublicWebLinkPlatformParams) (*iamclientmodels.ModelWebLinkingResponse, error) {
+func (aaa *UsersService) PublicWebLinkPlatformShort(input *users.PublicWebLinkPlatformParams) (*users.PublicWebLinkPlatformResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4566,7 +4565,7 @@ func (aaa *UsersService) PublicWebLinkPlatformShort(input *users.PublicWebLinkPl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicWebLinkPlatformEstablishShort(input *users.PublicWebLinkPlatformEstablishParams) (string, error) {
@@ -4596,10 +4595,10 @@ func (aaa *UsersService) PublicWebLinkPlatformEstablishShort(input *users.Public
 		return "", err
 	}
 
-	return found.Location, nil
+	return found.Data, nil
 }
 
-func (aaa *UsersService) PublicProcessWebLinkPlatformV3Short(input *users.PublicProcessWebLinkPlatformV3Params) (*iamclientmodels.ModelLinkRequest, error) {
+func (aaa *UsersService) PublicProcessWebLinkPlatformV3Short(input *users.PublicProcessWebLinkPlatformV3Params) (*users.PublicProcessWebLinkPlatformV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4626,10 +4625,10 @@ func (aaa *UsersService) PublicProcessWebLinkPlatformV3Short(input *users.Public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetUsersPlatformInfosV3Short(input *users.PublicGetUsersPlatformInfosV3Params) (*iamclientmodels.ModelUsersPlatformInfosResponse, error) {
+func (aaa *UsersService) PublicGetUsersPlatformInfosV3Short(input *users.PublicGetUsersPlatformInfosV3Params) (*users.PublicGetUsersPlatformInfosV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4656,7 +4655,7 @@ func (aaa *UsersService) PublicGetUsersPlatformInfosV3Short(input *users.PublicG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) ResetPasswordV3Short(input *users.ResetPasswordV3Params) error {
@@ -4689,7 +4688,7 @@ func (aaa *UsersService) ResetPasswordV3Short(input *users.ResetPasswordV3Params
 	return nil
 }
 
-func (aaa *UsersService) PublicGetUserByUserIDV3Short(input *users.PublicGetUserByUserIDV3Params) (*iamclientmodels.ModelPublicUserResponseV3, error) {
+func (aaa *UsersService) PublicGetUserByUserIDV3Short(input *users.PublicGetUserByUserIDV3Params) (*users.PublicGetUserByUserIDV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4716,10 +4715,10 @@ func (aaa *UsersService) PublicGetUserByUserIDV3Short(input *users.PublicGetUser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetUserBanHistoryV3Short(input *users.PublicGetUserBanHistoryV3Params) (*iamclientmodels.ModelGetUserBanV3Response, error) {
+func (aaa *UsersService) PublicGetUserBanHistoryV3Short(input *users.PublicGetUserBanHistoryV3Params) (*users.PublicGetUserBanHistoryV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4746,10 +4745,10 @@ func (aaa *UsersService) PublicGetUserBanHistoryV3Short(input *users.PublicGetUs
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicListUserAllPlatformAccountsDistinctV3Short(input *users.PublicListUserAllPlatformAccountsDistinctV3Params) (*iamclientmodels.AccountcommonDistinctPlatformResponseV3, error) {
+func (aaa *UsersService) PublicListUserAllPlatformAccountsDistinctV3Short(input *users.PublicListUserAllPlatformAccountsDistinctV3Params) (*users.PublicListUserAllPlatformAccountsDistinctV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4776,10 +4775,10 @@ func (aaa *UsersService) PublicListUserAllPlatformAccountsDistinctV3Short(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetUserInformationV3Short(input *users.PublicGetUserInformationV3Params) (*iamclientmodels.AccountcommonUserInformationV3, error) {
+func (aaa *UsersService) PublicGetUserInformationV3Short(input *users.PublicGetUserInformationV3Params) (*users.PublicGetUserInformationV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4806,10 +4805,10 @@ func (aaa *UsersService) PublicGetUserInformationV3Short(input *users.PublicGetU
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetUserLoginHistoriesV3Short(input *users.PublicGetUserLoginHistoriesV3Params) (*iamclientmodels.ModelLoginHistoriesResponse, error) {
+func (aaa *UsersService) PublicGetUserLoginHistoriesV3Short(input *users.PublicGetUserLoginHistoriesV3Params) (*users.PublicGetUserLoginHistoriesV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4836,10 +4835,10 @@ func (aaa *UsersService) PublicGetUserLoginHistoriesV3Short(input *users.PublicG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetUserPlatformAccountsV3Short(input *users.PublicGetUserPlatformAccountsV3Params) (*iamclientmodels.AccountcommonUserLinkedPlatformsResponseV3, error) {
+func (aaa *UsersService) PublicGetUserPlatformAccountsV3Short(input *users.PublicGetUserPlatformAccountsV3Params) (*users.PublicGetUserPlatformAccountsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4866,10 +4865,10 @@ func (aaa *UsersService) PublicGetUserPlatformAccountsV3Short(input *users.Publi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicListJusticePlatformAccountsV3Short(input *users.PublicListJusticePlatformAccountsV3Params) ([]*iamclientmodels.ModelGetUserMappingV3, error) {
+func (aaa *UsersService) PublicListJusticePlatformAccountsV3Short(input *users.PublicListJusticePlatformAccountsV3Params) (*users.PublicListJusticePlatformAccountsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4896,7 +4895,7 @@ func (aaa *UsersService) PublicListJusticePlatformAccountsV3Short(input *users.P
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicLinkPlatformAccountShort(input *users.PublicLinkPlatformAccountParams) error {
@@ -4959,7 +4958,7 @@ func (aaa *UsersService) PublicForceLinkPlatformWithProgressionShort(input *user
 	return nil
 }
 
-func (aaa *UsersService) PublicGetPublisherUserV3Short(input *users.PublicGetPublisherUserV3Params) (*iamclientmodels.ModelGetPublisherUserResponse, error) {
+func (aaa *UsersService) PublicGetPublisherUserV3Short(input *users.PublicGetPublisherUserV3Params) (*users.PublicGetPublisherUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -4986,7 +4985,7 @@ func (aaa *UsersService) PublicGetPublisherUserV3Short(input *users.PublicGetPub
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicValidateUserByUserIDAndPasswordV3Short(input *users.PublicValidateUserByUserIDAndPasswordV3Params) error {
@@ -5019,7 +5018,7 @@ func (aaa *UsersService) PublicValidateUserByUserIDAndPasswordV3Short(input *use
 	return nil
 }
 
-func (aaa *UsersService) PublicGetMyUserV3Short(input *users.PublicGetMyUserV3Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersService) PublicGetMyUserV3Short(input *users.PublicGetMyUserV3Params) (*users.PublicGetMyUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -5046,10 +5045,10 @@ func (aaa *UsersService) PublicGetMyUserV3Short(input *users.PublicGetMyUserV3Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersService) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(input *users.PublicGetLinkHeadlessAccountToMyAccountConflictV3Params) (*iamclientmodels.ModelGetLinkHeadlessAccountConflictResponse, error) {
+func (aaa *UsersService) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(input *users.PublicGetLinkHeadlessAccountToMyAccountConflictV3Params) (*users.PublicGetLinkHeadlessAccountToMyAccountConflictV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -5076,7 +5075,7 @@ func (aaa *UsersService) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) LinkHeadlessAccountToMyAccountV3Short(input *users.LinkHeadlessAccountToMyAccountV3Params) error {
@@ -5109,7 +5108,7 @@ func (aaa *UsersService) LinkHeadlessAccountToMyAccountV3Short(input *users.Link
 	return nil
 }
 
-func (aaa *UsersService) PublicGetMyProfileAllowUpdateStatusV3Short(input *users.PublicGetMyProfileAllowUpdateStatusV3Params) (*iamclientmodels.ModelUserProfileUpdateAllowStatus, error) {
+func (aaa *UsersService) PublicGetMyProfileAllowUpdateStatusV3Short(input *users.PublicGetMyProfileAllowUpdateStatusV3Params) (*users.PublicGetMyProfileAllowUpdateStatusV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -5136,7 +5135,7 @@ func (aaa *UsersService) PublicGetMyProfileAllowUpdateStatusV3Short(input *users
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicSendVerificationLinkV3Short(input *users.PublicSendVerificationLinkV3Params) error {
@@ -5196,5 +5195,5 @@ func (aaa *UsersService) PublicVerifyUserByLinkV3Short(input *users.PublicVerify
 		return "", err
 	}
 
-	return found.Location, nil
+	return found.Data, nil
 }

@@ -31,19 +31,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetStatCyclesShort(params *GetStatCyclesParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCyclesOK, error)
-	CreateStatCycleShort(params *CreateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCycleCreated, error)
-	BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleOK, error)
-	ExportStatCycleShort(params *ExportStatCycleParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStatCycleOK, error)
-	ImportStatCycleShort(params *ImportStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStatCycleCreated, error)
-	GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycleOK, error)
-	UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatCycleOK, error)
-	DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatCycleNoContent, error)
-	BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAddStatsOK, error)
-	StopStatCycleShort(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleOK, error)
-	GetStatCycles1Short(params *GetStatCycles1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycles1OK, error)
-	BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1OK, error)
-	GetStatCycle1Short(params *GetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycle1OK, error)
+	GetStatCyclesShort(params *GetStatCyclesParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCyclesResponse, error)
+	CreateStatCycleShort(params *CreateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCycleResponse, error)
+	BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleResponse, error)
+	ExportStatCycleShort(params *ExportStatCycleParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStatCycleResponse, error)
+	ImportStatCycleShort(params *ImportStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStatCycleResponse, error)
+	GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycleResponse, error)
+	UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatCycleResponse, error)
+	DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatCycleResponse, error)
+	BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAddStatsResponse, error)
+	StopStatCycleShort(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleResponse, error)
+	GetStatCycles1Short(params *GetStatCycles1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycles1Response, error)
+	BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1Response, error)
+	GetStatCycle1Short(params *GetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycle1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -54,7 +54,7 @@ List stat cycles by pagination.
 Other detail info:
         *  Returns : stat cycles
 */
-func (a *Client) GetStatCyclesShort(params *GetStatCyclesParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCyclesOK, error) {
+func (a *Client) GetStatCyclesShort(params *GetStatCyclesParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCyclesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStatCyclesParams()
@@ -92,13 +92,33 @@ func (a *Client) GetStatCyclesShort(params *GetStatCyclesParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetStatCyclesOK:
-		return v, nil
+		response := &GetStatCyclesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetStatCyclesUnauthorized:
-		return nil, v
+		response := &GetStatCyclesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCyclesForbidden:
-		return nil, v
+		response := &GetStatCyclesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCyclesInternalServerError:
-		return nil, v
+		response := &GetStatCyclesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -121,7 +141,7 @@ Fields:
 Other detail info:
         *  Returns : created stat cycle
 */
-func (a *Client) CreateStatCycleShort(params *CreateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCycleCreated, error) {
+func (a *Client) CreateStatCycleShort(params *CreateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCycleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateStatCycleParams()
@@ -159,19 +179,54 @@ func (a *Client) CreateStatCycleShort(params *CreateStatCycleParams, authInfo ru
 	switch v := result.(type) {
 
 	case *CreateStatCycleCreated:
-		return v, nil
+		response := &CreateStatCycleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateStatCycleBadRequest:
-		return nil, v
+		response := &CreateStatCycleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatCycleUnauthorized:
-		return nil, v
+		response := &CreateStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatCycleForbidden:
-		return nil, v
+		response := &CreateStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatCycleConflict:
-		return nil, v
+		response := &CreateStatCycleResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatCycleUnprocessableEntity:
-		return nil, v
+		response := &CreateStatCycleResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatCycleInternalServerError:
-		return nil, v
+		response := &CreateStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -184,7 +239,7 @@ Bulk get stat cycle.
 Other detail info:
         *  Returns : list of stat cycles
 */
-func (a *Client) BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleOK, error) {
+func (a *Client) BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetStatCycleParams()
@@ -222,17 +277,47 @@ func (a *Client) BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo 
 	switch v := result.(type) {
 
 	case *BulkGetStatCycleOK:
-		return v, nil
+		response := &BulkGetStatCycleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetStatCycleBadRequest:
-		return nil, v
+		response := &BulkGetStatCycleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetStatCycleUnauthorized:
-		return nil, v
+		response := &BulkGetStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetStatCycleForbidden:
-		return nil, v
+		response := &BulkGetStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetStatCycleUnprocessableEntity:
-		return nil, v
+		response := &BulkGetStatCycleResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetStatCycleInternalServerError:
-		return nil, v
+		response := &BulkGetStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -243,7 +328,7 @@ func (a *Client) BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo 
 ExportStatCycleShort export all stat cycle configurations
 Export all stat cycle configurations for a given namespace into file At current, only JSON file is supported.
 */
-func (a *Client) ExportStatCycleShort(params *ExportStatCycleParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStatCycleOK, error) {
+func (a *Client) ExportStatCycleShort(params *ExportStatCycleParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStatCycleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportStatCycleParams()
@@ -281,13 +366,33 @@ func (a *Client) ExportStatCycleShort(params *ExportStatCycleParams, authInfo ru
 	switch v := result.(type) {
 
 	case *ExportStatCycleOK:
-		return v, nil
+		response := &ExportStatCycleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportStatCycleUnauthorized:
-		return nil, v
+		response := &ExportStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportStatCycleForbidden:
-		return nil, v
+		response := &ExportStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportStatCycleInternalServerError:
-		return nil, v
+		response := &ExportStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -298,7 +403,7 @@ func (a *Client) ExportStatCycleShort(params *ExportStatCycleParams, authInfo ru
 ImportStatCycleShort import stat cycle configurations
 Import stat cycle configurations for a given namespace from file. At current, only JSON file is supported.
 */
-func (a *Client) ImportStatCycleShort(params *ImportStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStatCycleCreated, error) {
+func (a *Client) ImportStatCycleShort(params *ImportStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStatCycleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImportStatCycleParams()
@@ -336,15 +441,40 @@ func (a *Client) ImportStatCycleShort(params *ImportStatCycleParams, authInfo ru
 	switch v := result.(type) {
 
 	case *ImportStatCycleCreated:
-		return v, nil
+		response := &ImportStatCycleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImportStatCycleBadRequest:
-		return nil, v
+		response := &ImportStatCycleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStatCycleUnauthorized:
-		return nil, v
+		response := &ImportStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStatCycleForbidden:
-		return nil, v
+		response := &ImportStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStatCycleInternalServerError:
-		return nil, v
+		response := &ImportStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -357,7 +487,7 @@ Get stat cycle.
 Other detail info:
         *  Returns : stat cycle info
 */
-func (a *Client) GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycleOK, error) {
+func (a *Client) GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStatCycleParams()
@@ -395,15 +525,40 @@ func (a *Client) GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetStatCycleOK:
-		return v, nil
+		response := &GetStatCycleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetStatCycleUnauthorized:
-		return nil, v
+		response := &GetStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCycleForbidden:
-		return nil, v
+		response := &GetStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCycleNotFound:
-		return nil, v
+		response := &GetStatCycleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCycleInternalServerError:
-		return nil, v
+		response := &GetStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -416,7 +571,7 @@ Update stat cycle.
 Other detail info:
         *  Returns : updated stat cycle
 */
-func (a *Client) UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatCycleOK, error) {
+func (a *Client) UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatCycleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateStatCycleParams()
@@ -454,21 +609,61 @@ func (a *Client) UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo ru
 	switch v := result.(type) {
 
 	case *UpdateStatCycleOK:
-		return v, nil
+		response := &UpdateStatCycleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateStatCycleBadRequest:
-		return nil, v
+		response := &UpdateStatCycleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatCycleUnauthorized:
-		return nil, v
+		response := &UpdateStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatCycleForbidden:
-		return nil, v
+		response := &UpdateStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatCycleNotFound:
-		return nil, v
+		response := &UpdateStatCycleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatCycleConflict:
-		return nil, v
+		response := &UpdateStatCycleResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatCycleUnprocessableEntity:
-		return nil, v
+		response := &UpdateStatCycleResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatCycleInternalServerError:
-		return nil, v
+		response := &UpdateStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -479,7 +674,7 @@ func (a *Client) UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo ru
 DeleteStatCycleShort deletes stat cycle
 Deletes stat cycle.
 */
-func (a *Client) DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatCycleNoContent, error) {
+func (a *Client) DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatCycleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteStatCycleParams()
@@ -517,15 +712,39 @@ func (a *Client) DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo ru
 	switch v := result.(type) {
 
 	case *DeleteStatCycleNoContent:
-		return v, nil
+		response := &DeleteStatCycleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteStatCycleUnauthorized:
-		return nil, v
+		response := &DeleteStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteStatCycleForbidden:
-		return nil, v
+		response := &DeleteStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteStatCycleNotFound:
-		return nil, v
+		response := &DeleteStatCycleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteStatCycleInternalServerError:
-		return nil, v
+		response := &DeleteStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -536,7 +755,7 @@ func (a *Client) DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo ru
 BulkAddStatsShort bulk add stat cycle to stats
 Bulk add stat cycle to stats.
 */
-func (a *Client) BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAddStatsOK, error) {
+func (a *Client) BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAddStatsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkAddStatsParams()
@@ -574,19 +793,54 @@ func (a *Client) BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *BulkAddStatsOK:
-		return v, nil
+		response := &BulkAddStatsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkAddStatsBadRequest:
-		return nil, v
+		response := &BulkAddStatsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkAddStatsUnauthorized:
-		return nil, v
+		response := &BulkAddStatsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkAddStatsForbidden:
-		return nil, v
+		response := &BulkAddStatsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkAddStatsNotFound:
-		return nil, v
+		response := &BulkAddStatsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkAddStatsUnprocessableEntity:
-		return nil, v
+		response := &BulkAddStatsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkAddStatsInternalServerError:
-		return nil, v
+		response := &BulkAddStatsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -599,7 +853,7 @@ Stop stat cycle.
 Other detail info:
         *  Returns : updated stat cycle
 */
-func (a *Client) StopStatCycleShort(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleOK, error) {
+func (a *Client) StopStatCycleShort(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewStopStatCycleParams()
@@ -637,17 +891,47 @@ func (a *Client) StopStatCycleShort(params *StopStatCycleParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *StopStatCycleOK:
-		return v, nil
+		response := &StopStatCycleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *StopStatCycleUnauthorized:
-		return nil, v
+		response := &StopStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopStatCycleForbidden:
-		return nil, v
+		response := &StopStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopStatCycleNotFound:
-		return nil, v
+		response := &StopStatCycleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopStatCycleConflict:
-		return nil, v
+		response := &StopStatCycleResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopStatCycleInternalServerError:
-		return nil, v
+		response := &StopStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -660,7 +944,7 @@ List stat cycles by pagination.
 Other detail info:
         *  Returns : stat cycles
 */
-func (a *Client) GetStatCycles1Short(params *GetStatCycles1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycles1OK, error) {
+func (a *Client) GetStatCycles1Short(params *GetStatCycles1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycles1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStatCycles1Params()
@@ -698,13 +982,33 @@ func (a *Client) GetStatCycles1Short(params *GetStatCycles1Params, authInfo runt
 	switch v := result.(type) {
 
 	case *GetStatCycles1OK:
-		return v, nil
+		response := &GetStatCycles1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetStatCycles1Unauthorized:
-		return nil, v
+		response := &GetStatCycles1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCycles1Forbidden:
-		return nil, v
+		response := &GetStatCycles1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCycles1InternalServerError:
-		return nil, v
+		response := &GetStatCycles1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -717,7 +1021,7 @@ Bulk get stat cycle.
 Other detail info:
         *  Returns : list of stat cycles
 */
-func (a *Client) BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1OK, error) {
+func (a *Client) BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetStatCycle1Params()
@@ -755,17 +1059,47 @@ func (a *Client) BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInf
 	switch v := result.(type) {
 
 	case *BulkGetStatCycle1OK:
-		return v, nil
+		response := &BulkGetStatCycle1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetStatCycle1BadRequest:
-		return nil, v
+		response := &BulkGetStatCycle1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetStatCycle1Unauthorized:
-		return nil, v
+		response := &BulkGetStatCycle1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetStatCycle1Forbidden:
-		return nil, v
+		response := &BulkGetStatCycle1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetStatCycle1UnprocessableEntity:
-		return nil, v
+		response := &BulkGetStatCycle1Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetStatCycle1InternalServerError:
-		return nil, v
+		response := &BulkGetStatCycle1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -778,7 +1112,7 @@ Get stat cycle.
 Other detail info:
         *  Returns : stat cycle info
 */
-func (a *Client) GetStatCycle1Short(params *GetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycle1OK, error) {
+func (a *Client) GetStatCycle1Short(params *GetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycle1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStatCycle1Params()
@@ -816,15 +1150,40 @@ func (a *Client) GetStatCycle1Short(params *GetStatCycle1Params, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetStatCycle1OK:
-		return v, nil
+		response := &GetStatCycle1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetStatCycle1Unauthorized:
-		return nil, v
+		response := &GetStatCycle1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCycle1Forbidden:
-		return nil, v
+		response := &GetStatCycle1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCycle1NotFound:
-		return nil, v
+		response := &GetStatCycle1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatCycle1InternalServerError:
-		return nil, v
+		response := &GetStatCycle1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

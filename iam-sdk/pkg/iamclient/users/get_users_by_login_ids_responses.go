@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type GetUsersByLoginIdsResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelPublicUsersResponse
+
+	Error400 *iamclientmodels.RestErrorResponse
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 *iamclientmodels.RestErrorResponse
+}
+
+func (m *GetUsersByLoginIdsResponse) Unpack() (*iamclientmodels.ModelPublicUsersResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUsersByLoginIdsReader is a Reader for the GetUsersByLoginIds structure.
 type GetUsersByLoginIdsReader struct {
 	formats strfmt.Registry

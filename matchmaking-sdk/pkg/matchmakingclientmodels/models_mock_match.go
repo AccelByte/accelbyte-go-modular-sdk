@@ -9,6 +9,8 @@ package matchmakingclientmodels
 import (
 	"strconv"
 
+	"fmt"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -374,4 +376,8 @@ func (m *ModelsMockMatch) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+func (m *ModelsMockMatch) TranslateToApiError() (*ApiError, error) {
+	return &ApiError{Code: fmt.Sprint(*m.ErrorCode), Message: *m.ErrorMessage}, nil
 }

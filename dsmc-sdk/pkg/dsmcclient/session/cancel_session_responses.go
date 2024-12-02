@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 )
 
+type CancelSessionResponse struct {
+	dsmcclientmodels.ApiResponse
+
+	Error401 *dsmcclientmodels.ResponseError
+	Error404 *dsmcclientmodels.ResponseError
+	Error422 *dsmcclientmodels.ResponseError
+	Error500 *dsmcclientmodels.ResponseError
+}
+
+func (m *CancelSessionResponse) Unpack() *dsmcclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &dsmcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // CancelSessionReader is a Reader for the CancelSession structure.
 type CancelSessionReader struct {
 	formats strfmt.Registry

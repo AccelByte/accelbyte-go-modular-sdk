@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/platform_account_closure"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PlatformAccountClosureService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PlatformAccountClosureService) GetUserPlatformAccountClosureHistoriesShort(input *platform_account_closure.GetUserPlatformAccountClosureHistoriesParams) ([]*platformclientmodels.PlatformAccountClosureHistoryInfo, error) {
+func (aaa *PlatformAccountClosureService) GetUserPlatformAccountClosureHistoriesShort(input *platform_account_closure.GetUserPlatformAccountClosureHistoriesParams) (*platform_account_closure.GetUserPlatformAccountClosureHistoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *PlatformAccountClosureService) GetUserPlatformAccountClosureHistories
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

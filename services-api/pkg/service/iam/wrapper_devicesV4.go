@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *DevicesV4Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *DevicesV4Service) AdminGetDevicesByUserV4Short(input *devices_v4.AdminGetDevicesByUserV4Params) (*iamclientmodels.ModelDevicesResponseV4, error) {
+func (aaa *DevicesV4Service) AdminGetDevicesByUserV4Short(input *devices_v4.AdminGetDevicesByUserV4Params) (*devices_v4.AdminGetDevicesByUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *DevicesV4Service) AdminGetDevicesByUserV4Short(input *devices_v4.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DevicesV4Service) AdminGetBannedDevicesV4Short(input *devices_v4.AdminGetBannedDevicesV4Params) (*iamclientmodels.ModelDeviceBannedResponseV4, error) {
+func (aaa *DevicesV4Service) AdminGetBannedDevicesV4Short(input *devices_v4.AdminGetBannedDevicesV4Params) (*devices_v4.AdminGetBannedDevicesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *DevicesV4Service) AdminGetBannedDevicesV4Short(input *devices_v4.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DevicesV4Service) AdminGetUserDeviceBansV4Short(input *devices_v4.AdminGetUserDeviceBansV4Params) (*iamclientmodels.ModelDeviceBansResponseV4, error) {
+func (aaa *DevicesV4Service) AdminGetUserDeviceBansV4Short(input *devices_v4.AdminGetUserDeviceBansV4Params) (*devices_v4.AdminGetUserDeviceBansV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *DevicesV4Service) AdminGetUserDeviceBansV4Short(input *devices_v4.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *DevicesV4Service) AdminBanDeviceV4Short(input *devices_v4.AdminBanDeviceV4Params) error {
@@ -159,7 +158,7 @@ func (aaa *DevicesV4Service) AdminBanDeviceV4Short(input *devices_v4.AdminBanDev
 	return nil
 }
 
-func (aaa *DevicesV4Service) AdminGetDeviceBanV4Short(input *devices_v4.AdminGetDeviceBanV4Params) (*iamclientmodels.ModelDeviceBanResponseV4, error) {
+func (aaa *DevicesV4Service) AdminGetDeviceBanV4Short(input *devices_v4.AdminGetDeviceBanV4Params) (*devices_v4.AdminGetDeviceBanV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *DevicesV4Service) AdminGetDeviceBanV4Short(input *devices_v4.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *DevicesV4Service) AdminUpdateDeviceBanV4Short(input *devices_v4.AdminUpdateDeviceBanV4Params) error {
@@ -249,7 +248,7 @@ func (aaa *DevicesV4Service) AdminGenerateReportV4Short(input *devices_v4.AdminG
 	return nil
 }
 
-func (aaa *DevicesV4Service) AdminGetDeviceTypesV4Short(input *devices_v4.AdminGetDeviceTypesV4Params) (*iamclientmodels.ModelDeviceTypesResponseV4, error) {
+func (aaa *DevicesV4Service) AdminGetDeviceTypesV4Short(input *devices_v4.AdminGetDeviceTypesV4Params) (*devices_v4.AdminGetDeviceTypesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *DevicesV4Service) AdminGetDeviceTypesV4Short(input *devices_v4.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DevicesV4Service) AdminGetDeviceBansV4Short(input *devices_v4.AdminGetDeviceBansV4Params) (*iamclientmodels.ModelDeviceBansResponseV4, error) {
+func (aaa *DevicesV4Service) AdminGetDeviceBansV4Short(input *devices_v4.AdminGetDeviceBansV4Params) (*devices_v4.AdminGetDeviceBansV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *DevicesV4Service) AdminGetDeviceBansV4Short(input *devices_v4.AdminGe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DevicesV4Service) AdminDecryptDeviceV4Short(input *devices_v4.AdminDecryptDeviceV4Params) (*iamclientmodels.ModelDeviceIDDecryptResponseV4, error) {
+func (aaa *DevicesV4Service) AdminDecryptDeviceV4Short(input *devices_v4.AdminDecryptDeviceV4Params) (*devices_v4.AdminDecryptDeviceV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,7 +335,7 @@ func (aaa *DevicesV4Service) AdminDecryptDeviceV4Short(input *devices_v4.AdminDe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *DevicesV4Service) AdminUnbanDeviceV4Short(input *devices_v4.AdminUnbanDeviceV4Params) error {
@@ -369,7 +368,7 @@ func (aaa *DevicesV4Service) AdminUnbanDeviceV4Short(input *devices_v4.AdminUnba
 	return nil
 }
 
-func (aaa *DevicesV4Service) AdminGetUsersByDeviceV4Short(input *devices_v4.AdminGetUsersByDeviceV4Params) (*iamclientmodels.ModelDeviceUsersResponseV4, error) {
+func (aaa *DevicesV4Service) AdminGetUsersByDeviceV4Short(input *devices_v4.AdminGetUsersByDeviceV4Params) (*devices_v4.AdminGetUsersByDeviceV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,5 +395,5 @@ func (aaa *DevicesV4Service) AdminGetUsersByDeviceV4Short(input *devices_v4.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_items"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminItemsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminItemsService) AdminListItemsShort(input *admin_items.AdminListItemsParams) (*inventoryclientmodels.ApimodelsListItemResp, error) {
+func (aaa *AdminItemsService) AdminListItemsShort(input *admin_items.AdminListItemsParams) (*admin_items.AdminListItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminItemsService) AdminListItemsShort(input *admin_items.AdminListIt
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemsService) AdminGetInventoryItemShort(input *admin_items.AdminGetInventoryItemParams) (*inventoryclientmodels.ApimodelsItemResp, error) {
+func (aaa *AdminItemsService) AdminGetInventoryItemShort(input *admin_items.AdminGetInventoryItemParams) (*admin_items.AdminGetInventoryItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminItemsService) AdminGetInventoryItemShort(input *admin_items.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemsService) AdminConsumeUserItemShort(input *admin_items.AdminConsumeUserItemParams) (*inventoryclientmodels.ApimodelsItemResp, error) {
+func (aaa *AdminItemsService) AdminConsumeUserItemShort(input *admin_items.AdminConsumeUserItemParams) (*admin_items.AdminConsumeUserItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *AdminItemsService) AdminConsumeUserItemShort(input *admin_items.Admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemsService) AdminBulkUpdateMyItemsShort(input *admin_items.AdminBulkUpdateMyItemsParams) ([]*inventoryclientmodels.ApimodelsUpdateItemResp, error) {
+func (aaa *AdminItemsService) AdminBulkUpdateMyItemsShort(input *admin_items.AdminBulkUpdateMyItemsParams) (*admin_items.AdminBulkUpdateMyItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *AdminItemsService) AdminBulkUpdateMyItemsShort(input *admin_items.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemsService) AdminSaveItemToInventoryShort(input *admin_items.AdminSaveItemToInventoryParams) (*inventoryclientmodels.ApimodelsItemResp, error) {
+func (aaa *AdminItemsService) AdminSaveItemToInventoryShort(input *admin_items.AdminSaveItemToInventoryParams) (*admin_items.AdminSaveItemToInventoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *AdminItemsService) AdminSaveItemToInventoryShort(input *admin_items.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemsService) AdminBulkRemoveItemsShort(input *admin_items.AdminBulkRemoveItemsParams) ([]*inventoryclientmodels.ApimodelsUpdateItemResp, error) {
+func (aaa *AdminItemsService) AdminBulkRemoveItemsShort(input *admin_items.AdminBulkRemoveItemsParams) (*admin_items.AdminBulkRemoveItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *AdminItemsService) AdminBulkRemoveItemsShort(input *admin_items.Admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemsService) AdminBulkSaveItemToInventoryShort(input *admin_items.AdminBulkSaveItemToInventoryParams) ([]*inventoryclientmodels.ApimodelsBulkSaveItemResp, error) {
+func (aaa *AdminItemsService) AdminBulkSaveItemToInventoryShort(input *admin_items.AdminBulkSaveItemToInventoryParams) (*admin_items.AdminBulkSaveItemToInventoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *AdminItemsService) AdminBulkSaveItemToInventoryShort(input *admin_ite
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemsService) AdminSaveItemShort(input *admin_items.AdminSaveItemParams) (*inventoryclientmodels.ApimodelsItemResp, error) {
+func (aaa *AdminItemsService) AdminSaveItemShort(input *admin_items.AdminSaveItemParams) (*admin_items.AdminSaveItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *AdminItemsService) AdminSaveItemShort(input *admin_items.AdminSaveIte
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemsService) AdminBulkSaveItemShort(input *admin_items.AdminBulkSaveItemParams) ([]*inventoryclientmodels.ApimodelsBulkSaveItemResp, error) {
+func (aaa *AdminItemsService) AdminBulkSaveItemShort(input *admin_items.AdminBulkSaveItemParams) (*admin_items.AdminBulkSaveItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,7 +303,7 @@ func (aaa *AdminItemsService) AdminBulkSaveItemShort(input *admin_items.AdminBul
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminItemsService) AdminSyncUserEntitlementsShort(input *admin_items.AdminSyncUserEntitlementsParams) error {

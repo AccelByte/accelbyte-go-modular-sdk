@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	InfoRegionsShort(params *InfoRegionsParams, authInfo runtime.ClientAuthInfoWriter) (*InfoRegionsOK, error)
-	InfoSupportedInstancesShort(params *InfoSupportedInstancesParams, authInfo runtime.ClientAuthInfoWriter) (*InfoSupportedInstancesOK, error)
-	UploadURLGetShort(params *UploadURLGetParams, authInfo runtime.ClientAuthInfoWriter) (*UploadURLGetOK, error)
+	InfoRegionsShort(params *InfoRegionsParams, authInfo runtime.ClientAuthInfoWriter) (*InfoRegionsResponse, error)
+	InfoSupportedInstancesShort(params *InfoSupportedInstancesParams, authInfo runtime.ClientAuthInfoWriter) (*InfoSupportedInstancesResponse, error)
+	UploadURLGetShort(params *UploadURLGetParams, authInfo runtime.ClientAuthInfoWriter) (*UploadURLGetResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 InfoRegionsShort get a list of the available ams regions
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA [READ]
 */
-func (a *Client) InfoRegionsShort(params *InfoRegionsParams, authInfo runtime.ClientAuthInfoWriter) (*InfoRegionsOK, error) {
+func (a *Client) InfoRegionsShort(params *InfoRegionsParams, authInfo runtime.ClientAuthInfoWriter) (*InfoRegionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewInfoRegionsParams()
@@ -79,13 +79,33 @@ func (a *Client) InfoRegionsShort(params *InfoRegionsParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *InfoRegionsOK:
-		return v, nil
+		response := &InfoRegionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *InfoRegionsUnauthorized:
-		return nil, v
+		response := &InfoRegionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InfoRegionsForbidden:
-		return nil, v
+		response := &InfoRegionsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InfoRegionsInternalServerError:
-		return nil, v
+		response := &InfoRegionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -96,7 +116,7 @@ func (a *Client) InfoRegionsShort(params *InfoRegionsParams, authInfo runtime.Cl
 InfoSupportedInstancesShort get a list of available vm configurations
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA [READ]
 */
-func (a *Client) InfoSupportedInstancesShort(params *InfoSupportedInstancesParams, authInfo runtime.ClientAuthInfoWriter) (*InfoSupportedInstancesOK, error) {
+func (a *Client) InfoSupportedInstancesShort(params *InfoSupportedInstancesParams, authInfo runtime.ClientAuthInfoWriter) (*InfoSupportedInstancesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewInfoSupportedInstancesParams()
@@ -134,13 +154,33 @@ func (a *Client) InfoSupportedInstancesShort(params *InfoSupportedInstancesParam
 	switch v := result.(type) {
 
 	case *InfoSupportedInstancesOK:
-		return v, nil
+		response := &InfoSupportedInstancesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *InfoSupportedInstancesUnauthorized:
-		return nil, v
+		response := &InfoSupportedInstancesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InfoSupportedInstancesForbidden:
-		return nil, v
+		response := &InfoSupportedInstancesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InfoSupportedInstancesInternalServerError:
-		return nil, v
+		response := &InfoSupportedInstancesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -150,7 +190,7 @@ func (a *Client) InfoSupportedInstancesShort(params *InfoSupportedInstancesParam
 /*
 UploadURLGetShort get an url for uploading an image
 */
-func (a *Client) UploadURLGetShort(params *UploadURLGetParams, authInfo runtime.ClientAuthInfoWriter) (*UploadURLGetOK, error) {
+func (a *Client) UploadURLGetShort(params *UploadURLGetParams, authInfo runtime.ClientAuthInfoWriter) (*UploadURLGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadURLGetParams()
@@ -188,7 +228,11 @@ func (a *Client) UploadURLGetShort(params *UploadURLGetParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UploadURLGetOK:
-		return v, nil
+		response := &UploadURLGetResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

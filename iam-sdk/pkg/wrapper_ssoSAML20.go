@@ -63,5 +63,5 @@ func (aaa *SSOSAML20Service) PlatformAuthenticateSAMLV3HandlerShort(input *sso_s
 		return "", err
 	}
 
-	return found.Location, nil
+	return found.Data, nil
 }

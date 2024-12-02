@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminEvaluateProgressShort(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressNoContent, error)
-	AdminGetUserProgressionShort(params *AdminGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProgressionOK, error)
-	EvaluateMyProgressShort(params *EvaluateMyProgressParams, authInfo runtime.ClientAuthInfoWriter) (*EvaluateMyProgressNoContent, error)
-	PublicGetUserProgressionShort(params *PublicGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProgressionOK, error)
-	PublicGetPastUserProgressionShort(params *PublicGetPastUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPastUserProgressionOK, error)
+	AdminEvaluateProgressShort(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressResponse, error)
+	AdminGetUserProgressionShort(params *AdminGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProgressionResponse, error)
+	EvaluateMyProgressShort(params *EvaluateMyProgressParams, authInfo runtime.ClientAuthInfoWriter) (*EvaluateMyProgressResponse, error)
+	PublicGetUserProgressionShort(params *PublicGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProgressionResponse, error)
+	PublicGetPastUserProgressionShort(params *PublicGetPastUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPastUserProgressionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ AdminEvaluateProgressShort evaluate user's progressions
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
     * Limited up to 10 users per request
 */
-func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressNoContent, error) {
+func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminEvaluateProgressParams()
@@ -83,17 +83,46 @@ func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams,
 	switch v := result.(type) {
 
 	case *AdminEvaluateProgressNoContent:
-		return v, nil
+		response := &AdminEvaluateProgressResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminEvaluateProgressBadRequest:
-		return nil, v
+		response := &AdminEvaluateProgressResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEvaluateProgressUnauthorized:
-		return nil, v
+		response := &AdminEvaluateProgressResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEvaluateProgressForbidden:
-		return nil, v
+		response := &AdminEvaluateProgressResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEvaluateProgressNotFound:
-		return nil, v
+		response := &AdminEvaluateProgressResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEvaluateProgressInternalServerError:
-		return nil, v
+		response := &AdminEvaluateProgressResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +134,7 @@ AdminGetUserProgressionShort list user's progressions
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
 */
-func (a *Client) AdminGetUserProgressionShort(params *AdminGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProgressionOK, error) {
+func (a *Client) AdminGetUserProgressionShort(params *AdminGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProgressionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserProgressionParams()
@@ -143,19 +172,54 @@ func (a *Client) AdminGetUserProgressionShort(params *AdminGetUserProgressionPar
 	switch v := result.(type) {
 
 	case *AdminGetUserProgressionOK:
-		return v, nil
+		response := &AdminGetUserProgressionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserProgressionBadRequest:
-		return nil, v
+		response := &AdminGetUserProgressionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserProgressionUnauthorized:
-		return nil, v
+		response := &AdminGetUserProgressionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserProgressionForbidden:
-		return nil, v
+		response := &AdminGetUserProgressionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserProgressionNotFound:
-		return nil, v
+		response := &AdminGetUserProgressionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserProgressionUnprocessableEntity:
-		return nil, v
+		response := &AdminGetUserProgressionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserProgressionInternalServerError:
-		return nil, v
+		response := &AdminGetUserProgressionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,7 +231,7 @@ EvaluateMyProgressShort evaluate user's challenge progressions
 
     * Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
 */
-func (a *Client) EvaluateMyProgressShort(params *EvaluateMyProgressParams, authInfo runtime.ClientAuthInfoWriter) (*EvaluateMyProgressNoContent, error) {
+func (a *Client) EvaluateMyProgressShort(params *EvaluateMyProgressParams, authInfo runtime.ClientAuthInfoWriter) (*EvaluateMyProgressResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEvaluateMyProgressParams()
@@ -205,13 +269,32 @@ func (a *Client) EvaluateMyProgressShort(params *EvaluateMyProgressParams, authI
 	switch v := result.(type) {
 
 	case *EvaluateMyProgressNoContent:
-		return v, nil
+		response := &EvaluateMyProgressResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *EvaluateMyProgressUnauthorized:
-		return nil, v
+		response := &EvaluateMyProgressResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EvaluateMyProgressForbidden:
-		return nil, v
+		response := &EvaluateMyProgressResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EvaluateMyProgressInternalServerError:
-		return nil, v
+		response := &EvaluateMyProgressResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -223,7 +306,7 @@ PublicGetUserProgressionShort list user's progressions
 
     * Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
 */
-func (a *Client) PublicGetUserProgressionShort(params *PublicGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProgressionOK, error) {
+func (a *Client) PublicGetUserProgressionShort(params *PublicGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProgressionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserProgressionParams()
@@ -261,19 +344,54 @@ func (a *Client) PublicGetUserProgressionShort(params *PublicGetUserProgressionP
 	switch v := result.(type) {
 
 	case *PublicGetUserProgressionOK:
-		return v, nil
+		response := &PublicGetUserProgressionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserProgressionBadRequest:
-		return nil, v
+		response := &PublicGetUserProgressionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProgressionUnauthorized:
-		return nil, v
+		response := &PublicGetUserProgressionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProgressionForbidden:
-		return nil, v
+		response := &PublicGetUserProgressionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProgressionNotFound:
-		return nil, v
+		response := &PublicGetUserProgressionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProgressionUnprocessableEntity:
-		return nil, v
+		response := &PublicGetUserProgressionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProgressionInternalServerError:
-		return nil, v
+		response := &PublicGetUserProgressionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -285,7 +403,7 @@ PublicGetPastUserProgressionShort list user's progressions in the previous rotat
 
     * Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
 */
-func (a *Client) PublicGetPastUserProgressionShort(params *PublicGetPastUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPastUserProgressionOK, error) {
+func (a *Client) PublicGetPastUserProgressionShort(params *PublicGetPastUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPastUserProgressionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPastUserProgressionParams()
@@ -323,17 +441,47 @@ func (a *Client) PublicGetPastUserProgressionShort(params *PublicGetPastUserProg
 	switch v := result.(type) {
 
 	case *PublicGetPastUserProgressionOK:
-		return v, nil
+		response := &PublicGetPastUserProgressionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPastUserProgressionBadRequest:
-		return nil, v
+		response := &PublicGetPastUserProgressionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPastUserProgressionUnauthorized:
-		return nil, v
+		response := &PublicGetPastUserProgressionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPastUserProgressionForbidden:
-		return nil, v
+		response := &PublicGetPastUserProgressionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPastUserProgressionNotFound:
-		return nil, v
+		response := &PublicGetPastUserProgressionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPastUserProgressionInternalServerError:
-		return nil, v
+		response := &PublicGetPastUserProgressionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

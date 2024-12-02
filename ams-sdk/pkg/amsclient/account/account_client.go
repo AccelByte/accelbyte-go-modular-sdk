@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminAccountGetShort(params *AdminAccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountGetOK, error)
-	AdminAccountCreateShort(params *AdminAccountCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountCreateCreated, error)
-	AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkTokenGetOK, error)
-	AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkCreated, error)
-	AccountGetShort(params *AccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AccountGetOK, error)
+	AdminAccountGetShort(params *AdminAccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountGetResponse, error)
+	AdminAccountCreateShort(params *AdminAccountCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountCreateResponse, error)
+	AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkTokenGetResponse, error)
+	AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkResponse, error)
+	AccountGetShort(params *AccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AccountGetResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 AdminAccountGetShort get the account associated with the namespace
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]
 */
-func (a *Client) AdminAccountGetShort(params *AdminAccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountGetOK, error) {
+func (a *Client) AdminAccountGetShort(params *AdminAccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAccountGetParams()
@@ -81,15 +81,40 @@ func (a *Client) AdminAccountGetShort(params *AdminAccountGetParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminAccountGetOK:
-		return v, nil
+		response := &AdminAccountGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAccountGetUnauthorized:
-		return nil, v
+		response := &AdminAccountGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountGetForbidden:
-		return nil, v
+		response := &AdminAccountGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountGetNotFound:
-		return nil, v
+		response := &AdminAccountGetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountGetInternalServerError:
-		return nil, v
+		response := &AdminAccountGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +125,7 @@ func (a *Client) AdminAccountGetShort(params *AdminAccountGetParams, authInfo ru
 AdminAccountCreateShort create a new ams account
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
 */
-func (a *Client) AdminAccountCreateShort(params *AdminAccountCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountCreateCreated, error) {
+func (a *Client) AdminAccountCreateShort(params *AdminAccountCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountCreateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAccountCreateParams()
@@ -138,13 +163,33 @@ func (a *Client) AdminAccountCreateShort(params *AdminAccountCreateParams, authI
 	switch v := result.(type) {
 
 	case *AdminAccountCreateCreated:
-		return v, nil
+		response := &AdminAccountCreateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAccountCreateUnauthorized:
-		return nil, v
+		response := &AdminAccountCreateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountCreateForbidden:
-		return nil, v
+		response := &AdminAccountCreateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountCreateInternalServerError:
-		return nil, v
+		response := &AdminAccountCreateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -157,7 +202,7 @@ The link token returned can be used to connect another namespace to the account 
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]
 */
-func (a *Client) AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkTokenGetOK, error) {
+func (a *Client) AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkTokenGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAccountLinkTokenGetParams()
@@ -195,15 +240,40 @@ func (a *Client) AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetP
 	switch v := result.(type) {
 
 	case *AdminAccountLinkTokenGetOK:
-		return v, nil
+		response := &AdminAccountLinkTokenGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAccountLinkTokenGetUnauthorized:
-		return nil, v
+		response := &AdminAccountLinkTokenGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountLinkTokenGetForbidden:
-		return nil, v
+		response := &AdminAccountLinkTokenGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountLinkTokenGetNotFound:
-		return nil, v
+		response := &AdminAccountLinkTokenGetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountLinkTokenGetInternalServerError:
-		return nil, v
+		response := &AdminAccountLinkTokenGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,7 +286,7 @@ This route will attempt to register the account to namespace linkage in AMS and 
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
 */
-func (a *Client) AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkCreated, error) {
+func (a *Client) AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAccountLinkResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAccountLinkParams()
@@ -254,13 +324,33 @@ func (a *Client) AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminAccountLinkCreated:
-		return v, nil
+		response := &AdminAccountLinkResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAccountLinkUnauthorized:
-		return nil, v
+		response := &AdminAccountLinkResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountLinkForbidden:
-		return nil, v
+		response := &AdminAccountLinkResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAccountLinkInternalServerError:
-		return nil, v
+		response := &AdminAccountLinkResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -271,7 +361,7 @@ func (a *Client) AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo 
 AccountGetShort get the account associated with the namespace
 Required Permission: NAMESPACE:{namespace}:AMS:ACCOUNT [READ]
 */
-func (a *Client) AccountGetShort(params *AccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AccountGetOK, error) {
+func (a *Client) AccountGetShort(params *AccountGetParams, authInfo runtime.ClientAuthInfoWriter) (*AccountGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAccountGetParams()
@@ -309,15 +399,40 @@ func (a *Client) AccountGetShort(params *AccountGetParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *AccountGetOK:
-		return v, nil
+		response := &AccountGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AccountGetUnauthorized:
-		return nil, v
+		response := &AccountGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AccountGetForbidden:
-		return nil, v
+		response := &AccountGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AccountGetNotFound:
-		return nil, v
+		response := &AccountGetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AccountGetInternalServerError:
-		return nil, v
+		response := &AccountGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

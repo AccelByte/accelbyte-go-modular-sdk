@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AuthorizationShort(params *AuthorizationParams, authInfo runtime.ClientAuthInfoWriter) (*AuthorizationFound, error)
-	GetJWKSShort(params *GetJWKSParams, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSOK, error)
-	PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRequestHandlerOK, error)
-	RevokeUserShort(params *RevokeUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserOK, error)
-	GetRevocationListShort(params *GetRevocationListParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListOK, error)
-	RevokeTokenShort(params *RevokeTokenParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeTokenOK, error)
-	RevokeAUserShort(params *RevokeAUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAUserOK, error)
-	TokenGrantShort(params *TokenGrantParams, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantOK, error)
-	VerifyTokenShort(params *VerifyTokenParams, authInfo runtime.ClientAuthInfoWriter) (*VerifyTokenOK, error)
+	AuthorizationShort(params *AuthorizationParams, authInfo runtime.ClientAuthInfoWriter) (*AuthorizationResponse, error)
+	GetJWKSShort(params *GetJWKSParams, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSResponse, error)
+	PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRequestHandlerResponse, error)
+	RevokeUserShort(params *RevokeUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserResponse, error)
+	GetRevocationListShort(params *GetRevocationListParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListResponse, error)
+	RevokeTokenShort(params *RevokeTokenParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeTokenResponse, error)
+	RevokeAUserShort(params *RevokeAUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAUserResponse, error)
+	TokenGrantShort(params *TokenGrantParams, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantResponse, error)
+	VerifyTokenShort(params *VerifyTokenParams, authInfo runtime.ClientAuthInfoWriter) (*VerifyTokenResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -69,7 +69,7 @@ step2: /iam/v3/token/exchange [POST] => get token by step1's code
 1. V3 is standard OAuth2 flow and support PKCE
 2. Will not support implicit flow in v3.
 */
-func (a *Client) AuthorizationShort(params *AuthorizationParams, authInfo runtime.ClientAuthInfoWriter) (*AuthorizationFound, error) {
+func (a *Client) AuthorizationShort(params *AuthorizationParams, authInfo runtime.ClientAuthInfoWriter) (*AuthorizationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthorizationParams()
@@ -107,7 +107,12 @@ func (a *Client) AuthorizationShort(params *AuthorizationParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *AuthorizationFound:
-		return v, nil
+		response := &AuthorizationResponse{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -131,7 +136,7 @@ Please refer to the RFC for more information about JWK (JSON Web Key): https://t
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/oauth/jwks [GET]_**
 */
-func (a *Client) GetJWKSShort(params *GetJWKSParams, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSOK, error) {
+func (a *Client) GetJWKSShort(params *GetJWKSParams, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetJWKSParams()
@@ -169,7 +174,12 @@ func (a *Client) GetJWKSShort(params *GetJWKSParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *GetJWKSOK:
-		return v, nil
+		response := &GetJWKSResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -191,7 +201,7 @@ The JWT contains user's active bans with its expiry date. List of ban types can 
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/oauth/platforms/{platformId}/token [POST]_**
 */
-func (a *Client) PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRequestHandlerOK, error) {
+func (a *Client) PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRequestHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformTokenRequestHandlerParams()
@@ -229,11 +239,26 @@ func (a *Client) PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHa
 	switch v := result.(type) {
 
 	case *PlatformTokenRequestHandlerOK:
-		return v, nil
+		response := &PlatformTokenRequestHandlerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformTokenRequestHandlerBadRequest:
-		return nil, v
+		response := &PlatformTokenRequestHandlerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenRequestHandlerUnauthorized:
-		return nil, v
+		response := &PlatformTokenRequestHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -249,7 +274,7 @@ The endpoint revokes all access tokens and refresh tokens a user has prior the r
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/oauth/admin/namespaces/{namespace}/users/{userId}/revoke [POST]_**
 */
-func (a *Client) RevokeUserShort(params *RevokeUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserOK, error) {
+func (a *Client) RevokeUserShort(params *RevokeUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeUserParams()
@@ -287,9 +312,17 @@ func (a *Client) RevokeUserShort(params *RevokeUserParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *RevokeUserOK:
-		return v, nil
+		response := &RevokeUserResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeUserUnauthorized:
-		return nil, v
+		response := &RevokeUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -305,7 +338,7 @@ The bloom filter uses MurmurHash3 algorithm for hashing the values
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/oauth/revocationlist [GET]_**
 */
-func (a *Client) GetRevocationListShort(params *GetRevocationListParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListOK, error) {
+func (a *Client) GetRevocationListShort(params *GetRevocationListParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRevocationListParams()
@@ -343,9 +376,18 @@ func (a *Client) GetRevocationListShort(params *GetRevocationListParams, authInf
 	switch v := result.(type) {
 
 	case *GetRevocationListOK:
-		return v, nil
+		response := &GetRevocationListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRevocationListUnauthorized:
-		return nil, v
+		response := &GetRevocationListResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -361,7 +403,7 @@ This endpoint requires all requests to have Authorization header set with Basic 
 ### Endpoint migration guide
 - **Substitute endpoint: _/v3/oauth/revoke [POST]_**
 */
-func (a *Client) RevokeTokenShort(params *RevokeTokenParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeTokenOK, error) {
+func (a *Client) RevokeTokenShort(params *RevokeTokenParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeTokenResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeTokenParams()
@@ -399,11 +441,23 @@ func (a *Client) RevokeTokenShort(params *RevokeTokenParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *RevokeTokenOK:
-		return v, nil
+		response := &RevokeTokenResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeTokenBadRequest:
-		return nil, v
+		response := &RevokeTokenResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RevokeTokenUnauthorized:
-		return nil, v
+		response := &RevokeTokenResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -420,7 +474,7 @@ When other clients know that the userID has been revoked and the token is issued
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/oauth/admin/namespaces/{namespace}/users/{userId}/revoke [POST]_**
 */
-func (a *Client) RevokeAUserShort(params *RevokeAUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAUserOK, error) {
+func (a *Client) RevokeAUserShort(params *RevokeAUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeAUserParams()
@@ -458,11 +512,23 @@ func (a *Client) RevokeAUserShort(params *RevokeAUserParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *RevokeAUserOK:
-		return v, nil
+		response := &RevokeAUserResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeAUserBadRequest:
-		return nil, v
+		response := &RevokeAUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RevokeAUserUnauthorized:
-		return nil, v
+		response := &RevokeAUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -546,7 +612,7 @@ The JWT contains user's active bans with its expiry date. List of ban types can 
 This endpoint will track login history to detect suspicious login activity, please provide "device_id" (alphanumeric) in request header parameter otherwise we will set to "unknown".
 Align with General Data Protection Regulation in Europe, user login history will be kept within 28 days by default"
 */
-func (a *Client) TokenGrantShort(params *TokenGrantParams, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantOK, error) {
+func (a *Client) TokenGrantShort(params *TokenGrantParams, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokenGrantParams()
@@ -584,11 +650,26 @@ func (a *Client) TokenGrantShort(params *TokenGrantParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *TokenGrantOK:
-		return v, nil
+		response := &TokenGrantResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TokenGrantBadRequest:
-		return nil, v
+		response := &TokenGrantResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenGrantUnauthorized:
-		return nil, v
+		response := &TokenGrantResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -604,7 +685,7 @@ This endpoint requires all requests to have Authorization header set with Basic 
 - **Note: difference in V3 response:**
 1. format differenceï¼Pascal case => Camel case): permissions field from Action => action, Resource => resource
 */
-func (a *Client) VerifyTokenShort(params *VerifyTokenParams, authInfo runtime.ClientAuthInfoWriter) (*VerifyTokenOK, error) {
+func (a *Client) VerifyTokenShort(params *VerifyTokenParams, authInfo runtime.ClientAuthInfoWriter) (*VerifyTokenResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewVerifyTokenParams()
@@ -642,9 +723,18 @@ func (a *Client) VerifyTokenShort(params *VerifyTokenParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *VerifyTokenOK:
-		return v, nil
+		response := &VerifyTokenResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *VerifyTokenBadRequest:
-		return nil, v
+		response := &VerifyTokenResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

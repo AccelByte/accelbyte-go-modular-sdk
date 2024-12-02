@@ -30,22 +30,22 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminRetrieveUserThirdPartyPlatformTokenV3Short(params *AdminRetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveUserThirdPartyPlatformTokenV3OK, error)
-	RevokeUserV3Short(params *RevokeUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserV3NoContent, error)
-	AuthorizeV3Short(params *AuthorizeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthorizeV3Found, error)
-	TokenIntrospectionV3Short(params *TokenIntrospectionV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenIntrospectionV3OK, error)
-	GetJWKSV3Short(params *GetJWKSV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSV3OK, error)
-	SendMFAAuthenticationCodeShort(params *SendMFAAuthenticationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendMFAAuthenticationCodeNoContent, error)
-	Change2FAMethodShort(params *Change2FAMethodParams, authInfo runtime.ClientAuthInfoWriter) (*Change2FAMethodNoContent, error)
-	Verify2FACodeShort(params *Verify2FACodeParams, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeOK, error)
-	RetrieveUserThirdPartyPlatformTokenV3Short(params *RetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserThirdPartyPlatformTokenV3OK, error)
-	AuthCodeRequestV3Short(params *AuthCodeRequestV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthCodeRequestV3Found, error)
-	PlatformTokenGrantV3Short(params *PlatformTokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV3OK, error)
-	GetRevocationListV3Short(params *GetRevocationListV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListV3OK, error)
-	TokenRevocationV3Short(params *TokenRevocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenRevocationV3OK, error)
-	SimultaneousLoginV3Short(params *SimultaneousLoginV3Params, authInfo runtime.ClientAuthInfoWriter) (*SimultaneousLoginV3OK, error)
-	TokenGrantV3Short(params *TokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantV3OK, error)
-	VerifyTokenV3Short(params *VerifyTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*VerifyTokenV3OK, error)
+	AdminRetrieveUserThirdPartyPlatformTokenV3Short(params *AdminRetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveUserThirdPartyPlatformTokenV3Response, error)
+	RevokeUserV3Short(params *RevokeUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserV3Response, error)
+	AuthorizeV3Short(params *AuthorizeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthorizeV3Response, error)
+	TokenIntrospectionV3Short(params *TokenIntrospectionV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenIntrospectionV3Response, error)
+	GetJWKSV3Short(params *GetJWKSV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSV3Response, error)
+	SendMFAAuthenticationCodeShort(params *SendMFAAuthenticationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendMFAAuthenticationCodeResponse, error)
+	Change2FAMethodShort(params *Change2FAMethodParams, authInfo runtime.ClientAuthInfoWriter) (*Change2FAMethodResponse, error)
+	Verify2FACodeShort(params *Verify2FACodeParams, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeResponse, error)
+	RetrieveUserThirdPartyPlatformTokenV3Short(params *RetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserThirdPartyPlatformTokenV3Response, error)
+	AuthCodeRequestV3Short(params *AuthCodeRequestV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthCodeRequestV3Response, error)
+	PlatformTokenGrantV3Short(params *PlatformTokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV3Response, error)
+	GetRevocationListV3Short(params *GetRevocationListV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListV3Response, error)
+	TokenRevocationV3Short(params *TokenRevocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenRevocationV3Response, error)
+	SimultaneousLoginV3Short(params *SimultaneousLoginV3Params, authInfo runtime.ClientAuthInfoWriter) (*SimultaneousLoginV3Response, error)
+	TokenGrantV3Short(params *TokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantV3Response, error)
+	VerifyTokenV3Short(params *VerifyTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*VerifyTokenV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -72,7 +72,7 @@ The third party platform and platform group covered for this is:
 - twitch
 - live
 */
-func (a *Client) AdminRetrieveUserThirdPartyPlatformTokenV3Short(params *AdminRetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveUserThirdPartyPlatformTokenV3OK, error) {
+func (a *Client) AdminRetrieveUserThirdPartyPlatformTokenV3Short(params *AdminRetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrieveUserThirdPartyPlatformTokenV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRetrieveUserThirdPartyPlatformTokenV3Params()
@@ -110,13 +110,33 @@ func (a *Client) AdminRetrieveUserThirdPartyPlatformTokenV3Short(params *AdminRe
 	switch v := result.(type) {
 
 	case *AdminRetrieveUserThirdPartyPlatformTokenV3OK:
-		return v, nil
+		response := &AdminRetrieveUserThirdPartyPlatformTokenV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRetrieveUserThirdPartyPlatformTokenV3Unauthorized:
-		return nil, v
+		response := &AdminRetrieveUserThirdPartyPlatformTokenV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRetrieveUserThirdPartyPlatformTokenV3Forbidden:
-		return nil, v
+		response := &AdminRetrieveUserThirdPartyPlatformTokenV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRetrieveUserThirdPartyPlatformTokenV3NotFound:
-		return nil, v
+		response := &AdminRetrieveUserThirdPartyPlatformTokenV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -130,7 +150,7 @@ This endpoint requires authorized requests header with valid access token.
 It is a convenient feature for the developer (or admin) who wanted to revokes all user's access tokens and refresh tokens generated before some period of time.
 action code : 10707
 */
-func (a *Client) RevokeUserV3Short(params *RevokeUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserV3NoContent, error) {
+func (a *Client) RevokeUserV3Short(params *RevokeUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeUserV3Params()
@@ -168,13 +188,32 @@ func (a *Client) RevokeUserV3Short(params *RevokeUserV3Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *RevokeUserV3NoContent:
-		return v, nil
+		response := &RevokeUserV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeUserV3BadRequest:
-		return nil, v
+		response := &RevokeUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RevokeUserV3Unauthorized:
-		return nil, v
+		response := &RevokeUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RevokeUserV3Forbidden:
-		return nil, v
+		response := &RevokeUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -212,7 +251,7 @@ due to a temporary overloading or maintenance of the server.
 Please refer to the RFC for more information about authorization code flow: https://tools.ietf.org/html/rfc6749#section-4.1
 action code: 10701
 */
-func (a *Client) AuthorizeV3Short(params *AuthorizeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthorizeV3Found, error) {
+func (a *Client) AuthorizeV3Short(params *AuthorizeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthorizeV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthorizeV3Params()
@@ -250,7 +289,12 @@ func (a *Client) AuthorizeV3Short(params *AuthorizeV3Params, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *AuthorizeV3Found:
-		return v, nil
+		response := &AuthorizeV3Response{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -263,7 +307,7 @@ This endpoint returns information about an access token intended to be used by r
 This endpoint requires authorized requests header with valid basic or bearer token.
 action code : 10705
 */
-func (a *Client) TokenIntrospectionV3Short(params *TokenIntrospectionV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenIntrospectionV3OK, error) {
+func (a *Client) TokenIntrospectionV3Short(params *TokenIntrospectionV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenIntrospectionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokenIntrospectionV3Params()
@@ -301,11 +345,26 @@ func (a *Client) TokenIntrospectionV3Short(params *TokenIntrospectionV3Params, a
 	switch v := result.(type) {
 
 	case *TokenIntrospectionV3OK:
-		return v, nil
+		response := &TokenIntrospectionV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TokenIntrospectionV3BadRequest:
-		return nil, v
+		response := &TokenIntrospectionV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenIntrospectionV3Unauthorized:
-		return nil, v
+		response := &TokenIntrospectionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -323,7 +382,7 @@ endpoint again.
 Please refer to the RFC for more information about JWK (JSON Web Key): https://tools.ietf.org/html/rfc7517
 action code : 10709
 */
-func (a *Client) GetJWKSV3Short(params *GetJWKSV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSV3OK, error) {
+func (a *Client) GetJWKSV3Short(params *GetJWKSV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetJWKSV3Params()
@@ -361,7 +420,12 @@ func (a *Client) GetJWKSV3Short(params *GetJWKSV3Params, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetJWKSV3OK:
-		return v, nil
+		response := &GetJWKSV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -373,7 +437,7 @@ SendMFAAuthenticationCodeShort send 2fa code
 Send 2FA code
 This endpoint is used for sending 2FA code.
 */
-func (a *Client) SendMFAAuthenticationCodeShort(params *SendMFAAuthenticationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendMFAAuthenticationCodeNoContent, error) {
+func (a *Client) SendMFAAuthenticationCodeShort(params *SendMFAAuthenticationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendMFAAuthenticationCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendMFAAuthenticationCodeParams()
@@ -411,17 +475,46 @@ func (a *Client) SendMFAAuthenticationCodeShort(params *SendMFAAuthenticationCod
 	switch v := result.(type) {
 
 	case *SendMFAAuthenticationCodeNoContent:
-		return v, nil
+		response := &SendMFAAuthenticationCodeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendMFAAuthenticationCodeBadRequest:
-		return nil, v
+		response := &SendMFAAuthenticationCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendMFAAuthenticationCodeForbidden:
-		return nil, v
+		response := &SendMFAAuthenticationCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendMFAAuthenticationCodeNotFound:
-		return nil, v
+		response := &SendMFAAuthenticationCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendMFAAuthenticationCodeTooManyRequests:
-		return nil, v
+		response := &SendMFAAuthenticationCodeResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendMFAAuthenticationCodeInternalServerError:
-		return nil, v
+		response := &SendMFAAuthenticationCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -437,7 +530,7 @@ Supported methods:
 - backupCode
 - email
 */
-func (a *Client) Change2FAMethodShort(params *Change2FAMethodParams, authInfo runtime.ClientAuthInfoWriter) (*Change2FAMethodNoContent, error) {
+func (a *Client) Change2FAMethodShort(params *Change2FAMethodParams, authInfo runtime.ClientAuthInfoWriter) (*Change2FAMethodResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewChange2FAMethodParams()
@@ -475,13 +568,32 @@ func (a *Client) Change2FAMethodShort(params *Change2FAMethodParams, authInfo ru
 	switch v := result.(type) {
 
 	case *Change2FAMethodNoContent:
-		return v, nil
+		response := &Change2FAMethodResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *Change2FAMethodBadRequest:
-		return nil, v
+		response := &Change2FAMethodResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *Change2FAMethodTooManyRequests:
-		return nil, v
+		response := &Change2FAMethodResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *Change2FAMethodInternalServerError:
-		return nil, v
+		response := &Change2FAMethodResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -495,7 +607,7 @@ This endpoint is used for verifying 2FA code.
 ## 2FA remember device
 To remember device for 2FA, should provide cookie: device_token or header: Device-Token
 */
-func (a *Client) Verify2FACodeShort(params *Verify2FACodeParams, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeOK, error) {
+func (a *Client) Verify2FACodeShort(params *Verify2FACodeParams, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewVerify2FACodeParams()
@@ -533,9 +645,19 @@ func (a *Client) Verify2FACodeShort(params *Verify2FACodeParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *Verify2FACodeOK:
-		return v, nil
+		response := &Verify2FACodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *Verify2FACodeUnauthorized:
-		return nil, v
+		response := &Verify2FACodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -566,7 +688,7 @@ The third party platform and platform group covered for this is:
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) RetrieveUserThirdPartyPlatformTokenV3Short(params *RetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserThirdPartyPlatformTokenV3OK, error) {
+func (a *Client) RetrieveUserThirdPartyPlatformTokenV3Short(params *RetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserThirdPartyPlatformTokenV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveUserThirdPartyPlatformTokenV3Params()
@@ -604,13 +726,33 @@ func (a *Client) RetrieveUserThirdPartyPlatformTokenV3Short(params *RetrieveUser
 	switch v := result.(type) {
 
 	case *RetrieveUserThirdPartyPlatformTokenV3OK:
-		return v, nil
+		response := &RetrieveUserThirdPartyPlatformTokenV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveUserThirdPartyPlatformTokenV3Unauthorized:
-		return nil, v
+		response := &RetrieveUserThirdPartyPlatformTokenV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveUserThirdPartyPlatformTokenV3Forbidden:
-		return nil, v
+		response := &RetrieveUserThirdPartyPlatformTokenV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveUserThirdPartyPlatformTokenV3NotFound:
-		return nil, v
+		response := &RetrieveUserThirdPartyPlatformTokenV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -647,7 +789,7 @@ authenticate endpoint after successfully authenticating amazon user.
 
 action code : 10702'
 */
-func (a *Client) AuthCodeRequestV3Short(params *AuthCodeRequestV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthCodeRequestV3Found, error) {
+func (a *Client) AuthCodeRequestV3Short(params *AuthCodeRequestV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthCodeRequestV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthCodeRequestV3Params()
@@ -685,7 +827,12 @@ func (a *Client) AuthCodeRequestV3Short(params *AuthCodeRequestV3Params, authInf
 	switch v := result.(type) {
 
 	case *AuthCodeRequestV3Found:
-		return v, nil
+		response := &AuthCodeRequestV3Response{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -768,7 +915,7 @@ The JWT contains user's active bans with its expiry date. List of ban types can 
 
 action code : 10704
 */
-func (a *Client) PlatformTokenGrantV3Short(params *PlatformTokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV3OK, error) {
+func (a *Client) PlatformTokenGrantV3Short(params *PlatformTokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformTokenGrantV3Params()
@@ -806,15 +953,40 @@ func (a *Client) PlatformTokenGrantV3Short(params *PlatformTokenGrantV3Params, a
 	switch v := result.(type) {
 
 	case *PlatformTokenGrantV3OK:
-		return v, nil
+		response := &PlatformTokenGrantV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformTokenGrantV3BadRequest:
-		return nil, v
+		response := &PlatformTokenGrantV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenGrantV3Unauthorized:
-		return nil, v
+		response := &PlatformTokenGrantV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenGrantV3Forbidden:
-		return nil, v
+		response := &PlatformTokenGrantV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenGrantV3ServiceUnavailable:
-		return nil, v
+		response := &PlatformTokenGrantV3Response{}
+		response.Error503 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -828,7 +1000,7 @@ This endpoint requires all requests to have Authorization header set with Basic 
 The bloom filter uses MurmurHash3 algorithm for hashing the values
 action code : 10708
 */
-func (a *Client) GetRevocationListV3Short(params *GetRevocationListV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListV3OK, error) {
+func (a *Client) GetRevocationListV3Short(params *GetRevocationListV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRevocationListV3Params()
@@ -866,9 +1038,19 @@ func (a *Client) GetRevocationListV3Short(params *GetRevocationListV3Params, aut
 	switch v := result.(type) {
 
 	case *GetRevocationListV3OK:
-		return v, nil
+		response := &GetRevocationListV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRevocationListV3Unauthorized:
-		return nil, v
+		response := &GetRevocationListV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -881,7 +1063,7 @@ This endpoint revokes a token.
 This endpoint requires authorized requests header with Basic Authentication from client that establish the token.
 action code: 10706
 */
-func (a *Client) TokenRevocationV3Short(params *TokenRevocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenRevocationV3OK, error) {
+func (a *Client) TokenRevocationV3Short(params *TokenRevocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenRevocationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokenRevocationV3Params()
@@ -919,11 +1101,25 @@ func (a *Client) TokenRevocationV3Short(params *TokenRevocationV3Params, authInf
 	switch v := result.(type) {
 
 	case *TokenRevocationV3OK:
-		return v, nil
+		response := &TokenRevocationV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TokenRevocationV3BadRequest:
-		return nil, v
+		response := &TokenRevocationV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenRevocationV3Unauthorized:
-		return nil, v
+		response := &TokenRevocationV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -959,7 +1155,7 @@ link their accounts, and provide support for platform sync with a valid 3rd plat
 - Native ticket's account & Simultaneous ticket's account are both not linked to AGS account yet
 - Native ticket's account & Simultaneous ticket's account are already linked to same AGS account
 */
-func (a *Client) SimultaneousLoginV3Short(params *SimultaneousLoginV3Params, authInfo runtime.ClientAuthInfoWriter) (*SimultaneousLoginV3OK, error) {
+func (a *Client) SimultaneousLoginV3Short(params *SimultaneousLoginV3Params, authInfo runtime.ClientAuthInfoWriter) (*SimultaneousLoginV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSimultaneousLoginV3Params()
@@ -997,15 +1193,40 @@ func (a *Client) SimultaneousLoginV3Short(params *SimultaneousLoginV3Params, aut
 	switch v := result.(type) {
 
 	case *SimultaneousLoginV3OK:
-		return v, nil
+		response := &SimultaneousLoginV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SimultaneousLoginV3BadRequest:
-		return nil, v
+		response := &SimultaneousLoginV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SimultaneousLoginV3Unauthorized:
-		return nil, v
+		response := &SimultaneousLoginV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SimultaneousLoginV3Conflict:
-		return nil, v
+		response := &SimultaneousLoginV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SimultaneousLoginV3InternalServerError:
-		return nil, v
+		response := &SimultaneousLoginV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1069,7 +1290,7 @@ To remember device for 2FA, should provide cookie: device_token or header: Devic
 If it is a user token request and user hasn't accepted required legal policy, the field `is_comply` will be false in response and responsed token will have no permission.
 action code: 10703
 */
-func (a *Client) TokenGrantV3Short(params *TokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantV3OK, error) {
+func (a *Client) TokenGrantV3Short(params *TokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokenGrantV3Params()
@@ -1107,15 +1328,40 @@ func (a *Client) TokenGrantV3Short(params *TokenGrantV3Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *TokenGrantV3OK:
-		return v, nil
+		response := &TokenGrantV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TokenGrantV3BadRequest:
-		return nil, v
+		response := &TokenGrantV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenGrantV3Unauthorized:
-		return nil, v
+		response := &TokenGrantV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenGrantV3Forbidden:
-		return nil, v
+		response := &TokenGrantV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenGrantV3TooManyRequests:
-		return nil, v
+		response := &TokenGrantV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1126,7 +1372,7 @@ func (a *Client) TokenGrantV3Short(params *TokenGrantV3Params, authInfo runtime.
 VerifyTokenV3Short oauth2 token verification api
 This endpoint requires all requests to have Authorization header set with Basic access authentication constructed from client id and client secret.
 */
-func (a *Client) VerifyTokenV3Short(params *VerifyTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*VerifyTokenV3OK, error) {
+func (a *Client) VerifyTokenV3Short(params *VerifyTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*VerifyTokenV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewVerifyTokenV3Params()
@@ -1164,9 +1410,18 @@ func (a *Client) VerifyTokenV3Short(params *VerifyTokenV3Params, authInfo runtim
 	switch v := result.(type) {
 
 	case *VerifyTokenV3OK:
-		return v, nil
+		response := &VerifyTokenV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *VerifyTokenV3BadRequest:
-		return nil, v
+		response := &VerifyTokenV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

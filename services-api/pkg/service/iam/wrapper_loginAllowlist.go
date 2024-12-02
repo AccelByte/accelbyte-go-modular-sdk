@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/login_allowlist"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *LoginAllowlistService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *LoginAllowlistService) AdminGetLoginAllowlistV3Short(input *login_allowlist.AdminGetLoginAllowlistV3Params) (*iamclientmodels.ModelLoginAllowlistResponse, error) {
+func (aaa *LoginAllowlistService) AdminGetLoginAllowlistV3Short(input *login_allowlist.AdminGetLoginAllowlistV3Params) (*login_allowlist.AdminGetLoginAllowlistV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *LoginAllowlistService) AdminGetLoginAllowlistV3Short(input *login_all
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LoginAllowlistService) AdminUpdateLoginAllowlistV3Short(input *login_allowlist.AdminUpdateLoginAllowlistV3Params) (*iamclientmodels.ModelLoginAllowlistResponse, error) {
+func (aaa *LoginAllowlistService) AdminUpdateLoginAllowlistV3Short(input *login_allowlist.AdminUpdateLoginAllowlistV3Params) (*login_allowlist.AdminUpdateLoginAllowlistV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *LoginAllowlistService) AdminUpdateLoginAllowlistV3Short(input *login_
 		return nil, err
 	}
 
-	return noContent.GetPayload(), nil
+	return noContent, nil
 }

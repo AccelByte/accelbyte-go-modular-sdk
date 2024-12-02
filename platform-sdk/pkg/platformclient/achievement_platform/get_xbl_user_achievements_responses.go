@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetXblUserAchievementsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.XblUserAchievements
+
+	Error400 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *GetXblUserAchievementsResponse) Unpack() (*platformclientmodels.XblUserAchievements, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetXblUserAchievementsReader is a Reader for the GetXblUserAchievements structure.
 type GetXblUserAchievementsReader struct {
 	formats strfmt.Registry

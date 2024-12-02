@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboardConfigurationsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsAdminV3OK, error)
-	CreateLeaderboardConfigurationAdminV3Short(params *CreateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV3Created, error)
-	DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBulkLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteBulkLeaderboardConfigurationAdminV3OK, error)
-	GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationAdminV3OK, error)
-	UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV3OK, error)
-	DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteLeaderboardConfigurationAdminV3NoContent, error)
-	HardDeleteLeaderboardAdminV3Short(params *HardDeleteLeaderboardAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*HardDeleteLeaderboardAdminV3NoContent, error)
-	GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboardConfigurationsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsPublicV3OK, error)
-	GetLeaderboardConfigurationPublicV3Short(params *GetLeaderboardConfigurationPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationPublicV3OK, error)
+	GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboardConfigurationsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsAdminV3Response, error)
+	CreateLeaderboardConfigurationAdminV3Short(params *CreateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV3Response, error)
+	DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBulkLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteBulkLeaderboardConfigurationAdminV3Response, error)
+	GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationAdminV3Response, error)
+	UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV3Response, error)
+	DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteLeaderboardConfigurationAdminV3Response, error)
+	HardDeleteLeaderboardAdminV3Short(params *HardDeleteLeaderboardAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*HardDeleteLeaderboardAdminV3Response, error)
+	GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboardConfigurationsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsPublicV3Response, error)
+	GetLeaderboardConfigurationPublicV3Short(params *GetLeaderboardConfigurationPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationPublicV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ GetLeaderboardConfigurationsAdminV3Short list all leaderboards by given namespac
 
 This endpoint return all leaderboard configurations
 */
-func (a *Client) GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboardConfigurationsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsAdminV3OK, error) {
+func (a *Client) GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboardConfigurationsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLeaderboardConfigurationsAdminV3Params()
@@ -87,15 +87,40 @@ func (a *Client) GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboard
 	switch v := result.(type) {
 
 	case *GetLeaderboardConfigurationsAdminV3OK:
-		return v, nil
+		response := &GetLeaderboardConfigurationsAdminV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLeaderboardConfigurationsAdminV3BadRequest:
-		return nil, v
+		response := &GetLeaderboardConfigurationsAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationsAdminV3Unauthorized:
-		return nil, v
+		response := &GetLeaderboardConfigurationsAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationsAdminV3Forbidden:
-		return nil, v
+		response := &GetLeaderboardConfigurationsAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationsAdminV3InternalServerError:
-		return nil, v
+		response := &GetLeaderboardConfigurationsAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -134,7 +159,7 @@ CreateLeaderboardConfigurationAdminV3Short create new leaderboard
 
   * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
 */
-func (a *Client) CreateLeaderboardConfigurationAdminV3Short(params *CreateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV3Created, error) {
+func (a *Client) CreateLeaderboardConfigurationAdminV3Short(params *CreateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateLeaderboardConfigurationAdminV3Params()
@@ -172,17 +197,47 @@ func (a *Client) CreateLeaderboardConfigurationAdminV3Short(params *CreateLeader
 	switch v := result.(type) {
 
 	case *CreateLeaderboardConfigurationAdminV3Created:
-		return v, nil
+		response := &CreateLeaderboardConfigurationAdminV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateLeaderboardConfigurationAdminV3BadRequest:
-		return nil, v
+		response := &CreateLeaderboardConfigurationAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateLeaderboardConfigurationAdminV3Unauthorized:
-		return nil, v
+		response := &CreateLeaderboardConfigurationAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateLeaderboardConfigurationAdminV3Forbidden:
-		return nil, v
+		response := &CreateLeaderboardConfigurationAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateLeaderboardConfigurationAdminV3Conflict:
-		return nil, v
+		response := &CreateLeaderboardConfigurationAdminV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateLeaderboardConfigurationAdminV3InternalServerError:
-		return nil, v
+		response := &CreateLeaderboardConfigurationAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -195,7 +250,7 @@ DeleteBulkLeaderboardConfigurationAdminV3Short delete bulk leaderboards. respons
 
 This endpoint delete multiple leaderboards configuration in one request
 */
-func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBulkLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteBulkLeaderboardConfigurationAdminV3OK, error) {
+func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBulkLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteBulkLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteBulkLeaderboardConfigurationAdminV3Params()
@@ -233,15 +288,40 @@ func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBu
 	switch v := result.(type) {
 
 	case *DeleteBulkLeaderboardConfigurationAdminV3OK:
-		return v, nil
+		response := &DeleteBulkLeaderboardConfigurationAdminV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteBulkLeaderboardConfigurationAdminV3BadRequest:
-		return nil, v
+		response := &DeleteBulkLeaderboardConfigurationAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteBulkLeaderboardConfigurationAdminV3Unauthorized:
-		return nil, v
+		response := &DeleteBulkLeaderboardConfigurationAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteBulkLeaderboardConfigurationAdminV3Forbidden:
-		return nil, v
+		response := &DeleteBulkLeaderboardConfigurationAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteBulkLeaderboardConfigurationAdminV3InternalServerError:
-		return nil, v
+		response := &DeleteBulkLeaderboardConfigurationAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -254,7 +334,7 @@ GetLeaderboardConfigurationAdminV3Short get leaderboard by leaderboardcode
 
 This endpoint returns a leaderboard configuration
 */
-func (a *Client) GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationAdminV3OK, error) {
+func (a *Client) GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLeaderboardConfigurationAdminV3Params()
@@ -292,17 +372,47 @@ func (a *Client) GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardC
 	switch v := result.(type) {
 
 	case *GetLeaderboardConfigurationAdminV3OK:
-		return v, nil
+		response := &GetLeaderboardConfigurationAdminV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLeaderboardConfigurationAdminV3BadRequest:
-		return nil, v
+		response := &GetLeaderboardConfigurationAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationAdminV3Unauthorized:
-		return nil, v
+		response := &GetLeaderboardConfigurationAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationAdminV3Forbidden:
-		return nil, v
+		response := &GetLeaderboardConfigurationAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationAdminV3NotFound:
-		return nil, v
+		response := &GetLeaderboardConfigurationAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationAdminV3InternalServerError:
-		return nil, v
+		response := &GetLeaderboardConfigurationAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -341,7 +451,7 @@ UpdateLeaderboardConfigurationAdminV3Short update leaderboard by leaderboardcode
 
   * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
 */
-func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV3OK, error) {
+func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateLeaderboardConfigurationAdminV3Params()
@@ -379,19 +489,54 @@ func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeader
 	switch v := result.(type) {
 
 	case *UpdateLeaderboardConfigurationAdminV3OK:
-		return v, nil
+		response := &UpdateLeaderboardConfigurationAdminV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateLeaderboardConfigurationAdminV3BadRequest:
-		return nil, v
+		response := &UpdateLeaderboardConfigurationAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateLeaderboardConfigurationAdminV3Unauthorized:
-		return nil, v
+		response := &UpdateLeaderboardConfigurationAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateLeaderboardConfigurationAdminV3Forbidden:
-		return nil, v
+		response := &UpdateLeaderboardConfigurationAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateLeaderboardConfigurationAdminV3NotFound:
-		return nil, v
+		response := &UpdateLeaderboardConfigurationAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateLeaderboardConfigurationAdminV3Conflict:
-		return nil, v
+		response := &UpdateLeaderboardConfigurationAdminV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateLeaderboardConfigurationAdminV3InternalServerError:
-		return nil, v
+		response := &UpdateLeaderboardConfigurationAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -404,7 +549,7 @@ DeleteLeaderboardConfigurationAdminV3Short delete leaderboard by leaderboardcode
 
 This endpoint delete a leaderboard configuration
 */
-func (a *Client) DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteLeaderboardConfigurationAdminV3NoContent, error) {
+func (a *Client) DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteLeaderboardConfigurationAdminV3Params()
@@ -442,17 +587,46 @@ func (a *Client) DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeader
 	switch v := result.(type) {
 
 	case *DeleteLeaderboardConfigurationAdminV3NoContent:
-		return v, nil
+		response := &DeleteLeaderboardConfigurationAdminV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteLeaderboardConfigurationAdminV3BadRequest:
-		return nil, v
+		response := &DeleteLeaderboardConfigurationAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteLeaderboardConfigurationAdminV3Unauthorized:
-		return nil, v
+		response := &DeleteLeaderboardConfigurationAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteLeaderboardConfigurationAdminV3Forbidden:
-		return nil, v
+		response := &DeleteLeaderboardConfigurationAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteLeaderboardConfigurationAdminV3NotFound:
-		return nil, v
+		response := &DeleteLeaderboardConfigurationAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteLeaderboardConfigurationAdminV3InternalServerError:
-		return nil, v
+		response := &DeleteLeaderboardConfigurationAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -480,7 +654,7 @@ This endpoint will delete leaderboard configuration and its data
 
 Note: this endpoint only works on development environment, you might want to use archive endpoint instead hard delete.
 */
-func (a *Client) HardDeleteLeaderboardAdminV3Short(params *HardDeleteLeaderboardAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*HardDeleteLeaderboardAdminV3NoContent, error) {
+func (a *Client) HardDeleteLeaderboardAdminV3Short(params *HardDeleteLeaderboardAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*HardDeleteLeaderboardAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewHardDeleteLeaderboardAdminV3Params()
@@ -518,17 +692,46 @@ func (a *Client) HardDeleteLeaderboardAdminV3Short(params *HardDeleteLeaderboard
 	switch v := result.(type) {
 
 	case *HardDeleteLeaderboardAdminV3NoContent:
-		return v, nil
+		response := &HardDeleteLeaderboardAdminV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *HardDeleteLeaderboardAdminV3BadRequest:
-		return nil, v
+		response := &HardDeleteLeaderboardAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *HardDeleteLeaderboardAdminV3Unauthorized:
-		return nil, v
+		response := &HardDeleteLeaderboardAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *HardDeleteLeaderboardAdminV3Forbidden:
-		return nil, v
+		response := &HardDeleteLeaderboardAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *HardDeleteLeaderboardAdminV3NotFound:
-		return nil, v
+		response := &HardDeleteLeaderboardAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *HardDeleteLeaderboardAdminV3InternalServerError:
-		return nil, v
+		response := &HardDeleteLeaderboardAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -541,7 +744,7 @@ GetLeaderboardConfigurationsPublicV3Short list all leaderboards by given namespa
 
 This endpoint return all leaderboard configurations
 */
-func (a *Client) GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboardConfigurationsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsPublicV3OK, error) {
+func (a *Client) GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboardConfigurationsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsPublicV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLeaderboardConfigurationsPublicV3Params()
@@ -579,15 +782,40 @@ func (a *Client) GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboar
 	switch v := result.(type) {
 
 	case *GetLeaderboardConfigurationsPublicV3OK:
-		return v, nil
+		response := &GetLeaderboardConfigurationsPublicV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLeaderboardConfigurationsPublicV3BadRequest:
-		return nil, v
+		response := &GetLeaderboardConfigurationsPublicV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationsPublicV3Unauthorized:
-		return nil, v
+		response := &GetLeaderboardConfigurationsPublicV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationsPublicV3Forbidden:
-		return nil, v
+		response := &GetLeaderboardConfigurationsPublicV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationsPublicV3InternalServerError:
-		return nil, v
+		response := &GetLeaderboardConfigurationsPublicV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -600,7 +828,7 @@ GetLeaderboardConfigurationPublicV3Short get leaderboard by leaderboardcode
 
 This endpoint returns a leaderboard configuration
 */
-func (a *Client) GetLeaderboardConfigurationPublicV3Short(params *GetLeaderboardConfigurationPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationPublicV3OK, error) {
+func (a *Client) GetLeaderboardConfigurationPublicV3Short(params *GetLeaderboardConfigurationPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationPublicV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLeaderboardConfigurationPublicV3Params()
@@ -638,17 +866,47 @@ func (a *Client) GetLeaderboardConfigurationPublicV3Short(params *GetLeaderboard
 	switch v := result.(type) {
 
 	case *GetLeaderboardConfigurationPublicV3OK:
-		return v, nil
+		response := &GetLeaderboardConfigurationPublicV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLeaderboardConfigurationPublicV3BadRequest:
-		return nil, v
+		response := &GetLeaderboardConfigurationPublicV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationPublicV3Unauthorized:
-		return nil, v
+		response := &GetLeaderboardConfigurationPublicV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationPublicV3Forbidden:
-		return nil, v
+		response := &GetLeaderboardConfigurationPublicV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationPublicV3NotFound:
-		return nil, v
+		response := &GetLeaderboardConfigurationPublicV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLeaderboardConfigurationPublicV3InternalServerError:
-		return nil, v
+		response := &GetLeaderboardConfigurationPublicV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

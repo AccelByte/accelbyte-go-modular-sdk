@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetTypeShort(params *AdminGetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetTypeOK, error)
-	AdminCreateTypeShort(params *AdminCreateTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTypeCreated, error)
-	AdminUpdateTypeShort(params *AdminUpdateTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTypeOK, error)
-	AdminDeleteTypeShort(params *AdminDeleteTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTypeNoContent, error)
+	AdminGetTypeShort(params *AdminGetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetTypeResponse, error)
+	AdminCreateTypeShort(params *AdminCreateTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTypeResponse, error)
+	AdminUpdateTypeShort(params *AdminUpdateTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTypeResponse, error)
+	AdminDeleteTypeShort(params *AdminDeleteTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTypeResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 AdminGetTypeShort get types
 Get available types paginated
 */
-func (a *Client) AdminGetTypeShort(params *AdminGetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetTypeOK, error) {
+func (a *Client) AdminGetTypeShort(params *AdminGetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetTypeParams()
@@ -80,13 +80,33 @@ func (a *Client) AdminGetTypeShort(params *AdminGetTypeParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *AdminGetTypeOK:
-		return v, nil
+		response := &AdminGetTypeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetTypeBadRequest:
-		return nil, v
+		response := &AdminGetTypeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetTypeUnauthorized:
-		return nil, v
+		response := &AdminGetTypeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetTypeInternalServerError:
-		return nil, v
+		response := &AdminGetTypeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +117,7 @@ func (a *Client) AdminGetTypeShort(params *AdminGetTypeParams, authInfo runtime.
 AdminCreateTypeShort create types
 Creates a new type and subtype
 */
-func (a *Client) AdminCreateTypeShort(params *AdminCreateTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTypeCreated, error) {
+func (a *Client) AdminCreateTypeShort(params *AdminCreateTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateTypeParams()
@@ -135,15 +155,40 @@ func (a *Client) AdminCreateTypeShort(params *AdminCreateTypeParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminCreateTypeCreated:
-		return v, nil
+		response := &AdminCreateTypeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateTypeBadRequest:
-		return nil, v
+		response := &AdminCreateTypeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateTypeUnauthorized:
-		return nil, v
+		response := &AdminCreateTypeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateTypeConflict:
-		return nil, v
+		response := &AdminCreateTypeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateTypeInternalServerError:
-		return nil, v
+		response := &AdminCreateTypeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -154,7 +199,7 @@ func (a *Client) AdminCreateTypeShort(params *AdminCreateTypeParams, authInfo ru
 AdminUpdateTypeShort update types
 Updates a type and subtype
 */
-func (a *Client) AdminUpdateTypeShort(params *AdminUpdateTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTypeOK, error) {
+func (a *Client) AdminUpdateTypeShort(params *AdminUpdateTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateTypeParams()
@@ -192,17 +237,47 @@ func (a *Client) AdminUpdateTypeShort(params *AdminUpdateTypeParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminUpdateTypeOK:
-		return v, nil
+		response := &AdminUpdateTypeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateTypeBadRequest:
-		return nil, v
+		response := &AdminUpdateTypeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateTypeUnauthorized:
-		return nil, v
+		response := &AdminUpdateTypeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateTypeNotFound:
-		return nil, v
+		response := &AdminUpdateTypeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateTypeConflict:
-		return nil, v
+		response := &AdminUpdateTypeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateTypeInternalServerError:
-		return nil, v
+		response := &AdminUpdateTypeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -213,7 +288,7 @@ func (a *Client) AdminUpdateTypeShort(params *AdminUpdateTypeParams, authInfo ru
 AdminDeleteTypeShort delete type
 Delete existing type
 */
-func (a *Client) AdminDeleteTypeShort(params *AdminDeleteTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTypeNoContent, error) {
+func (a *Client) AdminDeleteTypeShort(params *AdminDeleteTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteTypeParams()
@@ -251,13 +326,32 @@ func (a *Client) AdminDeleteTypeShort(params *AdminDeleteTypeParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminDeleteTypeNoContent:
-		return v, nil
+		response := &AdminDeleteTypeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteTypeUnauthorized:
-		return nil, v
+		response := &AdminDeleteTypeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteTypeNotFound:
-		return nil, v
+		response := &AdminDeleteTypeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteTypeInternalServerError:
-		return nil, v
+		response := &AdminDeleteTypeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

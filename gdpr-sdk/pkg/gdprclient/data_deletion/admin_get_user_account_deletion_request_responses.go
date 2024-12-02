@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 )
 
+type AdminGetUserAccountDeletionRequestResponse struct {
+	gdprclientmodels.ApiResponse
+	Data *gdprclientmodels.ModelsDeletionData
+
+	Error401 *gdprclientmodels.ResponseError
+	Error403 *gdprclientmodels.ResponseError
+	Error404 *gdprclientmodels.ResponseError
+	Error500 *gdprclientmodels.ResponseError
+}
+
+func (m *AdminGetUserAccountDeletionRequestResponse) Unpack() (*gdprclientmodels.ModelsDeletionData, *gdprclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &gdprclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetUserAccountDeletionRequestReader is a Reader for the AdminGetUserAccountDeletionRequest structure.
 type AdminGetUserAccountDeletionRequestReader struct {
 	formats strfmt.Registry

@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 )
 
+type GetGameRecordsBulkResponse struct {
+	cloudsaveclientmodels.ApiResponse
+	Data *cloudsaveclientmodels.ModelsBulkGetGameRecordResponse
+
+	Error400 *cloudsaveclientmodels.ModelsResponseError
+	Error401 *cloudsaveclientmodels.ModelsResponseError
+	Error403 *cloudsaveclientmodels.ModelsResponseError
+	Error404 *cloudsaveclientmodels.ModelsResponseError
+	Error500 *cloudsaveclientmodels.ModelsResponseError
+}
+
+func (m *GetGameRecordsBulkResponse) Unpack() (*cloudsaveclientmodels.ModelsBulkGetGameRecordResponse, *cloudsaveclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &cloudsaveclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetGameRecordsBulkReader is a Reader for the GetGameRecordsBulk structure.
 type GetGameRecordsBulkReader struct {
 	formats strfmt.Registry

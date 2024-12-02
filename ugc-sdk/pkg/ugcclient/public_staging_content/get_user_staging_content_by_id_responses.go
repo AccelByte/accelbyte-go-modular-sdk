@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
+type GetUserStagingContentByIDResponse struct {
+	ugcclientmodels.ApiResponse
+	Data *ugcclientmodels.ModelsStagingContentResponse
+
+	Error401 *ugcclientmodels.ResponseError
+	Error403 *ugcclientmodels.ResponseError
+	Error404 *ugcclientmodels.ResponseError
+	Error500 *ugcclientmodels.ResponseError
+}
+
+func (m *GetUserStagingContentByIDResponse) Unpack() (*ugcclientmodels.ModelsStagingContentResponse, *ugcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &ugcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserStagingContentByIDReader is a Reader for the GetUserStagingContentByID structure.
 type GetUserStagingContentByIDReader struct {
 	formats strfmt.Registry

@@ -9,7 +9,6 @@ package reporting
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_configurations"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminConfigurationsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminConfigurationsService) GetShort(input *admin_configurations.GetParams) (*reportingclientmodels.RestapiConfigResponse, error) {
+func (aaa *AdminConfigurationsService) GetShort(input *admin_configurations.GetParams) (*admin_configurations.GetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminConfigurationsService) GetShort(input *admin_configurations.GetP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminConfigurationsService) UpsertShort(input *admin_configurations.UpsertParams) (*reportingclientmodels.RestapiConfigResponse, error) {
+func (aaa *AdminConfigurationsService) UpsertShort(input *admin_configurations.UpsertParams) (*admin_configurations.UpsertResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,5 +93,5 @@ func (aaa *AdminConfigurationsService) UpsertShort(input *admin_configurations.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -9,7 +9,6 @@ package group
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/member_request"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *MemberRequestService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *MemberRequestService) GetGroupJoinRequestPublicV1Short(input *member_request.GetGroupJoinRequestPublicV1Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
+func (aaa *MemberRequestService) GetGroupJoinRequestPublicV1Short(input *member_request.GetGroupJoinRequestPublicV1Params) (*member_request.GetGroupJoinRequestPublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *MemberRequestService) GetGroupJoinRequestPublicV1Short(input *member_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MemberRequestService) GetGroupInvitationRequestPublicV1Short(input *member_request.GetGroupInvitationRequestPublicV1Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
+func (aaa *MemberRequestService) GetGroupInvitationRequestPublicV1Short(input *member_request.GetGroupInvitationRequestPublicV1Params) (*member_request.GetGroupInvitationRequestPublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *MemberRequestService) GetGroupInvitationRequestPublicV1Short(input *m
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MemberRequestService) GetGroupInviteRequestPublicV2Short(input *member_request.GetGroupInviteRequestPublicV2Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
+func (aaa *MemberRequestService) GetGroupInviteRequestPublicV2Short(input *member_request.GetGroupInviteRequestPublicV2Params) (*member_request.GetGroupInviteRequestPublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *MemberRequestService) GetGroupInviteRequestPublicV2Short(input *membe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MemberRequestService) GetGroupJoinRequestPublicV2Short(input *member_request.GetGroupJoinRequestPublicV2Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
+func (aaa *MemberRequestService) GetGroupJoinRequestPublicV2Short(input *member_request.GetGroupJoinRequestPublicV2Params) (*member_request.GetGroupJoinRequestPublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *MemberRequestService) GetGroupJoinRequestPublicV2Short(input *member_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MemberRequestService) GetMyGroupJoinRequestV2Short(input *member_request.GetMyGroupJoinRequestV2Params) (*groupclientmodels.ModelsGetMemberRequestsListResponseV1, error) {
+func (aaa *MemberRequestService) GetMyGroupJoinRequestV2Short(input *member_request.GetMyGroupJoinRequestV2Params) (*member_request.GetMyGroupJoinRequestV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,5 +183,5 @@ func (aaa *MemberRequestService) GetMyGroupJoinRequestV2Short(input *member_requ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

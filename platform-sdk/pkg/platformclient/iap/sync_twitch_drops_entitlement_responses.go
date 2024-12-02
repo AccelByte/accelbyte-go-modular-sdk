@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type SyncTwitchDropsEntitlementResponse struct {
+	platformclientmodels.ApiResponse
+	Data []*platformclientmodels.TwitchSyncResult
+
+	Error400 *platformclientmodels.ErrorEntity
+}
+
+func (m *SyncTwitchDropsEntitlementResponse) Unpack() ([]*platformclientmodels.TwitchSyncResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // SyncTwitchDropsEntitlementReader is a Reader for the SyncTwitchDropsEntitlement structure.
 type SyncTwitchDropsEntitlementReader struct {
 	formats strfmt.Registry

@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/party"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PartyService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PartyService) AdminGetPartyDataV1Short(input *party.AdminGetPartyDataV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
+func (aaa *PartyService) AdminGetPartyDataV1Short(input *party.AdminGetPartyDataV1Params) (*party.AdminGetPartyDataV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PartyService) AdminGetPartyDataV1Short(input *party.AdminGetPartyData
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) AdminGetUserPartyV1Short(input *party.AdminGetUserPartyV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
+func (aaa *PartyService) AdminGetUserPartyV1Short(input *party.AdminGetUserPartyV1Params) (*party.AdminGetUserPartyV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PartyService) AdminGetUserPartyV1Short(input *party.AdminGetUserParty
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicGetPartyDataV1Short(input *party.PublicGetPartyDataV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
+func (aaa *PartyService) PublicGetPartyDataV1Short(input *party.PublicGetPartyDataV1Params) (*party.PublicGetPartyDataV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *PartyService) PublicGetPartyDataV1Short(input *party.PublicGetPartyDa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicUpdatePartyAttributesV1Short(input *party.PublicUpdatePartyAttributesV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
+func (aaa *PartyService) PublicUpdatePartyAttributesV1Short(input *party.PublicUpdatePartyAttributesV1Params) (*party.PublicUpdatePartyAttributesV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,7 +153,7 @@ func (aaa *PartyService) PublicUpdatePartyAttributesV1Short(input *party.PublicU
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PartyService) PublicSetPartyLimitV1Short(input *party.PublicSetPartyLimitV1Params) error {

@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateMatchTicketShort(params *CreateMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchTicketCreated, error)
-	GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyMatchTicketsOK, error)
-	MatchTicketDetailsShort(params *MatchTicketDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchTicketDetailsOK, error)
-	DeleteMatchTicketShort(params *DeleteMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchTicketNoContent, error)
+	CreateMatchTicketShort(params *CreateMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchTicketResponse, error)
+	GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyMatchTicketsResponse, error)
+	MatchTicketDetailsShort(params *MatchTicketDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchTicketDetailsResponse, error)
+	DeleteMatchTicketShort(params *DeleteMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchTicketResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -79,7 +79,7 @@ c. Enable match options ruleset with name cross_platform and type "all".
 
 ExcludedSessions: allow player to list out game sessions that they want to avoid matching, for example a match that they've recently left or get kicked out from.
 */
-func (a *Client) CreateMatchTicketShort(params *CreateMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchTicketCreated, error) {
+func (a *Client) CreateMatchTicketShort(params *CreateMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchTicketResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMatchTicketParams()
@@ -117,19 +117,54 @@ func (a *Client) CreateMatchTicketShort(params *CreateMatchTicketParams, authInf
 	switch v := result.(type) {
 
 	case *CreateMatchTicketCreated:
-		return v, nil
+		response := &CreateMatchTicketResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateMatchTicketBadRequest:
-		return nil, v
+		response := &CreateMatchTicketResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchTicketUnauthorized:
-		return nil, v
+		response := &CreateMatchTicketResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchTicketForbidden:
-		return nil, v
+		response := &CreateMatchTicketResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchTicketNotFound:
-		return nil, v
+		response := &CreateMatchTicketResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchTicketConflict:
-		return nil, v
+		response := &CreateMatchTicketResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchTicketInternalServerError:
-		return nil, v
+		response := &CreateMatchTicketResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -140,7 +175,7 @@ func (a *Client) CreateMatchTicketShort(params *CreateMatchTicketParams, authInf
 GetMyMatchTicketsShort get my match tickets
 Get my match tickets.
 */
-func (a *Client) GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyMatchTicketsOK, error) {
+func (a *Client) GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyMatchTicketsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMyMatchTicketsParams()
@@ -178,13 +213,33 @@ func (a *Client) GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInf
 	switch v := result.(type) {
 
 	case *GetMyMatchTicketsOK:
-		return v, nil
+		response := &GetMyMatchTicketsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMyMatchTicketsUnauthorized:
-		return nil, v
+		response := &GetMyMatchTicketsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyMatchTicketsForbidden:
-		return nil, v
+		response := &GetMyMatchTicketsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyMatchTicketsInternalServerError:
-		return nil, v
+		response := &GetMyMatchTicketsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -195,7 +250,7 @@ func (a *Client) GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInf
 MatchTicketDetailsShort get details for a specific match ticket
 Get details for a specific match ticket
 */
-func (a *Client) MatchTicketDetailsShort(params *MatchTicketDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchTicketDetailsOK, error) {
+func (a *Client) MatchTicketDetailsShort(params *MatchTicketDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchTicketDetailsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewMatchTicketDetailsParams()
@@ -233,15 +288,40 @@ func (a *Client) MatchTicketDetailsShort(params *MatchTicketDetailsParams, authI
 	switch v := result.(type) {
 
 	case *MatchTicketDetailsOK:
-		return v, nil
+		response := &MatchTicketDetailsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *MatchTicketDetailsUnauthorized:
-		return nil, v
+		response := &MatchTicketDetailsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchTicketDetailsForbidden:
-		return nil, v
+		response := &MatchTicketDetailsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchTicketDetailsNotFound:
-		return nil, v
+		response := &MatchTicketDetailsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchTicketDetailsInternalServerError:
-		return nil, v
+		response := &MatchTicketDetailsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -252,7 +332,7 @@ func (a *Client) MatchTicketDetailsShort(params *MatchTicketDetailsParams, authI
 DeleteMatchTicketShort delete a match ticket
 Deletes an existing matchmaking ticket.
 */
-func (a *Client) DeleteMatchTicketShort(params *DeleteMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchTicketNoContent, error) {
+func (a *Client) DeleteMatchTicketShort(params *DeleteMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchTicketResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteMatchTicketParams()
@@ -290,17 +370,46 @@ func (a *Client) DeleteMatchTicketShort(params *DeleteMatchTicketParams, authInf
 	switch v := result.(type) {
 
 	case *DeleteMatchTicketNoContent:
-		return v, nil
+		response := &DeleteMatchTicketResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteMatchTicketUnauthorized:
-		return nil, v
+		response := &DeleteMatchTicketResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchTicketForbidden:
-		return nil, v
+		response := &DeleteMatchTicketResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchTicketNotFound:
-		return nil, v
+		response := &DeleteMatchTicketResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchTicketNotAcceptable:
-		return nil, v
+		response := &DeleteMatchTicketResponse{}
+		response.Error406 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchTicketInternalServerError:
-		return nil, v
+		response := &DeleteMatchTicketResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

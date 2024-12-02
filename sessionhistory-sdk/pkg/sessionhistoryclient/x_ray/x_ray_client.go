@@ -30,28 +30,28 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryXrayMatchPoolShort(params *QueryXrayMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayMatchPoolOK, error)
-	QueryDetailTickMatchPoolShort(params *QueryDetailTickMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolOK, error)
-	QueryDetailTickMatchPoolMatchesShort(params *QueryDetailTickMatchPoolMatchesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolMatchesOK, error)
-	QueryDetailTickMatchPoolTicketShort(params *QueryDetailTickMatchPoolTicketParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolTicketOK, error)
-	QueryMatchHistoriesShort(params *QueryMatchHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchHistoriesOK, error)
-	QueryMatchTicketHistoriesShort(params *QueryMatchTicketHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchTicketHistoriesOK, error)
-	QueryXrayMatchShort(params *QueryXrayMatchParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayMatchOK, error)
-	QueryAcquiringDSShort(params *QueryAcquiringDSParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAcquiringDSOK, error)
-	QueryAcquiringDSWaitTimeAvgShort(params *QueryAcquiringDSWaitTimeAvgParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAcquiringDSWaitTimeAvgOK, error)
-	QueryMatchLengthDurationpAvgShort(params *QueryMatchLengthDurationpAvgParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchLengthDurationpAvgOK, error)
-	QueryMatchLengthDurationp99Short(params *QueryMatchLengthDurationp99Params, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchLengthDurationp99OK, error)
-	QueryTotalActiveSessionShort(params *QueryTotalActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalActiveSessionOK, error)
-	QueryTotalMatchmakingMatchShort(params *QueryTotalMatchmakingMatchParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingMatchOK, error)
-	QueryTotalPlayerPersessionShort(params *QueryTotalPlayerPersessionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalPlayerPersessionOK, error)
-	QueryTotalMatchmakingCanceledShort(params *QueryTotalMatchmakingCanceledParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingCanceledOK, error)
-	QueryTotalMatchmakingCreatedShort(params *QueryTotalMatchmakingCreatedParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingCreatedOK, error)
-	QueryTotalMatchmakingExpiredShort(params *QueryTotalMatchmakingExpiredParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingExpiredOK, error)
-	QueryTotalMatchmakingMatchTicketShort(params *QueryTotalMatchmakingMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingMatchTicketOK, error)
-	CreateXrayTicketObservabilityShort(params *CreateXrayTicketObservabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CreateXrayTicketObservabilityOK, error)
-	CreateXrayBulkTicketObservabilityShort(params *CreateXrayBulkTicketObservabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CreateXrayBulkTicketObservabilityOK, error)
-	QueryXrayTimelineByTicketIDShort(params *QueryXrayTimelineByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayTimelineByTicketIDOK, error)
-	QueryXrayTimelineByUserIDShort(params *QueryXrayTimelineByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayTimelineByUserIDOK, error)
+	QueryXrayMatchPoolShort(params *QueryXrayMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayMatchPoolResponse, error)
+	QueryDetailTickMatchPoolShort(params *QueryDetailTickMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolResponse, error)
+	QueryDetailTickMatchPoolMatchesShort(params *QueryDetailTickMatchPoolMatchesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolMatchesResponse, error)
+	QueryDetailTickMatchPoolTicketShort(params *QueryDetailTickMatchPoolTicketParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolTicketResponse, error)
+	QueryMatchHistoriesShort(params *QueryMatchHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchHistoriesResponse, error)
+	QueryMatchTicketHistoriesShort(params *QueryMatchTicketHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchTicketHistoriesResponse, error)
+	QueryXrayMatchShort(params *QueryXrayMatchParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayMatchResponse, error)
+	QueryAcquiringDSShort(params *QueryAcquiringDSParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAcquiringDSResponse, error)
+	QueryAcquiringDSWaitTimeAvgShort(params *QueryAcquiringDSWaitTimeAvgParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAcquiringDSWaitTimeAvgResponse, error)
+	QueryMatchLengthDurationpAvgShort(params *QueryMatchLengthDurationpAvgParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchLengthDurationpAvgResponse, error)
+	QueryMatchLengthDurationp99Short(params *QueryMatchLengthDurationp99Params, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchLengthDurationp99Response, error)
+	QueryTotalActiveSessionShort(params *QueryTotalActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalActiveSessionResponse, error)
+	QueryTotalMatchmakingMatchShort(params *QueryTotalMatchmakingMatchParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingMatchResponse, error)
+	QueryTotalPlayerPersessionShort(params *QueryTotalPlayerPersessionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalPlayerPersessionResponse, error)
+	QueryTotalMatchmakingCanceledShort(params *QueryTotalMatchmakingCanceledParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingCanceledResponse, error)
+	QueryTotalMatchmakingCreatedShort(params *QueryTotalMatchmakingCreatedParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingCreatedResponse, error)
+	QueryTotalMatchmakingExpiredShort(params *QueryTotalMatchmakingExpiredParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingExpiredResponse, error)
+	QueryTotalMatchmakingMatchTicketShort(params *QueryTotalMatchmakingMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingMatchTicketResponse, error)
+	CreateXrayTicketObservabilityShort(params *CreateXrayTicketObservabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CreateXrayTicketObservabilityResponse, error)
+	CreateXrayBulkTicketObservabilityShort(params *CreateXrayBulkTicketObservabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CreateXrayBulkTicketObservabilityResponse, error)
+	QueryXrayTimelineByTicketIDShort(params *QueryXrayTimelineByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayTimelineByTicketIDResponse, error)
+	QueryXrayTimelineByUserIDShort(params *QueryXrayTimelineByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayTimelineByUserIDResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -61,7 +61,7 @@ QueryXrayMatchPoolShort query xray match pool
 Query xray match pool.
 query can using matchpool array with separate ","
 */
-func (a *Client) QueryXrayMatchPoolShort(params *QueryXrayMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayMatchPoolOK, error) {
+func (a *Client) QueryXrayMatchPoolShort(params *QueryXrayMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayMatchPoolResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryXrayMatchPoolParams()
@@ -99,17 +99,47 @@ func (a *Client) QueryXrayMatchPoolShort(params *QueryXrayMatchPoolParams, authI
 	switch v := result.(type) {
 
 	case *QueryXrayMatchPoolOK:
-		return v, nil
+		response := &QueryXrayMatchPoolResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryXrayMatchPoolBadRequest:
-		return nil, v
+		response := &QueryXrayMatchPoolResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayMatchPoolUnauthorized:
-		return nil, v
+		response := &QueryXrayMatchPoolResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayMatchPoolForbidden:
-		return nil, v
+		response := &QueryXrayMatchPoolResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayMatchPoolNotFound:
-		return nil, v
+		response := &QueryXrayMatchPoolResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayMatchPoolInternalServerError:
-		return nil, v
+		response := &QueryXrayMatchPoolResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -120,7 +150,7 @@ func (a *Client) QueryXrayMatchPoolShort(params *QueryXrayMatchPoolParams, authI
 QueryDetailTickMatchPoolShort query xray match pool ticks
 Query xray match pool ticks.
 */
-func (a *Client) QueryDetailTickMatchPoolShort(params *QueryDetailTickMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolOK, error) {
+func (a *Client) QueryDetailTickMatchPoolShort(params *QueryDetailTickMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDetailTickMatchPoolParams()
@@ -158,17 +188,47 @@ func (a *Client) QueryDetailTickMatchPoolShort(params *QueryDetailTickMatchPoolP
 	switch v := result.(type) {
 
 	case *QueryDetailTickMatchPoolOK:
-		return v, nil
+		response := &QueryDetailTickMatchPoolResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryDetailTickMatchPoolBadRequest:
-		return nil, v
+		response := &QueryDetailTickMatchPoolResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolUnauthorized:
-		return nil, v
+		response := &QueryDetailTickMatchPoolResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolForbidden:
-		return nil, v
+		response := &QueryDetailTickMatchPoolResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolNotFound:
-		return nil, v
+		response := &QueryDetailTickMatchPoolResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolInternalServerError:
-		return nil, v
+		response := &QueryDetailTickMatchPoolResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -179,7 +239,7 @@ func (a *Client) QueryDetailTickMatchPoolShort(params *QueryDetailTickMatchPoolP
 QueryDetailTickMatchPoolMatchesShort query xray match pool tick matches by tick id
 Query xray match pool tick matches by tick id.
 */
-func (a *Client) QueryDetailTickMatchPoolMatchesShort(params *QueryDetailTickMatchPoolMatchesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolMatchesOK, error) {
+func (a *Client) QueryDetailTickMatchPoolMatchesShort(params *QueryDetailTickMatchPoolMatchesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolMatchesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDetailTickMatchPoolMatchesParams()
@@ -217,17 +277,47 @@ func (a *Client) QueryDetailTickMatchPoolMatchesShort(params *QueryDetailTickMat
 	switch v := result.(type) {
 
 	case *QueryDetailTickMatchPoolMatchesOK:
-		return v, nil
+		response := &QueryDetailTickMatchPoolMatchesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryDetailTickMatchPoolMatchesBadRequest:
-		return nil, v
+		response := &QueryDetailTickMatchPoolMatchesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolMatchesUnauthorized:
-		return nil, v
+		response := &QueryDetailTickMatchPoolMatchesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolMatchesForbidden:
-		return nil, v
+		response := &QueryDetailTickMatchPoolMatchesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolMatchesNotFound:
-		return nil, v
+		response := &QueryDetailTickMatchPoolMatchesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolMatchesInternalServerError:
-		return nil, v
+		response := &QueryDetailTickMatchPoolMatchesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -238,7 +328,7 @@ func (a *Client) QueryDetailTickMatchPoolMatchesShort(params *QueryDetailTickMat
 QueryDetailTickMatchPoolTicketShort query xray match pool tick tickets by tick id
 Query xray match pool tick tickets detail by tick id.
 */
-func (a *Client) QueryDetailTickMatchPoolTicketShort(params *QueryDetailTickMatchPoolTicketParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolTicketOK, error) {
+func (a *Client) QueryDetailTickMatchPoolTicketShort(params *QueryDetailTickMatchPoolTicketParams, authInfo runtime.ClientAuthInfoWriter) (*QueryDetailTickMatchPoolTicketResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryDetailTickMatchPoolTicketParams()
@@ -276,17 +366,47 @@ func (a *Client) QueryDetailTickMatchPoolTicketShort(params *QueryDetailTickMatc
 	switch v := result.(type) {
 
 	case *QueryDetailTickMatchPoolTicketOK:
-		return v, nil
+		response := &QueryDetailTickMatchPoolTicketResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryDetailTickMatchPoolTicketBadRequest:
-		return nil, v
+		response := &QueryDetailTickMatchPoolTicketResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolTicketUnauthorized:
-		return nil, v
+		response := &QueryDetailTickMatchPoolTicketResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolTicketForbidden:
-		return nil, v
+		response := &QueryDetailTickMatchPoolTicketResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolTicketNotFound:
-		return nil, v
+		response := &QueryDetailTickMatchPoolTicketResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryDetailTickMatchPoolTicketInternalServerError:
-		return nil, v
+		response := &QueryDetailTickMatchPoolTicketResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -297,7 +417,7 @@ func (a *Client) QueryDetailTickMatchPoolTicketShort(params *QueryDetailTickMatc
 QueryMatchHistoriesShort query xray match histories
 Query xray match histories.
 */
-func (a *Client) QueryMatchHistoriesShort(params *QueryMatchHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchHistoriesOK, error) {
+func (a *Client) QueryMatchHistoriesShort(params *QueryMatchHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryMatchHistoriesParams()
@@ -335,17 +455,47 @@ func (a *Client) QueryMatchHistoriesShort(params *QueryMatchHistoriesParams, aut
 	switch v := result.(type) {
 
 	case *QueryMatchHistoriesOK:
-		return v, nil
+		response := &QueryMatchHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryMatchHistoriesBadRequest:
-		return nil, v
+		response := &QueryMatchHistoriesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchHistoriesUnauthorized:
-		return nil, v
+		response := &QueryMatchHistoriesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchHistoriesForbidden:
-		return nil, v
+		response := &QueryMatchHistoriesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchHistoriesNotFound:
-		return nil, v
+		response := &QueryMatchHistoriesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchHistoriesInternalServerError:
-		return nil, v
+		response := &QueryMatchHistoriesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -356,7 +506,7 @@ func (a *Client) QueryMatchHistoriesShort(params *QueryMatchHistoriesParams, aut
 QueryMatchTicketHistoriesShort query xray match ticket histories
 Query xray match ticket histories.
 */
-func (a *Client) QueryMatchTicketHistoriesShort(params *QueryMatchTicketHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchTicketHistoriesOK, error) {
+func (a *Client) QueryMatchTicketHistoriesShort(params *QueryMatchTicketHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchTicketHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryMatchTicketHistoriesParams()
@@ -394,17 +544,47 @@ func (a *Client) QueryMatchTicketHistoriesShort(params *QueryMatchTicketHistorie
 	switch v := result.(type) {
 
 	case *QueryMatchTicketHistoriesOK:
-		return v, nil
+		response := &QueryMatchTicketHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryMatchTicketHistoriesBadRequest:
-		return nil, v
+		response := &QueryMatchTicketHistoriesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchTicketHistoriesUnauthorized:
-		return nil, v
+		response := &QueryMatchTicketHistoriesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchTicketHistoriesForbidden:
-		return nil, v
+		response := &QueryMatchTicketHistoriesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchTicketHistoriesNotFound:
-		return nil, v
+		response := &QueryMatchTicketHistoriesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchTicketHistoriesInternalServerError:
-		return nil, v
+		response := &QueryMatchTicketHistoriesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -415,7 +595,7 @@ func (a *Client) QueryMatchTicketHistoriesShort(params *QueryMatchTicketHistorie
 QueryXrayMatchShort query xray timeline by matchid
 Query xray timeline by matchID.
 */
-func (a *Client) QueryXrayMatchShort(params *QueryXrayMatchParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayMatchOK, error) {
+func (a *Client) QueryXrayMatchShort(params *QueryXrayMatchParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayMatchResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryXrayMatchParams()
@@ -453,17 +633,47 @@ func (a *Client) QueryXrayMatchShort(params *QueryXrayMatchParams, authInfo runt
 	switch v := result.(type) {
 
 	case *QueryXrayMatchOK:
-		return v, nil
+		response := &QueryXrayMatchResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryXrayMatchBadRequest:
-		return nil, v
+		response := &QueryXrayMatchResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayMatchUnauthorized:
-		return nil, v
+		response := &QueryXrayMatchResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayMatchForbidden:
-		return nil, v
+		response := &QueryXrayMatchResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayMatchNotFound:
-		return nil, v
+		response := &QueryXrayMatchResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayMatchInternalServerError:
-		return nil, v
+		response := &QueryXrayMatchResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -474,7 +684,7 @@ func (a *Client) QueryXrayMatchShort(params *QueryXrayMatchParams, authInfo runt
 QueryAcquiringDSShort query total success and failed claim ds
 Query total success and failed claim DS.
 */
-func (a *Client) QueryAcquiringDSShort(params *QueryAcquiringDSParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAcquiringDSOK, error) {
+func (a *Client) QueryAcquiringDSShort(params *QueryAcquiringDSParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAcquiringDSResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryAcquiringDSParams()
@@ -512,17 +722,47 @@ func (a *Client) QueryAcquiringDSShort(params *QueryAcquiringDSParams, authInfo 
 	switch v := result.(type) {
 
 	case *QueryAcquiringDSOK:
-		return v, nil
+		response := &QueryAcquiringDSResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryAcquiringDSBadRequest:
-		return nil, v
+		response := &QueryAcquiringDSResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryAcquiringDSUnauthorized:
-		return nil, v
+		response := &QueryAcquiringDSResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryAcquiringDSForbidden:
-		return nil, v
+		response := &QueryAcquiringDSResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryAcquiringDSNotFound:
-		return nil, v
+		response := &QueryAcquiringDSResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryAcquiringDSInternalServerError:
-		return nil, v
+		response := &QueryAcquiringDSResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -533,7 +773,7 @@ func (a *Client) QueryAcquiringDSShort(params *QueryAcquiringDSParams, authInfo 
 QueryAcquiringDSWaitTimeAvgShort query acquiring ds wait time average
 Query acquiring ds wait time average. time in seconds
 */
-func (a *Client) QueryAcquiringDSWaitTimeAvgShort(params *QueryAcquiringDSWaitTimeAvgParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAcquiringDSWaitTimeAvgOK, error) {
+func (a *Client) QueryAcquiringDSWaitTimeAvgShort(params *QueryAcquiringDSWaitTimeAvgParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAcquiringDSWaitTimeAvgResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryAcquiringDSWaitTimeAvgParams()
@@ -571,17 +811,47 @@ func (a *Client) QueryAcquiringDSWaitTimeAvgShort(params *QueryAcquiringDSWaitTi
 	switch v := result.(type) {
 
 	case *QueryAcquiringDSWaitTimeAvgOK:
-		return v, nil
+		response := &QueryAcquiringDSWaitTimeAvgResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryAcquiringDSWaitTimeAvgBadRequest:
-		return nil, v
+		response := &QueryAcquiringDSWaitTimeAvgResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryAcquiringDSWaitTimeAvgUnauthorized:
-		return nil, v
+		response := &QueryAcquiringDSWaitTimeAvgResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryAcquiringDSWaitTimeAvgForbidden:
-		return nil, v
+		response := &QueryAcquiringDSWaitTimeAvgResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryAcquiringDSWaitTimeAvgNotFound:
-		return nil, v
+		response := &QueryAcquiringDSWaitTimeAvgResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryAcquiringDSWaitTimeAvgInternalServerError:
-		return nil, v
+		response := &QueryAcquiringDSWaitTimeAvgResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -592,7 +862,7 @@ func (a *Client) QueryAcquiringDSWaitTimeAvgShort(params *QueryAcquiringDSWaitTi
 QueryMatchLengthDurationpAvgShort query match length duration avg
 Query match length duration avg. time in seconds
 */
-func (a *Client) QueryMatchLengthDurationpAvgShort(params *QueryMatchLengthDurationpAvgParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchLengthDurationpAvgOK, error) {
+func (a *Client) QueryMatchLengthDurationpAvgShort(params *QueryMatchLengthDurationpAvgParams, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchLengthDurationpAvgResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryMatchLengthDurationpAvgParams()
@@ -630,17 +900,47 @@ func (a *Client) QueryMatchLengthDurationpAvgShort(params *QueryMatchLengthDurat
 	switch v := result.(type) {
 
 	case *QueryMatchLengthDurationpAvgOK:
-		return v, nil
+		response := &QueryMatchLengthDurationpAvgResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryMatchLengthDurationpAvgBadRequest:
-		return nil, v
+		response := &QueryMatchLengthDurationpAvgResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchLengthDurationpAvgUnauthorized:
-		return nil, v
+		response := &QueryMatchLengthDurationpAvgResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchLengthDurationpAvgForbidden:
-		return nil, v
+		response := &QueryMatchLengthDurationpAvgResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchLengthDurationpAvgNotFound:
-		return nil, v
+		response := &QueryMatchLengthDurationpAvgResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchLengthDurationpAvgInternalServerError:
-		return nil, v
+		response := &QueryMatchLengthDurationpAvgResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -651,7 +951,7 @@ func (a *Client) QueryMatchLengthDurationpAvgShort(params *QueryMatchLengthDurat
 QueryMatchLengthDurationp99Short query match length duration p99
 Query match length duration p99. time in seconds
 */
-func (a *Client) QueryMatchLengthDurationp99Short(params *QueryMatchLengthDurationp99Params, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchLengthDurationp99OK, error) {
+func (a *Client) QueryMatchLengthDurationp99Short(params *QueryMatchLengthDurationp99Params, authInfo runtime.ClientAuthInfoWriter) (*QueryMatchLengthDurationp99Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryMatchLengthDurationp99Params()
@@ -689,17 +989,47 @@ func (a *Client) QueryMatchLengthDurationp99Short(params *QueryMatchLengthDurati
 	switch v := result.(type) {
 
 	case *QueryMatchLengthDurationp99OK:
-		return v, nil
+		response := &QueryMatchLengthDurationp99Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryMatchLengthDurationp99BadRequest:
-		return nil, v
+		response := &QueryMatchLengthDurationp99Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchLengthDurationp99Unauthorized:
-		return nil, v
+		response := &QueryMatchLengthDurationp99Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchLengthDurationp99Forbidden:
-		return nil, v
+		response := &QueryMatchLengthDurationp99Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchLengthDurationp99NotFound:
-		return nil, v
+		response := &QueryMatchLengthDurationp99Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryMatchLengthDurationp99InternalServerError:
-		return nil, v
+		response := &QueryMatchLengthDurationp99Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -710,7 +1040,7 @@ func (a *Client) QueryMatchLengthDurationp99Short(params *QueryMatchLengthDurati
 QueryTotalActiveSessionShort query total active session
 Query total active session.
 */
-func (a *Client) QueryTotalActiveSessionShort(params *QueryTotalActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalActiveSessionOK, error) {
+func (a *Client) QueryTotalActiveSessionShort(params *QueryTotalActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalActiveSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryTotalActiveSessionParams()
@@ -748,17 +1078,47 @@ func (a *Client) QueryTotalActiveSessionShort(params *QueryTotalActiveSessionPar
 	switch v := result.(type) {
 
 	case *QueryTotalActiveSessionOK:
-		return v, nil
+		response := &QueryTotalActiveSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryTotalActiveSessionBadRequest:
-		return nil, v
+		response := &QueryTotalActiveSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalActiveSessionUnauthorized:
-		return nil, v
+		response := &QueryTotalActiveSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalActiveSessionForbidden:
-		return nil, v
+		response := &QueryTotalActiveSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalActiveSessionNotFound:
-		return nil, v
+		response := &QueryTotalActiveSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalActiveSessionInternalServerError:
-		return nil, v
+		response := &QueryTotalActiveSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -769,7 +1129,7 @@ func (a *Client) QueryTotalActiveSessionShort(params *QueryTotalActiveSessionPar
 QueryTotalMatchmakingMatchShort query total match
 Query total match.
 */
-func (a *Client) QueryTotalMatchmakingMatchShort(params *QueryTotalMatchmakingMatchParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingMatchOK, error) {
+func (a *Client) QueryTotalMatchmakingMatchShort(params *QueryTotalMatchmakingMatchParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingMatchResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryTotalMatchmakingMatchParams()
@@ -807,17 +1167,47 @@ func (a *Client) QueryTotalMatchmakingMatchShort(params *QueryTotalMatchmakingMa
 	switch v := result.(type) {
 
 	case *QueryTotalMatchmakingMatchOK:
-		return v, nil
+		response := &QueryTotalMatchmakingMatchResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchBadRequest:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchUnauthorized:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchForbidden:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchNotFound:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchInternalServerError:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -828,7 +1218,7 @@ func (a *Client) QueryTotalMatchmakingMatchShort(params *QueryTotalMatchmakingMa
 QueryTotalPlayerPersessionShort query total player persession average
 Query total player persession average.
 */
-func (a *Client) QueryTotalPlayerPersessionShort(params *QueryTotalPlayerPersessionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalPlayerPersessionOK, error) {
+func (a *Client) QueryTotalPlayerPersessionShort(params *QueryTotalPlayerPersessionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalPlayerPersessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryTotalPlayerPersessionParams()
@@ -866,17 +1256,47 @@ func (a *Client) QueryTotalPlayerPersessionShort(params *QueryTotalPlayerPersess
 	switch v := result.(type) {
 
 	case *QueryTotalPlayerPersessionOK:
-		return v, nil
+		response := &QueryTotalPlayerPersessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryTotalPlayerPersessionBadRequest:
-		return nil, v
+		response := &QueryTotalPlayerPersessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalPlayerPersessionUnauthorized:
-		return nil, v
+		response := &QueryTotalPlayerPersessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalPlayerPersessionForbidden:
-		return nil, v
+		response := &QueryTotalPlayerPersessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalPlayerPersessionNotFound:
-		return nil, v
+		response := &QueryTotalPlayerPersessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalPlayerPersessionInternalServerError:
-		return nil, v
+		response := &QueryTotalPlayerPersessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -887,7 +1307,7 @@ func (a *Client) QueryTotalPlayerPersessionShort(params *QueryTotalPlayerPersess
 QueryTotalMatchmakingCanceledShort query total ticket canceled
 Query total ticket canceled.
 */
-func (a *Client) QueryTotalMatchmakingCanceledShort(params *QueryTotalMatchmakingCanceledParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingCanceledOK, error) {
+func (a *Client) QueryTotalMatchmakingCanceledShort(params *QueryTotalMatchmakingCanceledParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingCanceledResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryTotalMatchmakingCanceledParams()
@@ -925,17 +1345,47 @@ func (a *Client) QueryTotalMatchmakingCanceledShort(params *QueryTotalMatchmakin
 	switch v := result.(type) {
 
 	case *QueryTotalMatchmakingCanceledOK:
-		return v, nil
+		response := &QueryTotalMatchmakingCanceledResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryTotalMatchmakingCanceledBadRequest:
-		return nil, v
+		response := &QueryTotalMatchmakingCanceledResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingCanceledUnauthorized:
-		return nil, v
+		response := &QueryTotalMatchmakingCanceledResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingCanceledForbidden:
-		return nil, v
+		response := &QueryTotalMatchmakingCanceledResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingCanceledNotFound:
-		return nil, v
+		response := &QueryTotalMatchmakingCanceledResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingCanceledInternalServerError:
-		return nil, v
+		response := &QueryTotalMatchmakingCanceledResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -946,7 +1396,7 @@ func (a *Client) QueryTotalMatchmakingCanceledShort(params *QueryTotalMatchmakin
 QueryTotalMatchmakingCreatedShort query total ticket created
 Query total ticket created.
 */
-func (a *Client) QueryTotalMatchmakingCreatedShort(params *QueryTotalMatchmakingCreatedParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingCreatedOK, error) {
+func (a *Client) QueryTotalMatchmakingCreatedShort(params *QueryTotalMatchmakingCreatedParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingCreatedResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryTotalMatchmakingCreatedParams()
@@ -984,17 +1434,47 @@ func (a *Client) QueryTotalMatchmakingCreatedShort(params *QueryTotalMatchmaking
 	switch v := result.(type) {
 
 	case *QueryTotalMatchmakingCreatedOK:
-		return v, nil
+		response := &QueryTotalMatchmakingCreatedResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryTotalMatchmakingCreatedBadRequest:
-		return nil, v
+		response := &QueryTotalMatchmakingCreatedResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingCreatedUnauthorized:
-		return nil, v
+		response := &QueryTotalMatchmakingCreatedResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingCreatedForbidden:
-		return nil, v
+		response := &QueryTotalMatchmakingCreatedResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingCreatedNotFound:
-		return nil, v
+		response := &QueryTotalMatchmakingCreatedResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingCreatedInternalServerError:
-		return nil, v
+		response := &QueryTotalMatchmakingCreatedResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1005,7 +1485,7 @@ func (a *Client) QueryTotalMatchmakingCreatedShort(params *QueryTotalMatchmaking
 QueryTotalMatchmakingExpiredShort query total ticket expired
 Query total ticket expired.
 */
-func (a *Client) QueryTotalMatchmakingExpiredShort(params *QueryTotalMatchmakingExpiredParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingExpiredOK, error) {
+func (a *Client) QueryTotalMatchmakingExpiredShort(params *QueryTotalMatchmakingExpiredParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingExpiredResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryTotalMatchmakingExpiredParams()
@@ -1043,17 +1523,47 @@ func (a *Client) QueryTotalMatchmakingExpiredShort(params *QueryTotalMatchmaking
 	switch v := result.(type) {
 
 	case *QueryTotalMatchmakingExpiredOK:
-		return v, nil
+		response := &QueryTotalMatchmakingExpiredResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryTotalMatchmakingExpiredBadRequest:
-		return nil, v
+		response := &QueryTotalMatchmakingExpiredResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingExpiredUnauthorized:
-		return nil, v
+		response := &QueryTotalMatchmakingExpiredResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingExpiredForbidden:
-		return nil, v
+		response := &QueryTotalMatchmakingExpiredResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingExpiredNotFound:
-		return nil, v
+		response := &QueryTotalMatchmakingExpiredResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingExpiredInternalServerError:
-		return nil, v
+		response := &QueryTotalMatchmakingExpiredResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1064,7 +1574,7 @@ func (a *Client) QueryTotalMatchmakingExpiredShort(params *QueryTotalMatchmaking
 QueryTotalMatchmakingMatchTicketShort query total ticket match
 Query total ticket match.
 */
-func (a *Client) QueryTotalMatchmakingMatchTicketShort(params *QueryTotalMatchmakingMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingMatchTicketOK, error) {
+func (a *Client) QueryTotalMatchmakingMatchTicketShort(params *QueryTotalMatchmakingMatchTicketParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTotalMatchmakingMatchTicketResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryTotalMatchmakingMatchTicketParams()
@@ -1102,17 +1612,47 @@ func (a *Client) QueryTotalMatchmakingMatchTicketShort(params *QueryTotalMatchma
 	switch v := result.(type) {
 
 	case *QueryTotalMatchmakingMatchTicketOK:
-		return v, nil
+		response := &QueryTotalMatchmakingMatchTicketResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchTicketBadRequest:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchTicketResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchTicketUnauthorized:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchTicketResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchTicketForbidden:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchTicketResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchTicketNotFound:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchTicketResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTotalMatchmakingMatchTicketInternalServerError:
-		return nil, v
+		response := &QueryTotalMatchmakingMatchTicketResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1146,7 +1686,7 @@ IsRuleSetFlexed : flag if ruleset is getting flexed
 TickID : tick id for the matchmaking tick
 SessionTickID : session tick id for differentiate session when doing matches
 */
-func (a *Client) CreateXrayTicketObservabilityShort(params *CreateXrayTicketObservabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CreateXrayTicketObservabilityOK, error) {
+func (a *Client) CreateXrayTicketObservabilityShort(params *CreateXrayTicketObservabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CreateXrayTicketObservabilityResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateXrayTicketObservabilityParams()
@@ -1184,15 +1724,40 @@ func (a *Client) CreateXrayTicketObservabilityShort(params *CreateXrayTicketObse
 	switch v := result.(type) {
 
 	case *CreateXrayTicketObservabilityOK:
-		return v, nil
+		response := &CreateXrayTicketObservabilityResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateXrayTicketObservabilityBadRequest:
-		return nil, v
+		response := &CreateXrayTicketObservabilityResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateXrayTicketObservabilityUnauthorized:
-		return nil, v
+		response := &CreateXrayTicketObservabilityResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateXrayTicketObservabilityForbidden:
-		return nil, v
+		response := &CreateXrayTicketObservabilityResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateXrayTicketObservabilityInternalServerError:
-		return nil, v
+		response := &CreateXrayTicketObservabilityResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1226,7 +1791,7 @@ IsRuleSetFlexed : flag if ruleset is getting flexed
 TickID : tick id for the matchmaking tick
 SessionTickID : session tick id for differentiate session when doing matches
 */
-func (a *Client) CreateXrayBulkTicketObservabilityShort(params *CreateXrayBulkTicketObservabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CreateXrayBulkTicketObservabilityOK, error) {
+func (a *Client) CreateXrayBulkTicketObservabilityShort(params *CreateXrayBulkTicketObservabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CreateXrayBulkTicketObservabilityResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateXrayBulkTicketObservabilityParams()
@@ -1264,15 +1829,40 @@ func (a *Client) CreateXrayBulkTicketObservabilityShort(params *CreateXrayBulkTi
 	switch v := result.(type) {
 
 	case *CreateXrayBulkTicketObservabilityOK:
-		return v, nil
+		response := &CreateXrayBulkTicketObservabilityResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateXrayBulkTicketObservabilityBadRequest:
-		return nil, v
+		response := &CreateXrayBulkTicketObservabilityResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateXrayBulkTicketObservabilityUnauthorized:
-		return nil, v
+		response := &CreateXrayBulkTicketObservabilityResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateXrayBulkTicketObservabilityForbidden:
-		return nil, v
+		response := &CreateXrayBulkTicketObservabilityResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateXrayBulkTicketObservabilityInternalServerError:
-		return nil, v
+		response := &CreateXrayBulkTicketObservabilityResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1283,7 +1873,7 @@ func (a *Client) CreateXrayBulkTicketObservabilityShort(params *CreateXrayBulkTi
 QueryXrayTimelineByTicketIDShort query xray timeline
 Query xray timeline by ticketID
 */
-func (a *Client) QueryXrayTimelineByTicketIDShort(params *QueryXrayTimelineByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayTimelineByTicketIDOK, error) {
+func (a *Client) QueryXrayTimelineByTicketIDShort(params *QueryXrayTimelineByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayTimelineByTicketIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryXrayTimelineByTicketIDParams()
@@ -1321,17 +1911,47 @@ func (a *Client) QueryXrayTimelineByTicketIDShort(params *QueryXrayTimelineByTic
 	switch v := result.(type) {
 
 	case *QueryXrayTimelineByTicketIDOK:
-		return v, nil
+		response := &QueryXrayTimelineByTicketIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryXrayTimelineByTicketIDBadRequest:
-		return nil, v
+		response := &QueryXrayTimelineByTicketIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayTimelineByTicketIDUnauthorized:
-		return nil, v
+		response := &QueryXrayTimelineByTicketIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayTimelineByTicketIDForbidden:
-		return nil, v
+		response := &QueryXrayTimelineByTicketIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayTimelineByTicketIDNotFound:
-		return nil, v
+		response := &QueryXrayTimelineByTicketIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayTimelineByTicketIDInternalServerError:
-		return nil, v
+		response := &QueryXrayTimelineByTicketIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1342,7 +1962,7 @@ func (a *Client) QueryXrayTimelineByTicketIDShort(params *QueryXrayTimelineByTic
 QueryXrayTimelineByUserIDShort query xray timeline
 Query xray timeline by userID or ticketID
 */
-func (a *Client) QueryXrayTimelineByUserIDShort(params *QueryXrayTimelineByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayTimelineByUserIDOK, error) {
+func (a *Client) QueryXrayTimelineByUserIDShort(params *QueryXrayTimelineByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*QueryXrayTimelineByUserIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryXrayTimelineByUserIDParams()
@@ -1380,17 +2000,47 @@ func (a *Client) QueryXrayTimelineByUserIDShort(params *QueryXrayTimelineByUserI
 	switch v := result.(type) {
 
 	case *QueryXrayTimelineByUserIDOK:
-		return v, nil
+		response := &QueryXrayTimelineByUserIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryXrayTimelineByUserIDBadRequest:
-		return nil, v
+		response := &QueryXrayTimelineByUserIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayTimelineByUserIDUnauthorized:
-		return nil, v
+		response := &QueryXrayTimelineByUserIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayTimelineByUserIDForbidden:
-		return nil, v
+		response := &QueryXrayTimelineByUserIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayTimelineByUserIDNotFound:
-		return nil, v
+		response := &QueryXrayTimelineByUserIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryXrayTimelineByUserIDInternalServerError:
-		return nil, v
+		response := &QueryXrayTimelineByUserIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type GetCountryLocationV3Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.OauthmodelCountryLocationResponse
+}
+
+func (m *GetCountryLocationV3Response) Unpack() (*iamclientmodels.OauthmodelCountryLocationResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetCountryLocationV3Reader is a Reader for the GetCountryLocationV3 structure.
 type GetCountryLocationV3Reader struct {
 	formats strfmt.Registry

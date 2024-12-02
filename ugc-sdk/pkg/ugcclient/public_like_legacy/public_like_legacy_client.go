@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetLikedContentShort(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentOK, error)
-	UpdateContentLikeStatusShort(params *UpdateContentLikeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusOK, error)
+	GetLikedContentShort(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentResponse, error)
+	UpdateContentLikeStatusShort(params *UpdateContentLikeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -56,7 +56,7 @@ Allowed character for operator: & | ( )
 
 **Please note that value of tags query param should be URL encoded**
 */
-func (a *Client) GetLikedContentShort(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentOK, error) {
+func (a *Client) GetLikedContentShort(params *GetLikedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetLikedContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLikedContentParams()
@@ -94,13 +94,33 @@ func (a *Client) GetLikedContentShort(params *GetLikedContentParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetLikedContentOK:
-		return v, nil
+		response := &GetLikedContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLikedContentBadRequest:
-		return nil, v
+		response := &GetLikedContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLikedContentUnauthorized:
-		return nil, v
+		response := &GetLikedContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLikedContentInternalServerError:
-		return nil, v
+		response := &GetLikedContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -111,7 +131,7 @@ func (a *Client) GetLikedContentShort(params *GetLikedContentParams, authInfo ru
 UpdateContentLikeStatusShort update like/unlike status to a content
 This endpoint will update like/unlike state from a content
 */
-func (a *Client) UpdateContentLikeStatusShort(params *UpdateContentLikeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusOK, error) {
+func (a *Client) UpdateContentLikeStatusShort(params *UpdateContentLikeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateContentLikeStatusParams()
@@ -149,15 +169,40 @@ func (a *Client) UpdateContentLikeStatusShort(params *UpdateContentLikeStatusPar
 	switch v := result.(type) {
 
 	case *UpdateContentLikeStatusOK:
-		return v, nil
+		response := &UpdateContentLikeStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateContentLikeStatusBadRequest:
-		return nil, v
+		response := &UpdateContentLikeStatusResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentLikeStatusUnauthorized:
-		return nil, v
+		response := &UpdateContentLikeStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentLikeStatusNotFound:
-		return nil, v
+		response := &UpdateContentLikeStatusResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentLikeStatusInternalServerError:
-		return nil, v
+		response := &UpdateContentLikeStatusResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 )
 
+type AdminDeleteAchievementResponse struct {
+	achievementclientmodels.ApiResponse
+
+	Error400 *achievementclientmodels.ResponseError
+	Error401 *achievementclientmodels.ResponseError
+	Error404 *achievementclientmodels.ResponseError
+	Error500 *achievementclientmodels.ResponseError
+}
+
+func (m *AdminDeleteAchievementResponse) Unpack() *achievementclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &achievementclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminDeleteAchievementReader is a Reader for the AdminDeleteAchievement structure.
 type AdminDeleteAchievementReader struct {
 	formats strfmt.Registry

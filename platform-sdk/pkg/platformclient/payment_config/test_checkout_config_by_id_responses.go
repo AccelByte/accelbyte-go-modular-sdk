@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type TestCheckoutConfigByIDResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.TestResult
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *TestCheckoutConfigByIDResponse) Unpack() (*platformclientmodels.TestResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // TestCheckoutConfigByIDReader is a Reader for the TestCheckoutConfigByID structure.
 type TestCheckoutConfigByIDReader struct {
 	formats strfmt.Registry

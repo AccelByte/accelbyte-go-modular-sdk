@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
+type AdminGetListNativeSessionResponse struct {
+	sessionclientmodels.ApiResponse
+	Data *sessionclientmodels.ApimodelsNativeSessionPagingResponse
+
+	Error401 *sessionclientmodels.ResponseError
+	Error403 *sessionclientmodels.ResponseError
+}
+
+func (m *AdminGetListNativeSessionResponse) Unpack() (*sessionclientmodels.ApimodelsNativeSessionPagingResponse, *sessionclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetListNativeSessionReader is a Reader for the AdminGetListNativeSession structure.
 type AdminGetListNativeSessionReader struct {
 	formats strfmt.Registry

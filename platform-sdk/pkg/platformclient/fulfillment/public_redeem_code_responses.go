@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type PublicRedeemCodeResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.FulfillmentResult
+
+	Error400 *platformclientmodels.ErrorEntity
+	Error404 *platformclientmodels.ErrorEntity
+	Error409 *platformclientmodels.ErrorEntity
+	Error429 *platformclientmodels.ErrorEntity
+}
+
+func (m *PublicRedeemCodeResponse) Unpack() (*platformclientmodels.FulfillmentResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 429:
+			e, err := m.Error429.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicRedeemCodeReader is a Reader for the PublicRedeemCode structure.
 type PublicRedeemCodeReader struct {
 	formats strfmt.Registry

@@ -30,16 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListNodesIPAddressShort(params *ListNodesIPAddressParams, authInfo runtime.ClientAuthInfoWriter) (*ListNodesIPAddressOK, error)
-	DeleteNodeByIDShort(params *DeleteNodeByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNodeByIDNoContent, error)
-	ListQueueShort(params *ListQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListQueueOK, error)
-	GetActiveQueueShort(params *GetActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*GetActiveQueueOK, error)
-	SetActiveQueueShort(params *SetActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*SetActiveQueueNoContent, error)
-	DeleteActiveQueueShort(params *DeleteActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteActiveQueueNoContent, error)
-	ReportFailedUploadShort(params *ReportFailedUploadParams, authInfo runtime.ClientAuthInfoWriter) (*ReportFailedUploadNoContent, error)
-	DeleteQueueShort(params *DeleteQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteQueueNoContent, error)
-	ListAllActiveQueueShort(params *ListAllActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllActiveQueueOK, error)
-	ListAllQueueShort(params *ListAllQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllQueueOK, error)
+	ListNodesIPAddressShort(params *ListNodesIPAddressParams, authInfo runtime.ClientAuthInfoWriter) (*ListNodesIPAddressResponse, error)
+	DeleteNodeByIDShort(params *DeleteNodeByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNodeByIDResponse, error)
+	ListQueueShort(params *ListQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListQueueResponse, error)
+	GetActiveQueueShort(params *GetActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*GetActiveQueueResponse, error)
+	SetActiveQueueShort(params *SetActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*SetActiveQueueResponse, error)
+	DeleteActiveQueueShort(params *DeleteActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteActiveQueueResponse, error)
+	ReportFailedUploadShort(params *ReportFailedUploadParams, authInfo runtime.ClientAuthInfoWriter) (*ReportFailedUploadResponse, error)
+	DeleteQueueShort(params *DeleteQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteQueueResponse, error)
+	ListAllActiveQueueShort(params *ListAllActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllActiveQueueResponse, error)
+	ListAllQueueShort(params *ListAllQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllQueueResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ Required scope: social
 
 This endpoint will list IP Address of all artifact queue
 */
-func (a *Client) ListNodesIPAddressShort(params *ListNodesIPAddressParams, authInfo runtime.ClientAuthInfoWriter) (*ListNodesIPAddressOK, error) {
+func (a *Client) ListNodesIPAddressShort(params *ListNodesIPAddressParams, authInfo runtime.ClientAuthInfoWriter) (*ListNodesIPAddressResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListNodesIPAddressParams()
@@ -90,11 +90,26 @@ func (a *Client) ListNodesIPAddressShort(params *ListNodesIPAddressParams, authI
 	switch v := result.(type) {
 
 	case *ListNodesIPAddressOK:
-		return v, nil
+		response := &ListNodesIPAddressResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListNodesIPAddressBadRequest:
-		return nil, v
+		response := &ListNodesIPAddressResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListNodesIPAddressInternalServerError:
-		return nil, v
+		response := &ListNodesIPAddressResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -109,7 +124,7 @@ Required scope: social
 
 This endpoint will delete a node by IP
 */
-func (a *Client) DeleteNodeByIDShort(params *DeleteNodeByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNodeByIDNoContent, error) {
+func (a *Client) DeleteNodeByIDShort(params *DeleteNodeByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNodeByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteNodeByIDParams()
@@ -147,11 +162,25 @@ func (a *Client) DeleteNodeByIDShort(params *DeleteNodeByIDParams, authInfo runt
 	switch v := result.(type) {
 
 	case *DeleteNodeByIDNoContent:
-		return v, nil
+		response := &DeleteNodeByIDResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteNodeByIDBadRequest:
-		return nil, v
+		response := &DeleteNodeByIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNodeByIDInternalServerError:
-		return nil, v
+		response := &DeleteNodeByIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +195,7 @@ Required permission: ADMIN:DSAM:ARTIFACT:QUEUE [READ]
 This endpoint is used to get the list of queues on a node
 ```
 */
-func (a *Client) ListQueueShort(params *ListQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListQueueOK, error) {
+func (a *Client) ListQueueShort(params *ListQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListQueueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListQueueParams()
@@ -204,15 +233,40 @@ func (a *Client) ListQueueShort(params *ListQueueParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *ListQueueOK:
-		return v, nil
+		response := &ListQueueResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListQueueBadRequest:
-		return nil, v
+		response := &ListQueueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListQueueUnauthorized:
-		return nil, v
+		response := &ListQueueResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListQueueNotFound:
-		return nil, v
+		response := &ListQueueResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListQueueInternalServerError:
-		return nil, v
+		response := &ListQueueResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -227,7 +281,7 @@ Required permission: ADMIN:DSAM:ARTIFACT:QUEUE [READ]
 This endpoint is used to get an active queue process on a node
 ```
 */
-func (a *Client) GetActiveQueueShort(params *GetActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*GetActiveQueueOK, error) {
+func (a *Client) GetActiveQueueShort(params *GetActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*GetActiveQueueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetActiveQueueParams()
@@ -265,15 +319,40 @@ func (a *Client) GetActiveQueueShort(params *GetActiveQueueParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetActiveQueueOK:
-		return v, nil
+		response := &GetActiveQueueResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetActiveQueueBadRequest:
-		return nil, v
+		response := &GetActiveQueueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetActiveQueueUnauthorized:
-		return nil, v
+		response := &GetActiveQueueResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetActiveQueueNotFound:
-		return nil, v
+		response := &GetActiveQueueResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetActiveQueueInternalServerError:
-		return nil, v
+		response := &GetActiveQueueResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -289,7 +368,7 @@ This endpoint is used to set a queue entry as the current active queue
 for artifact uploading process on a node
 ```
 */
-func (a *Client) SetActiveQueueShort(params *SetActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*SetActiveQueueNoContent, error) {
+func (a *Client) SetActiveQueueShort(params *SetActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*SetActiveQueueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetActiveQueueParams()
@@ -327,13 +406,32 @@ func (a *Client) SetActiveQueueShort(params *SetActiveQueueParams, authInfo runt
 	switch v := result.(type) {
 
 	case *SetActiveQueueNoContent:
-		return v, nil
+		response := &SetActiveQueueResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SetActiveQueueBadRequest:
-		return nil, v
+		response := &SetActiveQueueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetActiveQueueUnauthorized:
-		return nil, v
+		response := &SetActiveQueueResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetActiveQueueInternalServerError:
-		return nil, v
+		response := &SetActiveQueueResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -348,7 +446,7 @@ Required permission: ADMIN:DSAM:ARTIFACT:QUEUE [DELETE]
 This endpoint is used to delete active queue process on a node
 ```
 */
-func (a *Client) DeleteActiveQueueShort(params *DeleteActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteActiveQueueNoContent, error) {
+func (a *Client) DeleteActiveQueueShort(params *DeleteActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteActiveQueueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteActiveQueueParams()
@@ -386,13 +484,32 @@ func (a *Client) DeleteActiveQueueShort(params *DeleteActiveQueueParams, authInf
 	switch v := result.(type) {
 
 	case *DeleteActiveQueueNoContent:
-		return v, nil
+		response := &DeleteActiveQueueResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteActiveQueueBadRequest:
-		return nil, v
+		response := &DeleteActiveQueueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteActiveQueueUnauthorized:
-		return nil, v
+		response := &DeleteActiveQueueResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteActiveQueueInternalServerError:
-		return nil, v
+		response := &DeleteActiveQueueResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -407,7 +524,7 @@ Required permission: ADMIN:DSAM:ARTIFACT:QUEUE [UPDATE]
 This endpoint is used to report a failed artifact upload
 ```
 */
-func (a *Client) ReportFailedUploadShort(params *ReportFailedUploadParams, authInfo runtime.ClientAuthInfoWriter) (*ReportFailedUploadNoContent, error) {
+func (a *Client) ReportFailedUploadShort(params *ReportFailedUploadParams, authInfo runtime.ClientAuthInfoWriter) (*ReportFailedUploadResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewReportFailedUploadParams()
@@ -445,13 +562,32 @@ func (a *Client) ReportFailedUploadShort(params *ReportFailedUploadParams, authI
 	switch v := result.(type) {
 
 	case *ReportFailedUploadNoContent:
-		return v, nil
+		response := &ReportFailedUploadResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ReportFailedUploadBadRequest:
-		return nil, v
+		response := &ReportFailedUploadResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ReportFailedUploadUnauthorized:
-		return nil, v
+		response := &ReportFailedUploadResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ReportFailedUploadInternalServerError:
-		return nil, v
+		response := &ReportFailedUploadResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -466,7 +602,7 @@ Required scope: social
 
 This endpoint will delete a queue entry
 */
-func (a *Client) DeleteQueueShort(params *DeleteQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteQueueNoContent, error) {
+func (a *Client) DeleteQueueShort(params *DeleteQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteQueueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteQueueParams()
@@ -504,11 +640,25 @@ func (a *Client) DeleteQueueShort(params *DeleteQueueParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DeleteQueueNoContent:
-		return v, nil
+		response := &DeleteQueueResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteQueueBadRequest:
-		return nil, v
+		response := &DeleteQueueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteQueueInternalServerError:
-		return nil, v
+		response := &DeleteQueueResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -523,7 +673,7 @@ Required scope: social
 
 This endpoint will list all DSes which artifact is currently in uploading process.
 */
-func (a *Client) ListAllActiveQueueShort(params *ListAllActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllActiveQueueOK, error) {
+func (a *Client) ListAllActiveQueueShort(params *ListAllActiveQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllActiveQueueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListAllActiveQueueParams()
@@ -561,13 +711,33 @@ func (a *Client) ListAllActiveQueueShort(params *ListAllActiveQueueParams, authI
 	switch v := result.(type) {
 
 	case *ListAllActiveQueueOK:
-		return v, nil
+		response := &ListAllActiveQueueResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListAllActiveQueueBadRequest:
-		return nil, v
+		response := &ListAllActiveQueueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListAllActiveQueueNotFound:
-		return nil, v
+		response := &ListAllActiveQueueResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListAllActiveQueueInternalServerError:
-		return nil, v
+		response := &ListAllActiveQueueResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -582,7 +752,7 @@ Required scope: social
 
 This endpoint will list all DSes which has artifact in upload queue.
 */
-func (a *Client) ListAllQueueShort(params *ListAllQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllQueueOK, error) {
+func (a *Client) ListAllQueueShort(params *ListAllQueueParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllQueueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListAllQueueParams()
@@ -620,13 +790,33 @@ func (a *Client) ListAllQueueShort(params *ListAllQueueParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *ListAllQueueOK:
-		return v, nil
+		response := &ListAllQueueResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListAllQueueBadRequest:
-		return nil, v
+		response := &ListAllQueueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListAllQueueNotFound:
-		return nil, v
+		response := &ListAllQueueResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListAllQueueInternalServerError:
-		return nil, v
+		response := &ListAllQueueResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

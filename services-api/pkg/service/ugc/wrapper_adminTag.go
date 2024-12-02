@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_tag"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 // AdminTagService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *AdminTagService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminTagService) AdminGetTagShort(input *admin_tag.AdminGetTagParams) (*ugcclientmodels.ModelsPaginatedGetTagResponse, error) {
+func (aaa *AdminTagService) AdminGetTagShort(input *admin_tag.AdminGetTagParams) (*admin_tag.AdminGetTagResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AdminTagService) AdminGetTagShort(input *admin_tag.AdminGetTagParams)
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminTagService) AdminCreateTagShort(input *admin_tag.AdminCreateTagParams) (*ugcclientmodels.ModelsCreateTagResponse, error) {
+func (aaa *AdminTagService) AdminCreateTagShort(input *admin_tag.AdminCreateTagParams) (*admin_tag.AdminCreateTagResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AdminTagService) AdminCreateTagShort(input *admin_tag.AdminCreateTagP
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminTagService) AdminUpdateTagShort(input *admin_tag.AdminUpdateTagParams) (*ugcclientmodels.ModelsCreateTagResponse, error) {
+func (aaa *AdminTagService) AdminUpdateTagShort(input *admin_tag.AdminUpdateTagParams) (*admin_tag.AdminUpdateTagResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *AdminTagService) AdminUpdateTagShort(input *admin_tag.AdminUpdateTagP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminTagService) AdminDeleteTagShort(input *admin_tag.AdminDeleteTagParams) error {

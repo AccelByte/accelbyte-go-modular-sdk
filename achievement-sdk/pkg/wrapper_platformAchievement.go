@@ -9,7 +9,6 @@ package achievement
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/platform_achievement"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PlatformAchievementService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PlatformAchievementService) BulkCreatePSNEventShort(input *platform_achievement.BulkCreatePSNEventParams) (*achievementclientmodels.ModelsBulkCreatePSNEventResponse, error) {
+func (aaa *PlatformAchievementService) BulkCreatePSNEventShort(input *platform_achievement.BulkCreatePSNEventParams) (*platform_achievement.BulkCreatePSNEventResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *PlatformAchievementService) BulkCreatePSNEventShort(input *platform_a
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

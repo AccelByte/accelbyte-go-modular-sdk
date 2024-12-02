@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type RetrieveSingleLocalizedPolicyVersion2Response struct {
+	legalclientmodels.ApiResponse
+	Data *legalclientmodels.RetrieveLocalizedPolicyVersionPublicResponse
+
+	Error403 *legalclientmodels.ErrorEntity
+	Error404 *legalclientmodels.ErrorEntity
+}
+
+func (m *RetrieveSingleLocalizedPolicyVersion2Response) Unpack() (*legalclientmodels.RetrieveLocalizedPolicyVersionPublicResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RetrieveSingleLocalizedPolicyVersion2Reader is a Reader for the RetrieveSingleLocalizedPolicyVersion2 structure.
 type RetrieveSingleLocalizedPolicyVersion2Reader struct {
 	formats strfmt.Registry

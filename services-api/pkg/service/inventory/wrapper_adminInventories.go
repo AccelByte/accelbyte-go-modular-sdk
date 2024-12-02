@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_inventories"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AdminInventoriesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminInventoriesService) AdminListInventoriesShort(input *admin_inventories.AdminListInventoriesParams) (*inventoryclientmodels.ApimodelsListInventoryResp, error) {
+func (aaa *AdminInventoriesService) AdminListInventoriesShort(input *admin_inventories.AdminListInventoriesParams) (*admin_inventories.AdminListInventoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AdminInventoriesService) AdminListInventoriesShort(input *admin_inven
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminInventoriesService) AdminCreateInventoryShort(input *admin_inventories.AdminCreateInventoryParams) (*inventoryclientmodels.ApimodelsInventoryResp, error) {
+func (aaa *AdminInventoriesService) AdminCreateInventoryShort(input *admin_inventories.AdminCreateInventoryParams) (*admin_inventories.AdminCreateInventoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AdminInventoriesService) AdminCreateInventoryShort(input *admin_inven
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminInventoriesService) AdminGetInventoryShort(input *admin_inventories.AdminGetInventoryParams) (*inventoryclientmodels.ApimodelsInventoryResp, error) {
+func (aaa *AdminInventoriesService) AdminGetInventoryShort(input *admin_inventories.AdminGetInventoryParams) (*admin_inventories.AdminGetInventoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *AdminInventoriesService) AdminGetInventoryShort(input *admin_inventor
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminInventoriesService) AdminUpdateInventoryShort(input *admin_inventories.AdminUpdateInventoryParams) (*inventoryclientmodels.ApimodelsInventoryResp, error) {
+func (aaa *AdminInventoriesService) AdminUpdateInventoryShort(input *admin_inventories.AdminUpdateInventoryParams) (*admin_inventories.AdminUpdateInventoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *AdminInventoriesService) AdminUpdateInventoryShort(input *admin_inven
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminInventoriesService) DeleteInventoryShort(input *admin_inventories.DeleteInventoryParams) error {
@@ -189,7 +188,7 @@ func (aaa *AdminInventoriesService) DeleteInventoryShort(input *admin_inventorie
 	return nil
 }
 
-func (aaa *AdminInventoriesService) AdminUpdateUserInventoriesByInventoryCodeShort(input *admin_inventories.AdminUpdateUserInventoriesByInventoryCodeParams) ([]*inventoryclientmodels.ApimodelsInventoryResp, error) {
+func (aaa *AdminInventoriesService) AdminUpdateUserInventoriesByInventoryCodeShort(input *admin_inventories.AdminUpdateUserInventoriesByInventoryCodeParams) (*admin_inventories.AdminUpdateUserInventoriesByInventoryCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *AdminInventoriesService) AdminUpdateUserInventoriesByInventoryCodeSho
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminInventoriesService) AdminPurchasableShort(input *admin_inventories.AdminPurchasableParams) error {

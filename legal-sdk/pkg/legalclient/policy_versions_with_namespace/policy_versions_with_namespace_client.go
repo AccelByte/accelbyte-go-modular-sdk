@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeletePolicyVersionShort(params *DeletePolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyVersionNoContent, error)
-	UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyVersion1OK, error)
-	PublishPolicyVersion1Short(params *PublishPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*PublishPolicyVersion1OK, error)
-	UnpublishPolicyVersionShort(params *UnpublishPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishPolicyVersionNoContent, error)
-	RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicyVersion1OK, error)
-	CreatePolicyVersion1Short(params *CreatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyVersion1Created, error)
+	DeletePolicyVersionShort(params *DeletePolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyVersionResponse, error)
+	UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyVersion1Response, error)
+	PublishPolicyVersion1Short(params *PublishPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*PublishPolicyVersion1Response, error)
+	UnpublishPolicyVersionShort(params *UnpublishPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishPolicyVersionResponse, error)
+	RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicyVersion1Response, error)
+	CreatePolicyVersion1Short(params *CreatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyVersion1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ Delete a policy version from policy.Can only be deleted if match these criteria:
   * Policy version is not published
   * Policy version has never been accepted by any user
 */
-func (a *Client) DeletePolicyVersionShort(params *DeletePolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyVersionNoContent, error) {
+func (a *Client) DeletePolicyVersionShort(params *DeletePolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyVersionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePolicyVersionParams()
@@ -86,9 +86,18 @@ func (a *Client) DeletePolicyVersionShort(params *DeletePolicyVersionParams, aut
 	switch v := result.(type) {
 
 	case *DeletePolicyVersionNoContent:
-		return v, nil
+		response := &DeletePolicyVersionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePolicyVersionBadRequest:
-		return nil, v
+		response := &DeletePolicyVersionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -99,7 +108,7 @@ func (a *Client) DeletePolicyVersionShort(params *DeletePolicyVersionParams, aut
 UpdatePolicyVersion1Short update a version of policy
 Update a particular policy version.
 */
-func (a *Client) UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyVersion1OK, error) {
+func (a *Client) UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyVersion1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePolicyVersion1Params()
@@ -137,11 +146,26 @@ func (a *Client) UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, a
 	switch v := result.(type) {
 
 	case *UpdatePolicyVersion1OK:
-		return v, nil
+		response := &UpdatePolicyVersion1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePolicyVersion1BadRequest:
-		return nil, v
+		response := &UpdatePolicyVersion1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePolicyVersion1Conflict:
-		return nil, v
+		response := &UpdatePolicyVersion1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -152,7 +176,7 @@ func (a *Client) UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, a
 PublishPolicyVersion1Short manually publish a version from country-specific policy
 Manually publish a version of a particular country-specific policy.
 */
-func (a *Client) PublishPolicyVersion1Short(params *PublishPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*PublishPolicyVersion1OK, error) {
+func (a *Client) PublishPolicyVersion1Short(params *PublishPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*PublishPolicyVersion1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublishPolicyVersion1Params()
@@ -190,11 +214,25 @@ func (a *Client) PublishPolicyVersion1Short(params *PublishPolicyVersion1Params,
 	switch v := result.(type) {
 
 	case *PublishPolicyVersion1OK:
-		return v, nil
+		response := &PublishPolicyVersion1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublishPolicyVersion1BadRequest:
-		return nil, v
+		response := &PublishPolicyVersion1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishPolicyVersion1Conflict:
-		return nil, v
+		response := &PublishPolicyVersion1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -208,7 +246,7 @@ Un-publish a policy version from policy.Can only be un-publish if match these cr
 
   * Policy version has never been accepted by any user
 */
-func (a *Client) UnpublishPolicyVersionShort(params *UnpublishPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishPolicyVersionNoContent, error) {
+func (a *Client) UnpublishPolicyVersionShort(params *UnpublishPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishPolicyVersionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUnpublishPolicyVersionParams()
@@ -246,9 +284,18 @@ func (a *Client) UnpublishPolicyVersionShort(params *UnpublishPolicyVersionParam
 	switch v := result.(type) {
 
 	case *UnpublishPolicyVersionNoContent:
-		return v, nil
+		response := &UnpublishPolicyVersionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UnpublishPolicyVersionBadRequest:
-		return nil, v
+		response := &UnpublishPolicyVersionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -259,7 +306,7 @@ func (a *Client) UnpublishPolicyVersionShort(params *UnpublishPolicyVersionParam
 RetrieveSinglePolicyVersion1Short retrieve a version from country-specific policy
 Retrieve a version of a particular country specific policy. If version is not provided, the Legal Service will assume caller requesting all versions from country-specific policy.
 */
-func (a *Client) RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicyVersion1OK, error) {
+func (a *Client) RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSinglePolicyVersion1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveSinglePolicyVersion1Params()
@@ -297,9 +344,19 @@ func (a *Client) RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyV
 	switch v := result.(type) {
 
 	case *RetrieveSinglePolicyVersion1OK:
-		return v, nil
+		response := &RetrieveSinglePolicyVersion1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveSinglePolicyVersion1NotFound:
-		return nil, v
+		response := &RetrieveSinglePolicyVersion1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -310,7 +367,7 @@ func (a *Client) RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyV
 CreatePolicyVersion1Short create a version from country-specific policy
 Create a version of a particular country-specific policy.
 */
-func (a *Client) CreatePolicyVersion1Short(params *CreatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyVersion1Created, error) {
+func (a *Client) CreatePolicyVersion1Short(params *CreatePolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreatePolicyVersion1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePolicyVersion1Params()
@@ -348,9 +405,19 @@ func (a *Client) CreatePolicyVersion1Short(params *CreatePolicyVersion1Params, a
 	switch v := result.(type) {
 
 	case *CreatePolicyVersion1Created:
-		return v, nil
+		response := &CreatePolicyVersion1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePolicyVersion1BadRequest:
-		return nil, v
+		response := &CreatePolicyVersion1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

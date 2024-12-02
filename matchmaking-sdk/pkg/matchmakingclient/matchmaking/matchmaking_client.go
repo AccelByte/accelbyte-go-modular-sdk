@@ -31,32 +31,32 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAllChannelsHandlerShort(params *GetAllChannelsHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllChannelsHandlerOK, error)
-	CreateChannelHandlerShort(params *CreateChannelHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*CreateChannelHandlerCreated, error)
-	GetMatchPoolMetricShort(params *GetMatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetMatchPoolMetricOK, error)
-	DeleteChannelHandlerShort(params *DeleteChannelHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelHandlerNoContent, error)
-	StoreMatchResultsShort(params *StoreMatchResultsParams, authInfo runtime.ClientAuthInfoWriter) (*StoreMatchResultsOK, error)
-	RebalanceShort(params *RebalanceParams, authInfo runtime.ClientAuthInfoWriter) (*RebalanceOK, error)
-	QueueSessionHandlerShort(params *QueueSessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*QueueSessionHandlerNoContent, error)
-	DequeueSessionHandlerShort(params *DequeueSessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DequeueSessionHandlerNoContent, error)
-	QuerySessionHandlerShort(params *QuerySessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySessionHandlerOK, error)
-	GetAllPartyInAllChannelShort(params *GetAllPartyInAllChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPartyInAllChannelOK, error)
-	BulkGetSessionsShort(params *BulkGetSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetSessionsOK, error)
-	ExportChannelsShort(params *ExportChannelsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportChannelsOK, error)
-	ImportChannelsShort(params *ImportChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportChannelsOK, error)
-	GetSingleMatchmakingChannelShort(params *GetSingleMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleMatchmakingChannelOK, error)
-	UpdateMatchmakingChannelShort(params *UpdateMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchmakingChannelNoContent, error)
-	GetAllPartyInChannelShort(params *GetAllPartyInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPartyInChannelOK, error)
-	GetAllSessionsInChannelShort(params *GetAllSessionsInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllSessionsInChannelOK, error)
-	AddUserIntoSessionInChannelShort(params *AddUserIntoSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserIntoSessionInChannelOK, error)
-	DeleteSessionInChannelShort(params *DeleteSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSessionInChannelNoContent, error)
-	DeleteUserFromSessionInChannelShort(params *DeleteUserFromSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserFromSessionInChannelOK, error)
-	GetStatDataShort(params *GetStatDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatDataOK, error)
-	SearchSessionsShort(params *SearchSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchSessionsOK, error)
-	GetSessionHistoryDetailedShort(params *GetSessionHistoryDetailedParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionHistoryDetailedOK, error)
-	PublicGetAllMatchmakingChannelShort(params *PublicGetAllMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAllMatchmakingChannelOK, error)
-	PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetSingleMatchmakingChannelOK, error)
-	SearchSessionsV2Short(params *SearchSessionsV2Params, authInfo runtime.ClientAuthInfoWriter) (*SearchSessionsV2OK, error)
+	GetAllChannelsHandlerShort(params *GetAllChannelsHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllChannelsHandlerResponse, error)
+	CreateChannelHandlerShort(params *CreateChannelHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*CreateChannelHandlerResponse, error)
+	GetMatchPoolMetricShort(params *GetMatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetMatchPoolMetricResponse, error)
+	DeleteChannelHandlerShort(params *DeleteChannelHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelHandlerResponse, error)
+	StoreMatchResultsShort(params *StoreMatchResultsParams, authInfo runtime.ClientAuthInfoWriter) (*StoreMatchResultsResponse, error)
+	RebalanceShort(params *RebalanceParams, authInfo runtime.ClientAuthInfoWriter) (*RebalanceResponse, error)
+	QueueSessionHandlerShort(params *QueueSessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*QueueSessionHandlerResponse, error)
+	DequeueSessionHandlerShort(params *DequeueSessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DequeueSessionHandlerResponse, error)
+	QuerySessionHandlerShort(params *QuerySessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySessionHandlerResponse, error)
+	GetAllPartyInAllChannelShort(params *GetAllPartyInAllChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPartyInAllChannelResponse, error)
+	BulkGetSessionsShort(params *BulkGetSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetSessionsResponse, error)
+	ExportChannelsShort(params *ExportChannelsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportChannelsResponse, error)
+	ImportChannelsShort(params *ImportChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportChannelsResponse, error)
+	GetSingleMatchmakingChannelShort(params *GetSingleMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleMatchmakingChannelResponse, error)
+	UpdateMatchmakingChannelShort(params *UpdateMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchmakingChannelResponse, error)
+	GetAllPartyInChannelShort(params *GetAllPartyInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPartyInChannelResponse, error)
+	GetAllSessionsInChannelShort(params *GetAllSessionsInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllSessionsInChannelResponse, error)
+	AddUserIntoSessionInChannelShort(params *AddUserIntoSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserIntoSessionInChannelResponse, error)
+	DeleteSessionInChannelShort(params *DeleteSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSessionInChannelResponse, error)
+	DeleteUserFromSessionInChannelShort(params *DeleteUserFromSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserFromSessionInChannelResponse, error)
+	GetStatDataShort(params *GetStatDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatDataResponse, error)
+	SearchSessionsShort(params *SearchSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchSessionsResponse, error)
+	GetSessionHistoryDetailedShort(params *GetSessionHistoryDetailedParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionHistoryDetailedResponse, error)
+	PublicGetAllMatchmakingChannelShort(params *PublicGetAllMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAllMatchmakingChannelResponse, error)
+	PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetSingleMatchmakingChannelResponse, error)
+	SearchSessionsV2Short(params *SearchSessionsV2Params, authInfo runtime.ClientAuthInfoWriter) (*SearchSessionsV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -65,7 +65,7 @@ type ClientService interface {
 GetAllChannelsHandlerShort get all channels
 Reads all available channels in a namespace
 */
-func (a *Client) GetAllChannelsHandlerShort(params *GetAllChannelsHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllChannelsHandlerOK, error) {
+func (a *Client) GetAllChannelsHandlerShort(params *GetAllChannelsHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllChannelsHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllChannelsHandlerParams()
@@ -103,17 +103,47 @@ func (a *Client) GetAllChannelsHandlerShort(params *GetAllChannelsHandlerParams,
 	switch v := result.(type) {
 
 	case *GetAllChannelsHandlerOK:
-		return v, nil
+		response := &GetAllChannelsHandlerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllChannelsHandlerBadRequest:
-		return nil, v
+		response := &GetAllChannelsHandlerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllChannelsHandlerUnauthorized:
-		return nil, v
+		response := &GetAllChannelsHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllChannelsHandlerForbidden:
-		return nil, v
+		response := &GetAllChannelsHandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllChannelsHandlerConflict:
-		return nil, v
+		response := &GetAllChannelsHandlerResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllChannelsHandlerInternalServerError:
-		return nil, v
+		response := &GetAllChannelsHandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -137,7 +167,7 @@ Matching Rule used to classify the player. Player that has matched criteria will
 
 Valid value for criteria is "distance"
 */
-func (a *Client) CreateChannelHandlerShort(params *CreateChannelHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*CreateChannelHandlerCreated, error) {
+func (a *Client) CreateChannelHandlerShort(params *CreateChannelHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*CreateChannelHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateChannelHandlerParams()
@@ -175,17 +205,47 @@ func (a *Client) CreateChannelHandlerShort(params *CreateChannelHandlerParams, a
 	switch v := result.(type) {
 
 	case *CreateChannelHandlerCreated:
-		return v, nil
+		response := &CreateChannelHandlerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateChannelHandlerBadRequest:
-		return nil, v
+		response := &CreateChannelHandlerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateChannelHandlerUnauthorized:
-		return nil, v
+		response := &CreateChannelHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateChannelHandlerForbidden:
-		return nil, v
+		response := &CreateChannelHandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateChannelHandlerConflict:
-		return nil, v
+		response := &CreateChannelHandlerResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateChannelHandlerInternalServerError:
-		return nil, v
+		response := &CreateChannelHandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -198,7 +258,7 @@ Get metric for a specific match pool
 
 Result: queue_time in seconds
 */
-func (a *Client) GetMatchPoolMetricShort(params *GetMatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetMatchPoolMetricOK, error) {
+func (a *Client) GetMatchPoolMetricShort(params *GetMatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetMatchPoolMetricResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMatchPoolMetricParams()
@@ -236,15 +296,40 @@ func (a *Client) GetMatchPoolMetricShort(params *GetMatchPoolMetricParams, authI
 	switch v := result.(type) {
 
 	case *GetMatchPoolMetricOK:
-		return v, nil
+		response := &GetMatchPoolMetricResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMatchPoolMetricUnauthorized:
-		return nil, v
+		response := &GetMatchPoolMetricResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMatchPoolMetricForbidden:
-		return nil, v
+		response := &GetMatchPoolMetricResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMatchPoolMetricNotFound:
-		return nil, v
+		response := &GetMatchPoolMetricResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMatchPoolMetricInternalServerError:
-		return nil, v
+		response := &GetMatchPoolMetricResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -258,7 +343,7 @@ pool name that is eligible for matchmaking processes. GameMode isolates each mat
 
 Trying to delete non-existent channel will result deletion success
 */
-func (a *Client) DeleteChannelHandlerShort(params *DeleteChannelHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelHandlerNoContent, error) {
+func (a *Client) DeleteChannelHandlerShort(params *DeleteChannelHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteChannelHandlerParams()
@@ -296,13 +381,32 @@ func (a *Client) DeleteChannelHandlerShort(params *DeleteChannelHandlerParams, a
 	switch v := result.(type) {
 
 	case *DeleteChannelHandlerNoContent:
-		return v, nil
+		response := &DeleteChannelHandlerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteChannelHandlerUnauthorized:
-		return nil, v
+		response := &DeleteChannelHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteChannelHandlerForbidden:
-		return nil, v
+		response := &DeleteChannelHandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteChannelHandlerInternalServerError:
-		return nil, v
+		response := &DeleteChannelHandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -315,7 +419,7 @@ Process match result into final attribute value and stores it to player attribut
 
 Will return final attribute value
 */
-func (a *Client) StoreMatchResultsShort(params *StoreMatchResultsParams, authInfo runtime.ClientAuthInfoWriter) (*StoreMatchResultsOK, error) {
+func (a *Client) StoreMatchResultsShort(params *StoreMatchResultsParams, authInfo runtime.ClientAuthInfoWriter) (*StoreMatchResultsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewStoreMatchResultsParams()
@@ -353,15 +457,40 @@ func (a *Client) StoreMatchResultsShort(params *StoreMatchResultsParams, authInf
 	switch v := result.(type) {
 
 	case *StoreMatchResultsOK:
-		return v, nil
+		response := &StoreMatchResultsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *StoreMatchResultsBadRequest:
-		return nil, v
+		response := &StoreMatchResultsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StoreMatchResultsUnauthorized:
-		return nil, v
+		response := &StoreMatchResultsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StoreMatchResultsForbidden:
-		return nil, v
+		response := &StoreMatchResultsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StoreMatchResultsInternalServerError:
-		return nil, v
+		response := &StoreMatchResultsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -376,7 +505,7 @@ or any first attribute with criteria "distance"
 
 Will return rebalanced mm result
 */
-func (a *Client) RebalanceShort(params *RebalanceParams, authInfo runtime.ClientAuthInfoWriter) (*RebalanceOK, error) {
+func (a *Client) RebalanceShort(params *RebalanceParams, authInfo runtime.ClientAuthInfoWriter) (*RebalanceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRebalanceParams()
@@ -414,17 +543,47 @@ func (a *Client) RebalanceShort(params *RebalanceParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *RebalanceOK:
-		return v, nil
+		response := &RebalanceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RebalanceBadRequest:
-		return nil, v
+		response := &RebalanceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RebalanceUnauthorized:
-		return nil, v
+		response := &RebalanceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RebalanceForbidden:
-		return nil, v
+		response := &RebalanceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RebalanceNotFound:
-		return nil, v
+		response := &RebalanceResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RebalanceInternalServerError:
-		return nil, v
+		response := &RebalanceResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -445,7 +604,7 @@ If a session is already queued, and game server wants to modify the data or
 renew the queue timeout (e.g. some player left and more empty slot opened up),
 simply call this endpoint with the updated session data.
 */
-func (a *Client) QueueSessionHandlerShort(params *QueueSessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*QueueSessionHandlerNoContent, error) {
+func (a *Client) QueueSessionHandlerShort(params *QueueSessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*QueueSessionHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueueSessionHandlerParams()
@@ -483,15 +642,39 @@ func (a *Client) QueueSessionHandlerShort(params *QueueSessionHandlerParams, aut
 	switch v := result.(type) {
 
 	case *QueueSessionHandlerNoContent:
-		return v, nil
+		response := &QueueSessionHandlerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueueSessionHandlerBadRequest:
-		return nil, v
+		response := &QueueSessionHandlerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueueSessionHandlerUnauthorized:
-		return nil, v
+		response := &QueueSessionHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueueSessionHandlerForbidden:
-		return nil, v
+		response := &QueueSessionHandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueueSessionHandlerInternalServerError:
-		return nil, v
+		response := &QueueSessionHandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -505,7 +688,7 @@ Dequeues joinable session so that it will not be matched with player's match req
 This endpoint is intended to be called by game server to let matchmaker know that
 the game server does not want more players to its session, even though it is not full.
 */
-func (a *Client) DequeueSessionHandlerShort(params *DequeueSessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DequeueSessionHandlerNoContent, error) {
+func (a *Client) DequeueSessionHandlerShort(params *DequeueSessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DequeueSessionHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDequeueSessionHandlerParams()
@@ -543,17 +726,46 @@ func (a *Client) DequeueSessionHandlerShort(params *DequeueSessionHandlerParams,
 	switch v := result.(type) {
 
 	case *DequeueSessionHandlerNoContent:
-		return v, nil
+		response := &DequeueSessionHandlerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DequeueSessionHandlerBadRequest:
-		return nil, v
+		response := &DequeueSessionHandlerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DequeueSessionHandlerUnauthorized:
-		return nil, v
+		response := &DequeueSessionHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DequeueSessionHandlerForbidden:
-		return nil, v
+		response := &DequeueSessionHandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DequeueSessionHandlerNotFound:
-		return nil, v
+		response := &DequeueSessionHandlerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DequeueSessionHandlerInternalServerError:
-		return nil, v
+		response := &DequeueSessionHandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -570,7 +782,7 @@ Possible session statuses are "sessionInQueue", "sessionFull", and "sessionTimeo
 
 if party_id value empty/null, field will not show in response body.
 */
-func (a *Client) QuerySessionHandlerShort(params *QuerySessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySessionHandlerOK, error) {
+func (a *Client) QuerySessionHandlerShort(params *QuerySessionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySessionHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySessionHandlerParams()
@@ -608,17 +820,47 @@ func (a *Client) QuerySessionHandlerShort(params *QuerySessionHandlerParams, aut
 	switch v := result.(type) {
 
 	case *QuerySessionHandlerOK:
-		return v, nil
+		response := &QuerySessionHandlerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QuerySessionHandlerBadRequest:
-		return nil, v
+		response := &QuerySessionHandlerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QuerySessionHandlerUnauthorized:
-		return nil, v
+		response := &QuerySessionHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QuerySessionHandlerForbidden:
-		return nil, v
+		response := &QuerySessionHandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QuerySessionHandlerNotFound:
-		return nil, v
+		response := &QuerySessionHandlerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QuerySessionHandlerInternalServerError:
-		return nil, v
+		response := &QuerySessionHandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -629,7 +871,7 @@ func (a *Client) QuerySessionHandlerShort(params *QuerySessionHandlerParams, aut
 GetAllPartyInAllChannelShort get all party in all channels
 Get all parties queueing in all channels.
 */
-func (a *Client) GetAllPartyInAllChannelShort(params *GetAllPartyInAllChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPartyInAllChannelOK, error) {
+func (a *Client) GetAllPartyInAllChannelShort(params *GetAllPartyInAllChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPartyInAllChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllPartyInAllChannelParams()
@@ -667,17 +909,47 @@ func (a *Client) GetAllPartyInAllChannelShort(params *GetAllPartyInAllChannelPar
 	switch v := result.(type) {
 
 	case *GetAllPartyInAllChannelOK:
-		return v, nil
+		response := &GetAllPartyInAllChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllPartyInAllChannelBadRequest:
-		return nil, v
+		response := &GetAllPartyInAllChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPartyInAllChannelUnauthorized:
-		return nil, v
+		response := &GetAllPartyInAllChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPartyInAllChannelForbidden:
-		return nil, v
+		response := &GetAllPartyInAllChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPartyInAllChannelNotFound:
-		return nil, v
+		response := &GetAllPartyInAllChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPartyInAllChannelInternalServerError:
-		return nil, v
+		response := &GetAllPartyInAllChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -688,7 +960,7 @@ func (a *Client) GetAllPartyInAllChannelShort(params *GetAllPartyInAllChannelPar
 BulkGetSessionsShort bulk get sessions
 Bulk get sessions.
 */
-func (a *Client) BulkGetSessionsShort(params *BulkGetSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetSessionsOK, error) {
+func (a *Client) BulkGetSessionsShort(params *BulkGetSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetSessionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetSessionsParams()
@@ -726,17 +998,47 @@ func (a *Client) BulkGetSessionsShort(params *BulkGetSessionsParams, authInfo ru
 	switch v := result.(type) {
 
 	case *BulkGetSessionsOK:
-		return v, nil
+		response := &BulkGetSessionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetSessionsBadRequest:
-		return nil, v
+		response := &BulkGetSessionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetSessionsUnauthorized:
-		return nil, v
+		response := &BulkGetSessionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetSessionsForbidden:
-		return nil, v
+		response := &BulkGetSessionsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetSessionsNotFound:
-		return nil, v
+		response := &BulkGetSessionsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetSessionsInternalServerError:
-		return nil, v
+		response := &BulkGetSessionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -749,7 +1051,7 @@ Export channels configuration to file.
 
 Action Code: 510114
 */
-func (a *Client) ExportChannelsShort(params *ExportChannelsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportChannelsOK, error) {
+func (a *Client) ExportChannelsShort(params *ExportChannelsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportChannelsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportChannelsParams()
@@ -787,13 +1089,33 @@ func (a *Client) ExportChannelsShort(params *ExportChannelsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *ExportChannelsOK:
-		return v, nil
+		response := &ExportChannelsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportChannelsUnauthorized:
-		return nil, v
+		response := &ExportChannelsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportChannelsForbidden:
-		return nil, v
+		response := &ExportChannelsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportChannelsInternalServerError:
-		return nil, v
+		response := &ExportChannelsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -809,7 +1131,7 @@ Available import strategy:
 
 Action Code: 510113
 */
-func (a *Client) ImportChannelsShort(params *ImportChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportChannelsOK, error) {
+func (a *Client) ImportChannelsShort(params *ImportChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportChannelsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImportChannelsParams()
@@ -847,15 +1169,40 @@ func (a *Client) ImportChannelsShort(params *ImportChannelsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *ImportChannelsOK:
-		return v, nil
+		response := &ImportChannelsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImportChannelsBadRequest:
-		return nil, v
+		response := &ImportChannelsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportChannelsUnauthorized:
-		return nil, v
+		response := &ImportChannelsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportChannelsForbidden:
-		return nil, v
+		response := &ImportChannelsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportChannelsInternalServerError:
-		return nil, v
+		response := &ImportChannelsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -868,7 +1215,7 @@ Reads single channel based on namespace and channel name
 
 Action Code: 510112
 */
-func (a *Client) GetSingleMatchmakingChannelShort(params *GetSingleMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleMatchmakingChannelOK, error) {
+func (a *Client) GetSingleMatchmakingChannelShort(params *GetSingleMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleMatchmakingChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSingleMatchmakingChannelParams()
@@ -906,17 +1253,47 @@ func (a *Client) GetSingleMatchmakingChannelShort(params *GetSingleMatchmakingCh
 	switch v := result.(type) {
 
 	case *GetSingleMatchmakingChannelOK:
-		return v, nil
+		response := &GetSingleMatchmakingChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSingleMatchmakingChannelBadRequest:
-		return nil, v
+		response := &GetSingleMatchmakingChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleMatchmakingChannelUnauthorized:
-		return nil, v
+		response := &GetSingleMatchmakingChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleMatchmakingChannelForbidden:
-		return nil, v
+		response := &GetSingleMatchmakingChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleMatchmakingChannelNotFound:
-		return nil, v
+		response := &GetSingleMatchmakingChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleMatchmakingChannelInternalServerError:
-		return nil, v
+		response := &GetSingleMatchmakingChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -929,7 +1306,7 @@ Update channel based on namespace and channel name
 
 Action Code: 510111
 */
-func (a *Client) UpdateMatchmakingChannelShort(params *UpdateMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchmakingChannelNoContent, error) {
+func (a *Client) UpdateMatchmakingChannelShort(params *UpdateMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchmakingChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMatchmakingChannelParams()
@@ -967,17 +1344,46 @@ func (a *Client) UpdateMatchmakingChannelShort(params *UpdateMatchmakingChannelP
 	switch v := result.(type) {
 
 	case *UpdateMatchmakingChannelNoContent:
-		return v, nil
+		response := &UpdateMatchmakingChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMatchmakingChannelBadRequest:
-		return nil, v
+		response := &UpdateMatchmakingChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchmakingChannelUnauthorized:
-		return nil, v
+		response := &UpdateMatchmakingChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchmakingChannelForbidden:
-		return nil, v
+		response := &UpdateMatchmakingChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchmakingChannelNotFound:
-		return nil, v
+		response := &UpdateMatchmakingChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchmakingChannelInternalServerError:
-		return nil, v
+		response := &UpdateMatchmakingChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -988,7 +1394,7 @@ func (a *Client) UpdateMatchmakingChannelShort(params *UpdateMatchmakingChannelP
 GetAllPartyInChannelShort get all party in a channel
 Get all parties queueing in a channel.
 */
-func (a *Client) GetAllPartyInChannelShort(params *GetAllPartyInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPartyInChannelOK, error) {
+func (a *Client) GetAllPartyInChannelShort(params *GetAllPartyInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPartyInChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllPartyInChannelParams()
@@ -1026,17 +1432,47 @@ func (a *Client) GetAllPartyInChannelShort(params *GetAllPartyInChannelParams, a
 	switch v := result.(type) {
 
 	case *GetAllPartyInChannelOK:
-		return v, nil
+		response := &GetAllPartyInChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllPartyInChannelBadRequest:
-		return nil, v
+		response := &GetAllPartyInChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPartyInChannelUnauthorized:
-		return nil, v
+		response := &GetAllPartyInChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPartyInChannelForbidden:
-		return nil, v
+		response := &GetAllPartyInChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPartyInChannelNotFound:
-		return nil, v
+		response := &GetAllPartyInChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPartyInChannelInternalServerError:
-		return nil, v
+		response := &GetAllPartyInChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1049,7 +1485,7 @@ Get all sessions in a channel.
 
 if party_id value empty/null, field will not show in response body.
 */
-func (a *Client) GetAllSessionsInChannelShort(params *GetAllSessionsInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllSessionsInChannelOK, error) {
+func (a *Client) GetAllSessionsInChannelShort(params *GetAllSessionsInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllSessionsInChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllSessionsInChannelParams()
@@ -1087,17 +1523,47 @@ func (a *Client) GetAllSessionsInChannelShort(params *GetAllSessionsInChannelPar
 	switch v := result.(type) {
 
 	case *GetAllSessionsInChannelOK:
-		return v, nil
+		response := &GetAllSessionsInChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllSessionsInChannelBadRequest:
-		return nil, v
+		response := &GetAllSessionsInChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllSessionsInChannelUnauthorized:
-		return nil, v
+		response := &GetAllSessionsInChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllSessionsInChannelForbidden:
-		return nil, v
+		response := &GetAllSessionsInChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllSessionsInChannelNotFound:
-		return nil, v
+		response := &GetAllSessionsInChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllSessionsInChannelInternalServerError:
-		return nil, v
+		response := &GetAllSessionsInChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1108,7 +1574,7 @@ func (a *Client) GetAllSessionsInChannelShort(params *GetAllSessionsInChannelPar
 AddUserIntoSessionInChannelShort add user into the session in a channel
 Add user into the session in a channel.
 */
-func (a *Client) AddUserIntoSessionInChannelShort(params *AddUserIntoSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserIntoSessionInChannelOK, error) {
+func (a *Client) AddUserIntoSessionInChannelShort(params *AddUserIntoSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserIntoSessionInChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddUserIntoSessionInChannelParams()
@@ -1146,17 +1612,46 @@ func (a *Client) AddUserIntoSessionInChannelShort(params *AddUserIntoSessionInCh
 	switch v := result.(type) {
 
 	case *AddUserIntoSessionInChannelOK:
-		return v, nil
+		response := &AddUserIntoSessionInChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddUserIntoSessionInChannelBadRequest:
-		return nil, v
+		response := &AddUserIntoSessionInChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserIntoSessionInChannelUnauthorized:
-		return nil, v
+		response := &AddUserIntoSessionInChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserIntoSessionInChannelForbidden:
-		return nil, v
+		response := &AddUserIntoSessionInChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserIntoSessionInChannelNotFound:
-		return nil, v
+		response := &AddUserIntoSessionInChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserIntoSessionInChannelInternalServerError:
-		return nil, v
+		response := &AddUserIntoSessionInChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1167,7 +1662,7 @@ func (a *Client) AddUserIntoSessionInChannelShort(params *AddUserIntoSessionInCh
 DeleteSessionInChannelShort delete session in a channel
 Delete a session in a channel.
 */
-func (a *Client) DeleteSessionInChannelShort(params *DeleteSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSessionInChannelNoContent, error) {
+func (a *Client) DeleteSessionInChannelShort(params *DeleteSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSessionInChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSessionInChannelParams()
@@ -1205,17 +1700,46 @@ func (a *Client) DeleteSessionInChannelShort(params *DeleteSessionInChannelParam
 	switch v := result.(type) {
 
 	case *DeleteSessionInChannelNoContent:
-		return v, nil
+		response := &DeleteSessionInChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteSessionInChannelBadRequest:
-		return nil, v
+		response := &DeleteSessionInChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSessionInChannelUnauthorized:
-		return nil, v
+		response := &DeleteSessionInChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSessionInChannelForbidden:
-		return nil, v
+		response := &DeleteSessionInChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSessionInChannelNotFound:
-		return nil, v
+		response := &DeleteSessionInChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSessionInChannelInternalServerError:
-		return nil, v
+		response := &DeleteSessionInChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1226,7 +1750,7 @@ func (a *Client) DeleteSessionInChannelShort(params *DeleteSessionInChannelParam
 DeleteUserFromSessionInChannelShort delete user from the session in a channel
 Delete a user from a session in the channel.
 */
-func (a *Client) DeleteUserFromSessionInChannelShort(params *DeleteUserFromSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserFromSessionInChannelOK, error) {
+func (a *Client) DeleteUserFromSessionInChannelShort(params *DeleteUserFromSessionInChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserFromSessionInChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserFromSessionInChannelParams()
@@ -1264,19 +1788,52 @@ func (a *Client) DeleteUserFromSessionInChannelShort(params *DeleteUserFromSessi
 	switch v := result.(type) {
 
 	case *DeleteUserFromSessionInChannelOK:
-		return v, nil
+		response := &DeleteUserFromSessionInChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserFromSessionInChannelNoContent:
-		return nil, v
+		response := &DeleteUserFromSessionInChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserFromSessionInChannelBadRequest:
-		return nil, v
+		response := &DeleteUserFromSessionInChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserFromSessionInChannelUnauthorized:
-		return nil, v
+		response := &DeleteUserFromSessionInChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserFromSessionInChannelForbidden:
-		return nil, v
+		response := &DeleteUserFromSessionInChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserFromSessionInChannelNotFound:
-		return nil, v
+		response := &DeleteUserFromSessionInChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserFromSessionInChannelInternalServerError:
-		return nil, v
+		response := &DeleteUserFromSessionInChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1288,7 +1845,7 @@ GetStatDataShort get stats
 Get a channel's stat data (mean, stddev, min, max) according to the stats collected from statistics service.
 '
 */
-func (a *Client) GetStatDataShort(params *GetStatDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatDataOK, error) {
+func (a *Client) GetStatDataShort(params *GetStatDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatDataResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStatDataParams()
@@ -1326,17 +1883,47 @@ func (a *Client) GetStatDataShort(params *GetStatDataParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *GetStatDataOK:
-		return v, nil
+		response := &GetStatDataResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetStatDataBadRequest:
-		return nil, v
+		response := &GetStatDataResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatDataUnauthorized:
-		return nil, v
+		response := &GetStatDataResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatDataForbidden:
-		return nil, v
+		response := &GetStatDataResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatDataNotFound:
-		return nil, v
+		response := &GetStatDataResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatDataInternalServerError:
-		return nil, v
+		response := &GetStatDataResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1369,7 +1956,7 @@ Endpoint migration guide
 
 Search sessions.
 */
-func (a *Client) SearchSessionsShort(params *SearchSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchSessionsOK, error) {
+func (a *Client) SearchSessionsShort(params *SearchSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchSessionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSearchSessionsParams()
@@ -1407,17 +1994,47 @@ func (a *Client) SearchSessionsShort(params *SearchSessionsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *SearchSessionsOK:
-		return v, nil
+		response := &SearchSessionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SearchSessionsBadRequest:
-		return nil, v
+		response := &SearchSessionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchSessionsUnauthorized:
-		return nil, v
+		response := &SearchSessionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchSessionsForbidden:
-		return nil, v
+		response := &SearchSessionsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchSessionsNotFound:
-		return nil, v
+		response := &SearchSessionsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchSessionsInternalServerError:
-		return nil, v
+		response := &SearchSessionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1452,7 +2069,7 @@ Get session history detailed.
 
 if party_id value empty/null, field will not show in response body.
 */
-func (a *Client) GetSessionHistoryDetailedShort(params *GetSessionHistoryDetailedParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionHistoryDetailedOK, error) {
+func (a *Client) GetSessionHistoryDetailedShort(params *GetSessionHistoryDetailedParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionHistoryDetailedResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSessionHistoryDetailedParams()
@@ -1490,17 +2107,47 @@ func (a *Client) GetSessionHistoryDetailedShort(params *GetSessionHistoryDetaile
 	switch v := result.(type) {
 
 	case *GetSessionHistoryDetailedOK:
-		return v, nil
+		response := &GetSessionHistoryDetailedResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSessionHistoryDetailedBadRequest:
-		return nil, v
+		response := &GetSessionHistoryDetailedResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionHistoryDetailedUnauthorized:
-		return nil, v
+		response := &GetSessionHistoryDetailedResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionHistoryDetailedForbidden:
-		return nil, v
+		response := &GetSessionHistoryDetailedResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionHistoryDetailedNotFound:
-		return nil, v
+		response := &GetSessionHistoryDetailedResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionHistoryDetailedInternalServerError:
-		return nil, v
+		response := &GetSessionHistoryDetailedResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1511,7 +2158,7 @@ func (a *Client) GetSessionHistoryDetailedShort(params *GetSessionHistoryDetaile
 PublicGetAllMatchmakingChannelShort get all channels
 Reads all available channels in a namespace
 */
-func (a *Client) PublicGetAllMatchmakingChannelShort(params *PublicGetAllMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAllMatchmakingChannelOK, error) {
+func (a *Client) PublicGetAllMatchmakingChannelShort(params *PublicGetAllMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAllMatchmakingChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetAllMatchmakingChannelParams()
@@ -1549,17 +2196,47 @@ func (a *Client) PublicGetAllMatchmakingChannelShort(params *PublicGetAllMatchma
 	switch v := result.(type) {
 
 	case *PublicGetAllMatchmakingChannelOK:
-		return v, nil
+		response := &PublicGetAllMatchmakingChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetAllMatchmakingChannelBadRequest:
-		return nil, v
+		response := &PublicGetAllMatchmakingChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAllMatchmakingChannelUnauthorized:
-		return nil, v
+		response := &PublicGetAllMatchmakingChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAllMatchmakingChannelForbidden:
-		return nil, v
+		response := &PublicGetAllMatchmakingChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAllMatchmakingChannelConflict:
-		return nil, v
+		response := &PublicGetAllMatchmakingChannelResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAllMatchmakingChannelInternalServerError:
-		return nil, v
+		response := &PublicGetAllMatchmakingChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1570,7 +2247,7 @@ func (a *Client) PublicGetAllMatchmakingChannelShort(params *PublicGetAllMatchma
 PublicGetSingleMatchmakingChannelShort get single channel
 Reads single channel based on namespace and channel name
 */
-func (a *Client) PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetSingleMatchmakingChannelOK, error) {
+func (a *Client) PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleMatchmakingChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetSingleMatchmakingChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetSingleMatchmakingChannelParams()
@@ -1608,17 +2285,47 @@ func (a *Client) PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleM
 	switch v := result.(type) {
 
 	case *PublicGetSingleMatchmakingChannelOK:
-		return v, nil
+		response := &PublicGetSingleMatchmakingChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetSingleMatchmakingChannelBadRequest:
-		return nil, v
+		response := &PublicGetSingleMatchmakingChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetSingleMatchmakingChannelUnauthorized:
-		return nil, v
+		response := &PublicGetSingleMatchmakingChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetSingleMatchmakingChannelForbidden:
-		return nil, v
+		response := &PublicGetSingleMatchmakingChannelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetSingleMatchmakingChannelNotFound:
-		return nil, v
+		response := &PublicGetSingleMatchmakingChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetSingleMatchmakingChannelInternalServerError:
-		return nil, v
+		response := &PublicGetSingleMatchmakingChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1651,7 +2358,7 @@ Endpoint migration guide
 Search sessions. Optimize the query by differentiating query with filter namespace only and filter with namespace & other filter (partyID, userID, matchID).
 Query with filter namespace only will not group whole session data while query with filter namespace & other filter will include session data.
 */
-func (a *Client) SearchSessionsV2Short(params *SearchSessionsV2Params, authInfo runtime.ClientAuthInfoWriter) (*SearchSessionsV2OK, error) {
+func (a *Client) SearchSessionsV2Short(params *SearchSessionsV2Params, authInfo runtime.ClientAuthInfoWriter) (*SearchSessionsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSearchSessionsV2Params()
@@ -1689,17 +2396,47 @@ func (a *Client) SearchSessionsV2Short(params *SearchSessionsV2Params, authInfo 
 	switch v := result.(type) {
 
 	case *SearchSessionsV2OK:
-		return v, nil
+		response := &SearchSessionsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SearchSessionsV2BadRequest:
-		return nil, v
+		response := &SearchSessionsV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchSessionsV2Unauthorized:
-		return nil, v
+		response := &SearchSessionsV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchSessionsV2Forbidden:
-		return nil, v
+		response := &SearchSessionsV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchSessionsV2NotFound:
-		return nil, v
+		response := &SearchSessionsV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchSessionsV2InternalServerError:
-		return nil, v
+		response := &SearchSessionsV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

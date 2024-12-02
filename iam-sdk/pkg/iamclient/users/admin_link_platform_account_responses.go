@@ -19,6 +19,71 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type AdminLinkPlatformAccountResponse struct {
+	iamclientmodels.ApiResponse
+
+	Error400 *iamclientmodels.RestErrorResponse
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 *iamclientmodels.RestErrorResponse
+	Error409 *iamclientmodels.RestErrorResponse
+	Error500 *iamclientmodels.RestErrorResponse
+}
+
+func (m *AdminLinkPlatformAccountResponse) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminLinkPlatformAccountReader is a Reader for the AdminLinkPlatformAccount structure.
 type AdminLinkPlatformAccountReader struct {
 	formats strfmt.Registry

@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/blocks"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *BlocksService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *BlocksService) SyncNativeBlockedUserShort(input *blocks.SyncNativeBlockedUserParams) ([]*lobbyclientmodels.ModelNativeUserBlockResponse, error) {
+func (aaa *BlocksService) SyncNativeBlockedUserShort(input *blocks.SyncNativeBlockedUserParams) (*blocks.SyncNativeBlockedUserResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *BlocksService) SyncNativeBlockedUserShort(input *blocks.SyncNativeBlo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

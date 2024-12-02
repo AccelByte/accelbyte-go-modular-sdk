@@ -9,7 +9,6 @@ package gdpr
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_deletion"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *DataDeletionService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *DataDeletionService) AdminGetListDeletionDataRequestShort(input *data_deletion.AdminGetListDeletionDataRequestParams) (*gdprclientmodels.ModelsListDeletionDataResponse, error) {
+func (aaa *DataDeletionService) AdminGetListDeletionDataRequestShort(input *data_deletion.AdminGetListDeletionDataRequestParams) (*data_deletion.AdminGetListDeletionDataRequestResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *DataDeletionService) AdminGetListDeletionDataRequestShort(input *data
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DataDeletionService) AdminGetUserAccountDeletionRequestShort(input *data_deletion.AdminGetUserAccountDeletionRequestParams) (*gdprclientmodels.ModelsDeletionData, error) {
+func (aaa *DataDeletionService) AdminGetUserAccountDeletionRequestShort(input *data_deletion.AdminGetUserAccountDeletionRequestParams) (*data_deletion.AdminGetUserAccountDeletionRequestResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *DataDeletionService) AdminGetUserAccountDeletionRequestShort(input *d
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DataDeletionService) AdminSubmitUserAccountDeletionRequestShort(input *data_deletion.AdminSubmitUserAccountDeletionRequestParams) (*gdprclientmodels.ModelsRequestDeleteResponse, error) {
+func (aaa *DataDeletionService) AdminSubmitUserAccountDeletionRequestShort(input *data_deletion.AdminSubmitUserAccountDeletionRequestParams) (*data_deletion.AdminSubmitUserAccountDeletionRequestResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *DataDeletionService) AdminSubmitUserAccountDeletionRequestShort(input
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *DataDeletionService) AdminCancelUserAccountDeletionRequestShort(input *data_deletion.AdminCancelUserAccountDeletionRequestParams) error {
@@ -159,7 +158,7 @@ func (aaa *DataDeletionService) AdminCancelUserAccountDeletionRequestShort(input
 	return nil
 }
 
-func (aaa *DataDeletionService) PublicSubmitUserAccountDeletionRequestShort(input *data_deletion.PublicSubmitUserAccountDeletionRequestParams) (*gdprclientmodels.ModelsRequestDeleteResponse, error) {
+func (aaa *DataDeletionService) PublicSubmitUserAccountDeletionRequestShort(input *data_deletion.PublicSubmitUserAccountDeletionRequestParams) (*data_deletion.PublicSubmitUserAccountDeletionRequestResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *DataDeletionService) PublicSubmitUserAccountDeletionRequestShort(inpu
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *DataDeletionService) PublicCancelUserAccountDeletionRequestShort(input *data_deletion.PublicCancelUserAccountDeletionRequestParams) error {
@@ -219,7 +218,7 @@ func (aaa *DataDeletionService) PublicCancelUserAccountDeletionRequestShort(inpu
 	return nil
 }
 
-func (aaa *DataDeletionService) PublicGetUserAccountDeletionStatusShort(input *data_deletion.PublicGetUserAccountDeletionStatusParams) (*gdprclientmodels.ModelsDeletionStatus, error) {
+func (aaa *DataDeletionService) PublicGetUserAccountDeletionStatusShort(input *data_deletion.PublicGetUserAccountDeletionStatusParams) (*data_deletion.PublicGetUserAccountDeletionStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *DataDeletionService) PublicGetUserAccountDeletionStatusShort(input *d
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DataDeletionService) PublicSubmitMyAccountDeletionRequestShort(input *data_deletion.PublicSubmitMyAccountDeletionRequestParams) (*gdprclientmodels.ModelsRequestDeleteResponse, error) {
+func (aaa *DataDeletionService) PublicSubmitMyAccountDeletionRequestShort(input *data_deletion.PublicSubmitMyAccountDeletionRequestParams) (*data_deletion.PublicSubmitMyAccountDeletionRequestResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,7 +275,7 @@ func (aaa *DataDeletionService) PublicSubmitMyAccountDeletionRequestShort(input 
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *DataDeletionService) PublicCancelMyAccountDeletionRequestShort(input *data_deletion.PublicCancelMyAccountDeletionRequestParams) error {
@@ -309,7 +308,7 @@ func (aaa *DataDeletionService) PublicCancelMyAccountDeletionRequestShort(input 
 	return nil
 }
 
-func (aaa *DataDeletionService) PublicGetMyAccountDeletionStatusShort(input *data_deletion.PublicGetMyAccountDeletionStatusParams) (*gdprclientmodels.ModelsDeletionStatus, error) {
+func (aaa *DataDeletionService) PublicGetMyAccountDeletionStatusShort(input *data_deletion.PublicGetMyAccountDeletionStatusParams) (*data_deletion.PublicGetMyAccountDeletionStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,5 +335,5 @@ func (aaa *DataDeletionService) PublicGetMyAccountDeletionStatusShort(input *dat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

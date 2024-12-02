@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetUserSubscriptionBillingHistoriesResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.BillingHistoryPagingSlicedResult
+}
+
+func (m *GetUserSubscriptionBillingHistoriesResponse) Unpack() (*platformclientmodels.BillingHistoryPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserSubscriptionBillingHistoriesReader is a Reader for the GetUserSubscriptionBillingHistories structure.
 type GetUserSubscriptionBillingHistoriesReader struct {
 	formats strfmt.Registry

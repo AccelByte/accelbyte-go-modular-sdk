@@ -30,25 +30,25 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QuerySubscriptionsShort(params *QuerySubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySubscriptionsOK, error)
-	RecurringChargeSubscriptionShort(params *RecurringChargeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*RecurringChargeSubscriptionOK, error)
-	QueryUserSubscriptionsShort(params *QueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserSubscriptionsOK, error)
-	GetUserSubscriptionActivitiesShort(params *GetUserSubscriptionActivitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionActivitiesOK, error)
-	PlatformSubscribeSubscriptionShort(params *PlatformSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformSubscribeSubscriptionOK, error)
-	CheckUserSubscriptionSubscribableByItemIDShort(params *CheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserSubscriptionSubscribableByItemIDOK, error)
-	GetUserSubscriptionShort(params *GetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionOK, error)
-	DeleteUserSubscriptionShort(params *DeleteUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserSubscriptionNoContent, error)
-	CancelSubscriptionShort(params *CancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSubscriptionOK, error)
-	GrantDaysToSubscriptionShort(params *GrantDaysToSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GrantDaysToSubscriptionOK, error)
-	GetUserSubscriptionBillingHistoriesShort(params *GetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionBillingHistoriesOK, error)
-	ProcessUserSubscriptionNotificationShort(params *ProcessUserSubscriptionNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserSubscriptionNotificationNoContent, error)
-	PublicQueryUserSubscriptionsShort(params *PublicQueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserSubscriptionsOK, error)
-	PublicSubscribeSubscriptionShort(params *PublicSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubscribeSubscriptionCreated, error)
-	PublicCheckUserSubscriptionSubscribableByItemIDShort(params *PublicCheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCheckUserSubscriptionSubscribableByItemIDOK, error)
-	PublicGetUserSubscriptionShort(params *PublicGetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionOK, error)
-	PublicChangeSubscriptionBillingAccountShort(params *PublicChangeSubscriptionBillingAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChangeSubscriptionBillingAccountOK, error)
-	PublicCancelSubscriptionShort(params *PublicCancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelSubscriptionOK, error)
-	PublicGetUserSubscriptionBillingHistoriesShort(params *PublicGetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionBillingHistoriesOK, error)
+	QuerySubscriptionsShort(params *QuerySubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySubscriptionsResponse, error)
+	RecurringChargeSubscriptionShort(params *RecurringChargeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*RecurringChargeSubscriptionResponse, error)
+	QueryUserSubscriptionsShort(params *QueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserSubscriptionsResponse, error)
+	GetUserSubscriptionActivitiesShort(params *GetUserSubscriptionActivitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionActivitiesResponse, error)
+	PlatformSubscribeSubscriptionShort(params *PlatformSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformSubscribeSubscriptionResponse, error)
+	CheckUserSubscriptionSubscribableByItemIDShort(params *CheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserSubscriptionSubscribableByItemIDResponse, error)
+	GetUserSubscriptionShort(params *GetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionResponse, error)
+	DeleteUserSubscriptionShort(params *DeleteUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserSubscriptionResponse, error)
+	CancelSubscriptionShort(params *CancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSubscriptionResponse, error)
+	GrantDaysToSubscriptionShort(params *GrantDaysToSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GrantDaysToSubscriptionResponse, error)
+	GetUserSubscriptionBillingHistoriesShort(params *GetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionBillingHistoriesResponse, error)
+	ProcessUserSubscriptionNotificationShort(params *ProcessUserSubscriptionNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserSubscriptionNotificationResponse, error)
+	PublicQueryUserSubscriptionsShort(params *PublicQueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserSubscriptionsResponse, error)
+	PublicSubscribeSubscriptionShort(params *PublicSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubscribeSubscriptionResponse, error)
+	PublicCheckUserSubscriptionSubscribableByItemIDShort(params *PublicCheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCheckUserSubscriptionSubscribableByItemIDResponse, error)
+	PublicGetUserSubscriptionShort(params *PublicGetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionResponse, error)
+	PublicChangeSubscriptionBillingAccountShort(params *PublicChangeSubscriptionBillingAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChangeSubscriptionBillingAccountResponse, error)
+	PublicCancelSubscriptionShort(params *PublicCancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelSubscriptionResponse, error)
+	PublicGetUserSubscriptionBillingHistoriesShort(params *PublicGetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionBillingHistoriesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -60,7 +60,7 @@ Other detail info:
 
   * Returns : paginated subscriptions
 */
-func (a *Client) QuerySubscriptionsShort(params *QuerySubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySubscriptionsOK, error) {
+func (a *Client) QuerySubscriptionsShort(params *QuerySubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySubscriptionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySubscriptionsParams()
@@ -98,7 +98,12 @@ func (a *Client) QuerySubscriptionsShort(params *QuerySubscriptionsParams, authI
 	switch v := result.(type) {
 
 	case *QuerySubscriptionsOK:
-		return v, nil
+		response := &QuerySubscriptionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -112,7 +117,7 @@ Other detail info:
 
   * Returns : recurring charge result
 */
-func (a *Client) RecurringChargeSubscriptionShort(params *RecurringChargeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*RecurringChargeSubscriptionOK, error) {
+func (a *Client) RecurringChargeSubscriptionShort(params *RecurringChargeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*RecurringChargeSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRecurringChargeSubscriptionParams()
@@ -150,7 +155,12 @@ func (a *Client) RecurringChargeSubscriptionShort(params *RecurringChargeSubscri
 	switch v := result.(type) {
 
 	case *RecurringChargeSubscriptionOK:
-		return v, nil
+		response := &RecurringChargeSubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,7 +174,7 @@ Other detail info:
 
   * Returns : paginated subscription
 */
-func (a *Client) QueryUserSubscriptionsShort(params *QueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserSubscriptionsOK, error) {
+func (a *Client) QueryUserSubscriptionsShort(params *QueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserSubscriptionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserSubscriptionsParams()
@@ -202,7 +212,12 @@ func (a *Client) QueryUserSubscriptionsShort(params *QueryUserSubscriptionsParam
 	switch v := result.(type) {
 
 	case *QueryUserSubscriptionsOK:
-		return v, nil
+		response := &QueryUserSubscriptionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,7 +231,7 @@ Other detail info:
 
   * Returns : paginated subscription activity
 */
-func (a *Client) GetUserSubscriptionActivitiesShort(params *GetUserSubscriptionActivitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionActivitiesOK, error) {
+func (a *Client) GetUserSubscriptionActivitiesShort(params *GetUserSubscriptionActivitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionActivitiesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserSubscriptionActivitiesParams()
@@ -254,7 +269,12 @@ func (a *Client) GetUserSubscriptionActivitiesShort(params *GetUserSubscriptionA
 	switch v := result.(type) {
 
 	case *GetUserSubscriptionActivitiesOK:
-		return v, nil
+		response := &GetUserSubscriptionActivitiesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -268,7 +288,7 @@ Other detail info:
 
   * Returns : result subscription
 */
-func (a *Client) PlatformSubscribeSubscriptionShort(params *PlatformSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformSubscribeSubscriptionOK, error) {
+func (a *Client) PlatformSubscribeSubscriptionShort(params *PlatformSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformSubscribeSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformSubscribeSubscriptionParams()
@@ -306,15 +326,39 @@ func (a *Client) PlatformSubscribeSubscriptionShort(params *PlatformSubscribeSub
 	switch v := result.(type) {
 
 	case *PlatformSubscribeSubscriptionOK:
-		return v, nil
+		response := &PlatformSubscribeSubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformSubscribeSubscriptionCreated:
-		return nil, v
+		response := &PlatformSubscribeSubscriptionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformSubscribeSubscriptionBadRequest:
-		return nil, v
+		response := &PlatformSubscribeSubscriptionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformSubscribeSubscriptionNotFound:
-		return nil, v
+		response := &PlatformSubscribeSubscriptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformSubscribeSubscriptionUnprocessableEntity:
-		return nil, v
+		response := &PlatformSubscribeSubscriptionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -329,7 +373,7 @@ Other detail info:
 
   * Returns : subscribable info
 */
-func (a *Client) CheckUserSubscriptionSubscribableByItemIDShort(params *CheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserSubscriptionSubscribableByItemIDOK, error) {
+func (a *Client) CheckUserSubscriptionSubscribableByItemIDShort(params *CheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserSubscriptionSubscribableByItemIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCheckUserSubscriptionSubscribableByItemIDParams()
@@ -367,7 +411,12 @@ func (a *Client) CheckUserSubscriptionSubscribableByItemIDShort(params *CheckUse
 	switch v := result.(type) {
 
 	case *CheckUserSubscriptionSubscribableByItemIDOK:
-		return v, nil
+		response := &CheckUserSubscriptionSubscribableByItemIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -381,7 +430,7 @@ Other detail info:
 
   * Returns : subscription
 */
-func (a *Client) GetUserSubscriptionShort(params *GetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionOK, error) {
+func (a *Client) GetUserSubscriptionShort(params *GetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserSubscriptionParams()
@@ -419,9 +468,19 @@ func (a *Client) GetUserSubscriptionShort(params *GetUserSubscriptionParams, aut
 	switch v := result.(type) {
 
 	case *GetUserSubscriptionOK:
-		return v, nil
+		response := &GetUserSubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserSubscriptionNotFound:
-		return nil, v
+		response := &GetUserSubscriptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -432,7 +491,7 @@ func (a *Client) GetUserSubscriptionShort(params *GetUserSubscriptionParams, aut
 DeleteUserSubscriptionShort delete user subscription
  [TEST FACILITY ONLY] Forbidden in live environment. Delete user subscription.
 */
-func (a *Client) DeleteUserSubscriptionShort(params *DeleteUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserSubscriptionNoContent, error) {
+func (a *Client) DeleteUserSubscriptionShort(params *DeleteUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserSubscriptionParams()
@@ -470,7 +529,11 @@ func (a *Client) DeleteUserSubscriptionShort(params *DeleteUserSubscriptionParam
 	switch v := result.(type) {
 
 	case *DeleteUserSubscriptionNoContent:
-		return v, nil
+		response := &DeleteUserSubscriptionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -486,7 +549,7 @@ Other detail info:
 
   * Returns : cancelled subscription
 */
-func (a *Client) CancelSubscriptionShort(params *CancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSubscriptionOK, error) {
+func (a *Client) CancelSubscriptionShort(params *CancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCancelSubscriptionParams()
@@ -524,11 +587,26 @@ func (a *Client) CancelSubscriptionShort(params *CancelSubscriptionParams, authI
 	switch v := result.(type) {
 
 	case *CancelSubscriptionOK:
-		return v, nil
+		response := &CancelSubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CancelSubscriptionNotFound:
-		return nil, v
+		response := &CancelSubscriptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CancelSubscriptionConflict:
-		return nil, v
+		response := &CancelSubscriptionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -543,7 +621,7 @@ Other detail info:
 
   * Returns : updated subscription
 */
-func (a *Client) GrantDaysToSubscriptionShort(params *GrantDaysToSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GrantDaysToSubscriptionOK, error) {
+func (a *Client) GrantDaysToSubscriptionShort(params *GrantDaysToSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GrantDaysToSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGrantDaysToSubscriptionParams()
@@ -581,9 +659,19 @@ func (a *Client) GrantDaysToSubscriptionShort(params *GrantDaysToSubscriptionPar
 	switch v := result.(type) {
 
 	case *GrantDaysToSubscriptionOK:
-		return v, nil
+		response := &GrantDaysToSubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GrantDaysToSubscriptionNotFound:
-		return nil, v
+		response := &GrantDaysToSubscriptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -597,7 +685,7 @@ Other detail info:
 
   * Returns : paginated subscription billing history
 */
-func (a *Client) GetUserSubscriptionBillingHistoriesShort(params *GetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionBillingHistoriesOK, error) {
+func (a *Client) GetUserSubscriptionBillingHistoriesShort(params *GetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionBillingHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserSubscriptionBillingHistoriesParams()
@@ -635,7 +723,12 @@ func (a *Client) GetUserSubscriptionBillingHistoriesShort(params *GetUserSubscri
 	switch v := result.(type) {
 
 	case *GetUserSubscriptionBillingHistoriesOK:
-		return v, nil
+		response := &GetUserSubscriptionBillingHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -649,7 +742,7 @@ Other detail info:
 
   * Returns : Process result
 */
-func (a *Client) ProcessUserSubscriptionNotificationShort(params *ProcessUserSubscriptionNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserSubscriptionNotificationNoContent, error) {
+func (a *Client) ProcessUserSubscriptionNotificationShort(params *ProcessUserSubscriptionNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserSubscriptionNotificationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProcessUserSubscriptionNotificationParams()
@@ -687,9 +780,17 @@ func (a *Client) ProcessUserSubscriptionNotificationShort(params *ProcessUserSub
 	switch v := result.(type) {
 
 	case *ProcessUserSubscriptionNotificationNoContent:
-		return v, nil
+		response := &ProcessUserSubscriptionNotificationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ProcessUserSubscriptionNotificationBadRequest:
-		return nil, v
+		response := &ProcessUserSubscriptionNotificationResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -703,7 +804,7 @@ Other detail info:
 
   * Returns : paginated subscription
 */
-func (a *Client) PublicQueryUserSubscriptionsShort(params *PublicQueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserSubscriptionsOK, error) {
+func (a *Client) PublicQueryUserSubscriptionsShort(params *PublicQueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserSubscriptionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryUserSubscriptionsParams()
@@ -741,7 +842,12 @@ func (a *Client) PublicQueryUserSubscriptionsShort(params *PublicQueryUserSubscr
 	switch v := result.(type) {
 
 	case *PublicQueryUserSubscriptionsOK:
-		return v, nil
+		response := &PublicQueryUserSubscriptionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -760,7 +866,7 @@ Other detail info:
   * It will be forbidden while the user is banned: ORDER_INITIATE or ORDER_AND_PAYMENT
   *  Returns : created subscription
 */
-func (a *Client) PublicSubscribeSubscriptionShort(params *PublicSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubscribeSubscriptionCreated, error) {
+func (a *Client) PublicSubscribeSubscriptionShort(params *PublicSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubscribeSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSubscribeSubscriptionParams()
@@ -798,17 +904,46 @@ func (a *Client) PublicSubscribeSubscriptionShort(params *PublicSubscribeSubscri
 	switch v := result.(type) {
 
 	case *PublicSubscribeSubscriptionCreated:
-		return v, nil
+		response := &PublicSubscribeSubscriptionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSubscribeSubscriptionBadRequest:
-		return nil, v
+		response := &PublicSubscribeSubscriptionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubscribeSubscriptionForbidden:
-		return nil, v
+		response := &PublicSubscribeSubscriptionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubscribeSubscriptionNotFound:
-		return nil, v
+		response := &PublicSubscribeSubscriptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubscribeSubscriptionConflict:
-		return nil, v
+		response := &PublicSubscribeSubscriptionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubscribeSubscriptionUnprocessableEntity:
-		return nil, v
+		response := &PublicSubscribeSubscriptionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -823,7 +958,7 @@ Other detail info:
 
   * Returns : subscribable info
 */
-func (a *Client) PublicCheckUserSubscriptionSubscribableByItemIDShort(params *PublicCheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCheckUserSubscriptionSubscribableByItemIDOK, error) {
+func (a *Client) PublicCheckUserSubscriptionSubscribableByItemIDShort(params *PublicCheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCheckUserSubscriptionSubscribableByItemIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCheckUserSubscriptionSubscribableByItemIDParams()
@@ -861,7 +996,12 @@ func (a *Client) PublicCheckUserSubscriptionSubscribableByItemIDShort(params *Pu
 	switch v := result.(type) {
 
 	case *PublicCheckUserSubscriptionSubscribableByItemIDOK:
-		return v, nil
+		response := &PublicCheckUserSubscriptionSubscribableByItemIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -875,7 +1015,7 @@ Other detail info:
 
   * Returns : subscription
 */
-func (a *Client) PublicGetUserSubscriptionShort(params *PublicGetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionOK, error) {
+func (a *Client) PublicGetUserSubscriptionShort(params *PublicGetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserSubscriptionParams()
@@ -913,9 +1053,19 @@ func (a *Client) PublicGetUserSubscriptionShort(params *PublicGetUserSubscriptio
 	switch v := result.(type) {
 
 	case *PublicGetUserSubscriptionOK:
-		return v, nil
+		response := &PublicGetUserSubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserSubscriptionNotFound:
-		return nil, v
+		response := &PublicGetUserSubscriptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -930,7 +1080,7 @@ Other detail info:
 
   * Returns : updated subscription
 */
-func (a *Client) PublicChangeSubscriptionBillingAccountShort(params *PublicChangeSubscriptionBillingAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChangeSubscriptionBillingAccountOK, error) {
+func (a *Client) PublicChangeSubscriptionBillingAccountShort(params *PublicChangeSubscriptionBillingAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChangeSubscriptionBillingAccountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicChangeSubscriptionBillingAccountParams()
@@ -968,13 +1118,33 @@ func (a *Client) PublicChangeSubscriptionBillingAccountShort(params *PublicChang
 	switch v := result.(type) {
 
 	case *PublicChangeSubscriptionBillingAccountOK:
-		return v, nil
+		response := &PublicChangeSubscriptionBillingAccountResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicChangeSubscriptionBillingAccountBadRequest:
-		return nil, v
+		response := &PublicChangeSubscriptionBillingAccountResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChangeSubscriptionBillingAccountNotFound:
-		return nil, v
+		response := &PublicChangeSubscriptionBillingAccountResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChangeSubscriptionBillingAccountConflict:
-		return nil, v
+		response := &PublicChangeSubscriptionBillingAccountResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -989,7 +1159,7 @@ Other detail info:
 
   * Returns : cancelled subscription
 */
-func (a *Client) PublicCancelSubscriptionShort(params *PublicCancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelSubscriptionOK, error) {
+func (a *Client) PublicCancelSubscriptionShort(params *PublicCancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCancelSubscriptionParams()
@@ -1027,11 +1197,26 @@ func (a *Client) PublicCancelSubscriptionShort(params *PublicCancelSubscriptionP
 	switch v := result.(type) {
 
 	case *PublicCancelSubscriptionOK:
-		return v, nil
+		response := &PublicCancelSubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCancelSubscriptionNotFound:
-		return nil, v
+		response := &PublicCancelSubscriptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelSubscriptionConflict:
-		return nil, v
+		response := &PublicCancelSubscriptionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1045,7 +1230,7 @@ Other detail info:
 
   * Returns : paginated subscription history
 */
-func (a *Client) PublicGetUserSubscriptionBillingHistoriesShort(params *PublicGetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionBillingHistoriesOK, error) {
+func (a *Client) PublicGetUserSubscriptionBillingHistoriesShort(params *PublicGetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionBillingHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserSubscriptionBillingHistoriesParams()
@@ -1083,7 +1268,12 @@ func (a *Client) PublicGetUserSubscriptionBillingHistoriesShort(params *PublicGe
 	switch v := result.(type) {
 
 	case *PublicGetUserSubscriptionBillingHistoriesOK:
-		return v, nil
+		response := &PublicGetUserSubscriptionBillingHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

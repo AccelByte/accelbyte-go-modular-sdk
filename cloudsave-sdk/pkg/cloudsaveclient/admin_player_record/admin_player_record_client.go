@@ -30,22 +30,22 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BulkGetPlayerRecordSizeHandlerV1Short(params *BulkGetPlayerRecordSizeHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerRecordSizeHandlerV1OK, error)
-	ListPlayerRecordHandlerV1Short(params *ListPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListPlayerRecordHandlerV1OK, error)
-	AdminBulkPutPlayerRecordsByKeyHandlerV1Short(params *AdminBulkPutPlayerRecordsByKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkPutPlayerRecordsByKeyHandlerV1OK, error)
-	AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(params *AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetPlayerRecordsByUserIDsHandlerV1OK, error)
-	AdminRetrievePlayerRecordsShort(params *AdminRetrievePlayerRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrievePlayerRecordsOK, error)
-	AdminPutPlayerRecordsHandlerV1Short(params *AdminPutPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordsHandlerV1OK, error)
-	AdminGetPlayerRecordsHandlerV1Short(params *AdminGetPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordsHandlerV1OK, error)
-	AdminGetPlayerRecordHandlerV1Short(params *AdminGetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordHandlerV1OK, error)
-	AdminPutPlayerRecordHandlerV1Short(params *AdminPutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordHandlerV1OK, error)
-	AdminPostPlayerRecordHandlerV1Short(params *AdminPostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerRecordHandlerV1Created, error)
-	AdminDeletePlayerRecordHandlerV1Short(params *AdminDeletePlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerRecordHandlerV1NoContent, error)
-	AdminGetPlayerPublicRecordHandlerV1Short(params *AdminGetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerPublicRecordHandlerV1OK, error)
-	AdminPutPlayerPublicRecordHandlerV1Short(params *AdminPutPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerPublicRecordHandlerV1OK, error)
-	AdminPostPlayerPublicRecordHandlerV1Short(params *AdminPostPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerPublicRecordHandlerV1Created, error)
-	AdminDeletePlayerPublicRecordHandlerV1Short(params *AdminDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerPublicRecordHandlerV1NoContent, error)
-	AdminGetPlayerRecordSizeHandlerV1Short(params *AdminGetPlayerRecordSizeHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordSizeHandlerV1OK, error)
+	BulkGetPlayerRecordSizeHandlerV1Short(params *BulkGetPlayerRecordSizeHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerRecordSizeHandlerV1Response, error)
+	ListPlayerRecordHandlerV1Short(params *ListPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListPlayerRecordHandlerV1Response, error)
+	AdminBulkPutPlayerRecordsByKeyHandlerV1Short(params *AdminBulkPutPlayerRecordsByKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkPutPlayerRecordsByKeyHandlerV1Response, error)
+	AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(params *AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response, error)
+	AdminRetrievePlayerRecordsShort(params *AdminRetrievePlayerRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrievePlayerRecordsResponse, error)
+	AdminPutPlayerRecordsHandlerV1Short(params *AdminPutPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordsHandlerV1Response, error)
+	AdminGetPlayerRecordsHandlerV1Short(params *AdminGetPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordsHandlerV1Response, error)
+	AdminGetPlayerRecordHandlerV1Short(params *AdminGetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordHandlerV1Response, error)
+	AdminPutPlayerRecordHandlerV1Short(params *AdminPutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordHandlerV1Response, error)
+	AdminPostPlayerRecordHandlerV1Short(params *AdminPostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerRecordHandlerV1Response, error)
+	AdminDeletePlayerRecordHandlerV1Short(params *AdminDeletePlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerRecordHandlerV1Response, error)
+	AdminGetPlayerPublicRecordHandlerV1Short(params *AdminGetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerPublicRecordHandlerV1Response, error)
+	AdminPutPlayerPublicRecordHandlerV1Short(params *AdminPutPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerPublicRecordHandlerV1Response, error)
+	AdminPostPlayerPublicRecordHandlerV1Short(params *AdminPostPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerPublicRecordHandlerV1Response, error)
+	AdminDeletePlayerPublicRecordHandlerV1Short(params *AdminDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerPublicRecordHandlerV1Response, error)
+	AdminGetPlayerRecordSizeHandlerV1Short(params *AdminGetPlayerRecordSizeHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordSizeHandlerV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -55,7 +55,7 @@ BulkGetPlayerRecordSizeHandlerV1Short bulk get player records size
 Bulk get player's record size, max allowed 20 at a time, that can be
 retrieved using this endpoint.
 */
-func (a *Client) BulkGetPlayerRecordSizeHandlerV1Short(params *BulkGetPlayerRecordSizeHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerRecordSizeHandlerV1OK, error) {
+func (a *Client) BulkGetPlayerRecordSizeHandlerV1Short(params *BulkGetPlayerRecordSizeHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerRecordSizeHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetPlayerRecordSizeHandlerV1Params()
@@ -93,15 +93,40 @@ func (a *Client) BulkGetPlayerRecordSizeHandlerV1Short(params *BulkGetPlayerReco
 	switch v := result.(type) {
 
 	case *BulkGetPlayerRecordSizeHandlerV1OK:
-		return v, nil
+		response := &BulkGetPlayerRecordSizeHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetPlayerRecordSizeHandlerV1BadRequest:
-		return nil, v
+		response := &BulkGetPlayerRecordSizeHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerRecordSizeHandlerV1Unauthorized:
-		return nil, v
+		response := &BulkGetPlayerRecordSizeHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerRecordSizeHandlerV1Forbidden:
-		return nil, v
+		response := &BulkGetPlayerRecordSizeHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerRecordSizeHandlerV1InternalServerError:
-		return nil, v
+		response := &BulkGetPlayerRecordSizeHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -112,7 +137,7 @@ func (a *Client) BulkGetPlayerRecordSizeHandlerV1Short(params *BulkGetPlayerReco
 ListPlayerRecordHandlerV1Short retrieve list of public player records
 Retrieve list of player records key and userID under given namespace.
 */
-func (a *Client) ListPlayerRecordHandlerV1Short(params *ListPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListPlayerRecordHandlerV1OK, error) {
+func (a *Client) ListPlayerRecordHandlerV1Short(params *ListPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListPlayerRecordHandlerV1Params()
@@ -150,15 +175,40 @@ func (a *Client) ListPlayerRecordHandlerV1Short(params *ListPlayerRecordHandlerV
 	switch v := result.(type) {
 
 	case *ListPlayerRecordHandlerV1OK:
-		return v, nil
+		response := &ListPlayerRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListPlayerRecordHandlerV1BadRequest:
-		return nil, v
+		response := &ListPlayerRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListPlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &ListPlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListPlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &ListPlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListPlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &ListPlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -171,7 +221,7 @@ This endpoints will create new player record or replace the existing player reco
 Maximum number of user ids per request is 10.
 Maximum total size of the request payload is 5 MB.
 */
-func (a *Client) AdminBulkPutPlayerRecordsByKeyHandlerV1Short(params *AdminBulkPutPlayerRecordsByKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkPutPlayerRecordsByKeyHandlerV1OK, error) {
+func (a *Client) AdminBulkPutPlayerRecordsByKeyHandlerV1Short(params *AdminBulkPutPlayerRecordsByKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkPutPlayerRecordsByKeyHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkPutPlayerRecordsByKeyHandlerV1Params()
@@ -209,15 +259,40 @@ func (a *Client) AdminBulkPutPlayerRecordsByKeyHandlerV1Short(params *AdminBulkP
 	switch v := result.(type) {
 
 	case *AdminBulkPutPlayerRecordsByKeyHandlerV1OK:
-		return v, nil
+		response := &AdminBulkPutPlayerRecordsByKeyHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkPutPlayerRecordsByKeyHandlerV1BadRequest:
-		return nil, v
+		response := &AdminBulkPutPlayerRecordsByKeyHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkPutPlayerRecordsByKeyHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminBulkPutPlayerRecordsByKeyHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkPutPlayerRecordsByKeyHandlerV1Forbidden:
-		return nil, v
+		response := &AdminBulkPutPlayerRecordsByKeyHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkPutPlayerRecordsByKeyHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminBulkPutPlayerRecordsByKeyHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -229,7 +304,7 @@ AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short bulk get player records by mult
 Retrieve player record key and payload in bulk under given namespace.
 Maximum number of user ids per request is 20.
 */
-func (a *Client) AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(params *AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetPlayerRecordsByUserIDsHandlerV1OK, error) {
+func (a *Client) AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(params *AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkGetPlayerRecordsByUserIDsHandlerV1Params()
@@ -267,15 +342,40 @@ func (a *Client) AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(params *AdminB
 	switch v := result.(type) {
 
 	case *AdminBulkGetPlayerRecordsByUserIDsHandlerV1OK:
-		return v, nil
+		response := &AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkGetPlayerRecordsByUserIDsHandlerV1BadRequest:
-		return nil, v
+		response := &AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkGetPlayerRecordsByUserIDsHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkGetPlayerRecordsByUserIDsHandlerV1Forbidden:
-		return nil, v
+		response := &AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkGetPlayerRecordsByUserIDsHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -286,7 +386,7 @@ func (a *Client) AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(params *AdminB
 AdminRetrievePlayerRecordsShort query player records
 Retrieve list of player records key and userID under given namespace.
 */
-func (a *Client) AdminRetrievePlayerRecordsShort(params *AdminRetrievePlayerRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrievePlayerRecordsOK, error) {
+func (a *Client) AdminRetrievePlayerRecordsShort(params *AdminRetrievePlayerRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRetrievePlayerRecordsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRetrievePlayerRecordsParams()
@@ -324,15 +424,40 @@ func (a *Client) AdminRetrievePlayerRecordsShort(params *AdminRetrievePlayerReco
 	switch v := result.(type) {
 
 	case *AdminRetrievePlayerRecordsOK:
-		return v, nil
+		response := &AdminRetrievePlayerRecordsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRetrievePlayerRecordsBadRequest:
-		return nil, v
+		response := &AdminRetrievePlayerRecordsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRetrievePlayerRecordsUnauthorized:
-		return nil, v
+		response := &AdminRetrievePlayerRecordsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRetrievePlayerRecordsForbidden:
-		return nil, v
+		response := &AdminRetrievePlayerRecordsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRetrievePlayerRecordsInternalServerError:
-		return nil, v
+		response := &AdminRetrievePlayerRecordsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -345,7 +470,7 @@ This endpoints will create new player record or replace the existing player reco
 Maximum bulk key limit per request 10.
 Maximum total size of the request payload is 5 MB.
 */
-func (a *Client) AdminPutPlayerRecordsHandlerV1Short(params *AdminPutPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordsHandlerV1OK, error) {
+func (a *Client) AdminPutPlayerRecordsHandlerV1Short(params *AdminPutPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordsHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPutPlayerRecordsHandlerV1Params()
@@ -383,13 +508,33 @@ func (a *Client) AdminPutPlayerRecordsHandlerV1Short(params *AdminPutPlayerRecor
 	switch v := result.(type) {
 
 	case *AdminPutPlayerRecordsHandlerV1OK:
-		return v, nil
+		response := &AdminPutPlayerRecordsHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPutPlayerRecordsHandlerV1BadRequest:
-		return nil, v
+		response := &AdminPutPlayerRecordsHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutPlayerRecordsHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminPutPlayerRecordsHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutPlayerRecordsHandlerV1Forbidden:
-		return nil, v
+		response := &AdminPutPlayerRecordsHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -401,7 +546,7 @@ AdminGetPlayerRecordsHandlerV1Short bulk get player records by multiple record k
 Retrieve player record key and payload in bulk under given namespace.
 Maximum bulk key limit per request 20.
 */
-func (a *Client) AdminGetPlayerRecordsHandlerV1Short(params *AdminGetPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordsHandlerV1OK, error) {
+func (a *Client) AdminGetPlayerRecordsHandlerV1Short(params *AdminGetPlayerRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordsHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlayerRecordsHandlerV1Params()
@@ -439,17 +584,47 @@ func (a *Client) AdminGetPlayerRecordsHandlerV1Short(params *AdminGetPlayerRecor
 	switch v := result.(type) {
 
 	case *AdminGetPlayerRecordsHandlerV1OK:
-		return v, nil
+		response := &AdminGetPlayerRecordsHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlayerRecordsHandlerV1BadRequest:
-		return nil, v
+		response := &AdminGetPlayerRecordsHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordsHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminGetPlayerRecordsHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordsHandlerV1Forbidden:
-		return nil, v
+		response := &AdminGetPlayerRecordsHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordsHandlerV1NotFound:
-		return nil, v
+		response := &AdminGetPlayerRecordsHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordsHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminGetPlayerRecordsHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -460,7 +635,7 @@ func (a *Client) AdminGetPlayerRecordsHandlerV1Short(params *AdminGetPlayerRecor
 AdminGetPlayerRecordHandlerV1Short get player record
 Get a record in user-level (arbitrary JSON data) by its key.
 */
-func (a *Client) AdminGetPlayerRecordHandlerV1Short(params *AdminGetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordHandlerV1OK, error) {
+func (a *Client) AdminGetPlayerRecordHandlerV1Short(params *AdminGetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlayerRecordHandlerV1Params()
@@ -498,15 +673,40 @@ func (a *Client) AdminGetPlayerRecordHandlerV1Short(params *AdminGetPlayerRecord
 	switch v := result.(type) {
 
 	case *AdminGetPlayerRecordHandlerV1OK:
-		return v, nil
+		response := &AdminGetPlayerRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminGetPlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminGetPlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordHandlerV1NotFound:
-		return nil, v
+		response := &AdminGetPlayerRecordHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminGetPlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -574,7 +774,7 @@ Indicate the tagging for the game record.
 }
 ```
 */
-func (a *Client) AdminPutPlayerRecordHandlerV1Short(params *AdminPutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordHandlerV1OK, error) {
+func (a *Client) AdminPutPlayerRecordHandlerV1Short(params *AdminPutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPutPlayerRecordHandlerV1Params()
@@ -612,15 +812,40 @@ func (a *Client) AdminPutPlayerRecordHandlerV1Short(params *AdminPutPlayerRecord
 	switch v := result.(type) {
 
 	case *AdminPutPlayerRecordHandlerV1OK:
-		return v, nil
+		response := &AdminPutPlayerRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPutPlayerRecordHandlerV1BadRequest:
-		return nil, v
+		response := &AdminPutPlayerRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutPlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminPutPlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutPlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminPutPlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutPlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminPutPlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -700,7 +925,7 @@ Indicate the tagging for the game record.
 }
 ```
 */
-func (a *Client) AdminPostPlayerRecordHandlerV1Short(params *AdminPostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerRecordHandlerV1Created, error) {
+func (a *Client) AdminPostPlayerRecordHandlerV1Short(params *AdminPostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPostPlayerRecordHandlerV1Params()
@@ -738,15 +963,40 @@ func (a *Client) AdminPostPlayerRecordHandlerV1Short(params *AdminPostPlayerReco
 	switch v := result.(type) {
 
 	case *AdminPostPlayerRecordHandlerV1Created:
-		return v, nil
+		response := &AdminPostPlayerRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPostPlayerRecordHandlerV1BadRequest:
-		return nil, v
+		response := &AdminPostPlayerRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostPlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminPostPlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostPlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminPostPlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostPlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminPostPlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -757,7 +1007,7 @@ func (a *Client) AdminPostPlayerRecordHandlerV1Short(params *AdminPostPlayerReco
 AdminDeletePlayerRecordHandlerV1Short delete player record
 Delete a record (arbitrary JSON data) in user-level with given key.
 */
-func (a *Client) AdminDeletePlayerRecordHandlerV1Short(params *AdminDeletePlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerRecordHandlerV1NoContent, error) {
+func (a *Client) AdminDeletePlayerRecordHandlerV1Short(params *AdminDeletePlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeletePlayerRecordHandlerV1Params()
@@ -795,13 +1045,32 @@ func (a *Client) AdminDeletePlayerRecordHandlerV1Short(params *AdminDeletePlayer
 	switch v := result.(type) {
 
 	case *AdminDeletePlayerRecordHandlerV1NoContent:
-		return v, nil
+		response := &AdminDeletePlayerRecordHandlerV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeletePlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminDeletePlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminDeletePlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminDeletePlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -812,7 +1081,7 @@ func (a *Client) AdminDeletePlayerRecordHandlerV1Short(params *AdminDeletePlayer
 AdminGetPlayerPublicRecordHandlerV1Short get player public record
 Get a record in user-level (arbitrary JSON data) by its key.
 */
-func (a *Client) AdminGetPlayerPublicRecordHandlerV1Short(params *AdminGetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerPublicRecordHandlerV1OK, error) {
+func (a *Client) AdminGetPlayerPublicRecordHandlerV1Short(params *AdminGetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlayerPublicRecordHandlerV1Params()
@@ -850,15 +1119,40 @@ func (a *Client) AdminGetPlayerPublicRecordHandlerV1Short(params *AdminGetPlayer
 	switch v := result.(type) {
 
 	case *AdminGetPlayerPublicRecordHandlerV1OK:
-		return v, nil
+		response := &AdminGetPlayerPublicRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminGetPlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminGetPlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerPublicRecordHandlerV1NotFound:
-		return nil, v
+		response := &AdminGetPlayerPublicRecordHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminGetPlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -906,7 +1200,7 @@ For alternative, please use these endpoints:
 - **PUT /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}** and utilizing **__META** functionality
 - **DELETE /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}**
 */
-func (a *Client) AdminPutPlayerPublicRecordHandlerV1Short(params *AdminPutPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerPublicRecordHandlerV1OK, error) {
+func (a *Client) AdminPutPlayerPublicRecordHandlerV1Short(params *AdminPutPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutPlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPutPlayerPublicRecordHandlerV1Params()
@@ -944,15 +1238,40 @@ func (a *Client) AdminPutPlayerPublicRecordHandlerV1Short(params *AdminPutPlayer
 	switch v := result.(type) {
 
 	case *AdminPutPlayerPublicRecordHandlerV1OK:
-		return v, nil
+		response := &AdminPutPlayerPublicRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPutPlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &AdminPutPlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutPlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminPutPlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutPlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminPutPlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutPlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminPutPlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1012,7 +1331,7 @@ For alternative, please use these endpoints:
 - **PUT /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}** and utilizing **__META** functionality
 - **DELETE /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}**
 */
-func (a *Client) AdminPostPlayerPublicRecordHandlerV1Short(params *AdminPostPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerPublicRecordHandlerV1Created, error) {
+func (a *Client) AdminPostPlayerPublicRecordHandlerV1Short(params *AdminPostPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPostPlayerPublicRecordHandlerV1Params()
@@ -1050,15 +1369,40 @@ func (a *Client) AdminPostPlayerPublicRecordHandlerV1Short(params *AdminPostPlay
 	switch v := result.(type) {
 
 	case *AdminPostPlayerPublicRecordHandlerV1Created:
-		return v, nil
+		response := &AdminPostPlayerPublicRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPostPlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &AdminPostPlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostPlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminPostPlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostPlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminPostPlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostPlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminPostPlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1079,7 +1423,7 @@ For alternative, please use these endpoints:
 - **PUT /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}** and utilizing **__META** functionality
 - **DELETE /cloudsave/v1/admin/namespaces/{namespace}/users/{userId}/records/{key}**
 */
-func (a *Client) AdminDeletePlayerPublicRecordHandlerV1Short(params *AdminDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerPublicRecordHandlerV1NoContent, error) {
+func (a *Client) AdminDeletePlayerPublicRecordHandlerV1Short(params *AdminDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeletePlayerPublicRecordHandlerV1Params()
@@ -1117,17 +1461,46 @@ func (a *Client) AdminDeletePlayerPublicRecordHandlerV1Short(params *AdminDelete
 	switch v := result.(type) {
 
 	case *AdminDeletePlayerPublicRecordHandlerV1NoContent:
-		return v, nil
+		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeletePlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlayerPublicRecordHandlerV1NotFound:
-		return nil, v
+		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1138,7 +1511,7 @@ func (a *Client) AdminDeletePlayerPublicRecordHandlerV1Short(params *AdminDelete
 AdminGetPlayerRecordSizeHandlerV1Short get player record size
 Get a size of the player record
 */
-func (a *Client) AdminGetPlayerRecordSizeHandlerV1Short(params *AdminGetPlayerRecordSizeHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordSizeHandlerV1OK, error) {
+func (a *Client) AdminGetPlayerRecordSizeHandlerV1Short(params *AdminGetPlayerRecordSizeHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerRecordSizeHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlayerRecordSizeHandlerV1Params()
@@ -1176,15 +1549,40 @@ func (a *Client) AdminGetPlayerRecordSizeHandlerV1Short(params *AdminGetPlayerRe
 	switch v := result.(type) {
 
 	case *AdminGetPlayerRecordSizeHandlerV1OK:
-		return v, nil
+		response := &AdminGetPlayerRecordSizeHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlayerRecordSizeHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminGetPlayerRecordSizeHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordSizeHandlerV1Forbidden:
-		return nil, v
+		response := &AdminGetPlayerRecordSizeHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordSizeHandlerV1NotFound:
-		return nil, v
+		response := &AdminGetPlayerRecordSizeHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerRecordSizeHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminGetPlayerRecordSizeHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

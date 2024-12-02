@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/reward"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -41,7 +40,7 @@ func (aaa *RewardService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*platformclientmodels.RewardInfo, error) {
+func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*reward.CreateRewardResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -68,10 +67,10 @@ func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) (*platformclientmodels.RewardPagingSlicedResult, error) {
+func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) (*reward.QueryRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -98,10 +97,10 @@ func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) ExportRewardsShort(input *reward.ExportRewardsParams, writer io.Writer) (io.Writer, error) {
+func (aaa *RewardService) ExportRewardsShort(input *reward.ExportRewardsParams, writer io.Writer) (*reward.ExportRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -128,7 +127,7 @@ func (aaa *RewardService) ExportRewardsShort(input *reward.ExportRewardsParams, 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RewardService) ImportRewardsShort(input *reward.ImportRewardsParams) error {
@@ -161,7 +160,7 @@ func (aaa *RewardService) ImportRewardsShort(input *reward.ImportRewardsParams) 
 	return nil
 }
 
-func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*platformclientmodels.RewardInfo, error) {
+func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*reward.GetRewardResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -188,10 +187,10 @@ func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*platfo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*platformclientmodels.RewardInfo, error) {
+func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*reward.UpdateRewardResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -218,10 +217,10 @@ func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) DeleteRewardShort(input *reward.DeleteRewardParams) (*platformclientmodels.RewardInfo, error) {
+func (aaa *RewardService) DeleteRewardShort(input *reward.DeleteRewardParams) (*reward.DeleteRewardResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -248,10 +247,10 @@ func (aaa *RewardService) DeleteRewardShort(input *reward.DeleteRewardParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) CheckEventConditionShort(input *reward.CheckEventConditionParams) (*platformclientmodels.ConditionMatchResult, error) {
+func (aaa *RewardService) CheckEventConditionShort(input *reward.CheckEventConditionParams) (*reward.CheckEventConditionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -278,7 +277,7 @@ func (aaa *RewardService) CheckEventConditionShort(input *reward.CheckEventCondi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RewardService) DeleteRewardConditionRecordShort(input *reward.DeleteRewardConditionRecordParams) error {
@@ -311,7 +310,7 @@ func (aaa *RewardService) DeleteRewardConditionRecordShort(input *reward.DeleteR
 	return nil
 }
 
-func (aaa *RewardService) GetRewardByCodeShort(input *reward.GetRewardByCodeParams) (*platformclientmodels.RewardInfo, error) {
+func (aaa *RewardService) GetRewardByCodeShort(input *reward.GetRewardByCodeParams) (*reward.GetRewardByCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -338,10 +337,10 @@ func (aaa *RewardService) GetRewardByCodeShort(input *reward.GetRewardByCodePara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) QueryRewards1Short(input *reward.QueryRewards1Params) (*platformclientmodels.RewardPagingSlicedResult, error) {
+func (aaa *RewardService) QueryRewards1Short(input *reward.QueryRewards1Params) (*reward.QueryRewards1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -368,10 +367,10 @@ func (aaa *RewardService) QueryRewards1Short(input *reward.QueryRewards1Params) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) GetReward1Short(input *reward.GetReward1Params) (*platformclientmodels.RewardInfo, error) {
+func (aaa *RewardService) GetReward1Short(input *reward.GetReward1Params) (*reward.GetReward1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -398,5 +397,5 @@ func (aaa *RewardService) GetReward1Short(input *reward.GetReward1Params) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -9,7 +9,6 @@ package group
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *GroupService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *GroupService) GetGroupListAdminV1Short(input *group.GetGroupListAdminV1Params) (*groupclientmodels.ModelsGetGroupsListResponseV1, error) {
+func (aaa *GroupService) GetGroupListAdminV1Short(input *group.GetGroupListAdminV1Params) (*group.GetGroupListAdminV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *GroupService) GetGroupListAdminV1Short(input *group.GetGroupListAdmin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) GetSingleGroupAdminV1Short(input *group.GetSingleGroupAdminV1Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) GetSingleGroupAdminV1Short(input *group.GetSingleGroupAdminV1Params) (*group.GetSingleGroupAdminV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *GroupService) GetSingleGroupAdminV1Short(input *group.GetSingleGroupA
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GroupService) DeleteGroupAdminV1Short(input *group.DeleteGroupAdminV1Params) error {
@@ -127,7 +126,7 @@ func (aaa *GroupService) DeleteGroupAdminV1Short(input *group.DeleteGroupAdminV1
 	return nil
 }
 
-func (aaa *GroupService) GetGroupListPublicV1Short(input *group.GetGroupListPublicV1Params) (*groupclientmodels.ModelsGetGroupsListResponseV1, error) {
+func (aaa *GroupService) GetGroupListPublicV1Short(input *group.GetGroupListPublicV1Params) (*group.GetGroupListPublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *GroupService) GetGroupListPublicV1Short(input *group.GetGroupListPubl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) CreateNewGroupPublicV1Short(input *group.CreateNewGroupPublicV1Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) CreateNewGroupPublicV1Short(input *group.CreateNewGroupPublicV1Params) (*group.CreateNewGroupPublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *GroupService) CreateNewGroupPublicV1Short(input *group.CreateNewGroup
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *GroupService) GetSingleGroupPublicV1Short(input *group.GetSingleGroupPublicV1Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) GetSingleGroupPublicV1Short(input *group.GetSingleGroupPublicV1Params) (*group.GetSingleGroupPublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *GroupService) GetSingleGroupPublicV1Short(input *group.GetSingleGroup
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) UpdateSingleGroupV1Short(input *group.UpdateSingleGroupV1Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdateSingleGroupV1Short(input *group.UpdateSingleGroupV1Params) (*group.UpdateSingleGroupV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,7 +243,7 @@ func (aaa *GroupService) UpdateSingleGroupV1Short(input *group.UpdateSingleGroup
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GroupService) DeleteGroupPublicV1Short(input *group.DeleteGroupPublicV1Params) error {
@@ -277,7 +276,7 @@ func (aaa *GroupService) DeleteGroupPublicV1Short(input *group.DeleteGroupPublic
 	return nil
 }
 
-func (aaa *GroupService) UpdatePatchSingleGroupPublicV1Short(input *group.UpdatePatchSingleGroupPublicV1Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdatePatchSingleGroupPublicV1Short(input *group.UpdatePatchSingleGroupPublicV1Params) (*group.UpdatePatchSingleGroupPublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *GroupService) UpdatePatchSingleGroupPublicV1Short(input *group.Update
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) UpdateGroupCustomAttributesPublicV1Short(input *group.UpdateGroupCustomAttributesPublicV1Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdateGroupCustomAttributesPublicV1Short(input *group.UpdateGroupCustomAttributesPublicV1Params) (*group.UpdateGroupCustomAttributesPublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *GroupService) UpdateGroupCustomAttributesPublicV1Short(input *group.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) UpdateGroupCustomRulePublicV1Short(input *group.UpdateGroupCustomRulePublicV1Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdateGroupCustomRulePublicV1Short(input *group.UpdateGroupCustomRulePublicV1Params) (*group.UpdateGroupCustomRulePublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *GroupService) UpdateGroupCustomRulePublicV1Short(input *group.UpdateG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) UpdateGroupPredefinedRulePublicV1Short(input *group.UpdateGroupPredefinedRulePublicV1Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdateGroupPredefinedRulePublicV1Short(input *group.UpdateGroupPredefinedRulePublicV1Params) (*group.UpdateGroupPredefinedRulePublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,7 +393,7 @@ func (aaa *GroupService) UpdateGroupPredefinedRulePublicV1Short(input *group.Upd
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GroupService) DeleteGroupPredefinedRulePublicV1Short(input *group.DeleteGroupPredefinedRulePublicV1Params) error {
@@ -427,7 +426,7 @@ func (aaa *GroupService) DeleteGroupPredefinedRulePublicV1Short(input *group.Del
 	return nil
 }
 
-func (aaa *GroupService) GetListGroupByIDsAdminV2Short(input *group.GetListGroupByIDsAdminV2Params) (*groupclientmodels.ModelsGetGroupsResponseV1, error) {
+func (aaa *GroupService) GetListGroupByIDsAdminV2Short(input *group.GetListGroupByIDsAdminV2Params) (*group.GetListGroupByIDsAdminV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *GroupService) GetListGroupByIDsAdminV2Short(input *group.GetListGroup
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) CreateNewGroupPublicV2Short(input *group.CreateNewGroupPublicV2Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) CreateNewGroupPublicV2Short(input *group.CreateNewGroupPublicV2Params) (*group.CreateNewGroupPublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,10 +483,10 @@ func (aaa *GroupService) CreateNewGroupPublicV2Short(input *group.CreateNewGroup
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *GroupService) GetListGroupByIDsV2Short(input *group.GetListGroupByIDsV2Params) (*groupclientmodels.ModelsGetGroupsResponseV1, error) {
+func (aaa *GroupService) GetListGroupByIDsV2Short(input *group.GetListGroupByIDsV2Params) (*group.GetListGroupByIDsV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,10 +513,10 @@ func (aaa *GroupService) GetListGroupByIDsV2Short(input *group.GetListGroupByIDs
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) UpdatePutSingleGroupPublicV2Short(input *group.UpdatePutSingleGroupPublicV2Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdatePutSingleGroupPublicV2Short(input *group.UpdatePutSingleGroupPublicV2Params) (*group.UpdatePutSingleGroupPublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -544,7 +543,7 @@ func (aaa *GroupService) UpdatePutSingleGroupPublicV2Short(input *group.UpdatePu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GroupService) DeleteGroupPublicV2Short(input *group.DeleteGroupPublicV2Params) error {
@@ -577,7 +576,7 @@ func (aaa *GroupService) DeleteGroupPublicV2Short(input *group.DeleteGroupPublic
 	return nil
 }
 
-func (aaa *GroupService) UpdatePatchSingleGroupPublicV2Short(input *group.UpdatePatchSingleGroupPublicV2Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdatePatchSingleGroupPublicV2Short(input *group.UpdatePatchSingleGroupPublicV2Params) (*group.UpdatePatchSingleGroupPublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -604,10 +603,10 @@ func (aaa *GroupService) UpdatePatchSingleGroupPublicV2Short(input *group.Update
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) UpdateGroupCustomAttributesPublicV2Short(input *group.UpdateGroupCustomAttributesPublicV2Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdateGroupCustomAttributesPublicV2Short(input *group.UpdateGroupCustomAttributesPublicV2Params) (*group.UpdateGroupCustomAttributesPublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -634,10 +633,10 @@ func (aaa *GroupService) UpdateGroupCustomAttributesPublicV2Short(input *group.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) UpdateGroupCustomRulePublicV2Short(input *group.UpdateGroupCustomRulePublicV2Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdateGroupCustomRulePublicV2Short(input *group.UpdateGroupCustomRulePublicV2Params) (*group.UpdateGroupCustomRulePublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -664,10 +663,10 @@ func (aaa *GroupService) UpdateGroupCustomRulePublicV2Short(input *group.UpdateG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupService) UpdateGroupPredefinedRulePublicV2Short(input *group.UpdateGroupPredefinedRulePublicV2Params) (*groupclientmodels.ModelsGroupResponseV1, error) {
+func (aaa *GroupService) UpdateGroupPredefinedRulePublicV2Short(input *group.UpdateGroupPredefinedRulePublicV2Params) (*group.UpdateGroupPredefinedRulePublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -694,7 +693,7 @@ func (aaa *GroupService) UpdateGroupPredefinedRulePublicV2Short(input *group.Upd
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GroupService) DeleteGroupPredefinedRulePublicV2Short(input *group.DeleteGroupPredefinedRulePublicV2Params) error {

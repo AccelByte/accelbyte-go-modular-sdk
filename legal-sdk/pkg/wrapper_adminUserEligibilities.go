@@ -9,7 +9,6 @@ package legal
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/admin_user_eligibilities"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminUserEligibilitiesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminUserEligibilitiesService) AdminRetrieveEligibilitiesShort(input *admin_user_eligibilities.AdminRetrieveEligibilitiesParams) (*legalclientmodels.RetrieveUserEligibilitiesIndirectResponse, error) {
+func (aaa *AdminUserEligibilitiesService) AdminRetrieveEligibilitiesShort(input *admin_user_eligibilities.AdminRetrieveEligibilitiesParams) (*admin_user_eligibilities.AdminRetrieveEligibilitiesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *AdminUserEligibilitiesService) AdminRetrieveEligibilitiesShort(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

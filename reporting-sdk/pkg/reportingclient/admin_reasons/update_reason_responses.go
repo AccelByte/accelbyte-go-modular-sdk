@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type UpdateReasonResponse struct {
+	reportingclientmodels.ApiResponse
+	Data *reportingclientmodels.RestapiAdminReasonResponse
+
+	Error400 *reportingclientmodels.RestapiErrorResponse
+	Error409 *reportingclientmodels.RestapiErrorResponse
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *UpdateReasonResponse) Unpack() (*reportingclientmodels.RestapiAdminReasonResponse, *reportingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateReasonReader is a Reader for the UpdateReason structure.
 type UpdateReasonReader struct {
 	formats strfmt.Registry

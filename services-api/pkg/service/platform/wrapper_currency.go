@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/currency"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *CurrencyService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *CurrencyService) ListCurrenciesShort(input *currency.ListCurrenciesParams) ([]*platformclientmodels.CurrencyInfo, error) {
+func (aaa *CurrencyService) ListCurrenciesShort(input *currency.ListCurrenciesParams) (*currency.ListCurrenciesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *CurrencyService) ListCurrenciesShort(input *currency.ListCurrenciesPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CurrencyService) CreateCurrencyShort(input *currency.CreateCurrencyParams) (*platformclientmodels.CurrencyInfo, error) {
+func (aaa *CurrencyService) CreateCurrencyShort(input *currency.CreateCurrencyParams) (*currency.CreateCurrencyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *CurrencyService) CreateCurrencyShort(input *currency.CreateCurrencyPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CurrencyService) UpdateCurrencyShort(input *currency.UpdateCurrencyParams) (*platformclientmodels.CurrencyInfo, error) {
+func (aaa *CurrencyService) UpdateCurrencyShort(input *currency.UpdateCurrencyParams) (*currency.UpdateCurrencyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *CurrencyService) UpdateCurrencyShort(input *currency.UpdateCurrencyPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CurrencyService) DeleteCurrencyShort(input *currency.DeleteCurrencyParams) (*platformclientmodels.CurrencyInfo, error) {
+func (aaa *CurrencyService) DeleteCurrencyShort(input *currency.DeleteCurrencyParams) (*currency.DeleteCurrencyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *CurrencyService) DeleteCurrencyShort(input *currency.DeleteCurrencyPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CurrencyService) GetCurrencyConfigShort(input *currency.GetCurrencyConfigParams) (*platformclientmodels.CurrencyConfig, error) {
+func (aaa *CurrencyService) GetCurrencyConfigShort(input *currency.GetCurrencyConfigParams) (*currency.GetCurrencyConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *CurrencyService) GetCurrencyConfigShort(input *currency.GetCurrencyCo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CurrencyService) GetCurrencySummaryShort(input *currency.GetCurrencySummaryParams) (*platformclientmodels.CurrencySummary, error) {
+func (aaa *CurrencyService) GetCurrencySummaryShort(input *currency.GetCurrencySummaryParams) (*currency.GetCurrencySummaryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *CurrencyService) GetCurrencySummaryShort(input *currency.GetCurrencyS
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CurrencyService) PublicListCurrenciesShort(input *currency.PublicListCurrenciesParams) ([]*platformclientmodels.CurrencyInfo, error) {
+func (aaa *CurrencyService) PublicListCurrenciesShort(input *currency.PublicListCurrenciesParams) (*currency.PublicListCurrenciesResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -239,5 +238,5 @@ func (aaa *CurrencyService) PublicListCurrenciesShort(input *currency.PublicList
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 )
 
+type AdminListInventoryConfigurationsResponse struct {
+	inventoryclientmodels.ApiResponse
+	Data *inventoryclientmodels.ApimodelsListInventoryConfigurationsResp
+
+	Error400 *inventoryclientmodels.ApimodelsErrorResponse
+	Error500 *inventoryclientmodels.ApimodelsErrorResponse
+}
+
+func (m *AdminListInventoryConfigurationsResponse) Unpack() (*inventoryclientmodels.ApimodelsListInventoryConfigurationsResp, *inventoryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &inventoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminListInventoryConfigurationsReader is a Reader for the AdminListInventoryConfigurations structure.
 type AdminListInventoryConfigurationsReader struct {
 	formats strfmt.Registry

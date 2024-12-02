@@ -30,19 +30,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetLobbyCCUShort(params *AdminGetLobbyCCUParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLobbyCCUOK, error)
-	AdminGetBulkPlayerBlockedPlayersV1Short(params *AdminGetBulkPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkPlayerBlockedPlayersV1OK, error)
-	AdminGetAllPlayerSessionAttributeShort(params *AdminGetAllPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllPlayerSessionAttributeOK, error)
-	AdminSetPlayerSessionAttributeShort(params *AdminSetPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetPlayerSessionAttributeNoContent, error)
-	AdminGetPlayerSessionAttributeShort(params *AdminGetPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerSessionAttributeOK, error)
-	AdminGetPlayerBlockedPlayersV1Short(params *AdminGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBlockedPlayersV1OK, error)
-	AdminGetPlayerBlockedByPlayersV1Short(params *AdminGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBlockedByPlayersV1OK, error)
-	AdminBulkBlockPlayersV1Short(params *AdminBulkBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkBlockPlayersV1NoContent, error)
-	AdminBulkUnblockPlayersV1Short(params *AdminBulkUnblockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUnblockPlayersV1NoContent, error)
-	PublicPlayerBlockPlayersV1Short(params *PublicPlayerBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlayerBlockPlayersV1Created, error)
-	PublicGetPlayerBlockedPlayersV1Short(params *PublicGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedPlayersV1OK, error)
-	PublicGetPlayerBlockedByPlayersV1Short(params *PublicGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedByPlayersV1OK, error)
-	PublicUnblockPlayerV1Short(params *PublicUnblockPlayerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUnblockPlayerV1NoContent, error)
+	AdminGetLobbyCCUShort(params *AdminGetLobbyCCUParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLobbyCCUResponse, error)
+	AdminGetBulkPlayerBlockedPlayersV1Short(params *AdminGetBulkPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkPlayerBlockedPlayersV1Response, error)
+	AdminGetAllPlayerSessionAttributeShort(params *AdminGetAllPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllPlayerSessionAttributeResponse, error)
+	AdminSetPlayerSessionAttributeShort(params *AdminSetPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetPlayerSessionAttributeResponse, error)
+	AdminGetPlayerSessionAttributeShort(params *AdminGetPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerSessionAttributeResponse, error)
+	AdminGetPlayerBlockedPlayersV1Short(params *AdminGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBlockedPlayersV1Response, error)
+	AdminGetPlayerBlockedByPlayersV1Short(params *AdminGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBlockedByPlayersV1Response, error)
+	AdminBulkBlockPlayersV1Short(params *AdminBulkBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkBlockPlayersV1Response, error)
+	AdminBulkUnblockPlayersV1Short(params *AdminBulkUnblockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUnblockPlayersV1Response, error)
+	PublicPlayerBlockPlayersV1Short(params *PublicPlayerBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlayerBlockPlayersV1Response, error)
+	PublicGetPlayerBlockedPlayersV1Short(params *PublicGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedPlayersV1Response, error)
+	PublicGetPlayerBlockedByPlayersV1Short(params *PublicGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedByPlayersV1Response, error)
+	PublicUnblockPlayerV1Short(params *PublicUnblockPlayerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUnblockPlayerV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ type ClientService interface {
 AdminGetLobbyCCUShort admin get number of players currently connected to the lobby.
 Get the number of players connected to the Lobby in the given namespace.
 */
-func (a *Client) AdminGetLobbyCCUShort(params *AdminGetLobbyCCUParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLobbyCCUOK, error) {
+func (a *Client) AdminGetLobbyCCUShort(params *AdminGetLobbyCCUParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLobbyCCUResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetLobbyCCUParams()
@@ -89,17 +89,47 @@ func (a *Client) AdminGetLobbyCCUShort(params *AdminGetLobbyCCUParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminGetLobbyCCUOK:
-		return v, nil
+		response := &AdminGetLobbyCCUResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetLobbyCCUBadRequest:
-		return nil, v
+		response := &AdminGetLobbyCCUResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetLobbyCCUUnauthorized:
-		return nil, v
+		response := &AdminGetLobbyCCUResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetLobbyCCUForbidden:
-		return nil, v
+		response := &AdminGetLobbyCCUResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetLobbyCCUNotFound:
-		return nil, v
+		response := &AdminGetLobbyCCUResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetLobbyCCUInternalServerError:
-		return nil, v
+		response := &AdminGetLobbyCCUResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -110,7 +140,7 @@ func (a *Client) AdminGetLobbyCCUShort(params *AdminGetLobbyCCUParams, authInfo 
 AdminGetBulkPlayerBlockedPlayersV1Short admin get blocked players by bulk user ids
 Get blocked players data by bulk user ids in a namespace.
 */
-func (a *Client) AdminGetBulkPlayerBlockedPlayersV1Short(params *AdminGetBulkPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkPlayerBlockedPlayersV1OK, error) {
+func (a *Client) AdminGetBulkPlayerBlockedPlayersV1Short(params *AdminGetBulkPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkPlayerBlockedPlayersV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetBulkPlayerBlockedPlayersV1Params()
@@ -148,17 +178,47 @@ func (a *Client) AdminGetBulkPlayerBlockedPlayersV1Short(params *AdminGetBulkPla
 	switch v := result.(type) {
 
 	case *AdminGetBulkPlayerBlockedPlayersV1OK:
-		return v, nil
+		response := &AdminGetBulkPlayerBlockedPlayersV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetBulkPlayerBlockedPlayersV1BadRequest:
-		return nil, v
+		response := &AdminGetBulkPlayerBlockedPlayersV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkPlayerBlockedPlayersV1Unauthorized:
-		return nil, v
+		response := &AdminGetBulkPlayerBlockedPlayersV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkPlayerBlockedPlayersV1Forbidden:
-		return nil, v
+		response := &AdminGetBulkPlayerBlockedPlayersV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkPlayerBlockedPlayersV1NotFound:
-		return nil, v
+		response := &AdminGetBulkPlayerBlockedPlayersV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkPlayerBlockedPlayersV1InternalServerError:
-		return nil, v
+		response := &AdminGetBulkPlayerBlockedPlayersV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -169,7 +229,7 @@ func (a *Client) AdminGetBulkPlayerBlockedPlayersV1Short(params *AdminGetBulkPla
 AdminGetAllPlayerSessionAttributeShort admin get all player's session attribute
 Get all player's session attribute by user id in a namespace.
 */
-func (a *Client) AdminGetAllPlayerSessionAttributeShort(params *AdminGetAllPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllPlayerSessionAttributeOK, error) {
+func (a *Client) AdminGetAllPlayerSessionAttributeShort(params *AdminGetAllPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllPlayerSessionAttributeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAllPlayerSessionAttributeParams()
@@ -207,13 +267,33 @@ func (a *Client) AdminGetAllPlayerSessionAttributeShort(params *AdminGetAllPlaye
 	switch v := result.(type) {
 
 	case *AdminGetAllPlayerSessionAttributeOK:
-		return v, nil
+		response := &AdminGetAllPlayerSessionAttributeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAllPlayerSessionAttributeUnauthorized:
-		return nil, v
+		response := &AdminGetAllPlayerSessionAttributeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllPlayerSessionAttributeForbidden:
-		return nil, v
+		response := &AdminGetAllPlayerSessionAttributeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllPlayerSessionAttributeInternalServerError:
-		return nil, v
+		response := &AdminGetAllPlayerSessionAttributeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -224,7 +304,7 @@ func (a *Client) AdminGetAllPlayerSessionAttributeShort(params *AdminGetAllPlaye
 AdminSetPlayerSessionAttributeShort admin set player's session attribute
 Set player's session attribute by user id in a namespace.
 */
-func (a *Client) AdminSetPlayerSessionAttributeShort(params *AdminSetPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetPlayerSessionAttributeNoContent, error) {
+func (a *Client) AdminSetPlayerSessionAttributeShort(params *AdminSetPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetPlayerSessionAttributeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSetPlayerSessionAttributeParams()
@@ -262,17 +342,46 @@ func (a *Client) AdminSetPlayerSessionAttributeShort(params *AdminSetPlayerSessi
 	switch v := result.(type) {
 
 	case *AdminSetPlayerSessionAttributeNoContent:
-		return v, nil
+		response := &AdminSetPlayerSessionAttributeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSetPlayerSessionAttributeBadRequest:
-		return nil, v
+		response := &AdminSetPlayerSessionAttributeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSetPlayerSessionAttributeUnauthorized:
-		return nil, v
+		response := &AdminSetPlayerSessionAttributeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSetPlayerSessionAttributeForbidden:
-		return nil, v
+		response := &AdminSetPlayerSessionAttributeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSetPlayerSessionAttributeNotFound:
-		return nil, v
+		response := &AdminSetPlayerSessionAttributeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSetPlayerSessionAttributeInternalServerError:
-		return nil, v
+		response := &AdminSetPlayerSessionAttributeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -283,7 +392,7 @@ func (a *Client) AdminSetPlayerSessionAttributeShort(params *AdminSetPlayerSessi
 AdminGetPlayerSessionAttributeShort admin get player's session attribute
 Get player's specific session attribute by user id in a namespace.
 */
-func (a *Client) AdminGetPlayerSessionAttributeShort(params *AdminGetPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerSessionAttributeOK, error) {
+func (a *Client) AdminGetPlayerSessionAttributeShort(params *AdminGetPlayerSessionAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerSessionAttributeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlayerSessionAttributeParams()
@@ -321,17 +430,47 @@ func (a *Client) AdminGetPlayerSessionAttributeShort(params *AdminGetPlayerSessi
 	switch v := result.(type) {
 
 	case *AdminGetPlayerSessionAttributeOK:
-		return v, nil
+		response := &AdminGetPlayerSessionAttributeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlayerSessionAttributeBadRequest:
-		return nil, v
+		response := &AdminGetPlayerSessionAttributeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerSessionAttributeUnauthorized:
-		return nil, v
+		response := &AdminGetPlayerSessionAttributeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerSessionAttributeForbidden:
-		return nil, v
+		response := &AdminGetPlayerSessionAttributeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerSessionAttributeNotFound:
-		return nil, v
+		response := &AdminGetPlayerSessionAttributeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerSessionAttributeInternalServerError:
-		return nil, v
+		response := &AdminGetPlayerSessionAttributeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -342,7 +481,7 @@ func (a *Client) AdminGetPlayerSessionAttributeShort(params *AdminGetPlayerSessi
 AdminGetPlayerBlockedPlayersV1Short admin get blocked players by user id
 Get blocked players data by user id in a namespace.
 */
-func (a *Client) AdminGetPlayerBlockedPlayersV1Short(params *AdminGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBlockedPlayersV1OK, error) {
+func (a *Client) AdminGetPlayerBlockedPlayersV1Short(params *AdminGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBlockedPlayersV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlayerBlockedPlayersV1Params()
@@ -380,17 +519,47 @@ func (a *Client) AdminGetPlayerBlockedPlayersV1Short(params *AdminGetPlayerBlock
 	switch v := result.(type) {
 
 	case *AdminGetPlayerBlockedPlayersV1OK:
-		return v, nil
+		response := &AdminGetPlayerBlockedPlayersV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlayerBlockedPlayersV1BadRequest:
-		return nil, v
+		response := &AdminGetPlayerBlockedPlayersV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerBlockedPlayersV1Unauthorized:
-		return nil, v
+		response := &AdminGetPlayerBlockedPlayersV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerBlockedPlayersV1Forbidden:
-		return nil, v
+		response := &AdminGetPlayerBlockedPlayersV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerBlockedPlayersV1NotFound:
-		return nil, v
+		response := &AdminGetPlayerBlockedPlayersV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerBlockedPlayersV1InternalServerError:
-		return nil, v
+		response := &AdminGetPlayerBlockedPlayersV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -401,7 +570,7 @@ func (a *Client) AdminGetPlayerBlockedPlayersV1Short(params *AdminGetPlayerBlock
 AdminGetPlayerBlockedByPlayersV1Short get players who blocked this player by user id
 Load get players who blocked this player in a namespace based on user id
 */
-func (a *Client) AdminGetPlayerBlockedByPlayersV1Short(params *AdminGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBlockedByPlayersV1OK, error) {
+func (a *Client) AdminGetPlayerBlockedByPlayersV1Short(params *AdminGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerBlockedByPlayersV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlayerBlockedByPlayersV1Params()
@@ -439,17 +608,47 @@ func (a *Client) AdminGetPlayerBlockedByPlayersV1Short(params *AdminGetPlayerBlo
 	switch v := result.(type) {
 
 	case *AdminGetPlayerBlockedByPlayersV1OK:
-		return v, nil
+		response := &AdminGetPlayerBlockedByPlayersV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlayerBlockedByPlayersV1BadRequest:
-		return nil, v
+		response := &AdminGetPlayerBlockedByPlayersV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerBlockedByPlayersV1Unauthorized:
-		return nil, v
+		response := &AdminGetPlayerBlockedByPlayersV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerBlockedByPlayersV1Forbidden:
-		return nil, v
+		response := &AdminGetPlayerBlockedByPlayersV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerBlockedByPlayersV1NotFound:
-		return nil, v
+		response := &AdminGetPlayerBlockedByPlayersV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerBlockedByPlayersV1InternalServerError:
-		return nil, v
+		response := &AdminGetPlayerBlockedByPlayersV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -460,7 +659,7 @@ func (a *Client) AdminGetPlayerBlockedByPlayersV1Short(params *AdminGetPlayerBlo
 AdminBulkBlockPlayersV1Short admin bulk blocks player by list user id
 Bulk block player in a namespace by list of user id
 */
-func (a *Client) AdminBulkBlockPlayersV1Short(params *AdminBulkBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkBlockPlayersV1NoContent, error) {
+func (a *Client) AdminBulkBlockPlayersV1Short(params *AdminBulkBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkBlockPlayersV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkBlockPlayersV1Params()
@@ -498,15 +697,39 @@ func (a *Client) AdminBulkBlockPlayersV1Short(params *AdminBulkBlockPlayersV1Par
 	switch v := result.(type) {
 
 	case *AdminBulkBlockPlayersV1NoContent:
-		return v, nil
+		response := &AdminBulkBlockPlayersV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkBlockPlayersV1BadRequest:
-		return nil, v
+		response := &AdminBulkBlockPlayersV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkBlockPlayersV1Unauthorized:
-		return nil, v
+		response := &AdminBulkBlockPlayersV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkBlockPlayersV1Forbidden:
-		return nil, v
+		response := &AdminBulkBlockPlayersV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkBlockPlayersV1InternalServerError:
-		return nil, v
+		response := &AdminBulkBlockPlayersV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -517,7 +740,7 @@ func (a *Client) AdminBulkBlockPlayersV1Short(params *AdminBulkBlockPlayersV1Par
 AdminBulkUnblockPlayersV1Short admin bulk unblock players by list user id
 Bulk unblock player in a namespace by list of user id
 */
-func (a *Client) AdminBulkUnblockPlayersV1Short(params *AdminBulkUnblockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUnblockPlayersV1NoContent, error) {
+func (a *Client) AdminBulkUnblockPlayersV1Short(params *AdminBulkUnblockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUnblockPlayersV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkUnblockPlayersV1Params()
@@ -555,15 +778,39 @@ func (a *Client) AdminBulkUnblockPlayersV1Short(params *AdminBulkUnblockPlayersV
 	switch v := result.(type) {
 
 	case *AdminBulkUnblockPlayersV1NoContent:
-		return v, nil
+		response := &AdminBulkUnblockPlayersV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkUnblockPlayersV1BadRequest:
-		return nil, v
+		response := &AdminBulkUnblockPlayersV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUnblockPlayersV1Unauthorized:
-		return nil, v
+		response := &AdminBulkUnblockPlayersV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUnblockPlayersV1Forbidden:
-		return nil, v
+		response := &AdminBulkUnblockPlayersV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUnblockPlayersV1InternalServerError:
-		return nil, v
+		response := &AdminBulkUnblockPlayersV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -577,7 +824,7 @@ Required valid user authorization
 
 add blocked players in a namespace based on user id
 */
-func (a *Client) PublicPlayerBlockPlayersV1Short(params *PublicPlayerBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlayerBlockPlayersV1Created, error) {
+func (a *Client) PublicPlayerBlockPlayersV1Short(params *PublicPlayerBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlayerBlockPlayersV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPlayerBlockPlayersV1Params()
@@ -615,17 +862,46 @@ func (a *Client) PublicPlayerBlockPlayersV1Short(params *PublicPlayerBlockPlayer
 	switch v := result.(type) {
 
 	case *PublicPlayerBlockPlayersV1Created:
-		return v, nil
+		response := &PublicPlayerBlockPlayersV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPlayerBlockPlayersV1BadRequest:
-		return nil, v
+		response := &PublicPlayerBlockPlayersV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlayerBlockPlayersV1Unauthorized:
-		return nil, v
+		response := &PublicPlayerBlockPlayersV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlayerBlockPlayersV1Forbidden:
-		return nil, v
+		response := &PublicPlayerBlockPlayersV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlayerBlockPlayersV1NotFound:
-		return nil, v
+		response := &PublicPlayerBlockPlayersV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlayerBlockPlayersV1InternalServerError:
-		return nil, v
+		response := &PublicPlayerBlockPlayersV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -641,7 +917,7 @@ load blocked players in a namespace based on user id
 
 Action Code: 50101
 */
-func (a *Client) PublicGetPlayerBlockedPlayersV1Short(params *PublicGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedPlayersV1OK, error) {
+func (a *Client) PublicGetPlayerBlockedPlayersV1Short(params *PublicGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedPlayersV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPlayerBlockedPlayersV1Params()
@@ -679,17 +955,47 @@ func (a *Client) PublicGetPlayerBlockedPlayersV1Short(params *PublicGetPlayerBlo
 	switch v := result.(type) {
 
 	case *PublicGetPlayerBlockedPlayersV1OK:
-		return v, nil
+		response := &PublicGetPlayerBlockedPlayersV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPlayerBlockedPlayersV1BadRequest:
-		return nil, v
+		response := &PublicGetPlayerBlockedPlayersV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerBlockedPlayersV1Unauthorized:
-		return nil, v
+		response := &PublicGetPlayerBlockedPlayersV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerBlockedPlayersV1Forbidden:
-		return nil, v
+		response := &PublicGetPlayerBlockedPlayersV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerBlockedPlayersV1NotFound:
-		return nil, v
+		response := &PublicGetPlayerBlockedPlayersV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerBlockedPlayersV1InternalServerError:
-		return nil, v
+		response := &PublicGetPlayerBlockedPlayersV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -705,7 +1011,7 @@ load get players who blocked this player in a namespace based on user id
 
 Action Code: 50101
 */
-func (a *Client) PublicGetPlayerBlockedByPlayersV1Short(params *PublicGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedByPlayersV1OK, error) {
+func (a *Client) PublicGetPlayerBlockedByPlayersV1Short(params *PublicGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedByPlayersV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPlayerBlockedByPlayersV1Params()
@@ -743,17 +1049,47 @@ func (a *Client) PublicGetPlayerBlockedByPlayersV1Short(params *PublicGetPlayerB
 	switch v := result.(type) {
 
 	case *PublicGetPlayerBlockedByPlayersV1OK:
-		return v, nil
+		response := &PublicGetPlayerBlockedByPlayersV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPlayerBlockedByPlayersV1BadRequest:
-		return nil, v
+		response := &PublicGetPlayerBlockedByPlayersV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerBlockedByPlayersV1Unauthorized:
-		return nil, v
+		response := &PublicGetPlayerBlockedByPlayersV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerBlockedByPlayersV1Forbidden:
-		return nil, v
+		response := &PublicGetPlayerBlockedByPlayersV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerBlockedByPlayersV1NotFound:
-		return nil, v
+		response := &PublicGetPlayerBlockedByPlayersV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerBlockedByPlayersV1InternalServerError:
-		return nil, v
+		response := &PublicGetPlayerBlockedByPlayersV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -766,7 +1102,7 @@ Required valid user authorization
 
 unblock player in a namespace based on user id
 */
-func (a *Client) PublicUnblockPlayerV1Short(params *PublicUnblockPlayerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUnblockPlayerV1NoContent, error) {
+func (a *Client) PublicUnblockPlayerV1Short(params *PublicUnblockPlayerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUnblockPlayerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUnblockPlayerV1Params()
@@ -804,17 +1140,46 @@ func (a *Client) PublicUnblockPlayerV1Short(params *PublicUnblockPlayerV1Params,
 	switch v := result.(type) {
 
 	case *PublicUnblockPlayerV1NoContent:
-		return v, nil
+		response := &PublicUnblockPlayerV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUnblockPlayerV1BadRequest:
-		return nil, v
+		response := &PublicUnblockPlayerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnblockPlayerV1Unauthorized:
-		return nil, v
+		response := &PublicUnblockPlayerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnblockPlayerV1Forbidden:
-		return nil, v
+		response := &PublicUnblockPlayerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnblockPlayerV1NotFound:
-		return nil, v
+		response := &PublicUnblockPlayerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnblockPlayerV1InternalServerError:
-		return nil, v
+		response := &PublicUnblockPlayerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

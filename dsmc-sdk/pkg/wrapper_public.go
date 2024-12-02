@@ -9,7 +9,6 @@ package dsmc
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient/public"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PublicService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicService) GetDefaultProviderShort(input *public.GetDefaultProviderParams) (*dsmcclientmodels.ModelsDefaultProvider, error) {
+func (aaa *PublicService) GetDefaultProviderShort(input *public.GetDefaultProviderParams) (*public.GetDefaultProviderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicService) GetDefaultProviderShort(input *public.GetDefaultProvid
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicService) ListProvidersShort(input *public.ListProvidersParams) ([]string, error) {
+func (aaa *PublicService) ListProvidersShort(input *public.ListProvidersParams) (*public.ListProvidersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PublicService) ListProvidersShort(input *public.ListProvidersParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicService) ListProvidersByRegionShort(input *public.ListProvidersByRegionParams) ([]string, error) {
+func (aaa *PublicService) ListProvidersByRegionShort(input *public.ListProvidersByRegionParams) (*public.ListProvidersByRegionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,5 +123,5 @@ func (aaa *PublicService) ListProvidersByRegionShort(input *public.ListProviders
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

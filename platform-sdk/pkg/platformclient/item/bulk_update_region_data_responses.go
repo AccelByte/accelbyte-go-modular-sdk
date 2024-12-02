@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type BulkUpdateRegionDataResponse struct {
+	platformclientmodels.ApiResponse
+
+	Error400 *platformclientmodels.ErrorEntity
+	Error404 *platformclientmodels.ErrorEntity
+	Error409 *platformclientmodels.ErrorEntity
+	Error422 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *BulkUpdateRegionDataResponse) Unpack() *platformclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // BulkUpdateRegionDataReader is a Reader for the BulkUpdateRegionData structure.
 type BulkUpdateRegionDataReader struct {
 	formats strfmt.Registry

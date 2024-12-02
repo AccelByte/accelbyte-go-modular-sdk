@@ -9,7 +9,6 @@ package challenge
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_progression"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -69,7 +68,7 @@ func (aaa *ChallengeProgressionService) AdminEvaluateProgressShort(input *challe
 	return nil
 }
 
-func (aaa *ChallengeProgressionService) AdminGetUserProgressionShort(input *challenge_progression.AdminGetUserProgressionParams) (*challengeclientmodels.ModelUserProgressionResponse, error) {
+func (aaa *ChallengeProgressionService) AdminGetUserProgressionShort(input *challenge_progression.AdminGetUserProgressionParams) (*challenge_progression.AdminGetUserProgressionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *ChallengeProgressionService) AdminGetUserProgressionShort(input *chal
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ChallengeProgressionService) EvaluateMyProgressShort(input *challenge_progression.EvaluateMyProgressParams) error {
@@ -129,7 +128,7 @@ func (aaa *ChallengeProgressionService) EvaluateMyProgressShort(input *challenge
 	return nil
 }
 
-func (aaa *ChallengeProgressionService) PublicGetUserProgressionShort(input *challenge_progression.PublicGetUserProgressionParams) (*challengeclientmodels.ModelUserProgressionResponse, error) {
+func (aaa *ChallengeProgressionService) PublicGetUserProgressionShort(input *challenge_progression.PublicGetUserProgressionParams) (*challenge_progression.PublicGetUserProgressionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *ChallengeProgressionService) PublicGetUserProgressionShort(input *cha
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ChallengeProgressionService) PublicGetPastUserProgressionShort(input *challenge_progression.PublicGetPastUserProgressionParams) (*challengeclientmodels.ModelUserProgressionResponse, error) {
+func (aaa *ChallengeProgressionService) PublicGetPastUserProgressionShort(input *challenge_progression.PublicGetPastUserProgressionParams) (*challenge_progression.PublicGetPastUserProgressionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,5 +185,5 @@ func (aaa *ChallengeProgressionService) PublicGetPastUserProgressionShort(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

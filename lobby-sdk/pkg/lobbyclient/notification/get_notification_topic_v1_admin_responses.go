@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type GetNotificationTopicV1AdminResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data *lobbyclientmodels.ModelNotificationTopicResponseV1
+
+	Error401 *lobbyclientmodels.RestapiErrorResponseV1
+	Error403 *lobbyclientmodels.RestapiErrorResponseV1
+	Error404 *lobbyclientmodels.RestapiErrorResponseV1
+	Error500 *lobbyclientmodels.RestapiErrorResponseV1
+}
+
+func (m *GetNotificationTopicV1AdminResponse) Unpack() (*lobbyclientmodels.ModelNotificationTopicResponseV1, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetNotificationTopicV1AdminReader is a Reader for the GetNotificationTopicV1Admin structure.
 type GetNotificationTopicV1AdminReader struct {
 	formats strfmt.Registry

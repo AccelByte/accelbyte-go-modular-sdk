@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclientmodels"
 )
 
+type AdminGetMatchmakingDetailBySessionIDResponse struct {
+	sessionhistoryclientmodels.ApiResponse
+	Data *sessionhistoryclientmodels.ApimodelsMatchmakingDetail
+
+	Error400 *sessionhistoryclientmodels.ResponseError
+	Error401 *sessionhistoryclientmodels.ResponseError
+	Error403 *sessionhistoryclientmodels.ResponseError
+	Error500 *sessionhistoryclientmodels.ResponseError
+}
+
+func (m *AdminGetMatchmakingDetailBySessionIDResponse) Unpack() (*sessionhistoryclientmodels.ApimodelsMatchmakingDetail, *sessionhistoryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionhistoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetMatchmakingDetailBySessionIDReader is a Reader for the AdminGetMatchmakingDetailBySessionID structure.
 type AdminGetMatchmakingDetailBySessionIDReader struct {
 	formats strfmt.Registry

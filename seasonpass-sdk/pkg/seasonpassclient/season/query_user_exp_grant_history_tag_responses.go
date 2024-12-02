@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 )
 
+type QueryUserExpGrantHistoryTagResponse struct {
+	seasonpassclientmodels.ApiResponse
+	Data *seasonpassclientmodels.ReasonTagsResult
+
+	Error400 *seasonpassclientmodels.ErrorEntity
+}
+
+func (m *QueryUserExpGrantHistoryTagResponse) Unpack() (*seasonpassclientmodels.ReasonTagsResult, *seasonpassclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &seasonpassclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryUserExpGrantHistoryTagReader is a Reader for the QueryUserExpGrantHistoryTag structure.
 type QueryUserExpGrantHistoryTagReader struct {
 	formats strfmt.Registry

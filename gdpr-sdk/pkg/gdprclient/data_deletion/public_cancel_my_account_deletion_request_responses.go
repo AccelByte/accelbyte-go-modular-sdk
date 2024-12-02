@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 )
 
+type PublicCancelMyAccountDeletionRequestResponse struct {
+	gdprclientmodels.ApiResponse
+
+	Error401 *gdprclientmodels.ResponseError
+	Error403 *gdprclientmodels.ResponseError
+	Error404 *gdprclientmodels.ResponseError
+	Error500 *gdprclientmodels.ResponseError
+}
+
+func (m *PublicCancelMyAccountDeletionRequestResponse) Unpack() *gdprclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &gdprclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // PublicCancelMyAccountDeletionRequestReader is a Reader for the PublicCancelMyAccountDeletionRequest structure.
 type PublicCancelMyAccountDeletionRequestReader struct {
 	formats strfmt.Registry

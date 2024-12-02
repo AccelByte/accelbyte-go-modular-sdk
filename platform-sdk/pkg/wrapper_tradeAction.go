@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/trade_action"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *TradeActionService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *TradeActionService) CommitShort(input *trade_action.CommitParams) (*platformclientmodels.TradeChainActionHistoryInfo, error) {
+func (aaa *TradeActionService) CommitShort(input *trade_action.CommitParams) (*trade_action.CommitResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *TradeActionService) CommitShort(input *trade_action.CommitParams) (*p
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TradeActionService) GetTradeHistoryByCriteriaShort(input *trade_action.GetTradeHistoryByCriteriaParams) (*platformclientmodels.TradeActionPagingSlicedResult, error) {
+func (aaa *TradeActionService) GetTradeHistoryByCriteriaShort(input *trade_action.GetTradeHistoryByCriteriaParams) (*trade_action.GetTradeHistoryByCriteriaResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *TradeActionService) GetTradeHistoryByCriteriaShort(input *trade_actio
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TradeActionService) GetTradeHistoryByTransactionIDShort(input *trade_action.GetTradeHistoryByTransactionIDParams) (*platformclientmodels.TradeChainActionHistoryInfo, error) {
+func (aaa *TradeActionService) GetTradeHistoryByTransactionIDShort(input *trade_action.GetTradeHistoryByTransactionIDParams) (*trade_action.GetTradeHistoryByTransactionIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,5 +123,5 @@ func (aaa *TradeActionService) GetTradeHistoryByTransactionIDShort(input *trade_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

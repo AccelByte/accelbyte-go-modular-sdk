@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/item"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *ItemService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ItemService) ListItemTypeConfigsShort(input *item.ListItemTypeConfigsParams) ([]*platformclientmodels.ItemTypeConfigInfo, error) {
+func (aaa *ItemService) ListItemTypeConfigsShort(input *item.ListItemTypeConfigsParams) (*item.ListItemTypeConfigsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,7 +63,7 @@ func (aaa *ItemService) ListItemTypeConfigsShort(input *item.ListItemTypeConfigs
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ItemService) CreateItemTypeConfigShort(input *item.CreateItemTypeConfigParams) error {
@@ -97,7 +96,7 @@ func (aaa *ItemService) CreateItemTypeConfigShort(input *item.CreateItemTypeConf
 	return nil
 }
 
-func (aaa *ItemService) SearchItemTypeConfigShort(input *item.SearchItemTypeConfigParams) (*platformclientmodels.ItemTypeConfigInfo, error) {
+func (aaa *ItemService) SearchItemTypeConfigShort(input *item.SearchItemTypeConfigParams) (*item.SearchItemTypeConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *ItemService) SearchItemTypeConfigShort(input *item.SearchItemTypeConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetItemTypeConfigShort(input *item.GetItemTypeConfigParams) (*platformclientmodels.ItemTypeConfigInfo, error) {
+func (aaa *ItemService) GetItemTypeConfigShort(input *item.GetItemTypeConfigParams) (*item.GetItemTypeConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *ItemService) GetItemTypeConfigShort(input *item.GetItemTypeConfigPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) UpdateItemTypeConfigShort(input *item.UpdateItemTypeConfigParams) (*platformclientmodels.ItemTypeConfigInfo, error) {
+func (aaa *ItemService) UpdateItemTypeConfigShort(input *item.UpdateItemTypeConfigParams) (*item.UpdateItemTypeConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,7 +183,7 @@ func (aaa *ItemService) UpdateItemTypeConfigShort(input *item.UpdateItemTypeConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ItemService) DeleteItemTypeConfigShort(input *item.DeleteItemTypeConfigParams) error {
@@ -217,7 +216,7 @@ func (aaa *ItemService) DeleteItemTypeConfigShort(input *item.DeleteItemTypeConf
 	return nil
 }
 
-func (aaa *ItemService) SyncInGameItemShort(input *item.SyncInGameItemParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) SyncInGameItemShort(input *item.SyncInGameItemParams) (*item.SyncInGameItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *ItemService) SyncInGameItemShort(input *item.SyncInGameItemParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) CreateItemShort(input *item.CreateItemParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) CreateItemShort(input *item.CreateItemParams) (*item.CreateItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *ItemService) CreateItemShort(input *item.CreateItemParams) (*platform
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *ItemService) GetItemByAppIDShort(input *item.GetItemByAppIDParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) GetItemByAppIDShort(input *item.GetItemByAppIDParams) (*item.GetItemByAppIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *ItemService) GetItemByAppIDShort(input *item.GetItemByAppIDParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) QueryItemsShort(input *item.QueryItemsParams) (*platformclientmodels.FullItemPagingSlicedResult, error) {
+func (aaa *ItemService) QueryItemsShort(input *item.QueryItemsParams) (*item.QueryItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *ItemService) QueryItemsShort(input *item.QueryItemsParams) (*platform
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) ListBasicItemsByFeaturesShort(input *item.ListBasicItemsByFeaturesParams) ([]*platformclientmodels.BasicItem, error) {
+func (aaa *ItemService) ListBasicItemsByFeaturesShort(input *item.ListBasicItemsByFeaturesParams) (*item.ListBasicItemsByFeaturesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *ItemService) ListBasicItemsByFeaturesShort(input *item.ListBasicItems
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetItemsShort(input *item.GetItemsParams) ([]*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) GetItemsShort(input *item.GetItemsParams) (*item.GetItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *ItemService) GetItemsShort(input *item.GetItemsParams) ([]*platformcl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetItemBySkuShort(input *item.GetItemBySkuParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) GetItemBySkuShort(input *item.GetItemBySkuParams) (*item.GetItemBySkuResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,10 +423,10 @@ func (aaa *ItemService) GetItemBySkuShort(input *item.GetItemBySkuParams) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetLocaleItemBySkuShort(input *item.GetLocaleItemBySkuParams) (*platformclientmodels.PopulatedItemInfo, error) {
+func (aaa *ItemService) GetLocaleItemBySkuShort(input *item.GetLocaleItemBySkuParams) (*item.GetLocaleItemBySkuResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *ItemService) GetLocaleItemBySkuShort(input *item.GetLocaleItemBySkuPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetEstimatedPriceShort(input *item.GetEstimatedPriceParams) (*platformclientmodels.EstimatedPriceInfo, error) {
+func (aaa *ItemService) GetEstimatedPriceShort(input *item.GetEstimatedPriceParams) (*item.GetEstimatedPriceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,10 +483,10 @@ func (aaa *ItemService) GetEstimatedPriceShort(input *item.GetEstimatedPricePara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetItemIDBySkuShort(input *item.GetItemIDBySkuParams) (*platformclientmodels.ItemID, error) {
+func (aaa *ItemService) GetItemIDBySkuShort(input *item.GetItemIDBySkuParams) (*item.GetItemIDBySkuResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,10 +513,10 @@ func (aaa *ItemService) GetItemIDBySkuShort(input *item.GetItemIDBySkuParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetBulkItemIDBySkusShort(input *item.GetBulkItemIDBySkusParams) ([]*platformclientmodels.ItemID, error) {
+func (aaa *ItemService) GetBulkItemIDBySkusShort(input *item.GetBulkItemIDBySkusParams) (*item.GetBulkItemIDBySkusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -544,10 +543,10 @@ func (aaa *ItemService) GetBulkItemIDBySkusShort(input *item.GetBulkItemIDBySkus
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) BulkGetLocaleItemsShort(input *item.BulkGetLocaleItemsParams) ([]*platformclientmodels.ItemInfo, error) {
+func (aaa *ItemService) BulkGetLocaleItemsShort(input *item.BulkGetLocaleItemsParams) (*item.BulkGetLocaleItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -574,10 +573,10 @@ func (aaa *ItemService) BulkGetLocaleItemsShort(input *item.BulkGetLocaleItemsPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetAvailablePredicateTypesShort(input *item.GetAvailablePredicateTypesParams) ([]*platformclientmodels.AvailablePredicate, error) {
+func (aaa *ItemService) GetAvailablePredicateTypesShort(input *item.GetAvailablePredicateTypesParams) (*item.GetAvailablePredicateTypesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -604,10 +603,10 @@ func (aaa *ItemService) GetAvailablePredicateTypesShort(input *item.GetAvailable
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) ValidateItemPurchaseConditionShort(input *item.ValidateItemPurchaseConditionParams) ([]*platformclientmodels.ItemPurchaseConditionValidateResult, error) {
+func (aaa *ItemService) ValidateItemPurchaseConditionShort(input *item.ValidateItemPurchaseConditionParams) (*item.ValidateItemPurchaseConditionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -634,7 +633,7 @@ func (aaa *ItemService) ValidateItemPurchaseConditionShort(input *item.ValidateI
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ItemService) BulkUpdateRegionDataShort(input *item.BulkUpdateRegionDataParams) error {
@@ -667,7 +666,7 @@ func (aaa *ItemService) BulkUpdateRegionDataShort(input *item.BulkUpdateRegionDa
 	return nil
 }
 
-func (aaa *ItemService) SearchItemsShort(input *item.SearchItemsParams) (*platformclientmodels.FullItemPagingSlicedResult, error) {
+func (aaa *ItemService) SearchItemsShort(input *item.SearchItemsParams) (*item.SearchItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -694,10 +693,10 @@ func (aaa *ItemService) SearchItemsShort(input *item.SearchItemsParams) (*platfo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) QueryUncategorizedItemsShort(input *item.QueryUncategorizedItemsParams) (*platformclientmodels.FullItemPagingSlicedResult, error) {
+func (aaa *ItemService) QueryUncategorizedItemsShort(input *item.QueryUncategorizedItemsParams) (*item.QueryUncategorizedItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -724,10 +723,10 @@ func (aaa *ItemService) QueryUncategorizedItemsShort(input *item.QueryUncategori
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetItemShort(input *item.GetItemParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) GetItemShort(input *item.GetItemParams) (*item.GetItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -754,10 +753,10 @@ func (aaa *ItemService) GetItemShort(input *item.GetItemParams) (*platformclient
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) UpdateItemShort(input *item.UpdateItemParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) UpdateItemShort(input *item.UpdateItemParams) (*item.UpdateItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -784,7 +783,7 @@ func (aaa *ItemService) UpdateItemShort(input *item.UpdateItemParams) (*platform
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ItemService) DeleteItemShort(input *item.DeleteItemParams) error {
@@ -817,7 +816,7 @@ func (aaa *ItemService) DeleteItemShort(input *item.DeleteItemParams) error {
 	return nil
 }
 
-func (aaa *ItemService) AcquireItemShort(input *item.AcquireItemParams) (*platformclientmodels.ItemAcquireResult, error) {
+func (aaa *ItemService) AcquireItemShort(input *item.AcquireItemParams) (*item.AcquireItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -844,10 +843,10 @@ func (aaa *ItemService) AcquireItemShort(input *item.AcquireItemParams) (*platfo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetAppShort(input *item.GetAppParams) (*platformclientmodels.FullAppInfo, error) {
+func (aaa *ItemService) GetAppShort(input *item.GetAppParams) (*item.GetAppResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -874,10 +873,10 @@ func (aaa *ItemService) GetAppShort(input *item.GetAppParams) (*platformclientmo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) UpdateAppShort(input *item.UpdateAppParams) (*platformclientmodels.FullAppInfo, error) {
+func (aaa *ItemService) UpdateAppShort(input *item.UpdateAppParams) (*item.UpdateAppResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -904,10 +903,10 @@ func (aaa *ItemService) UpdateAppShort(input *item.UpdateAppParams) (*platformcl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) DisableItemShort(input *item.DisableItemParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) DisableItemShort(input *item.DisableItemParams) (*item.DisableItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -934,10 +933,10 @@ func (aaa *ItemService) DisableItemShort(input *item.DisableItemParams) (*platfo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetItemDynamicDataShort(input *item.GetItemDynamicDataParams) (*platformclientmodels.ItemDynamicDataInfo, error) {
+func (aaa *ItemService) GetItemDynamicDataShort(input *item.GetItemDynamicDataParams) (*item.GetItemDynamicDataResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -964,10 +963,10 @@ func (aaa *ItemService) GetItemDynamicDataShort(input *item.GetItemDynamicDataPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) EnableItemShort(input *item.EnableItemParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) EnableItemShort(input *item.EnableItemParams) (*item.EnableItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -994,10 +993,10 @@ func (aaa *ItemService) EnableItemShort(input *item.EnableItemParams) (*platform
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) FeatureItemShort(input *item.FeatureItemParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) FeatureItemShort(input *item.FeatureItemParams) (*item.FeatureItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1024,10 +1023,10 @@ func (aaa *ItemService) FeatureItemShort(input *item.FeatureItemParams) (*platfo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) DefeatureItemShort(input *item.DefeatureItemParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) DefeatureItemShort(input *item.DefeatureItemParams) (*item.DefeatureItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1054,10 +1053,10 @@ func (aaa *ItemService) DefeatureItemShort(input *item.DefeatureItemParams) (*pl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) GetLocaleItemShort(input *item.GetLocaleItemParams) (*platformclientmodels.PopulatedItemInfo, error) {
+func (aaa *ItemService) GetLocaleItemShort(input *item.GetLocaleItemParams) (*item.GetLocaleItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1084,10 +1083,10 @@ func (aaa *ItemService) GetLocaleItemShort(input *item.GetLocaleItemParams) (*pl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) UpdateItemPurchaseConditionShort(input *item.UpdateItemPurchaseConditionParams) (*platformclientmodels.FullItemInfo, error) {
+func (aaa *ItemService) UpdateItemPurchaseConditionShort(input *item.UpdateItemPurchaseConditionParams) (*item.UpdateItemPurchaseConditionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1114,7 +1113,7 @@ func (aaa *ItemService) UpdateItemPurchaseConditionShort(input *item.UpdateItemP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ItemService) ReturnItemShort(input *item.ReturnItemParams) error {
@@ -1147,7 +1146,7 @@ func (aaa *ItemService) ReturnItemShort(input *item.ReturnItemParams) error {
 	return nil
 }
 
-func (aaa *ItemService) PublicGetItemByAppIDShort(input *item.PublicGetItemByAppIDParams) (*platformclientmodels.ItemInfo, error) {
+func (aaa *ItemService) PublicGetItemByAppIDShort(input *item.PublicGetItemByAppIDParams) (*item.PublicGetItemByAppIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1174,10 +1173,10 @@ func (aaa *ItemService) PublicGetItemByAppIDShort(input *item.PublicGetItemByApp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicQueryItemsShort(input *item.PublicQueryItemsParams) (*platformclientmodels.ItemPagingSlicedResult, error) {
+func (aaa *ItemService) PublicQueryItemsShort(input *item.PublicQueryItemsParams) (*item.PublicQueryItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1204,10 +1203,10 @@ func (aaa *ItemService) PublicQueryItemsShort(input *item.PublicQueryItemsParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicGetItemBySkuShort(input *item.PublicGetItemBySkuParams) (*platformclientmodels.ItemInfo, error) {
+func (aaa *ItemService) PublicGetItemBySkuShort(input *item.PublicGetItemBySkuParams) (*item.PublicGetItemBySkuResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1234,10 +1233,10 @@ func (aaa *ItemService) PublicGetItemBySkuShort(input *item.PublicGetItemBySkuPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicGetEstimatedPriceShort(input *item.PublicGetEstimatedPriceParams) ([]*platformclientmodels.EstimatedPriceInfo, error) {
+func (aaa *ItemService) PublicGetEstimatedPriceShort(input *item.PublicGetEstimatedPriceParams) (*item.PublicGetEstimatedPriceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1264,10 +1263,10 @@ func (aaa *ItemService) PublicGetEstimatedPriceShort(input *item.PublicGetEstima
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicBulkGetItemsShort(input *item.PublicBulkGetItemsParams) ([]*platformclientmodels.ItemInfo, error) {
+func (aaa *ItemService) PublicBulkGetItemsShort(input *item.PublicBulkGetItemsParams) (*item.PublicBulkGetItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1294,10 +1293,10 @@ func (aaa *ItemService) PublicBulkGetItemsShort(input *item.PublicBulkGetItemsPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicValidateItemPurchaseConditionShort(input *item.PublicValidateItemPurchaseConditionParams) ([]*platformclientmodels.ItemPurchaseConditionValidateResult, error) {
+func (aaa *ItemService) PublicValidateItemPurchaseConditionShort(input *item.PublicValidateItemPurchaseConditionParams) (*item.PublicValidateItemPurchaseConditionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1324,10 +1323,10 @@ func (aaa *ItemService) PublicValidateItemPurchaseConditionShort(input *item.Pub
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicSearchItemsShort(input *item.PublicSearchItemsParams) (*platformclientmodels.ItemPagingSlicedResult, error) {
+func (aaa *ItemService) PublicSearchItemsShort(input *item.PublicSearchItemsParams) (*item.PublicSearchItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1354,10 +1353,10 @@ func (aaa *ItemService) PublicSearchItemsShort(input *item.PublicSearchItemsPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicGetAppShort(input *item.PublicGetAppParams) (*platformclientmodels.AppInfo, error) {
+func (aaa *ItemService) PublicGetAppShort(input *item.PublicGetAppParams) (*item.PublicGetAppResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -1377,10 +1376,10 @@ func (aaa *ItemService) PublicGetAppShort(input *item.PublicGetAppParams) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicGetItemDynamicDataShort(input *item.PublicGetItemDynamicDataParams) (*platformclientmodels.ItemDynamicDataInfo, error) {
+func (aaa *ItemService) PublicGetItemDynamicDataShort(input *item.PublicGetItemDynamicDataParams) (*item.PublicGetItemDynamicDataResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1407,10 +1406,10 @@ func (aaa *ItemService) PublicGetItemDynamicDataShort(input *item.PublicGetItemD
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) PublicGetItemShort(input *item.PublicGetItemParams) (*platformclientmodels.PopulatedItemInfo, error) {
+func (aaa *ItemService) PublicGetItemShort(input *item.PublicGetItemParams) (*item.PublicGetItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1437,10 +1436,10 @@ func (aaa *ItemService) PublicGetItemShort(input *item.PublicGetItemParams) (*pl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ItemService) QueryItemsV2Short(input *item.QueryItemsV2Params) (*platformclientmodels.FullItemPagingResult, error) {
+func (aaa *ItemService) QueryItemsV2Short(input *item.QueryItemsV2Params) (*item.QueryItemsV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1467,5 +1466,5 @@ func (aaa *ItemService) QueryItemsV2Short(input *item.QueryItemsV2Params) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

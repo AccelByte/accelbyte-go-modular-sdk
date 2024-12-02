@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
+type AdminDeleteGlobalConfigurationResponse struct {
+	sessionclientmodels.ApiResponse
+	Data string
+
+	Error401 *sessionclientmodels.ResponseError
+	Error403 *sessionclientmodels.ResponseError
+}
+
+func (m *AdminDeleteGlobalConfigurationResponse) Unpack() (string, *sessionclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return "", e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return "", e
+
+		default:
+			return "", &sessionclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminDeleteGlobalConfigurationReader is a Reader for the AdminDeleteGlobalConfiguration structure.
 type AdminDeleteGlobalConfigurationReader struct {
 	formats strfmt.Registry

@@ -13,7 +13,28 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
+
+type DeleteDLCItemConfigResponse struct {
+	platformclientmodels.ApiResponse
+}
+
+func (m *DeleteDLCItemConfigResponse) Unpack() *platformclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // DeleteDLCItemConfigReader is a Reader for the DeleteDLCItemConfig structure.
 type DeleteDLCItemConfigReader struct {

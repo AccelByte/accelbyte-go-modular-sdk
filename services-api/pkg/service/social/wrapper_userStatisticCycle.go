@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/user_statistic_cycle"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
 // UserStatisticCycleService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *UserStatisticCycleService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *UserStatisticCycleService) GetUserStatCycleItemsShort(input *user_statistic_cycle.GetUserStatCycleItemsParams) (*socialclientmodels.UserStatCycleItemPagingSlicedResult, error) {
+func (aaa *UserStatisticCycleService) GetUserStatCycleItemsShort(input *user_statistic_cycle.GetUserStatCycleItemsParams) (*user_statistic_cycle.GetUserStatCycleItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *UserStatisticCycleService) GetUserStatCycleItemsShort(input *user_sta
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserStatisticCycleService) PublicListMyStatCycleItemsShort(input *user_statistic_cycle.PublicListMyStatCycleItemsParams) (*socialclientmodels.UserStatCycleItemPagingSlicedResult, error) {
+func (aaa *UserStatisticCycleService) PublicListMyStatCycleItemsShort(input *user_statistic_cycle.PublicListMyStatCycleItemsParams) (*user_statistic_cycle.PublicListMyStatCycleItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *UserStatisticCycleService) PublicListMyStatCycleItemsShort(input *use
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserStatisticCycleService) GetUserStatCycleItems1Short(input *user_statistic_cycle.GetUserStatCycleItems1Params) (*socialclientmodels.UserStatCycleItemPagingSlicedResult, error) {
+func (aaa *UserStatisticCycleService) GetUserStatCycleItems1Short(input *user_statistic_cycle.GetUserStatCycleItems1Params) (*user_statistic_cycle.GetUserStatCycleItems1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,5 +125,5 @@ func (aaa *UserStatisticCycleService) GetUserStatCycleItems1Short(input *user_st
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

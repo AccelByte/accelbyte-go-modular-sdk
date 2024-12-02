@@ -30,21 +30,21 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	UpdateImageShort(params *UpdateImageParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateImageNoContent, error)
-	CreateImageShort(params *CreateImageParams, authInfo runtime.ClientAuthInfoWriter) (*CreateImageNoContent, error)
-	CreateImagePatchShort(params *CreateImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*CreateImagePatchCreated, error)
-	ListImagesShort(params *ListImagesParams, authInfo runtime.ClientAuthInfoWriter) (*ListImagesOK, error)
-	DeleteImageShort(params *DeleteImageParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteImageNoContent, error)
-	GetImageLimitShort(params *GetImageLimitParams, authInfo runtime.ClientAuthInfoWriter) (*GetImageLimitOK, error)
-	DeleteImagePatchShort(params *DeleteImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteImagePatchNoContent, error)
-	GetImageDetailShort(params *GetImageDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetImageDetailOK, error)
-	GetImagePatchesShort(params *GetImagePatchesParams, authInfo runtime.ClientAuthInfoWriter) (*GetImagePatchesOK, error)
-	GetImagePatchDetailShort(params *GetImagePatchDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetImagePatchDetailOK, error)
-	GetRepositoryShort(params *GetRepositoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetRepositoryOK, error)
-	CreateRepositoryShort(params *CreateRepositoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRepositoryNoContent, error)
-	ListImagesClientShort(params *ListImagesClientParams, authInfo runtime.ClientAuthInfoWriter) (*ListImagesClientOK, error)
-	ImageLimitClientShort(params *ImageLimitClientParams, authInfo runtime.ClientAuthInfoWriter) (*ImageLimitClientOK, error)
-	ImageDetailClientShort(params *ImageDetailClientParams, authInfo runtime.ClientAuthInfoWriter) (*ImageDetailClientOK, error)
+	UpdateImageShort(params *UpdateImageParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateImageResponse, error)
+	CreateImageShort(params *CreateImageParams, authInfo runtime.ClientAuthInfoWriter) (*CreateImageResponse, error)
+	CreateImagePatchShort(params *CreateImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*CreateImagePatchResponse, error)
+	ListImagesShort(params *ListImagesParams, authInfo runtime.ClientAuthInfoWriter) (*ListImagesResponse, error)
+	DeleteImageShort(params *DeleteImageParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteImageResponse, error)
+	GetImageLimitShort(params *GetImageLimitParams, authInfo runtime.ClientAuthInfoWriter) (*GetImageLimitResponse, error)
+	DeleteImagePatchShort(params *DeleteImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteImagePatchResponse, error)
+	GetImageDetailShort(params *GetImageDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetImageDetailResponse, error)
+	GetImagePatchesShort(params *GetImagePatchesParams, authInfo runtime.ClientAuthInfoWriter) (*GetImagePatchesResponse, error)
+	GetImagePatchDetailShort(params *GetImagePatchDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetImagePatchDetailResponse, error)
+	GetRepositoryShort(params *GetRepositoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetRepositoryResponse, error)
+	CreateRepositoryShort(params *CreateRepositoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRepositoryResponse, error)
+	ListImagesClientShort(params *ListImagesClientParams, authInfo runtime.ClientAuthInfoWriter) (*ListImagesClientResponse, error)
+	ImageLimitClientShort(params *ImageLimitClientParams, authInfo runtime.ClientAuthInfoWriter) (*ImageLimitClientResponse, error)
+	ImageDetailClientShort(params *ImageDetailClientParams, authInfo runtime.ClientAuthInfoWriter) (*ImageDetailClientResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -66,7 +66,7 @@ Sample image:
 }
 ```
 */
-func (a *Client) UpdateImageShort(params *UpdateImageParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateImageNoContent, error) {
+func (a *Client) UpdateImageShort(params *UpdateImageParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateImageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateImageParams()
@@ -104,13 +104,32 @@ func (a *Client) UpdateImageShort(params *UpdateImageParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *UpdateImageNoContent:
-		return v, nil
+		response := &UpdateImageResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateImageBadRequest:
-		return nil, v
+		response := &UpdateImageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateImageUnauthorized:
-		return nil, v
+		response := &UpdateImageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateImageInternalServerError:
-		return nil, v
+		response := &UpdateImageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -134,7 +153,7 @@ Sample image:
 }
 ```
 */
-func (a *Client) CreateImageShort(params *CreateImageParams, authInfo runtime.ClientAuthInfoWriter) (*CreateImageNoContent, error) {
+func (a *Client) CreateImageShort(params *CreateImageParams, authInfo runtime.ClientAuthInfoWriter) (*CreateImageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateImageParams()
@@ -172,17 +191,46 @@ func (a *Client) CreateImageShort(params *CreateImageParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CreateImageNoContent:
-		return v, nil
+		response := &CreateImageResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateImageBadRequest:
-		return nil, v
+		response := &CreateImageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateImageUnauthorized:
-		return nil, v
+		response := &CreateImageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateImageNotFound:
-		return nil, v
+		response := &CreateImageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateImageConflict:
-		return nil, v
+		response := &CreateImageResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateImageInternalServerError:
-		return nil, v
+		response := &CreateImageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -207,7 +255,7 @@ Sample image:
 }
 ```
 */
-func (a *Client) CreateImagePatchShort(params *CreateImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*CreateImagePatchCreated, error) {
+func (a *Client) CreateImagePatchShort(params *CreateImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*CreateImagePatchResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateImagePatchParams()
@@ -245,15 +293,39 @@ func (a *Client) CreateImagePatchShort(params *CreateImagePatchParams, authInfo 
 	switch v := result.(type) {
 
 	case *CreateImagePatchCreated:
-		return v, nil
+		response := &CreateImagePatchResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateImagePatchBadRequest:
-		return nil, v
+		response := &CreateImagePatchResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateImagePatchUnauthorized:
-		return nil, v
+		response := &CreateImagePatchResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateImagePatchConflict:
-		return nil, v
+		response := &CreateImagePatchResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateImagePatchInternalServerError:
-		return nil, v
+		response := &CreateImagePatchResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -270,7 +342,7 @@ This endpoint lists all of dedicated servers images.
 
 Parameter Offset and Count is Required
 */
-func (a *Client) ListImagesShort(params *ListImagesParams, authInfo runtime.ClientAuthInfoWriter) (*ListImagesOK, error) {
+func (a *Client) ListImagesShort(params *ListImagesParams, authInfo runtime.ClientAuthInfoWriter) (*ListImagesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListImagesParams()
@@ -308,13 +380,33 @@ func (a *Client) ListImagesShort(params *ListImagesParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *ListImagesOK:
-		return v, nil
+		response := &ListImagesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListImagesBadRequest:
-		return nil, v
+		response := &ListImagesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListImagesUnauthorized:
-		return nil, v
+		response := &ListImagesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListImagesInternalServerError:
-		return nil, v
+		response := &ListImagesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -331,7 +423,7 @@ This endpoint will delete an image that specified in the request parameter.
 
 Default image is cannot be deleted and will throw error 422 (Unprocessable entity).
 */
-func (a *Client) DeleteImageShort(params *DeleteImageParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteImageNoContent, error) {
+func (a *Client) DeleteImageShort(params *DeleteImageParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteImageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteImageParams()
@@ -369,17 +461,46 @@ func (a *Client) DeleteImageShort(params *DeleteImageParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DeleteImageNoContent:
-		return v, nil
+		response := &DeleteImageResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteImageBadRequest:
-		return nil, v
+		response := &DeleteImageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteImageUnauthorized:
-		return nil, v
+		response := &DeleteImageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteImageNotFound:
-		return nil, v
+		response := &DeleteImageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteImageUnprocessableEntity:
-		return nil, v
+		response := &DeleteImageResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteImageInternalServerError:
-		return nil, v
+		response := &DeleteImageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -394,7 +515,7 @@ Required scope: social
 
 This endpoint get ds image limit for specific namespace
 */
-func (a *Client) GetImageLimitShort(params *GetImageLimitParams, authInfo runtime.ClientAuthInfoWriter) (*GetImageLimitOK, error) {
+func (a *Client) GetImageLimitShort(params *GetImageLimitParams, authInfo runtime.ClientAuthInfoWriter) (*GetImageLimitResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetImageLimitParams()
@@ -432,13 +553,33 @@ func (a *Client) GetImageLimitShort(params *GetImageLimitParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetImageLimitOK:
-		return v, nil
+		response := &GetImageLimitResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetImageLimitBadRequest:
-		return nil, v
+		response := &GetImageLimitResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetImageLimitUnauthorized:
-		return nil, v
+		response := &GetImageLimitResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetImageLimitInternalServerError:
-		return nil, v
+		response := &GetImageLimitResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -453,7 +594,7 @@ Required scope: social
 
 This endpoint will delete an image patch that specified in the request parameter
 */
-func (a *Client) DeleteImagePatchShort(params *DeleteImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteImagePatchNoContent, error) {
+func (a *Client) DeleteImagePatchShort(params *DeleteImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteImagePatchResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteImagePatchParams()
@@ -491,17 +632,46 @@ func (a *Client) DeleteImagePatchShort(params *DeleteImagePatchParams, authInfo 
 	switch v := result.(type) {
 
 	case *DeleteImagePatchNoContent:
-		return v, nil
+		response := &DeleteImagePatchResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteImagePatchBadRequest:
-		return nil, v
+		response := &DeleteImagePatchResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteImagePatchUnauthorized:
-		return nil, v
+		response := &DeleteImagePatchResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteImagePatchNotFound:
-		return nil, v
+		response := &DeleteImagePatchResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteImagePatchUnprocessableEntity:
-		return nil, v
+		response := &DeleteImagePatchResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteImagePatchInternalServerError:
-		return nil, v
+		response := &DeleteImagePatchResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -516,7 +686,7 @@ Required scope: social
 
 This endpoint get specific version of dedicated servers images.
 */
-func (a *Client) GetImageDetailShort(params *GetImageDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetImageDetailOK, error) {
+func (a *Client) GetImageDetailShort(params *GetImageDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetImageDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetImageDetailParams()
@@ -554,13 +724,33 @@ func (a *Client) GetImageDetailShort(params *GetImageDetailParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetImageDetailOK:
-		return v, nil
+		response := &GetImageDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetImageDetailUnauthorized:
-		return nil, v
+		response := &GetImageDetailResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetImageDetailNotFound:
-		return nil, v
+		response := &GetImageDetailResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetImageDetailInternalServerError:
-		return nil, v
+		response := &GetImageDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -577,7 +767,7 @@ This endpoint get image patches by version.
 
 Image Size unit is byte.
 */
-func (a *Client) GetImagePatchesShort(params *GetImagePatchesParams, authInfo runtime.ClientAuthInfoWriter) (*GetImagePatchesOK, error) {
+func (a *Client) GetImagePatchesShort(params *GetImagePatchesParams, authInfo runtime.ClientAuthInfoWriter) (*GetImagePatchesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetImagePatchesParams()
@@ -615,11 +805,26 @@ func (a *Client) GetImagePatchesShort(params *GetImagePatchesParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetImagePatchesOK:
-		return v, nil
+		response := &GetImagePatchesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetImagePatchesUnauthorized:
-		return nil, v
+		response := &GetImagePatchesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetImagePatchesInternalServerError:
-		return nil, v
+		response := &GetImagePatchesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -634,7 +839,7 @@ Required scope: social
 
 This endpoint get specific image patch version of dedicated servers version.
 */
-func (a *Client) GetImagePatchDetailShort(params *GetImagePatchDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetImagePatchDetailOK, error) {
+func (a *Client) GetImagePatchDetailShort(params *GetImagePatchDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetImagePatchDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetImagePatchDetailParams()
@@ -672,13 +877,33 @@ func (a *Client) GetImagePatchDetailShort(params *GetImagePatchDetailParams, aut
 	switch v := result.(type) {
 
 	case *GetImagePatchDetailOK:
-		return v, nil
+		response := &GetImagePatchDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetImagePatchDetailUnauthorized:
-		return nil, v
+		response := &GetImagePatchDetailResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetImagePatchDetailNotFound:
-		return nil, v
+		response := &GetImagePatchDetailResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetImagePatchDetailInternalServerError:
-		return nil, v
+		response := &GetImagePatchDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -693,7 +918,7 @@ Required scope: social
 
 This endpoint get a dedicated servers repository name in a namespace.
 */
-func (a *Client) GetRepositoryShort(params *GetRepositoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetRepositoryOK, error) {
+func (a *Client) GetRepositoryShort(params *GetRepositoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetRepositoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRepositoryParams()
@@ -731,13 +956,33 @@ func (a *Client) GetRepositoryShort(params *GetRepositoryParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetRepositoryOK:
-		return v, nil
+		response := &GetRepositoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRepositoryUnauthorized:
-		return nil, v
+		response := &GetRepositoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRepositoryNotFound:
-		return nil, v
+		response := &GetRepositoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRepositoryInternalServerError:
-		return nil, v
+		response := &GetRepositoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -759,7 +1004,7 @@ Sample repository:
 }
 ```
 */
-func (a *Client) CreateRepositoryShort(params *CreateRepositoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRepositoryNoContent, error) {
+func (a *Client) CreateRepositoryShort(params *CreateRepositoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRepositoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRepositoryParams()
@@ -797,13 +1042,32 @@ func (a *Client) CreateRepositoryShort(params *CreateRepositoryParams, authInfo 
 	switch v := result.(type) {
 
 	case *CreateRepositoryNoContent:
-		return v, nil
+		response := &CreateRepositoryResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateRepositoryBadRequest:
-		return nil, v
+		response := &CreateRepositoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRepositoryUnauthorized:
-		return nil, v
+		response := &CreateRepositoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRepositoryInternalServerError:
-		return nil, v
+		response := &CreateRepositoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -820,7 +1084,7 @@ This endpoint lists all of dedicated servers images.
 
 Parameter Offset and Count is Required
 */
-func (a *Client) ListImagesClientShort(params *ListImagesClientParams, authInfo runtime.ClientAuthInfoWriter) (*ListImagesClientOK, error) {
+func (a *Client) ListImagesClientShort(params *ListImagesClientParams, authInfo runtime.ClientAuthInfoWriter) (*ListImagesClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListImagesClientParams()
@@ -858,13 +1122,33 @@ func (a *Client) ListImagesClientShort(params *ListImagesClientParams, authInfo 
 	switch v := result.(type) {
 
 	case *ListImagesClientOK:
-		return v, nil
+		response := &ListImagesClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListImagesClientBadRequest:
-		return nil, v
+		response := &ListImagesClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListImagesClientUnauthorized:
-		return nil, v
+		response := &ListImagesClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListImagesClientInternalServerError:
-		return nil, v
+		response := &ListImagesClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -879,7 +1163,7 @@ Required scope: social
 
 This endpoint get DS image limit for specific namespace.This endpoint also give the non-persistent image which is used by any deployments
 */
-func (a *Client) ImageLimitClientShort(params *ImageLimitClientParams, authInfo runtime.ClientAuthInfoWriter) (*ImageLimitClientOK, error) {
+func (a *Client) ImageLimitClientShort(params *ImageLimitClientParams, authInfo runtime.ClientAuthInfoWriter) (*ImageLimitClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImageLimitClientParams()
@@ -917,13 +1201,33 @@ func (a *Client) ImageLimitClientShort(params *ImageLimitClientParams, authInfo 
 	switch v := result.(type) {
 
 	case *ImageLimitClientOK:
-		return v, nil
+		response := &ImageLimitClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImageLimitClientBadRequest:
-		return nil, v
+		response := &ImageLimitClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageLimitClientUnauthorized:
-		return nil, v
+		response := &ImageLimitClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageLimitClientInternalServerError:
-		return nil, v
+		response := &ImageLimitClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -938,7 +1242,7 @@ Required scope: social
 
 This endpoint get specific version of dedicated servers images.
 */
-func (a *Client) ImageDetailClientShort(params *ImageDetailClientParams, authInfo runtime.ClientAuthInfoWriter) (*ImageDetailClientOK, error) {
+func (a *Client) ImageDetailClientShort(params *ImageDetailClientParams, authInfo runtime.ClientAuthInfoWriter) (*ImageDetailClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImageDetailClientParams()
@@ -976,13 +1280,33 @@ func (a *Client) ImageDetailClientShort(params *ImageDetailClientParams, authInf
 	switch v := result.(type) {
 
 	case *ImageDetailClientOK:
-		return v, nil
+		response := &ImageDetailClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImageDetailClientUnauthorized:
-		return nil, v
+		response := &ImageDetailClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageDetailClientNotFound:
-		return nil, v
+		response := &ImageDetailClientResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageDetailClientInternalServerError:
-		return nil, v
+		response := &ImageDetailClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

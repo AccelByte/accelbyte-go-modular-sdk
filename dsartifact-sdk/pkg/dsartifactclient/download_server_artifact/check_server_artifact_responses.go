@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclientmodels"
 )
 
+type CheckServerArtifactResponse struct {
+	dsartifactclientmodels.ApiResponse
+	Data *dsartifactclientmodels.ModelsArtifactFileStatus
+
+	Error404 *dsartifactclientmodels.ResponseError
+	Error500 *dsartifactclientmodels.ResponseError
+}
+
+func (m *CheckServerArtifactResponse) Unpack() (*dsartifactclientmodels.ModelsArtifactFileStatus, *dsartifactclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dsartifactclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // CheckServerArtifactReader is a Reader for the CheckServerArtifact structure.
 type CheckServerArtifactReader struct {
 	formats strfmt.Registry

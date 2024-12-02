@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type AdminUpdateClientV3Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ClientmodelClientV3Response
+
+	Error400 *iamclientmodels.RestErrorResponse
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 *iamclientmodels.RestErrorResponse
+	Error404 *iamclientmodels.RestErrorResponse
+}
+
+func (m *AdminUpdateClientV3Response) Unpack() (*iamclientmodels.ClientmodelClientV3Response, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminUpdateClientV3Reader is a Reader for the AdminUpdateClientV3 structure.
 type AdminUpdateClientV3Reader struct {
 	formats strfmt.Registry

@@ -30,36 +30,36 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminFilterChatMessageShort(params *AdminFilterChatMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFilterChatMessageOK, error)
-	AdminChatHistoryShort(params *AdminChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChatHistoryOK, error)
-	AdminCreateNamespaceTopicShort(params *AdminCreateNamespaceTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateNamespaceTopicOK, error)
-	AdminTopicListShort(params *AdminTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicListOK, error)
-	AdminCreateTopicShort(params *AdminCreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTopicOK, error)
-	AdminChannelTopicListShort(params *AdminChannelTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicListOK, error)
-	AdminChannelTopicSummaryShort(params *AdminChannelTopicSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicSummaryOK, error)
-	AdminQueryTopicLogShort(params *AdminQueryTopicLogParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTopicLogOK, error)
-	AdminUpdateTopicShort(params *AdminUpdateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTopicOK, error)
-	AdminDeleteTopicShort(params *AdminDeleteTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTopicOK, error)
-	AdminBanTopicMembersShort(params *AdminBanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBanTopicMembersOK, error)
-	AdminChannelTopicInfoShort(params *AdminChannelTopicInfoParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicInfoOK, error)
-	AdminTopicChatHistoryShort(params *AdminTopicChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicChatHistoryOK, error)
-	AdminSendChatShort(params *AdminSendChatParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSendChatOK, error)
-	AdminDeleteChatShort(params *AdminDeleteChatParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChatNoContent, error)
-	AdminTopicMembersShort(params *AdminTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicMembersOK, error)
-	AdminTopicShardsShort(params *AdminTopicShardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicShardsOK, error)
-	AdminUnbanTopicMembersShort(params *AdminUnbanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanTopicMembersOK, error)
-	AdminAddTopicMemberShort(params *AdminAddTopicMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAddTopicMemberOK, error)
-	AdminRemoveTopicMemberShort(params *AdminRemoveTopicMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveTopicMemberOK, error)
-	AdminQueryTopicShort(params *AdminQueryTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTopicOK, error)
-	AdminQueryUsersTopicShort(params *AdminQueryUsersTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryUsersTopicOK, error)
-	PublicGetMutedTopicsShort(params *PublicGetMutedTopicsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMutedTopicsOK, error)
-	PublicTopicListShort(params *PublicTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTopicListOK, error)
-	PublicBanTopicMembersShort(params *PublicBanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBanTopicMembersOK, error)
-	PublicChatHistoryShort(params *PublicChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChatHistoryOK, error)
-	PublicDeleteChatShort(params *PublicDeleteChatParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteChatNoContent, error)
-	PublicMuteUserShort(params *PublicMuteUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMuteUserNoContent, error)
-	PublicUnbanTopicMembersShort(params *PublicUnbanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUnbanTopicMembersOK, error)
-	PublicUnmuteUserShort(params *PublicUnmuteUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUnmuteUserNoContent, error)
+	AdminFilterChatMessageShort(params *AdminFilterChatMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFilterChatMessageResponse, error)
+	AdminChatHistoryShort(params *AdminChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChatHistoryResponse, error)
+	AdminCreateNamespaceTopicShort(params *AdminCreateNamespaceTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateNamespaceTopicResponse, error)
+	AdminTopicListShort(params *AdminTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicListResponse, error)
+	AdminCreateTopicShort(params *AdminCreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTopicResponse, error)
+	AdminChannelTopicListShort(params *AdminChannelTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicListResponse, error)
+	AdminChannelTopicSummaryShort(params *AdminChannelTopicSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicSummaryResponse, error)
+	AdminQueryTopicLogShort(params *AdminQueryTopicLogParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTopicLogResponse, error)
+	AdminUpdateTopicShort(params *AdminUpdateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTopicResponse, error)
+	AdminDeleteTopicShort(params *AdminDeleteTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTopicResponse, error)
+	AdminBanTopicMembersShort(params *AdminBanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBanTopicMembersResponse, error)
+	AdminChannelTopicInfoShort(params *AdminChannelTopicInfoParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicInfoResponse, error)
+	AdminTopicChatHistoryShort(params *AdminTopicChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicChatHistoryResponse, error)
+	AdminSendChatShort(params *AdminSendChatParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSendChatResponse, error)
+	AdminDeleteChatShort(params *AdminDeleteChatParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChatResponse, error)
+	AdminTopicMembersShort(params *AdminTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicMembersResponse, error)
+	AdminTopicShardsShort(params *AdminTopicShardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicShardsResponse, error)
+	AdminUnbanTopicMembersShort(params *AdminUnbanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanTopicMembersResponse, error)
+	AdminAddTopicMemberShort(params *AdminAddTopicMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAddTopicMemberResponse, error)
+	AdminRemoveTopicMemberShort(params *AdminRemoveTopicMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveTopicMemberResponse, error)
+	AdminQueryTopicShort(params *AdminQueryTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTopicResponse, error)
+	AdminQueryUsersTopicShort(params *AdminQueryUsersTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryUsersTopicResponse, error)
+	PublicGetMutedTopicsShort(params *PublicGetMutedTopicsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMutedTopicsResponse, error)
+	PublicTopicListShort(params *PublicTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTopicListResponse, error)
+	PublicBanTopicMembersShort(params *PublicBanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBanTopicMembersResponse, error)
+	PublicChatHistoryShort(params *PublicChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChatHistoryResponse, error)
+	PublicDeleteChatShort(params *PublicDeleteChatParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteChatResponse, error)
+	PublicMuteUserShort(params *PublicMuteUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMuteUserResponse, error)
+	PublicUnbanTopicMembersShort(params *PublicUnbanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUnbanTopicMembersResponse, error)
+	PublicUnmuteUserShort(params *PublicUnmuteUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUnmuteUserResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -68,7 +68,7 @@ type ClientService interface {
 AdminFilterChatMessageShort return filtered chat message
 For testing purpose, doesn't send any message to the topic. Always do filter regardless of enableProfanityFilter configuration.
 */
-func (a *Client) AdminFilterChatMessageShort(params *AdminFilterChatMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFilterChatMessageOK, error) {
+func (a *Client) AdminFilterChatMessageShort(params *AdminFilterChatMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFilterChatMessageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminFilterChatMessageParams()
@@ -106,15 +106,40 @@ func (a *Client) AdminFilterChatMessageShort(params *AdminFilterChatMessageParam
 	switch v := result.(type) {
 
 	case *AdminFilterChatMessageOK:
-		return v, nil
+		response := &AdminFilterChatMessageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminFilterChatMessageBadRequest:
-		return nil, v
+		response := &AdminFilterChatMessageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminFilterChatMessageUnauthorized:
-		return nil, v
+		response := &AdminFilterChatMessageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminFilterChatMessageForbidden:
-		return nil, v
+		response := &AdminFilterChatMessageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminFilterChatMessageInternalServerError:
-		return nil, v
+		response := &AdminFilterChatMessageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -125,7 +150,7 @@ func (a *Client) AdminFilterChatMessageShort(params *AdminFilterChatMessageParam
 AdminChatHistoryShort admin get chat history
 Get chat history in a namespace.
 */
-func (a *Client) AdminChatHistoryShort(params *AdminChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChatHistoryOK, error) {
+func (a *Client) AdminChatHistoryShort(params *AdminChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChatHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminChatHistoryParams()
@@ -163,15 +188,40 @@ func (a *Client) AdminChatHistoryShort(params *AdminChatHistoryParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminChatHistoryOK:
-		return v, nil
+		response := &AdminChatHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminChatHistoryBadRequest:
-		return nil, v
+		response := &AdminChatHistoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChatHistoryUnauthorized:
-		return nil, v
+		response := &AdminChatHistoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChatHistoryForbidden:
-		return nil, v
+		response := &AdminChatHistoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChatHistoryInternalServerError:
-		return nil, v
+		response := &AdminChatHistoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -182,7 +232,7 @@ func (a *Client) AdminChatHistoryShort(params *AdminChatHistoryParams, authInfo 
 AdminCreateNamespaceTopicShort use to create namespace group. message that send to this group send to connected user in a namespace
 Create new namespace group topic in a namespace.
 */
-func (a *Client) AdminCreateNamespaceTopicShort(params *AdminCreateNamespaceTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateNamespaceTopicOK, error) {
+func (a *Client) AdminCreateNamespaceTopicShort(params *AdminCreateNamespaceTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateNamespaceTopicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateNamespaceTopicParams()
@@ -220,7 +270,12 @@ func (a *Client) AdminCreateNamespaceTopicShort(params *AdminCreateNamespaceTopi
 	switch v := result.(type) {
 
 	case *AdminCreateNamespaceTopicOK:
-		return v, nil
+		response := &AdminCreateNamespaceTopicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -231,7 +286,7 @@ func (a *Client) AdminCreateNamespaceTopicShort(params *AdminCreateNamespaceTopi
 AdminTopicListShort admin get list of topic
 Get chat list of topic in a namespace.
 */
-func (a *Client) AdminTopicListShort(params *AdminTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicListOK, error) {
+func (a *Client) AdminTopicListShort(params *AdminTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminTopicListParams()
@@ -269,15 +324,40 @@ func (a *Client) AdminTopicListShort(params *AdminTopicListParams, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminTopicListOK:
-		return v, nil
+		response := &AdminTopicListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminTopicListBadRequest:
-		return nil, v
+		response := &AdminTopicListResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicListUnauthorized:
-		return nil, v
+		response := &AdminTopicListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicListForbidden:
-		return nil, v
+		response := &AdminTopicListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicListInternalServerError:
-		return nil, v
+		response := &AdminTopicListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,7 +368,7 @@ func (a *Client) AdminTopicListShort(params *AdminTopicListParams, authInfo runt
 AdminCreateTopicShort use to create group. only group admin can use this operation
 Create new group topic in a namespace.
 */
-func (a *Client) AdminCreateTopicShort(params *AdminCreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTopicOK, error) {
+func (a *Client) AdminCreateTopicShort(params *AdminCreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTopicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateTopicParams()
@@ -326,7 +406,12 @@ func (a *Client) AdminCreateTopicShort(params *AdminCreateTopicParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminCreateTopicOK:
-		return v, nil
+		response := &AdminCreateTopicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -337,7 +422,7 @@ func (a *Client) AdminCreateTopicShort(params *AdminCreateTopicParams, authInfo 
 AdminChannelTopicListShort admin get list of channel topic
 Get channel chat list of topic in a namespace.
 */
-func (a *Client) AdminChannelTopicListShort(params *AdminChannelTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicListOK, error) {
+func (a *Client) AdminChannelTopicListShort(params *AdminChannelTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminChannelTopicListParams()
@@ -375,15 +460,40 @@ func (a *Client) AdminChannelTopicListShort(params *AdminChannelTopicListParams,
 	switch v := result.(type) {
 
 	case *AdminChannelTopicListOK:
-		return v, nil
+		response := &AdminChannelTopicListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminChannelTopicListBadRequest:
-		return nil, v
+		response := &AdminChannelTopicListResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicListUnauthorized:
-		return nil, v
+		response := &AdminChannelTopicListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicListForbidden:
-		return nil, v
+		response := &AdminChannelTopicListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicListInternalServerError:
-		return nil, v
+		response := &AdminChannelTopicListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -394,7 +504,7 @@ func (a *Client) AdminChannelTopicListShort(params *AdminChannelTopicListParams,
 AdminChannelTopicSummaryShort admin get channel topic summary
 Get chat list of topic in a namespace.
 */
-func (a *Client) AdminChannelTopicSummaryShort(params *AdminChannelTopicSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicSummaryOK, error) {
+func (a *Client) AdminChannelTopicSummaryShort(params *AdminChannelTopicSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicSummaryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminChannelTopicSummaryParams()
@@ -432,15 +542,40 @@ func (a *Client) AdminChannelTopicSummaryShort(params *AdminChannelTopicSummaryP
 	switch v := result.(type) {
 
 	case *AdminChannelTopicSummaryOK:
-		return v, nil
+		response := &AdminChannelTopicSummaryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminChannelTopicSummaryBadRequest:
-		return nil, v
+		response := &AdminChannelTopicSummaryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicSummaryUnauthorized:
-		return nil, v
+		response := &AdminChannelTopicSummaryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicSummaryForbidden:
-		return nil, v
+		response := &AdminChannelTopicSummaryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicSummaryInternalServerError:
-		return nil, v
+		response := &AdminChannelTopicSummaryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -451,7 +586,7 @@ func (a *Client) AdminChannelTopicSummaryShort(params *AdminChannelTopicSummaryP
 AdminQueryTopicLogShort admin query topic log
 Get chat log of topic in a namespace.
 */
-func (a *Client) AdminQueryTopicLogShort(params *AdminQueryTopicLogParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTopicLogOK, error) {
+func (a *Client) AdminQueryTopicLogShort(params *AdminQueryTopicLogParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTopicLogResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryTopicLogParams()
@@ -489,15 +624,40 @@ func (a *Client) AdminQueryTopicLogShort(params *AdminQueryTopicLogParams, authI
 	switch v := result.(type) {
 
 	case *AdminQueryTopicLogOK:
-		return v, nil
+		response := &AdminQueryTopicLogResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryTopicLogBadRequest:
-		return nil, v
+		response := &AdminQueryTopicLogResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTopicLogUnauthorized:
-		return nil, v
+		response := &AdminQueryTopicLogResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTopicLogForbidden:
-		return nil, v
+		response := &AdminQueryTopicLogResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTopicLogInternalServerError:
-		return nil, v
+		response := &AdminQueryTopicLogResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -508,7 +668,7 @@ func (a *Client) AdminQueryTopicLogShort(params *AdminQueryTopicLogParams, authI
 AdminUpdateTopicShort use to update group information. only group admin can use this operation
 Update group topic in a namespace.
 */
-func (a *Client) AdminUpdateTopicShort(params *AdminUpdateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTopicOK, error) {
+func (a *Client) AdminUpdateTopicShort(params *AdminUpdateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTopicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateTopicParams()
@@ -546,7 +706,12 @@ func (a *Client) AdminUpdateTopicShort(params *AdminUpdateTopicParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminUpdateTopicOK:
-		return v, nil
+		response := &AdminUpdateTopicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -557,7 +722,7 @@ func (a *Client) AdminUpdateTopicShort(params *AdminUpdateTopicParams, authInfo 
 AdminDeleteTopicShort use to delete group. only group admin can use this operation
 Delete topic in a namespace.
 */
-func (a *Client) AdminDeleteTopicShort(params *AdminDeleteTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTopicOK, error) {
+func (a *Client) AdminDeleteTopicShort(params *AdminDeleteTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTopicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteTopicParams()
@@ -595,7 +760,12 @@ func (a *Client) AdminDeleteTopicShort(params *AdminDeleteTopicParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminDeleteTopicOK:
-		return v, nil
+		response := &AdminDeleteTopicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -606,7 +776,7 @@ func (a *Client) AdminDeleteTopicShort(params *AdminDeleteTopicParams, authInfo 
 AdminBanTopicMembersShort admins ban user in group topic
 Ban users in some topic. banned user not assigned to shard for channel topic, and cannot send and query chat.
 */
-func (a *Client) AdminBanTopicMembersShort(params *AdminBanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBanTopicMembersOK, error) {
+func (a *Client) AdminBanTopicMembersShort(params *AdminBanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBanTopicMembersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBanTopicMembersParams()
@@ -644,15 +814,40 @@ func (a *Client) AdminBanTopicMembersShort(params *AdminBanTopicMembersParams, a
 	switch v := result.(type) {
 
 	case *AdminBanTopicMembersOK:
-		return v, nil
+		response := &AdminBanTopicMembersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBanTopicMembersBadRequest:
-		return nil, v
+		response := &AdminBanTopicMembersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanTopicMembersUnauthorized:
-		return nil, v
+		response := &AdminBanTopicMembersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanTopicMembersForbidden:
-		return nil, v
+		response := &AdminBanTopicMembersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanTopicMembersInternalServerError:
-		return nil, v
+		response := &AdminBanTopicMembersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -663,7 +858,7 @@ func (a *Client) AdminBanTopicMembersShort(params *AdminBanTopicMembersParams, a
 AdminChannelTopicInfoShort admin get channel topic detail
 Get chat list of topic in a namespace.
 */
-func (a *Client) AdminChannelTopicInfoShort(params *AdminChannelTopicInfoParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicInfoOK, error) {
+func (a *Client) AdminChannelTopicInfoShort(params *AdminChannelTopicInfoParams, authInfo runtime.ClientAuthInfoWriter) (*AdminChannelTopicInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminChannelTopicInfoParams()
@@ -701,17 +896,47 @@ func (a *Client) AdminChannelTopicInfoShort(params *AdminChannelTopicInfoParams,
 	switch v := result.(type) {
 
 	case *AdminChannelTopicInfoOK:
-		return v, nil
+		response := &AdminChannelTopicInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminChannelTopicInfoBadRequest:
-		return nil, v
+		response := &AdminChannelTopicInfoResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicInfoUnauthorized:
-		return nil, v
+		response := &AdminChannelTopicInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicInfoForbidden:
-		return nil, v
+		response := &AdminChannelTopicInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicInfoNotFound:
-		return nil, v
+		response := &AdminChannelTopicInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChannelTopicInfoInternalServerError:
-		return nil, v
+		response := &AdminChannelTopicInfoResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -722,7 +947,7 @@ func (a *Client) AdminChannelTopicInfoShort(params *AdminChannelTopicInfoParams,
 AdminTopicChatHistoryShort admin get chat history
 Get chat history in a namespace.
 */
-func (a *Client) AdminTopicChatHistoryShort(params *AdminTopicChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicChatHistoryOK, error) {
+func (a *Client) AdminTopicChatHistoryShort(params *AdminTopicChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicChatHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminTopicChatHistoryParams()
@@ -760,15 +985,40 @@ func (a *Client) AdminTopicChatHistoryShort(params *AdminTopicChatHistoryParams,
 	switch v := result.(type) {
 
 	case *AdminTopicChatHistoryOK:
-		return v, nil
+		response := &AdminTopicChatHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminTopicChatHistoryBadRequest:
-		return nil, v
+		response := &AdminTopicChatHistoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicChatHistoryUnauthorized:
-		return nil, v
+		response := &AdminTopicChatHistoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicChatHistoryForbidden:
-		return nil, v
+		response := &AdminTopicChatHistoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicChatHistoryInternalServerError:
-		return nil, v
+		response := &AdminTopicChatHistoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -779,7 +1029,7 @@ func (a *Client) AdminTopicChatHistoryShort(params *AdminTopicChatHistoryParams,
 AdminSendChatShort admins send chat to group topic
 Send message to chat topic as system.
 */
-func (a *Client) AdminSendChatShort(params *AdminSendChatParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSendChatOK, error) {
+func (a *Client) AdminSendChatShort(params *AdminSendChatParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSendChatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSendChatParams()
@@ -817,15 +1067,40 @@ func (a *Client) AdminSendChatShort(params *AdminSendChatParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *AdminSendChatOK:
-		return v, nil
+		response := &AdminSendChatResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSendChatBadRequest:
-		return nil, v
+		response := &AdminSendChatResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendChatUnauthorized:
-		return nil, v
+		response := &AdminSendChatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendChatForbidden:
-		return nil, v
+		response := &AdminSendChatResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendChatInternalServerError:
-		return nil, v
+		response := &AdminSendChatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -836,7 +1111,7 @@ func (a *Client) AdminSendChatShort(params *AdminSendChatParams, authInfo runtim
 AdminDeleteChatShort admins delete chat
 Delete chat.
 */
-func (a *Client) AdminDeleteChatShort(params *AdminDeleteChatParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChatNoContent, error) {
+func (a *Client) AdminDeleteChatShort(params *AdminDeleteChatParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteChatParams()
@@ -874,15 +1149,39 @@ func (a *Client) AdminDeleteChatShort(params *AdminDeleteChatParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminDeleteChatNoContent:
-		return v, nil
+		response := &AdminDeleteChatResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteChatBadRequest:
-		return nil, v
+		response := &AdminDeleteChatResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChatUnauthorized:
-		return nil, v
+		response := &AdminDeleteChatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChatForbidden:
-		return nil, v
+		response := &AdminDeleteChatResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChatInternalServerError:
-		return nil, v
+		response := &AdminDeleteChatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -893,7 +1192,7 @@ func (a *Client) AdminDeleteChatShort(params *AdminDeleteChatParams, authInfo ru
 AdminTopicMembersShort admin get topic member
 Get topic members.
 */
-func (a *Client) AdminTopicMembersShort(params *AdminTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicMembersOK, error) {
+func (a *Client) AdminTopicMembersShort(params *AdminTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicMembersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminTopicMembersParams()
@@ -931,15 +1230,40 @@ func (a *Client) AdminTopicMembersShort(params *AdminTopicMembersParams, authInf
 	switch v := result.(type) {
 
 	case *AdminTopicMembersOK:
-		return v, nil
+		response := &AdminTopicMembersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminTopicMembersBadRequest:
-		return nil, v
+		response := &AdminTopicMembersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicMembersUnauthorized:
-		return nil, v
+		response := &AdminTopicMembersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicMembersForbidden:
-		return nil, v
+		response := &AdminTopicMembersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicMembersInternalServerError:
-		return nil, v
+		response := &AdminTopicMembersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -950,7 +1274,7 @@ func (a *Client) AdminTopicMembersShort(params *AdminTopicMembersParams, authInf
 AdminTopicShardsShort admin get shard list of topic
 Get shard list from topic.
 */
-func (a *Client) AdminTopicShardsShort(params *AdminTopicShardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicShardsOK, error) {
+func (a *Client) AdminTopicShardsShort(params *AdminTopicShardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTopicShardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminTopicShardsParams()
@@ -988,15 +1312,40 @@ func (a *Client) AdminTopicShardsShort(params *AdminTopicShardsParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminTopicShardsOK:
-		return v, nil
+		response := &AdminTopicShardsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminTopicShardsBadRequest:
-		return nil, v
+		response := &AdminTopicShardsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicShardsUnauthorized:
-		return nil, v
+		response := &AdminTopicShardsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicShardsForbidden:
-		return nil, v
+		response := &AdminTopicShardsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTopicShardsInternalServerError:
-		return nil, v
+		response := &AdminTopicShardsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1007,7 +1356,7 @@ func (a *Client) AdminTopicShardsShort(params *AdminTopicShardsParams, authInfo 
 AdminUnbanTopicMembersShort admins unban user in group topic
 Unban users in some topic.
 */
-func (a *Client) AdminUnbanTopicMembersShort(params *AdminUnbanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanTopicMembersOK, error) {
+func (a *Client) AdminUnbanTopicMembersShort(params *AdminUnbanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanTopicMembersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUnbanTopicMembersParams()
@@ -1045,15 +1394,40 @@ func (a *Client) AdminUnbanTopicMembersShort(params *AdminUnbanTopicMembersParam
 	switch v := result.(type) {
 
 	case *AdminUnbanTopicMembersOK:
-		return v, nil
+		response := &AdminUnbanTopicMembersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUnbanTopicMembersBadRequest:
-		return nil, v
+		response := &AdminUnbanTopicMembersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnbanTopicMembersUnauthorized:
-		return nil, v
+		response := &AdminUnbanTopicMembersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnbanTopicMembersForbidden:
-		return nil, v
+		response := &AdminUnbanTopicMembersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnbanTopicMembersInternalServerError:
-		return nil, v
+		response := &AdminUnbanTopicMembersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1064,7 +1438,7 @@ func (a *Client) AdminUnbanTopicMembersShort(params *AdminUnbanTopicMembersParam
 AdminAddTopicMemberShort admin add user to topic
 Add new member for topic in a namespace.
 */
-func (a *Client) AdminAddTopicMemberShort(params *AdminAddTopicMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAddTopicMemberOK, error) {
+func (a *Client) AdminAddTopicMemberShort(params *AdminAddTopicMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAddTopicMemberResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddTopicMemberParams()
@@ -1102,7 +1476,12 @@ func (a *Client) AdminAddTopicMemberShort(params *AdminAddTopicMemberParams, aut
 	switch v := result.(type) {
 
 	case *AdminAddTopicMemberOK:
-		return v, nil
+		response := &AdminAddTopicMemberResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1113,7 +1492,7 @@ func (a *Client) AdminAddTopicMemberShort(params *AdminAddTopicMemberParams, aut
 AdminRemoveTopicMemberShort admin remove user from topic
 Remove member from topic in a namespace.
 */
-func (a *Client) AdminRemoveTopicMemberShort(params *AdminRemoveTopicMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveTopicMemberOK, error) {
+func (a *Client) AdminRemoveTopicMemberShort(params *AdminRemoveTopicMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveTopicMemberResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRemoveTopicMemberParams()
@@ -1151,7 +1530,12 @@ func (a *Client) AdminRemoveTopicMemberShort(params *AdminRemoveTopicMemberParam
 	switch v := result.(type) {
 
 	case *AdminRemoveTopicMemberOK:
-		return v, nil
+		response := &AdminRemoveTopicMemberResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1162,7 +1546,7 @@ func (a *Client) AdminRemoveTopicMemberShort(params *AdminRemoveTopicMemberParam
 AdminQueryTopicShort admin query topics
 Get topics in a namespace.
 */
-func (a *Client) AdminQueryTopicShort(params *AdminQueryTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTopicOK, error) {
+func (a *Client) AdminQueryTopicShort(params *AdminQueryTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTopicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryTopicParams()
@@ -1200,15 +1584,40 @@ func (a *Client) AdminQueryTopicShort(params *AdminQueryTopicParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminQueryTopicOK:
-		return v, nil
+		response := &AdminQueryTopicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryTopicBadRequest:
-		return nil, v
+		response := &AdminQueryTopicResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTopicUnauthorized:
-		return nil, v
+		response := &AdminQueryTopicResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTopicForbidden:
-		return nil, v
+		response := &AdminQueryTopicResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTopicInternalServerError:
-		return nil, v
+		response := &AdminQueryTopicResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1219,7 +1628,7 @@ func (a *Client) AdminQueryTopicShort(params *AdminQueryTopicParams, authInfo ru
 AdminQueryUsersTopicShort admin query user's topics
 Get user's topics in a namespace.
 */
-func (a *Client) AdminQueryUsersTopicShort(params *AdminQueryUsersTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryUsersTopicOK, error) {
+func (a *Client) AdminQueryUsersTopicShort(params *AdminQueryUsersTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryUsersTopicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryUsersTopicParams()
@@ -1257,15 +1666,40 @@ func (a *Client) AdminQueryUsersTopicShort(params *AdminQueryUsersTopicParams, a
 	switch v := result.(type) {
 
 	case *AdminQueryUsersTopicOK:
-		return v, nil
+		response := &AdminQueryUsersTopicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryUsersTopicBadRequest:
-		return nil, v
+		response := &AdminQueryUsersTopicResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryUsersTopicUnauthorized:
-		return nil, v
+		response := &AdminQueryUsersTopicResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryUsersTopicForbidden:
-		return nil, v
+		response := &AdminQueryUsersTopicResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryUsersTopicInternalServerError:
-		return nil, v
+		response := &AdminQueryUsersTopicResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1276,7 +1710,7 @@ func (a *Client) AdminQueryUsersTopicShort(params *AdminQueryUsersTopicParams, a
 PublicGetMutedTopicsShort public get muted at topics
 get chat muted topics in a namespace.
 */
-func (a *Client) PublicGetMutedTopicsShort(params *PublicGetMutedTopicsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMutedTopicsOK, error) {
+func (a *Client) PublicGetMutedTopicsShort(params *PublicGetMutedTopicsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMutedTopicsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMutedTopicsParams()
@@ -1314,15 +1748,40 @@ func (a *Client) PublicGetMutedTopicsShort(params *PublicGetMutedTopicsParams, a
 	switch v := result.(type) {
 
 	case *PublicGetMutedTopicsOK:
-		return v, nil
+		response := &PublicGetMutedTopicsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMutedTopicsBadRequest:
-		return nil, v
+		response := &PublicGetMutedTopicsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMutedTopicsUnauthorized:
-		return nil, v
+		response := &PublicGetMutedTopicsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMutedTopicsForbidden:
-		return nil, v
+		response := &PublicGetMutedTopicsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMutedTopicsInternalServerError:
-		return nil, v
+		response := &PublicGetMutedTopicsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1333,7 +1792,7 @@ func (a *Client) PublicGetMutedTopicsShort(params *PublicGetMutedTopicsParams, a
 PublicTopicListShort public get list of topic
 get chat list of topic in a namespace.
 */
-func (a *Client) PublicTopicListShort(params *PublicTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTopicListOK, error) {
+func (a *Client) PublicTopicListShort(params *PublicTopicListParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTopicListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicTopicListParams()
@@ -1371,15 +1830,40 @@ func (a *Client) PublicTopicListShort(params *PublicTopicListParams, authInfo ru
 	switch v := result.(type) {
 
 	case *PublicTopicListOK:
-		return v, nil
+		response := &PublicTopicListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicTopicListBadRequest:
-		return nil, v
+		response := &PublicTopicListResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicTopicListUnauthorized:
-		return nil, v
+		response := &PublicTopicListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicTopicListForbidden:
-		return nil, v
+		response := &PublicTopicListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicTopicListInternalServerError:
-		return nil, v
+		response := &PublicTopicListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1390,7 +1874,7 @@ func (a *Client) PublicTopicListShort(params *PublicTopicListParams, authInfo ru
 PublicBanTopicMembersShort public ban topic members in a group topic
 Ban topic members in a group topic.
 */
-func (a *Client) PublicBanTopicMembersShort(params *PublicBanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBanTopicMembersOK, error) {
+func (a *Client) PublicBanTopicMembersShort(params *PublicBanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBanTopicMembersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicBanTopicMembersParams()
@@ -1428,15 +1912,40 @@ func (a *Client) PublicBanTopicMembersShort(params *PublicBanTopicMembersParams,
 	switch v := result.(type) {
 
 	case *PublicBanTopicMembersOK:
-		return v, nil
+		response := &PublicBanTopicMembersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicBanTopicMembersBadRequest:
-		return nil, v
+		response := &PublicBanTopicMembersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBanTopicMembersUnauthorized:
-		return nil, v
+		response := &PublicBanTopicMembersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBanTopicMembersForbidden:
-		return nil, v
+		response := &PublicBanTopicMembersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBanTopicMembersInternalServerError:
-		return nil, v
+		response := &PublicBanTopicMembersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1447,7 +1956,7 @@ func (a *Client) PublicBanTopicMembersShort(params *PublicBanTopicMembersParams,
 PublicChatHistoryShort public get chat history
 get chat history in a namespace.
 */
-func (a *Client) PublicChatHistoryShort(params *PublicChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChatHistoryOK, error) {
+func (a *Client) PublicChatHistoryShort(params *PublicChatHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChatHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicChatHistoryParams()
@@ -1485,15 +1994,40 @@ func (a *Client) PublicChatHistoryShort(params *PublicChatHistoryParams, authInf
 	switch v := result.(type) {
 
 	case *PublicChatHistoryOK:
-		return v, nil
+		response := &PublicChatHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicChatHistoryBadRequest:
-		return nil, v
+		response := &PublicChatHistoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChatHistoryUnauthorized:
-		return nil, v
+		response := &PublicChatHistoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChatHistoryForbidden:
-		return nil, v
+		response := &PublicChatHistoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChatHistoryInternalServerError:
-		return nil, v
+		response := &PublicChatHistoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1504,7 +2038,7 @@ func (a *Client) PublicChatHistoryShort(params *PublicChatHistoryParams, authInf
 PublicDeleteChatShort public delete chat
 Delete chat.
 */
-func (a *Client) PublicDeleteChatShort(params *PublicDeleteChatParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteChatNoContent, error) {
+func (a *Client) PublicDeleteChatShort(params *PublicDeleteChatParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteChatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDeleteChatParams()
@@ -1542,15 +2076,39 @@ func (a *Client) PublicDeleteChatShort(params *PublicDeleteChatParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicDeleteChatNoContent:
-		return v, nil
+		response := &PublicDeleteChatResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDeleteChatBadRequest:
-		return nil, v
+		response := &PublicDeleteChatResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeleteChatUnauthorized:
-		return nil, v
+		response := &PublicDeleteChatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeleteChatForbidden:
-		return nil, v
+		response := &PublicDeleteChatResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeleteChatInternalServerError:
-		return nil, v
+		response := &PublicDeleteChatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1561,7 +2119,7 @@ func (a *Client) PublicDeleteChatShort(params *PublicDeleteChatParams, authInfo 
 PublicMuteUserShort public mute user in a topic
 Mute user.
 */
-func (a *Client) PublicMuteUserShort(params *PublicMuteUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMuteUserNoContent, error) {
+func (a *Client) PublicMuteUserShort(params *PublicMuteUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMuteUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicMuteUserParams()
@@ -1599,15 +2157,39 @@ func (a *Client) PublicMuteUserShort(params *PublicMuteUserParams, authInfo runt
 	switch v := result.(type) {
 
 	case *PublicMuteUserNoContent:
-		return v, nil
+		response := &PublicMuteUserResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicMuteUserBadRequest:
-		return nil, v
+		response := &PublicMuteUserResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicMuteUserUnauthorized:
-		return nil, v
+		response := &PublicMuteUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicMuteUserForbidden:
-		return nil, v
+		response := &PublicMuteUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicMuteUserInternalServerError:
-		return nil, v
+		response := &PublicMuteUserResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1618,7 +2200,7 @@ func (a *Client) PublicMuteUserShort(params *PublicMuteUserParams, authInfo runt
 PublicUnbanTopicMembersShort public unban topic members in a group topic
 Unban topic members in a group topic.
 */
-func (a *Client) PublicUnbanTopicMembersShort(params *PublicUnbanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUnbanTopicMembersOK, error) {
+func (a *Client) PublicUnbanTopicMembersShort(params *PublicUnbanTopicMembersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUnbanTopicMembersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUnbanTopicMembersParams()
@@ -1656,15 +2238,40 @@ func (a *Client) PublicUnbanTopicMembersShort(params *PublicUnbanTopicMembersPar
 	switch v := result.(type) {
 
 	case *PublicUnbanTopicMembersOK:
-		return v, nil
+		response := &PublicUnbanTopicMembersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUnbanTopicMembersBadRequest:
-		return nil, v
+		response := &PublicUnbanTopicMembersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnbanTopicMembersUnauthorized:
-		return nil, v
+		response := &PublicUnbanTopicMembersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnbanTopicMembersForbidden:
-		return nil, v
+		response := &PublicUnbanTopicMembersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnbanTopicMembersInternalServerError:
-		return nil, v
+		response := &PublicUnbanTopicMembersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1675,7 +2282,7 @@ func (a *Client) PublicUnbanTopicMembersShort(params *PublicUnbanTopicMembersPar
 PublicUnmuteUserShort public unmute user in a topic
 Unmute user.
 */
-func (a *Client) PublicUnmuteUserShort(params *PublicUnmuteUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUnmuteUserNoContent, error) {
+func (a *Client) PublicUnmuteUserShort(params *PublicUnmuteUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUnmuteUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUnmuteUserParams()
@@ -1713,15 +2320,39 @@ func (a *Client) PublicUnmuteUserShort(params *PublicUnmuteUserParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicUnmuteUserNoContent:
-		return v, nil
+		response := &PublicUnmuteUserResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUnmuteUserBadRequest:
-		return nil, v
+		response := &PublicUnmuteUserResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnmuteUserUnauthorized:
-		return nil, v
+		response := &PublicUnmuteUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnmuteUserForbidden:
-		return nil, v
+		response := &PublicUnmuteUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUnmuteUserInternalServerError:
-		return nil, v
+		response := &PublicUnmuteUserResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

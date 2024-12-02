@@ -30,25 +30,25 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAllDeploymentShort(params *GetAllDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllDeploymentOK, error)
-	GetDeploymentShort(params *GetDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentOK, error)
-	CreateDeploymentShort(params *CreateDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentCreated, error)
-	DeleteDeploymentShort(params *DeleteDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentNoContent, error)
-	UpdateDeploymentShort(params *UpdateDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeploymentOK, error)
-	CreateRootRegionOverrideShort(params *CreateRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRootRegionOverrideCreated, error)
-	DeleteRootRegionOverrideShort(params *DeleteRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRootRegionOverrideOK, error)
-	UpdateRootRegionOverrideShort(params *UpdateRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRootRegionOverrideOK, error)
-	CreateDeploymentOverrideShort(params *CreateDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentOverrideCreated, error)
-	DeleteDeploymentOverrideShort(params *DeleteDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentOverrideOK, error)
-	UpdateDeploymentOverrideShort(params *UpdateDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeploymentOverrideOK, error)
-	CreateOverrideRegionOverrideShort(params *CreateOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateOverrideRegionOverrideCreated, error)
-	DeleteOverrideRegionOverrideShort(params *DeleteOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOverrideRegionOverrideOK, error)
-	UpdateOverrideRegionOverrideShort(params *UpdateOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOverrideRegionOverrideOK, error)
-	DeleteCreatingServerCountQueueShort(params *DeleteCreatingServerCountQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCreatingServerCountQueueOK, error)
-	GetAllDeploymentClientShort(params *GetAllDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllDeploymentClientOK, error)
-	GetDeploymentClientShort(params *GetDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentClientOK, error)
-	CreateDeploymentClientShort(params *CreateDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentClientCreated, error)
-	DeleteDeploymentClientShort(params *DeleteDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentClientNoContent, error)
+	GetAllDeploymentShort(params *GetAllDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllDeploymentResponse, error)
+	GetDeploymentShort(params *GetDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentResponse, error)
+	CreateDeploymentShort(params *CreateDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentResponse, error)
+	DeleteDeploymentShort(params *DeleteDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentResponse, error)
+	UpdateDeploymentShort(params *UpdateDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeploymentResponse, error)
+	CreateRootRegionOverrideShort(params *CreateRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRootRegionOverrideResponse, error)
+	DeleteRootRegionOverrideShort(params *DeleteRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRootRegionOverrideResponse, error)
+	UpdateRootRegionOverrideShort(params *UpdateRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRootRegionOverrideResponse, error)
+	CreateDeploymentOverrideShort(params *CreateDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentOverrideResponse, error)
+	DeleteDeploymentOverrideShort(params *DeleteDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentOverrideResponse, error)
+	UpdateDeploymentOverrideShort(params *UpdateDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeploymentOverrideResponse, error)
+	CreateOverrideRegionOverrideShort(params *CreateOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateOverrideRegionOverrideResponse, error)
+	DeleteOverrideRegionOverrideShort(params *DeleteOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOverrideRegionOverrideResponse, error)
+	UpdateOverrideRegionOverrideShort(params *UpdateOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOverrideRegionOverrideResponse, error)
+	DeleteCreatingServerCountQueueShort(params *DeleteCreatingServerCountQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCreatingServerCountQueueResponse, error)
+	GetAllDeploymentClientShort(params *GetAllDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllDeploymentClientResponse, error)
+	GetDeploymentClientShort(params *GetDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentClientResponse, error)
+	CreateDeploymentClientShort(params *CreateDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentClientResponse, error)
+	DeleteDeploymentClientShort(params *DeleteDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentClientResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -63,7 +63,7 @@ This endpoint get a all deployments in a namespace
 
 Parameter Offset and Count is Required
 */
-func (a *Client) GetAllDeploymentShort(params *GetAllDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllDeploymentOK, error) {
+func (a *Client) GetAllDeploymentShort(params *GetAllDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllDeploymentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllDeploymentParams()
@@ -101,13 +101,33 @@ func (a *Client) GetAllDeploymentShort(params *GetAllDeploymentParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetAllDeploymentOK:
-		return v, nil
+		response := &GetAllDeploymentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllDeploymentBadRequest:
-		return nil, v
+		response := &GetAllDeploymentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllDeploymentUnauthorized:
-		return nil, v
+		response := &GetAllDeploymentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllDeploymentInternalServerError:
-		return nil, v
+		response := &GetAllDeploymentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -122,7 +142,7 @@ Required scope: social
 
 This endpoint get a dedicated server deployment in a namespace
 */
-func (a *Client) GetDeploymentShort(params *GetDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentOK, error) {
+func (a *Client) GetDeploymentShort(params *GetDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDeploymentParams()
@@ -160,15 +180,40 @@ func (a *Client) GetDeploymentShort(params *GetDeploymentParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetDeploymentOK:
-		return v, nil
+		response := &GetDeploymentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetDeploymentBadRequest:
-		return nil, v
+		response := &GetDeploymentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentUnauthorized:
-		return nil, v
+		response := &GetDeploymentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentNotFound:
-		return nil, v
+		response := &GetDeploymentResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentInternalServerError:
-		return nil, v
+		response := &GetDeploymentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -183,7 +228,7 @@ Required scope: social
 
 This endpoint create a dedicated servers deployment in a namespace.
 */
-func (a *Client) CreateDeploymentShort(params *CreateDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentCreated, error) {
+func (a *Client) CreateDeploymentShort(params *CreateDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateDeploymentParams()
@@ -221,15 +266,40 @@ func (a *Client) CreateDeploymentShort(params *CreateDeploymentParams, authInfo 
 	switch v := result.(type) {
 
 	case *CreateDeploymentCreated:
-		return v, nil
+		response := &CreateDeploymentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateDeploymentBadRequest:
-		return nil, v
+		response := &CreateDeploymentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentUnauthorized:
-		return nil, v
+		response := &CreateDeploymentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentConflict:
-		return nil, v
+		response := &CreateDeploymentResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentInternalServerError:
-		return nil, v
+		response := &CreateDeploymentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -244,7 +314,7 @@ Required scope: social
 
 This endpoint delete a dedicated server deployment in a namespace
 */
-func (a *Client) DeleteDeploymentShort(params *DeleteDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentNoContent, error) {
+func (a *Client) DeleteDeploymentShort(params *DeleteDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteDeploymentParams()
@@ -282,15 +352,39 @@ func (a *Client) DeleteDeploymentShort(params *DeleteDeploymentParams, authInfo 
 	switch v := result.(type) {
 
 	case *DeleteDeploymentNoContent:
-		return v, nil
+		response := &DeleteDeploymentResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteDeploymentBadRequest:
-		return nil, v
+		response := &DeleteDeploymentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentUnauthorized:
-		return nil, v
+		response := &DeleteDeploymentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentNotFound:
-		return nil, v
+		response := &DeleteDeploymentResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentInternalServerError:
-		return nil, v
+		response := &DeleteDeploymentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -305,7 +399,7 @@ Required scope: social
 
 This endpoint update a dedicated servers deployment in a namespace.
 */
-func (a *Client) UpdateDeploymentShort(params *UpdateDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeploymentOK, error) {
+func (a *Client) UpdateDeploymentShort(params *UpdateDeploymentParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeploymentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateDeploymentParams()
@@ -343,17 +437,47 @@ func (a *Client) UpdateDeploymentShort(params *UpdateDeploymentParams, authInfo 
 	switch v := result.(type) {
 
 	case *UpdateDeploymentOK:
-		return v, nil
+		response := &UpdateDeploymentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateDeploymentBadRequest:
-		return nil, v
+		response := &UpdateDeploymentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDeploymentUnauthorized:
-		return nil, v
+		response := &UpdateDeploymentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDeploymentNotFound:
-		return nil, v
+		response := &UpdateDeploymentResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDeploymentUnprocessableEntity:
-		return nil, v
+		response := &UpdateDeploymentResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDeploymentInternalServerError:
-		return nil, v
+		response := &UpdateDeploymentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -368,7 +492,7 @@ Required scope: social
 
 This endpoint creates a dedicated servers deployment override in a namespace in a region for root deployment.
 */
-func (a *Client) CreateRootRegionOverrideShort(params *CreateRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRootRegionOverrideCreated, error) {
+func (a *Client) CreateRootRegionOverrideShort(params *CreateRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRootRegionOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRootRegionOverrideParams()
@@ -406,17 +530,47 @@ func (a *Client) CreateRootRegionOverrideShort(params *CreateRootRegionOverrideP
 	switch v := result.(type) {
 
 	case *CreateRootRegionOverrideCreated:
-		return v, nil
+		response := &CreateRootRegionOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateRootRegionOverrideBadRequest:
-		return nil, v
+		response := &CreateRootRegionOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRootRegionOverrideUnauthorized:
-		return nil, v
+		response := &CreateRootRegionOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRootRegionOverrideNotFound:
-		return nil, v
+		response := &CreateRootRegionOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRootRegionOverrideConflict:
-		return nil, v
+		response := &CreateRootRegionOverrideResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRootRegionOverrideInternalServerError:
-		return nil, v
+		response := &CreateRootRegionOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -431,7 +585,7 @@ Required scope: social
 
 This endpoint delete a dedicated server deployment override in a namespace in a region for root deployment
 */
-func (a *Client) DeleteRootRegionOverrideShort(params *DeleteRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRootRegionOverrideOK, error) {
+func (a *Client) DeleteRootRegionOverrideShort(params *DeleteRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRootRegionOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRootRegionOverrideParams()
@@ -469,15 +623,40 @@ func (a *Client) DeleteRootRegionOverrideShort(params *DeleteRootRegionOverrideP
 	switch v := result.(type) {
 
 	case *DeleteRootRegionOverrideOK:
-		return v, nil
+		response := &DeleteRootRegionOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteRootRegionOverrideBadRequest:
-		return nil, v
+		response := &DeleteRootRegionOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRootRegionOverrideUnauthorized:
-		return nil, v
+		response := &DeleteRootRegionOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRootRegionOverrideNotFound:
-		return nil, v
+		response := &DeleteRootRegionOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRootRegionOverrideInternalServerError:
-		return nil, v
+		response := &DeleteRootRegionOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -492,7 +671,7 @@ Required scope: social
 
 This endpoint update a dedicated servers deployment override in a namespace in a region for root deployment.
 */
-func (a *Client) UpdateRootRegionOverrideShort(params *UpdateRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRootRegionOverrideOK, error) {
+func (a *Client) UpdateRootRegionOverrideShort(params *UpdateRootRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRootRegionOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRootRegionOverrideParams()
@@ -530,15 +709,40 @@ func (a *Client) UpdateRootRegionOverrideShort(params *UpdateRootRegionOverrideP
 	switch v := result.(type) {
 
 	case *UpdateRootRegionOverrideOK:
-		return v, nil
+		response := &UpdateRootRegionOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateRootRegionOverrideBadRequest:
-		return nil, v
+		response := &UpdateRootRegionOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRootRegionOverrideUnauthorized:
-		return nil, v
+		response := &UpdateRootRegionOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRootRegionOverrideNotFound:
-		return nil, v
+		response := &UpdateRootRegionOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRootRegionOverrideInternalServerError:
-		return nil, v
+		response := &UpdateRootRegionOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -553,7 +757,7 @@ Required scope: social
 
 This endpoint create a dedicated servers deployment override in a namespace.
 */
-func (a *Client) CreateDeploymentOverrideShort(params *CreateDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentOverrideCreated, error) {
+func (a *Client) CreateDeploymentOverrideShort(params *CreateDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateDeploymentOverrideParams()
@@ -591,17 +795,47 @@ func (a *Client) CreateDeploymentOverrideShort(params *CreateDeploymentOverrideP
 	switch v := result.(type) {
 
 	case *CreateDeploymentOverrideCreated:
-		return v, nil
+		response := &CreateDeploymentOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateDeploymentOverrideBadRequest:
-		return nil, v
+		response := &CreateDeploymentOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentOverrideUnauthorized:
-		return nil, v
+		response := &CreateDeploymentOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentOverrideNotFound:
-		return nil, v
+		response := &CreateDeploymentOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentOverrideConflict:
-		return nil, v
+		response := &CreateDeploymentOverrideResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentOverrideInternalServerError:
-		return nil, v
+		response := &CreateDeploymentOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -616,7 +850,7 @@ Required scope: social
 
 This endpoint delete a dedicated server deployment override in a namespace
 */
-func (a *Client) DeleteDeploymentOverrideShort(params *DeleteDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentOverrideOK, error) {
+func (a *Client) DeleteDeploymentOverrideShort(params *DeleteDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteDeploymentOverrideParams()
@@ -654,15 +888,40 @@ func (a *Client) DeleteDeploymentOverrideShort(params *DeleteDeploymentOverrideP
 	switch v := result.(type) {
 
 	case *DeleteDeploymentOverrideOK:
-		return v, nil
+		response := &DeleteDeploymentOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteDeploymentOverrideBadRequest:
-		return nil, v
+		response := &DeleteDeploymentOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentOverrideUnauthorized:
-		return nil, v
+		response := &DeleteDeploymentOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentOverrideNotFound:
-		return nil, v
+		response := &DeleteDeploymentOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentOverrideInternalServerError:
-		return nil, v
+		response := &DeleteDeploymentOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -677,7 +936,7 @@ Required scope: social
 
 This endpoint update a dedicated servers deployment override in a namespace.
 */
-func (a *Client) UpdateDeploymentOverrideShort(params *UpdateDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeploymentOverrideOK, error) {
+func (a *Client) UpdateDeploymentOverrideShort(params *UpdateDeploymentOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDeploymentOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateDeploymentOverrideParams()
@@ -715,15 +974,40 @@ func (a *Client) UpdateDeploymentOverrideShort(params *UpdateDeploymentOverrideP
 	switch v := result.(type) {
 
 	case *UpdateDeploymentOverrideOK:
-		return v, nil
+		response := &UpdateDeploymentOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateDeploymentOverrideBadRequest:
-		return nil, v
+		response := &UpdateDeploymentOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDeploymentOverrideUnauthorized:
-		return nil, v
+		response := &UpdateDeploymentOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDeploymentOverrideNotFound:
-		return nil, v
+		response := &UpdateDeploymentOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDeploymentOverrideInternalServerError:
-		return nil, v
+		response := &UpdateDeploymentOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -738,7 +1022,7 @@ Required scope: social
 
 This endpoint creates a dedicated servers deployment override in a namespace in a region for deployment overrides.
 */
-func (a *Client) CreateOverrideRegionOverrideShort(params *CreateOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateOverrideRegionOverrideCreated, error) {
+func (a *Client) CreateOverrideRegionOverrideShort(params *CreateOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*CreateOverrideRegionOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateOverrideRegionOverrideParams()
@@ -776,17 +1060,47 @@ func (a *Client) CreateOverrideRegionOverrideShort(params *CreateOverrideRegionO
 	switch v := result.(type) {
 
 	case *CreateOverrideRegionOverrideCreated:
-		return v, nil
+		response := &CreateOverrideRegionOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateOverrideRegionOverrideBadRequest:
-		return nil, v
+		response := &CreateOverrideRegionOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateOverrideRegionOverrideUnauthorized:
-		return nil, v
+		response := &CreateOverrideRegionOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateOverrideRegionOverrideNotFound:
-		return nil, v
+		response := &CreateOverrideRegionOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateOverrideRegionOverrideConflict:
-		return nil, v
+		response := &CreateOverrideRegionOverrideResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateOverrideRegionOverrideInternalServerError:
-		return nil, v
+		response := &CreateOverrideRegionOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -801,7 +1115,7 @@ Required scope: social
 
 This endpoint delete a dedicated server deployment override in a namespace in a region for deployment overrides
 */
-func (a *Client) DeleteOverrideRegionOverrideShort(params *DeleteOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOverrideRegionOverrideOK, error) {
+func (a *Client) DeleteOverrideRegionOverrideShort(params *DeleteOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOverrideRegionOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteOverrideRegionOverrideParams()
@@ -839,15 +1153,40 @@ func (a *Client) DeleteOverrideRegionOverrideShort(params *DeleteOverrideRegionO
 	switch v := result.(type) {
 
 	case *DeleteOverrideRegionOverrideOK:
-		return v, nil
+		response := &DeleteOverrideRegionOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteOverrideRegionOverrideBadRequest:
-		return nil, v
+		response := &DeleteOverrideRegionOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteOverrideRegionOverrideUnauthorized:
-		return nil, v
+		response := &DeleteOverrideRegionOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteOverrideRegionOverrideNotFound:
-		return nil, v
+		response := &DeleteOverrideRegionOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteOverrideRegionOverrideInternalServerError:
-		return nil, v
+		response := &DeleteOverrideRegionOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -862,7 +1201,7 @@ Required scope: social
 
 This endpoint update a dedicated servers deployment override in a namespace in a region for deployment overrides.
 */
-func (a *Client) UpdateOverrideRegionOverrideShort(params *UpdateOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOverrideRegionOverrideOK, error) {
+func (a *Client) UpdateOverrideRegionOverrideShort(params *UpdateOverrideRegionOverrideParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOverrideRegionOverrideResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateOverrideRegionOverrideParams()
@@ -900,15 +1239,40 @@ func (a *Client) UpdateOverrideRegionOverrideShort(params *UpdateOverrideRegionO
 	switch v := result.(type) {
 
 	case *UpdateOverrideRegionOverrideOK:
-		return v, nil
+		response := &UpdateOverrideRegionOverrideResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateOverrideRegionOverrideBadRequest:
-		return nil, v
+		response := &UpdateOverrideRegionOverrideResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateOverrideRegionOverrideUnauthorized:
-		return nil, v
+		response := &UpdateOverrideRegionOverrideResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateOverrideRegionOverrideNotFound:
-		return nil, v
+		response := &UpdateOverrideRegionOverrideResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateOverrideRegionOverrideInternalServerError:
-		return nil, v
+		response := &UpdateOverrideRegionOverrideResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -923,7 +1287,7 @@ Required scope: social
 
 This endpoint deletes the deployment creating server count queue in a namespace in all registered region for the selected version
 */
-func (a *Client) DeleteCreatingServerCountQueueShort(params *DeleteCreatingServerCountQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCreatingServerCountQueueOK, error) {
+func (a *Client) DeleteCreatingServerCountQueueShort(params *DeleteCreatingServerCountQueueParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCreatingServerCountQueueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteCreatingServerCountQueueParams()
@@ -961,15 +1325,39 @@ func (a *Client) DeleteCreatingServerCountQueueShort(params *DeleteCreatingServe
 	switch v := result.(type) {
 
 	case *DeleteCreatingServerCountQueueOK:
-		return v, nil
+		response := &DeleteCreatingServerCountQueueResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteCreatingServerCountQueueBadRequest:
-		return nil, v
+		response := &DeleteCreatingServerCountQueueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteCreatingServerCountQueueUnauthorized:
-		return nil, v
+		response := &DeleteCreatingServerCountQueueResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteCreatingServerCountQueueNotFound:
-		return nil, v
+		response := &DeleteCreatingServerCountQueueResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteCreatingServerCountQueueInternalServerError:
-		return nil, v
+		response := &DeleteCreatingServerCountQueueResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -986,7 +1374,7 @@ This endpoint get a all deployments in a namespace
 
 Parameter Offset and Count is Required
 */
-func (a *Client) GetAllDeploymentClientShort(params *GetAllDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllDeploymentClientOK, error) {
+func (a *Client) GetAllDeploymentClientShort(params *GetAllDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllDeploymentClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllDeploymentClientParams()
@@ -1024,13 +1412,33 @@ func (a *Client) GetAllDeploymentClientShort(params *GetAllDeploymentClientParam
 	switch v := result.(type) {
 
 	case *GetAllDeploymentClientOK:
-		return v, nil
+		response := &GetAllDeploymentClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllDeploymentClientBadRequest:
-		return nil, v
+		response := &GetAllDeploymentClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllDeploymentClientUnauthorized:
-		return nil, v
+		response := &GetAllDeploymentClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllDeploymentClientInternalServerError:
-		return nil, v
+		response := &GetAllDeploymentClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1045,7 +1453,7 @@ Required scope: social
 
 This endpoint get a dedicated server deployment in a namespace
 */
-func (a *Client) GetDeploymentClientShort(params *GetDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentClientOK, error) {
+func (a *Client) GetDeploymentClientShort(params *GetDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDeploymentClientParams()
@@ -1083,15 +1491,40 @@ func (a *Client) GetDeploymentClientShort(params *GetDeploymentClientParams, aut
 	switch v := result.(type) {
 
 	case *GetDeploymentClientOK:
-		return v, nil
+		response := &GetDeploymentClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetDeploymentClientBadRequest:
-		return nil, v
+		response := &GetDeploymentClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentClientUnauthorized:
-		return nil, v
+		response := &GetDeploymentClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentClientNotFound:
-		return nil, v
+		response := &GetDeploymentClientResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentClientInternalServerError:
-		return nil, v
+		response := &GetDeploymentClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1106,7 +1539,7 @@ Required scope: social
 
 This endpoint create a dedicated servers deployment in a namespace.
 */
-func (a *Client) CreateDeploymentClientShort(params *CreateDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentClientCreated, error) {
+func (a *Client) CreateDeploymentClientShort(params *CreateDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateDeploymentClientParams()
@@ -1144,15 +1577,40 @@ func (a *Client) CreateDeploymentClientShort(params *CreateDeploymentClientParam
 	switch v := result.(type) {
 
 	case *CreateDeploymentClientCreated:
-		return v, nil
+		response := &CreateDeploymentClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateDeploymentClientBadRequest:
-		return nil, v
+		response := &CreateDeploymentClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentClientUnauthorized:
-		return nil, v
+		response := &CreateDeploymentClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentClientConflict:
-		return nil, v
+		response := &CreateDeploymentClientResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentClientInternalServerError:
-		return nil, v
+		response := &CreateDeploymentClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1167,7 +1625,7 @@ Required scope: social
 
 This endpoint delete a dedicated server deployment in a namespace
 */
-func (a *Client) DeleteDeploymentClientShort(params *DeleteDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentClientNoContent, error) {
+func (a *Client) DeleteDeploymentClientShort(params *DeleteDeploymentClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteDeploymentClientParams()
@@ -1205,15 +1663,39 @@ func (a *Client) DeleteDeploymentClientShort(params *DeleteDeploymentClientParam
 	switch v := result.(type) {
 
 	case *DeleteDeploymentClientNoContent:
-		return v, nil
+		response := &DeleteDeploymentClientResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteDeploymentClientBadRequest:
-		return nil, v
+		response := &DeleteDeploymentClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentClientUnauthorized:
-		return nil, v
+		response := &DeleteDeploymentClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentClientNotFound:
-		return nil, v
+		response := &DeleteDeploymentClientResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentClientInternalServerError:
-		return nil, v
+		response := &DeleteDeploymentClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

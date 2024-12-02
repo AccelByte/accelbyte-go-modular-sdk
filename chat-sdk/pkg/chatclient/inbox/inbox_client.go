@@ -30,19 +30,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetInboxCategoriesShort(params *AdminGetInboxCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxCategoriesOK, error)
-	AdminAddInboxCategoryShort(params *AdminAddInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAddInboxCategoryOK, error)
-	AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxCategoryOK, error)
-	AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxCategoryOK, error)
-	AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCategorySchemaOK, error)
-	AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxMessageOK, error)
-	AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxMessagesOK, error)
-	AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveInboxMessageOK, error)
-	AdminUnsendInboxMessageShort(params *AdminUnsendInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUnsendInboxMessageOK, error)
-	AdminGetInboxUsersShort(params *AdminGetInboxUsersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxUsersOK, error)
-	AdminUpdateInboxMessageShort(params *AdminUpdateInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxMessageOK, error)
-	AdminSendInboxMessageShort(params *AdminSendInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSendInboxMessageOK, error)
-	AdminGetInboxStatsShort(params *AdminGetInboxStatsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxStatsOK, error)
+	AdminGetInboxCategoriesShort(params *AdminGetInboxCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxCategoriesResponse, error)
+	AdminAddInboxCategoryShort(params *AdminAddInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAddInboxCategoryResponse, error)
+	AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxCategoryResponse, error)
+	AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxCategoryResponse, error)
+	AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCategorySchemaResponse, error)
+	AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxMessageResponse, error)
+	AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxMessagesResponse, error)
+	AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveInboxMessageResponse, error)
+	AdminUnsendInboxMessageShort(params *AdminUnsendInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUnsendInboxMessageResponse, error)
+	AdminGetInboxUsersShort(params *AdminGetInboxUsersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxUsersResponse, error)
+	AdminUpdateInboxMessageShort(params *AdminUpdateInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxMessageResponse, error)
+	AdminSendInboxMessageShort(params *AdminSendInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSendInboxMessageResponse, error)
+	AdminGetInboxStatsShort(params *AdminGetInboxStatsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxStatsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ type ClientService interface {
 AdminGetInboxCategoriesShort admin get inbox categories
 Get inbox categories
 */
-func (a *Client) AdminGetInboxCategoriesShort(params *AdminGetInboxCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxCategoriesOK, error) {
+func (a *Client) AdminGetInboxCategoriesShort(params *AdminGetInboxCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxCategoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetInboxCategoriesParams()
@@ -89,15 +89,40 @@ func (a *Client) AdminGetInboxCategoriesShort(params *AdminGetInboxCategoriesPar
 	switch v := result.(type) {
 
 	case *AdminGetInboxCategoriesOK:
-		return v, nil
+		response := &AdminGetInboxCategoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetInboxCategoriesBadRequest:
-		return nil, v
+		response := &AdminGetInboxCategoriesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxCategoriesUnauthorized:
-		return nil, v
+		response := &AdminGetInboxCategoriesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxCategoriesForbidden:
-		return nil, v
+		response := &AdminGetInboxCategoriesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxCategoriesInternalServerError:
-		return nil, v
+		response := &AdminGetInboxCategoriesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -108,7 +133,7 @@ func (a *Client) AdminGetInboxCategoriesShort(params *AdminGetInboxCategoriesPar
 AdminAddInboxCategoryShort add inbox category
 Add inbox category.
 */
-func (a *Client) AdminAddInboxCategoryShort(params *AdminAddInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAddInboxCategoryOK, error) {
+func (a *Client) AdminAddInboxCategoryShort(params *AdminAddInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAddInboxCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddInboxCategoryParams()
@@ -146,15 +171,40 @@ func (a *Client) AdminAddInboxCategoryShort(params *AdminAddInboxCategoryParams,
 	switch v := result.(type) {
 
 	case *AdminAddInboxCategoryOK:
-		return v, nil
+		response := &AdminAddInboxCategoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddInboxCategoryBadRequest:
-		return nil, v
+		response := &AdminAddInboxCategoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddInboxCategoryUnauthorized:
-		return nil, v
+		response := &AdminAddInboxCategoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddInboxCategoryForbidden:
-		return nil, v
+		response := &AdminAddInboxCategoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddInboxCategoryInternalServerError:
-		return nil, v
+		response := &AdminAddInboxCategoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -165,7 +215,7 @@ func (a *Client) AdminAddInboxCategoryShort(params *AdminAddInboxCategoryParams,
 AdminDeleteInboxCategoryShort admin delete inbox category
 Delete inbox category
 */
-func (a *Client) AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxCategoryOK, error) {
+func (a *Client) AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteInboxCategoryParams()
@@ -203,15 +253,39 @@ func (a *Client) AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryP
 	switch v := result.(type) {
 
 	case *AdminDeleteInboxCategoryOK:
-		return v, nil
+		response := &AdminDeleteInboxCategoryResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteInboxCategoryBadRequest:
-		return nil, v
+		response := &AdminDeleteInboxCategoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteInboxCategoryUnauthorized:
-		return nil, v
+		response := &AdminDeleteInboxCategoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteInboxCategoryForbidden:
-		return nil, v
+		response := &AdminDeleteInboxCategoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteInboxCategoryInternalServerError:
-		return nil, v
+		response := &AdminDeleteInboxCategoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -222,7 +296,7 @@ func (a *Client) AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryP
 AdminUpdateInboxCategoryShort admin update inbox category
 Update inbox category
 */
-func (a *Client) AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxCategoryOK, error) {
+func (a *Client) AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateInboxCategoryParams()
@@ -260,15 +334,39 @@ func (a *Client) AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryP
 	switch v := result.(type) {
 
 	case *AdminUpdateInboxCategoryOK:
-		return v, nil
+		response := &AdminUpdateInboxCategoryResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateInboxCategoryBadRequest:
-		return nil, v
+		response := &AdminUpdateInboxCategoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInboxCategoryUnauthorized:
-		return nil, v
+		response := &AdminUpdateInboxCategoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInboxCategoryForbidden:
-		return nil, v
+		response := &AdminUpdateInboxCategoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInboxCategoryInternalServerError:
-		return nil, v
+		response := &AdminUpdateInboxCategoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -279,7 +377,7 @@ func (a *Client) AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryP
 AdminGetCategorySchemaShort admin get category schema
 Get category schema.
 */
-func (a *Client) AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCategorySchemaOK, error) {
+func (a *Client) AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCategorySchemaResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetCategorySchemaParams()
@@ -317,17 +415,47 @@ func (a *Client) AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParam
 	switch v := result.(type) {
 
 	case *AdminGetCategorySchemaOK:
-		return v, nil
+		response := &AdminGetCategorySchemaResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetCategorySchemaBadRequest:
-		return nil, v
+		response := &AdminGetCategorySchemaResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetCategorySchemaUnauthorized:
-		return nil, v
+		response := &AdminGetCategorySchemaResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetCategorySchemaForbidden:
-		return nil, v
+		response := &AdminGetCategorySchemaResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetCategorySchemaNotFound:
-		return nil, v
+		response := &AdminGetCategorySchemaResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetCategorySchemaInternalServerError:
-		return nil, v
+		response := &AdminGetCategorySchemaResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -338,7 +466,7 @@ func (a *Client) AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParam
 AdminDeleteInboxMessageShort admin delete inbox message
 Delete inbox message
 */
-func (a *Client) AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxMessageOK, error) {
+func (a *Client) AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxMessageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteInboxMessageParams()
@@ -376,15 +504,39 @@ func (a *Client) AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessagePar
 	switch v := result.(type) {
 
 	case *AdminDeleteInboxMessageOK:
-		return v, nil
+		response := &AdminDeleteInboxMessageResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteInboxMessageBadRequest:
-		return nil, v
+		response := &AdminDeleteInboxMessageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteInboxMessageUnauthorized:
-		return nil, v
+		response := &AdminDeleteInboxMessageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteInboxMessageForbidden:
-		return nil, v
+		response := &AdminDeleteInboxMessageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteInboxMessageInternalServerError:
-		return nil, v
+		response := &AdminDeleteInboxMessageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -395,7 +547,7 @@ func (a *Client) AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessagePar
 AdminGetInboxMessagesShort admin get inbox messages
 Get inbox messages
 */
-func (a *Client) AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxMessagesOK, error) {
+func (a *Client) AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxMessagesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetInboxMessagesParams()
@@ -433,15 +585,40 @@ func (a *Client) AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams,
 	switch v := result.(type) {
 
 	case *AdminGetInboxMessagesOK:
-		return v, nil
+		response := &AdminGetInboxMessagesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetInboxMessagesBadRequest:
-		return nil, v
+		response := &AdminGetInboxMessagesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxMessagesUnauthorized:
-		return nil, v
+		response := &AdminGetInboxMessagesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxMessagesForbidden:
-		return nil, v
+		response := &AdminGetInboxMessagesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxMessagesInternalServerError:
-		return nil, v
+		response := &AdminGetInboxMessagesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -452,7 +629,7 @@ func (a *Client) AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams,
 AdminSaveInboxMessageShort admin save inbox message
 Save inbox message
 */
-func (a *Client) AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveInboxMessageOK, error) {
+func (a *Client) AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveInboxMessageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSaveInboxMessageParams()
@@ -490,15 +667,40 @@ func (a *Client) AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams,
 	switch v := result.(type) {
 
 	case *AdminSaveInboxMessageOK:
-		return v, nil
+		response := &AdminSaveInboxMessageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSaveInboxMessageBadRequest:
-		return nil, v
+		response := &AdminSaveInboxMessageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveInboxMessageUnauthorized:
-		return nil, v
+		response := &AdminSaveInboxMessageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveInboxMessageForbidden:
-		return nil, v
+		response := &AdminSaveInboxMessageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveInboxMessageInternalServerError:
-		return nil, v
+		response := &AdminSaveInboxMessageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -509,7 +711,7 @@ func (a *Client) AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams,
 AdminUnsendInboxMessageShort admin unsend inbox message
 Unsend inbox message
 */
-func (a *Client) AdminUnsendInboxMessageShort(params *AdminUnsendInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUnsendInboxMessageOK, error) {
+func (a *Client) AdminUnsendInboxMessageShort(params *AdminUnsendInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUnsendInboxMessageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUnsendInboxMessageParams()
@@ -547,15 +749,40 @@ func (a *Client) AdminUnsendInboxMessageShort(params *AdminUnsendInboxMessagePar
 	switch v := result.(type) {
 
 	case *AdminUnsendInboxMessageOK:
-		return v, nil
+		response := &AdminUnsendInboxMessageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUnsendInboxMessageBadRequest:
-		return nil, v
+		response := &AdminUnsendInboxMessageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnsendInboxMessageUnauthorized:
-		return nil, v
+		response := &AdminUnsendInboxMessageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnsendInboxMessageForbidden:
-		return nil, v
+		response := &AdminUnsendInboxMessageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnsendInboxMessageInternalServerError:
-		return nil, v
+		response := &AdminUnsendInboxMessageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -566,7 +793,7 @@ func (a *Client) AdminUnsendInboxMessageShort(params *AdminUnsendInboxMessagePar
 AdminGetInboxUsersShort admin get inbox users
 Get inbox users
 */
-func (a *Client) AdminGetInboxUsersShort(params *AdminGetInboxUsersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxUsersOK, error) {
+func (a *Client) AdminGetInboxUsersShort(params *AdminGetInboxUsersParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxUsersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetInboxUsersParams()
@@ -604,15 +831,40 @@ func (a *Client) AdminGetInboxUsersShort(params *AdminGetInboxUsersParams, authI
 	switch v := result.(type) {
 
 	case *AdminGetInboxUsersOK:
-		return v, nil
+		response := &AdminGetInboxUsersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetInboxUsersBadRequest:
-		return nil, v
+		response := &AdminGetInboxUsersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxUsersUnauthorized:
-		return nil, v
+		response := &AdminGetInboxUsersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxUsersForbidden:
-		return nil, v
+		response := &AdminGetInboxUsersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxUsersInternalServerError:
-		return nil, v
+		response := &AdminGetInboxUsersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -623,7 +875,7 @@ func (a *Client) AdminGetInboxUsersShort(params *AdminGetInboxUsersParams, authI
 AdminUpdateInboxMessageShort admin update inbox message
 Update inbox message
 */
-func (a *Client) AdminUpdateInboxMessageShort(params *AdminUpdateInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxMessageOK, error) {
+func (a *Client) AdminUpdateInboxMessageShort(params *AdminUpdateInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxMessageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateInboxMessageParams()
@@ -661,15 +913,39 @@ func (a *Client) AdminUpdateInboxMessageShort(params *AdminUpdateInboxMessagePar
 	switch v := result.(type) {
 
 	case *AdminUpdateInboxMessageOK:
-		return v, nil
+		response := &AdminUpdateInboxMessageResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateInboxMessageBadRequest:
-		return nil, v
+		response := &AdminUpdateInboxMessageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInboxMessageUnauthorized:
-		return nil, v
+		response := &AdminUpdateInboxMessageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInboxMessageForbidden:
-		return nil, v
+		response := &AdminUpdateInboxMessageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInboxMessageInternalServerError:
-		return nil, v
+		response := &AdminUpdateInboxMessageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -680,7 +956,7 @@ func (a *Client) AdminUpdateInboxMessageShort(params *AdminUpdateInboxMessagePar
 AdminSendInboxMessageShort admin send inbox message
 Send inbox message
 */
-func (a *Client) AdminSendInboxMessageShort(params *AdminSendInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSendInboxMessageOK, error) {
+func (a *Client) AdminSendInboxMessageShort(params *AdminSendInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSendInboxMessageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSendInboxMessageParams()
@@ -718,15 +994,40 @@ func (a *Client) AdminSendInboxMessageShort(params *AdminSendInboxMessageParams,
 	switch v := result.(type) {
 
 	case *AdminSendInboxMessageOK:
-		return v, nil
+		response := &AdminSendInboxMessageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSendInboxMessageBadRequest:
-		return nil, v
+		response := &AdminSendInboxMessageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendInboxMessageUnauthorized:
-		return nil, v
+		response := &AdminSendInboxMessageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendInboxMessageForbidden:
-		return nil, v
+		response := &AdminSendInboxMessageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendInboxMessageInternalServerError:
-		return nil, v
+		response := &AdminSendInboxMessageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -737,7 +1038,7 @@ func (a *Client) AdminSendInboxMessageShort(params *AdminSendInboxMessageParams,
 AdminGetInboxStatsShort admin get inbox stats
 Get inbox stats
 */
-func (a *Client) AdminGetInboxStatsShort(params *AdminGetInboxStatsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxStatsOK, error) {
+func (a *Client) AdminGetInboxStatsShort(params *AdminGetInboxStatsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxStatsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetInboxStatsParams()
@@ -775,15 +1076,40 @@ func (a *Client) AdminGetInboxStatsShort(params *AdminGetInboxStatsParams, authI
 	switch v := result.(type) {
 
 	case *AdminGetInboxStatsOK:
-		return v, nil
+		response := &AdminGetInboxStatsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetInboxStatsBadRequest:
-		return nil, v
+		response := &AdminGetInboxStatsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxStatsUnauthorized:
-		return nil, v
+		response := &AdminGetInboxStatsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxStatsForbidden:
-		return nil, v
+		response := &AdminGetInboxStatsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInboxStatsInternalServerError:
-		return nil, v
+		response := &AdminGetInboxStatsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/player"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *PlayerService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PlayerService) AdminGetLobbyCCUShort(input *player.AdminGetLobbyCCUParams) (*lobbyclientmodels.ModelsGetLobbyCcuResponse, error) {
+func (aaa *PlayerService) AdminGetLobbyCCUShort(input *player.AdminGetLobbyCCUParams) (*player.AdminGetLobbyCCUResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *PlayerService) AdminGetLobbyCCUShort(input *player.AdminGetLobbyCCUPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) AdminGetBulkPlayerBlockedPlayersV1Short(input *player.AdminGetBulkPlayerBlockedPlayersV1Params) (*lobbyclientmodels.ModelsGetBulkAllPlayerBlockedUsersResponse, error) {
+func (aaa *PlayerService) AdminGetBulkPlayerBlockedPlayersV1Short(input *player.AdminGetBulkPlayerBlockedPlayersV1Params) (*player.AdminGetBulkPlayerBlockedPlayersV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *PlayerService) AdminGetBulkPlayerBlockedPlayersV1Short(input *player.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) AdminGetAllPlayerSessionAttributeShort(input *player.AdminGetAllPlayerSessionAttributeParams) (*lobbyclientmodels.ModelsGetAllPlayerSessionAttributeResponse, error) {
+func (aaa *PlayerService) AdminGetAllPlayerSessionAttributeShort(input *player.AdminGetAllPlayerSessionAttributeParams) (*player.AdminGetAllPlayerSessionAttributeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *PlayerService) AdminGetAllPlayerSessionAttributeShort(input *player.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PlayerService) AdminSetPlayerSessionAttributeShort(input *player.AdminSetPlayerSessionAttributeParams) error {
@@ -159,7 +158,7 @@ func (aaa *PlayerService) AdminSetPlayerSessionAttributeShort(input *player.Admi
 	return nil
 }
 
-func (aaa *PlayerService) AdminGetPlayerSessionAttributeShort(input *player.AdminGetPlayerSessionAttributeParams) (*lobbyclientmodels.ModelsGetPlayerSessionAttributeResponse, error) {
+func (aaa *PlayerService) AdminGetPlayerSessionAttributeShort(input *player.AdminGetPlayerSessionAttributeParams) (*player.AdminGetPlayerSessionAttributeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *PlayerService) AdminGetPlayerSessionAttributeShort(input *player.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) AdminGetPlayerBlockedPlayersV1Short(input *player.AdminGetPlayerBlockedPlayersV1Params) (*lobbyclientmodels.ModelsGetAllPlayerBlockedUsersResponse, error) {
+func (aaa *PlayerService) AdminGetPlayerBlockedPlayersV1Short(input *player.AdminGetPlayerBlockedPlayersV1Params) (*player.AdminGetPlayerBlockedPlayersV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *PlayerService) AdminGetPlayerBlockedPlayersV1Short(input *player.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) AdminGetPlayerBlockedByPlayersV1Short(input *player.AdminGetPlayerBlockedByPlayersV1Params) (*lobbyclientmodels.ModelsGetAllPlayerBlockedByUsersResponse, error) {
+func (aaa *PlayerService) AdminGetPlayerBlockedByPlayersV1Short(input *player.AdminGetPlayerBlockedByPlayersV1Params) (*player.AdminGetPlayerBlockedByPlayersV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,7 +245,7 @@ func (aaa *PlayerService) AdminGetPlayerBlockedByPlayersV1Short(input *player.Ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PlayerService) AdminBulkBlockPlayersV1Short(input *player.AdminBulkBlockPlayersV1Params) error {
@@ -339,7 +338,7 @@ func (aaa *PlayerService) PublicPlayerBlockPlayersV1Short(input *player.PublicPl
 	return nil
 }
 
-func (aaa *PlayerService) PublicGetPlayerBlockedPlayersV1Short(input *player.PublicGetPlayerBlockedPlayersV1Params) (*lobbyclientmodels.ModelsGetAllPlayerBlockedUsersResponse, error) {
+func (aaa *PlayerService) PublicGetPlayerBlockedPlayersV1Short(input *player.PublicGetPlayerBlockedPlayersV1Params) (*player.PublicGetPlayerBlockedPlayersV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,10 +365,10 @@ func (aaa *PlayerService) PublicGetPlayerBlockedPlayersV1Short(input *player.Pub
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) PublicGetPlayerBlockedByPlayersV1Short(input *player.PublicGetPlayerBlockedByPlayersV1Params) (*lobbyclientmodels.ModelsGetAllPlayerBlockedByUsersResponse, error) {
+func (aaa *PlayerService) PublicGetPlayerBlockedByPlayersV1Short(input *player.PublicGetPlayerBlockedByPlayersV1Params) (*player.PublicGetPlayerBlockedByPlayersV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,7 +395,7 @@ func (aaa *PlayerService) PublicGetPlayerBlockedByPlayersV1Short(input *player.P
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PlayerService) PublicUnblockPlayerV1Short(input *player.PublicUnblockPlayerV1Params) error {

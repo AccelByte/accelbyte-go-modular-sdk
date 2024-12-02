@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsOK, error)
+	PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ PublicListTagsShort to list tags
 This endpoint will list all tags in a namespace.
 The response body will be in the form of standard pagination.
 */
-func (a *Client) PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsOK, error) {
+func (a *Client) PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListTagsParams()
@@ -79,11 +79,26 @@ func (a *Client) PublicListTagsShort(params *PublicListTagsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *PublicListTagsOK:
-		return v, nil
+		response := &PublicListTagsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListTagsBadRequest:
-		return nil, v
+		response := &PublicListTagsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListTagsInternalServerError:
-		return nil, v
+		response := &PublicListTagsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

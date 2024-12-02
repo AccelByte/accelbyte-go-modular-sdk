@@ -19,6 +19,31 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type VerifyTokenV3Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.OauthmodelTokenResponseV3
+
+	Error400 string
+}
+
+func (m *VerifyTokenV3Response) Unpack() (*iamclientmodels.OauthmodelTokenResponseV3, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			return nil, &iamclientmodels.ApiError{Code: "400", Message: m.Error400}
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // VerifyTokenV3Reader is a Reader for the VerifyTokenV3 structure.
 type VerifyTokenV3Reader struct {
 	formats strfmt.Registry

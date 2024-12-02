@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetPluginConfigShort(params *GetPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPluginConfigOK, error)
-	CreatePluginConfigShort(params *CreatePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePluginConfigCreated, error)
-	DeletePluginConfigShort(params *DeletePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePluginConfigNoContent, error)
-	UpdatePluginConfigShort(params *UpdatePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePluginConfigOK, error)
+	GetPluginConfigShort(params *GetPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPluginConfigResponse, error)
+	CreatePluginConfigShort(params *CreatePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePluginConfigResponse, error)
+	DeletePluginConfigShort(params *DeletePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePluginConfigResponse, error)
+	UpdatePluginConfigShort(params *UpdatePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePluginConfigResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ GetPluginConfigShort get plugin configuration
 
 This endpoints will get grpc plugins configuration
 */
-func (a *Client) GetPluginConfigShort(params *GetPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPluginConfigOK, error) {
+func (a *Client) GetPluginConfigShort(params *GetPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPluginConfigParams()
@@ -82,15 +82,40 @@ func (a *Client) GetPluginConfigShort(params *GetPluginConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetPluginConfigOK:
-		return v, nil
+		response := &GetPluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPluginConfigUnauthorized:
-		return nil, v
+		response := &GetPluginConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPluginConfigForbidden:
-		return nil, v
+		response := &GetPluginConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPluginConfigNotFound:
-		return nil, v
+		response := &GetPluginConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPluginConfigInternalServerError:
-		return nil, v
+		response := &GetPluginConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +128,7 @@ CreatePluginConfigShort create plugin configuration
 
 This endpoints will create new grpc plugins configuration per namespace
 */
-func (a *Client) CreatePluginConfigShort(params *CreatePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePluginConfigCreated, error) {
+func (a *Client) CreatePluginConfigShort(params *CreatePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePluginConfigParams()
@@ -141,17 +166,47 @@ func (a *Client) CreatePluginConfigShort(params *CreatePluginConfigParams, authI
 	switch v := result.(type) {
 
 	case *CreatePluginConfigCreated:
-		return v, nil
+		response := &CreatePluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePluginConfigBadRequest:
-		return nil, v
+		response := &CreatePluginConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePluginConfigUnauthorized:
-		return nil, v
+		response := &CreatePluginConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePluginConfigForbidden:
-		return nil, v
+		response := &CreatePluginConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePluginConfigConflict:
-		return nil, v
+		response := &CreatePluginConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePluginConfigInternalServerError:
-		return nil, v
+		response := &CreatePluginConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,7 +219,7 @@ DeletePluginConfigShort delete plugin configuration
 
 This endpoints will delete grpc plugins configuration
 */
-func (a *Client) DeletePluginConfigShort(params *DeletePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePluginConfigNoContent, error) {
+func (a *Client) DeletePluginConfigShort(params *DeletePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePluginConfigParams()
@@ -202,15 +257,39 @@ func (a *Client) DeletePluginConfigShort(params *DeletePluginConfigParams, authI
 	switch v := result.(type) {
 
 	case *DeletePluginConfigNoContent:
-		return v, nil
+		response := &DeletePluginConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePluginConfigUnauthorized:
-		return nil, v
+		response := &DeletePluginConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePluginConfigForbidden:
-		return nil, v
+		response := &DeletePluginConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePluginConfigNotFound:
-		return nil, v
+		response := &DeletePluginConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePluginConfigInternalServerError:
-		return nil, v
+		response := &DeletePluginConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -223,7 +302,7 @@ UpdatePluginConfigShort update plugin configuration
 
 This endpoints will update grpc plugins configuration
 */
-func (a *Client) UpdatePluginConfigShort(params *UpdatePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePluginConfigOK, error) {
+func (a *Client) UpdatePluginConfigShort(params *UpdatePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePluginConfigParams()
@@ -261,17 +340,47 @@ func (a *Client) UpdatePluginConfigShort(params *UpdatePluginConfigParams, authI
 	switch v := result.(type) {
 
 	case *UpdatePluginConfigOK:
-		return v, nil
+		response := &UpdatePluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePluginConfigBadRequest:
-		return nil, v
+		response := &UpdatePluginConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePluginConfigUnauthorized:
-		return nil, v
+		response := &UpdatePluginConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePluginConfigForbidden:
-		return nil, v
+		response := &UpdatePluginConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePluginConfigNotFound:
-		return nil, v
+		response := &UpdatePluginConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePluginConfigInternalServerError:
-		return nil, v
+		response := &UpdatePluginConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

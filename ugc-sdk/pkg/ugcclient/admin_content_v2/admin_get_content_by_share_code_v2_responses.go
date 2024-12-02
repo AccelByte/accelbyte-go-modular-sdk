@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
+type AdminGetContentByShareCodeV2Response struct {
+	ugcclientmodels.ApiResponse
+	Data *ugcclientmodels.ModelsContentDownloadResponseV2
+
+	Error401 *ugcclientmodels.ResponseError
+	Error404 *ugcclientmodels.ResponseError
+	Error500 *ugcclientmodels.ResponseError
+}
+
+func (m *AdminGetContentByShareCodeV2Response) Unpack() (*ugcclientmodels.ModelsContentDownloadResponseV2, *ugcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &ugcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetContentByShareCodeV2Reader is a Reader for the AdminGetContentByShareCodeV2 structure.
 type AdminGetContentByShareCodeV2Reader struct {
 	formats strfmt.Registry

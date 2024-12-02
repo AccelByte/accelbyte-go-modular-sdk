@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateBackfillShort(params *CreateBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*CreateBackfillCreated, error)
-	GetBackfillProposalShort(params *GetBackfillProposalParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillProposalOK, error)
-	GetBackfillShort(params *GetBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillOK, error)
-	DeleteBackfillShort(params *DeleteBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBackfillNoContent, error)
-	AcceptBackfillShort(params *AcceptBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*AcceptBackfillOK, error)
-	RejectBackfillShort(params *RejectBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*RejectBackfillOK, error)
+	CreateBackfillShort(params *CreateBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*CreateBackfillResponse, error)
+	GetBackfillProposalShort(params *GetBackfillProposalParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillProposalResponse, error)
+	GetBackfillShort(params *GetBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillResponse, error)
+	DeleteBackfillShort(params *DeleteBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBackfillResponse, error)
+	AcceptBackfillShort(params *AcceptBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*AcceptBackfillResponse, error)
+	RejectBackfillShort(params *RejectBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*RejectBackfillResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ type ClientService interface {
 CreateBackfillShort create a backfill ticket
 Create backfill ticket.
 */
-func (a *Client) CreateBackfillShort(params *CreateBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*CreateBackfillCreated, error) {
+func (a *Client) CreateBackfillShort(params *CreateBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*CreateBackfillResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateBackfillParams()
@@ -82,19 +82,54 @@ func (a *Client) CreateBackfillShort(params *CreateBackfillParams, authInfo runt
 	switch v := result.(type) {
 
 	case *CreateBackfillCreated:
-		return v, nil
+		response := &CreateBackfillResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateBackfillBadRequest:
-		return nil, v
+		response := &CreateBackfillResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateBackfillUnauthorized:
-		return nil, v
+		response := &CreateBackfillResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateBackfillForbidden:
-		return nil, v
+		response := &CreateBackfillResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateBackfillNotFound:
-		return nil, v
+		response := &CreateBackfillResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateBackfillConflict:
-		return nil, v
+		response := &CreateBackfillResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateBackfillInternalServerError:
-		return nil, v
+		response := &CreateBackfillResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +140,7 @@ func (a *Client) CreateBackfillShort(params *CreateBackfillParams, authInfo runt
 GetBackfillProposalShort get backfill proposal
 Get backfill proposal
 */
-func (a *Client) GetBackfillProposalShort(params *GetBackfillProposalParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillProposalOK, error) {
+func (a *Client) GetBackfillProposalShort(params *GetBackfillProposalParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillProposalResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetBackfillProposalParams()
@@ -143,17 +178,47 @@ func (a *Client) GetBackfillProposalShort(params *GetBackfillProposalParams, aut
 	switch v := result.(type) {
 
 	case *GetBackfillProposalOK:
-		return v, nil
+		response := &GetBackfillProposalResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetBackfillProposalBadRequest:
-		return nil, v
+		response := &GetBackfillProposalResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBackfillProposalUnauthorized:
-		return nil, v
+		response := &GetBackfillProposalResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBackfillProposalForbidden:
-		return nil, v
+		response := &GetBackfillProposalResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBackfillProposalNotFound:
-		return nil, v
+		response := &GetBackfillProposalResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBackfillProposalInternalServerError:
-		return nil, v
+		response := &GetBackfillProposalResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,7 +229,7 @@ func (a *Client) GetBackfillProposalShort(params *GetBackfillProposalParams, aut
 GetBackfillShort get a backfill ticket
 Get backfill ticket by ID
 */
-func (a *Client) GetBackfillShort(params *GetBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillOK, error) {
+func (a *Client) GetBackfillShort(params *GetBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetBackfillParams()
@@ -202,17 +267,47 @@ func (a *Client) GetBackfillShort(params *GetBackfillParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *GetBackfillOK:
-		return v, nil
+		response := &GetBackfillResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetBackfillBadRequest:
-		return nil, v
+		response := &GetBackfillResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBackfillUnauthorized:
-		return nil, v
+		response := &GetBackfillResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBackfillForbidden:
-		return nil, v
+		response := &GetBackfillResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBackfillNotFound:
-		return nil, v
+		response := &GetBackfillResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBackfillInternalServerError:
-		return nil, v
+		response := &GetBackfillResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -223,7 +318,7 @@ func (a *Client) GetBackfillShort(params *GetBackfillParams, authInfo runtime.Cl
 DeleteBackfillShort delete a backfill ticket
 Delete backfill ticket.
 */
-func (a *Client) DeleteBackfillShort(params *DeleteBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBackfillNoContent, error) {
+func (a *Client) DeleteBackfillShort(params *DeleteBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBackfillResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteBackfillParams()
@@ -261,15 +356,39 @@ func (a *Client) DeleteBackfillShort(params *DeleteBackfillParams, authInfo runt
 	switch v := result.(type) {
 
 	case *DeleteBackfillNoContent:
-		return v, nil
+		response := &DeleteBackfillResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteBackfillUnauthorized:
-		return nil, v
+		response := &DeleteBackfillResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteBackfillForbidden:
-		return nil, v
+		response := &DeleteBackfillResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteBackfillNotFound:
-		return nil, v
+		response := &DeleteBackfillResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteBackfillInternalServerError:
-		return nil, v
+		response := &DeleteBackfillResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -282,7 +401,7 @@ Accept backfill proposal.
 Field **acceptedTicketIds** can be used to accept specific tickets within a backfill proposal. If the ticketIDs are not mentioned in this field, those tickets will be rejected and reactivated for future proposals.
 If **acceptedTicketIds** is nil or not specified, then all tickets in the proposal will be accepted.
 */
-func (a *Client) AcceptBackfillShort(params *AcceptBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*AcceptBackfillOK, error) {
+func (a *Client) AcceptBackfillShort(params *AcceptBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*AcceptBackfillResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAcceptBackfillParams()
@@ -320,17 +439,47 @@ func (a *Client) AcceptBackfillShort(params *AcceptBackfillParams, authInfo runt
 	switch v := result.(type) {
 
 	case *AcceptBackfillOK:
-		return v, nil
+		response := &AcceptBackfillResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AcceptBackfillBadRequest:
-		return nil, v
+		response := &AcceptBackfillResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AcceptBackfillUnauthorized:
-		return nil, v
+		response := &AcceptBackfillResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AcceptBackfillForbidden:
-		return nil, v
+		response := &AcceptBackfillResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AcceptBackfillNotFound:
-		return nil, v
+		response := &AcceptBackfillResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AcceptBackfillInternalServerError:
-		return nil, v
+		response := &AcceptBackfillResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -341,7 +490,7 @@ func (a *Client) AcceptBackfillShort(params *AcceptBackfillParams, authInfo runt
 RejectBackfillShort reject a backfill proposal
 Reject backfill proposal
 */
-func (a *Client) RejectBackfillShort(params *RejectBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*RejectBackfillOK, error) {
+func (a *Client) RejectBackfillShort(params *RejectBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*RejectBackfillResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRejectBackfillParams()
@@ -379,17 +528,46 @@ func (a *Client) RejectBackfillShort(params *RejectBackfillParams, authInfo runt
 	switch v := result.(type) {
 
 	case *RejectBackfillOK:
-		return v, nil
+		response := &RejectBackfillResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RejectBackfillBadRequest:
-		return nil, v
+		response := &RejectBackfillResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RejectBackfillUnauthorized:
-		return nil, v
+		response := &RejectBackfillResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RejectBackfillForbidden:
-		return nil, v
+		response := &RejectBackfillResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RejectBackfillNotFound:
-		return nil, v
+		response := &RejectBackfillResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RejectBackfillInternalServerError:
-		return nil, v
+		response := &RejectBackfillResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

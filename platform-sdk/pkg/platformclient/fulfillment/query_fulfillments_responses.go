@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryFulfillmentsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.FulfillmentPagingSlicedResult
+}
+
+func (m *QueryFulfillmentsResponse) Unpack() (*platformclientmodels.FulfillmentPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryFulfillmentsReader is a Reader for the QueryFulfillments structure.
 type QueryFulfillmentsReader struct {
 	formats strfmt.Registry

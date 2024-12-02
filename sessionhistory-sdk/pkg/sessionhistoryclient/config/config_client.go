@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigOK, error)
-	AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigOK, error)
+	AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigResponse, error)
+	AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 AdminGetLogConfigShort get log configuration
 Get Log Configuration.
 */
-func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigOK, error) {
+func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetLogConfigParams()
@@ -78,11 +78,26 @@ func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInf
 	switch v := result.(type) {
 
 	case *AdminGetLogConfigOK:
-		return v, nil
+		response := &AdminGetLogConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetLogConfigUnauthorized:
-		return nil, v
+		response := &AdminGetLogConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetLogConfigForbidden:
-		return nil, v
+		response := &AdminGetLogConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -93,7 +108,7 @@ func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInf
 AdminPatchUpdateLogConfigShort patch update log configuration
 Update Log Configuration.
 */
-func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigOK, error) {
+func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPatchUpdateLogConfigParams()
@@ -131,11 +146,26 @@ func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfi
 	switch v := result.(type) {
 
 	case *AdminPatchUpdateLogConfigOK:
-		return v, nil
+		response := &AdminPatchUpdateLogConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPatchUpdateLogConfigUnauthorized:
-		return nil, v
+		response := &AdminPatchUpdateLogConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPatchUpdateLogConfigForbidden:
-		return nil, v
+		response := &AdminPatchUpdateLogConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

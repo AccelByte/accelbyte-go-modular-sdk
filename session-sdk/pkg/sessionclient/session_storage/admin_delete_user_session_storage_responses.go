@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
+type AdminDeleteUserSessionStorageResponse struct {
+	sessionclientmodels.ApiResponse
+
+	Error400 *sessionclientmodels.ResponseError
+	Error401 *sessionclientmodels.ResponseError
+	Error404 *sessionclientmodels.ResponseError
+	Error500 *sessionclientmodels.ResponseError
+}
+
+func (m *AdminDeleteUserSessionStorageResponse) Unpack() *sessionclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &sessionclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminDeleteUserSessionStorageReader is a Reader for the AdminDeleteUserSessionStorage structure.
 type AdminDeleteUserSessionStorageReader struct {
 	formats strfmt.Registry

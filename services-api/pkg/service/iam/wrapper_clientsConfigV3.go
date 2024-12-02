@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ClientsConfigV3Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ClientsConfigV3Service) AdminListClientAvailablePermissionsShort(input *clients_config_v3.AdminListClientAvailablePermissionsParams) (*iamclientmodels.ClientmodelListClientPermissionSet, error) {
+func (aaa *ClientsConfigV3Service) AdminListClientAvailablePermissionsShort(input *clients_config_v3.AdminListClientAvailablePermissionsParams) (*clients_config_v3.AdminListClientAvailablePermissionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *ClientsConfigV3Service) AdminListClientAvailablePermissionsShort(inpu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ClientsConfigV3Service) AdminUpdateAvailablePermissionsByModuleShort(input *clients_config_v3.AdminUpdateAvailablePermissionsByModuleParams) error {
@@ -129,7 +128,7 @@ func (aaa *ClientsConfigV3Service) AdminDeleteConfigPermissionsByGroupShort(inpu
 	return nil
 }
 
-func (aaa *ClientsConfigV3Service) AdminListClientTemplatesShort(input *clients_config_v3.AdminListClientTemplatesParams) (*iamclientmodels.ClientmodelListTemplatesResponse, error) {
+func (aaa *ClientsConfigV3Service) AdminListClientTemplatesShort(input *clients_config_v3.AdminListClientTemplatesParams) (*clients_config_v3.AdminListClientTemplatesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,5 +155,5 @@ func (aaa *ClientsConfigV3Service) AdminListClientTemplatesShort(input *clients_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

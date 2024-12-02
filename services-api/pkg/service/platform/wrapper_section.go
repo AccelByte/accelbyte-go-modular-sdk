@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/section"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *SectionService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *SectionService) QuerySectionsShort(input *section.QuerySectionsParams) (*platformclientmodels.SectionPagingSlicedResult, error) {
+func (aaa *SectionService) QuerySectionsShort(input *section.QuerySectionsParams) (*section.QuerySectionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *SectionService) QuerySectionsShort(input *section.QuerySectionsParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SectionService) CreateSectionShort(input *section.CreateSectionParams) (*platformclientmodels.FullSectionInfo, error) {
+func (aaa *SectionService) CreateSectionShort(input *section.CreateSectionParams) (*section.CreateSectionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *SectionService) CreateSectionShort(input *section.CreateSectionParams
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *SectionService) PurgeExpiredSectionShort(input *section.PurgeExpiredSectionParams) error {
@@ -129,7 +128,7 @@ func (aaa *SectionService) PurgeExpiredSectionShort(input *section.PurgeExpiredS
 	return nil
 }
 
-func (aaa *SectionService) GetSectionShort(input *section.GetSectionParams) (*platformclientmodels.FullSectionInfo, error) {
+func (aaa *SectionService) GetSectionShort(input *section.GetSectionParams) (*section.GetSectionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *SectionService) GetSectionShort(input *section.GetSectionParams) (*pl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SectionService) UpdateSectionShort(input *section.UpdateSectionParams) (*platformclientmodels.FullSectionInfo, error) {
+func (aaa *SectionService) UpdateSectionShort(input *section.UpdateSectionParams) (*section.UpdateSectionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *SectionService) UpdateSectionShort(input *section.UpdateSectionParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *SectionService) DeleteSectionShort(input *section.DeleteSectionParams) error {
@@ -219,7 +218,7 @@ func (aaa *SectionService) DeleteSectionShort(input *section.DeleteSectionParams
 	return nil
 }
 
-func (aaa *SectionService) PublicListActiveSectionsShort(input *section.PublicListActiveSectionsParams) ([]*platformclientmodels.SectionInfo, error) {
+func (aaa *SectionService) PublicListActiveSectionsShort(input *section.PublicListActiveSectionsParams) (*section.PublicListActiveSectionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,5 +245,5 @@ func (aaa *SectionService) PublicListActiveSectionsShort(input *section.PublicLi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

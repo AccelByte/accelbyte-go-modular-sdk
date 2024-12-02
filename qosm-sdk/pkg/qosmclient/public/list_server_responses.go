@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclientmodels"
 )
 
+type ListServerResponse struct {
+	qosmclientmodels.ApiResponse
+	Data *qosmclientmodels.ModelsListServerResponse
+
+	Error500 *qosmclientmodels.ResponseError
+}
+
+func (m *ListServerResponse) Unpack() (*qosmclientmodels.ModelsListServerResponse, *qosmclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &qosmclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ListServerReader is a Reader for the ListServer structure.
 type ListServerReader struct {
 	formats strfmt.Registry

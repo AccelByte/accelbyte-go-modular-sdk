@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type UpdateAppleP8FileResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.AppleIAPConfigInfo
+}
+
+func (m *UpdateAppleP8FileResponse) Unpack() (*platformclientmodels.AppleIAPConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateAppleP8FileReader is a Reader for the UpdateAppleP8File structure.
 type UpdateAppleP8FileReader struct {
 	formats strfmt.Registry

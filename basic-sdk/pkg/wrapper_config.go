@@ -9,7 +9,6 @@ package basic
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*basicclientmodels.ConfigInfo, error) {
+func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*config.CreateConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *ConfigService) GetConfigShort(input *config.GetConfigParams) (*basicclientmodels.ConfigInfo, error) {
+func (aaa *ConfigService) GetConfigShort(input *config.GetConfigParams) (*config.GetConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *ConfigService) GetConfigShort(input *config.GetConfigParams) (*basicc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigService) DeleteConfigShort(input *config.DeleteConfigParams) error {
@@ -127,7 +126,7 @@ func (aaa *ConfigService) DeleteConfigShort(input *config.DeleteConfigParams) er
 	return nil
 }
 
-func (aaa *ConfigService) UpdateConfigShort(input *config.UpdateConfigParams) (*basicclientmodels.ConfigInfo, error) {
+func (aaa *ConfigService) UpdateConfigShort(input *config.UpdateConfigParams) (*config.UpdateConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *ConfigService) UpdateConfigShort(input *config.UpdateConfigParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) GetPublisherConfigShort(input *config.GetPublisherConfigParams) (*basicclientmodels.ConfigInfo, error) {
+func (aaa *ConfigService) GetPublisherConfigShort(input *config.GetPublisherConfigParams) (*config.GetPublisherConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,5 +183,5 @@ func (aaa *ConfigService) GetPublisherConfigShort(input *config.GetPublisherConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetUserOrderGrantResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.OrderGrantInfo
+}
+
+func (m *GetUserOrderGrantResponse) Unpack() (*platformclientmodels.OrderGrantInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserOrderGrantReader is a Reader for the GetUserOrderGrant structure.
 type GetUserOrderGrantReader struct {
 	formats strfmt.Registry

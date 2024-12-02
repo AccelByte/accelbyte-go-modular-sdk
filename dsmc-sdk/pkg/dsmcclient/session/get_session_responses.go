@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 )
 
+type GetSessionResponse struct {
+	dsmcclientmodels.ApiResponse
+	Data *dsmcclientmodels.ModelsSessionResponse
+
+	Error401 *dsmcclientmodels.ResponseError
+	Error404 *dsmcclientmodels.ResponseError
+	Error500 *dsmcclientmodels.ResponseError
+}
+
+func (m *GetSessionResponse) Unpack() (*dsmcclientmodels.ModelsSessionResponse, *dsmcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dsmcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetSessionReader is a Reader for the GetSession structure.
 type GetSessionReader struct {
 	formats strfmt.Registry

@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ArtifactGetShort(params *ArtifactGetParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactGetOK, error)
-	ArtifactBulkDeleteShort(params *ArtifactBulkDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactBulkDeleteAccepted, error)
-	ArtifactUsageGetShort(params *ArtifactUsageGetParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactUsageGetOK, error)
-	ArtifactDeleteShort(params *ArtifactDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactDeleteAccepted, error)
-	ArtifactGetURLShort(params *ArtifactGetURLParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactGetURLOK, error)
-	FleetArtifactSamplingRulesGetShort(params *FleetArtifactSamplingRulesGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetArtifactSamplingRulesGetOK, error)
-	FleetArtifactSamplingRulesSetShort(params *FleetArtifactSamplingRulesSetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetArtifactSamplingRulesSetOK, error)
+	ArtifactGetShort(params *ArtifactGetParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactGetResponse, error)
+	ArtifactBulkDeleteShort(params *ArtifactBulkDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactBulkDeleteResponse, error)
+	ArtifactUsageGetShort(params *ArtifactUsageGetParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactUsageGetResponse, error)
+	ArtifactDeleteShort(params *ArtifactDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactDeleteResponse, error)
+	ArtifactGetURLShort(params *ArtifactGetURLParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactGetURLResponse, error)
+	FleetArtifactSamplingRulesGetShort(params *FleetArtifactSamplingRulesGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetArtifactSamplingRulesGetResponse, error)
+	FleetArtifactSamplingRulesSetShort(params *FleetArtifactSamplingRulesSetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetArtifactSamplingRulesSetResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ Get all artifacts matching the provided search criteria. When criteria is not sp
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [READ]
 */
-func (a *Client) ArtifactGetShort(params *ArtifactGetParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactGetOK, error) {
+func (a *Client) ArtifactGetShort(params *ArtifactGetParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewArtifactGetParams()
@@ -85,15 +85,40 @@ func (a *Client) ArtifactGetShort(params *ArtifactGetParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ArtifactGetOK:
-		return v, nil
+		response := &ArtifactGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ArtifactGetBadRequest:
-		return nil, v
+		response := &ArtifactGetResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactGetUnauthorized:
-		return nil, v
+		response := &ArtifactGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactGetForbidden:
-		return nil, v
+		response := &ArtifactGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactGetInternalServerError:
-		return nil, v
+		response := &ArtifactGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +129,7 @@ func (a *Client) ArtifactGetShort(params *ArtifactGetParams, authInfo runtime.Cl
 ArtifactBulkDeleteShort delete artifacts that match criteria in bulk. all artifacts matching any one criteria will be deleted. at least 1 parameter is required.
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA [DELETE]
 */
-func (a *Client) ArtifactBulkDeleteShort(params *ArtifactBulkDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactBulkDeleteAccepted, error) {
+func (a *Client) ArtifactBulkDeleteShort(params *ArtifactBulkDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactBulkDeleteResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewArtifactBulkDeleteParams()
@@ -142,15 +167,39 @@ func (a *Client) ArtifactBulkDeleteShort(params *ArtifactBulkDeleteParams, authI
 	switch v := result.(type) {
 
 	case *ArtifactBulkDeleteAccepted:
-		return v, nil
+		response := &ArtifactBulkDeleteResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ArtifactBulkDeleteBadRequest:
-		return nil, v
+		response := &ArtifactBulkDeleteResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactBulkDeleteUnauthorized:
-		return nil, v
+		response := &ArtifactBulkDeleteResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactBulkDeleteForbidden:
-		return nil, v
+		response := &ArtifactBulkDeleteResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactBulkDeleteInternalServerError:
-		return nil, v
+		response := &ArtifactBulkDeleteResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -161,7 +210,7 @@ func (a *Client) ArtifactBulkDeleteShort(params *ArtifactBulkDeleteParams, authI
 ArtifactUsageGetShort retrieve artifact storage usage for the namespace
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [READ]
 */
-func (a *Client) ArtifactUsageGetShort(params *ArtifactUsageGetParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactUsageGetOK, error) {
+func (a *Client) ArtifactUsageGetShort(params *ArtifactUsageGetParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactUsageGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewArtifactUsageGetParams()
@@ -199,13 +248,33 @@ func (a *Client) ArtifactUsageGetShort(params *ArtifactUsageGetParams, authInfo 
 	switch v := result.(type) {
 
 	case *ArtifactUsageGetOK:
-		return v, nil
+		response := &ArtifactUsageGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ArtifactUsageGetUnauthorized:
-		return nil, v
+		response := &ArtifactUsageGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactUsageGetForbidden:
-		return nil, v
+		response := &ArtifactUsageGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactUsageGetInternalServerError:
-		return nil, v
+		response := &ArtifactUsageGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,7 +285,7 @@ func (a *Client) ArtifactUsageGetShort(params *ArtifactUsageGetParams, authInfo 
 ArtifactDeleteShort delete a specified artifact
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [DELETE]
 */
-func (a *Client) ArtifactDeleteShort(params *ArtifactDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactDeleteAccepted, error) {
+func (a *Client) ArtifactDeleteShort(params *ArtifactDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactDeleteResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewArtifactDeleteParams()
@@ -254,17 +323,46 @@ func (a *Client) ArtifactDeleteShort(params *ArtifactDeleteParams, authInfo runt
 	switch v := result.(type) {
 
 	case *ArtifactDeleteAccepted:
-		return v, nil
+		response := &ArtifactDeleteResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ArtifactDeleteBadRequest:
-		return nil, v
+		response := &ArtifactDeleteResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactDeleteUnauthorized:
-		return nil, v
+		response := &ArtifactDeleteResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactDeleteForbidden:
-		return nil, v
+		response := &ArtifactDeleteResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactDeleteNotFound:
-		return nil, v
+		response := &ArtifactDeleteResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactDeleteInternalServerError:
-		return nil, v
+		response := &ArtifactDeleteResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -275,7 +373,7 @@ func (a *Client) ArtifactDeleteShort(params *ArtifactDeleteParams, authInfo runt
 ArtifactGetURLShort get a signed url for a specific artifact
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [READ]
 */
-func (a *Client) ArtifactGetURLShort(params *ArtifactGetURLParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactGetURLOK, error) {
+func (a *Client) ArtifactGetURLShort(params *ArtifactGetURLParams, authInfo runtime.ClientAuthInfoWriter) (*ArtifactGetURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewArtifactGetURLParams()
@@ -313,17 +411,47 @@ func (a *Client) ArtifactGetURLShort(params *ArtifactGetURLParams, authInfo runt
 	switch v := result.(type) {
 
 	case *ArtifactGetURLOK:
-		return v, nil
+		response := &ArtifactGetURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ArtifactGetURLBadRequest:
-		return nil, v
+		response := &ArtifactGetURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactGetURLUnauthorized:
-		return nil, v
+		response := &ArtifactGetURLResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactGetURLForbidden:
-		return nil, v
+		response := &ArtifactGetURLResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactGetURLNotFound:
-		return nil, v
+		response := &ArtifactGetURLResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ArtifactGetURLInternalServerError:
-		return nil, v
+		response := &ArtifactGetURLResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -334,7 +462,7 @@ func (a *Client) ArtifactGetURLShort(params *ArtifactGetURLParams, authInfo runt
 FleetArtifactSamplingRulesGetShort get the sampling rules for a fleet
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [READ]
 */
-func (a *Client) FleetArtifactSamplingRulesGetShort(params *FleetArtifactSamplingRulesGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetArtifactSamplingRulesGetOK, error) {
+func (a *Client) FleetArtifactSamplingRulesGetShort(params *FleetArtifactSamplingRulesGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetArtifactSamplingRulesGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetArtifactSamplingRulesGetParams()
@@ -372,17 +500,47 @@ func (a *Client) FleetArtifactSamplingRulesGetShort(params *FleetArtifactSamplin
 	switch v := result.(type) {
 
 	case *FleetArtifactSamplingRulesGetOK:
-		return v, nil
+		response := &FleetArtifactSamplingRulesGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetArtifactSamplingRulesGetBadRequest:
-		return nil, v
+		response := &FleetArtifactSamplingRulesGetResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetArtifactSamplingRulesGetUnauthorized:
-		return nil, v
+		response := &FleetArtifactSamplingRulesGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetArtifactSamplingRulesGetForbidden:
-		return nil, v
+		response := &FleetArtifactSamplingRulesGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetArtifactSamplingRulesGetNotFound:
-		return nil, v
+		response := &FleetArtifactSamplingRulesGetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetArtifactSamplingRulesGetInternalServerError:
-		return nil, v
+		response := &FleetArtifactSamplingRulesGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -393,7 +551,7 @@ func (a *Client) FleetArtifactSamplingRulesGetShort(params *FleetArtifactSamplin
 FleetArtifactSamplingRulesSetShort set sampling rules for a fleet
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [UPDATE]
 */
-func (a *Client) FleetArtifactSamplingRulesSetShort(params *FleetArtifactSamplingRulesSetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetArtifactSamplingRulesSetOK, error) {
+func (a *Client) FleetArtifactSamplingRulesSetShort(params *FleetArtifactSamplingRulesSetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetArtifactSamplingRulesSetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetArtifactSamplingRulesSetParams()
@@ -431,17 +589,47 @@ func (a *Client) FleetArtifactSamplingRulesSetShort(params *FleetArtifactSamplin
 	switch v := result.(type) {
 
 	case *FleetArtifactSamplingRulesSetOK:
-		return v, nil
+		response := &FleetArtifactSamplingRulesSetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetArtifactSamplingRulesSetBadRequest:
-		return nil, v
+		response := &FleetArtifactSamplingRulesSetResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetArtifactSamplingRulesSetUnauthorized:
-		return nil, v
+		response := &FleetArtifactSamplingRulesSetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetArtifactSamplingRulesSetForbidden:
-		return nil, v
+		response := &FleetArtifactSamplingRulesSetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetArtifactSamplingRulesSetNotFound:
-		return nil, v
+		response := &FleetArtifactSamplingRulesSetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetArtifactSamplingRulesSetInternalServerError:
-		return nil, v
+		response := &FleetArtifactSamplingRulesSetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

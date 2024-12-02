@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclientmodels"
 )
 
+type GetServerLogsResponse struct {
+	dslogmanagerclientmodels.ApiResponse
+	Data *dslogmanagerclientmodels.ModelsServerLogs
+
+	Error400 *dslogmanagerclientmodels.ResponseError
+	Error401 *dslogmanagerclientmodels.ResponseError
+	Error404 *dslogmanagerclientmodels.ResponseError
+	Error500 *dslogmanagerclientmodels.ResponseError
+}
+
+func (m *GetServerLogsResponse) Unpack() (*dslogmanagerclientmodels.ModelsServerLogs, *dslogmanagerclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dslogmanagerclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetServerLogsReader is a Reader for the GetServerLogs structure.
 type GetServerLogsReader struct {
 	formats strfmt.Registry

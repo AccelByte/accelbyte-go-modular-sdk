@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -66,10 +65,10 @@ func (aaa *OAuthService) AuthorizationShort(input *o_auth.AuthorizationParams) (
 		return "", err
 	}
 
-	return found.Location, nil
+	return found.Data, nil
 }
 
-func (aaa *OAuthService) GetJWKSShort(input *o_auth.GetJWKSParams) (*iamclientmodels.OauthcommonJWKSet, error) {
+func (aaa *OAuthService) GetJWKSShort(input *o_auth.GetJWKSParams) (*o_auth.GetJWKSResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *OAuthService) GetJWKSShort(input *o_auth.GetJWKSParams) (*iamclientmo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuthService) PlatformTokenRequestHandlerShort(input *o_auth.PlatformTokenRequestHandlerParams) (*iamclientmodels.OauthmodelTokenResponse, error) {
+func (aaa *OAuthService) PlatformTokenRequestHandlerShort(input *o_auth.PlatformTokenRequestHandlerParams) (*o_auth.PlatformTokenRequestHandlerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *OAuthService) PlatformTokenRequestHandlerShort(input *o_auth.Platform
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OAuthService) RevokeUserShort(input *o_auth.RevokeUserParams) error {
@@ -159,7 +158,7 @@ func (aaa *OAuthService) RevokeUserShort(input *o_auth.RevokeUserParams) error {
 	return nil
 }
 
-func (aaa *OAuthService) GetRevocationListShort(input *o_auth.GetRevocationListParams) (*iamclientmodels.OauthapiRevocationList, error) {
+func (aaa *OAuthService) GetRevocationListShort(input *o_auth.GetRevocationListParams) (*o_auth.GetRevocationListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *OAuthService) GetRevocationListShort(input *o_auth.GetRevocationListP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OAuthService) RevokeTokenShort(input *o_auth.RevokeTokenParams) error {
@@ -249,7 +248,7 @@ func (aaa *OAuthService) RevokeAUserShort(input *o_auth.RevokeAUserParams) error
 	return nil
 }
 
-func (aaa *OAuthService) TokenGrantShort(input *o_auth.TokenGrantParams) (*iamclientmodels.OauthmodelTokenResponse, error) {
+func (aaa *OAuthService) TokenGrantShort(input *o_auth.TokenGrantParams) (*o_auth.TokenGrantResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *OAuthService) TokenGrantShort(input *o_auth.TokenGrantParams) (*iamcl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuthService) VerifyTokenShort(input *o_auth.VerifyTokenParams) (*iamclientmodels.OauthmodelTokenResponse, error) {
+func (aaa *OAuthService) VerifyTokenShort(input *o_auth.VerifyTokenParams) (*o_auth.VerifyTokenResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,5 +305,5 @@ func (aaa *OAuthService) VerifyTokenShort(input *o_auth.VerifyTokenParams) (*iam
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

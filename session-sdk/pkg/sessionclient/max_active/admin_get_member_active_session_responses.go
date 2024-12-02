@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
+type AdminGetMemberActiveSessionResponse struct {
+	sessionclientmodels.ApiResponse
+	Data *sessionclientmodels.ModelsMemberActiveSession
+
+	Error400 *sessionclientmodels.ResponseError
+	Error401 *sessionclientmodels.ResponseError
+	Error500 *sessionclientmodels.ResponseError
+}
+
+func (m *AdminGetMemberActiveSessionResponse) Unpack() (*sessionclientmodels.ModelsMemberActiveSession, *sessionclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetMemberActiveSessionReader is a Reader for the AdminGetMemberActiveSession structure.
 type AdminGetMemberActiveSessionReader struct {
 	formats strfmt.Registry

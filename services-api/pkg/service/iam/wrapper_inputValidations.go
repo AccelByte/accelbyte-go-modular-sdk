@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *InputValidationsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *InputValidationsService) AdminGetInputValidationsShort(input *input_validations.AdminGetInputValidationsParams) (*iamclientmodels.ModelInputValidationsResponse, error) {
+func (aaa *InputValidationsService) AdminGetInputValidationsShort(input *input_validations.AdminGetInputValidationsParams) (*input_validations.AdminGetInputValidationsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *InputValidationsService) AdminGetInputValidationsShort(input *input_v
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *InputValidationsService) AdminUpdateInputValidationsShort(input *input_validations.AdminUpdateInputValidationsParams) error {
@@ -129,7 +128,7 @@ func (aaa *InputValidationsService) AdminResetInputValidationsShort(input *input
 	return nil
 }
 
-func (aaa *InputValidationsService) PublicGetInputValidationsShort(input *input_validations.PublicGetInputValidationsParams) (*iamclientmodels.ModelInputValidationsPublicResponse, error) {
+func (aaa *InputValidationsService) PublicGetInputValidationsShort(input *input_validations.PublicGetInputValidationsParams) (*input_validations.PublicGetInputValidationsResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -149,10 +148,10 @@ func (aaa *InputValidationsService) PublicGetInputValidationsShort(input *input_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *InputValidationsService) PublicGetInputValidationByFieldShort(input *input_validations.PublicGetInputValidationByFieldParams) (*iamclientmodels.ModelInputValidationConfigVersion, error) {
+func (aaa *InputValidationsService) PublicGetInputValidationByFieldShort(input *input_validations.PublicGetInputValidationByFieldParams) (*input_validations.PublicGetInputValidationByFieldResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -179,5 +178,5 @@ func (aaa *InputValidationsService) PublicGetInputValidationByFieldShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

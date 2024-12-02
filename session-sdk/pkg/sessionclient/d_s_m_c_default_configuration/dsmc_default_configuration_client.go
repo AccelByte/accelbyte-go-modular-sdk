@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetDSMCConfigurationDefaultShort(params *AdminGetDSMCConfigurationDefaultParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationDefaultOK, error)
+	AdminGetDSMCConfigurationDefaultShort(params *AdminGetDSMCConfigurationDefaultParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationDefaultResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 AdminGetDSMCConfigurationDefaultShort get dsmc default configuration.
 Get dsmc default configuration.
 */
-func (a *Client) AdminGetDSMCConfigurationDefaultShort(params *AdminGetDSMCConfigurationDefaultParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationDefaultOK, error) {
+func (a *Client) AdminGetDSMCConfigurationDefaultShort(params *AdminGetDSMCConfigurationDefaultParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationDefaultResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetDSMCConfigurationDefaultParams()
@@ -77,17 +77,47 @@ func (a *Client) AdminGetDSMCConfigurationDefaultShort(params *AdminGetDSMCConfi
 	switch v := result.(type) {
 
 	case *AdminGetDSMCConfigurationDefaultOK:
-		return v, nil
+		response := &AdminGetDSMCConfigurationDefaultResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetDSMCConfigurationDefaultBadRequest:
-		return nil, v
+		response := &AdminGetDSMCConfigurationDefaultResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetDSMCConfigurationDefaultUnauthorized:
-		return nil, v
+		response := &AdminGetDSMCConfigurationDefaultResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetDSMCConfigurationDefaultForbidden:
-		return nil, v
+		response := &AdminGetDSMCConfigurationDefaultResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetDSMCConfigurationDefaultNotFound:
-		return nil, v
+		response := &AdminGetDSMCConfigurationDefaultResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetDSMCConfigurationDefaultInternalServerError:
-		return nil, v
+		response := &AdminGetDSMCConfigurationDefaultResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

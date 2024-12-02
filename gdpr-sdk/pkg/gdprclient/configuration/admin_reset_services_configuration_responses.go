@@ -19,6 +19,44 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 )
 
+type AdminResetServicesConfigurationResponse struct {
+	gdprclientmodels.ApiResponse
+
+	Error401 *gdprclientmodels.ResponseError
+	Error500 *gdprclientmodels.ResponseError
+}
+
+func (m *AdminResetServicesConfigurationResponse) Unpack() *gdprclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &gdprclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminResetServicesConfigurationReader is a Reader for the AdminResetServicesConfiguration structure.
 type AdminResetServicesConfigurationReader struct {
 	formats strfmt.Registry

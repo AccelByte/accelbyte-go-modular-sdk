@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryUserSubscriptionsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.SubscriptionPagingSlicedResult
+}
+
+func (m *QueryUserSubscriptionsResponse) Unpack() (*platformclientmodels.SubscriptionPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryUserSubscriptionsReader is a Reader for the QueryUserSubscriptions structure.
 type QueryUserSubscriptionsReader struct {
 	formats strfmt.Registry

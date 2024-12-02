@@ -31,28 +31,28 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetCatalogConfigShort(params *GetCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogConfigOK, error)
-	UpdateCatalogConfigShort(params *UpdateCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCatalogConfigOK, error)
-	ListStoresShort(params *ListStoresParams, authInfo runtime.ClientAuthInfoWriter) (*ListStoresOK, error)
-	CreateStoreShort(params *CreateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStoreCreated, error)
-	GetCatalogDefinitionShort(params *GetCatalogDefinitionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogDefinitionOK, error)
-	DownloadCSVTemplatesShort(params *DownloadCSVTemplatesParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadCSVTemplatesOK, error)
-	ExportStoreByCSVShort(params *ExportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreByCSVOK, error)
-	ImportStoreShort(params *ImportStoreParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreOK, error)
-	GetPublishedStoreShort(params *GetPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreOK, error)
-	DeletePublishedStoreShort(params *DeletePublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePublishedStoreOK, error)
-	GetPublishedStoreBackupShort(params *GetPublishedStoreBackupParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreBackupOK, error)
-	RollbackPublishedStoreShort(params *RollbackPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*RollbackPublishedStoreOK, error)
-	GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetStoreOK, error)
-	UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStoreOK, error)
-	DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStoreOK, error)
-	CloneStoreShort(params *CloneStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CloneStoreOK, error)
-	ExportStoreShort(params *ExportStoreParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreOK, error)
-	QueryImportHistoryShort(params *QueryImportHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryImportHistoryOK, error)
-	ImportStoreByCSVShort(params *ImportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreByCSVOK, error)
-	PublicListStoresShort(params *PublicListStoresParams) (*PublicListStoresOK, error)
-	ImportStore1Short(params *ImportStore1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportStore1OK, error)
-	ExportStore1Short(params *ExportStore1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStore1OK, error)
+	GetCatalogConfigShort(params *GetCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogConfigResponse, error)
+	UpdateCatalogConfigShort(params *UpdateCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCatalogConfigResponse, error)
+	ListStoresShort(params *ListStoresParams, authInfo runtime.ClientAuthInfoWriter) (*ListStoresResponse, error)
+	CreateStoreShort(params *CreateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStoreResponse, error)
+	GetCatalogDefinitionShort(params *GetCatalogDefinitionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogDefinitionResponse, error)
+	DownloadCSVTemplatesShort(params *DownloadCSVTemplatesParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadCSVTemplatesResponse, error)
+	ExportStoreByCSVShort(params *ExportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreByCSVResponse, error)
+	ImportStoreShort(params *ImportStoreParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreResponse, error)
+	GetPublishedStoreShort(params *GetPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreResponse, error)
+	DeletePublishedStoreShort(params *DeletePublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePublishedStoreResponse, error)
+	GetPublishedStoreBackupShort(params *GetPublishedStoreBackupParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreBackupResponse, error)
+	RollbackPublishedStoreShort(params *RollbackPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*RollbackPublishedStoreResponse, error)
+	GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetStoreResponse, error)
+	UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStoreResponse, error)
+	DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStoreResponse, error)
+	CloneStoreShort(params *CloneStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CloneStoreResponse, error)
+	ExportStoreShort(params *ExportStoreParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreResponse, error)
+	QueryImportHistoryShort(params *QueryImportHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryImportHistoryResponse, error)
+	ImportStoreByCSVShort(params *ImportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreByCSVResponse, error)
+	PublicListStoresShort(params *PublicListStoresParams) (*PublicListStoresResponse, error)
+	ImportStore1Short(params *ImportStore1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportStore1Response, error)
+	ExportStore1Short(params *ExportStore1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStore1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -61,7 +61,7 @@ type ClientService interface {
 GetCatalogConfigShort get catalog config
 Get catalog config.
 */
-func (a *Client) GetCatalogConfigShort(params *GetCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogConfigOK, error) {
+func (a *Client) GetCatalogConfigShort(params *GetCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCatalogConfigParams()
@@ -99,7 +99,12 @@ func (a *Client) GetCatalogConfigShort(params *GetCatalogConfigParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetCatalogConfigOK:
-		return v, nil
+		response := &GetCatalogConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -111,7 +116,7 @@ UpdateCatalogConfigShort update catalog config
 Update catalog config. Other detail info:
   * Returns : updated catalog config
 */
-func (a *Client) UpdateCatalogConfigShort(params *UpdateCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCatalogConfigOK, error) {
+func (a *Client) UpdateCatalogConfigShort(params *UpdateCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCatalogConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCatalogConfigParams()
@@ -149,9 +154,19 @@ func (a *Client) UpdateCatalogConfigShort(params *UpdateCatalogConfigParams, aut
 	switch v := result.(type) {
 
 	case *UpdateCatalogConfigOK:
-		return v, nil
+		response := &UpdateCatalogConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateCatalogConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdateCatalogConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +181,7 @@ Other detail info:
 
   * Returns : the list of stores
 */
-func (a *Client) ListStoresShort(params *ListStoresParams, authInfo runtime.ClientAuthInfoWriter) (*ListStoresOK, error) {
+func (a *Client) ListStoresShort(params *ListStoresParams, authInfo runtime.ClientAuthInfoWriter) (*ListStoresResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListStoresParams()
@@ -204,7 +219,12 @@ func (a *Client) ListStoresShort(params *ListStoresParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *ListStoresOK:
-		return v, nil
+		response := &ListStoresResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -219,7 +239,7 @@ Other detail info:
 
   * Returns : created store data
 */
-func (a *Client) CreateStoreShort(params *CreateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStoreCreated, error) {
+func (a *Client) CreateStoreShort(params *CreateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateStoreParams()
@@ -257,11 +277,26 @@ func (a *Client) CreateStoreShort(params *CreateStoreParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CreateStoreCreated:
-		return v, nil
+		response := &CreateStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateStoreConflict:
-		return nil, v
+		response := &CreateStoreResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStoreUnprocessableEntity:
-		return nil, v
+		response := &CreateStoreResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -276,7 +311,7 @@ Other detail info:
 
   * Returns : catalog definition
 */
-func (a *Client) GetCatalogDefinitionShort(params *GetCatalogDefinitionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogDefinitionOK, error) {
+func (a *Client) GetCatalogDefinitionShort(params *GetCatalogDefinitionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogDefinitionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCatalogDefinitionParams()
@@ -314,7 +349,12 @@ func (a *Client) GetCatalogDefinitionShort(params *GetCatalogDefinitionParams, a
 	switch v := result.(type) {
 
 	case *GetCatalogDefinitionOK:
-		return v, nil
+		response := &GetCatalogDefinitionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -325,7 +365,7 @@ func (a *Client) GetCatalogDefinitionShort(params *GetCatalogDefinitionParams, a
 DownloadCSVTemplatesShort download store csv templates
 This API is used to download store csv templates for store importing by CSV feature
 */
-func (a *Client) DownloadCSVTemplatesShort(params *DownloadCSVTemplatesParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadCSVTemplatesOK, error) {
+func (a *Client) DownloadCSVTemplatesShort(params *DownloadCSVTemplatesParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadCSVTemplatesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadCSVTemplatesParams()
@@ -363,7 +403,12 @@ func (a *Client) DownloadCSVTemplatesShort(params *DownloadCSVTemplatesParams, a
 	switch v := result.(type) {
 
 	case *DownloadCSVTemplatesOK:
-		return v, nil
+		response := &DownloadCSVTemplatesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -374,7 +419,7 @@ func (a *Client) DownloadCSVTemplatesShort(params *DownloadCSVTemplatesParams, a
 ExportStoreByCSVShort export a store to csv format
 This API is used to export a store to CSV format
 */
-func (a *Client) ExportStoreByCSVShort(params *ExportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreByCSVOK, error) {
+func (a *Client) ExportStoreByCSVShort(params *ExportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreByCSVResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportStoreByCSVParams()
@@ -412,13 +457,33 @@ func (a *Client) ExportStoreByCSVShort(params *ExportStoreByCSVParams, authInfo 
 	switch v := result.(type) {
 
 	case *ExportStoreByCSVOK:
-		return v, nil
+		response := &ExportStoreByCSVResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportStoreByCSVBadRequest:
-		return nil, v
+		response := &ExportStoreByCSVResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportStoreByCSVNotFound:
-		return nil, v
+		response := &ExportStoreByCSVResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportStoreByCSVConflict:
-		return nil, v
+		response := &ExportStoreByCSVResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -431,7 +496,7 @@ This API is used to import a store.
 
 This api has been deprecated, pls use /v2/admin/namespaces/{namespace}/stores/import to import store.
 */
-func (a *Client) ImportStoreShort(params *ImportStoreParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreOK, error) {
+func (a *Client) ImportStoreShort(params *ImportStoreParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImportStoreParams()
@@ -469,11 +534,26 @@ func (a *Client) ImportStoreShort(params *ImportStoreParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ImportStoreOK:
-		return v, nil
+		response := &ImportStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImportStoreBadRequest:
-		return nil, v
+		response := &ImportStoreResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStoreNotFound:
-		return nil, v
+		response := &ImportStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -488,7 +568,7 @@ Other detail info:
 
   * Returns : store data
 */
-func (a *Client) GetPublishedStoreShort(params *GetPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreOK, error) {
+func (a *Client) GetPublishedStoreShort(params *GetPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPublishedStoreParams()
@@ -526,9 +606,19 @@ func (a *Client) GetPublishedStoreShort(params *GetPublishedStoreParams, authInf
 	switch v := result.(type) {
 
 	case *GetPublishedStoreOK:
-		return v, nil
+		response := &GetPublishedStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPublishedStoreNotFound:
-		return nil, v
+		response := &GetPublishedStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -541,7 +631,7 @@ This API is used to delete published store including category and items before r
 
  Warning: Please do not use this API once published to public user.
 */
-func (a *Client) DeletePublishedStoreShort(params *DeletePublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePublishedStoreOK, error) {
+func (a *Client) DeletePublishedStoreShort(params *DeletePublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePublishedStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePublishedStoreParams()
@@ -579,9 +669,19 @@ func (a *Client) DeletePublishedStoreShort(params *DeletePublishedStoreParams, a
 	switch v := result.(type) {
 
 	case *DeletePublishedStoreOK:
-		return v, nil
+		response := &DeletePublishedStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePublishedStoreNotFound:
-		return nil, v
+		response := &DeletePublishedStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -596,7 +696,7 @@ Other detail info:
 
   * Returns : store backup info
 */
-func (a *Client) GetPublishedStoreBackupShort(params *GetPublishedStoreBackupParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreBackupOK, error) {
+func (a *Client) GetPublishedStoreBackupShort(params *GetPublishedStoreBackupParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreBackupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPublishedStoreBackupParams()
@@ -634,9 +734,19 @@ func (a *Client) GetPublishedStoreBackupShort(params *GetPublishedStoreBackupPar
 	switch v := result.(type) {
 
 	case *GetPublishedStoreBackupOK:
-		return v, nil
+		response := &GetPublishedStoreBackupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPublishedStoreBackupNotFound:
-		return nil, v
+		response := &GetPublishedStoreBackupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -651,7 +761,7 @@ Other detail info:
 
   * Returns : updated store info
 */
-func (a *Client) RollbackPublishedStoreShort(params *RollbackPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*RollbackPublishedStoreOK, error) {
+func (a *Client) RollbackPublishedStoreShort(params *RollbackPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*RollbackPublishedStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRollbackPublishedStoreParams()
@@ -689,9 +799,19 @@ func (a *Client) RollbackPublishedStoreShort(params *RollbackPublishedStoreParam
 	switch v := result.(type) {
 
 	case *RollbackPublishedStoreOK:
-		return v, nil
+		response := &RollbackPublishedStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RollbackPublishedStoreNotFound:
-		return nil, v
+		response := &RollbackPublishedStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -706,7 +826,7 @@ Other detail info:
 
   * Returns : store data
 */
-func (a *Client) GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetStoreOK, error) {
+func (a *Client) GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStoreParams()
@@ -744,9 +864,19 @@ func (a *Client) GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *GetStoreOK:
-		return v, nil
+		response := &GetStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetStoreNotFound:
-		return nil, v
+		response := &GetStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -761,7 +891,7 @@ Other detail info:
 
   * Returns : updated store data
 */
-func (a *Client) UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStoreOK, error) {
+func (a *Client) UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateStoreParams()
@@ -799,13 +929,33 @@ func (a *Client) UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *UpdateStoreOK:
-		return v, nil
+		response := &UpdateStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateStoreNotFound:
-		return nil, v
+		response := &UpdateStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStoreConflict:
-		return nil, v
+		response := &UpdateStoreResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStoreUnprocessableEntity:
-		return nil, v
+		response := &UpdateStoreResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -819,7 +969,7 @@ Other detail info:
 
   * Returns : store
 */
-func (a *Client) DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStoreOK, error) {
+func (a *Client) DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteStoreParams()
@@ -857,11 +1007,26 @@ func (a *Client) DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DeleteStoreOK:
-		return v, nil
+		response := &DeleteStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteStoreNotFound:
-		return nil, v
+		response := &DeleteStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteStoreConflict:
-		return nil, v
+		response := &DeleteStoreResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -876,7 +1041,7 @@ Other detail info:
 
   * Returns : clone store info
 */
-func (a *Client) CloneStoreShort(params *CloneStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CloneStoreOK, error) {
+func (a *Client) CloneStoreShort(params *CloneStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CloneStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCloneStoreParams()
@@ -914,11 +1079,26 @@ func (a *Client) CloneStoreShort(params *CloneStoreParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *CloneStoreOK:
-		return v, nil
+		response := &CloneStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CloneStoreBadRequest:
-		return nil, v
+		response := &CloneStoreResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CloneStoreNotFound:
-		return nil, v
+		response := &CloneStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -931,7 +1111,7 @@ This API is used to export a store.
 
 This api has been deprecated, pls use /v2/admin/namespaces/{namespace}/stores/export to export store.
 */
-func (a *Client) ExportStoreShort(params *ExportStoreParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreOK, error) {
+func (a *Client) ExportStoreShort(params *ExportStoreParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportStoreParams()
@@ -969,9 +1149,19 @@ func (a *Client) ExportStoreShort(params *ExportStoreParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ExportStoreOK:
-		return v, nil
+		response := &ExportStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportStoreNotFound:
-		return nil, v
+		response := &ExportStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -982,7 +1172,7 @@ func (a *Client) ExportStoreShort(params *ExportStoreParams, authInfo runtime.Cl
 QueryImportHistoryShort query import store history
 This API is used to query import store history
 */
-func (a *Client) QueryImportHistoryShort(params *QueryImportHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryImportHistoryOK, error) {
+func (a *Client) QueryImportHistoryShort(params *QueryImportHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryImportHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryImportHistoryParams()
@@ -1020,9 +1210,19 @@ func (a *Client) QueryImportHistoryShort(params *QueryImportHistoryParams, authI
 	switch v := result.(type) {
 
 	case *QueryImportHistoryOK:
-		return v, nil
+		response := &QueryImportHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryImportHistoryBadRequest:
-		return nil, v
+		response := &QueryImportHistoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1033,7 +1233,7 @@ func (a *Client) QueryImportHistoryShort(params *QueryImportHistoryParams, authI
 ImportStoreByCSVShort import store using csv format
 This API is used to import a store by CSV format.
 */
-func (a *Client) ImportStoreByCSVShort(params *ImportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreByCSVOK, error) {
+func (a *Client) ImportStoreByCSVShort(params *ImportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreByCSVResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImportStoreByCSVParams()
@@ -1071,13 +1271,33 @@ func (a *Client) ImportStoreByCSVShort(params *ImportStoreByCSVParams, authInfo 
 	switch v := result.(type) {
 
 	case *ImportStoreByCSVOK:
-		return v, nil
+		response := &ImportStoreByCSVResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImportStoreByCSVBadRequest:
-		return nil, v
+		response := &ImportStoreByCSVResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStoreByCSVNotFound:
-		return nil, v
+		response := &ImportStoreByCSVResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStoreByCSVConflict:
-		return nil, v
+		response := &ImportStoreByCSVResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1094,7 +1314,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store)
   *  Returns : the list of stores
 */
-func (a *Client) PublicListStoresShort(params *PublicListStoresParams) (*PublicListStoresOK, error) {
+func (a *Client) PublicListStoresShort(params *PublicListStoresParams) (*PublicListStoresResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListStoresParams()
@@ -1131,7 +1351,12 @@ func (a *Client) PublicListStoresShort(params *PublicListStoresParams) (*PublicL
 	switch v := result.(type) {
 
 	case *PublicListStoresOK:
-		return v, nil
+		response := &PublicListStoresResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1142,7 +1367,7 @@ func (a *Client) PublicListStoresShort(params *PublicListStoresParams) (*PublicL
 ImportStore1Short import a store
 This API is used to import a store.
 */
-func (a *Client) ImportStore1Short(params *ImportStore1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportStore1OK, error) {
+func (a *Client) ImportStore1Short(params *ImportStore1Params, authInfo runtime.ClientAuthInfoWriter) (*ImportStore1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImportStore1Params()
@@ -1180,11 +1405,26 @@ func (a *Client) ImportStore1Short(params *ImportStore1Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *ImportStore1OK:
-		return v, nil
+		response := &ImportStore1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImportStore1BadRequest:
-		return nil, v
+		response := &ImportStore1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStore1NotFound:
-		return nil, v
+		response := &ImportStore1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1195,7 +1435,7 @@ func (a *Client) ImportStore1Short(params *ImportStore1Params, authInfo runtime.
 ExportStore1Short export a store
 This API is used to export a whole or partial store.
 */
-func (a *Client) ExportStore1Short(params *ExportStore1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStore1OK, error) {
+func (a *Client) ExportStore1Short(params *ExportStore1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStore1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportStore1Params()
@@ -1233,9 +1473,19 @@ func (a *Client) ExportStore1Short(params *ExportStore1Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *ExportStore1OK:
-		return v, nil
+		response := &ExportStore1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportStore1NotFound:
-		return nil, v
+		response := &ExportStore1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

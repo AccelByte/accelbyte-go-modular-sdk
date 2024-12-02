@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_like_legacy"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type PublicLikeLegacyService struct {
@@ -37,7 +36,7 @@ func (aaa *PublicLikeLegacyService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicLikeLegacyService) GetLikedContentShort(input *public_like_legacy.GetLikedContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *PublicLikeLegacyService) GetLikedContentShort(input *public_like_legacy.GetLikedContentParams) (*public_like_legacy.GetLikedContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicLikeLegacyService) GetLikedContentShort(input *public_like_lega
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicLikeLegacyService) UpdateContentLikeStatusShort(input *public_like_legacy.UpdateContentLikeStatusParams) (*ugcclientmodels.ModelsContentLikeResponse, error) {
+func (aaa *PublicLikeLegacyService) UpdateContentLikeStatusShort(input *public_like_legacy.UpdateContentLikeStatusParams) (*public_like_legacy.UpdateContentLikeStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,5 +93,5 @@ func (aaa *PublicLikeLegacyService) UpdateContentLikeStatusShort(input *public_l
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

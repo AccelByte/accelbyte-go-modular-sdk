@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type PublicGetUserByUserIDV2Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelUserResponse
+
+	Error404 string
+	Error500 string
+}
+
+func (m *PublicGetUserByUserIDV2Response) Unpack() (*iamclientmodels.ModelUserResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			return nil, &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		case 500:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: m.Error500}
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetUserByUserIDV2Reader is a Reader for the PublicGetUserByUserIDV2 structure.
 type PublicGetUserByUserIDV2Reader struct {
 	formats strfmt.Registry

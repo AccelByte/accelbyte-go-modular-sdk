@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	IndirectBulkAcceptVersionedPolicyShort(params *IndirectBulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyCreated, error)
+	IndirectBulkAcceptVersionedPolicyShort(params *IndirectBulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 IndirectBulkAcceptVersionedPolicyShort admin bulk accept policy versions
 Accepts many legal policy versions all at once. Supply with localized version policy id and userId to accept an agreement.
 */
-func (a *Client) IndirectBulkAcceptVersionedPolicyShort(params *IndirectBulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyCreated, error) {
+func (a *Client) IndirectBulkAcceptVersionedPolicyShort(params *IndirectBulkAcceptVersionedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*IndirectBulkAcceptVersionedPolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewIndirectBulkAcceptVersionedPolicyParams()
@@ -77,7 +77,12 @@ func (a *Client) IndirectBulkAcceptVersionedPolicyShort(params *IndirectBulkAcce
 	switch v := result.(type) {
 
 	case *IndirectBulkAcceptVersionedPolicyCreated:
-		return v, nil
+		response := &IndirectBulkAcceptVersionedPolicyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

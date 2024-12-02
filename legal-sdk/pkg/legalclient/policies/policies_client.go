@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePoliciesOK, error)
-	UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyOK, error)
-	SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy2OK, error)
-	RetrieveCountryListWithPoliciesShort(params *RetrieveCountryListWithPoliciesParams) (*RetrieveCountryListWithPoliciesOK, error)
-	RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParams) (*RetrieveLatestPoliciesOK, error)
-	RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPoliciesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLatestPoliciesPublicOK, error)
-	RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicOK, error)
+	RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePoliciesResponse, error)
+	UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyResponse, error)
+	SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy2Response, error)
+	RetrieveCountryListWithPoliciesShort(params *RetrieveCountryListWithPoliciesParams) (*RetrieveCountryListWithPoliciesResponse, error)
+	RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParams) (*RetrieveLatestPoliciesResponse, error)
+	RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPoliciesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLatestPoliciesPublicResponse, error)
+	RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ type ClientService interface {
 RetrievePoliciesShort retrieve policies by country
 Retrieve all active policies based on a country.
 */
-func (a *Client) RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePoliciesOK, error) {
+func (a *Client) RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePoliciesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrievePoliciesParams()
@@ -83,7 +83,12 @@ func (a *Client) RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo 
 	switch v := result.(type) {
 
 	case *RetrievePoliciesOK:
-		return v, nil
+		response := &RetrievePoliciesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -94,7 +99,7 @@ func (a *Client) RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo 
 UpdatePolicyShort update country-specific policy
 Update country-specific and country-group policy.
 */
-func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyOK, error) {
+func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePolicyParams()
@@ -132,9 +137,18 @@ func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UpdatePolicyOK:
-		return v, nil
+		response := &UpdatePolicyResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePolicyBadRequest:
-		return nil, v
+		response := &UpdatePolicyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -145,7 +159,7 @@ func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.
 SetDefaultPolicy2Short set default policy
 Update a policy to be the default.
 */
-func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy2OK, error) {
+func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetDefaultPolicy2Params()
@@ -183,9 +197,18 @@ func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInf
 	switch v := result.(type) {
 
 	case *SetDefaultPolicy2OK:
-		return v, nil
+		response := &SetDefaultPolicy2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SetDefaultPolicy2BadRequest:
-		return nil, v
+		response := &SetDefaultPolicy2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -196,7 +219,7 @@ func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInf
 RetrieveCountryListWithPoliciesShort retrieve list of countries that have active legal policies
 Retrieve List of Countries that have Active and Visible Legal Policies.
 */
-func (a *Client) RetrieveCountryListWithPoliciesShort(params *RetrieveCountryListWithPoliciesParams) (*RetrieveCountryListWithPoliciesOK, error) {
+func (a *Client) RetrieveCountryListWithPoliciesShort(params *RetrieveCountryListWithPoliciesParams) (*RetrieveCountryListWithPoliciesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveCountryListWithPoliciesParams()
@@ -233,7 +256,12 @@ func (a *Client) RetrieveCountryListWithPoliciesShort(params *RetrieveCountryLis
 	switch v := result.(type) {
 
 	case *RetrieveCountryListWithPoliciesOK:
-		return v, nil
+		response := &RetrieveCountryListWithPoliciesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -249,7 +277,7 @@ Other detail info:
   *  Fill the tags if you want to filter the responded policy by tags
   *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
 */
-func (a *Client) RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParams) (*RetrieveLatestPoliciesOK, error) {
+func (a *Client) RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParams) (*RetrieveLatestPoliciesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveLatestPoliciesParams()
@@ -286,7 +314,12 @@ func (a *Client) RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParam
 	switch v := result.(type) {
 
 	case *RetrieveLatestPoliciesOK:
-		return v, nil
+		response := &RetrieveLatestPoliciesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -309,7 +342,7 @@ Other detail info:
     * Query: alwaysIncludeDefault: true
     * Response: Document 1 (UA), Document 2 (US), Document 3 (US)
 */
-func (a *Client) RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPoliciesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLatestPoliciesPublicOK, error) {
+func (a *Client) RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPoliciesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLatestPoliciesPublicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveLatestPoliciesPublicParams()
@@ -347,9 +380,19 @@ func (a *Client) RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPolicie
 	switch v := result.(type) {
 
 	case *RetrieveLatestPoliciesPublicOK:
-		return v, nil
+		response := &RetrieveLatestPoliciesPublicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveLatestPoliciesPublicNotFound:
-		return nil, v
+		response := &RetrieveLatestPoliciesPublicResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -372,7 +415,7 @@ Other detail info:
     * Query: alwaysIncludeDefault: true
     * Response: Document 1 (UA), Document 2 (US), Document 3 (US)
 */
-func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicOK, error) {
+func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveLatestPoliciesByNamespaceAndCountryPublicParams()
@@ -409,7 +452,12 @@ func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *
 	switch v := result.(type) {
 
 	case *RetrieveLatestPoliciesByNamespaceAndCountryPublicOK:
-		return v, nil
+		response := &RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type DeleteBasePolicyResponse struct {
+	legalclientmodels.ApiResponse
+
+	Error400 *legalclientmodels.ErrorEntity
+}
+
+func (m *DeleteBasePolicyResponse) Unpack() *legalclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteBasePolicyReader is a Reader for the DeleteBasePolicy structure.
 type DeleteBasePolicyReader struct {
 	formats strfmt.Registry

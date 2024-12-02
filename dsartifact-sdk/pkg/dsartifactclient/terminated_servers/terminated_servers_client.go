@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListTerminatedServersWithNamespaceShort(params *ListTerminatedServersWithNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersWithNamespaceOK, error)
+	ListTerminatedServersWithNamespaceShort(params *ListTerminatedServersWithNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersWithNamespaceResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSAM:SERVER [READ]
 This endpoint used to retrieve terminated servers in a namespace
 ```
 */
-func (a *Client) ListTerminatedServersWithNamespaceShort(params *ListTerminatedServersWithNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersWithNamespaceOK, error) {
+func (a *Client) ListTerminatedServersWithNamespaceShort(params *ListTerminatedServersWithNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersWithNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListTerminatedServersWithNamespaceParams()
@@ -81,13 +81,33 @@ func (a *Client) ListTerminatedServersWithNamespaceShort(params *ListTerminatedS
 	switch v := result.(type) {
 
 	case *ListTerminatedServersWithNamespaceOK:
-		return v, nil
+		response := &ListTerminatedServersWithNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListTerminatedServersWithNamespaceBadRequest:
-		return nil, v
+		response := &ListTerminatedServersWithNamespaceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListTerminatedServersWithNamespaceUnauthorized:
-		return nil, v
+		response := &ListTerminatedServersWithNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListTerminatedServersWithNamespaceInternalServerError:
-		return nil, v
+		response := &ListTerminatedServersWithNamespaceResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

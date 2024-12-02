@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
+type AdminListEnvironmentVariablesResponse struct {
+	sessionclientmodels.ApiResponse
+	Data *sessionclientmodels.ApimodelsEnvironmentVariableListResponse
+
+	Error401 *sessionclientmodels.ResponseError
+	Error403 *sessionclientmodels.ResponseError
+}
+
+func (m *AdminListEnvironmentVariablesResponse) Unpack() (*sessionclientmodels.ApimodelsEnvironmentVariableListResponse, *sessionclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminListEnvironmentVariablesReader is a Reader for the AdminListEnvironmentVariables structure.
 type AdminListEnvironmentVariablesReader struct {
 	formats strfmt.Registry

@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminDeleteAllUserChannelsShort(params *AdminDeleteAllUserChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserChannelsNoContent, error)
-	AdminDeleteAllUserContentsShort(params *AdminDeleteAllUserContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserContentsNoContent, error)
-	AdminDeleteAllUserGroupShort(params *AdminDeleteAllUserGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserGroupNoContent, error)
-	AdminDeleteAllUserStatesShort(params *AdminDeleteAllUserStatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserStatesNoContent, error)
-	DeleteAllUserChannelShort(params *DeleteAllUserChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserChannelNoContent, error)
-	DeleteAllUserContentsShort(params *DeleteAllUserContentsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserContentsNoContent, error)
-	DeleteAllUserGroupShort(params *DeleteAllUserGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserGroupNoContent, error)
-	DeleteAllUserStatesShort(params *DeleteAllUserStatesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserStatesNoContent, error)
+	AdminDeleteAllUserChannelsShort(params *AdminDeleteAllUserChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserChannelsResponse, error)
+	AdminDeleteAllUserContentsShort(params *AdminDeleteAllUserContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserContentsResponse, error)
+	AdminDeleteAllUserGroupShort(params *AdminDeleteAllUserGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserGroupResponse, error)
+	AdminDeleteAllUserStatesShort(params *AdminDeleteAllUserStatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserStatesResponse, error)
+	DeleteAllUserChannelShort(params *DeleteAllUserChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserChannelResponse, error)
+	DeleteAllUserContentsShort(params *DeleteAllUserContentsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserContentsResponse, error)
+	DeleteAllUserGroupShort(params *DeleteAllUserGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserGroupResponse, error)
+	DeleteAllUserStatesShort(params *DeleteAllUserStatesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserStatesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ type ClientService interface {
 AdminDeleteAllUserChannelsShort delete all user channel
 Delete all user channel
 */
-func (a *Client) AdminDeleteAllUserChannelsShort(params *AdminDeleteAllUserChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserChannelsNoContent, error) {
+func (a *Client) AdminDeleteAllUserChannelsShort(params *AdminDeleteAllUserChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserChannelsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteAllUserChannelsParams()
@@ -84,13 +84,32 @@ func (a *Client) AdminDeleteAllUserChannelsShort(params *AdminDeleteAllUserChann
 	switch v := result.(type) {
 
 	case *AdminDeleteAllUserChannelsNoContent:
-		return v, nil
+		response := &AdminDeleteAllUserChannelsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteAllUserChannelsUnauthorized:
-		return nil, v
+		response := &AdminDeleteAllUserChannelsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAllUserChannelsNotFound:
-		return nil, v
+		response := &AdminDeleteAllUserChannelsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAllUserChannelsInternalServerError:
-		return nil, v
+		response := &AdminDeleteAllUserChannelsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -101,7 +120,7 @@ func (a *Client) AdminDeleteAllUserChannelsShort(params *AdminDeleteAllUserChann
 AdminDeleteAllUserContentsShort delete all user content
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
 */
-func (a *Client) AdminDeleteAllUserContentsShort(params *AdminDeleteAllUserContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserContentsNoContent, error) {
+func (a *Client) AdminDeleteAllUserContentsShort(params *AdminDeleteAllUserContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserContentsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteAllUserContentsParams()
@@ -139,13 +158,32 @@ func (a *Client) AdminDeleteAllUserContentsShort(params *AdminDeleteAllUserConte
 	switch v := result.(type) {
 
 	case *AdminDeleteAllUserContentsNoContent:
-		return v, nil
+		response := &AdminDeleteAllUserContentsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteAllUserContentsUnauthorized:
-		return nil, v
+		response := &AdminDeleteAllUserContentsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAllUserContentsNotFound:
-		return nil, v
+		response := &AdminDeleteAllUserContentsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAllUserContentsInternalServerError:
-		return nil, v
+		response := &AdminDeleteAllUserContentsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +194,7 @@ func (a *Client) AdminDeleteAllUserContentsShort(params *AdminDeleteAllUserConte
 AdminDeleteAllUserGroupShort delete all user group
 Delete all user group
 */
-func (a *Client) AdminDeleteAllUserGroupShort(params *AdminDeleteAllUserGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserGroupNoContent, error) {
+func (a *Client) AdminDeleteAllUserGroupShort(params *AdminDeleteAllUserGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteAllUserGroupParams()
@@ -194,13 +232,32 @@ func (a *Client) AdminDeleteAllUserGroupShort(params *AdminDeleteAllUserGroupPar
 	switch v := result.(type) {
 
 	case *AdminDeleteAllUserGroupNoContent:
-		return v, nil
+		response := &AdminDeleteAllUserGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteAllUserGroupUnauthorized:
-		return nil, v
+		response := &AdminDeleteAllUserGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAllUserGroupNotFound:
-		return nil, v
+		response := &AdminDeleteAllUserGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAllUserGroupInternalServerError:
-		return nil, v
+		response := &AdminDeleteAllUserGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -211,7 +268,7 @@ func (a *Client) AdminDeleteAllUserGroupShort(params *AdminDeleteAllUserGroupPar
 AdminDeleteAllUserStatesShort remove all user related state: likes, downloads, followers, following
 Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId} [DELETE]
 */
-func (a *Client) AdminDeleteAllUserStatesShort(params *AdminDeleteAllUserStatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserStatesNoContent, error) {
+func (a *Client) AdminDeleteAllUserStatesShort(params *AdminDeleteAllUserStatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAllUserStatesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteAllUserStatesParams()
@@ -249,13 +306,32 @@ func (a *Client) AdminDeleteAllUserStatesShort(params *AdminDeleteAllUserStatesP
 	switch v := result.(type) {
 
 	case *AdminDeleteAllUserStatesNoContent:
-		return v, nil
+		response := &AdminDeleteAllUserStatesResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteAllUserStatesUnauthorized:
-		return nil, v
+		response := &AdminDeleteAllUserStatesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAllUserStatesNotFound:
-		return nil, v
+		response := &AdminDeleteAllUserStatesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAllUserStatesInternalServerError:
-		return nil, v
+		response := &AdminDeleteAllUserStatesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -266,7 +342,7 @@ func (a *Client) AdminDeleteAllUserStatesShort(params *AdminDeleteAllUserStatesP
 DeleteAllUserChannelShort delete all user channel
 Delete all user channel
 */
-func (a *Client) DeleteAllUserChannelShort(params *DeleteAllUserChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserChannelNoContent, error) {
+func (a *Client) DeleteAllUserChannelShort(params *DeleteAllUserChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAllUserChannelParams()
@@ -304,13 +380,32 @@ func (a *Client) DeleteAllUserChannelShort(params *DeleteAllUserChannelParams, a
 	switch v := result.(type) {
 
 	case *DeleteAllUserChannelNoContent:
-		return v, nil
+		response := &DeleteAllUserChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAllUserChannelUnauthorized:
-		return nil, v
+		response := &DeleteAllUserChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserChannelNotFound:
-		return nil, v
+		response := &DeleteAllUserChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserChannelInternalServerError:
-		return nil, v
+		response := &DeleteAllUserChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -321,7 +416,7 @@ func (a *Client) DeleteAllUserChannelShort(params *DeleteAllUserChannelParams, a
 DeleteAllUserContentsShort delete all user content
 Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
 */
-func (a *Client) DeleteAllUserContentsShort(params *DeleteAllUserContentsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserContentsNoContent, error) {
+func (a *Client) DeleteAllUserContentsShort(params *DeleteAllUserContentsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserContentsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAllUserContentsParams()
@@ -359,13 +454,32 @@ func (a *Client) DeleteAllUserContentsShort(params *DeleteAllUserContentsParams,
 	switch v := result.(type) {
 
 	case *DeleteAllUserContentsNoContent:
-		return v, nil
+		response := &DeleteAllUserContentsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAllUserContentsUnauthorized:
-		return nil, v
+		response := &DeleteAllUserContentsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserContentsNotFound:
-		return nil, v
+		response := &DeleteAllUserContentsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserContentsInternalServerError:
-		return nil, v
+		response := &DeleteAllUserContentsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -376,7 +490,7 @@ func (a *Client) DeleteAllUserContentsShort(params *DeleteAllUserContentsParams,
 DeleteAllUserGroupShort delete all user group
 Delete all user group
 */
-func (a *Client) DeleteAllUserGroupShort(params *DeleteAllUserGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserGroupNoContent, error) {
+func (a *Client) DeleteAllUserGroupShort(params *DeleteAllUserGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAllUserGroupParams()
@@ -414,13 +528,32 @@ func (a *Client) DeleteAllUserGroupShort(params *DeleteAllUserGroupParams, authI
 	switch v := result.(type) {
 
 	case *DeleteAllUserGroupNoContent:
-		return v, nil
+		response := &DeleteAllUserGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAllUserGroupUnauthorized:
-		return nil, v
+		response := &DeleteAllUserGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserGroupNotFound:
-		return nil, v
+		response := &DeleteAllUserGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserGroupInternalServerError:
-		return nil, v
+		response := &DeleteAllUserGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -431,7 +564,7 @@ func (a *Client) DeleteAllUserGroupShort(params *DeleteAllUserGroupParams, authI
 DeleteAllUserStatesShort remove all user related state: likes, downloads, followers, following
 Required permission NAMESPACE:{namespace}:USER:{userId}" [DELETE]
 */
-func (a *Client) DeleteAllUserStatesShort(params *DeleteAllUserStatesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserStatesNoContent, error) {
+func (a *Client) DeleteAllUserStatesShort(params *DeleteAllUserStatesParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserStatesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAllUserStatesParams()
@@ -469,13 +602,32 @@ func (a *Client) DeleteAllUserStatesShort(params *DeleteAllUserStatesParams, aut
 	switch v := result.(type) {
 
 	case *DeleteAllUserStatesNoContent:
-		return v, nil
+		response := &DeleteAllUserStatesResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAllUserStatesBadRequest:
-		return nil, v
+		response := &DeleteAllUserStatesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserStatesUnauthorized:
-		return nil, v
+		response := &DeleteAllUserStatesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserStatesInternalServerError:
-		return nil, v
+		response := &DeleteAllUserStatesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,16 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetPaymentCustomizationShort(params *GetPaymentCustomizationParams) (*GetPaymentCustomizationOK, error)
-	PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*PublicGetPaymentURLOK, error)
-	PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsParams) (*PublicGetPaymentMethodsOK, error)
-	PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPaymentOrderParams) (*PublicGetUnpaidPaymentOrderOK, error)
-	PayShort(params *PayParams) (*PayOK, error)
-	PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPaymentOrderPaidStatusParams) (*PublicCheckPaymentOrderPaidStatusOK, error)
-	GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParams) (*GetPaymentPublicConfigOK, error)
-	PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGetQRCodeOK, error)
-	PublicNormalizePaymentReturnURLShort(params *PublicNormalizePaymentReturnURLParams) (*PublicNormalizePaymentReturnURLNoContent, error)
-	GetPaymentTaxValueShort(params *GetPaymentTaxValueParams) (*GetPaymentTaxValueOK, error)
+	GetPaymentCustomizationShort(params *GetPaymentCustomizationParams) (*GetPaymentCustomizationResponse, error)
+	PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*PublicGetPaymentURLResponse, error)
+	PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsParams) (*PublicGetPaymentMethodsResponse, error)
+	PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPaymentOrderParams) (*PublicGetUnpaidPaymentOrderResponse, error)
+	PayShort(params *PayParams) (*PayResponse, error)
+	PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPaymentOrderPaidStatusParams) (*PublicCheckPaymentOrderPaidStatusResponse, error)
+	GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParams) (*GetPaymentPublicConfigResponse, error)
+	PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGetQRCodeResponse, error)
+	PublicNormalizePaymentReturnURLShort(params *PublicNormalizePaymentReturnURLParams) (*PublicNormalizePaymentReturnURLResponse, error)
+	GetPaymentTaxValueShort(params *GetPaymentTaxValueParams) (*GetPaymentTaxValueResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ Other detail info:
 
   * Returns : customization
 */
-func (a *Client) GetPaymentCustomizationShort(params *GetPaymentCustomizationParams) (*GetPaymentCustomizationOK, error) {
+func (a *Client) GetPaymentCustomizationShort(params *GetPaymentCustomizationParams) (*GetPaymentCustomizationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPaymentCustomizationParams()
@@ -88,7 +88,12 @@ func (a *Client) GetPaymentCustomizationShort(params *GetPaymentCustomizationPar
 	switch v := result.(type) {
 
 	case *GetPaymentCustomizationOK:
-		return v, nil
+		response := &GetPaymentCustomizationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +108,7 @@ Other detail info:
   * For Neon Pay payment provider, the 'neonPayConfig' field can be used to provide success and cancel URL. If 'neonPayConfig' field is not present, the 'returnUrl' will be used for both success and cancel URL.
   *  Returns : Get payment link
 */
-func (a *Client) PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*PublicGetPaymentURLOK, error) {
+func (a *Client) PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*PublicGetPaymentURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPaymentURLParams()
@@ -140,13 +145,33 @@ func (a *Client) PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*P
 	switch v := result.(type) {
 
 	case *PublicGetPaymentURLOK:
-		return v, nil
+		response := &PublicGetPaymentURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPaymentURLBadRequest:
-		return nil, v
+		response := &PublicGetPaymentURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPaymentURLForbidden:
-		return nil, v
+		response := &PublicGetPaymentURLResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPaymentURLNotFound:
-		return nil, v
+		response := &PublicGetPaymentURLResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -160,7 +185,7 @@ Other detail info:
 
   * Returns : Payment method list
 */
-func (a *Client) PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsParams) (*PublicGetPaymentMethodsOK, error) {
+func (a *Client) PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsParams) (*PublicGetPaymentMethodsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPaymentMethodsParams()
@@ -197,9 +222,19 @@ func (a *Client) PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsPar
 	switch v := result.(type) {
 
 	case *PublicGetPaymentMethodsOK:
-		return v, nil
+		response := &PublicGetPaymentMethodsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPaymentMethodsNotFound:
-		return nil, v
+		response := &PublicGetPaymentMethodsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -213,7 +248,7 @@ Other detail info:
 
   * Returns : Payment order details
 */
-func (a *Client) PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPaymentOrderParams) (*PublicGetUnpaidPaymentOrderOK, error) {
+func (a *Client) PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPaymentOrderParams) (*PublicGetUnpaidPaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUnpaidPaymentOrderParams()
@@ -250,11 +285,26 @@ func (a *Client) PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPayment
 	switch v := result.(type) {
 
 	case *PublicGetUnpaidPaymentOrderOK:
-		return v, nil
+		response := &PublicGetUnpaidPaymentOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUnpaidPaymentOrderNotFound:
-		return nil, v
+		response := &PublicGetUnpaidPaymentOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUnpaidPaymentOrderConflict:
-		return nil, v
+		response := &PublicGetUnpaidPaymentOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -268,7 +318,7 @@ Other detail info:
 
   * Returns : Payment process result
 */
-func (a *Client) PayShort(params *PayParams) (*PayOK, error) {
+func (a *Client) PayShort(params *PayParams) (*PayResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPayParams()
@@ -305,13 +355,33 @@ func (a *Client) PayShort(params *PayParams) (*PayOK, error) {
 	switch v := result.(type) {
 
 	case *PayOK:
-		return v, nil
+		response := &PayResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PayBadRequest:
-		return nil, v
+		response := &PayResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PayNotFound:
-		return nil, v
+		response := &PayResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PayConflict:
-		return nil, v
+		response := &PayResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -325,7 +395,7 @@ Other detail info:
 
   * Returns : Payment order paid result
 */
-func (a *Client) PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPaymentOrderPaidStatusParams) (*PublicCheckPaymentOrderPaidStatusOK, error) {
+func (a *Client) PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPaymentOrderPaidStatusParams) (*PublicCheckPaymentOrderPaidStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCheckPaymentOrderPaidStatusParams()
@@ -362,9 +432,19 @@ func (a *Client) PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPayme
 	switch v := result.(type) {
 
 	case *PublicCheckPaymentOrderPaidStatusOK:
-		return v, nil
+		response := &PublicCheckPaymentOrderPaidStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCheckPaymentOrderPaidStatusNotFound:
-		return nil, v
+		response := &PublicCheckPaymentOrderPaidStatusResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -378,7 +458,7 @@ Other detail info:
 
   * Returns : Public config
 */
-func (a *Client) GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParams) (*GetPaymentPublicConfigOK, error) {
+func (a *Client) GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParams) (*GetPaymentPublicConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPaymentPublicConfigParams()
@@ -415,7 +495,12 @@ func (a *Client) GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParam
 	switch v := result.(type) {
 
 	case *GetPaymentPublicConfigOK:
-		return v, nil
+		response := &GetPaymentPublicConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -429,7 +514,7 @@ Other detail info:
 
   * Returns : QRCode image stream
 */
-func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGetQRCodeOK, error) {
+func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGetQRCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetQRCodeParams()
@@ -466,7 +551,12 @@ func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGet
 	switch v := result.(type) {
 
 	case *PublicGetQRCodeOK:
-		return v, nil
+		response := &PublicGetQRCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -498,7 +588,7 @@ Other detail info:
   * xsolla : parameters 'user_id', 'foreinginvoice', 'invoice_id' and 'status' will be automatically added to the link
   *  adyen : https://docs.adyen.com/developers/checkout/web-sdk
 */
-func (a *Client) PublicNormalizePaymentReturnURLShort(params *PublicNormalizePaymentReturnURLParams) (*PublicNormalizePaymentReturnURLNoContent, error) {
+func (a *Client) PublicNormalizePaymentReturnURLShort(params *PublicNormalizePaymentReturnURLParams) (*PublicNormalizePaymentReturnURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicNormalizePaymentReturnURLParams()
@@ -535,9 +625,18 @@ func (a *Client) PublicNormalizePaymentReturnURLShort(params *PublicNormalizePay
 	switch v := result.(type) {
 
 	case *PublicNormalizePaymentReturnURLNoContent:
-		return v, nil
+		response := &PublicNormalizePaymentReturnURLResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicNormalizePaymentReturnURLTemporaryRedirect:
-		return nil, v
+		response := &PublicNormalizePaymentReturnURLResponse{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -551,7 +650,7 @@ Other detail info:
 
   * Returns : tax result
 */
-func (a *Client) GetPaymentTaxValueShort(params *GetPaymentTaxValueParams) (*GetPaymentTaxValueOK, error) {
+func (a *Client) GetPaymentTaxValueShort(params *GetPaymentTaxValueParams) (*GetPaymentTaxValueResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPaymentTaxValueParams()
@@ -588,11 +687,26 @@ func (a *Client) GetPaymentTaxValueShort(params *GetPaymentTaxValueParams) (*Get
 	switch v := result.(type) {
 
 	case *GetPaymentTaxValueOK:
-		return v, nil
+		response := &GetPaymentTaxValueResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPaymentTaxValueBadRequest:
-		return nil, v
+		response := &GetPaymentTaxValueResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPaymentTaxValueNotFound:
-		return nil, v
+		response := &GetPaymentTaxValueResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

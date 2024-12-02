@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetPlatformCredentialsShort(params *AdminGetPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformCredentialsOK, error)
-	AdminUpdatePlatformCredentialsShort(params *AdminUpdatePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformCredentialsOK, error)
-	AdminDeletePlatformCredentialsShort(params *AdminDeletePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsNoContent, error)
-	AdminDeletePlatformCredentialsByPlatformIDShort(params *AdminDeletePlatformCredentialsByPlatformIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsByPlatformIDNoContent, error)
-	AdminSyncPlatformCredentialsShort(params *AdminSyncPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncPlatformCredentialsOK, error)
+	AdminGetPlatformCredentialsShort(params *AdminGetPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformCredentialsResponse, error)
+	AdminUpdatePlatformCredentialsShort(params *AdminUpdatePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformCredentialsResponse, error)
+	AdminDeletePlatformCredentialsShort(params *AdminDeletePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsResponse, error)
+	AdminDeletePlatformCredentialsByPlatformIDShort(params *AdminDeletePlatformCredentialsByPlatformIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsByPlatformIDResponse, error)
+	AdminSyncPlatformCredentialsShort(params *AdminSyncPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncPlatformCredentialsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -55,7 +55,7 @@ XBOX:
 - createdAt: date time when the record is created
 - createdBy: the actor who trigger the xbox configuration sync
 */
-func (a *Client) AdminGetPlatformCredentialsShort(params *AdminGetPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformCredentialsOK, error) {
+func (a *Client) AdminGetPlatformCredentialsShort(params *AdminGetPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformCredentialsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlatformCredentialsParams()
@@ -93,17 +93,47 @@ func (a *Client) AdminGetPlatformCredentialsShort(params *AdminGetPlatformCreden
 	switch v := result.(type) {
 
 	case *AdminGetPlatformCredentialsOK:
-		return v, nil
+		response := &AdminGetPlatformCredentialsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlatformCredentialsBadRequest:
-		return nil, v
+		response := &AdminGetPlatformCredentialsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformCredentialsUnauthorized:
-		return nil, v
+		response := &AdminGetPlatformCredentialsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformCredentialsForbidden:
-		return nil, v
+		response := &AdminGetPlatformCredentialsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformCredentialsNotFound:
-		return nil, v
+		response := &AdminGetPlatformCredentialsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformCredentialsInternalServerError:
-		return nil, v
+		response := &AdminGetPlatformCredentialsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -119,7 +149,7 @@ PSN:
 - clientSecret: Auth Server (Client Credential) Secret
 - scope: psn:s2s.service (For Sync non PSN member to PSN Session)
 */
-func (a *Client) AdminUpdatePlatformCredentialsShort(params *AdminUpdatePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformCredentialsOK, error) {
+func (a *Client) AdminUpdatePlatformCredentialsShort(params *AdminUpdatePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformCredentialsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdatePlatformCredentialsParams()
@@ -157,17 +187,47 @@ func (a *Client) AdminUpdatePlatformCredentialsShort(params *AdminUpdatePlatform
 	switch v := result.(type) {
 
 	case *AdminUpdatePlatformCredentialsOK:
-		return v, nil
+		response := &AdminUpdatePlatformCredentialsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdatePlatformCredentialsBadRequest:
-		return nil, v
+		response := &AdminUpdatePlatformCredentialsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformCredentialsUnauthorized:
-		return nil, v
+		response := &AdminUpdatePlatformCredentialsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformCredentialsForbidden:
-		return nil, v
+		response := &AdminUpdatePlatformCredentialsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformCredentialsNotFound:
-		return nil, v
+		response := &AdminUpdatePlatformCredentialsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformCredentialsInternalServerError:
-		return nil, v
+		response := &AdminUpdatePlatformCredentialsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -178,7 +238,7 @@ func (a *Client) AdminUpdatePlatformCredentialsShort(params *AdminUpdatePlatform
 AdminDeletePlatformCredentialsShort delete platform credentials.
 Delete platform credentials used for Native Session sync.
 */
-func (a *Client) AdminDeletePlatformCredentialsShort(params *AdminDeletePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsNoContent, error) {
+func (a *Client) AdminDeletePlatformCredentialsShort(params *AdminDeletePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeletePlatformCredentialsParams()
@@ -216,17 +276,46 @@ func (a *Client) AdminDeletePlatformCredentialsShort(params *AdminDeletePlatform
 	switch v := result.(type) {
 
 	case *AdminDeletePlatformCredentialsNoContent:
-		return v, nil
+		response := &AdminDeletePlatformCredentialsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsBadRequest:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsUnauthorized:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsForbidden:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsNotFound:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsInternalServerError:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -237,7 +326,7 @@ func (a *Client) AdminDeletePlatformCredentialsShort(params *AdminDeletePlatform
 AdminDeletePlatformCredentialsByPlatformIDShort delete platform credentials by platformid
 Delete platform credentials for specific platform used for Native Session sync. Supported platforms: XBOX, PSN
 */
-func (a *Client) AdminDeletePlatformCredentialsByPlatformIDShort(params *AdminDeletePlatformCredentialsByPlatformIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsByPlatformIDNoContent, error) {
+func (a *Client) AdminDeletePlatformCredentialsByPlatformIDShort(params *AdminDeletePlatformCredentialsByPlatformIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsByPlatformIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeletePlatformCredentialsByPlatformIDParams()
@@ -275,17 +364,46 @@ func (a *Client) AdminDeletePlatformCredentialsByPlatformIDShort(params *AdminDe
 	switch v := result.(type) {
 
 	case *AdminDeletePlatformCredentialsByPlatformIDNoContent:
-		return v, nil
+		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsByPlatformIDBadRequest:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsByPlatformIDUnauthorized:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsByPlatformIDForbidden:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsByPlatformIDNotFound:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformCredentialsByPlatformIDInternalServerError:
-		return nil, v
+		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -305,7 +423,7 @@ b. upload PFX file through Session API /session/v1/admin/namespaces/{namespace}/
 We recommend approach #a, since you need to only upload the file once, and the service will do the sync.
 If you set the PFX through Session service, when this API is invoked, we will sync and replace the existing PFX file with the one from Platform (IAP).
 */
-func (a *Client) AdminSyncPlatformCredentialsShort(params *AdminSyncPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncPlatformCredentialsOK, error) {
+func (a *Client) AdminSyncPlatformCredentialsShort(params *AdminSyncPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncPlatformCredentialsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSyncPlatformCredentialsParams()
@@ -343,17 +461,47 @@ func (a *Client) AdminSyncPlatformCredentialsShort(params *AdminSyncPlatformCred
 	switch v := result.(type) {
 
 	case *AdminSyncPlatformCredentialsOK:
-		return v, nil
+		response := &AdminSyncPlatformCredentialsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSyncPlatformCredentialsBadRequest:
-		return nil, v
+		response := &AdminSyncPlatformCredentialsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncPlatformCredentialsUnauthorized:
-		return nil, v
+		response := &AdminSyncPlatformCredentialsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncPlatformCredentialsForbidden:
-		return nil, v
+		response := &AdminSyncPlatformCredentialsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncPlatformCredentialsNotFound:
-		return nil, v
+		response := &AdminSyncPlatformCredentialsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncPlatformCredentialsInternalServerError:
-		return nil, v
+		response := &AdminSyncPlatformCredentialsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

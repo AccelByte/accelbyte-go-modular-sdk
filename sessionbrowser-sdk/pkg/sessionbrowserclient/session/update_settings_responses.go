@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 )
 
+type UpdateSettingsResponse struct {
+	sessionbrowserclientmodels.ApiResponse
+	Data *sessionbrowserclientmodels.ModelsSessionResponse
+
+	Error400 *sessionbrowserclientmodels.RestapiErrorResponseV2
+	Error404 *sessionbrowserclientmodels.RestapiErrorResponseV2
+	Error500 *sessionbrowserclientmodels.RestapiErrorResponseV2
+}
+
+func (m *UpdateSettingsResponse) Unpack() (*sessionbrowserclientmodels.ModelsSessionResponse, *sessionbrowserclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionbrowserclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateSettingsReader is a Reader for the UpdateSettings structure.
 type UpdateSettingsReader struct {
 	formats strfmt.Registry

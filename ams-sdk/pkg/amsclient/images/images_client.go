@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ImageListShort(params *ImageListParams, authInfo runtime.ClientAuthInfoWriter) (*ImageListOK, error)
-	ImagesStorageShort(params *ImagesStorageParams, authInfo runtime.ClientAuthInfoWriter) (*ImagesStorageOK, error)
-	ImageGetShort(params *ImageGetParams, authInfo runtime.ClientAuthInfoWriter) (*ImageGetOK, error)
-	ImageMarkForDeletionShort(params *ImageMarkForDeletionParams, authInfo runtime.ClientAuthInfoWriter) (*ImageMarkForDeletionAccepted, error)
-	ImagePatchShort(params *ImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*ImagePatchOK, error)
-	ImageUnmarkForDeletionShort(params *ImageUnmarkForDeletionParams, authInfo runtime.ClientAuthInfoWriter) (*ImageUnmarkForDeletionAccepted, error)
+	ImageListShort(params *ImageListParams, authInfo runtime.ClientAuthInfoWriter) (*ImageListResponse, error)
+	ImagesStorageShort(params *ImagesStorageParams, authInfo runtime.ClientAuthInfoWriter) (*ImagesStorageResponse, error)
+	ImageGetShort(params *ImageGetParams, authInfo runtime.ClientAuthInfoWriter) (*ImageGetResponse, error)
+	ImageMarkForDeletionShort(params *ImageMarkForDeletionParams, authInfo runtime.ClientAuthInfoWriter) (*ImageMarkForDeletionResponse, error)
+	ImagePatchShort(params *ImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*ImagePatchResponse, error)
+	ImageUnmarkForDeletionShort(params *ImageUnmarkForDeletionParams, authInfo runtime.ClientAuthInfoWriter) (*ImageUnmarkForDeletionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ Returns images which exist (uploaded, uploading, or building) in the linked acco
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]
 */
-func (a *Client) ImageListShort(params *ImageListParams, authInfo runtime.ClientAuthInfoWriter) (*ImageListOK, error) {
+func (a *Client) ImageListShort(params *ImageListParams, authInfo runtime.ClientAuthInfoWriter) (*ImageListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImageListParams()
@@ -84,15 +84,40 @@ func (a *Client) ImageListShort(params *ImageListParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *ImageListOK:
-		return v, nil
+		response := &ImageListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImageListUnauthorized:
-		return nil, v
+		response := &ImageListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageListForbidden:
-		return nil, v
+		response := &ImageListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageListNotFound:
-		return nil, v
+		response := &ImageListResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageListInternalServerError:
-		return nil, v
+		response := &ImageListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +130,7 @@ Returns information regarding the account's usage for images storage including t
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]
 */
-func (a *Client) ImagesStorageShort(params *ImagesStorageParams, authInfo runtime.ClientAuthInfoWriter) (*ImagesStorageOK, error) {
+func (a *Client) ImagesStorageShort(params *ImagesStorageParams, authInfo runtime.ClientAuthInfoWriter) (*ImagesStorageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImagesStorageParams()
@@ -143,15 +168,40 @@ func (a *Client) ImagesStorageShort(params *ImagesStorageParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *ImagesStorageOK:
-		return v, nil
+		response := &ImagesStorageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImagesStorageUnauthorized:
-		return nil, v
+		response := &ImagesStorageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImagesStorageForbidden:
-		return nil, v
+		response := &ImagesStorageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImagesStorageNotFound:
-		return nil, v
+		response := &ImagesStorageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImagesStorageInternalServerError:
-		return nil, v
+		response := &ImagesStorageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -162,7 +212,7 @@ func (a *Client) ImagesStorageShort(params *ImagesStorageParams, authInfo runtim
 ImageGetShort get image details.
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]
 */
-func (a *Client) ImageGetShort(params *ImageGetParams, authInfo runtime.ClientAuthInfoWriter) (*ImageGetOK, error) {
+func (a *Client) ImageGetShort(params *ImageGetParams, authInfo runtime.ClientAuthInfoWriter) (*ImageGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImageGetParams()
@@ -200,15 +250,40 @@ func (a *Client) ImageGetShort(params *ImageGetParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *ImageGetOK:
-		return v, nil
+		response := &ImageGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImageGetUnauthorized:
-		return nil, v
+		response := &ImageGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageGetForbidden:
-		return nil, v
+		response := &ImageGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageGetNotFound:
-		return nil, v
+		response := &ImageGetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageGetInternalServerError:
-		return nil, v
+		response := &ImageGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -221,7 +296,7 @@ Marks an image for deletion. The image will stop being available for fleets and 
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [DELETE]
 */
-func (a *Client) ImageMarkForDeletionShort(params *ImageMarkForDeletionParams, authInfo runtime.ClientAuthInfoWriter) (*ImageMarkForDeletionAccepted, error) {
+func (a *Client) ImageMarkForDeletionShort(params *ImageMarkForDeletionParams, authInfo runtime.ClientAuthInfoWriter) (*ImageMarkForDeletionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImageMarkForDeletionParams()
@@ -259,17 +334,46 @@ func (a *Client) ImageMarkForDeletionShort(params *ImageMarkForDeletionParams, a
 	switch v := result.(type) {
 
 	case *ImageMarkForDeletionAccepted:
-		return v, nil
+		response := &ImageMarkForDeletionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImageMarkForDeletionUnauthorized:
-		return nil, v
+		response := &ImageMarkForDeletionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageMarkForDeletionForbidden:
-		return nil, v
+		response := &ImageMarkForDeletionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageMarkForDeletionNotFound:
-		return nil, v
+		response := &ImageMarkForDeletionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageMarkForDeletionPreconditionFailed:
-		return nil, v
+		response := &ImageMarkForDeletionResponse{}
+		response.Error412 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageMarkForDeletionInternalServerError:
-		return nil, v
+		response := &ImageMarkForDeletionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -282,7 +386,7 @@ This allows editing of the image name, toggling `IsProtected`, or adding & remov
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [UPDATE]
 */
-func (a *Client) ImagePatchShort(params *ImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*ImagePatchOK, error) {
+func (a *Client) ImagePatchShort(params *ImagePatchParams, authInfo runtime.ClientAuthInfoWriter) (*ImagePatchResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImagePatchParams()
@@ -320,15 +424,40 @@ func (a *Client) ImagePatchShort(params *ImagePatchParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *ImagePatchOK:
-		return v, nil
+		response := &ImagePatchResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImagePatchUnauthorized:
-		return nil, v
+		response := &ImagePatchResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImagePatchForbidden:
-		return nil, v
+		response := &ImagePatchResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImagePatchNotFound:
-		return nil, v
+		response := &ImagePatchResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImagePatchInternalServerError:
-		return nil, v
+		response := &ImagePatchResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -341,7 +470,7 @@ Unmarks an image for deletion. The image will be available for fleets.
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [DELETE]
 */
-func (a *Client) ImageUnmarkForDeletionShort(params *ImageUnmarkForDeletionParams, authInfo runtime.ClientAuthInfoWriter) (*ImageUnmarkForDeletionAccepted, error) {
+func (a *Client) ImageUnmarkForDeletionShort(params *ImageUnmarkForDeletionParams, authInfo runtime.ClientAuthInfoWriter) (*ImageUnmarkForDeletionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImageUnmarkForDeletionParams()
@@ -379,17 +508,46 @@ func (a *Client) ImageUnmarkForDeletionShort(params *ImageUnmarkForDeletionParam
 	switch v := result.(type) {
 
 	case *ImageUnmarkForDeletionAccepted:
-		return v, nil
+		response := &ImageUnmarkForDeletionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImageUnmarkForDeletionUnauthorized:
-		return nil, v
+		response := &ImageUnmarkForDeletionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageUnmarkForDeletionForbidden:
-		return nil, v
+		response := &ImageUnmarkForDeletionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageUnmarkForDeletionNotFound:
-		return nil, v
+		response := &ImageUnmarkForDeletionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageUnmarkForDeletionPreconditionFailed:
-		return nil, v
+		response := &ImageUnmarkForDeletionResponse{}
+		response.Error412 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImageUnmarkForDeletionInternalServerError:
-		return nil, v
+		response := &ImageUnmarkForDeletionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

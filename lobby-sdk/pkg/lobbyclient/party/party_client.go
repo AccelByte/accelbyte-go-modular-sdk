@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetPartyDataV1Short(params *AdminGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPartyDataV1OK, error)
-	AdminGetUserPartyV1Short(params *AdminGetUserPartyV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPartyV1OK, error)
-	PublicGetPartyDataV1Short(params *PublicGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyDataV1OK, error)
-	PublicUpdatePartyAttributesV1Short(params *PublicUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyAttributesV1OK, error)
-	PublicSetPartyLimitV1Short(params *PublicSetPartyLimitV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSetPartyLimitV1OK, error)
+	AdminGetPartyDataV1Short(params *AdminGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPartyDataV1Response, error)
+	AdminGetUserPartyV1Short(params *AdminGetUserPartyV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPartyV1Response, error)
+	PublicGetPartyDataV1Short(params *PublicGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyDataV1Response, error)
+	PublicUpdatePartyAttributesV1Short(params *PublicUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyAttributesV1Response, error)
+	PublicSetPartyLimitV1Short(params *PublicSetPartyLimitV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSetPartyLimitV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 AdminGetPartyDataV1Short admin get party data
 Get party data in a namespace.
 */
-func (a *Client) AdminGetPartyDataV1Short(params *AdminGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPartyDataV1OK, error) {
+func (a *Client) AdminGetPartyDataV1Short(params *AdminGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPartyDataV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPartyDataV1Params()
@@ -81,17 +81,47 @@ func (a *Client) AdminGetPartyDataV1Short(params *AdminGetPartyDataV1Params, aut
 	switch v := result.(type) {
 
 	case *AdminGetPartyDataV1OK:
-		return v, nil
+		response := &AdminGetPartyDataV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPartyDataV1BadRequest:
-		return nil, v
+		response := &AdminGetPartyDataV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPartyDataV1Unauthorized:
-		return nil, v
+		response := &AdminGetPartyDataV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPartyDataV1Forbidden:
-		return nil, v
+		response := &AdminGetPartyDataV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPartyDataV1NotFound:
-		return nil, v
+		response := &AdminGetPartyDataV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPartyDataV1InternalServerError:
-		return nil, v
+		response := &AdminGetPartyDataV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -102,7 +132,7 @@ func (a *Client) AdminGetPartyDataV1Short(params *AdminGetPartyDataV1Params, aut
 AdminGetUserPartyV1Short admin get user party data
 Get party data in a namespace.
 */
-func (a *Client) AdminGetUserPartyV1Short(params *AdminGetUserPartyV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPartyV1OK, error) {
+func (a *Client) AdminGetUserPartyV1Short(params *AdminGetUserPartyV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPartyV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserPartyV1Params()
@@ -140,17 +170,47 @@ func (a *Client) AdminGetUserPartyV1Short(params *AdminGetUserPartyV1Params, aut
 	switch v := result.(type) {
 
 	case *AdminGetUserPartyV1OK:
-		return v, nil
+		response := &AdminGetUserPartyV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserPartyV1BadRequest:
-		return nil, v
+		response := &AdminGetUserPartyV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPartyV1Unauthorized:
-		return nil, v
+		response := &AdminGetUserPartyV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPartyV1Forbidden:
-		return nil, v
+		response := &AdminGetUserPartyV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPartyV1NotFound:
-		return nil, v
+		response := &AdminGetUserPartyV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPartyV1InternalServerError:
-		return nil, v
+		response := &AdminGetUserPartyV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +226,7 @@ load personal party data in a namespace based on Party ID
 
 Action Code: 50101
 */
-func (a *Client) PublicGetPartyDataV1Short(params *PublicGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyDataV1OK, error) {
+func (a *Client) PublicGetPartyDataV1Short(params *PublicGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyDataV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPartyDataV1Params()
@@ -204,17 +264,47 @@ func (a *Client) PublicGetPartyDataV1Short(params *PublicGetPartyDataV1Params, a
 	switch v := result.(type) {
 
 	case *PublicGetPartyDataV1OK:
-		return v, nil
+		response := &PublicGetPartyDataV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPartyDataV1BadRequest:
-		return nil, v
+		response := &PublicGetPartyDataV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPartyDataV1Unauthorized:
-		return nil, v
+		response := &PublicGetPartyDataV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPartyDataV1Forbidden:
-		return nil, v
+		response := &PublicGetPartyDataV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPartyDataV1NotFound:
-		return nil, v
+		response := &PublicGetPartyDataV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPartyDataV1InternalServerError:
-		return nil, v
+		response := &PublicGetPartyDataV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -228,7 +318,7 @@ Required valid user authorization
 
 update party attributes in a namespace.
 */
-func (a *Client) PublicUpdatePartyAttributesV1Short(params *PublicUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyAttributesV1OK, error) {
+func (a *Client) PublicUpdatePartyAttributesV1Short(params *PublicUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyAttributesV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdatePartyAttributesV1Params()
@@ -266,19 +356,54 @@ func (a *Client) PublicUpdatePartyAttributesV1Short(params *PublicUpdatePartyAtt
 	switch v := result.(type) {
 
 	case *PublicUpdatePartyAttributesV1OK:
-		return v, nil
+		response := &PublicUpdatePartyAttributesV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdatePartyAttributesV1BadRequest:
-		return nil, v
+		response := &PublicUpdatePartyAttributesV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyAttributesV1Unauthorized:
-		return nil, v
+		response := &PublicUpdatePartyAttributesV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyAttributesV1Forbidden:
-		return nil, v
+		response := &PublicUpdatePartyAttributesV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyAttributesV1NotFound:
-		return nil, v
+		response := &PublicUpdatePartyAttributesV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyAttributesV1PreconditionFailed:
-		return nil, v
+		response := &PublicUpdatePartyAttributesV1Response{}
+		response.Error412 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyAttributesV1InternalServerError:
-		return nil, v
+		response := &PublicUpdatePartyAttributesV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -292,7 +417,7 @@ Required valid user authorization
 
 Set party limit, only party leader can call this endpoint.
 */
-func (a *Client) PublicSetPartyLimitV1Short(params *PublicSetPartyLimitV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSetPartyLimitV1OK, error) {
+func (a *Client) PublicSetPartyLimitV1Short(params *PublicSetPartyLimitV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSetPartyLimitV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSetPartyLimitV1Params()
@@ -330,17 +455,46 @@ func (a *Client) PublicSetPartyLimitV1Short(params *PublicSetPartyLimitV1Params,
 	switch v := result.(type) {
 
 	case *PublicSetPartyLimitV1OK:
-		return v, nil
+		response := &PublicSetPartyLimitV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSetPartyLimitV1BadRequest:
-		return nil, v
+		response := &PublicSetPartyLimitV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSetPartyLimitV1Unauthorized:
-		return nil, v
+		response := &PublicSetPartyLimitV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSetPartyLimitV1Forbidden:
-		return nil, v
+		response := &PublicSetPartyLimitV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSetPartyLimitV1NotFound:
-		return nil, v
+		response := &PublicSetPartyLimitV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSetPartyLimitV1InternalServerError:
-		return nil, v
+		response := &PublicSetPartyLimitV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

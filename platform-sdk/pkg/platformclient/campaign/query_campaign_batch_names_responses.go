@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryCampaignBatchNamesResponse struct {
+	platformclientmodels.ApiResponse
+	Data []*platformclientmodels.CampaignBatchNameInfo
+}
+
+func (m *QueryCampaignBatchNamesResponse) Unpack() ([]*platformclientmodels.CampaignBatchNameInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryCampaignBatchNamesReader is a Reader for the QueryCampaignBatchNames structure.
 type QueryCampaignBatchNamesReader struct {
 	formats strfmt.Registry

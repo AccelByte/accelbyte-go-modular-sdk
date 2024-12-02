@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SingleAdminGetChannelShort(params *SingleAdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetChannelOK, error)
-	AdminCreateChannelShort(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelCreated, error)
-	SingleAdminUpdateChannelShort(params *SingleAdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateChannelOK, error)
-	SingleAdminDeleteChannelShort(params *SingleAdminDeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteChannelNoContent, error)
-	AdminGetChannelShort(params *AdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChannelOK, error)
-	AdminUpdateChannelShort(params *AdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChannelOK, error)
-	AdminDeleteChannelShort(params *AdminDeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChannelNoContent, error)
+	SingleAdminGetChannelShort(params *SingleAdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetChannelResponse, error)
+	AdminCreateChannelShort(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelResponse, error)
+	SingleAdminUpdateChannelShort(params *SingleAdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateChannelResponse, error)
+	SingleAdminDeleteChannelShort(params *SingleAdminDeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteChannelResponse, error)
+	AdminGetChannelShort(params *AdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChannelResponse, error)
+	AdminUpdateChannelShort(params *AdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChannelResponse, error)
+	AdminDeleteChannelShort(params *AdminDeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChannelResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ type ClientService interface {
 SingleAdminGetChannelShort get channels
 Get official channel paginated
 */
-func (a *Client) SingleAdminGetChannelShort(params *SingleAdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetChannelOK, error) {
+func (a *Client) SingleAdminGetChannelShort(params *SingleAdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminGetChannelParams()
@@ -83,13 +83,33 @@ func (a *Client) SingleAdminGetChannelShort(params *SingleAdminGetChannelParams,
 	switch v := result.(type) {
 
 	case *SingleAdminGetChannelOK:
-		return v, nil
+		response := &SingleAdminGetChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SingleAdminGetChannelBadRequest:
-		return nil, v
+		response := &SingleAdminGetChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetChannelUnauthorized:
-		return nil, v
+		response := &SingleAdminGetChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetChannelInternalServerError:
-		return nil, v
+		response := &SingleAdminGetChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +120,7 @@ func (a *Client) SingleAdminGetChannelShort(params *SingleAdminGetChannelParams,
 AdminCreateChannelShort create channel
 Create official channel
 */
-func (a *Client) AdminCreateChannelShort(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelCreated, error) {
+func (a *Client) AdminCreateChannelShort(params *AdminCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateChannelParams()
@@ -138,15 +158,40 @@ func (a *Client) AdminCreateChannelShort(params *AdminCreateChannelParams, authI
 	switch v := result.(type) {
 
 	case *AdminCreateChannelCreated:
-		return v, nil
+		response := &AdminCreateChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateChannelBadRequest:
-		return nil, v
+		response := &AdminCreateChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChannelUnauthorized:
-		return nil, v
+		response := &AdminCreateChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChannelConflict:
-		return nil, v
+		response := &AdminCreateChannelResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChannelInternalServerError:
-		return nil, v
+		response := &AdminCreateChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -157,7 +202,7 @@ func (a *Client) AdminCreateChannelShort(params *AdminCreateChannelParams, authI
 SingleAdminUpdateChannelShort update channel
 Update official channel
 */
-func (a *Client) SingleAdminUpdateChannelShort(params *SingleAdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateChannelOK, error) {
+func (a *Client) SingleAdminUpdateChannelShort(params *SingleAdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminUpdateChannelParams()
@@ -195,15 +240,40 @@ func (a *Client) SingleAdminUpdateChannelShort(params *SingleAdminUpdateChannelP
 	switch v := result.(type) {
 
 	case *SingleAdminUpdateChannelOK:
-		return v, nil
+		response := &SingleAdminUpdateChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SingleAdminUpdateChannelBadRequest:
-		return nil, v
+		response := &SingleAdminUpdateChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminUpdateChannelUnauthorized:
-		return nil, v
+		response := &SingleAdminUpdateChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminUpdateChannelNotFound:
-		return nil, v
+		response := &SingleAdminUpdateChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminUpdateChannelInternalServerError:
-		return nil, v
+		response := &SingleAdminUpdateChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -214,7 +284,7 @@ func (a *Client) SingleAdminUpdateChannelShort(params *SingleAdminUpdateChannelP
 SingleAdminDeleteChannelShort delete channel
 Delete official channel
 */
-func (a *Client) SingleAdminDeleteChannelShort(params *SingleAdminDeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteChannelNoContent, error) {
+func (a *Client) SingleAdminDeleteChannelShort(params *SingleAdminDeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminDeleteChannelParams()
@@ -252,13 +322,32 @@ func (a *Client) SingleAdminDeleteChannelShort(params *SingleAdminDeleteChannelP
 	switch v := result.(type) {
 
 	case *SingleAdminDeleteChannelNoContent:
-		return v, nil
+		response := &SingleAdminDeleteChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SingleAdminDeleteChannelUnauthorized:
-		return nil, v
+		response := &SingleAdminDeleteChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminDeleteChannelNotFound:
-		return nil, v
+		response := &SingleAdminDeleteChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminDeleteChannelInternalServerError:
-		return nil, v
+		response := &SingleAdminDeleteChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -269,7 +358,7 @@ func (a *Client) SingleAdminDeleteChannelShort(params *SingleAdminDeleteChannelP
 AdminGetChannelShort get channels
 Get user channel paginated
 */
-func (a *Client) AdminGetChannelShort(params *AdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChannelOK, error) {
+func (a *Client) AdminGetChannelShort(params *AdminGetChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetChannelParams()
@@ -307,13 +396,33 @@ func (a *Client) AdminGetChannelShort(params *AdminGetChannelParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminGetChannelOK:
-		return v, nil
+		response := &AdminGetChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetChannelBadRequest:
-		return nil, v
+		response := &AdminGetChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChannelUnauthorized:
-		return nil, v
+		response := &AdminGetChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChannelInternalServerError:
-		return nil, v
+		response := &AdminGetChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -324,7 +433,7 @@ func (a *Client) AdminGetChannelShort(params *AdminGetChannelParams, authInfo ru
 AdminUpdateChannelShort update channel
 Update user channel
 */
-func (a *Client) AdminUpdateChannelShort(params *AdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChannelOK, error) {
+func (a *Client) AdminUpdateChannelShort(params *AdminUpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateChannelParams()
@@ -362,15 +471,40 @@ func (a *Client) AdminUpdateChannelShort(params *AdminUpdateChannelParams, authI
 	switch v := result.(type) {
 
 	case *AdminUpdateChannelOK:
-		return v, nil
+		response := &AdminUpdateChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateChannelBadRequest:
-		return nil, v
+		response := &AdminUpdateChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateChannelUnauthorized:
-		return nil, v
+		response := &AdminUpdateChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateChannelNotFound:
-		return nil, v
+		response := &AdminUpdateChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateChannelInternalServerError:
-		return nil, v
+		response := &AdminUpdateChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -381,7 +515,7 @@ func (a *Client) AdminUpdateChannelShort(params *AdminUpdateChannelParams, authI
 AdminDeleteChannelShort delete channel
 Delete user channel
 */
-func (a *Client) AdminDeleteChannelShort(params *AdminDeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChannelNoContent, error) {
+func (a *Client) AdminDeleteChannelShort(params *AdminDeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteChannelParams()
@@ -419,13 +553,32 @@ func (a *Client) AdminDeleteChannelShort(params *AdminDeleteChannelParams, authI
 	switch v := result.(type) {
 
 	case *AdminDeleteChannelNoContent:
-		return v, nil
+		response := &AdminDeleteChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteChannelUnauthorized:
-		return nil, v
+		response := &AdminDeleteChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChannelNotFound:
-		return nil, v
+		response := &AdminDeleteChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChannelInternalServerError:
-		return nil, v
+		response := &AdminDeleteChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

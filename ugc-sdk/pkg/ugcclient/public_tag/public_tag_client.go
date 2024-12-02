@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetTagShort(params *GetTagParams, authInfo runtime.ClientAuthInfoWriter) (*GetTagOK, error)
+	GetTagShort(params *GetTagParams, authInfo runtime.ClientAuthInfoWriter) (*GetTagResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 GetTagShort get tags
 Get available tags paginated
 */
-func (a *Client) GetTagShort(params *GetTagParams, authInfo runtime.ClientAuthInfoWriter) (*GetTagOK, error) {
+func (a *Client) GetTagShort(params *GetTagParams, authInfo runtime.ClientAuthInfoWriter) (*GetTagResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTagParams()
@@ -77,13 +77,33 @@ func (a *Client) GetTagShort(params *GetTagParams, authInfo runtime.ClientAuthIn
 	switch v := result.(type) {
 
 	case *GetTagOK:
-		return v, nil
+		response := &GetTagResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTagBadRequest:
-		return nil, v
+		response := &GetTagResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTagUnauthorized:
-		return nil, v
+		response := &GetTagResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTagInternalServerError:
-		return nil, v
+		response := &GetTagResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

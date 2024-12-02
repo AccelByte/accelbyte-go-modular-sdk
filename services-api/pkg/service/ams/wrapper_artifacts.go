@@ -9,7 +9,6 @@ package ams
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/artifacts"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ArtifactsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ArtifactsService) ArtifactGetShort(input *artifacts.ArtifactGetParams) (*amsclientmodels.APIArtifactListResponse, error) {
+func (aaa *ArtifactsService) ArtifactGetShort(input *artifacts.ArtifactGetParams) (*artifacts.ArtifactGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *ArtifactsService) ArtifactGetShort(input *artifacts.ArtifactGetParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ArtifactsService) ArtifactBulkDeleteShort(input *artifacts.ArtifactBulkDeleteParams) error {
@@ -99,7 +98,7 @@ func (aaa *ArtifactsService) ArtifactBulkDeleteShort(input *artifacts.ArtifactBu
 	return nil
 }
 
-func (aaa *ArtifactsService) ArtifactUsageGetShort(input *artifacts.ArtifactUsageGetParams) (*amsclientmodels.APIArtifactUsageResponse, error) {
+func (aaa *ArtifactsService) ArtifactUsageGetShort(input *artifacts.ArtifactUsageGetParams) (*artifacts.ArtifactUsageGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *ArtifactsService) ArtifactUsageGetShort(input *artifacts.ArtifactUsag
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ArtifactsService) ArtifactDeleteShort(input *artifacts.ArtifactDeleteParams) error {
@@ -159,7 +158,7 @@ func (aaa *ArtifactsService) ArtifactDeleteShort(input *artifacts.ArtifactDelete
 	return nil
 }
 
-func (aaa *ArtifactsService) ArtifactGetURLShort(input *artifacts.ArtifactGetURLParams) (*amsclientmodels.APIArtifactURLResponse, error) {
+func (aaa *ArtifactsService) ArtifactGetURLShort(input *artifacts.ArtifactGetURLParams) (*artifacts.ArtifactGetURLResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *ArtifactsService) ArtifactGetURLShort(input *artifacts.ArtifactGetURL
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ArtifactsService) FleetArtifactSamplingRulesGetShort(input *artifacts.FleetArtifactSamplingRulesGetParams) (*amsclientmodels.APIFleetArtifactsSampleRules, error) {
+func (aaa *ArtifactsService) FleetArtifactSamplingRulesGetShort(input *artifacts.FleetArtifactSamplingRulesGetParams) (*artifacts.FleetArtifactSamplingRulesGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *ArtifactsService) FleetArtifactSamplingRulesGetShort(input *artifacts
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ArtifactsService) FleetArtifactSamplingRulesSetShort(input *artifacts.FleetArtifactSamplingRulesSetParams) (*amsclientmodels.APIFleetArtifactsSampleRules, error) {
+func (aaa *ArtifactsService) FleetArtifactSamplingRulesSetShort(input *artifacts.FleetArtifactSamplingRulesSetParams) (*artifacts.FleetArtifactSamplingRulesSetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,5 +245,5 @@ func (aaa *ArtifactsService) FleetArtifactSamplingRulesSetShort(input *artifacts
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

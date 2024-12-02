@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/profile_update_strategy"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *ProfileUpdateStrategyService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ProfileUpdateStrategyService) AdminGetProfileUpdateStrategyV3Short(input *profile_update_strategy.AdminGetProfileUpdateStrategyV3Params) (*iamclientmodels.ModelGetProfileUpdateStrategyConfigResponse, error) {
+func (aaa *ProfileUpdateStrategyService) AdminGetProfileUpdateStrategyV3Short(input *profile_update_strategy.AdminGetProfileUpdateStrategyV3Params) (*profile_update_strategy.AdminGetProfileUpdateStrategyV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *ProfileUpdateStrategyService) AdminGetProfileUpdateStrategyV3Short(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfileUpdateStrategyService) AdminUpdateProfileUpdateStrategyV3Short(input *profile_update_strategy.AdminUpdateProfileUpdateStrategyV3Params) (*iamclientmodels.ModelSimpleProfileUpdateStrategyConfigs, error) {
+func (aaa *ProfileUpdateStrategyService) AdminUpdateProfileUpdateStrategyV3Short(input *profile_update_strategy.AdminUpdateProfileUpdateStrategyV3Params) (*profile_update_strategy.AdminUpdateProfileUpdateStrategyV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *ProfileUpdateStrategyService) AdminUpdateProfileUpdateStrategyV3Short
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfileUpdateStrategyService) PublicGetProfileUpdateStrategyV3Short(input *profile_update_strategy.PublicGetProfileUpdateStrategyV3Params) (*iamclientmodels.ModelGetProfileUpdateStrategyConfigResponse, error) {
+func (aaa *ProfileUpdateStrategyService) PublicGetProfileUpdateStrategyV3Short(input *profile_update_strategy.PublicGetProfileUpdateStrategyV3Params) (*profile_update_strategy.PublicGetProfileUpdateStrategyV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,5 +123,5 @@ func (aaa *ProfileUpdateStrategyService) PublicGetProfileUpdateStrategyV3Short(i
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

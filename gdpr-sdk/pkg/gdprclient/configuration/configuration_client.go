@@ -30,16 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAdminEmailConfigurationShort(params *GetAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminEmailConfigurationOK, error)
-	UpdateAdminEmailConfigurationShort(params *UpdateAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdminEmailConfigurationNoContent, error)
-	SaveAdminEmailConfigurationShort(params *SaveAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*SaveAdminEmailConfigurationNoContent, error)
-	DeleteAdminEmailConfigurationShort(params *DeleteAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAdminEmailConfigurationNoContent, error)
-	AdminGetServicesConfigurationShort(params *AdminGetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetServicesConfigurationOK, error)
-	AdminUpdateServicesConfigurationShort(params *AdminUpdateServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateServicesConfigurationOK, error)
-	AdminResetServicesConfigurationShort(params *AdminResetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetServicesConfigurationNoContent, error)
-	AdminGetPlatformAccountClosureServicesConfigurationShort(params *AdminGetPlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureServicesConfigurationOK, error)
-	AdminUpdatePlatformAccountClosureServicesConfigurationShort(params *AdminUpdatePlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureServicesConfigurationOK, error)
-	AdminResetPlatformAccountClosureServicesConfigurationShort(params *AdminResetPlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPlatformAccountClosureServicesConfigurationNoContent, error)
+	GetAdminEmailConfigurationShort(params *GetAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminEmailConfigurationResponse, error)
+	UpdateAdminEmailConfigurationShort(params *UpdateAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdminEmailConfigurationResponse, error)
+	SaveAdminEmailConfigurationShort(params *SaveAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*SaveAdminEmailConfigurationResponse, error)
+	DeleteAdminEmailConfigurationShort(params *DeleteAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAdminEmailConfigurationResponse, error)
+	AdminGetServicesConfigurationShort(params *AdminGetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetServicesConfigurationResponse, error)
+	AdminUpdateServicesConfigurationShort(params *AdminUpdateServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateServicesConfigurationResponse, error)
+	AdminResetServicesConfigurationShort(params *AdminResetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetServicesConfigurationResponse, error)
+	AdminGetPlatformAccountClosureServicesConfigurationShort(params *AdminGetPlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureServicesConfigurationResponse, error)
+	AdminUpdatePlatformAccountClosureServicesConfigurationShort(params *AdminUpdatePlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureServicesConfigurationResponse, error)
+	AdminResetPlatformAccountClosureServicesConfigurationShort(params *AdminResetPlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPlatformAccountClosureServicesConfigurationResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ GetAdminEmailConfigurationShort get admin email addresses configuration
 Get list of admin email address configuration.
 Scope: account
 */
-func (a *Client) GetAdminEmailConfigurationShort(params *GetAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminEmailConfigurationOK, error) {
+func (a *Client) GetAdminEmailConfigurationShort(params *GetAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminEmailConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAdminEmailConfigurationParams()
@@ -87,11 +87,26 @@ func (a *Client) GetAdminEmailConfigurationShort(params *GetAdminEmailConfigurat
 	switch v := result.(type) {
 
 	case *GetAdminEmailConfigurationOK:
-		return v, nil
+		response := &GetAdminEmailConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAdminEmailConfigurationUnauthorized:
-		return nil, v
+		response := &GetAdminEmailConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminEmailConfigurationInternalServerError:
-		return nil, v
+		response := &GetAdminEmailConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +118,7 @@ UpdateAdminEmailConfigurationShort update admin email address configuration
 Update admin email address for receiving personal data request notification.
 Scope: account
 */
-func (a *Client) UpdateAdminEmailConfigurationShort(params *UpdateAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdminEmailConfigurationNoContent, error) {
+func (a *Client) UpdateAdminEmailConfigurationShort(params *UpdateAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdminEmailConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAdminEmailConfigurationParams()
@@ -141,13 +156,32 @@ func (a *Client) UpdateAdminEmailConfigurationShort(params *UpdateAdminEmailConf
 	switch v := result.(type) {
 
 	case *UpdateAdminEmailConfigurationNoContent:
-		return v, nil
+		response := &UpdateAdminEmailConfigurationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateAdminEmailConfigurationBadRequest:
-		return nil, v
+		response := &UpdateAdminEmailConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAdminEmailConfigurationUnauthorized:
-		return nil, v
+		response := &UpdateAdminEmailConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAdminEmailConfigurationInternalServerError:
-		return nil, v
+		response := &UpdateAdminEmailConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,7 +193,7 @@ SaveAdminEmailConfigurationShort add admin email address configuration
 Add admin email address for receiving personal data request notification.
 Scope: account
 */
-func (a *Client) SaveAdminEmailConfigurationShort(params *SaveAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*SaveAdminEmailConfigurationNoContent, error) {
+func (a *Client) SaveAdminEmailConfigurationShort(params *SaveAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*SaveAdminEmailConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSaveAdminEmailConfigurationParams()
@@ -197,13 +231,32 @@ func (a *Client) SaveAdminEmailConfigurationShort(params *SaveAdminEmailConfigur
 	switch v := result.(type) {
 
 	case *SaveAdminEmailConfigurationNoContent:
-		return v, nil
+		response := &SaveAdminEmailConfigurationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SaveAdminEmailConfigurationBadRequest:
-		return nil, v
+		response := &SaveAdminEmailConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveAdminEmailConfigurationUnauthorized:
-		return nil, v
+		response := &SaveAdminEmailConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveAdminEmailConfigurationInternalServerError:
-		return nil, v
+		response := &SaveAdminEmailConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -215,7 +268,7 @@ DeleteAdminEmailConfigurationShort delete admin emails configurations
 Delete a list of admin email addresses to stop receiving personal data request notification.
 Scope: account
 */
-func (a *Client) DeleteAdminEmailConfigurationShort(params *DeleteAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAdminEmailConfigurationNoContent, error) {
+func (a *Client) DeleteAdminEmailConfigurationShort(params *DeleteAdminEmailConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAdminEmailConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAdminEmailConfigurationParams()
@@ -253,17 +306,46 @@ func (a *Client) DeleteAdminEmailConfigurationShort(params *DeleteAdminEmailConf
 	switch v := result.(type) {
 
 	case *DeleteAdminEmailConfigurationNoContent:
-		return v, nil
+		response := &DeleteAdminEmailConfigurationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAdminEmailConfigurationBadRequest:
-		return nil, v
+		response := &DeleteAdminEmailConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAdminEmailConfigurationUnauthorized:
-		return nil, v
+		response := &DeleteAdminEmailConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAdminEmailConfigurationForbidden:
-		return nil, v
+		response := &DeleteAdminEmailConfigurationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAdminEmailConfigurationNotFound:
-		return nil, v
+		response := &DeleteAdminEmailConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAdminEmailConfigurationInternalServerError:
-		return nil, v
+		response := &DeleteAdminEmailConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -275,7 +357,7 @@ AdminGetServicesConfigurationShort get registered services configuration
 Get Registered Services Configuration.
 Scope: account
 */
-func (a *Client) AdminGetServicesConfigurationShort(params *AdminGetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetServicesConfigurationOK, error) {
+func (a *Client) AdminGetServicesConfigurationShort(params *AdminGetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetServicesConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetServicesConfigurationParams()
@@ -313,13 +395,33 @@ func (a *Client) AdminGetServicesConfigurationShort(params *AdminGetServicesConf
 	switch v := result.(type) {
 
 	case *AdminGetServicesConfigurationOK:
-		return v, nil
+		response := &AdminGetServicesConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetServicesConfigurationUnauthorized:
-		return nil, v
+		response := &AdminGetServicesConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetServicesConfigurationNotFound:
-		return nil, v
+		response := &AdminGetServicesConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetServicesConfigurationInternalServerError:
-		return nil, v
+		response := &AdminGetServicesConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -331,7 +433,7 @@ AdminUpdateServicesConfigurationShort update registered services configuration
 Update Registered Services Configuration.
 Scope: account
 */
-func (a *Client) AdminUpdateServicesConfigurationShort(params *AdminUpdateServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateServicesConfigurationOK, error) {
+func (a *Client) AdminUpdateServicesConfigurationShort(params *AdminUpdateServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateServicesConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateServicesConfigurationParams()
@@ -369,13 +471,33 @@ func (a *Client) AdminUpdateServicesConfigurationShort(params *AdminUpdateServic
 	switch v := result.(type) {
 
 	case *AdminUpdateServicesConfigurationOK:
-		return v, nil
+		response := &AdminUpdateServicesConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateServicesConfigurationBadRequest:
-		return nil, v
+		response := &AdminUpdateServicesConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateServicesConfigurationUnauthorized:
-		return nil, v
+		response := &AdminUpdateServicesConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateServicesConfigurationInternalServerError:
-		return nil, v
+		response := &AdminUpdateServicesConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -388,7 +510,7 @@ AdminResetServicesConfigurationShort reset registered services configuration
 Reset Registered Services Configuration to use the default configuration.
 Scope: account
 */
-func (a *Client) AdminResetServicesConfigurationShort(params *AdminResetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetServicesConfigurationNoContent, error) {
+func (a *Client) AdminResetServicesConfigurationShort(params *AdminResetServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetServicesConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminResetServicesConfigurationParams()
@@ -426,11 +548,25 @@ func (a *Client) AdminResetServicesConfigurationShort(params *AdminResetServices
 	switch v := result.(type) {
 
 	case *AdminResetServicesConfigurationNoContent:
-		return v, nil
+		response := &AdminResetServicesConfigurationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminResetServicesConfigurationUnauthorized:
-		return nil, v
+		response := &AdminResetServicesConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetServicesConfigurationInternalServerError:
-		return nil, v
+		response := &AdminResetServicesConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -442,7 +578,7 @@ AdminGetPlatformAccountClosureServicesConfigurationShort get registered platform
 Get registered platform account closure services configuration.
 Scope: account
 */
-func (a *Client) AdminGetPlatformAccountClosureServicesConfigurationShort(params *AdminGetPlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureServicesConfigurationOK, error) {
+func (a *Client) AdminGetPlatformAccountClosureServicesConfigurationShort(params *AdminGetPlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureServicesConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlatformAccountClosureServicesConfigurationParams()
@@ -480,13 +616,33 @@ func (a *Client) AdminGetPlatformAccountClosureServicesConfigurationShort(params
 	switch v := result.(type) {
 
 	case *AdminGetPlatformAccountClosureServicesConfigurationOK:
-		return v, nil
+		response := &AdminGetPlatformAccountClosureServicesConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlatformAccountClosureServicesConfigurationUnauthorized:
-		return nil, v
+		response := &AdminGetPlatformAccountClosureServicesConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformAccountClosureServicesConfigurationNotFound:
-		return nil, v
+		response := &AdminGetPlatformAccountClosureServicesConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformAccountClosureServicesConfigurationInternalServerError:
-		return nil, v
+		response := &AdminGetPlatformAccountClosureServicesConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -498,7 +654,7 @@ AdminUpdatePlatformAccountClosureServicesConfigurationShort update registered pl
 Update registered platform account closure services configuration.
 Scope: account
 */
-func (a *Client) AdminUpdatePlatformAccountClosureServicesConfigurationShort(params *AdminUpdatePlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureServicesConfigurationOK, error) {
+func (a *Client) AdminUpdatePlatformAccountClosureServicesConfigurationShort(params *AdminUpdatePlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureServicesConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdatePlatformAccountClosureServicesConfigurationParams()
@@ -536,13 +692,33 @@ func (a *Client) AdminUpdatePlatformAccountClosureServicesConfigurationShort(par
 	switch v := result.(type) {
 
 	case *AdminUpdatePlatformAccountClosureServicesConfigurationOK:
-		return v, nil
+		response := &AdminUpdatePlatformAccountClosureServicesConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdatePlatformAccountClosureServicesConfigurationBadRequest:
-		return nil, v
+		response := &AdminUpdatePlatformAccountClosureServicesConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformAccountClosureServicesConfigurationUnauthorized:
-		return nil, v
+		response := &AdminUpdatePlatformAccountClosureServicesConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformAccountClosureServicesConfigurationInternalServerError:
-		return nil, v
+		response := &AdminUpdatePlatformAccountClosureServicesConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -555,7 +731,7 @@ AdminResetPlatformAccountClosureServicesConfigurationShort reset registered plat
 Reset registered platform account closure services configuration to use the default configuration.
 Scope: account
 */
-func (a *Client) AdminResetPlatformAccountClosureServicesConfigurationShort(params *AdminResetPlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPlatformAccountClosureServicesConfigurationNoContent, error) {
+func (a *Client) AdminResetPlatformAccountClosureServicesConfigurationShort(params *AdminResetPlatformAccountClosureServicesConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPlatformAccountClosureServicesConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminResetPlatformAccountClosureServicesConfigurationParams()
@@ -593,11 +769,25 @@ func (a *Client) AdminResetPlatformAccountClosureServicesConfigurationShort(para
 	switch v := result.(type) {
 
 	case *AdminResetPlatformAccountClosureServicesConfigurationNoContent:
-		return v, nil
+		response := &AdminResetPlatformAccountClosureServicesConfigurationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminResetPlatformAccountClosureServicesConfigurationUnauthorized:
-		return nil, v
+		response := &AdminResetPlatformAccountClosureServicesConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPlatformAccountClosureServicesConfigurationInternalServerError:
-		return nil, v
+		response := &AdminResetPlatformAccountClosureServicesConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

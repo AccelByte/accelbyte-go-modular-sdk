@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/global_configuration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 type GlobalConfigurationService struct {
@@ -37,7 +36,7 @@ func (aaa *GlobalConfigurationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *GlobalConfigurationService) AdminListGlobalConfigurationShort(input *global_configuration.AdminListGlobalConfigurationParams) (*sessionclientmodels.ApimodelsGlobalConfigurationResponse, error) {
+func (aaa *GlobalConfigurationService) AdminListGlobalConfigurationShort(input *global_configuration.AdminListGlobalConfigurationParams) (*global_configuration.AdminListGlobalConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *GlobalConfigurationService) AdminListGlobalConfigurationShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalConfigurationService) AdminUpdateGlobalConfigurationShort(input *global_configuration.AdminUpdateGlobalConfigurationParams) (*sessionclientmodels.ApimodelsGlobalConfigurationResponse, error) {
+func (aaa *GlobalConfigurationService) AdminUpdateGlobalConfigurationShort(input *global_configuration.AdminUpdateGlobalConfigurationParams) (*global_configuration.AdminUpdateGlobalConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *GlobalConfigurationService) AdminUpdateGlobalConfigurationShort(input
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalConfigurationService) AdminDeleteGlobalConfigurationShort(input *global_configuration.AdminDeleteGlobalConfigurationParams) (string, error) {
+func (aaa *GlobalConfigurationService) AdminDeleteGlobalConfigurationShort(input *global_configuration.AdminDeleteGlobalConfigurationParams) (*global_configuration.AdminDeleteGlobalConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -121,8 +120,8 @@ func (aaa *GlobalConfigurationService) AdminDeleteGlobalConfigurationShort(input
 
 	noContent, err := aaa.Client.GlobalConfiguration.AdminDeleteGlobalConfigurationShort(input, authInfoWriter)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	return noContent.GetPayload(), nil
+	return noContent, nil
 }

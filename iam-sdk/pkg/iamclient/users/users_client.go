@@ -30,178 +30,178 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateUserShort(params *CreateUserParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserCreated, error)
-	GetAdminUsersByRoleIDShort(params *GetAdminUsersByRoleIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDOK, error)
-	GetUserByLoginIDShort(params *GetUserByLoginIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByLoginIDOK, error)
-	GetUserByPlatformUserIDShort(params *GetUserByPlatformUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByPlatformUserIDOK, error)
-	ForgotPasswordShort(params *ForgotPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*ForgotPasswordNoContent, error)
-	GetUsersByLoginIdsShort(params *GetUsersByLoginIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUsersByLoginIdsOK, error)
-	ResetPasswordShort(params *ResetPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordNoContent, error)
-	SearchUserShort(params *SearchUserParams, authInfo runtime.ClientAuthInfoWriter) (*SearchUserOK, error)
-	GetUserByUserIDShort(params *GetUserByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByUserIDOK, error)
-	UpdateUserShort(params *UpdateUserParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserOK, error)
-	DeleteUserShort(params *DeleteUserParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserNoContent, error)
-	BanUserShort(params *BanUserParams, authInfo runtime.ClientAuthInfoWriter) (*BanUserCreated, error)
-	GetUserBanHistoryShort(params *GetUserBanHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserBanHistoryOK, error)
-	DisableUserBanShort(params *DisableUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserBanOK, error)
-	EnableUserBanShort(params *EnableUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserBanOK, error)
-	ListCrossNamespaceAccountLinkShort(params *ListCrossNamespaceAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*ListCrossNamespaceAccountLinkOK, error)
-	DisableUserShort(params *DisableUserParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserNoContent, error)
-	EnableUserShort(params *EnableUserParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserNoContent, error)
-	GetUserInformationShort(params *GetUserInformationParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserInformationOK, error)
-	DeleteUserInformationShort(params *DeleteUserInformationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserInformationNoContent, error)
-	GetUserLoginHistoriesShort(params *GetUserLoginHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserLoginHistoriesOK, error)
-	UpdatePasswordShort(params *UpdatePasswordParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePasswordNoContent, error)
-	SaveUserPermissionShort(params *SaveUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*SaveUserPermissionNoContent, error)
-	AddUserPermissionShort(params *AddUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserPermissionNoContent, error)
-	DeleteUserPermissionShort(params *DeleteUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserPermissionNoContent, error)
-	GetUserPlatformAccountsShort(params *GetUserPlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserPlatformAccountsOK, error)
-	GetUserMappingShort(params *GetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserMappingOK, error)
-	GetUserJusticePlatformAccountShort(params *GetUserJusticePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserJusticePlatformAccountOK, error)
-	PlatformLinkShort(params *PlatformLinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformLinkNoContent, error)
-	PlatformUnlinkShort(params *PlatformUnlinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformUnlinkNoContent, error)
-	GetPublisherUserShort(params *GetPublisherUserParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherUserOK, error)
-	SaveUserRolesShort(params *SaveUserRolesParams, authInfo runtime.ClientAuthInfoWriter) (*SaveUserRolesNoContent, error)
-	AddUserRoleShort(params *AddUserRoleParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserRoleNoContent, error)
-	DeleteUserRoleShort(params *DeleteUserRoleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRoleNoContent, error)
-	UpgradeHeadlessAccountShort(params *UpgradeHeadlessAccountParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountOK, error)
-	UpgradeHeadlessAccountWithVerificationCodeShort(params *UpgradeHeadlessAccountWithVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountWithVerificationCodeOK, error)
-	UserVerificationShort(params *UserVerificationParams, authInfo runtime.ClientAuthInfoWriter) (*UserVerificationNoContent, error)
-	SendVerificationCodeShort(params *SendVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendVerificationCodeNoContent, error)
-	AdminGetAgeRestrictionStatusV2Short(params *AdminGetAgeRestrictionStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV2OK, error)
-	AdminUpdateAgeRestrictionConfigV2Short(params *AdminUpdateAgeRestrictionConfigV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV2OK, error)
-	GetListCountryAgeRestrictionShort(params *GetListCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*GetListCountryAgeRestrictionOK, error)
-	UpdateCountryAgeRestrictionShort(params *UpdateCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryAgeRestrictionOK, error)
-	AdminSearchUsersV2Short(params *AdminSearchUsersV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUsersV2OK, error)
-	AdminGetUserByUserIDV2Short(params *AdminGetUserByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV2OK, error)
-	AdminUpdateUserV2Short(params *AdminUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV2OK, error)
-	AdminBanUserV2Short(params *AdminBanUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV2Created, error)
-	AdminGetUserBanV2Short(params *AdminGetUserBanV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV2OK, error)
-	AdminDisableUserV2Short(params *AdminDisableUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserV2NoContent, error)
-	AdminEnableUserV2Short(params *AdminEnableUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableUserV2NoContent, error)
-	AdminResetPasswordV2Short(params *AdminResetPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV2NoContent, error)
-	AdminDeletePlatformLinkV2Short(params *AdminDeletePlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformLinkV2NoContent, error)
-	AdminPutUserRolesV2Short(params *AdminPutUserRolesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutUserRolesV2NoContent, error)
-	AdminCreateUserRolesV2Short(params *AdminCreateUserRolesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserRolesV2NoContent, error)
-	PublicGetCountryAgeRestrictionShort(params *PublicGetCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryAgeRestrictionOK, error)
-	PublicCreateUserV2Short(params *PublicCreateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV2Created, error)
-	PublicForgotPasswordV2Short(params *PublicForgotPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV2NoContent, error)
-	PublicResetPasswordV2Short(params *PublicResetPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicResetPasswordV2NoContent, error)
-	PublicGetUserByUserIDV2Short(params *PublicGetUserByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV2OK, error)
-	PublicUpdateUserV2Short(params *PublicUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV2OK, error)
-	PublicGetUserBanShort(params *PublicGetUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserBanOK, error)
-	PublicUpdatePasswordV2Short(params *PublicUpdatePasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV2NoContent, error)
-	GetListJusticePlatformAccountsShort(params *GetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListJusticePlatformAccountsOK, error)
-	PublicPlatformLinkV2Short(params *PublicPlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV2NoContent, error)
-	PublicDeletePlatformLinkV2Short(params *PublicDeletePlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlatformLinkV2NoContent, error)
-	ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.ClientAuthInfoWriter) (*ListAdminsV3OK, error)
-	AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrictionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV3OK, error)
-	AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRestrictionConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV3OK, error)
-	AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListCountryAgeRestrictionV3OK, error)
-	AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateCountryAgeRestrictionV3OK, error)
-	AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3OK, error)
-	AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByPlatformUserIDV3OK, error)
-	GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDV3OK, error)
-	AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByEmailAddressV3OK, error)
-	AdminBulkUpdateUsersV3Short(params *AdminBulkUpdateUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateUsersV3NoContent, error)
-	AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3OK, error)
-	AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3OK, error)
-	AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformOK, error)
-	AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV3Created, error)
-	AdminQueryThirdPlatformLinkHistoryV3Short(params *AdminQueryThirdPlatformLinkHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryThirdPlatformLinkHistoryV3OK, error)
-	AdminListUsersV3Short(params *AdminListUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUsersV3OK, error)
-	AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUserV3OK, error)
-	AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserByEmailAddressV3OK, error)
-	AdminGetUserByUserIDV3Short(params *AdminGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV3OK, error)
-	AdminUpdateUserV3Short(params *AdminUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV3OK, error)
-	AdminGetUserBanV3Short(params *AdminGetUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV3OK, error)
-	AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV3Created, error)
-	AdminGetUserBanSummaryV3Short(params *AdminGetUserBanSummaryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanSummaryV3OK, error)
-	AdminUpdateUserBanV3Short(params *AdminUpdateUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserBanV3OK, error)
-	AdminSendVerificationCodeV3Short(params *AdminSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendVerificationCodeV3NoContent, error)
-	AdminVerifyAccountV3Short(params *AdminVerifyAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyAccountV3NoContent, error)
-	GetUserVerificationCodeShort(params *GetUserVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserVerificationCodeOK, error)
-	AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserDeletionStatusV3OK, error)
-	AdminUpdateUserDeletionStatusV3Short(params *AdminUpdateUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserDeletionStatusV3NoContent, error)
-	AdminListUserAllPlatformAccountsDistinctV3Short(params *AdminListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserAllPlatformAccountsDistinctV3OK, error)
-	AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpgradeHeadlessAccountV3OK, error)
-	AdminDeleteUserInformationV3Short(params *AdminDeleteUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserInformationV3NoContent, error)
-	AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLoginHistoriesV3OK, error)
-	AdminResetPasswordV3Short(params *AdminResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV3NoContent, error)
-	AdminUpdateUserPermissionV3Short(params *AdminUpdateUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserPermissionV3NoContent, error)
-	AdminAddUserPermissionsV3Short(params *AdminAddUserPermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserPermissionsV3NoContent, error)
-	AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPermissionBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionBulkV3NoContent, error)
-	AdminDeleteUserPermissionV3Short(params *AdminDeleteUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionV3NoContent, error)
-	AdminGetUserPlatformAccountsV3Short(params *AdminGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPlatformAccountsV3OK, error)
-	AdminListAllDistinctPlatformAccountsV3Short(params *AdminListAllDistinctPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAllDistinctPlatformAccountsV3OK, error)
-	AdminGetListJusticePlatformAccountsShort(params *AdminGetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListJusticePlatformAccountsOK, error)
-	AdminGetUserMappingShort(params *AdminGetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMappingOK, error)
-	AdminCreateJusticeUserShort(params *AdminCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateJusticeUserCreated, error)
-	AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountNoContent, error)
-	AdminGetUserLinkHistoriesV3Short(params *AdminGetUserLinkHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLinkHistoriesV3OK, error)
-	AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkV3NoContent, error)
-	AdminPlatformUnlinkAllV3Short(params *AdminPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkAllV3NoContent, error)
-	AdminPlatformLinkV3Short(params *AdminPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformLinkV3NoContent, error)
-	AdminDeleteUserLinkingHistoryByPlatformIDV3Short(params *AdminDeleteUserLinkingHistoryByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent, error)
-	AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(params *AdminDeleteUserLinkingRestrictionByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingRestrictionByPlatformIDV3NoContent, error)
-	AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminGetThirdPartyPlatformTokenLinkStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetThirdPartyPlatformTokenLinkStatusV3OK, error)
-	AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountOK, error)
-	AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRolesV3NoContent, error)
-	AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveUserRoleV3NoContent, error)
-	AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV3NoContent, error)
-	AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRoleV3NoContent, error)
-	AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserStatusV3NoContent, error)
-	AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateUserIdentityParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTrustlyUpdateUserIdentityNoContent, error)
-	AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVerifyUserWithoutVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyUserWithoutVerificationCodeV3NoContent, error)
-	AdminGetMyUserV3Short(params *AdminGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyUserV3OK, error)
-	PublicGetCountryAgeRestrictionV3Short(params *PublicGetCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryAgeRestrictionV3OK, error)
-	PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV3OK, error)
-	PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV3OK, error)
-	PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusOK, error)
-	PublicSearchUserV3Short(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3OK, error)
-	PublicCreateUserV3Short(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Created, error)
-	CheckUserAvailabilityShort(params *CheckUserAvailabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserAvailabilityNoContent, error)
-	PublicBulkGetUsersShort(params *PublicBulkGetUsersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetUsersOK, error)
-	PublicSendRegistrationCodeShort(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeNoContent, error)
-	PublicVerifyRegistrationCodeShort(params *PublicVerifyRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyRegistrationCodeNoContent, error)
-	PublicForgotPasswordV3Short(params *PublicForgotPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV3NoContent, error)
-	PublicValidateUserInputShort(params *PublicValidateUserInputParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserInputOK, error)
-	GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminInvitationV3OK, error)
-	CreateUserFromInvitationV3Short(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Created, error)
-	UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserV3OK, error)
-	PublicPartialUpdateUserV3Short(params *PublicPartialUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPartialUpdateUserV3OK, error)
-	PublicSendVerificationCodeV3Short(params *PublicSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationCodeV3NoContent, error)
-	PublicUserVerificationV3Short(params *PublicUserVerificationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUserVerificationV3NoContent, error)
-	PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV3OK, error)
-	PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyHeadlessAccountV3OK, error)
-	PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3NoContent, error)
-	PublicCreateJusticeUserShort(params *PublicCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateJusticeUserCreated, error)
-	PublicPlatformLinkV3Short(params *PublicPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV3NoContent, error)
-	PublicPlatformUnlinkV3Short(params *PublicPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkV3NoContent, error)
-	PublicPlatformUnlinkAllV3Short(params *PublicPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkAllV3NoContent, error)
-	PublicForcePlatformLinkV3Short(params *PublicForcePlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForcePlatformLinkV3NoContent, error)
-	PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformOK, error)
-	PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishFound, error)
-	PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3OK, error)
-	PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatformInfosV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUsersPlatformInfosV3OK, error)
-	ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordV3NoContent, error)
-	PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3OK, error)
-	PublicGetUserBanHistoryV3Short(params *PublicGetUserBanHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserBanHistoryV3OK, error)
-	PublicListUserAllPlatformAccountsDistinctV3Short(params *PublicListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserAllPlatformAccountsDistinctV3OK, error)
-	PublicGetUserInformationV3Short(params *PublicGetUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserInformationV3OK, error)
-	PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserLoginHistoriesV3OK, error)
-	PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPlatformAccountsV3OK, error)
-	PublicListJusticePlatformAccountsV3Short(params *PublicListJusticePlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListJusticePlatformAccountsV3OK, error)
-	PublicLinkPlatformAccountShort(params *PublicLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicLinkPlatformAccountNoContent, error)
-	PublicForceLinkPlatformWithProgressionShort(params *PublicForceLinkPlatformWithProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicForceLinkPlatformWithProgressionNoContent, error)
-	PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPublisherUserV3OK, error)
-	PublicValidateUserByUserIDAndPasswordV3Short(params *PublicValidateUserByUserIDAndPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserByUserIDAndPasswordV3NoContent, error)
-	PublicGetMyUserV3Short(params *PublicGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyUserV3OK, error)
-	PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(params *PublicGetLinkHeadlessAccountToMyAccountConflictV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetLinkHeadlessAccountToMyAccountConflictV3OK, error)
-	LinkHeadlessAccountToMyAccountV3Short(params *LinkHeadlessAccountToMyAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*LinkHeadlessAccountToMyAccountV3NoContent, error)
-	PublicGetMyProfileAllowUpdateStatusV3Short(params *PublicGetMyProfileAllowUpdateStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyProfileAllowUpdateStatusV3OK, error)
-	PublicSendVerificationLinkV3Short(params *PublicSendVerificationLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationLinkV3NoContent, error)
-	PublicVerifyUserByLinkV3Short(params *PublicVerifyUserByLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyUserByLinkV3Found, error)
+	CreateUserShort(params *CreateUserParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserResponse, error)
+	GetAdminUsersByRoleIDShort(params *GetAdminUsersByRoleIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDResponse, error)
+	GetUserByLoginIDShort(params *GetUserByLoginIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByLoginIDResponse, error)
+	GetUserByPlatformUserIDShort(params *GetUserByPlatformUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByPlatformUserIDResponse, error)
+	ForgotPasswordShort(params *ForgotPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*ForgotPasswordResponse, error)
+	GetUsersByLoginIdsShort(params *GetUsersByLoginIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUsersByLoginIdsResponse, error)
+	ResetPasswordShort(params *ResetPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordResponse, error)
+	SearchUserShort(params *SearchUserParams, authInfo runtime.ClientAuthInfoWriter) (*SearchUserResponse, error)
+	GetUserByUserIDShort(params *GetUserByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByUserIDResponse, error)
+	UpdateUserShort(params *UpdateUserParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserResponse, error)
+	DeleteUserShort(params *DeleteUserParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserResponse, error)
+	BanUserShort(params *BanUserParams, authInfo runtime.ClientAuthInfoWriter) (*BanUserResponse, error)
+	GetUserBanHistoryShort(params *GetUserBanHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserBanHistoryResponse, error)
+	DisableUserBanShort(params *DisableUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserBanResponse, error)
+	EnableUserBanShort(params *EnableUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserBanResponse, error)
+	ListCrossNamespaceAccountLinkShort(params *ListCrossNamespaceAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*ListCrossNamespaceAccountLinkResponse, error)
+	DisableUserShort(params *DisableUserParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserResponse, error)
+	EnableUserShort(params *EnableUserParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserResponse, error)
+	GetUserInformationShort(params *GetUserInformationParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserInformationResponse, error)
+	DeleteUserInformationShort(params *DeleteUserInformationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserInformationResponse, error)
+	GetUserLoginHistoriesShort(params *GetUserLoginHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserLoginHistoriesResponse, error)
+	UpdatePasswordShort(params *UpdatePasswordParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePasswordResponse, error)
+	SaveUserPermissionShort(params *SaveUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*SaveUserPermissionResponse, error)
+	AddUserPermissionShort(params *AddUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserPermissionResponse, error)
+	DeleteUserPermissionShort(params *DeleteUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserPermissionResponse, error)
+	GetUserPlatformAccountsShort(params *GetUserPlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserPlatformAccountsResponse, error)
+	GetUserMappingShort(params *GetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserMappingResponse, error)
+	GetUserJusticePlatformAccountShort(params *GetUserJusticePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserJusticePlatformAccountResponse, error)
+	PlatformLinkShort(params *PlatformLinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformLinkResponse, error)
+	PlatformUnlinkShort(params *PlatformUnlinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformUnlinkResponse, error)
+	GetPublisherUserShort(params *GetPublisherUserParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherUserResponse, error)
+	SaveUserRolesShort(params *SaveUserRolesParams, authInfo runtime.ClientAuthInfoWriter) (*SaveUserRolesResponse, error)
+	AddUserRoleShort(params *AddUserRoleParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserRoleResponse, error)
+	DeleteUserRoleShort(params *DeleteUserRoleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRoleResponse, error)
+	UpgradeHeadlessAccountShort(params *UpgradeHeadlessAccountParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountResponse, error)
+	UpgradeHeadlessAccountWithVerificationCodeShort(params *UpgradeHeadlessAccountWithVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountWithVerificationCodeResponse, error)
+	UserVerificationShort(params *UserVerificationParams, authInfo runtime.ClientAuthInfoWriter) (*UserVerificationResponse, error)
+	SendVerificationCodeShort(params *SendVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendVerificationCodeResponse, error)
+	AdminGetAgeRestrictionStatusV2Short(params *AdminGetAgeRestrictionStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV2Response, error)
+	AdminUpdateAgeRestrictionConfigV2Short(params *AdminUpdateAgeRestrictionConfigV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV2Response, error)
+	GetListCountryAgeRestrictionShort(params *GetListCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*GetListCountryAgeRestrictionResponse, error)
+	UpdateCountryAgeRestrictionShort(params *UpdateCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryAgeRestrictionResponse, error)
+	AdminSearchUsersV2Short(params *AdminSearchUsersV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUsersV2Response, error)
+	AdminGetUserByUserIDV2Short(params *AdminGetUserByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV2Response, error)
+	AdminUpdateUserV2Short(params *AdminUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV2Response, error)
+	AdminBanUserV2Short(params *AdminBanUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV2Response, error)
+	AdminGetUserBanV2Short(params *AdminGetUserBanV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV2Response, error)
+	AdminDisableUserV2Short(params *AdminDisableUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserV2Response, error)
+	AdminEnableUserV2Short(params *AdminEnableUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableUserV2Response, error)
+	AdminResetPasswordV2Short(params *AdminResetPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV2Response, error)
+	AdminDeletePlatformLinkV2Short(params *AdminDeletePlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformLinkV2Response, error)
+	AdminPutUserRolesV2Short(params *AdminPutUserRolesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutUserRolesV2Response, error)
+	AdminCreateUserRolesV2Short(params *AdminCreateUserRolesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserRolesV2Response, error)
+	PublicGetCountryAgeRestrictionShort(params *PublicGetCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryAgeRestrictionResponse, error)
+	PublicCreateUserV2Short(params *PublicCreateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV2Response, error)
+	PublicForgotPasswordV2Short(params *PublicForgotPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV2Response, error)
+	PublicResetPasswordV2Short(params *PublicResetPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicResetPasswordV2Response, error)
+	PublicGetUserByUserIDV2Short(params *PublicGetUserByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV2Response, error)
+	PublicUpdateUserV2Short(params *PublicUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV2Response, error)
+	PublicGetUserBanShort(params *PublicGetUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserBanResponse, error)
+	PublicUpdatePasswordV2Short(params *PublicUpdatePasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV2Response, error)
+	GetListJusticePlatformAccountsShort(params *GetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListJusticePlatformAccountsResponse, error)
+	PublicPlatformLinkV2Short(params *PublicPlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV2Response, error)
+	PublicDeletePlatformLinkV2Short(params *PublicDeletePlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlatformLinkV2Response, error)
+	ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.ClientAuthInfoWriter) (*ListAdminsV3Response, error)
+	AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrictionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV3Response, error)
+	AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRestrictionConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV3Response, error)
+	AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListCountryAgeRestrictionV3Response, error)
+	AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateCountryAgeRestrictionV3Response, error)
+	AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3Response, error)
+	AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByPlatformUserIDV3Response, error)
+	GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDV3Response, error)
+	AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByEmailAddressV3Response, error)
+	AdminBulkUpdateUsersV3Short(params *AdminBulkUpdateUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateUsersV3Response, error)
+	AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3Response, error)
+	AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3Response, error)
+	AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformResponse, error)
+	AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV3Response, error)
+	AdminQueryThirdPlatformLinkHistoryV3Short(params *AdminQueryThirdPlatformLinkHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryThirdPlatformLinkHistoryV3Response, error)
+	AdminListUsersV3Short(params *AdminListUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUsersV3Response, error)
+	AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUserV3Response, error)
+	AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserByEmailAddressV3Response, error)
+	AdminGetUserByUserIDV3Short(params *AdminGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV3Response, error)
+	AdminUpdateUserV3Short(params *AdminUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV3Response, error)
+	AdminGetUserBanV3Short(params *AdminGetUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV3Response, error)
+	AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV3Response, error)
+	AdminGetUserBanSummaryV3Short(params *AdminGetUserBanSummaryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanSummaryV3Response, error)
+	AdminUpdateUserBanV3Short(params *AdminUpdateUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserBanV3Response, error)
+	AdminSendVerificationCodeV3Short(params *AdminSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendVerificationCodeV3Response, error)
+	AdminVerifyAccountV3Short(params *AdminVerifyAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyAccountV3Response, error)
+	GetUserVerificationCodeShort(params *GetUserVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserVerificationCodeResponse, error)
+	AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserDeletionStatusV3Response, error)
+	AdminUpdateUserDeletionStatusV3Short(params *AdminUpdateUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserDeletionStatusV3Response, error)
+	AdminListUserAllPlatformAccountsDistinctV3Short(params *AdminListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserAllPlatformAccountsDistinctV3Response, error)
+	AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpgradeHeadlessAccountV3Response, error)
+	AdminDeleteUserInformationV3Short(params *AdminDeleteUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserInformationV3Response, error)
+	AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLoginHistoriesV3Response, error)
+	AdminResetPasswordV3Short(params *AdminResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV3Response, error)
+	AdminUpdateUserPermissionV3Short(params *AdminUpdateUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserPermissionV3Response, error)
+	AdminAddUserPermissionsV3Short(params *AdminAddUserPermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserPermissionsV3Response, error)
+	AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPermissionBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionBulkV3Response, error)
+	AdminDeleteUserPermissionV3Short(params *AdminDeleteUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionV3Response, error)
+	AdminGetUserPlatformAccountsV3Short(params *AdminGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPlatformAccountsV3Response, error)
+	AdminListAllDistinctPlatformAccountsV3Short(params *AdminListAllDistinctPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAllDistinctPlatformAccountsV3Response, error)
+	AdminGetListJusticePlatformAccountsShort(params *AdminGetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListJusticePlatformAccountsResponse, error)
+	AdminGetUserMappingShort(params *AdminGetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMappingResponse, error)
+	AdminCreateJusticeUserShort(params *AdminCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateJusticeUserResponse, error)
+	AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountResponse, error)
+	AdminGetUserLinkHistoriesV3Short(params *AdminGetUserLinkHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLinkHistoriesV3Response, error)
+	AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkV3Response, error)
+	AdminPlatformUnlinkAllV3Short(params *AdminPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkAllV3Response, error)
+	AdminPlatformLinkV3Short(params *AdminPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformLinkV3Response, error)
+	AdminDeleteUserLinkingHistoryByPlatformIDV3Short(params *AdminDeleteUserLinkingHistoryByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingHistoryByPlatformIDV3Response, error)
+	AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(params *AdminDeleteUserLinkingRestrictionByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingRestrictionByPlatformIDV3Response, error)
+	AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminGetThirdPartyPlatformTokenLinkStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetThirdPartyPlatformTokenLinkStatusV3Response, error)
+	AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountResponse, error)
+	AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRolesV3Response, error)
+	AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveUserRoleV3Response, error)
+	AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV3Response, error)
+	AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRoleV3Response, error)
+	AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserStatusV3Response, error)
+	AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateUserIdentityParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTrustlyUpdateUserIdentityResponse, error)
+	AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVerifyUserWithoutVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyUserWithoutVerificationCodeV3Response, error)
+	AdminGetMyUserV3Short(params *AdminGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyUserV3Response, error)
+	PublicGetCountryAgeRestrictionV3Short(params *PublicGetCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryAgeRestrictionV3Response, error)
+	PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV3Response, error)
+	PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV3Response, error)
+	PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusResponse, error)
+	PublicSearchUserV3Short(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3Response, error)
+	PublicCreateUserV3Short(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Response, error)
+	CheckUserAvailabilityShort(params *CheckUserAvailabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserAvailabilityResponse, error)
+	PublicBulkGetUsersShort(params *PublicBulkGetUsersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetUsersResponse, error)
+	PublicSendRegistrationCodeShort(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeResponse, error)
+	PublicVerifyRegistrationCodeShort(params *PublicVerifyRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyRegistrationCodeResponse, error)
+	PublicForgotPasswordV3Short(params *PublicForgotPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV3Response, error)
+	PublicValidateUserInputShort(params *PublicValidateUserInputParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserInputResponse, error)
+	GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminInvitationV3Response, error)
+	CreateUserFromInvitationV3Short(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Response, error)
+	UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserV3Response, error)
+	PublicPartialUpdateUserV3Short(params *PublicPartialUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPartialUpdateUserV3Response, error)
+	PublicSendVerificationCodeV3Short(params *PublicSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationCodeV3Response, error)
+	PublicUserVerificationV3Short(params *PublicUserVerificationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUserVerificationV3Response, error)
+	PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV3Response, error)
+	PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyHeadlessAccountV3Response, error)
+	PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3Response, error)
+	PublicCreateJusticeUserShort(params *PublicCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateJusticeUserResponse, error)
+	PublicPlatformLinkV3Short(params *PublicPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV3Response, error)
+	PublicPlatformUnlinkV3Short(params *PublicPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkV3Response, error)
+	PublicPlatformUnlinkAllV3Short(params *PublicPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkAllV3Response, error)
+	PublicForcePlatformLinkV3Short(params *PublicForcePlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForcePlatformLinkV3Response, error)
+	PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformResponse, error)
+	PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishResponse, error)
+	PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3Response, error)
+	PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatformInfosV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUsersPlatformInfosV3Response, error)
+	ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordV3Response, error)
+	PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3Response, error)
+	PublicGetUserBanHistoryV3Short(params *PublicGetUserBanHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserBanHistoryV3Response, error)
+	PublicListUserAllPlatformAccountsDistinctV3Short(params *PublicListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserAllPlatformAccountsDistinctV3Response, error)
+	PublicGetUserInformationV3Short(params *PublicGetUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserInformationV3Response, error)
+	PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserLoginHistoriesV3Response, error)
+	PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPlatformAccountsV3Response, error)
+	PublicListJusticePlatformAccountsV3Short(params *PublicListJusticePlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListJusticePlatformAccountsV3Response, error)
+	PublicLinkPlatformAccountShort(params *PublicLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicLinkPlatformAccountResponse, error)
+	PublicForceLinkPlatformWithProgressionShort(params *PublicForceLinkPlatformWithProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicForceLinkPlatformWithProgressionResponse, error)
+	PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPublisherUserV3Response, error)
+	PublicValidateUserByUserIDAndPasswordV3Short(params *PublicValidateUserByUserIDAndPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserByUserIDAndPasswordV3Response, error)
+	PublicGetMyUserV3Short(params *PublicGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyUserV3Response, error)
+	PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(params *PublicGetLinkHeadlessAccountToMyAccountConflictV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetLinkHeadlessAccountToMyAccountConflictV3Response, error)
+	LinkHeadlessAccountToMyAccountV3Short(params *LinkHeadlessAccountToMyAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*LinkHeadlessAccountToMyAccountV3Response, error)
+	PublicGetMyProfileAllowUpdateStatusV3Short(params *PublicGetMyProfileAllowUpdateStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyProfileAllowUpdateStatusV3Response, error)
+	PublicSendVerificationLinkV3Short(params *PublicSendVerificationLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationLinkV3Response, error)
+	PublicVerifyUserByLinkV3Short(params *PublicVerifyUserByLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyUserByLinkV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -222,7 +222,7 @@ Available Authentication Types:
 
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 */
-func (a *Client) CreateUserShort(params *CreateUserParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserCreated, error) {
+func (a *Client) CreateUserShort(params *CreateUserParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateUserParams()
@@ -260,15 +260,38 @@ func (a *Client) CreateUserShort(params *CreateUserParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *CreateUserCreated:
-		return v, nil
+		response := &CreateUserResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateUserBadRequest:
-		return nil, v
+		response := &CreateUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserUnauthorized:
-		return nil, v
+		response := &CreateUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserForbidden:
-		return nil, v
+		response := &CreateUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserConflict:
-		return nil, v
+		response := &CreateUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,7 +311,7 @@ This endpoint search admin users which have the roleId
 Notes : this endpoint only accept admin role. Admin Role is role which have admin status and members.
 Use endpoint [GET] /roles/{roleId}/admin to check the role status
 */
-func (a *Client) GetAdminUsersByRoleIDShort(params *GetAdminUsersByRoleIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDOK, error) {
+func (a *Client) GetAdminUsersByRoleIDShort(params *GetAdminUsersByRoleIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAdminUsersByRoleIDParams()
@@ -326,17 +349,45 @@ func (a *Client) GetAdminUsersByRoleIDShort(params *GetAdminUsersByRoleIDParams,
 	switch v := result.(type) {
 
 	case *GetAdminUsersByRoleIDOK:
-		return v, nil
+		response := &GetAdminUsersByRoleIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAdminUsersByRoleIDBadRequest:
-		return nil, v
+		response := &GetAdminUsersByRoleIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminUsersByRoleIDUnauthorized:
-		return nil, v
+		response := &GetAdminUsersByRoleIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminUsersByRoleIDForbidden:
-		return nil, v
+		response := &GetAdminUsersByRoleIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminUsersByRoleIDNotFound:
-		return nil, v
+		response := &GetAdminUsersByRoleIDResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminUsersByRoleIDInternalServerError:
-		return nil, v
+		response := &GetAdminUsersByRoleIDResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -349,7 +400,7 @@ GetUserByLoginIDShort get user by login id
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users [GET]_**
 */
-func (a *Client) GetUserByLoginIDShort(params *GetUserByLoginIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByLoginIDOK, error) {
+func (a *Client) GetUserByLoginIDShort(params *GetUserByLoginIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByLoginIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserByLoginIDParams()
@@ -387,13 +438,30 @@ func (a *Client) GetUserByLoginIDShort(params *GetUserByLoginIDParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetUserByLoginIDOK:
-		return v, nil
+		response := &GetUserByLoginIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserByLoginIDBadRequest:
-		return nil, v
+		response := &GetUserByLoginIDResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserByLoginIDNotFound:
-		return nil, v
+		response := &GetUserByLoginIDResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserByLoginIDInternalServerError:
-		return nil, v
+		response := &GetUserByLoginIDResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -409,7 +477,7 @@ GetUserByPlatformUserIDShort get user by platform user id
 - **Note:**
 1. difference in V3 response, format difference: Pascal case => Camel case
 */
-func (a *Client) GetUserByPlatformUserIDShort(params *GetUserByPlatformUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByPlatformUserIDOK, error) {
+func (a *Client) GetUserByPlatformUserIDShort(params *GetUserByPlatformUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByPlatformUserIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserByPlatformUserIDParams()
@@ -447,15 +515,39 @@ func (a *Client) GetUserByPlatformUserIDShort(params *GetUserByPlatformUserIDPar
 	switch v := result.(type) {
 
 	case *GetUserByPlatformUserIDOK:
-		return v, nil
+		response := &GetUserByPlatformUserIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserByPlatformUserIDBadRequest:
-		return nil, v
+		response := &GetUserByPlatformUserIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserByPlatformUserIDUnauthorized:
-		return nil, v
+		response := &GetUserByPlatformUserIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserByPlatformUserIDForbidden:
-		return nil, v
+		response := &GetUserByPlatformUserIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserByPlatformUserIDNotFound:
-		return nil, v
+		response := &GetUserByPlatformUserIDResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -472,7 +564,7 @@ ForgotPasswordShort request password reset code
 
 The password reset code will be sent to the publisher account's email address.
 */
-func (a *Client) ForgotPasswordShort(params *ForgotPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*ForgotPasswordNoContent, error) {
+func (a *Client) ForgotPasswordShort(params *ForgotPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*ForgotPasswordResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewForgotPasswordParams()
@@ -510,15 +602,38 @@ func (a *Client) ForgotPasswordShort(params *ForgotPasswordParams, authInfo runt
 	switch v := result.(type) {
 
 	case *ForgotPasswordNoContent:
-		return v, nil
+		response := &ForgotPasswordResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ForgotPasswordBadRequest:
-		return nil, v
+		response := &ForgotPasswordResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ForgotPasswordUnauthorized:
-		return nil, v
+		response := &ForgotPasswordResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ForgotPasswordForbidden:
-		return nil, v
+		response := &ForgotPasswordResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ForgotPasswordNotFound:
-		return nil, v
+		response := &ForgotPasswordResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -532,7 +647,7 @@ GetUsersByLoginIdsShort get a list of users by their login id
 - **Substitute endpoint(query by email list): _/iam/v3/public/namespaces/{namespace}/users/bulk/basic [POST]_**
 - **Substitute endpoint(query by user id list): _/iam/v3/admin/namespaces/{namespace}/users/search/bulk [POST]_**
 */
-func (a *Client) GetUsersByLoginIdsShort(params *GetUsersByLoginIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUsersByLoginIdsOK, error) {
+func (a *Client) GetUsersByLoginIdsShort(params *GetUsersByLoginIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUsersByLoginIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUsersByLoginIdsParams()
@@ -570,13 +685,33 @@ func (a *Client) GetUsersByLoginIdsShort(params *GetUsersByLoginIdsParams, authI
 	switch v := result.(type) {
 
 	case *GetUsersByLoginIdsOK:
-		return v, nil
+		response := &GetUsersByLoginIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUsersByLoginIdsBadRequest:
-		return nil, v
+		response := &GetUsersByLoginIdsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUsersByLoginIdsUnauthorized:
-		return nil, v
+		response := &GetUsersByLoginIdsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUsersByLoginIdsForbidden:
-		return nil, v
+		response := &GetUsersByLoginIdsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -589,7 +724,7 @@ ResetPasswordShort reset user password
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/reset [POST]_**
 */
-func (a *Client) ResetPasswordShort(params *ResetPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordNoContent, error) {
+func (a *Client) ResetPasswordShort(params *ResetPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewResetPasswordParams()
@@ -627,15 +762,35 @@ func (a *Client) ResetPasswordShort(params *ResetPasswordParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *ResetPasswordNoContent:
-		return v, nil
+		response := &ResetPasswordResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ResetPasswordBadRequest:
-		return nil, v
+		response := &ResetPasswordResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ResetPasswordForbidden:
-		return nil, v
+		response := &ResetPasswordResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ResetPasswordNotFound:
-		return nil, v
+		response := &ResetPasswordResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ResetPasswordInternalServerError:
-		return nil, v
+		response := &ResetPasswordResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -650,7 +805,7 @@ SearchUserShort search users
 Search all users that match the query on these fields: all login IDs (email address, phone number, and platform user id),
 userID, display name, and on the specified namespace. If the query is not defined, then it searches all users on the specified namespace.
 */
-func (a *Client) SearchUserShort(params *SearchUserParams, authInfo runtime.ClientAuthInfoWriter) (*SearchUserOK, error) {
+func (a *Client) SearchUserShort(params *SearchUserParams, authInfo runtime.ClientAuthInfoWriter) (*SearchUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSearchUserParams()
@@ -688,13 +843,33 @@ func (a *Client) SearchUserShort(params *SearchUserParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *SearchUserOK:
-		return v, nil
+		response := &SearchUserResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SearchUserBadRequest:
-		return nil, v
+		response := &SearchUserResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchUserUnauthorized:
-		return nil, v
+		response := &SearchUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchUserForbidden:
-		return nil, v
+		response := &SearchUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -710,7 +885,7 @@ GetUserByUserIDShort get user by user id
 - **Note:**
 format difference in response: Pascal case => Camel case
 */
-func (a *Client) GetUserByUserIDShort(params *GetUserByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByUserIDOK, error) {
+func (a *Client) GetUserByUserIDShort(params *GetUserByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserByUserIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserByUserIDParams()
@@ -748,11 +923,24 @@ func (a *Client) GetUserByUserIDShort(params *GetUserByUserIDParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetUserByUserIDOK:
-		return v, nil
+		response := &GetUserByUserIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserByUserIDNotFound:
-		return nil, v
+		response := &GetUserByUserIDResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserByUserIDInternalServerError:
-		return nil, v
+		response := &GetUserByUserIDResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -779,7 +967,7 @@ Country use ISO3166-1 alpha-2 two letter, e.g. US.
 - User want to update email address of which have not been verified, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with new email address.
 - User want to update email address of which have been verified and updated before, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with verified email before. NewEmailAddress response field will be filled with newest email address.
 */
-func (a *Client) UpdateUserShort(params *UpdateUserParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserOK, error) {
+func (a *Client) UpdateUserShort(params *UpdateUserParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserParams()
@@ -817,17 +1005,43 @@ func (a *Client) UpdateUserShort(params *UpdateUserParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UpdateUserOK:
-		return v, nil
+		response := &UpdateUserResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateUserBadRequest:
-		return nil, v
+		response := &UpdateUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserUnauthorized:
-		return nil, v
+		response := &UpdateUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserNotFound:
-		return nil, v
+		response := &UpdateUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserConflict:
-		return nil, v
+		response := &UpdateUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserInternalServerError:
-		return nil, v
+		response := &UpdateUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -840,7 +1054,7 @@ DeleteUserShort delete user
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/information [DELETE]_**
 */
-func (a *Client) DeleteUserShort(params *DeleteUserParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserNoContent, error) {
+func (a *Client) DeleteUserShort(params *DeleteUserParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserParams()
@@ -878,13 +1092,31 @@ func (a *Client) DeleteUserShort(params *DeleteUserParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *DeleteUserNoContent:
-		return v, nil
+		response := &DeleteUserResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserUnauthorized:
-		return nil, v
+		response := &DeleteUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserForbidden:
-		return nil, v
+		response := &DeleteUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserNotFound:
-		return nil, v
+		response := &DeleteUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -897,7 +1129,7 @@ BanUserShort ban a single user
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [POST]_**
 */
-func (a *Client) BanUserShort(params *BanUserParams, authInfo runtime.ClientAuthInfoWriter) (*BanUserCreated, error) {
+func (a *Client) BanUserShort(params *BanUserParams, authInfo runtime.ClientAuthInfoWriter) (*BanUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBanUserParams()
@@ -935,17 +1167,44 @@ func (a *Client) BanUserShort(params *BanUserParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *BanUserCreated:
-		return v, nil
+		response := &BanUserResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BanUserBadRequest:
-		return nil, v
+		response := &BanUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BanUserUnauthorized:
-		return nil, v
+		response := &BanUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BanUserForbidden:
-		return nil, v
+		response := &BanUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BanUserNotFound:
-		return nil, v
+		response := &BanUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BanUserInternalServerError:
-		return nil, v
+		response := &BanUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -958,7 +1217,7 @@ GetUserBanHistoryShort get user's bans history
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [GET]_**
 */
-func (a *Client) GetUserBanHistoryShort(params *GetUserBanHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserBanHistoryOK, error) {
+func (a *Client) GetUserBanHistoryShort(params *GetUserBanHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserBanHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserBanHistoryParams()
@@ -996,13 +1255,32 @@ func (a *Client) GetUserBanHistoryShort(params *GetUserBanHistoryParams, authInf
 	switch v := result.(type) {
 
 	case *GetUserBanHistoryOK:
-		return v, nil
+		response := &GetUserBanHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserBanHistoryUnauthorized:
-		return nil, v
+		response := &GetUserBanHistoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserBanHistoryForbidden:
-		return nil, v
+		response := &GetUserBanHistoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserBanHistoryNotFound:
-		return nil, v
+		response := &GetUserBanHistoryResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1023,7 +1301,7 @@ The endpoint allows:
 
 Other scenarios are not supported and will return 403: Forbidden.
 */
-func (a *Client) DisableUserBanShort(params *DisableUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserBanOK, error) {
+func (a *Client) DisableUserBanShort(params *DisableUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserBanResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDisableUserBanParams()
@@ -1061,15 +1339,37 @@ func (a *Client) DisableUserBanShort(params *DisableUserBanParams, authInfo runt
 	switch v := result.(type) {
 
 	case *DisableUserBanOK:
-		return v, nil
+		response := &DisableUserBanResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DisableUserBanUnauthorized:
-		return nil, v
+		response := &DisableUserBanResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserBanForbidden:
-		return nil, v
+		response := &DisableUserBanResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserBanNotFound:
-		return nil, v
+		response := &DisableUserBanResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserBanInternalServerError:
-		return nil, v
+		response := &DisableUserBanResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1082,7 +1382,7 @@ EnableUserBanShort enable ban for a single user
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans/{banId} [PATCH]_**
 */
-func (a *Client) EnableUserBanShort(params *EnableUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserBanOK, error) {
+func (a *Client) EnableUserBanShort(params *EnableUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserBanResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEnableUserBanParams()
@@ -1120,15 +1420,37 @@ func (a *Client) EnableUserBanShort(params *EnableUserBanParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *EnableUserBanOK:
-		return v, nil
+		response := &EnableUserBanResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *EnableUserBanUnauthorized:
-		return nil, v
+		response := &EnableUserBanResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableUserBanForbidden:
-		return nil, v
+		response := &EnableUserBanResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableUserBanNotFound:
-		return nil, v
+		response := &EnableUserBanResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableUserBanInternalServerError:
-		return nil, v
+		response := &EnableUserBanResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1145,7 +1467,7 @@ Access token from original namespace is needed as authorization header. Access t
 When platformID (device platfom ID) is specified, platform login method for that specific platform ID is removed.
 This means to protect account from second hand device usage.
 */
-func (a *Client) ListCrossNamespaceAccountLinkShort(params *ListCrossNamespaceAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*ListCrossNamespaceAccountLinkOK, error) {
+func (a *Client) ListCrossNamespaceAccountLinkShort(params *ListCrossNamespaceAccountLinkParams, authInfo runtime.ClientAuthInfoWriter) (*ListCrossNamespaceAccountLinkResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListCrossNamespaceAccountLinkParams()
@@ -1183,15 +1505,38 @@ func (a *Client) ListCrossNamespaceAccountLinkShort(params *ListCrossNamespaceAc
 	switch v := result.(type) {
 
 	case *ListCrossNamespaceAccountLinkOK:
-		return v, nil
+		response := &ListCrossNamespaceAccountLinkResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListCrossNamespaceAccountLinkBadRequest:
-		return nil, v
+		response := &ListCrossNamespaceAccountLinkResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListCrossNamespaceAccountLinkUnauthorized:
-		return nil, v
+		response := &ListCrossNamespaceAccountLinkResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListCrossNamespaceAccountLinkForbidden:
-		return nil, v
+		response := &ListCrossNamespaceAccountLinkResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListCrossNamespaceAccountLinkNotFound:
-		return nil, v
+		response := &ListCrossNamespaceAccountLinkResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1208,7 +1553,7 @@ For **Deletion Account** purpose fill the reason with:
 - **DeactivateAccount** : if your deletion request comes from user
 - **AdminDeactivateAccount** : if your deletion request comes from admin
 */
-func (a *Client) DisableUserShort(params *DisableUserParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserNoContent, error) {
+func (a *Client) DisableUserShort(params *DisableUserParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDisableUserParams()
@@ -1246,17 +1591,43 @@ func (a *Client) DisableUserShort(params *DisableUserParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DisableUserNoContent:
-		return v, nil
+		response := &DisableUserResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DisableUserBadRequest:
-		return nil, v
+		response := &DisableUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserUnauthorized:
-		return nil, v
+		response := &DisableUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserForbidden:
-		return nil, v
+		response := &DisableUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserNotFound:
-		return nil, v
+		response := &DisableUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserInternalServerError:
-		return nil, v
+		response := &DisableUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1269,7 +1640,7 @@ EnableUserShort enable a user
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]_**
 */
-func (a *Client) EnableUserShort(params *EnableUserParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserNoContent, error) {
+func (a *Client) EnableUserShort(params *EnableUserParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEnableUserParams()
@@ -1307,15 +1678,37 @@ func (a *Client) EnableUserShort(params *EnableUserParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *EnableUserNoContent:
-		return v, nil
+		response := &EnableUserResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *EnableUserUnauthorized:
-		return nil, v
+		response := &EnableUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableUserForbidden:
-		return nil, v
+		response := &EnableUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableUserNotFound:
-		return nil, v
+		response := &EnableUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableUserInternalServerError:
-		return nil, v
+		response := &EnableUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1328,7 +1721,7 @@ GetUserInformationShort get user's information
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/information [GET]_**
 */
-func (a *Client) GetUserInformationShort(params *GetUserInformationParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserInformationOK, error) {
+func (a *Client) GetUserInformationShort(params *GetUserInformationParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserInformationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserInformationParams()
@@ -1366,13 +1759,32 @@ func (a *Client) GetUserInformationShort(params *GetUserInformationParams, authI
 	switch v := result.(type) {
 
 	case *GetUserInformationOK:
-		return v, nil
+		response := &GetUserInformationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserInformationUnauthorized:
-		return nil, v
+		response := &GetUserInformationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserInformationForbidden:
-		return nil, v
+		response := &GetUserInformationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserInformationNotFound:
-		return nil, v
+		response := &GetUserInformationResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1385,7 +1797,7 @@ DeleteUserInformationShort delete user's information
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/information [DELETE]_**
 */
-func (a *Client) DeleteUserInformationShort(params *DeleteUserInformationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserInformationNoContent, error) {
+func (a *Client) DeleteUserInformationShort(params *DeleteUserInformationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserInformationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserInformationParams()
@@ -1423,13 +1835,31 @@ func (a *Client) DeleteUserInformationShort(params *DeleteUserInformationParams,
 	switch v := result.(type) {
 
 	case *DeleteUserInformationNoContent:
-		return v, nil
+		response := &DeleteUserInformationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserInformationUnauthorized:
-		return nil, v
+		response := &DeleteUserInformationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserInformationForbidden:
-		return nil, v
+		response := &DeleteUserInformationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserInformationNotFound:
-		return nil, v
+		response := &DeleteUserInformationResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1449,7 +1879,7 @@ Notes for this endpoint:
 - This endpoint retrieve the next page of the data if we provide 'after' parameters with valid Unix timestamp.
 - This endpoint retrieve the previous page of the data if we provide 'before' parameter with valid data Unix timestamp.
 */
-func (a *Client) GetUserLoginHistoriesShort(params *GetUserLoginHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserLoginHistoriesOK, error) {
+func (a *Client) GetUserLoginHistoriesShort(params *GetUserLoginHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserLoginHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserLoginHistoriesParams()
@@ -1487,13 +1917,32 @@ func (a *Client) GetUserLoginHistoriesShort(params *GetUserLoginHistoriesParams,
 	switch v := result.(type) {
 
 	case *GetUserLoginHistoriesOK:
-		return v, nil
+		response := &GetUserLoginHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserLoginHistoriesUnauthorized:
-		return nil, v
+		response := &GetUserLoginHistoriesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserLoginHistoriesForbidden:
-		return nil, v
+		response := &GetUserLoginHistoriesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserLoginHistoriesNotFound:
-		return nil, v
+		response := &GetUserLoginHistoriesResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1506,7 +1955,7 @@ UpdatePasswordShort update user password
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/password [PUT]_**
 */
-func (a *Client) UpdatePasswordShort(params *UpdatePasswordParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePasswordNoContent, error) {
+func (a *Client) UpdatePasswordShort(params *UpdatePasswordParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePasswordResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePasswordParams()
@@ -1544,17 +1993,43 @@ func (a *Client) UpdatePasswordShort(params *UpdatePasswordParams, authInfo runt
 	switch v := result.(type) {
 
 	case *UpdatePasswordNoContent:
-		return v, nil
+		response := &UpdatePasswordResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePasswordBadRequest:
-		return nil, v
+		response := &UpdatePasswordResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePasswordUnauthorized:
-		return nil, v
+		response := &UpdatePasswordResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePasswordForbidden:
-		return nil, v
+		response := &UpdatePasswordResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePasswordNotFound:
-		return nil, v
+		response := &UpdatePasswordResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePasswordInternalServerError:
-		return nil, v
+		response := &UpdatePasswordResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1592,7 +2067,7 @@ Special characters:
 6. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
 7. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
 */
-func (a *Client) SaveUserPermissionShort(params *SaveUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*SaveUserPermissionNoContent, error) {
+func (a *Client) SaveUserPermissionShort(params *SaveUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*SaveUserPermissionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSaveUserPermissionParams()
@@ -1630,15 +2105,38 @@ func (a *Client) SaveUserPermissionShort(params *SaveUserPermissionParams, authI
 	switch v := result.(type) {
 
 	case *SaveUserPermissionNoContent:
-		return v, nil
+		response := &SaveUserPermissionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SaveUserPermissionBadRequest:
-		return nil, v
+		response := &SaveUserPermissionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveUserPermissionUnauthorized:
-		return nil, v
+		response := &SaveUserPermissionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveUserPermissionForbidden:
-		return nil, v
+		response := &SaveUserPermissionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveUserPermissionNotFound:
-		return nil, v
+		response := &SaveUserPermissionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1676,7 +2174,7 @@ Special characters:
 6. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
 7. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
 */
-func (a *Client) AddUserPermissionShort(params *AddUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserPermissionNoContent, error) {
+func (a *Client) AddUserPermissionShort(params *AddUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserPermissionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddUserPermissionParams()
@@ -1714,15 +2212,38 @@ func (a *Client) AddUserPermissionShort(params *AddUserPermissionParams, authInf
 	switch v := result.(type) {
 
 	case *AddUserPermissionNoContent:
-		return v, nil
+		response := &AddUserPermissionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddUserPermissionBadRequest:
-		return nil, v
+		response := &AddUserPermissionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserPermissionUnauthorized:
-		return nil, v
+		response := &AddUserPermissionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserPermissionForbidden:
-		return nil, v
+		response := &AddUserPermissionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserPermissionNotFound:
-		return nil, v
+		response := &AddUserPermissionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1735,7 +2256,7 @@ DeleteUserPermissionShort delete user permission
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/permissions/{resource}/{action} [DELETE]_**
 */
-func (a *Client) DeleteUserPermissionShort(params *DeleteUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserPermissionNoContent, error) {
+func (a *Client) DeleteUserPermissionShort(params *DeleteUserPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserPermissionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserPermissionParams()
@@ -1773,15 +2294,38 @@ func (a *Client) DeleteUserPermissionShort(params *DeleteUserPermissionParams, a
 	switch v := result.(type) {
 
 	case *DeleteUserPermissionNoContent:
-		return v, nil
+		response := &DeleteUserPermissionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserPermissionBadRequest:
-		return nil, v
+		response := &DeleteUserPermissionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserPermissionUnauthorized:
-		return nil, v
+		response := &DeleteUserPermissionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserPermissionForbidden:
-		return nil, v
+		response := &DeleteUserPermissionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserPermissionNotFound:
-		return nil, v
+		response := &DeleteUserPermissionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1798,7 +2342,7 @@ GetUserPlatformAccountsShort get platform accounts linked to the user
 ## Justice Platform Account
 The permission âADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId}â [READ] is required in order to read the UserID who linked with the user.
 */
-func (a *Client) GetUserPlatformAccountsShort(params *GetUserPlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserPlatformAccountsOK, error) {
+func (a *Client) GetUserPlatformAccountsShort(params *GetUserPlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserPlatformAccountsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserPlatformAccountsParams()
@@ -1836,13 +2380,33 @@ func (a *Client) GetUserPlatformAccountsShort(params *GetUserPlatformAccountsPar
 	switch v := result.(type) {
 
 	case *GetUserPlatformAccountsOK:
-		return v, nil
+		response := &GetUserPlatformAccountsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserPlatformAccountsBadRequest:
-		return nil, v
+		response := &GetUserPlatformAccountsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserPlatformAccountsUnauthorized:
-		return nil, v
+		response := &GetUserPlatformAccountsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserPlatformAccountsForbidden:
-		return nil, v
+		response := &GetUserPlatformAccountsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1860,7 +2424,7 @@ This endpoint will support publisher access to game and game access to publisher
 If targetNamespace filled with publisher namespace then this endpoint will return its publisher user id and publisher namespace.
 If targetNamespace filled with game namespace then this endpoint will return its game user id and game namespace. **Will create game user id if not exists.**
 */
-func (a *Client) GetUserMappingShort(params *GetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserMappingOK, error) {
+func (a *Client) GetUserMappingShort(params *GetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserMappingResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserMappingParams()
@@ -1898,15 +2462,39 @@ func (a *Client) GetUserMappingShort(params *GetUserMappingParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetUserMappingOK:
-		return v, nil
+		response := &GetUserMappingResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserMappingBadRequest:
-		return nil, v
+		response := &GetUserMappingResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserMappingUnauthorized:
-		return nil, v
+		response := &GetUserMappingResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserMappingForbidden:
-		return nil, v
+		response := &GetUserMappingResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserMappingNotFound:
-		return nil, v
+		response := &GetUserMappingResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1927,7 +2515,7 @@ The newly user Justice platform account is going to be forced to perform token g
 ### Read Justice Platform Account UserID
 Without permission the UserID is going to be censored and replaced with âRedactedâ text.
 */
-func (a *Client) GetUserJusticePlatformAccountShort(params *GetUserJusticePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserJusticePlatformAccountOK, error) {
+func (a *Client) GetUserJusticePlatformAccountShort(params *GetUserJusticePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserJusticePlatformAccountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserJusticePlatformAccountParams()
@@ -1965,13 +2553,33 @@ func (a *Client) GetUserJusticePlatformAccountShort(params *GetUserJusticePlatfo
 	switch v := result.(type) {
 
 	case *GetUserJusticePlatformAccountOK:
-		return v, nil
+		response := &GetUserJusticePlatformAccountResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserJusticePlatformAccountBadRequest:
-		return nil, v
+		response := &GetUserJusticePlatformAccountResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserJusticePlatformAccountUnauthorized:
-		return nil, v
+		response := &GetUserJusticePlatformAccountResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserJusticePlatformAccountForbidden:
-		return nil, v
+		response := &GetUserJusticePlatformAccountResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1999,7 +2607,7 @@ PlatformLinkShort link user's account with platform
 - **device**: Every device that doesânt run Android and iOS is categorized as a device platform. The ticket's value is the deviceâs ID.
 - **discord**: The ticketâs value is the authorization code returned by Discord OAuth.
 */
-func (a *Client) PlatformLinkShort(params *PlatformLinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformLinkNoContent, error) {
+func (a *Client) PlatformLinkShort(params *PlatformLinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformLinkResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformLinkParams()
@@ -2037,19 +2645,49 @@ func (a *Client) PlatformLinkShort(params *PlatformLinkParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *PlatformLinkNoContent:
-		return v, nil
+		response := &PlatformLinkResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformLinkBadRequest:
-		return nil, v
+		response := &PlatformLinkResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformLinkUnauthorized:
-		return nil, v
+		response := &PlatformLinkResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformLinkForbidden:
-		return nil, v
+		response := &PlatformLinkResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformLinkNotFound:
-		return nil, v
+		response := &PlatformLinkResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformLinkConflict:
-		return nil, v
+		response := &PlatformLinkResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformLinkInternalServerError:
-		return nil, v
+		response := &PlatformLinkResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2077,7 +2715,7 @@ PlatformUnlinkShort unlink user's account with platform
 Unlink user's account with platform. 'justice' platform might have multiple accounts from different namespaces linked. platform_namespace need to be specified when the platform ID is 'justice'.
 Unlinking justice platform will enable password token grant and password update.
 */
-func (a *Client) PlatformUnlinkShort(params *PlatformUnlinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformUnlinkNoContent, error) {
+func (a *Client) PlatformUnlinkShort(params *PlatformUnlinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformUnlinkResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformUnlinkParams()
@@ -2115,17 +2753,43 @@ func (a *Client) PlatformUnlinkShort(params *PlatformUnlinkParams, authInfo runt
 	switch v := result.(type) {
 
 	case *PlatformUnlinkNoContent:
-		return v, nil
+		response := &PlatformUnlinkResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformUnlinkBadRequest:
-		return nil, v
+		response := &PlatformUnlinkResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformUnlinkUnauthorized:
-		return nil, v
+		response := &PlatformUnlinkResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformUnlinkForbidden:
-		return nil, v
+		response := &PlatformUnlinkResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformUnlinkNotFound:
-		return nil, v
+		response := &PlatformUnlinkResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformUnlinkInternalServerError:
-		return nil, v
+		response := &PlatformUnlinkResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2141,7 +2805,7 @@ GetPublisherUserShort get publisher user
 **Restriction:**
 Path Parameter *namespace* can be provided only with game namespace
 */
-func (a *Client) GetPublisherUserShort(params *GetPublisherUserParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherUserOK, error) {
+func (a *Client) GetPublisherUserShort(params *GetPublisherUserParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPublisherUserParams()
@@ -2179,15 +2843,39 @@ func (a *Client) GetPublisherUserShort(params *GetPublisherUserParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetPublisherUserOK:
-		return v, nil
+		response := &GetPublisherUserResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPublisherUserBadRequest:
-		return nil, v
+		response := &GetPublisherUserResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublisherUserUnauthorized:
-		return nil, v
+		response := &GetPublisherUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublisherUserForbidden:
-		return nil, v
+		response := &GetPublisherUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublisherUserNotFound:
-		return nil, v
+		response := &GetPublisherUserResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2200,7 +2888,7 @@ SaveUserRolesShort save user roles
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles [PATCH]_**
 */
-func (a *Client) SaveUserRolesShort(params *SaveUserRolesParams, authInfo runtime.ClientAuthInfoWriter) (*SaveUserRolesNoContent, error) {
+func (a *Client) SaveUserRolesShort(params *SaveUserRolesParams, authInfo runtime.ClientAuthInfoWriter) (*SaveUserRolesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSaveUserRolesParams()
@@ -2238,17 +2926,44 @@ func (a *Client) SaveUserRolesShort(params *SaveUserRolesParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *SaveUserRolesNoContent:
-		return v, nil
+		response := &SaveUserRolesResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SaveUserRolesBadRequest:
-		return nil, v
+		response := &SaveUserRolesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveUserRolesUnauthorized:
-		return nil, v
+		response := &SaveUserRolesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveUserRolesForbidden:
-		return nil, v
+		response := &SaveUserRolesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveUserRolesNotFound:
-		return nil, v
+		response := &SaveUserRolesResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveUserRolesConflict:
-		return nil, v
+		response := &SaveUserRolesResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2261,7 +2976,7 @@ AddUserRoleShort add user role
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles/{roleId} [POST]_**
 */
-func (a *Client) AddUserRoleShort(params *AddUserRoleParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserRoleNoContent, error) {
+func (a *Client) AddUserRoleShort(params *AddUserRoleParams, authInfo runtime.ClientAuthInfoWriter) (*AddUserRoleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddUserRoleParams()
@@ -2299,17 +3014,42 @@ func (a *Client) AddUserRoleShort(params *AddUserRoleParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *AddUserRoleNoContent:
-		return v, nil
+		response := &AddUserRoleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddUserRoleUnauthorized:
-		return nil, v
+		response := &AddUserRoleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserRoleForbidden:
-		return nil, v
+		response := &AddUserRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserRoleNotFound:
-		return nil, v
+		response := &AddUserRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserRoleConflict:
-		return nil, v
+		response := &AddUserRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddUserRoleInternalServerError:
-		return nil, v
+		response := &AddUserRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2322,7 +3062,7 @@ DeleteUserRoleShort delete user role
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles/{roleId} [DELETE]_**
 */
-func (a *Client) DeleteUserRoleShort(params *DeleteUserRoleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRoleNoContent, error) {
+func (a *Client) DeleteUserRoleShort(params *DeleteUserRoleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRoleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserRoleParams()
@@ -2360,15 +3100,36 @@ func (a *Client) DeleteUserRoleShort(params *DeleteUserRoleParams, authInfo runt
 	switch v := result.(type) {
 
 	case *DeleteUserRoleNoContent:
-		return v, nil
+		response := &DeleteUserRoleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserRoleUnauthorized:
-		return nil, v
+		response := &DeleteUserRoleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRoleForbidden:
-		return nil, v
+		response := &DeleteUserRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRoleNotFound:
-		return nil, v
+		response := &DeleteUserRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRoleInternalServerError:
-		return nil, v
+		response := &DeleteUserRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2382,7 +3143,7 @@ UpgradeHeadlessAccountShort upgrade user account to full account (with email)
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/headless/verify [POST]_**
 */
-func (a *Client) UpgradeHeadlessAccountShort(params *UpgradeHeadlessAccountParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountOK, error) {
+func (a *Client) UpgradeHeadlessAccountShort(params *UpgradeHeadlessAccountParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpgradeHeadlessAccountParams()
@@ -2420,13 +3181,32 @@ func (a *Client) UpgradeHeadlessAccountShort(params *UpgradeHeadlessAccountParam
 	switch v := result.(type) {
 
 	case *UpgradeHeadlessAccountOK:
-		return v, nil
+		response := &UpgradeHeadlessAccountResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpgradeHeadlessAccountUnauthorized:
-		return nil, v
+		response := &UpgradeHeadlessAccountResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpgradeHeadlessAccountForbidden:
-		return nil, v
+		response := &UpgradeHeadlessAccountResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpgradeHeadlessAccountConflict:
-		return nil, v
+		response := &UpgradeHeadlessAccountResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2442,7 +3222,7 @@ UpgradeHeadlessAccountWithVerificationCodeShort upgrade headless account and aut
 The endpoint upgrades a headless account by linking the headless account with the email address and the password. By upgrading the headless account into a full account, the user could use the email address and password for using Justice IAM.
 The endpoint is a shortcut for upgrading a headless account and verifying the email address in one call. In order to get a verification code for the endpoint, please check the send verification code endpoint.
 */
-func (a *Client) UpgradeHeadlessAccountWithVerificationCodeShort(params *UpgradeHeadlessAccountWithVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountWithVerificationCodeOK, error) {
+func (a *Client) UpgradeHeadlessAccountWithVerificationCodeShort(params *UpgradeHeadlessAccountWithVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountWithVerificationCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpgradeHeadlessAccountWithVerificationCodeParams()
@@ -2480,15 +3260,39 @@ func (a *Client) UpgradeHeadlessAccountWithVerificationCodeShort(params *Upgrade
 	switch v := result.(type) {
 
 	case *UpgradeHeadlessAccountWithVerificationCodeOK:
-		return v, nil
+		response := &UpgradeHeadlessAccountWithVerificationCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpgradeHeadlessAccountWithVerificationCodeBadRequest:
-		return nil, v
+		response := &UpgradeHeadlessAccountWithVerificationCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpgradeHeadlessAccountWithVerificationCodeUnauthorized:
-		return nil, v
+		response := &UpgradeHeadlessAccountWithVerificationCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpgradeHeadlessAccountWithVerificationCodeForbidden:
-		return nil, v
+		response := &UpgradeHeadlessAccountWithVerificationCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpgradeHeadlessAccountWithVerificationCodeConflict:
-		return nil, v
+		response := &UpgradeHeadlessAccountWithVerificationCodeResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2504,7 +3308,7 @@ UserVerificationShort redeem verification code sent to user
 Redeems a verification code sent to a user to verify the user's contact address is correct
 Available ContactType : *email* or *phone*
 */
-func (a *Client) UserVerificationShort(params *UserVerificationParams, authInfo runtime.ClientAuthInfoWriter) (*UserVerificationNoContent, error) {
+func (a *Client) UserVerificationShort(params *UserVerificationParams, authInfo runtime.ClientAuthInfoWriter) (*UserVerificationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUserVerificationParams()
@@ -2542,17 +3346,42 @@ func (a *Client) UserVerificationShort(params *UserVerificationParams, authInfo 
 	switch v := result.(type) {
 
 	case *UserVerificationNoContent:
-		return v, nil
+		response := &UserVerificationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UserVerificationBadRequest:
-		return nil, v
+		response := &UserVerificationResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserVerificationUnauthorized:
-		return nil, v
+		response := &UserVerificationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserVerificationForbidden:
-		return nil, v
+		response := &UserVerificationResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserVerificationNotFound:
-		return nil, v
+		response := &UserVerificationResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserVerificationInternalServerError:
-		return nil, v
+		response := &UserVerificationResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2574,7 +3403,7 @@ a context type used for verify user before updating email address.(Without email
 3. **upgradeHeadlessAccount**
 The context is intended to be used whenever the email address wanted to be automatically verified on upgrading a headless account. If this context used, IAM rejects the request if the loginId field's value is already used by others by returning HTTP Status Code 409.
 */
-func (a *Client) SendVerificationCodeShort(params *SendVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendVerificationCodeNoContent, error) {
+func (a *Client) SendVerificationCodeShort(params *SendVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendVerificationCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendVerificationCodeParams()
@@ -2612,21 +3441,54 @@ func (a *Client) SendVerificationCodeShort(params *SendVerificationCodeParams, a
 	switch v := result.(type) {
 
 	case *SendVerificationCodeNoContent:
-		return v, nil
+		response := &SendVerificationCodeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendVerificationCodeBadRequest:
-		return nil, v
+		response := &SendVerificationCodeResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendVerificationCodeUnauthorized:
-		return nil, v
+		response := &SendVerificationCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendVerificationCodeForbidden:
-		return nil, v
+		response := &SendVerificationCodeResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendVerificationCodeNotFound:
-		return nil, v
+		response := &SendVerificationCodeResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendVerificationCodeConflict:
-		return nil, v
+		response := &SendVerificationCodeResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendVerificationCodeTooManyRequests:
-		return nil, v
+		response := &SendVerificationCodeResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendVerificationCodeInternalServerError:
-		return nil, v
+		response := &SendVerificationCodeResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2641,7 +3503,7 @@ AdminGetAgeRestrictionStatusV2Short get age restriction status
 - **Note:**
 difference in V3 response, format difference: Pascal case => Camel case
 */
-func (a *Client) AdminGetAgeRestrictionStatusV2Short(params *AdminGetAgeRestrictionStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV2OK, error) {
+func (a *Client) AdminGetAgeRestrictionStatusV2Short(params *AdminGetAgeRestrictionStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAgeRestrictionStatusV2Params()
@@ -2679,13 +3541,32 @@ func (a *Client) AdminGetAgeRestrictionStatusV2Short(params *AdminGetAgeRestrict
 	switch v := result.(type) {
 
 	case *AdminGetAgeRestrictionStatusV2OK:
-		return v, nil
+		response := &AdminGetAgeRestrictionStatusV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAgeRestrictionStatusV2Unauthorized:
-		return nil, v
+		response := &AdminGetAgeRestrictionStatusV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAgeRestrictionStatusV2Forbidden:
-		return nil, v
+		response := &AdminGetAgeRestrictionStatusV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAgeRestrictionStatusV2NotFound:
-		return nil, v
+		response := &AdminGetAgeRestrictionStatusV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2698,7 +3579,7 @@ AdminUpdateAgeRestrictionConfigV2Short update age restriction config value
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions [PATCH]_**
 */
-func (a *Client) AdminUpdateAgeRestrictionConfigV2Short(params *AdminUpdateAgeRestrictionConfigV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV2OK, error) {
+func (a *Client) AdminUpdateAgeRestrictionConfigV2Short(params *AdminUpdateAgeRestrictionConfigV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateAgeRestrictionConfigV2Params()
@@ -2736,15 +3617,39 @@ func (a *Client) AdminUpdateAgeRestrictionConfigV2Short(params *AdminUpdateAgeRe
 	switch v := result.(type) {
 
 	case *AdminUpdateAgeRestrictionConfigV2OK:
-		return v, nil
+		response := &AdminUpdateAgeRestrictionConfigV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateAgeRestrictionConfigV2BadRequest:
-		return nil, v
+		response := &AdminUpdateAgeRestrictionConfigV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAgeRestrictionConfigV2Unauthorized:
-		return nil, v
+		response := &AdminUpdateAgeRestrictionConfigV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAgeRestrictionConfigV2Forbidden:
-		return nil, v
+		response := &AdminUpdateAgeRestrictionConfigV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAgeRestrictionConfigV2NotFound:
-		return nil, v
+		response := &AdminUpdateAgeRestrictionConfigV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2757,7 +3662,7 @@ GetListCountryAgeRestrictionShort get list country age restriction
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions/countries [GET]_**
 */
-func (a *Client) GetListCountryAgeRestrictionShort(params *GetListCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*GetListCountryAgeRestrictionOK, error) {
+func (a *Client) GetListCountryAgeRestrictionShort(params *GetListCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*GetListCountryAgeRestrictionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListCountryAgeRestrictionParams()
@@ -2795,13 +3700,32 @@ func (a *Client) GetListCountryAgeRestrictionShort(params *GetListCountryAgeRest
 	switch v := result.(type) {
 
 	case *GetListCountryAgeRestrictionOK:
-		return v, nil
+		response := &GetListCountryAgeRestrictionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListCountryAgeRestrictionUnauthorized:
-		return nil, v
+		response := &GetListCountryAgeRestrictionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListCountryAgeRestrictionForbidden:
-		return nil, v
+		response := &GetListCountryAgeRestrictionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListCountryAgeRestrictionNotFound:
-		return nil, v
+		response := &GetListCountryAgeRestrictionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2814,7 +3738,7 @@ UpdateCountryAgeRestrictionShort update country's age restriction
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions/countries/{countryCode} [PATCH]_**
 */
-func (a *Client) UpdateCountryAgeRestrictionShort(params *UpdateCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryAgeRestrictionOK, error) {
+func (a *Client) UpdateCountryAgeRestrictionShort(params *UpdateCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryAgeRestrictionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCountryAgeRestrictionParams()
@@ -2852,15 +3776,39 @@ func (a *Client) UpdateCountryAgeRestrictionShort(params *UpdateCountryAgeRestri
 	switch v := result.(type) {
 
 	case *UpdateCountryAgeRestrictionOK:
-		return v, nil
+		response := &UpdateCountryAgeRestrictionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateCountryAgeRestrictionBadRequest:
-		return nil, v
+		response := &UpdateCountryAgeRestrictionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCountryAgeRestrictionUnauthorized:
-		return nil, v
+		response := &UpdateCountryAgeRestrictionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCountryAgeRestrictionForbidden:
-		return nil, v
+		response := &UpdateCountryAgeRestrictionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCountryAgeRestrictionNotFound:
-		return nil, v
+		response := &UpdateCountryAgeRestrictionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2873,7 +3821,7 @@ AdminSearchUsersV2Short search users
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/search [GET]_**
 */
-func (a *Client) AdminSearchUsersV2Short(params *AdminSearchUsersV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUsersV2OK, error) {
+func (a *Client) AdminSearchUsersV2Short(params *AdminSearchUsersV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUsersV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSearchUsersV2Params()
@@ -2911,13 +3859,33 @@ func (a *Client) AdminSearchUsersV2Short(params *AdminSearchUsersV2Params, authI
 	switch v := result.(type) {
 
 	case *AdminSearchUsersV2OK:
-		return v, nil
+		response := &AdminSearchUsersV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSearchUsersV2BadRequest:
-		return nil, v
+		response := &AdminSearchUsersV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSearchUsersV2Unauthorized:
-		return nil, v
+		response := &AdminSearchUsersV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSearchUsersV2Forbidden:
-		return nil, v
+		response := &AdminSearchUsersV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2930,7 +3898,7 @@ AdminGetUserByUserIDV2Short get user by user id
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]_**
 */
-func (a *Client) AdminGetUserByUserIDV2Short(params *AdminGetUserByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV2OK, error) {
+func (a *Client) AdminGetUserByUserIDV2Short(params *AdminGetUserByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserByUserIDV2Params()
@@ -2968,11 +3936,24 @@ func (a *Client) AdminGetUserByUserIDV2Short(params *AdminGetUserByUserIDV2Param
 	switch v := result.(type) {
 
 	case *AdminGetUserByUserIDV2OK:
-		return v, nil
+		response := &AdminGetUserByUserIDV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserByUserIDV2NotFound:
-		return nil, v
+		response := &AdminGetUserByUserIDV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByUserIDV2InternalServerError:
-		return nil, v
+		response := &AdminGetUserByUserIDV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2994,7 +3975,7 @@ Country use ISO3166-1 alpha-2 two letter, e.g. US.
 - User want to update email address of which have not been verified, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with new email address.
 - User want to update email address of which have been verified and updated before, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with verified email before. NewEmailAddress response field will be filled with newest email address.
 */
-func (a *Client) AdminUpdateUserV2Short(params *AdminUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV2OK, error) {
+func (a *Client) AdminUpdateUserV2Short(params *AdminUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserV2Params()
@@ -3032,17 +4013,43 @@ func (a *Client) AdminUpdateUserV2Short(params *AdminUpdateUserV2Params, authInf
 	switch v := result.(type) {
 
 	case *AdminUpdateUserV2OK:
-		return v, nil
+		response := &AdminUpdateUserV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserV2BadRequest:
-		return nil, v
+		response := &AdminUpdateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV2Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV2NotFound:
-		return nil, v
+		response := &AdminUpdateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV2Conflict:
-		return nil, v
+		response := &AdminUpdateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV2InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3055,7 +4062,7 @@ AdminBanUserV2Short ban a single user
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [POST]_**
 */
-func (a *Client) AdminBanUserV2Short(params *AdminBanUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV2Created, error) {
+func (a *Client) AdminBanUserV2Short(params *AdminBanUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBanUserV2Params()
@@ -3093,17 +4100,44 @@ func (a *Client) AdminBanUserV2Short(params *AdminBanUserV2Params, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminBanUserV2Created:
-		return v, nil
+		response := &AdminBanUserV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBanUserV2BadRequest:
-		return nil, v
+		response := &AdminBanUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserV2Unauthorized:
-		return nil, v
+		response := &AdminBanUserV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserV2Forbidden:
-		return nil, v
+		response := &AdminBanUserV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserV2NotFound:
-		return nil, v
+		response := &AdminBanUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserV2InternalServerError:
-		return nil, v
+		response := &AdminBanUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3116,7 +4150,7 @@ AdminGetUserBanV2Short get user's bans
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [GET]_**
 */
-func (a *Client) AdminGetUserBanV2Short(params *AdminGetUserBanV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV2OK, error) {
+func (a *Client) AdminGetUserBanV2Short(params *AdminGetUserBanV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserBanV2Params()
@@ -3154,13 +4188,32 @@ func (a *Client) AdminGetUserBanV2Short(params *AdminGetUserBanV2Params, authInf
 	switch v := result.(type) {
 
 	case *AdminGetUserBanV2OK:
-		return v, nil
+		response := &AdminGetUserBanV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserBanV2Unauthorized:
-		return nil, v
+		response := &AdminGetUserBanV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanV2Forbidden:
-		return nil, v
+		response := &AdminGetUserBanV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanV2NotFound:
-		return nil, v
+		response := &AdminGetUserBanV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3177,7 +4230,7 @@ For **Deletion Account** purpose fill the reason with:
 - **DeactivateAccount** : if your deletion request comes from user
 - **AdminDeactivateAccount** : if your deletion request comes from admin
 */
-func (a *Client) AdminDisableUserV2Short(params *AdminDisableUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserV2NoContent, error) {
+func (a *Client) AdminDisableUserV2Short(params *AdminDisableUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDisableUserV2Params()
@@ -3215,17 +4268,43 @@ func (a *Client) AdminDisableUserV2Short(params *AdminDisableUserV2Params, authI
 	switch v := result.(type) {
 
 	case *AdminDisableUserV2NoContent:
-		return v, nil
+		response := &AdminDisableUserV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDisableUserV2BadRequest:
-		return nil, v
+		response := &AdminDisableUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableUserV2Unauthorized:
-		return nil, v
+		response := &AdminDisableUserV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableUserV2Forbidden:
-		return nil, v
+		response := &AdminDisableUserV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableUserV2NotFound:
-		return nil, v
+		response := &AdminDisableUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableUserV2InternalServerError:
-		return nil, v
+		response := &AdminDisableUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3238,7 +4317,7 @@ AdminEnableUserV2Short enable a user
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]_**
 */
-func (a *Client) AdminEnableUserV2Short(params *AdminEnableUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableUserV2NoContent, error) {
+func (a *Client) AdminEnableUserV2Short(params *AdminEnableUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableUserV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminEnableUserV2Params()
@@ -3276,15 +4355,37 @@ func (a *Client) AdminEnableUserV2Short(params *AdminEnableUserV2Params, authInf
 	switch v := result.(type) {
 
 	case *AdminEnableUserV2NoContent:
-		return v, nil
+		response := &AdminEnableUserV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminEnableUserV2Unauthorized:
-		return nil, v
+		response := &AdminEnableUserV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableUserV2Forbidden:
-		return nil, v
+		response := &AdminEnableUserV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableUserV2NotFound:
-		return nil, v
+		response := &AdminEnableUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableUserV2InternalServerError:
-		return nil, v
+		response := &AdminEnableUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3297,7 +4398,7 @@ AdminResetPasswordV2Short update user password
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/password [PUT]_**
 */
-func (a *Client) AdminResetPasswordV2Short(params *AdminResetPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV2NoContent, error) {
+func (a *Client) AdminResetPasswordV2Short(params *AdminResetPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminResetPasswordV2Params()
@@ -3335,17 +4436,43 @@ func (a *Client) AdminResetPasswordV2Short(params *AdminResetPasswordV2Params, a
 	switch v := result.(type) {
 
 	case *AdminResetPasswordV2NoContent:
-		return v, nil
+		response := &AdminResetPasswordV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminResetPasswordV2BadRequest:
-		return nil, v
+		response := &AdminResetPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPasswordV2Unauthorized:
-		return nil, v
+		response := &AdminResetPasswordV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPasswordV2Forbidden:
-		return nil, v
+		response := &AdminResetPasswordV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPasswordV2NotFound:
-		return nil, v
+		response := &AdminResetPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPasswordV2InternalServerError:
-		return nil, v
+		response := &AdminResetPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3373,7 +4500,7 @@ AdminDeletePlatformLinkV2Short delete the link of user's account with platform
 Delete link of user's account with platform. 'justice' platform might have multiple accounts from different namespaces linked. platform_namespace need to be specified when the platform ID is 'justice'.
 Delete link of justice platform will enable password token grant and password update.
 */
-func (a *Client) AdminDeletePlatformLinkV2Short(params *AdminDeletePlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformLinkV2NoContent, error) {
+func (a *Client) AdminDeletePlatformLinkV2Short(params *AdminDeletePlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformLinkV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeletePlatformLinkV2Params()
@@ -3411,17 +4538,43 @@ func (a *Client) AdminDeletePlatformLinkV2Short(params *AdminDeletePlatformLinkV
 	switch v := result.(type) {
 
 	case *AdminDeletePlatformLinkV2NoContent:
-		return v, nil
+		response := &AdminDeletePlatformLinkV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeletePlatformLinkV2BadRequest:
-		return nil, v
+		response := &AdminDeletePlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformLinkV2Unauthorized:
-		return nil, v
+		response := &AdminDeletePlatformLinkV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformLinkV2Forbidden:
-		return nil, v
+		response := &AdminDeletePlatformLinkV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformLinkV2NotFound:
-		return nil, v
+		response := &AdminDeletePlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformLinkV2InternalServerError:
-		return nil, v
+		response := &AdminDeletePlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3434,7 +4587,7 @@ AdminPutUserRolesV2Short update user roles, will replace all the existing roles
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles [PATCH]_**
 */
-func (a *Client) AdminPutUserRolesV2Short(params *AdminPutUserRolesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutUserRolesV2NoContent, error) {
+func (a *Client) AdminPutUserRolesV2Short(params *AdminPutUserRolesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutUserRolesV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPutUserRolesV2Params()
@@ -3472,15 +4625,38 @@ func (a *Client) AdminPutUserRolesV2Short(params *AdminPutUserRolesV2Params, aut
 	switch v := result.(type) {
 
 	case *AdminPutUserRolesV2NoContent:
-		return v, nil
+		response := &AdminPutUserRolesV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPutUserRolesV2BadRequest:
-		return nil, v
+		response := &AdminPutUserRolesV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutUserRolesV2Unauthorized:
-		return nil, v
+		response := &AdminPutUserRolesV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutUserRolesV2Forbidden:
-		return nil, v
+		response := &AdminPutUserRolesV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutUserRolesV2NotFound:
-		return nil, v
+		response := &AdminPutUserRolesV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3493,7 +4669,7 @@ AdminCreateUserRolesV2Short save user roles
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles [PATCH]_**
 */
-func (a *Client) AdminCreateUserRolesV2Short(params *AdminCreateUserRolesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserRolesV2NoContent, error) {
+func (a *Client) AdminCreateUserRolesV2Short(params *AdminCreateUserRolesV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserRolesV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateUserRolesV2Params()
@@ -3531,17 +4707,44 @@ func (a *Client) AdminCreateUserRolesV2Short(params *AdminCreateUserRolesV2Param
 	switch v := result.(type) {
 
 	case *AdminCreateUserRolesV2NoContent:
-		return v, nil
+		response := &AdminCreateUserRolesV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateUserRolesV2BadRequest:
-		return nil, v
+		response := &AdminCreateUserRolesV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserRolesV2Unauthorized:
-		return nil, v
+		response := &AdminCreateUserRolesV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserRolesV2Forbidden:
-		return nil, v
+		response := &AdminCreateUserRolesV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserRolesV2NotFound:
-		return nil, v
+		response := &AdminCreateUserRolesV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserRolesV2Conflict:
-		return nil, v
+		response := &AdminCreateUserRolesV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3554,7 +4757,7 @@ PublicGetCountryAgeRestrictionShort public get age restriction by country code
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/agerestrictions/countries/{countryCode} [GET]_**
 */
-func (a *Client) PublicGetCountryAgeRestrictionShort(params *PublicGetCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryAgeRestrictionOK, error) {
+func (a *Client) PublicGetCountryAgeRestrictionShort(params *PublicGetCountryAgeRestrictionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryAgeRestrictionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCountryAgeRestrictionParams()
@@ -3592,11 +4795,25 @@ func (a *Client) PublicGetCountryAgeRestrictionShort(params *PublicGetCountryAge
 	switch v := result.(type) {
 
 	case *PublicGetCountryAgeRestrictionOK:
-		return v, nil
+		response := &PublicGetCountryAgeRestrictionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCountryAgeRestrictionUnauthorized:
-		return nil, v
+		response := &PublicGetCountryAgeRestrictionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetCountryAgeRestrictionNotFound:
-		return nil, v
+		response := &PublicGetCountryAgeRestrictionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3617,7 +4834,7 @@ Available Authentication Types:
 1. *EMAILPASSWD*: an authentication type used for new user registration through email.
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 */
-func (a *Client) PublicCreateUserV2Short(params *PublicCreateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV2Created, error) {
+func (a *Client) PublicCreateUserV2Short(params *PublicCreateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateUserV2Params()
@@ -3655,15 +4872,39 @@ func (a *Client) PublicCreateUserV2Short(params *PublicCreateUserV2Params, authI
 	switch v := result.(type) {
 
 	case *PublicCreateUserV2Created:
-		return v, nil
+		response := &PublicCreateUserV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateUserV2BadRequest:
-		return nil, v
+		response := &PublicCreateUserV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV2Unauthorized:
-		return nil, v
+		response := &PublicCreateUserV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV2Forbidden:
-		return nil, v
+		response := &PublicCreateUserV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV2Conflict:
-		return nil, v
+		response := &PublicCreateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3679,7 +4920,7 @@ PublicForgotPasswordV2Short request password reset code
 **Special note for publisher-game scenario:** Game Client should provide game namespace path parameter and Publisher Client should provide publisher namespace path parameter.
 The password reset code will be sent to the publisher account's email address.
 */
-func (a *Client) PublicForgotPasswordV2Short(params *PublicForgotPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV2NoContent, error) {
+func (a *Client) PublicForgotPasswordV2Short(params *PublicForgotPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicForgotPasswordV2Params()
@@ -3717,15 +4958,35 @@ func (a *Client) PublicForgotPasswordV2Short(params *PublicForgotPasswordV2Param
 	switch v := result.(type) {
 
 	case *PublicForgotPasswordV2NoContent:
-		return v, nil
+		response := &PublicForgotPasswordV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicForgotPasswordV2BadRequest:
-		return nil, v
+		response := &PublicForgotPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForgotPasswordV2NotFound:
-		return nil, v
+		response := &PublicForgotPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForgotPasswordV2TooManyRequests:
-		return nil, v
+		response := &PublicForgotPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForgotPasswordV2InternalServerError:
-		return nil, v
+		response := &PublicForgotPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3738,7 +4999,7 @@ PublicResetPasswordV2Short reset user password
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/reset [POST]_**
 */
-func (a *Client) PublicResetPasswordV2Short(params *PublicResetPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicResetPasswordV2NoContent, error) {
+func (a *Client) PublicResetPasswordV2Short(params *PublicResetPasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicResetPasswordV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicResetPasswordV2Params()
@@ -3776,15 +5037,35 @@ func (a *Client) PublicResetPasswordV2Short(params *PublicResetPasswordV2Params,
 	switch v := result.(type) {
 
 	case *PublicResetPasswordV2NoContent:
-		return v, nil
+		response := &PublicResetPasswordV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicResetPasswordV2BadRequest:
-		return nil, v
+		response := &PublicResetPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicResetPasswordV2Forbidden:
-		return nil, v
+		response := &PublicResetPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicResetPasswordV2NotFound:
-		return nil, v
+		response := &PublicResetPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicResetPasswordV2InternalServerError:
-		return nil, v
+		response := &PublicResetPasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3800,7 +5081,7 @@ PublicGetUserByUserIDV2Short get user by user id
 - **Note:**
 format difference in response: Pascal case => Camel case
 */
-func (a *Client) PublicGetUserByUserIDV2Short(params *PublicGetUserByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV2OK, error) {
+func (a *Client) PublicGetUserByUserIDV2Short(params *PublicGetUserByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserByUserIDV2Params()
@@ -3838,11 +5119,24 @@ func (a *Client) PublicGetUserByUserIDV2Short(params *PublicGetUserByUserIDV2Par
 	switch v := result.(type) {
 
 	case *PublicGetUserByUserIDV2OK:
-		return v, nil
+		response := &PublicGetUserByUserIDV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserByUserIDV2NotFound:
-		return nil, v
+		response := &PublicGetUserByUserIDV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserByUserIDV2InternalServerError:
-		return nil, v
+		response := &PublicGetUserByUserIDV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3863,7 +5157,7 @@ PublicUpdateUserV2Short update user
 This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
 Supported field {Country, DisplayName, LanguageTag}
 */
-func (a *Client) PublicUpdateUserV2Short(params *PublicUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV2OK, error) {
+func (a *Client) PublicUpdateUserV2Short(params *PublicUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateUserV2Params()
@@ -3901,17 +5195,43 @@ func (a *Client) PublicUpdateUserV2Short(params *PublicUpdateUserV2Params, authI
 	switch v := result.(type) {
 
 	case *PublicUpdateUserV2OK:
-		return v, nil
+		response := &PublicUpdateUserV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateUserV2BadRequest:
-		return nil, v
+		response := &PublicUpdateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserV2Unauthorized:
-		return nil, v
+		response := &PublicUpdateUserV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserV2NotFound:
-		return nil, v
+		response := &PublicUpdateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserV2Conflict:
-		return nil, v
+		response := &PublicUpdateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserV2InternalServerError:
-		return nil, v
+		response := &PublicUpdateUserV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3924,7 +5244,7 @@ PublicGetUserBanShort get user's bans
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/bans [GET]_**
 */
-func (a *Client) PublicGetUserBanShort(params *PublicGetUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserBanOK, error) {
+func (a *Client) PublicGetUserBanShort(params *PublicGetUserBanParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserBanResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserBanParams()
@@ -3962,13 +5282,32 @@ func (a *Client) PublicGetUserBanShort(params *PublicGetUserBanParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicGetUserBanOK:
-		return v, nil
+		response := &PublicGetUserBanResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserBanUnauthorized:
-		return nil, v
+		response := &PublicGetUserBanResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserBanForbidden:
-		return nil, v
+		response := &PublicGetUserBanResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserBanNotFound:
-		return nil, v
+		response := &PublicGetUserBanResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3981,7 +5320,7 @@ PublicUpdatePasswordV2Short update user password
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/password [PUT]_**
 */
-func (a *Client) PublicUpdatePasswordV2Short(params *PublicUpdatePasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV2NoContent, error) {
+func (a *Client) PublicUpdatePasswordV2Short(params *PublicUpdatePasswordV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdatePasswordV2Params()
@@ -4019,17 +5358,43 @@ func (a *Client) PublicUpdatePasswordV2Short(params *PublicUpdatePasswordV2Param
 	switch v := result.(type) {
 
 	case *PublicUpdatePasswordV2NoContent:
-		return v, nil
+		response := &PublicUpdatePasswordV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdatePasswordV2BadRequest:
-		return nil, v
+		response := &PublicUpdatePasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePasswordV2Unauthorized:
-		return nil, v
+		response := &PublicUpdatePasswordV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePasswordV2Forbidden:
-		return nil, v
+		response := &PublicUpdatePasswordV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePasswordV2NotFound:
-		return nil, v
+		response := &PublicUpdatePasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePasswordV2InternalServerError:
-		return nil, v
+		response := &PublicUpdatePasswordV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4044,7 +5409,7 @@ GetListJusticePlatformAccountsShort get user justice platform accounts
 
 This endpoint gets list justice platform account by providing publisher namespace and publisher userID.
 */
-func (a *Client) GetListJusticePlatformAccountsShort(params *GetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListJusticePlatformAccountsOK, error) {
+func (a *Client) GetListJusticePlatformAccountsShort(params *GetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListJusticePlatformAccountsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListJusticePlatformAccountsParams()
@@ -4082,11 +5447,25 @@ func (a *Client) GetListJusticePlatformAccountsShort(params *GetListJusticePlatf
 	switch v := result.(type) {
 
 	case *GetListJusticePlatformAccountsOK:
-		return v, nil
+		response := &GetListJusticePlatformAccountsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListJusticePlatformAccountsBadRequest:
-		return nil, v
+		response := &GetListJusticePlatformAccountsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListJusticePlatformAccountsNotFound:
-		return nil, v
+		response := &GetListJusticePlatformAccountsResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4114,7 +5493,7 @@ Platform client configuration need to be added to database for specific platform
 - **device**: Every device that doesn't run Android and iOS is categorized as a device platform. The ticket's value is the deviceâs ID.
 - **discord**: The ticketâs value is the authorization code returned by Discord OAuth.
 */
-func (a *Client) PublicPlatformLinkV2Short(params *PublicPlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV2NoContent, error) {
+func (a *Client) PublicPlatformLinkV2Short(params *PublicPlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPlatformLinkV2Params()
@@ -4152,19 +5531,49 @@ func (a *Client) PublicPlatformLinkV2Short(params *PublicPlatformLinkV2Params, a
 	switch v := result.(type) {
 
 	case *PublicPlatformLinkV2NoContent:
-		return v, nil
+		response := &PublicPlatformLinkV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPlatformLinkV2BadRequest:
-		return nil, v
+		response := &PublicPlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV2Unauthorized:
-		return nil, v
+		response := &PublicPlatformLinkV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV2Forbidden:
-		return nil, v
+		response := &PublicPlatformLinkV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV2NotFound:
-		return nil, v
+		response := &PublicPlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV2Conflict:
-		return nil, v
+		response := &PublicPlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV2InternalServerError:
-		return nil, v
+		response := &PublicPlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4193,7 +5602,7 @@ PublicDeletePlatformLinkV2Short delete the link of user's account with platform
 Delete link of user's account with platform. 'justice' platform might have multiple accounts from different namespaces linked. platform_namespace need to be specified when the platform ID is 'justice'.
 Delete link of justice platform will enable password token grant and password update.
 */
-func (a *Client) PublicDeletePlatformLinkV2Short(params *PublicDeletePlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlatformLinkV2NoContent, error) {
+func (a *Client) PublicDeletePlatformLinkV2Short(params *PublicDeletePlatformLinkV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlatformLinkV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDeletePlatformLinkV2Params()
@@ -4231,17 +5640,43 @@ func (a *Client) PublicDeletePlatformLinkV2Short(params *PublicDeletePlatformLin
 	switch v := result.(type) {
 
 	case *PublicDeletePlatformLinkV2NoContent:
-		return v, nil
+		response := &PublicDeletePlatformLinkV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDeletePlatformLinkV2BadRequest:
-		return nil, v
+		response := &PublicDeletePlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlatformLinkV2Unauthorized:
-		return nil, v
+		response := &PublicDeletePlatformLinkV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlatformLinkV2Forbidden:
-		return nil, v
+		response := &PublicDeletePlatformLinkV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlatformLinkV2NotFound:
-		return nil, v
+		response := &PublicDeletePlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlatformLinkV2InternalServerError:
-		return nil, v
+		response := &PublicDeletePlatformLinkV2Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4266,7 +5701,7 @@ In multi tenant mode :
 The endpoint will return all admin from all namespace when called from publisher namespace.
 When not called from publisher namespace, the endpoint will return all admin from the path namespace.
 */
-func (a *Client) ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.ClientAuthInfoWriter) (*ListAdminsV3OK, error) {
+func (a *Client) ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.ClientAuthInfoWriter) (*ListAdminsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListAdminsV3Params()
@@ -4304,13 +5739,33 @@ func (a *Client) ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *ListAdminsV3OK:
-		return v, nil
+		response := &ListAdminsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListAdminsV3Unauthorized:
-		return nil, v
+		response := &ListAdminsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListAdminsV3Forbidden:
-		return nil, v
+		response := &ListAdminsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListAdminsV3InternalServerError:
-		return nil, v
+		response := &ListAdminsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4321,7 +5776,7 @@ func (a *Client) ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.
 AdminGetAgeRestrictionStatusV3Short get age restriction status
 action code: 10138
 */
-func (a *Client) AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrictionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV3OK, error) {
+func (a *Client) AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrictionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAgeRestrictionStatusV3Params()
@@ -4359,17 +5814,47 @@ func (a *Client) AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrict
 	switch v := result.(type) {
 
 	case *AdminGetAgeRestrictionStatusV3OK:
-		return v, nil
+		response := &AdminGetAgeRestrictionStatusV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAgeRestrictionStatusV3BadRequest:
-		return nil, v
+		response := &AdminGetAgeRestrictionStatusV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAgeRestrictionStatusV3Unauthorized:
-		return nil, v
+		response := &AdminGetAgeRestrictionStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAgeRestrictionStatusV3Forbidden:
-		return nil, v
+		response := &AdminGetAgeRestrictionStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAgeRestrictionStatusV3NotFound:
-		return nil, v
+		response := &AdminGetAgeRestrictionStatusV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAgeRestrictionStatusV3InternalServerError:
-		return nil, v
+		response := &AdminGetAgeRestrictionStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4380,7 +5865,7 @@ func (a *Client) AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrict
 AdminUpdateAgeRestrictionConfigV3Short update age restriction config value
 action code: 10122
 */
-func (a *Client) AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRestrictionConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV3OK, error) {
+func (a *Client) AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRestrictionConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateAgeRestrictionConfigV3Params()
@@ -4418,15 +5903,40 @@ func (a *Client) AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRe
 	switch v := result.(type) {
 
 	case *AdminUpdateAgeRestrictionConfigV3OK:
-		return v, nil
+		response := &AdminUpdateAgeRestrictionConfigV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateAgeRestrictionConfigV3BadRequest:
-		return nil, v
+		response := &AdminUpdateAgeRestrictionConfigV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAgeRestrictionConfigV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateAgeRestrictionConfigV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAgeRestrictionConfigV3Forbidden:
-		return nil, v
+		response := &AdminUpdateAgeRestrictionConfigV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAgeRestrictionConfigV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateAgeRestrictionConfigV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4437,7 +5947,7 @@ func (a *Client) AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRe
 AdminGetListCountryAgeRestrictionV3Short get list country age restriction
 action code : 10139
 */
-func (a *Client) AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListCountryAgeRestrictionV3OK, error) {
+func (a *Client) AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListCountryAgeRestrictionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetListCountryAgeRestrictionV3Params()
@@ -4475,15 +5985,40 @@ func (a *Client) AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCo
 	switch v := result.(type) {
 
 	case *AdminGetListCountryAgeRestrictionV3OK:
-		return v, nil
+		response := &AdminGetListCountryAgeRestrictionV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetListCountryAgeRestrictionV3BadRequest:
-		return nil, v
+		response := &AdminGetListCountryAgeRestrictionV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListCountryAgeRestrictionV3Unauthorized:
-		return nil, v
+		response := &AdminGetListCountryAgeRestrictionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListCountryAgeRestrictionV3Forbidden:
-		return nil, v
+		response := &AdminGetListCountryAgeRestrictionV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListCountryAgeRestrictionV3InternalServerError:
-		return nil, v
+		response := &AdminGetListCountryAgeRestrictionV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4494,7 +6029,7 @@ func (a *Client) AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCo
 AdminUpdateCountryAgeRestrictionV3Short update country's age restriction
 action code: 10123
 */
-func (a *Client) AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateCountryAgeRestrictionV3OK, error) {
+func (a *Client) AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateCountryAgeRestrictionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateCountryAgeRestrictionV3Params()
@@ -4532,17 +6067,47 @@ func (a *Client) AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCoun
 	switch v := result.(type) {
 
 	case *AdminUpdateCountryAgeRestrictionV3OK:
-		return v, nil
+		response := &AdminUpdateCountryAgeRestrictionV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateCountryAgeRestrictionV3BadRequest:
-		return nil, v
+		response := &AdminUpdateCountryAgeRestrictionV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateCountryAgeRestrictionV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateCountryAgeRestrictionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateCountryAgeRestrictionV3Forbidden:
-		return nil, v
+		response := &AdminUpdateCountryAgeRestrictionV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateCountryAgeRestrictionV3NotFound:
-		return nil, v
+		response := &AdminUpdateCountryAgeRestrictionV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateCountryAgeRestrictionV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateCountryAgeRestrictionV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4585,7 +6150,7 @@ Supported platform:
 Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
-func (a *Client) AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3OK, error) {
+func (a *Client) AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByPlatformUserIDsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListUserIDByPlatformUserIDsV3Params()
@@ -4623,15 +6188,40 @@ func (a *Client) AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserID
 	switch v := result.(type) {
 
 	case *AdminListUserIDByPlatformUserIDsV3OK:
-		return v, nil
+		response := &AdminListUserIDByPlatformUserIDsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListUserIDByPlatformUserIDsV3BadRequest:
-		return nil, v
+		response := &AdminListUserIDByPlatformUserIDsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserIDByPlatformUserIDsV3Unauthorized:
-		return nil, v
+		response := &AdminListUserIDByPlatformUserIDsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserIDByPlatformUserIDsV3Forbidden:
-		return nil, v
+		response := &AdminListUserIDByPlatformUserIDsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserIDByPlatformUserIDsV3InternalServerError:
-		return nil, v
+		response := &AdminListUserIDByPlatformUserIDsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4682,7 +6272,7 @@ Note:
 - You can use either platform id or platform group as **platformId** parameter.
 - **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
-func (a *Client) AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByPlatformUserIDV3OK, error) {
+func (a *Client) AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByPlatformUserIDV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserByPlatformUserIDV3Params()
@@ -4720,15 +6310,40 @@ func (a *Client) AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatf
 	switch v := result.(type) {
 
 	case *AdminGetUserByPlatformUserIDV3OK:
-		return v, nil
+		response := &AdminGetUserByPlatformUserIDV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserByPlatformUserIDV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserByPlatformUserIDV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByPlatformUserIDV3Forbidden:
-		return nil, v
+		response := &AdminGetUserByPlatformUserIDV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByPlatformUserIDV3NotFound:
-		return nil, v
+		response := &AdminGetUserByPlatformUserIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByPlatformUserIDV3InternalServerError:
-		return nil, v
+		response := &AdminGetUserByPlatformUserIDV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4743,7 +6358,7 @@ Notes : this endpoint only accept admin role. Admin Role is role which have admi
 Use endpoint [GET] /roles/{roleId}/admin to check the role status
 action code : 10140
 */
-func (a *Client) GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDV3OK, error) {
+func (a *Client) GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAdminUsersByRoleIDV3Params()
@@ -4781,17 +6396,47 @@ func (a *Client) GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Par
 	switch v := result.(type) {
 
 	case *GetAdminUsersByRoleIDV3OK:
-		return v, nil
+		response := &GetAdminUsersByRoleIDV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAdminUsersByRoleIDV3BadRequest:
-		return nil, v
+		response := &GetAdminUsersByRoleIDV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminUsersByRoleIDV3Unauthorized:
-		return nil, v
+		response := &GetAdminUsersByRoleIDV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminUsersByRoleIDV3Forbidden:
-		return nil, v
+		response := &GetAdminUsersByRoleIDV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminUsersByRoleIDV3NotFound:
-		return nil, v
+		response := &GetAdminUsersByRoleIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminUsersByRoleIDV3InternalServerError:
-		return nil, v
+		response := &GetAdminUsersByRoleIDV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4803,7 +6448,7 @@ AdminGetUserByEmailAddressV3Short get user by email address
 This endpoint search user who owns the given email address
 action code : 10132
 */
-func (a *Client) AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByEmailAddressV3OK, error) {
+func (a *Client) AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByEmailAddressV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserByEmailAddressV3Params()
@@ -4841,17 +6486,47 @@ func (a *Client) AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAd
 	switch v := result.(type) {
 
 	case *AdminGetUserByEmailAddressV3OK:
-		return v, nil
+		response := &AdminGetUserByEmailAddressV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserByEmailAddressV3BadRequest:
-		return nil, v
+		response := &AdminGetUserByEmailAddressV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByEmailAddressV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserByEmailAddressV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByEmailAddressV3Forbidden:
-		return nil, v
+		response := &AdminGetUserByEmailAddressV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByEmailAddressV3NotFound:
-		return nil, v
+		response := &AdminGetUserByEmailAddressV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByEmailAddressV3InternalServerError:
-		return nil, v
+		response := &AdminGetUserByEmailAddressV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4865,7 +6540,7 @@ This endpoint support to bulk update users based on given data.
 Supported fields:
 * skipLoginQueue
 */
-func (a *Client) AdminBulkUpdateUsersV3Short(params *AdminBulkUpdateUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateUsersV3NoContent, error) {
+func (a *Client) AdminBulkUpdateUsersV3Short(params *AdminBulkUpdateUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateUsersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkUpdateUsersV3Params()
@@ -4903,17 +6578,46 @@ func (a *Client) AdminBulkUpdateUsersV3Short(params *AdminBulkUpdateUsersV3Param
 	switch v := result.(type) {
 
 	case *AdminBulkUpdateUsersV3NoContent:
-		return v, nil
+		response := &AdminBulkUpdateUsersV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkUpdateUsersV3BadRequest:
-		return nil, v
+		response := &AdminBulkUpdateUsersV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateUsersV3Unauthorized:
-		return nil, v
+		response := &AdminBulkUpdateUsersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateUsersV3Forbidden:
-		return nil, v
+		response := &AdminBulkUpdateUsersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateUsersV3NotFound:
-		return nil, v
+		response := &AdminBulkUpdateUsersV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateUsersV3InternalServerError:
-		return nil, v
+		response := &AdminBulkUpdateUsersV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4925,7 +6629,7 @@ AdminGetBulkUserBanV3Short get bulk user bans
 This endpoint returns user bans of userIDs specified in the payload
 action code : 10127
 */
-func (a *Client) AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3OK, error) {
+func (a *Client) AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetBulkUserBanV3Params()
@@ -4963,17 +6667,47 @@ func (a *Client) AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params,
 	switch v := result.(type) {
 
 	case *AdminGetBulkUserBanV3OK:
-		return v, nil
+		response := &AdminGetBulkUserBanV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetBulkUserBanV3BadRequest:
-		return nil, v
+		response := &AdminGetBulkUserBanV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkUserBanV3Unauthorized:
-		return nil, v
+		response := &AdminGetBulkUserBanV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkUserBanV3Forbidden:
-		return nil, v
+		response := &AdminGetBulkUserBanV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkUserBanV3NotFound:
-		return nil, v
+		response := &AdminGetBulkUserBanV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkUserBanV3InternalServerError:
-		return nil, v
+		response := &AdminGetBulkUserBanV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4985,7 +6719,7 @@ AdminListUserIDByUserIDsV3Short list user by user id
 List User By User ID
 This endpoint intended to list user information from the given list of userID and namespace
 */
-func (a *Client) AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3OK, error) {
+func (a *Client) AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListUserIDByUserIDsV3Params()
@@ -5023,15 +6757,40 @@ func (a *Client) AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserID
 	switch v := result.(type) {
 
 	case *AdminListUserIDByUserIDsV3OK:
-		return v, nil
+		response := &AdminListUserIDByUserIDsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListUserIDByUserIDsV3BadRequest:
-		return nil, v
+		response := &AdminListUserIDByUserIDsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserIDByUserIDsV3Unauthorized:
-		return nil, v
+		response := &AdminListUserIDByUserIDsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserIDByUserIDsV3Forbidden:
-		return nil, v
+		response := &AdminListUserIDByUserIDsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserIDByUserIDsV3InternalServerError:
-		return nil, v
+		response := &AdminListUserIDByUserIDsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5044,7 +6803,7 @@ Notes:
 - This endpoint bulk get users' basic info by userId, max allowed 100 at a time
 - If namespace is game, will search by game user Id, other wise will search by publisher namespace
 */
-func (a *Client) AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformOK, error) {
+func (a *Client) AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkGetUsersPlatformParams()
@@ -5082,11 +6841,26 @@ func (a *Client) AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatfor
 	switch v := result.(type) {
 
 	case *AdminBulkGetUsersPlatformOK:
-		return v, nil
+		response := &AdminBulkGetUsersPlatformResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkGetUsersPlatformBadRequest:
-		return nil, v
+		response := &AdminBulkGetUsersPlatformResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkGetUsersPlatformInternalServerError:
-		return nil, v
+		response := &AdminBulkGetUsersPlatformResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5102,7 +6876,7 @@ Role is optional, if not specified then it will only assign User role
 
 The invited admin will also assigned with "User" role by default.
 */
-func (a *Client) AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV3Created, error) {
+func (a *Client) AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminInviteUserV3Params()
@@ -5140,21 +6914,61 @@ func (a *Client) AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInf
 	switch v := result.(type) {
 
 	case *AdminInviteUserV3Created:
-		return v, nil
+		response := &AdminInviteUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminInviteUserV3BadRequest:
-		return nil, v
+		response := &AdminInviteUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV3Unauthorized:
-		return nil, v
+		response := &AdminInviteUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV3Forbidden:
-		return nil, v
+		response := &AdminInviteUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV3NotFound:
-		return nil, v
+		response := &AdminInviteUserV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV3Conflict:
-		return nil, v
+		response := &AdminInviteUserV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV3UnprocessableEntity:
-		return nil, v
+		response := &AdminInviteUserV3Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV3InternalServerError:
-		return nil, v
+		response := &AdminInviteUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5165,7 +6979,7 @@ func (a *Client) AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInf
 AdminQueryThirdPlatformLinkHistoryV3Short search linking history of the query platform with platform user id
 if limit is not defined, The default limit is 100
 */
-func (a *Client) AdminQueryThirdPlatformLinkHistoryV3Short(params *AdminQueryThirdPlatformLinkHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryThirdPlatformLinkHistoryV3OK, error) {
+func (a *Client) AdminQueryThirdPlatformLinkHistoryV3Short(params *AdminQueryThirdPlatformLinkHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryThirdPlatformLinkHistoryV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryThirdPlatformLinkHistoryV3Params()
@@ -5203,15 +7017,40 @@ func (a *Client) AdminQueryThirdPlatformLinkHistoryV3Short(params *AdminQueryThi
 	switch v := result.(type) {
 
 	case *AdminQueryThirdPlatformLinkHistoryV3OK:
-		return v, nil
+		response := &AdminQueryThirdPlatformLinkHistoryV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryThirdPlatformLinkHistoryV3BadRequest:
-		return nil, v
+		response := &AdminQueryThirdPlatformLinkHistoryV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryThirdPlatformLinkHistoryV3Unauthorized:
-		return nil, v
+		response := &AdminQueryThirdPlatformLinkHistoryV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryThirdPlatformLinkHistoryV3Forbidden:
-		return nil, v
+		response := &AdminQueryThirdPlatformLinkHistoryV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryThirdPlatformLinkHistoryV3InternalServerError:
-		return nil, v
+		response := &AdminQueryThirdPlatformLinkHistoryV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5224,7 +7063,7 @@ AdminListUsersV3Short admin list users v3
 Returns list of users ID and namespace with their Justice platform account, under a namespace. If user
 doesn't have Justice platform account, the linkedPlatforms will be empty array.'
 */
-func (a *Client) AdminListUsersV3Short(params *AdminListUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUsersV3OK, error) {
+func (a *Client) AdminListUsersV3Short(params *AdminListUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUsersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListUsersV3Params()
@@ -5262,15 +7101,40 @@ func (a *Client) AdminListUsersV3Short(params *AdminListUsersV3Params, authInfo 
 	switch v := result.(type) {
 
 	case *AdminListUsersV3OK:
-		return v, nil
+		response := &AdminListUsersV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListUsersV3BadRequest:
-		return nil, v
+		response := &AdminListUsersV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUsersV3Unauthorized:
-		return nil, v
+		response := &AdminListUsersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUsersV3Forbidden:
-		return nil, v
+		response := &AdminListUsersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUsersV3InternalServerError:
-		return nil, v
+		response := &AdminListUsersV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5300,7 +7164,7 @@ In multi tenant mode :
 
 action code : 10133
 */
-func (a *Client) AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUserV3OK, error) {
+func (a *Client) AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSearchUserV3Params()
@@ -5338,15 +7202,40 @@ func (a *Client) AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInf
 	switch v := result.(type) {
 
 	case *AdminSearchUserV3OK:
-		return v, nil
+		response := &AdminSearchUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSearchUserV3BadRequest:
-		return nil, v
+		response := &AdminSearchUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSearchUserV3Unauthorized:
-		return nil, v
+		response := &AdminSearchUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSearchUserV3Forbidden:
-		return nil, v
+		response := &AdminSearchUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSearchUserV3InternalServerError:
-		return nil, v
+		response := &AdminSearchUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5358,7 +7247,7 @@ AdminGetBulkUserByEmailAddressV3Short get bulk user by email address
 This endpoint search user by the list of email addresses
 action code : 10132
 */
-func (a *Client) AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserByEmailAddressV3OK, error) {
+func (a *Client) AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserByEmailAddressV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetBulkUserByEmailAddressV3Params()
@@ -5396,17 +7285,47 @@ func (a *Client) AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserB
 	switch v := result.(type) {
 
 	case *AdminGetBulkUserByEmailAddressV3OK:
-		return v, nil
+		response := &AdminGetBulkUserByEmailAddressV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetBulkUserByEmailAddressV3BadRequest:
-		return nil, v
+		response := &AdminGetBulkUserByEmailAddressV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkUserByEmailAddressV3Unauthorized:
-		return nil, v
+		response := &AdminGetBulkUserByEmailAddressV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkUserByEmailAddressV3Forbidden:
-		return nil, v
+		response := &AdminGetBulkUserByEmailAddressV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkUserByEmailAddressV3NotFound:
-		return nil, v
+		response := &AdminGetBulkUserByEmailAddressV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBulkUserByEmailAddressV3InternalServerError:
-		return nil, v
+		response := &AdminGetBulkUserByEmailAddressV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5417,7 +7336,7 @@ func (a *Client) AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserB
 AdminGetUserByUserIDV3Short admin get user by user id
 Admin Get User By User Id
 */
-func (a *Client) AdminGetUserByUserIDV3Short(params *AdminGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV3OK, error) {
+func (a *Client) AdminGetUserByUserIDV3Short(params *AdminGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserByUserIDV3Params()
@@ -5455,17 +7374,47 @@ func (a *Client) AdminGetUserByUserIDV3Short(params *AdminGetUserByUserIDV3Param
 	switch v := result.(type) {
 
 	case *AdminGetUserByUserIDV3OK:
-		return v, nil
+		response := &AdminGetUserByUserIDV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserByUserIDV3BadRequest:
-		return nil, v
+		response := &AdminGetUserByUserIDV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByUserIDV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserByUserIDV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByUserIDV3Forbidden:
-		return nil, v
+		response := &AdminGetUserByUserIDV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByUserIDV3NotFound:
-		return nil, v
+		response := &AdminGetUserByUserIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserByUserIDV3InternalServerError:
-		return nil, v
+		response := &AdminGetUserByUserIDV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5486,7 +7435,7 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 
 action code : 10103
 */
-func (a *Client) AdminUpdateUserV3Short(params *AdminUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV3OK, error) {
+func (a *Client) AdminUpdateUserV3Short(params *AdminUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserV3Params()
@@ -5524,19 +7473,54 @@ func (a *Client) AdminUpdateUserV3Short(params *AdminUpdateUserV3Params, authInf
 	switch v := result.(type) {
 
 	case *AdminUpdateUserV3OK:
-		return v, nil
+		response := &AdminUpdateUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserV3BadRequest:
-		return nil, v
+		response := &AdminUpdateUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV3Forbidden:
-		return nil, v
+		response := &AdminUpdateUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV3NotFound:
-		return nil, v
+		response := &AdminUpdateUserV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV3Conflict:
-		return nil, v
+		response := &AdminUpdateUserV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5548,7 +7532,7 @@ AdminGetUserBanV3Short get user's bans
 This endpoint retrieve the first page of the data if after and before parameters is empty
 action code : 10126
 */
-func (a *Client) AdminGetUserBanV3Short(params *AdminGetUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV3OK, error) {
+func (a *Client) AdminGetUserBanV3Short(params *AdminGetUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserBanV3Params()
@@ -5586,17 +7570,47 @@ func (a *Client) AdminGetUserBanV3Short(params *AdminGetUserBanV3Params, authInf
 	switch v := result.(type) {
 
 	case *AdminGetUserBanV3OK:
-		return v, nil
+		response := &AdminGetUserBanV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserBanV3BadRequest:
-		return nil, v
+		response := &AdminGetUserBanV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserBanV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanV3Forbidden:
-		return nil, v
+		response := &AdminGetUserBanV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanV3NotFound:
-		return nil, v
+		response := &AdminGetUserBanV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanV3InternalServerError:
-		return nil, v
+		response := &AdminGetUserBanV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5608,7 +7622,7 @@ AdminBanUserV3Short ban a single user
 Bans a user with specific type of ban. Ban types and reason can be queried.
 action code : 10141
 */
-func (a *Client) AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV3Created, error) {
+func (a *Client) AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBanUserV3Params()
@@ -5646,17 +7660,47 @@ func (a *Client) AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminBanUserV3Created:
-		return v, nil
+		response := &AdminBanUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBanUserV3BadRequest:
-		return nil, v
+		response := &AdminBanUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserV3Unauthorized:
-		return nil, v
+		response := &AdminBanUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserV3Forbidden:
-		return nil, v
+		response := &AdminBanUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserV3NotFound:
-		return nil, v
+		response := &AdminBanUserV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserV3InternalServerError:
-		return nil, v
+		response := &AdminBanUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5667,7 +7711,7 @@ func (a *Client) AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runt
 AdminGetUserBanSummaryV3Short get user's bans summary
 This endpoint get user's bans summary'
 */
-func (a *Client) AdminGetUserBanSummaryV3Short(params *AdminGetUserBanSummaryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanSummaryV3OK, error) {
+func (a *Client) AdminGetUserBanSummaryV3Short(params *AdminGetUserBanSummaryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanSummaryV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserBanSummaryV3Params()
@@ -5705,17 +7749,47 @@ func (a *Client) AdminGetUserBanSummaryV3Short(params *AdminGetUserBanSummaryV3P
 	switch v := result.(type) {
 
 	case *AdminGetUserBanSummaryV3OK:
-		return v, nil
+		response := &AdminGetUserBanSummaryV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserBanSummaryV3BadRequest:
-		return nil, v
+		response := &AdminGetUserBanSummaryV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanSummaryV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserBanSummaryV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanSummaryV3Forbidden:
-		return nil, v
+		response := &AdminGetUserBanSummaryV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanSummaryV3NotFound:
-		return nil, v
+		response := &AdminGetUserBanSummaryV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserBanSummaryV3InternalServerError:
-		return nil, v
+		response := &AdminGetUserBanSummaryV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5729,7 +7803,7 @@ user ban and choose the ban ID. Set the form parameter to true/false to enable
 or disable the ban.
 action code : 10142'
 */
-func (a *Client) AdminUpdateUserBanV3Short(params *AdminUpdateUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserBanV3OK, error) {
+func (a *Client) AdminUpdateUserBanV3Short(params *AdminUpdateUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserBanV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserBanV3Params()
@@ -5767,17 +7841,47 @@ func (a *Client) AdminUpdateUserBanV3Short(params *AdminUpdateUserBanV3Params, a
 	switch v := result.(type) {
 
 	case *AdminUpdateUserBanV3OK:
-		return v, nil
+		response := &AdminUpdateUserBanV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserBanV3BadRequest:
-		return nil, v
+		response := &AdminUpdateUserBanV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserBanV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserBanV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserBanV3Forbidden:
-		return nil, v
+		response := &AdminUpdateUserBanV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserBanV3NotFound:
-		return nil, v
+		response := &AdminUpdateUserBanV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserBanV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserBanV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5801,7 +7905,7 @@ If this context used, IAM rejects the request if the email address is already us
 
 action code: 10116
 */
-func (a *Client) AdminSendVerificationCodeV3Short(params *AdminSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendVerificationCodeV3NoContent, error) {
+func (a *Client) AdminSendVerificationCodeV3Short(params *AdminSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendVerificationCodeV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSendVerificationCodeV3Params()
@@ -5839,19 +7943,53 @@ func (a *Client) AdminSendVerificationCodeV3Short(params *AdminSendVerificationC
 	switch v := result.(type) {
 
 	case *AdminSendVerificationCodeV3NoContent:
-		return v, nil
+		response := &AdminSendVerificationCodeV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSendVerificationCodeV3BadRequest:
-		return nil, v
+		response := &AdminSendVerificationCodeV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendVerificationCodeV3Unauthorized:
-		return nil, v
+		response := &AdminSendVerificationCodeV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendVerificationCodeV3Forbidden:
-		return nil, v
+		response := &AdminSendVerificationCodeV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendVerificationCodeV3NotFound:
-		return nil, v
+		response := &AdminSendVerificationCodeV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendVerificationCodeV3Conflict:
-		return nil, v
+		response := &AdminSendVerificationCodeV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendVerificationCodeV3TooManyRequests:
-		return nil, v
+		response := &AdminSendVerificationCodeV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5864,7 +8002,7 @@ Will verify account and consume code if validateOnly is set false in request bod
 Redeems a verification code sent to a user to verify the user's contact address is correct
 Available ContactType : **email** or **phone**
 */
-func (a *Client) AdminVerifyAccountV3Short(params *AdminVerifyAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyAccountV3NoContent, error) {
+func (a *Client) AdminVerifyAccountV3Short(params *AdminVerifyAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyAccountV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminVerifyAccountV3Params()
@@ -5902,17 +8040,46 @@ func (a *Client) AdminVerifyAccountV3Short(params *AdminVerifyAccountV3Params, a
 	switch v := result.(type) {
 
 	case *AdminVerifyAccountV3NoContent:
-		return v, nil
+		response := &AdminVerifyAccountV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminVerifyAccountV3BadRequest:
-		return nil, v
+		response := &AdminVerifyAccountV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyAccountV3Unauthorized:
-		return nil, v
+		response := &AdminVerifyAccountV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyAccountV3Forbidden:
-		return nil, v
+		response := &AdminVerifyAccountV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyAccountV3NotFound:
-		return nil, v
+		response := &AdminVerifyAccountV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyAccountV3InternalServerError:
-		return nil, v
+		response := &AdminVerifyAccountV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5934,7 +8101,7 @@ This API only accept publisher/studio namespace and userId.
 
 Action code: 10146
 */
-func (a *Client) GetUserVerificationCodeShort(params *GetUserVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserVerificationCodeOK, error) {
+func (a *Client) GetUserVerificationCodeShort(params *GetUserVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserVerificationCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserVerificationCodeParams()
@@ -5972,15 +8139,39 @@ func (a *Client) GetUserVerificationCodeShort(params *GetUserVerificationCodePar
 	switch v := result.(type) {
 
 	case *GetUserVerificationCodeOK:
-		return v, nil
+		response := &GetUserVerificationCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserVerificationCodeUnauthorized:
-		return nil, v
+		response := &GetUserVerificationCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserVerificationCodeForbidden:
-		return nil, v
+		response := &GetUserVerificationCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserVerificationCodeNotFound:
-		return nil, v
+		response := &GetUserVerificationCodeResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserVerificationCodeInternalServerError:
-		return nil, v
+		response := &GetUserVerificationCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5991,7 +8182,7 @@ func (a *Client) GetUserVerificationCodeShort(params *GetUserVerificationCodePar
 AdminGetUserDeletionStatusV3Short get user deletion status
 action code : 10145
 */
-func (a *Client) AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserDeletionStatusV3OK, error) {
+func (a *Client) AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserDeletionStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserDeletionStatusV3Params()
@@ -6029,15 +8220,40 @@ func (a *Client) AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionS
 	switch v := result.(type) {
 
 	case *AdminGetUserDeletionStatusV3OK:
-		return v, nil
+		response := &AdminGetUserDeletionStatusV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserDeletionStatusV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserDeletionStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserDeletionStatusV3Forbidden:
-		return nil, v
+		response := &AdminGetUserDeletionStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserDeletionStatusV3NotFound:
-		return nil, v
+		response := &AdminGetUserDeletionStatusV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserDeletionStatusV3InternalServerError:
-		return nil, v
+		response := &AdminGetUserDeletionStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6048,7 +8264,7 @@ func (a *Client) AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionS
 AdminUpdateUserDeletionStatusV3Short update user deletion status
 action code : 10144
 */
-func (a *Client) AdminUpdateUserDeletionStatusV3Short(params *AdminUpdateUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserDeletionStatusV3NoContent, error) {
+func (a *Client) AdminUpdateUserDeletionStatusV3Short(params *AdminUpdateUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserDeletionStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserDeletionStatusV3Params()
@@ -6086,17 +8302,46 @@ func (a *Client) AdminUpdateUserDeletionStatusV3Short(params *AdminUpdateUserDel
 	switch v := result.(type) {
 
 	case *AdminUpdateUserDeletionStatusV3NoContent:
-		return v, nil
+		response := &AdminUpdateUserDeletionStatusV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserDeletionStatusV3BadRequest:
-		return nil, v
+		response := &AdminUpdateUserDeletionStatusV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserDeletionStatusV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserDeletionStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserDeletionStatusV3Forbidden:
-		return nil, v
+		response := &AdminUpdateUserDeletionStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserDeletionStatusV3NotFound:
-		return nil, v
+		response := &AdminUpdateUserDeletionStatusV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserDeletionStatusV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserDeletionStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6108,7 +8353,7 @@ AdminListUserAllPlatformAccountsDistinctV3Short admin get distinct platform acco
 This endpoint retrieves platform accounts linked to user.
 It will query all linked platform accounts and result will be distinct & grouped, same platform we will pick oldest linked one.
 */
-func (a *Client) AdminListUserAllPlatformAccountsDistinctV3Short(params *AdminListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserAllPlatformAccountsDistinctV3OK, error) {
+func (a *Client) AdminListUserAllPlatformAccountsDistinctV3Short(params *AdminListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserAllPlatformAccountsDistinctV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListUserAllPlatformAccountsDistinctV3Params()
@@ -6146,17 +8391,47 @@ func (a *Client) AdminListUserAllPlatformAccountsDistinctV3Short(params *AdminLi
 	switch v := result.(type) {
 
 	case *AdminListUserAllPlatformAccountsDistinctV3OK:
-		return v, nil
+		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListUserAllPlatformAccountsDistinctV3BadRequest:
-		return nil, v
+		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserAllPlatformAccountsDistinctV3Unauthorized:
-		return nil, v
+		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserAllPlatformAccountsDistinctV3Forbidden:
-		return nil, v
+		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserAllPlatformAccountsDistinctV3NotFound:
-		return nil, v
+		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserAllPlatformAccountsDistinctV3InternalServerError:
-		return nil, v
+		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6178,7 +8453,7 @@ Supported user data fields :
 
 action code : 10124
 */
-func (a *Client) AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpgradeHeadlessAccountV3OK, error) {
+func (a *Client) AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpgradeHeadlessAccountV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpgradeHeadlessAccountV3Params()
@@ -6216,19 +8491,54 @@ func (a *Client) AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadless
 	switch v := result.(type) {
 
 	case *AdminUpgradeHeadlessAccountV3OK:
-		return v, nil
+		response := &AdminUpgradeHeadlessAccountV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpgradeHeadlessAccountV3BadRequest:
-		return nil, v
+		response := &AdminUpgradeHeadlessAccountV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpgradeHeadlessAccountV3Unauthorized:
-		return nil, v
+		response := &AdminUpgradeHeadlessAccountV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpgradeHeadlessAccountV3Forbidden:
-		return nil, v
+		response := &AdminUpgradeHeadlessAccountV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpgradeHeadlessAccountV3NotFound:
-		return nil, v
+		response := &AdminUpgradeHeadlessAccountV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpgradeHeadlessAccountV3Conflict:
-		return nil, v
+		response := &AdminUpgradeHeadlessAccountV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpgradeHeadlessAccountV3InternalServerError:
-		return nil, v
+		response := &AdminUpgradeHeadlessAccountV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6239,7 +8549,7 @@ func (a *Client) AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadless
 AdminDeleteUserInformationV3Short delete user's information
 [WARNING] This endpoint is deleting user data from database directly by skipping GDPR flow
 */
-func (a *Client) AdminDeleteUserInformationV3Short(params *AdminDeleteUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserInformationV3NoContent, error) {
+func (a *Client) AdminDeleteUserInformationV3Short(params *AdminDeleteUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserInformationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserInformationV3Params()
@@ -6277,13 +8587,31 @@ func (a *Client) AdminDeleteUserInformationV3Short(params *AdminDeleteUserInform
 	switch v := result.(type) {
 
 	case *AdminDeleteUserInformationV3NoContent:
-		return v, nil
+		response := &AdminDeleteUserInformationV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserInformationV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteUserInformationV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserInformationV3Forbidden:
-		return nil, v
+		response := &AdminDeleteUserInformationV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserInformationV3NotFound:
-		return nil, v
+		response := &AdminDeleteUserInformationV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6298,7 +8626,7 @@ This endpoint retrieve the first page of the data if `after` and `before` parame
 - This endpoint retrieve the next page of the data if we provide `after` parameters with valid Unix timestamp.
 - This endpoint retrieve the previous page of the data if we provide `before` parameter with valid data Unix timestamp."
 */
-func (a *Client) AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLoginHistoriesV3OK, error) {
+func (a *Client) AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLoginHistoriesV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserLoginHistoriesV3Params()
@@ -6336,13 +8664,32 @@ func (a *Client) AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHist
 	switch v := result.(type) {
 
 	case *AdminGetUserLoginHistoriesV3OK:
-		return v, nil
+		response := &AdminGetUserLoginHistoriesV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserLoginHistoriesV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserLoginHistoriesV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserLoginHistoriesV3Forbidden:
-		return nil, v
+		response := &AdminGetUserLoginHistoriesV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserLoginHistoriesV3NotFound:
-		return nil, v
+		response := &AdminGetUserLoginHistoriesV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6353,7 +8700,7 @@ func (a *Client) AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHist
 AdminResetPasswordV3Short update user password
 Update User Password
 */
-func (a *Client) AdminResetPasswordV3Short(params *AdminResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV3NoContent, error) {
+func (a *Client) AdminResetPasswordV3Short(params *AdminResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminResetPasswordV3Params()
@@ -6391,17 +8738,44 @@ func (a *Client) AdminResetPasswordV3Short(params *AdminResetPasswordV3Params, a
 	switch v := result.(type) {
 
 	case *AdminResetPasswordV3NoContent:
-		return v, nil
+		response := &AdminResetPasswordV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminResetPasswordV3BadRequest:
-		return nil, v
+		response := &AdminResetPasswordV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPasswordV3Unauthorized:
-		return nil, v
+		response := &AdminResetPasswordV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPasswordV3Forbidden:
-		return nil, v
+		response := &AdminResetPasswordV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPasswordV3NotFound:
-		return nil, v
+		response := &AdminResetPasswordV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetPasswordV3InternalServerError:
-		return nil, v
+		response := &AdminResetPasswordV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6434,7 +8808,7 @@ Special characters:
 6. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
 7. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
 */
-func (a *Client) AdminUpdateUserPermissionV3Short(params *AdminUpdateUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserPermissionV3NoContent, error) {
+func (a *Client) AdminUpdateUserPermissionV3Short(params *AdminUpdateUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserPermissionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserPermissionV3Params()
@@ -6472,15 +8846,38 @@ func (a *Client) AdminUpdateUserPermissionV3Short(params *AdminUpdateUserPermiss
 	switch v := result.(type) {
 
 	case *AdminUpdateUserPermissionV3NoContent:
-		return v, nil
+		response := &AdminUpdateUserPermissionV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserPermissionV3BadRequest:
-		return nil, v
+		response := &AdminUpdateUserPermissionV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserPermissionV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserPermissionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserPermissionV3Forbidden:
-		return nil, v
+		response := &AdminUpdateUserPermissionV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserPermissionV3NotFound:
-		return nil, v
+		response := &AdminUpdateUserPermissionV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6513,7 +8910,7 @@ Special characters:
 1. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
 1. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
 */
-func (a *Client) AdminAddUserPermissionsV3Short(params *AdminAddUserPermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserPermissionsV3NoContent, error) {
+func (a *Client) AdminAddUserPermissionsV3Short(params *AdminAddUserPermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserPermissionsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddUserPermissionsV3Params()
@@ -6551,15 +8948,38 @@ func (a *Client) AdminAddUserPermissionsV3Short(params *AdminAddUserPermissionsV
 	switch v := result.(type) {
 
 	case *AdminAddUserPermissionsV3NoContent:
-		return v, nil
+		response := &AdminAddUserPermissionsV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddUserPermissionsV3BadRequest:
-		return nil, v
+		response := &AdminAddUserPermissionsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserPermissionsV3Unauthorized:
-		return nil, v
+		response := &AdminAddUserPermissionsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserPermissionsV3Forbidden:
-		return nil, v
+		response := &AdminAddUserPermissionsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserPermissionsV3NotFound:
-		return nil, v
+		response := &AdminAddUserPermissionsV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6570,7 +8990,7 @@ func (a *Client) AdminAddUserPermissionsV3Short(params *AdminAddUserPermissionsV
 AdminDeleteUserPermissionBulkV3Short delete user permission
 Delete User Permission
 */
-func (a *Client) AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPermissionBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionBulkV3NoContent, error) {
+func (a *Client) AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPermissionBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionBulkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserPermissionBulkV3Params()
@@ -6608,15 +9028,38 @@ func (a *Client) AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPer
 	switch v := result.(type) {
 
 	case *AdminDeleteUserPermissionBulkV3NoContent:
-		return v, nil
+		response := &AdminDeleteUserPermissionBulkV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserPermissionBulkV3BadRequest:
-		return nil, v
+		response := &AdminDeleteUserPermissionBulkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserPermissionBulkV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteUserPermissionBulkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserPermissionBulkV3Forbidden:
-		return nil, v
+		response := &AdminDeleteUserPermissionBulkV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserPermissionBulkV3NotFound:
-		return nil, v
+		response := &AdminDeleteUserPermissionBulkV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6627,7 +9070,7 @@ func (a *Client) AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPer
 AdminDeleteUserPermissionV3Short delete user permission
 Delete User Permission
 */
-func (a *Client) AdminDeleteUserPermissionV3Short(params *AdminDeleteUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionV3NoContent, error) {
+func (a *Client) AdminDeleteUserPermissionV3Short(params *AdminDeleteUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserPermissionV3Params()
@@ -6665,15 +9108,38 @@ func (a *Client) AdminDeleteUserPermissionV3Short(params *AdminDeleteUserPermiss
 	switch v := result.(type) {
 
 	case *AdminDeleteUserPermissionV3NoContent:
-		return v, nil
+		response := &AdminDeleteUserPermissionV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserPermissionV3BadRequest:
-		return nil, v
+		response := &AdminDeleteUserPermissionV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserPermissionV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteUserPermissionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserPermissionV3Forbidden:
-		return nil, v
+		response := &AdminDeleteUserPermissionV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserPermissionV3NotFound:
-		return nil, v
+		response := &AdminDeleteUserPermissionV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6725,7 +9191,7 @@ Note:
 ## Justice Platform Account
 The permission âADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId}â [READ] is required in order to read the UserID who linked with the user.
 */
-func (a *Client) AdminGetUserPlatformAccountsV3Short(params *AdminGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPlatformAccountsV3OK, error) {
+func (a *Client) AdminGetUserPlatformAccountsV3Short(params *AdminGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPlatformAccountsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserPlatformAccountsV3Params()
@@ -6763,17 +9229,47 @@ func (a *Client) AdminGetUserPlatformAccountsV3Short(params *AdminGetUserPlatfor
 	switch v := result.(type) {
 
 	case *AdminGetUserPlatformAccountsV3OK:
-		return v, nil
+		response := &AdminGetUserPlatformAccountsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserPlatformAccountsV3BadRequest:
-		return nil, v
+		response := &AdminGetUserPlatformAccountsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPlatformAccountsV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserPlatformAccountsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPlatformAccountsV3Forbidden:
-		return nil, v
+		response := &AdminGetUserPlatformAccountsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPlatformAccountsV3NotFound:
-		return nil, v
+		response := &AdminGetUserPlatformAccountsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPlatformAccountsV3InternalServerError:
-		return nil, v
+		response := &AdminGetUserPlatformAccountsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6791,7 +9287,7 @@ Supported status:
 - UNLINKED
 - ALL
 */
-func (a *Client) AdminListAllDistinctPlatformAccountsV3Short(params *AdminListAllDistinctPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAllDistinctPlatformAccountsV3OK, error) {
+func (a *Client) AdminListAllDistinctPlatformAccountsV3Short(params *AdminListAllDistinctPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAllDistinctPlatformAccountsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListAllDistinctPlatformAccountsV3Params()
@@ -6829,17 +9325,47 @@ func (a *Client) AdminListAllDistinctPlatformAccountsV3Short(params *AdminListAl
 	switch v := result.(type) {
 
 	case *AdminListAllDistinctPlatformAccountsV3OK:
-		return v, nil
+		response := &AdminListAllDistinctPlatformAccountsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListAllDistinctPlatformAccountsV3BadRequest:
-		return nil, v
+		response := &AdminListAllDistinctPlatformAccountsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAllDistinctPlatformAccountsV3Unauthorized:
-		return nil, v
+		response := &AdminListAllDistinctPlatformAccountsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAllDistinctPlatformAccountsV3Forbidden:
-		return nil, v
+		response := &AdminListAllDistinctPlatformAccountsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAllDistinctPlatformAccountsV3NotFound:
-		return nil, v
+		response := &AdminListAllDistinctPlatformAccountsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAllDistinctPlatformAccountsV3InternalServerError:
-		return nil, v
+		response := &AdminListAllDistinctPlatformAccountsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6850,7 +9376,7 @@ func (a *Client) AdminListAllDistinctPlatformAccountsV3Short(params *AdminListAl
 AdminGetListJusticePlatformAccountsShort get user justice platform accounts
 This endpoint gets list justice platform account by providing publisher namespace and publisher userID
 */
-func (a *Client) AdminGetListJusticePlatformAccountsShort(params *AdminGetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListJusticePlatformAccountsOK, error) {
+func (a *Client) AdminGetListJusticePlatformAccountsShort(params *AdminGetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListJusticePlatformAccountsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetListJusticePlatformAccountsParams()
@@ -6888,17 +9414,47 @@ func (a *Client) AdminGetListJusticePlatformAccountsShort(params *AdminGetListJu
 	switch v := result.(type) {
 
 	case *AdminGetListJusticePlatformAccountsOK:
-		return v, nil
+		response := &AdminGetListJusticePlatformAccountsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetListJusticePlatformAccountsBadRequest:
-		return nil, v
+		response := &AdminGetListJusticePlatformAccountsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListJusticePlatformAccountsUnauthorized:
-		return nil, v
+		response := &AdminGetListJusticePlatformAccountsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListJusticePlatformAccountsForbidden:
-		return nil, v
+		response := &AdminGetListJusticePlatformAccountsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListJusticePlatformAccountsNotFound:
-		return nil, v
+		response := &AdminGetListJusticePlatformAccountsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListJusticePlatformAccountsInternalServerError:
-		return nil, v
+		response := &AdminGetListJusticePlatformAccountsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6911,7 +9467,7 @@ This endpoint will support publisher access to game and game access to publisher
 If targetNamespace filled with publisher namespace then this endpoint will return its publisher user id and publisher namespace.
 If targetNamespace filled with game namespace then this endpoint will return its game user id and game namespace.
 */
-func (a *Client) AdminGetUserMappingShort(params *AdminGetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMappingOK, error) {
+func (a *Client) AdminGetUserMappingShort(params *AdminGetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMappingResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserMappingParams()
@@ -6949,15 +9505,39 @@ func (a *Client) AdminGetUserMappingShort(params *AdminGetUserMappingParams, aut
 	switch v := result.(type) {
 
 	case *AdminGetUserMappingOK:
-		return v, nil
+		response := &AdminGetUserMappingResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserMappingBadRequest:
-		return nil, v
+		response := &AdminGetUserMappingResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserMappingUnauthorized:
-		return nil, v
+		response := &AdminGetUserMappingResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserMappingForbidden:
-		return nil, v
+		response := &AdminGetUserMappingResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserMappingNotFound:
-		return nil, v
+		response := &AdminGetUserMappingResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6968,7 +9548,7 @@ func (a *Client) AdminGetUserMappingShort(params *AdminGetUserMappingParams, aut
 AdminCreateJusticeUserShort create justice user from publisher user
 Create Justice User from Publisher User information. It will check first if Justice User on target namespace already exist.
 */
-func (a *Client) AdminCreateJusticeUserShort(params *AdminCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateJusticeUserCreated, error) {
+func (a *Client) AdminCreateJusticeUserShort(params *AdminCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateJusticeUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateJusticeUserParams()
@@ -7006,17 +9586,47 @@ func (a *Client) AdminCreateJusticeUserShort(params *AdminCreateJusticeUserParam
 	switch v := result.(type) {
 
 	case *AdminCreateJusticeUserCreated:
-		return v, nil
+		response := &AdminCreateJusticeUserResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateJusticeUserBadRequest:
-		return nil, v
+		response := &AdminCreateJusticeUserResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateJusticeUserUnauthorized:
-		return nil, v
+		response := &AdminCreateJusticeUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateJusticeUserForbidden:
-		return nil, v
+		response := &AdminCreateJusticeUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateJusticeUserNotFound:
-		return nil, v
+		response := &AdminCreateJusticeUserResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateJusticeUserInternalServerError:
-		return nil, v
+		response := &AdminCreateJusticeUserResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7030,7 +9640,7 @@ By default, these cases are not allowed
 - The platform account current is linked by another account
 - The target account ever linked this platform's another account
 */
-func (a *Client) AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountNoContent, error) {
+func (a *Client) AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminLinkPlatformAccountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminLinkPlatformAccountParams()
@@ -7068,17 +9678,46 @@ func (a *Client) AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountP
 	switch v := result.(type) {
 
 	case *AdminLinkPlatformAccountNoContent:
-		return v, nil
+		response := &AdminLinkPlatformAccountResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminLinkPlatformAccountBadRequest:
-		return nil, v
+		response := &AdminLinkPlatformAccountResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminLinkPlatformAccountUnauthorized:
-		return nil, v
+		response := &AdminLinkPlatformAccountResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminLinkPlatformAccountForbidden:
-		return nil, v
+		response := &AdminLinkPlatformAccountResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminLinkPlatformAccountConflict:
-		return nil, v
+		response := &AdminLinkPlatformAccountResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminLinkPlatformAccountInternalServerError:
-		return nil, v
+		response := &AdminLinkPlatformAccountResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7125,7 +9764,7 @@ Note:
 - You can use either platform id or platform group as **platformId** parameter.
 - **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
-func (a *Client) AdminGetUserLinkHistoriesV3Short(params *AdminGetUserLinkHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLinkHistoriesV3OK, error) {
+func (a *Client) AdminGetUserLinkHistoriesV3Short(params *AdminGetUserLinkHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLinkHistoriesV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserLinkHistoriesV3Params()
@@ -7163,15 +9802,40 @@ func (a *Client) AdminGetUserLinkHistoriesV3Short(params *AdminGetUserLinkHistor
 	switch v := result.(type) {
 
 	case *AdminGetUserLinkHistoriesV3OK:
-		return v, nil
+		response := &AdminGetUserLinkHistoriesV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserLinkHistoriesV3BadRequest:
-		return nil, v
+		response := &AdminGetUserLinkHistoriesV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserLinkHistoriesV3Unauthorized:
-		return nil, v
+		response := &AdminGetUserLinkHistoriesV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserLinkHistoriesV3Forbidden:
-		return nil, v
+		response := &AdminGetUserLinkHistoriesV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserLinkHistoriesV3InternalServerError:
-		return nil, v
+		response := &AdminGetUserLinkHistoriesV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7204,7 +9868,7 @@ Unlink user's account from justice platform will enable password token grant and
 If you want to unlink user's account in a game namespace, you have to specify _platformNamespace_ to that game namespace.
 action code : 10121
 */
-func (a *Client) AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkV3NoContent, error) {
+func (a *Client) AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPlatformUnlinkV3Params()
@@ -7242,17 +9906,46 @@ func (a *Client) AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params,
 	switch v := result.(type) {
 
 	case *AdminPlatformUnlinkV3NoContent:
-		return v, nil
+		response := &AdminPlatformUnlinkV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPlatformUnlinkV3BadRequest:
-		return nil, v
+		response := &AdminPlatformUnlinkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformUnlinkV3Unauthorized:
-		return nil, v
+		response := &AdminPlatformUnlinkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformUnlinkV3Forbidden:
-		return nil, v
+		response := &AdminPlatformUnlinkV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformUnlinkV3NotFound:
-		return nil, v
+		response := &AdminPlatformUnlinkV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformUnlinkV3InternalServerError:
-		return nil, v
+		response := &AdminPlatformUnlinkV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7306,7 +9999,7 @@ Unlink platform account associated with a group:
 If user unlink platform account associated with a group, the API logic will unlink all of platform account under that group as well.
 example: if user unlink from ps4, the API logic will unlink ps5 and ps4web as well
 */
-func (a *Client) AdminPlatformUnlinkAllV3Short(params *AdminPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkAllV3NoContent, error) {
+func (a *Client) AdminPlatformUnlinkAllV3Short(params *AdminPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkAllV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPlatformUnlinkAllV3Params()
@@ -7344,15 +10037,39 @@ func (a *Client) AdminPlatformUnlinkAllV3Short(params *AdminPlatformUnlinkAllV3P
 	switch v := result.(type) {
 
 	case *AdminPlatformUnlinkAllV3NoContent:
-		return v, nil
+		response := &AdminPlatformUnlinkAllV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPlatformUnlinkAllV3BadRequest:
-		return nil, v
+		response := &AdminPlatformUnlinkAllV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformUnlinkAllV3Unauthorized:
-		return nil, v
+		response := &AdminPlatformUnlinkAllV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformUnlinkAllV3NotFound:
-		return nil, v
+		response := &AdminPlatformUnlinkAllV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformUnlinkAllV3InternalServerError:
-		return nil, v
+		response := &AdminPlatformUnlinkAllV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7379,7 +10096,7 @@ AdminPlatformLinkV3Short link user's account with platform
 - **epicgames**: The ticketâs value is an access-token obtained from Epicgames EOS Account Service.
 - **nintendo**: The ticketâs value is the authorization code(id_token) returned by Nintendo OAuth.
 */
-func (a *Client) AdminPlatformLinkV3Short(params *AdminPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformLinkV3NoContent, error) {
+func (a *Client) AdminPlatformLinkV3Short(params *AdminPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformLinkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPlatformLinkV3Params()
@@ -7417,19 +10134,50 @@ func (a *Client) AdminPlatformLinkV3Short(params *AdminPlatformLinkV3Params, aut
 	switch v := result.(type) {
 
 	case *AdminPlatformLinkV3NoContent:
-		return v, nil
+		response := &AdminPlatformLinkV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPlatformLinkV3BadRequest:
-		return nil, v
+		response := &AdminPlatformLinkV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformLinkV3Unauthorized:
-		return nil, v
+		response := &AdminPlatformLinkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformLinkV3Forbidden:
-		return nil, v
+		response := &AdminPlatformLinkV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformLinkV3NotFound:
-		return nil, v
+		response := &AdminPlatformLinkV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformLinkV3Conflict:
-		return nil, v
+		response := &AdminPlatformLinkV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPlatformLinkV3InternalServerError:
-		return nil, v
+		response := &AdminPlatformLinkV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7479,7 +10227,7 @@ Note:
 ----
 **Substitute endpoint**: /v3/admin/namespaces/{namespace}/users/{userId}/platforms/{platformId}/link/restrictions
 */
-func (a *Client) AdminDeleteUserLinkingHistoryByPlatformIDV3Short(params *AdminDeleteUserLinkingHistoryByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent, error) {
+func (a *Client) AdminDeleteUserLinkingHistoryByPlatformIDV3Short(params *AdminDeleteUserLinkingHistoryByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingHistoryByPlatformIDV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserLinkingHistoryByPlatformIDV3Params()
@@ -7517,17 +10265,46 @@ func (a *Client) AdminDeleteUserLinkingHistoryByPlatformIDV3Short(params *AdminD
 	switch v := result.(type) {
 
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent:
-		return v, nil
+		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3BadRequest:
-		return nil, v
+		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3Forbidden:
-		return nil, v
+		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3NotFound:
-		return nil, v
+		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3InternalServerError:
-		return nil, v
+		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7574,7 +10351,7 @@ Note:
 - You can use either platform id or platform group as **platformId** parameter.
 - **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
-func (a *Client) AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(params *AdminDeleteUserLinkingRestrictionByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingRestrictionByPlatformIDV3NoContent, error) {
+func (a *Client) AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(params *AdminDeleteUserLinkingRestrictionByPlatformIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserLinkingRestrictionByPlatformIDV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserLinkingRestrictionByPlatformIDV3Params()
@@ -7612,17 +10389,46 @@ func (a *Client) AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(params *Ad
 	switch v := result.(type) {
 
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3NoContent:
-		return v, nil
+		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3BadRequest:
-		return nil, v
+		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3Forbidden:
-		return nil, v
+		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3NotFound:
-		return nil, v
+		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3InternalServerError:
-		return nil, v
+		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7660,7 +10466,7 @@ linked with the corresponding user id.
 - **netflix**: The platform_tokenâs value is GAT (Gamer Access Token) returned by Netflix backend
 - **snapchat**: The platform_tokenâs value is the authorization code returned by Snapchat OAuth.
 */
-func (a *Client) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminGetThirdPartyPlatformTokenLinkStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetThirdPartyPlatformTokenLinkStatusV3OK, error) {
+func (a *Client) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminGetThirdPartyPlatformTokenLinkStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetThirdPartyPlatformTokenLinkStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetThirdPartyPlatformTokenLinkStatusV3Params()
@@ -7698,17 +10504,47 @@ func (a *Client) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminG
 	switch v := result.(type) {
 
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3OK:
-		return v, nil
+		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3BadRequest:
-		return nil, v
+		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3Unauthorized:
-		return nil, v
+		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3Forbidden:
-		return nil, v
+		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3NotFound:
-		return nil, v
+		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError:
-		return nil, v
+		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7756,7 +10592,7 @@ Note:
 - You can use either platform id or platform group as **platformId** parameter.
 - **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
-func (a *Client) AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountOK, error) {
+func (a *Client) AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSinglePlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserSinglePlatformAccountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserSinglePlatformAccountParams()
@@ -7794,17 +10630,47 @@ func (a *Client) AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSing
 	switch v := result.(type) {
 
 	case *AdminGetUserSinglePlatformAccountOK:
-		return v, nil
+		response := &AdminGetUserSinglePlatformAccountResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserSinglePlatformAccountBadRequest:
-		return nil, v
+		response := &AdminGetUserSinglePlatformAccountResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserSinglePlatformAccountUnauthorized:
-		return nil, v
+		response := &AdminGetUserSinglePlatformAccountResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserSinglePlatformAccountForbidden:
-		return nil, v
+		response := &AdminGetUserSinglePlatformAccountResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserSinglePlatformAccountNotFound:
-		return nil, v
+		response := &AdminGetUserSinglePlatformAccountResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserSinglePlatformAccountInternalServerError:
-		return nil, v
+		response := &AdminGetUserSinglePlatformAccountResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7815,7 +10681,7 @@ func (a *Client) AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSing
 AdminDeleteUserRolesV3Short delete user roles
 Delete User Roles
 */
-func (a *Client) AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRolesV3NoContent, error) {
+func (a *Client) AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRolesV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserRolesV3Params()
@@ -7853,15 +10719,38 @@ func (a *Client) AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Param
 	switch v := result.(type) {
 
 	case *AdminDeleteUserRolesV3NoContent:
-		return v, nil
+		response := &AdminDeleteUserRolesV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserRolesV3BadRequest:
-		return nil, v
+		response := &AdminDeleteUserRolesV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserRolesV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteUserRolesV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserRolesV3Forbidden:
-		return nil, v
+		response := &AdminDeleteUserRolesV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserRolesV3NotFound:
-		return nil, v
+		response := &AdminDeleteUserRolesV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7873,7 +10762,7 @@ AdminSaveUserRoleV3Short admin save user role v3
 User's roles will be replaced with roles from request body.
 An admin user can only assign role with **namespace** (in request body) if the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
 */
-func (a *Client) AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveUserRoleV3NoContent, error) {
+func (a *Client) AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveUserRoleV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSaveUserRoleV3Params()
@@ -7911,19 +10800,53 @@ func (a *Client) AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, aut
 	switch v := result.(type) {
 
 	case *AdminSaveUserRoleV3NoContent:
-		return v, nil
+		response := &AdminSaveUserRoleV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSaveUserRoleV3BadRequest:
-		return nil, v
+		response := &AdminSaveUserRoleV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveUserRoleV3Unauthorized:
-		return nil, v
+		response := &AdminSaveUserRoleV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveUserRoleV3Forbidden:
-		return nil, v
+		response := &AdminSaveUserRoleV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveUserRoleV3NotFound:
-		return nil, v
+		response := &AdminSaveUserRoleV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveUserRoleV3UnprocessableEntity:
-		return nil, v
+		response := &AdminSaveUserRoleV3Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveUserRoleV3InternalServerError:
-		return nil, v
+		response := &AdminSaveUserRoleV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7934,7 +10857,7 @@ func (a *Client) AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, aut
 AdminAddUserRoleV3Short add user role
 action code: 10109
 */
-func (a *Client) AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV3NoContent, error) {
+func (a *Client) AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddUserRoleV3Params()
@@ -7972,19 +10895,53 @@ func (a *Client) AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authI
 	switch v := result.(type) {
 
 	case *AdminAddUserRoleV3NoContent:
-		return v, nil
+		response := &AdminAddUserRoleV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddUserRoleV3BadRequest:
-		return nil, v
+		response := &AdminAddUserRoleV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV3Unauthorized:
-		return nil, v
+		response := &AdminAddUserRoleV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV3Forbidden:
-		return nil, v
+		response := &AdminAddUserRoleV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV3NotFound:
-		return nil, v
+		response := &AdminAddUserRoleV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV3Conflict:
-		return nil, v
+		response := &AdminAddUserRoleV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV3InternalServerError:
-		return nil, v
+		response := &AdminAddUserRoleV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7996,7 +10953,7 @@ AdminDeleteUserRoleV3Short delete user role
 This endpoint removes role from user
 action code: 10110
 */
-func (a *Client) AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRoleV3NoContent, error) {
+func (a *Client) AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRoleV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserRoleV3Params()
@@ -8034,17 +10991,46 @@ func (a *Client) AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params,
 	switch v := result.(type) {
 
 	case *AdminDeleteUserRoleV3NoContent:
-		return v, nil
+		response := &AdminDeleteUserRoleV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserRoleV3BadRequest:
-		return nil, v
+		response := &AdminDeleteUserRoleV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserRoleV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteUserRoleV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserRoleV3Forbidden:
-		return nil, v
+		response := &AdminDeleteUserRoleV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserRoleV3NotFound:
-		return nil, v
+		response := &AdminDeleteUserRoleV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserRoleV3InternalServerError:
-		return nil, v
+		response := &AdminDeleteUserRoleV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8060,7 +11046,7 @@ Disable user for **Account Disable** purpose fill the reason with:
 Enable user ignore field 'reason' in the request body.
 action code : 10143
 */
-func (a *Client) AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserStatusV3NoContent, error) {
+func (a *Client) AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserStatusV3Params()
@@ -8098,17 +11084,46 @@ func (a *Client) AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Par
 	switch v := result.(type) {
 
 	case *AdminUpdateUserStatusV3NoContent:
-		return v, nil
+		response := &AdminUpdateUserStatusV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserStatusV3BadRequest:
-		return nil, v
+		response := &AdminUpdateUserStatusV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserStatusV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserStatusV3Forbidden:
-		return nil, v
+		response := &AdminUpdateUserStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserStatusV3NotFound:
-		return nil, v
+		response := &AdminUpdateUserStatusV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserStatusV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8127,7 +11142,7 @@ Note:
 
 action code : 10103
 */
-func (a *Client) AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateUserIdentityParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTrustlyUpdateUserIdentityNoContent, error) {
+func (a *Client) AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateUserIdentityParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTrustlyUpdateUserIdentityResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminTrustlyUpdateUserIdentityParams()
@@ -8165,19 +11180,53 @@ func (a *Client) AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateU
 	switch v := result.(type) {
 
 	case *AdminTrustlyUpdateUserIdentityNoContent:
-		return v, nil
+		response := &AdminTrustlyUpdateUserIdentityResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminTrustlyUpdateUserIdentityBadRequest:
-		return nil, v
+		response := &AdminTrustlyUpdateUserIdentityResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTrustlyUpdateUserIdentityUnauthorized:
-		return nil, v
+		response := &AdminTrustlyUpdateUserIdentityResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTrustlyUpdateUserIdentityForbidden:
-		return nil, v
+		response := &AdminTrustlyUpdateUserIdentityResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTrustlyUpdateUserIdentityNotFound:
-		return nil, v
+		response := &AdminTrustlyUpdateUserIdentityResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTrustlyUpdateUserIdentityConflict:
-		return nil, v
+		response := &AdminTrustlyUpdateUserIdentityResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTrustlyUpdateUserIdentityInternalServerError:
-		return nil, v
+		response := &AdminTrustlyUpdateUserIdentityResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8192,7 +11241,7 @@ Note:
 - userId: only accept publisher/studio userId
 action code: 10118
 */
-func (a *Client) AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVerifyUserWithoutVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyUserWithoutVerificationCodeV3NoContent, error) {
+func (a *Client) AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVerifyUserWithoutVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyUserWithoutVerificationCodeV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminVerifyUserWithoutVerificationCodeV3Params()
@@ -8230,19 +11279,53 @@ func (a *Client) AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVeri
 	switch v := result.(type) {
 
 	case *AdminVerifyUserWithoutVerificationCodeV3NoContent:
-		return v, nil
+		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminVerifyUserWithoutVerificationCodeV3BadRequest:
-		return nil, v
+		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyUserWithoutVerificationCodeV3Unauthorized:
-		return nil, v
+		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyUserWithoutVerificationCodeV3Forbidden:
-		return nil, v
+		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyUserWithoutVerificationCodeV3NotFound:
-		return nil, v
+		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyUserWithoutVerificationCodeV3Conflict:
-		return nil, v
+		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminVerifyUserWithoutVerificationCodeV3InternalServerError:
-		return nil, v
+		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8254,7 +11337,7 @@ AdminGetMyUserV3Short get my user
 Get my user data
 action code : 10147
 */
-func (a *Client) AdminGetMyUserV3Short(params *AdminGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyUserV3OK, error) {
+func (a *Client) AdminGetMyUserV3Short(params *AdminGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMyUserV3Params()
@@ -8292,11 +11375,26 @@ func (a *Client) AdminGetMyUserV3Short(params *AdminGetMyUserV3Params, authInfo 
 	switch v := result.(type) {
 
 	case *AdminGetMyUserV3OK:
-		return v, nil
+		response := &AdminGetMyUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMyUserV3Unauthorized:
-		return nil, v
+		response := &AdminGetMyUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyUserV3InternalServerError:
-		return nil, v
+		response := &AdminGetMyUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8307,7 +11405,7 @@ func (a *Client) AdminGetMyUserV3Short(params *AdminGetMyUserV3Params, authInfo 
 PublicGetCountryAgeRestrictionV3Short public get age restriction by country code
 Get age restriction by country code. It will always get by publisher namespace
 */
-func (a *Client) PublicGetCountryAgeRestrictionV3Short(params *PublicGetCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryAgeRestrictionV3OK, error) {
+func (a *Client) PublicGetCountryAgeRestrictionV3Short(params *PublicGetCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryAgeRestrictionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCountryAgeRestrictionV3Params()
@@ -8345,11 +11443,25 @@ func (a *Client) PublicGetCountryAgeRestrictionV3Short(params *PublicGetCountryA
 	switch v := result.(type) {
 
 	case *PublicGetCountryAgeRestrictionV3OK:
-		return v, nil
+		response := &PublicGetCountryAgeRestrictionV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCountryAgeRestrictionV3Unauthorized:
-		return nil, v
+		response := &PublicGetCountryAgeRestrictionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetCountryAgeRestrictionV3NotFound:
-		return nil, v
+		response := &PublicGetCountryAgeRestrictionV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8390,7 +11502,7 @@ Supported platform:
 Note:
 **nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
-func (a *Client) PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV3OK, error) {
+func (a *Client) PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUserIDByPlatformUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListUserIDByPlatformUserIDsV3Params()
@@ -8428,15 +11540,40 @@ func (a *Client) PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUser
 	switch v := result.(type) {
 
 	case *PublicListUserIDByPlatformUserIDsV3OK:
-		return v, nil
+		response := &PublicListUserIDByPlatformUserIDsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListUserIDByPlatformUserIDsV3BadRequest:
-		return nil, v
+		response := &PublicListUserIDByPlatformUserIDsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserIDByPlatformUserIDsV3Unauthorized:
-		return nil, v
+		response := &PublicListUserIDByPlatformUserIDsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserIDByPlatformUserIDsV3Forbidden:
-		return nil, v
+		response := &PublicListUserIDByPlatformUserIDsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserIDByPlatformUserIDsV3InternalServerError:
-		return nil, v
+		response := &PublicListUserIDByPlatformUserIDsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8487,7 +11624,7 @@ Note:
 - You can use either platform id or platform group as **platformId** parameter.
 - **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
-func (a *Client) PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV3OK, error) {
+func (a *Client) PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPlatformUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserByPlatformUserIDV3Params()
@@ -8525,15 +11662,40 @@ func (a *Client) PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPla
 	switch v := result.(type) {
 
 	case *PublicGetUserByPlatformUserIDV3OK:
-		return v, nil
+		response := &PublicGetUserByPlatformUserIDV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserByPlatformUserIDV3Unauthorized:
-		return nil, v
+		response := &PublicGetUserByPlatformUserIDV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserByPlatformUserIDV3Forbidden:
-		return nil, v
+		response := &PublicGetUserByPlatformUserIDV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserByPlatformUserIDV3NotFound:
-		return nil, v
+		response := &PublicGetUserByPlatformUserIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserByPlatformUserIDV3InternalServerError:
-		return nil, v
+		response := &PublicGetUserByPlatformUserIDV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8545,7 +11707,7 @@ PublicGetAsyncStatusShort get linking progress status
 This endpoint is used to get linking status.
 This API need logged user and user can only request its own linking status.
 */
-func (a *Client) PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusOK, error) {
+func (a *Client) PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetAsyncStatusParams()
@@ -8583,13 +11745,33 @@ func (a *Client) PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, a
 	switch v := result.(type) {
 
 	case *PublicGetAsyncStatusOK:
-		return v, nil
+		response := &PublicGetAsyncStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetAsyncStatusUnauthorized:
-		return nil, v
+		response := &PublicGetAsyncStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAsyncStatusForbidden:
-		return nil, v
+		response := &PublicGetAsyncStatusResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAsyncStatusInternalServerError:
-		return nil, v
+		response := &PublicGetAsyncStatusResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8648,7 +11830,7 @@ Note:
 - You can use either platform id or platform group as **platformId** parameter.
 - **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
 */
-func (a *Client) PublicSearchUserV3Short(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3OK, error) {
+func (a *Client) PublicSearchUserV3Short(params *PublicSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSearchUserV3Params()
@@ -8686,17 +11868,47 @@ func (a *Client) PublicSearchUserV3Short(params *PublicSearchUserV3Params, authI
 	switch v := result.(type) {
 
 	case *PublicSearchUserV3OK:
-		return v, nil
+		response := &PublicSearchUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSearchUserV3BadRequest:
-		return nil, v
+		response := &PublicSearchUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSearchUserV3Unauthorized:
-		return nil, v
+		response := &PublicSearchUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSearchUserV3NotFound:
-		return nil, v
+		response := &PublicSearchUserV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSearchUserV3TooManyRequests:
-		return nil, v
+		response := &PublicSearchUserV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSearchUserV3InternalServerError:
-		return nil, v
+		response := &PublicSearchUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8716,7 +11928,7 @@ Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
 */
-func (a *Client) PublicCreateUserV3Short(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Created, error) {
+func (a *Client) PublicCreateUserV3Short(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateUserV3Params()
@@ -8754,19 +11966,54 @@ func (a *Client) PublicCreateUserV3Short(params *PublicCreateUserV3Params, authI
 	switch v := result.(type) {
 
 	case *PublicCreateUserV3Created:
-		return v, nil
+		response := &PublicCreateUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateUserV3BadRequest:
-		return nil, v
+		response := &PublicCreateUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV3Forbidden:
-		return nil, v
+		response := &PublicCreateUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV3NotFound:
-		return nil, v
+		response := &PublicCreateUserV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV3Conflict:
-		return nil, v
+		response := &PublicCreateUserV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV3TooManyRequests:
-		return nil, v
+		response := &PublicCreateUserV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV3InternalServerError:
-		return nil, v
+		response := &PublicCreateUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8788,7 +12035,7 @@ Response Code :
 - Account Available : 404 (not found)
 - Account Not Available : 204 (no content)
 */
-func (a *Client) CheckUserAvailabilityShort(params *CheckUserAvailabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserAvailabilityNoContent, error) {
+func (a *Client) CheckUserAvailabilityShort(params *CheckUserAvailabilityParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserAvailabilityResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCheckUserAvailabilityParams()
@@ -8826,13 +12073,31 @@ func (a *Client) CheckUserAvailabilityShort(params *CheckUserAvailabilityParams,
 	switch v := result.(type) {
 
 	case *CheckUserAvailabilityNoContent:
-		return v, nil
+		response := &CheckUserAvailabilityResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CheckUserAvailabilityBadRequest:
-		return nil, v
+		response := &CheckUserAvailabilityResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CheckUserAvailabilityNotFound:
-		return nil, v
+		response := &CheckUserAvailabilityResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CheckUserAvailabilityUnprocessableEntity:
-		return nil, v
+		response := &CheckUserAvailabilityResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8846,7 +12111,7 @@ Notes:
 - If namespace is game, will search by game user Id, other wise will search by publisher namespace
 - **Result will include displayName(if it exists)**
 */
-func (a *Client) PublicBulkGetUsersShort(params *PublicBulkGetUsersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetUsersOK, error) {
+func (a *Client) PublicBulkGetUsersShort(params *PublicBulkGetUsersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetUsersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicBulkGetUsersParams()
@@ -8884,11 +12149,26 @@ func (a *Client) PublicBulkGetUsersShort(params *PublicBulkGetUsersParams, authI
 	switch v := result.(type) {
 
 	case *PublicBulkGetUsersOK:
-		return v, nil
+		response := &PublicBulkGetUsersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicBulkGetUsersBadRequest:
-		return nil, v
+		response := &PublicBulkGetUsersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBulkGetUsersInternalServerError:
-		return nil, v
+		response := &PublicBulkGetUsersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8902,7 +12182,7 @@ If it already been used, will response 409.
 If it is available, we will send a verification code to this email address.
 This code can be verified by this [endpoint](#operations-Users-PublicVerifyRegistrationCode).
 */
-func (a *Client) PublicSendRegistrationCodeShort(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeNoContent, error) {
+func (a *Client) PublicSendRegistrationCodeShort(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSendRegistrationCodeParams()
@@ -8940,13 +12220,32 @@ func (a *Client) PublicSendRegistrationCodeShort(params *PublicSendRegistrationC
 	switch v := result.(type) {
 
 	case *PublicSendRegistrationCodeNoContent:
-		return v, nil
+		response := &PublicSendRegistrationCodeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSendRegistrationCodeBadRequest:
-		return nil, v
+		response := &PublicSendRegistrationCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendRegistrationCodeConflict:
-		return nil, v
+		response := &PublicSendRegistrationCodeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendRegistrationCodeTooManyRequests:
-		return nil, v
+		response := &PublicSendRegistrationCodeResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8957,7 +12256,7 @@ func (a *Client) PublicSendRegistrationCodeShort(params *PublicSendRegistrationC
 PublicVerifyRegistrationCodeShort verify the registration code
 Verify the registration code
 */
-func (a *Client) PublicVerifyRegistrationCodeShort(params *PublicVerifyRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyRegistrationCodeNoContent, error) {
+func (a *Client) PublicVerifyRegistrationCodeShort(params *PublicVerifyRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyRegistrationCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicVerifyRegistrationCodeParams()
@@ -8995,9 +12294,18 @@ func (a *Client) PublicVerifyRegistrationCodeShort(params *PublicVerifyRegistrat
 	switch v := result.(type) {
 
 	case *PublicVerifyRegistrationCodeNoContent:
-		return v, nil
+		response := &PublicVerifyRegistrationCodeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicVerifyRegistrationCodeBadRequest:
-		return nil, v
+		response := &PublicVerifyRegistrationCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9012,7 +12320,7 @@ Client should provide publisher namespace path parameter.
 The password reset code will be sent to the publisher account's email address.
 action code : 10104
 */
-func (a *Client) PublicForgotPasswordV3Short(params *PublicForgotPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV3NoContent, error) {
+func (a *Client) PublicForgotPasswordV3Short(params *PublicForgotPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicForgotPasswordV3Params()
@@ -9050,13 +12358,32 @@ func (a *Client) PublicForgotPasswordV3Short(params *PublicForgotPasswordV3Param
 	switch v := result.(type) {
 
 	case *PublicForgotPasswordV3NoContent:
-		return v, nil
+		response := &PublicForgotPasswordV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicForgotPasswordV3BadRequest:
-		return nil, v
+		response := &PublicForgotPasswordV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForgotPasswordV3NotFound:
-		return nil, v
+		response := &PublicForgotPasswordV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForgotPasswordV3TooManyRequests:
-		return nil, v
+		response := &PublicForgotPasswordV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9071,7 +12398,7 @@ Validate user's input.
 - this endpoint will check the input validation and profanity filter service(if this is enabled)
 - the namespace should be publisher namespace
 */
-func (a *Client) PublicValidateUserInputShort(params *PublicValidateUserInputParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserInputOK, error) {
+func (a *Client) PublicValidateUserInputShort(params *PublicValidateUserInputParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserInputResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicValidateUserInputParams()
@@ -9109,9 +12436,19 @@ func (a *Client) PublicValidateUserInputShort(params *PublicValidateUserInputPar
 	switch v := result.(type) {
 
 	case *PublicValidateUserInputOK:
-		return v, nil
+		response := &PublicValidateUserInputResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicValidateUserInputInternalServerError:
-		return nil, v
+		response := &PublicValidateUserInputResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9122,7 +12459,7 @@ func (a *Client) PublicValidateUserInputShort(params *PublicValidateUserInputPar
 GetAdminInvitationV3Short get user invitation
 Endpoint to validate user invitation. When not found, it could also means the invitation has expired.
 */
-func (a *Client) GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminInvitationV3OK, error) {
+func (a *Client) GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminInvitationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAdminInvitationV3Params()
@@ -9160,11 +12497,26 @@ func (a *Client) GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, a
 	switch v := result.(type) {
 
 	case *GetAdminInvitationV3OK:
-		return v, nil
+		response := &GetAdminInvitationV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAdminInvitationV3NotFound:
-		return nil, v
+		response := &GetAdminInvitationV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAdminInvitationV3InternalServerError:
-		return nil, v
+		response := &GetAdminInvitationV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9184,7 +12536,7 @@ EMAILPASSWD: an authentication type used for new user registration through email
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 */
-func (a *Client) CreateUserFromInvitationV3Short(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Created, error) {
+func (a *Client) CreateUserFromInvitationV3Short(params *CreateUserFromInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateUserFromInvitationV3Params()
@@ -9222,17 +12574,47 @@ func (a *Client) CreateUserFromInvitationV3Short(params *CreateUserFromInvitatio
 	switch v := result.(type) {
 
 	case *CreateUserFromInvitationV3Created:
-		return v, nil
+		response := &CreateUserFromInvitationV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateUserFromInvitationV3BadRequest:
-		return nil, v
+		response := &CreateUserFromInvitationV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserFromInvitationV3Forbidden:
-		return nil, v
+		response := &CreateUserFromInvitationV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserFromInvitationV3NotFound:
-		return nil, v
+		response := &CreateUserFromInvitationV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserFromInvitationV3Conflict:
-		return nil, v
+		response := &CreateUserFromInvitationV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserFromInvitationV3InternalServerError:
-		return nil, v
+		response := &CreateUserFromInvitationV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9256,7 +12638,7 @@ If the client support PATCH method, use [PATCH] /iam/v3/public/namespaces/{names
 
 action code : 10103
 */
-func (a *Client) UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserV3OK, error) {
+func (a *Client) UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserV3Params()
@@ -9294,17 +12676,47 @@ func (a *Client) UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UpdateUserV3OK:
-		return v, nil
+		response := &UpdateUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateUserV3BadRequest:
-		return nil, v
+		response := &UpdateUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserV3Unauthorized:
-		return nil, v
+		response := &UpdateUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserV3Forbidden:
-		return nil, v
+		response := &UpdateUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserV3Conflict:
-		return nil, v
+		response := &UpdateUserV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserV3InternalServerError:
-		return nil, v
+		response := &UpdateUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9324,7 +12736,7 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 
 action code : 10103
 */
-func (a *Client) PublicPartialUpdateUserV3Short(params *PublicPartialUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPartialUpdateUserV3OK, error) {
+func (a *Client) PublicPartialUpdateUserV3Short(params *PublicPartialUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPartialUpdateUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPartialUpdateUserV3Params()
@@ -9362,17 +12774,47 @@ func (a *Client) PublicPartialUpdateUserV3Short(params *PublicPartialUpdateUserV
 	switch v := result.(type) {
 
 	case *PublicPartialUpdateUserV3OK:
-		return v, nil
+		response := &PublicPartialUpdateUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartialUpdateUserV3BadRequest:
-		return nil, v
+		response := &PublicPartialUpdateUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartialUpdateUserV3Unauthorized:
-		return nil, v
+		response := &PublicPartialUpdateUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartialUpdateUserV3Forbidden:
-		return nil, v
+		response := &PublicPartialUpdateUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartialUpdateUserV3Conflict:
-		return nil, v
+		response := &PublicPartialUpdateUserV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartialUpdateUserV3InternalServerError:
-		return nil, v
+		response := &PublicPartialUpdateUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9394,7 +12836,7 @@ If this context used, IAM rejects the request if the email address is already us
 
 action code: 10116
 */
-func (a *Client) PublicSendVerificationCodeV3Short(params *PublicSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationCodeV3NoContent, error) {
+func (a *Client) PublicSendVerificationCodeV3Short(params *PublicSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationCodeV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSendVerificationCodeV3Params()
@@ -9432,19 +12874,53 @@ func (a *Client) PublicSendVerificationCodeV3Short(params *PublicSendVerificatio
 	switch v := result.(type) {
 
 	case *PublicSendVerificationCodeV3NoContent:
-		return v, nil
+		response := &PublicSendVerificationCodeV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSendVerificationCodeV3BadRequest:
-		return nil, v
+		response := &PublicSendVerificationCodeV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendVerificationCodeV3Unauthorized:
-		return nil, v
+		response := &PublicSendVerificationCodeV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendVerificationCodeV3Forbidden:
-		return nil, v
+		response := &PublicSendVerificationCodeV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendVerificationCodeV3NotFound:
-		return nil, v
+		response := &PublicSendVerificationCodeV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendVerificationCodeV3Conflict:
-		return nil, v
+		response := &PublicSendVerificationCodeV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendVerificationCodeV3TooManyRequests:
-		return nil, v
+		response := &PublicSendVerificationCodeV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9458,7 +12934,7 @@ Redeems a verification code sent to a user to verify the user's contact address 
 Available ContactType : **email**
 action code: 10107
 */
-func (a *Client) PublicUserVerificationV3Short(params *PublicUserVerificationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUserVerificationV3NoContent, error) {
+func (a *Client) PublicUserVerificationV3Short(params *PublicUserVerificationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUserVerificationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUserVerificationV3Params()
@@ -9496,15 +12972,39 @@ func (a *Client) PublicUserVerificationV3Short(params *PublicUserVerificationV3P
 	switch v := result.(type) {
 
 	case *PublicUserVerificationV3NoContent:
-		return v, nil
+		response := &PublicUserVerificationV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUserVerificationV3BadRequest:
-		return nil, v
+		response := &PublicUserVerificationV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUserVerificationV3Unauthorized:
-		return nil, v
+		response := &PublicUserVerificationV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUserVerificationV3Forbidden:
-		return nil, v
+		response := &PublicUserVerificationV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUserVerificationV3Conflict:
-		return nil, v
+		response := &PublicUserVerificationV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9526,7 +13026,7 @@ Supported user data fields :
 
 action code : 10124
 */
-func (a *Client) PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV3OK, error) {
+func (a *Client) PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpgradeHeadlessAccountV3Params()
@@ -9564,19 +13064,54 @@ func (a *Client) PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadle
 	switch v := result.(type) {
 
 	case *PublicUpgradeHeadlessAccountV3OK:
-		return v, nil
+		response := &PublicUpgradeHeadlessAccountV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV3BadRequest:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV3Unauthorized:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV3Forbidden:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV3NotFound:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV3Conflict:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV3InternalServerError:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9590,7 +13125,7 @@ action code : 10124
 if set NeedVerificationCode = true, IAM will send verification code into email
 user can use that verification code to verify user through /iam/v3/public/namespaces/{namespace}/users/me/code/verify
 */
-func (a *Client) PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyHeadlessAccountV3OK, error) {
+func (a *Client) PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyHeadlessAccountV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicVerifyHeadlessAccountV3Params()
@@ -9628,17 +13163,47 @@ func (a *Client) PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadless
 	switch v := result.(type) {
 
 	case *PublicVerifyHeadlessAccountV3OK:
-		return v, nil
+		response := &PublicVerifyHeadlessAccountV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicVerifyHeadlessAccountV3BadRequest:
-		return nil, v
+		response := &PublicVerifyHeadlessAccountV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicVerifyHeadlessAccountV3Unauthorized:
-		return nil, v
+		response := &PublicVerifyHeadlessAccountV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicVerifyHeadlessAccountV3NotFound:
-		return nil, v
+		response := &PublicVerifyHeadlessAccountV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicVerifyHeadlessAccountV3Conflict:
-		return nil, v
+		response := &PublicVerifyHeadlessAccountV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicVerifyHeadlessAccountV3InternalServerError:
-		return nil, v
+		response := &PublicVerifyHeadlessAccountV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9649,7 +13214,7 @@ func (a *Client) PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadless
 PublicUpdatePasswordV3Short update user password
 action code: 10107
 */
-func (a *Client) PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3NoContent, error) {
+func (a *Client) PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdatePasswordV3Params()
@@ -9687,15 +13252,39 @@ func (a *Client) PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Param
 	switch v := result.(type) {
 
 	case *PublicUpdatePasswordV3NoContent:
-		return v, nil
+		response := &PublicUpdatePasswordV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdatePasswordV3BadRequest:
-		return nil, v
+		response := &PublicUpdatePasswordV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePasswordV3Unauthorized:
-		return nil, v
+		response := &PublicUpdatePasswordV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePasswordV3TooManyRequests:
-		return nil, v
+		response := &PublicUpdatePasswordV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePasswordV3InternalServerError:
-		return nil, v
+		response := &PublicUpdatePasswordV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9706,7 +13295,7 @@ func (a *Client) PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Param
 PublicCreateJusticeUserShort create justice user from publisher user
 Create Justice User from Publisher User information. It will check first if Justice User on target namespace already exist.
 */
-func (a *Client) PublicCreateJusticeUserShort(params *PublicCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateJusticeUserCreated, error) {
+func (a *Client) PublicCreateJusticeUserShort(params *PublicCreateJusticeUserParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateJusticeUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateJusticeUserParams()
@@ -9744,17 +13333,47 @@ func (a *Client) PublicCreateJusticeUserShort(params *PublicCreateJusticeUserPar
 	switch v := result.(type) {
 
 	case *PublicCreateJusticeUserCreated:
-		return v, nil
+		response := &PublicCreateJusticeUserResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateJusticeUserBadRequest:
-		return nil, v
+		response := &PublicCreateJusticeUserResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateJusticeUserUnauthorized:
-		return nil, v
+		response := &PublicCreateJusticeUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateJusticeUserForbidden:
-		return nil, v
+		response := &PublicCreateJusticeUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateJusticeUserNotFound:
-		return nil, v
+		response := &PublicCreateJusticeUserResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateJusticeUserInternalServerError:
-		return nil, v
+		response := &PublicCreateJusticeUserResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9791,7 +13410,7 @@ Platform client configuration need to be added to database for specific platform
 - **for specific generic oauth (OIDC)**: The platform_tokenâs value should be the same type as created OIDC auth type whether it is auth code, idToken or bearerToken.
 action code : 10144
 */
-func (a *Client) PublicPlatformLinkV3Short(params *PublicPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV3NoContent, error) {
+func (a *Client) PublicPlatformLinkV3Short(params *PublicPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPlatformLinkV3Params()
@@ -9829,17 +13448,46 @@ func (a *Client) PublicPlatformLinkV3Short(params *PublicPlatformLinkV3Params, a
 	switch v := result.(type) {
 
 	case *PublicPlatformLinkV3NoContent:
-		return v, nil
+		response := &PublicPlatformLinkV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPlatformLinkV3BadRequest:
-		return nil, v
+		response := &PublicPlatformLinkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV3Unauthorized:
-		return nil, v
+		response := &PublicPlatformLinkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV3NotFound:
-		return nil, v
+		response := &PublicPlatformLinkV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV3Conflict:
-		return nil, v
+		response := &PublicPlatformLinkV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformLinkV3InternalServerError:
-		return nil, v
+		response := &PublicPlatformLinkV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9871,7 +13519,7 @@ Unlink user's account from justice platform will enable password token grant and
 If you want to unlink user's account in a game namespace, you have to specify _platformNamespace_ to that game namespace.
 action code : 10121
 */
-func (a *Client) PublicPlatformUnlinkV3Short(params *PublicPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkV3NoContent, error) {
+func (a *Client) PublicPlatformUnlinkV3Short(params *PublicPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPlatformUnlinkV3Params()
@@ -9909,15 +13557,39 @@ func (a *Client) PublicPlatformUnlinkV3Short(params *PublicPlatformUnlinkV3Param
 	switch v := result.(type) {
 
 	case *PublicPlatformUnlinkV3NoContent:
-		return v, nil
+		response := &PublicPlatformUnlinkV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPlatformUnlinkV3BadRequest:
-		return nil, v
+		response := &PublicPlatformUnlinkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformUnlinkV3Unauthorized:
-		return nil, v
+		response := &PublicPlatformUnlinkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformUnlinkV3NotFound:
-		return nil, v
+		response := &PublicPlatformUnlinkV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformUnlinkV3InternalServerError:
-		return nil, v
+		response := &PublicPlatformUnlinkV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9971,7 +13643,7 @@ Unlink platform account associated with a group:
 If user unlink platform account associated with a group, the API logic will unlink all of platform account under that group as well.
 example: if user unlink from ps4, the API logic will unlink ps5 and ps4web as well
 */
-func (a *Client) PublicPlatformUnlinkAllV3Short(params *PublicPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkAllV3NoContent, error) {
+func (a *Client) PublicPlatformUnlinkAllV3Short(params *PublicPlatformUnlinkAllV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkAllV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPlatformUnlinkAllV3Params()
@@ -10009,15 +13681,39 @@ func (a *Client) PublicPlatformUnlinkAllV3Short(params *PublicPlatformUnlinkAllV
 	switch v := result.(type) {
 
 	case *PublicPlatformUnlinkAllV3NoContent:
-		return v, nil
+		response := &PublicPlatformUnlinkAllV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPlatformUnlinkAllV3BadRequest:
-		return nil, v
+		response := &PublicPlatformUnlinkAllV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformUnlinkAllV3Unauthorized:
-		return nil, v
+		response := &PublicPlatformUnlinkAllV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformUnlinkAllV3NotFound:
-		return nil, v
+		response := &PublicPlatformUnlinkAllV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPlatformUnlinkAllV3InternalServerError:
-		return nil, v
+		response := &PublicPlatformUnlinkAllV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10054,7 +13750,7 @@ If current user have linked to this platform with another platform account (incl
 - **snapchat**: The platform_tokenâs value is the authorization code returned by Snapchat OAuth.
 - **for specific generic oauth (OIDC)**: The platform_tokenâs value should be the same type as created OIDC auth type whether it is auth code, idToken or bearerToken.
 */
-func (a *Client) PublicForcePlatformLinkV3Short(params *PublicForcePlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForcePlatformLinkV3NoContent, error) {
+func (a *Client) PublicForcePlatformLinkV3Short(params *PublicForcePlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForcePlatformLinkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicForcePlatformLinkV3Params()
@@ -10092,17 +13788,46 @@ func (a *Client) PublicForcePlatformLinkV3Short(params *PublicForcePlatformLinkV
 	switch v := result.(type) {
 
 	case *PublicForcePlatformLinkV3NoContent:
-		return v, nil
+		response := &PublicForcePlatformLinkV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicForcePlatformLinkV3BadRequest:
-		return nil, v
+		response := &PublicForcePlatformLinkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForcePlatformLinkV3Unauthorized:
-		return nil, v
+		response := &PublicForcePlatformLinkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForcePlatformLinkV3NotFound:
-		return nil, v
+		response := &PublicForcePlatformLinkV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForcePlatformLinkV3Conflict:
-		return nil, v
+		response := &PublicForcePlatformLinkV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForcePlatformLinkV3InternalServerError:
-		return nil, v
+		response := &PublicForcePlatformLinkV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10126,7 +13851,7 @@ Supported platforms:
 - amazon
 - oculusweb
 */
-func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformOK, error) {
+func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicWebLinkPlatformParams()
@@ -10164,13 +13889,33 @@ func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams,
 	switch v := result.(type) {
 
 	case *PublicWebLinkPlatformOK:
-		return v, nil
+		response := &PublicWebLinkPlatformResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicWebLinkPlatformBadRequest:
-		return nil, v
+		response := &PublicWebLinkPlatformResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicWebLinkPlatformUnauthorized:
-		return nil, v
+		response := &PublicWebLinkPlatformResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicWebLinkPlatformNotFound:
-		return nil, v
+		response := &PublicWebLinkPlatformResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10194,7 +13939,7 @@ Supported platforms:
 - amazon
 - oculusweb
 */
-func (a *Client) PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishFound, error) {
+func (a *Client) PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicWebLinkPlatformEstablishParams()
@@ -10232,7 +13977,12 @@ func (a *Client) PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatfo
 	switch v := result.(type) {
 
 	case *PublicWebLinkPlatformEstablishFound:
-		return v, nil
+		response := &PublicWebLinkPlatformEstablishResponse{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10257,7 +14007,7 @@ Supported platforms:
 - amazon
 - oculusweb
 */
-func (a *Client) PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3OK, error) {
+func (a *Client) PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicProcessWebLinkPlatformV3Params()
@@ -10295,9 +14045,19 @@ func (a *Client) PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLin
 	switch v := result.(type) {
 
 	case *PublicProcessWebLinkPlatformV3OK:
-		return v, nil
+		response := &PublicProcessWebLinkPlatformV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicProcessWebLinkPlatformV3BadRequest:
-		return nil, v
+		response := &PublicProcessWebLinkPlatformV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10328,7 +14088,7 @@ __Supported 3rd platforms:__
 * epic account id
 * display name
 */
-func (a *Client) PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatformInfosV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUsersPlatformInfosV3OK, error) {
+func (a *Client) PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatformInfosV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUsersPlatformInfosV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUsersPlatformInfosV3Params()
@@ -10366,13 +14126,33 @@ func (a *Client) PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatfo
 	switch v := result.(type) {
 
 	case *PublicGetUsersPlatformInfosV3OK:
-		return v, nil
+		response := &PublicGetUsersPlatformInfosV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUsersPlatformInfosV3BadRequest:
-		return nil, v
+		response := &PublicGetUsersPlatformInfosV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUsersPlatformInfosV3Unauthorized:
-		return nil, v
+		response := &PublicGetUsersPlatformInfosV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUsersPlatformInfosV3InternalServerError:
-		return nil, v
+		response := &PublicGetUsersPlatformInfosV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10383,7 +14163,7 @@ func (a *Client) PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatfo
 ResetPasswordV3Short reset user password
 action code: 10105
 */
-func (a *Client) ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordV3NoContent, error) {
+func (a *Client) ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewResetPasswordV3Params()
@@ -10421,13 +14201,32 @@ func (a *Client) ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo ru
 	switch v := result.(type) {
 
 	case *ResetPasswordV3NoContent:
-		return v, nil
+		response := &ResetPasswordV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ResetPasswordV3BadRequest:
-		return nil, v
+		response := &ResetPasswordV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ResetPasswordV3Forbidden:
-		return nil, v
+		response := &ResetPasswordV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ResetPasswordV3NotFound:
-		return nil, v
+		response := &ResetPasswordV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10439,7 +14238,7 @@ PublicGetUserByUserIDV3Short get user by user id
 This endpoint retrieve user attributes. action code: 10129
 **Substitute endpoint:** /v4/public/namespaces/{namespace}/users/{userId} [READ]
 */
-func (a *Client) PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3OK, error) {
+func (a *Client) PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserByUserIDV3Params()
@@ -10477,13 +14276,33 @@ func (a *Client) PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Par
 	switch v := result.(type) {
 
 	case *PublicGetUserByUserIDV3OK:
-		return v, nil
+		response := &PublicGetUserByUserIDV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserByUserIDV3BadRequest:
-		return nil, v
+		response := &PublicGetUserByUserIDV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserByUserIDV3NotFound:
-		return nil, v
+		response := &PublicGetUserByUserIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserByUserIDV3InternalServerError:
-		return nil, v
+		response := &PublicGetUserByUserIDV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10500,7 +14319,7 @@ Notes:
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) PublicGetUserBanHistoryV3Short(params *PublicGetUserBanHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserBanHistoryV3OK, error) {
+func (a *Client) PublicGetUserBanHistoryV3Short(params *PublicGetUserBanHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserBanHistoryV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserBanHistoryV3Params()
@@ -10538,17 +14357,47 @@ func (a *Client) PublicGetUserBanHistoryV3Short(params *PublicGetUserBanHistoryV
 	switch v := result.(type) {
 
 	case *PublicGetUserBanHistoryV3OK:
-		return v, nil
+		response := &PublicGetUserBanHistoryV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserBanHistoryV3BadRequest:
-		return nil, v
+		response := &PublicGetUserBanHistoryV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserBanHistoryV3Unauthorized:
-		return nil, v
+		response := &PublicGetUserBanHistoryV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserBanHistoryV3Forbidden:
-		return nil, v
+		response := &PublicGetUserBanHistoryV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserBanHistoryV3NotFound:
-		return nil, v
+		response := &PublicGetUserBanHistoryV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserBanHistoryV3InternalServerError:
-		return nil, v
+		response := &PublicGetUserBanHistoryV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10564,7 +14413,7 @@ It will query all linked platform accounts. The results will be distinct and gro
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) PublicListUserAllPlatformAccountsDistinctV3Short(params *PublicListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserAllPlatformAccountsDistinctV3OK, error) {
+func (a *Client) PublicListUserAllPlatformAccountsDistinctV3Short(params *PublicListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserAllPlatformAccountsDistinctV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListUserAllPlatformAccountsDistinctV3Params()
@@ -10602,17 +14451,47 @@ func (a *Client) PublicListUserAllPlatformAccountsDistinctV3Short(params *Public
 	switch v := result.(type) {
 
 	case *PublicListUserAllPlatformAccountsDistinctV3OK:
-		return v, nil
+		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListUserAllPlatformAccountsDistinctV3BadRequest:
-		return nil, v
+		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserAllPlatformAccountsDistinctV3Unauthorized:
-		return nil, v
+		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserAllPlatformAccountsDistinctV3Forbidden:
-		return nil, v
+		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserAllPlatformAccountsDistinctV3NotFound:
-		return nil, v
+		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserAllPlatformAccountsDistinctV3InternalServerError:
-		return nil, v
+		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10627,7 +14506,7 @@ This endpoint retrieves user info and linked platform accounts.
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) PublicGetUserInformationV3Short(params *PublicGetUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserInformationV3OK, error) {
+func (a *Client) PublicGetUserInformationV3Short(params *PublicGetUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserInformationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserInformationV3Params()
@@ -10665,15 +14544,40 @@ func (a *Client) PublicGetUserInformationV3Short(params *PublicGetUserInformatio
 	switch v := result.(type) {
 
 	case *PublicGetUserInformationV3OK:
-		return v, nil
+		response := &PublicGetUserInformationV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserInformationV3Unauthorized:
-		return nil, v
+		response := &PublicGetUserInformationV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserInformationV3Forbidden:
-		return nil, v
+		response := &PublicGetUserInformationV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserInformationV3NotFound:
-		return nil, v
+		response := &PublicGetUserInformationV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserInformationV3InternalServerError:
-		return nil, v
+		response := &PublicGetUserInformationV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10692,7 +14596,7 @@ Notes for this endpoint:
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserLoginHistoriesV3OK, error) {
+func (a *Client) PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserLoginHistoriesV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserLoginHistoriesV3Params()
@@ -10730,13 +14634,32 @@ func (a *Client) PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHi
 	switch v := result.(type) {
 
 	case *PublicGetUserLoginHistoriesV3OK:
-		return v, nil
+		response := &PublicGetUserLoginHistoriesV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserLoginHistoriesV3Unauthorized:
-		return nil, v
+		response := &PublicGetUserLoginHistoriesV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserLoginHistoriesV3Forbidden:
-		return nil, v
+		response := &PublicGetUserLoginHistoriesV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserLoginHistoriesV3NotFound:
-		return nil, v
+		response := &PublicGetUserLoginHistoriesV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10790,7 +14713,7 @@ The _**userId**_ parameter should match the one in the access token.
 
 action code: 10128
 */
-func (a *Client) PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPlatformAccountsV3OK, error) {
+func (a *Client) PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPlatformAccountsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserPlatformAccountsV3Params()
@@ -10828,17 +14751,47 @@ func (a *Client) PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatf
 	switch v := result.(type) {
 
 	case *PublicGetUserPlatformAccountsV3OK:
-		return v, nil
+		response := &PublicGetUserPlatformAccountsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserPlatformAccountsV3BadRequest:
-		return nil, v
+		response := &PublicGetUserPlatformAccountsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserPlatformAccountsV3Unauthorized:
-		return nil, v
+		response := &PublicGetUserPlatformAccountsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserPlatformAccountsV3Forbidden:
-		return nil, v
+		response := &PublicGetUserPlatformAccountsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserPlatformAccountsV3NotFound:
-		return nil, v
+		response := &PublicGetUserPlatformAccountsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserPlatformAccountsV3InternalServerError:
-		return nil, v
+		response := &PublicGetUserPlatformAccountsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10853,7 +14806,7 @@ This endpoint gets list justice platform account by providing publisher namespac
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) PublicListJusticePlatformAccountsV3Short(params *PublicListJusticePlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListJusticePlatformAccountsV3OK, error) {
+func (a *Client) PublicListJusticePlatformAccountsV3Short(params *PublicListJusticePlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListJusticePlatformAccountsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListJusticePlatformAccountsV3Params()
@@ -10891,17 +14844,47 @@ func (a *Client) PublicListJusticePlatformAccountsV3Short(params *PublicListJust
 	switch v := result.(type) {
 
 	case *PublicListJusticePlatformAccountsV3OK:
-		return v, nil
+		response := &PublicListJusticePlatformAccountsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListJusticePlatformAccountsV3BadRequest:
-		return nil, v
+		response := &PublicListJusticePlatformAccountsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListJusticePlatformAccountsV3Unauthorized:
-		return nil, v
+		response := &PublicListJusticePlatformAccountsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListJusticePlatformAccountsV3Forbidden:
-		return nil, v
+		response := &PublicListJusticePlatformAccountsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListJusticePlatformAccountsV3NotFound:
-		return nil, v
+		response := &PublicListJusticePlatformAccountsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListJusticePlatformAccountsV3InternalServerError:
-		return nil, v
+		response := &PublicListJusticePlatformAccountsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10920,7 +14903,7 @@ transferred. If the data is tight to game user ID, the user will have the game p
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) PublicLinkPlatformAccountShort(params *PublicLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicLinkPlatformAccountNoContent, error) {
+func (a *Client) PublicLinkPlatformAccountShort(params *PublicLinkPlatformAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicLinkPlatformAccountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicLinkPlatformAccountParams()
@@ -10958,15 +14941,39 @@ func (a *Client) PublicLinkPlatformAccountShort(params *PublicLinkPlatformAccoun
 	switch v := result.(type) {
 
 	case *PublicLinkPlatformAccountNoContent:
-		return v, nil
+		response := &PublicLinkPlatformAccountResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicLinkPlatformAccountBadRequest:
-		return nil, v
+		response := &PublicLinkPlatformAccountResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicLinkPlatformAccountUnauthorized:
-		return nil, v
+		response := &PublicLinkPlatformAccountResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicLinkPlatformAccountForbidden:
-		return nil, v
+		response := &PublicLinkPlatformAccountResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicLinkPlatformAccountInternalServerError:
-		return nil, v
+		response := &PublicLinkPlatformAccountResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10983,7 +14990,7 @@ This endpoint need the same requestID which also used in [Get link status](#oper
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) PublicForceLinkPlatformWithProgressionShort(params *PublicForceLinkPlatformWithProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicForceLinkPlatformWithProgressionNoContent, error) {
+func (a *Client) PublicForceLinkPlatformWithProgressionShort(params *PublicForceLinkPlatformWithProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicForceLinkPlatformWithProgressionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicForceLinkPlatformWithProgressionParams()
@@ -11021,15 +15028,39 @@ func (a *Client) PublicForceLinkPlatformWithProgressionShort(params *PublicForce
 	switch v := result.(type) {
 
 	case *PublicForceLinkPlatformWithProgressionNoContent:
-		return v, nil
+		response := &PublicForceLinkPlatformWithProgressionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicForceLinkPlatformWithProgressionBadRequest:
-		return nil, v
+		response := &PublicForceLinkPlatformWithProgressionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForceLinkPlatformWithProgressionUnauthorized:
-		return nil, v
+		response := &PublicForceLinkPlatformWithProgressionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForceLinkPlatformWithProgressionForbidden:
-		return nil, v
+		response := &PublicForceLinkPlatformWithProgressionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicForceLinkPlatformWithProgressionInternalServerError:
-		return nil, v
+		response := &PublicForceLinkPlatformWithProgressionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11041,7 +15072,7 @@ PublicGetPublisherUserV3Short get publisher user
 **Restriction:**
 Path Parameter **namespace** can be provided only with game namespace
 */
-func (a *Client) PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPublisherUserV3OK, error) {
+func (a *Client) PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPublisherUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPublisherUserV3Params()
@@ -11079,15 +15110,39 @@ func (a *Client) PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3P
 	switch v := result.(type) {
 
 	case *PublicGetPublisherUserV3OK:
-		return v, nil
+		response := &PublicGetPublisherUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPublisherUserV3BadRequest:
-		return nil, v
+		response := &PublicGetPublisherUserV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPublisherUserV3Unauthorized:
-		return nil, v
+		response := &PublicGetPublisherUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPublisherUserV3Forbidden:
-		return nil, v
+		response := &PublicGetPublisherUserV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPublisherUserV3NotFound:
-		return nil, v
+		response := &PublicGetPublisherUserV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11103,7 +15158,7 @@ This endpoint validate the user password by specifying the userId and password.
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
-func (a *Client) PublicValidateUserByUserIDAndPasswordV3Short(params *PublicValidateUserByUserIDAndPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserByUserIDAndPasswordV3NoContent, error) {
+func (a *Client) PublicValidateUserByUserIDAndPasswordV3Short(params *PublicValidateUserByUserIDAndPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserByUserIDAndPasswordV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicValidateUserByUserIDAndPasswordV3Params()
@@ -11141,17 +15196,46 @@ func (a *Client) PublicValidateUserByUserIDAndPasswordV3Short(params *PublicVali
 	switch v := result.(type) {
 
 	case *PublicValidateUserByUserIDAndPasswordV3NoContent:
-		return v, nil
+		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicValidateUserByUserIDAndPasswordV3BadRequest:
-		return nil, v
+		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicValidateUserByUserIDAndPasswordV3Unauthorized:
-		return nil, v
+		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicValidateUserByUserIDAndPasswordV3Forbidden:
-		return nil, v
+		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicValidateUserByUserIDAndPasswordV3NotFound:
-		return nil, v
+		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicValidateUserByUserIDAndPasswordV3InternalServerError:
-		return nil, v
+		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11181,7 +15265,7 @@ __Supported 3rd platforms:__
 
 action code : 10147
 */
-func (a *Client) PublicGetMyUserV3Short(params *PublicGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyUserV3OK, error) {
+func (a *Client) PublicGetMyUserV3Short(params *PublicGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyUserV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyUserV3Params()
@@ -11219,11 +15303,26 @@ func (a *Client) PublicGetMyUserV3Short(params *PublicGetMyUserV3Params, authInf
 	switch v := result.(type) {
 
 	case *PublicGetMyUserV3OK:
-		return v, nil
+		response := &PublicGetMyUserV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMyUserV3Unauthorized:
-		return nil, v
+		response := &PublicGetMyUserV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyUserV3InternalServerError:
-		return nil, v
+		response := &PublicGetMyUserV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11238,7 +15337,7 @@ Note:
 
 After client resolving the conflict, it will call endpoint `/iam/v3/public/users/me/headless/linkWithProgression [POST]`
 */
-func (a *Client) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(params *PublicGetLinkHeadlessAccountToMyAccountConflictV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetLinkHeadlessAccountToMyAccountConflictV3OK, error) {
+func (a *Client) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(params *PublicGetLinkHeadlessAccountToMyAccountConflictV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetLinkHeadlessAccountToMyAccountConflictV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetLinkHeadlessAccountToMyAccountConflictV3Params()
@@ -11276,15 +15375,40 @@ func (a *Client) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(params *
 	switch v := result.(type) {
 
 	case *PublicGetLinkHeadlessAccountToMyAccountConflictV3OK:
-		return v, nil
+		response := &PublicGetLinkHeadlessAccountToMyAccountConflictV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetLinkHeadlessAccountToMyAccountConflictV3BadRequest:
-		return nil, v
+		response := &PublicGetLinkHeadlessAccountToMyAccountConflictV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetLinkHeadlessAccountToMyAccountConflictV3Unauthorized:
-		return nil, v
+		response := &PublicGetLinkHeadlessAccountToMyAccountConflictV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetLinkHeadlessAccountToMyAccountConflictV3Forbidden:
-		return nil, v
+		response := &PublicGetLinkHeadlessAccountToMyAccountConflictV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetLinkHeadlessAccountToMyAccountConflictV3InternalServerError:
-		return nil, v
+		response := &PublicGetLinkHeadlessAccountToMyAccountConflictV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11297,7 +15421,7 @@ Note:
 1. My account should be full account
 2. My account not linked to headless account's third platform.
 */
-func (a *Client) LinkHeadlessAccountToMyAccountV3Short(params *LinkHeadlessAccountToMyAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*LinkHeadlessAccountToMyAccountV3NoContent, error) {
+func (a *Client) LinkHeadlessAccountToMyAccountV3Short(params *LinkHeadlessAccountToMyAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*LinkHeadlessAccountToMyAccountV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewLinkHeadlessAccountToMyAccountV3Params()
@@ -11335,15 +15459,39 @@ func (a *Client) LinkHeadlessAccountToMyAccountV3Short(params *LinkHeadlessAccou
 	switch v := result.(type) {
 
 	case *LinkHeadlessAccountToMyAccountV3NoContent:
-		return v, nil
+		response := &LinkHeadlessAccountToMyAccountV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *LinkHeadlessAccountToMyAccountV3BadRequest:
-		return nil, v
+		response := &LinkHeadlessAccountToMyAccountV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LinkHeadlessAccountToMyAccountV3Unauthorized:
-		return nil, v
+		response := &LinkHeadlessAccountToMyAccountV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LinkHeadlessAccountToMyAccountV3Forbidden:
-		return nil, v
+		response := &LinkHeadlessAccountToMyAccountV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LinkHeadlessAccountToMyAccountV3InternalServerError:
-		return nil, v
+		response := &LinkHeadlessAccountToMyAccountV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11355,7 +15503,7 @@ PublicGetMyProfileAllowUpdateStatusV3Short public get my profile allowed update 
 This API is for user to get self profile update allow status.
 Note: If the config is not found, this API will return a config with unlimited.
 */
-func (a *Client) PublicGetMyProfileAllowUpdateStatusV3Short(params *PublicGetMyProfileAllowUpdateStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyProfileAllowUpdateStatusV3OK, error) {
+func (a *Client) PublicGetMyProfileAllowUpdateStatusV3Short(params *PublicGetMyProfileAllowUpdateStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyProfileAllowUpdateStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyProfileAllowUpdateStatusV3Params()
@@ -11393,15 +15541,40 @@ func (a *Client) PublicGetMyProfileAllowUpdateStatusV3Short(params *PublicGetMyP
 	switch v := result.(type) {
 
 	case *PublicGetMyProfileAllowUpdateStatusV3OK:
-		return v, nil
+		response := &PublicGetMyProfileAllowUpdateStatusV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMyProfileAllowUpdateStatusV3BadRequest:
-		return nil, v
+		response := &PublicGetMyProfileAllowUpdateStatusV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyProfileAllowUpdateStatusV3Unauthorized:
-		return nil, v
+		response := &PublicGetMyProfileAllowUpdateStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyProfileAllowUpdateStatusV3Forbidden:
-		return nil, v
+		response := &PublicGetMyProfileAllowUpdateStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyProfileAllowUpdateStatusV3InternalServerError:
-		return nil, v
+		response := &PublicGetMyProfileAllowUpdateStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11413,7 +15586,7 @@ PublicSendVerificationLinkV3Short send verification link to user, this link will
 The verification link is sent to email address
 It will not send request if user email is already verified
 */
-func (a *Client) PublicSendVerificationLinkV3Short(params *PublicSendVerificationLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationLinkV3NoContent, error) {
+func (a *Client) PublicSendVerificationLinkV3Short(params *PublicSendVerificationLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationLinkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSendVerificationLinkV3Params()
@@ -11451,15 +15624,39 @@ func (a *Client) PublicSendVerificationLinkV3Short(params *PublicSendVerificatio
 	switch v := result.(type) {
 
 	case *PublicSendVerificationLinkV3NoContent:
-		return v, nil
+		response := &PublicSendVerificationLinkV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSendVerificationLinkV3BadRequest:
-		return nil, v
+		response := &PublicSendVerificationLinkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendVerificationLinkV3Unauthorized:
-		return nil, v
+		response := &PublicSendVerificationLinkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendVerificationLinkV3Conflict:
-		return nil, v
+		response := &PublicSendVerificationLinkV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendVerificationLinkV3TooManyRequests:
-		return nil, v
+		response := &PublicSendVerificationLinkV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11469,7 +15666,7 @@ func (a *Client) PublicSendVerificationLinkV3Short(params *PublicSendVerificatio
 /*
 PublicVerifyUserByLinkV3Short verify user email by the verification link code
 */
-func (a *Client) PublicVerifyUserByLinkV3Short(params *PublicVerifyUserByLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyUserByLinkV3Found, error) {
+func (a *Client) PublicVerifyUserByLinkV3Short(params *PublicVerifyUserByLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicVerifyUserByLinkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicVerifyUserByLinkV3Params()
@@ -11507,7 +15704,12 @@ func (a *Client) PublicVerifyUserByLinkV3Short(params *PublicVerifyUserByLinkV3P
 	switch v := result.(type) {
 
 	case *PublicVerifyUserByLinkV3Found:
-		return v, nil
+		response := &PublicVerifyUserByLinkV3Response{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

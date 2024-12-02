@@ -19,6 +19,48 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type DeleteClientResponse struct {
+	iamclientmodels.ApiResponse
+
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 *iamclientmodels.RestErrorResponse
+	Error404 string
+}
+
+func (m *DeleteClientResponse) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			return &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteClientReader is a Reader for the DeleteClient structure.
 type DeleteClientReader struct {
 	formats strfmt.Registry

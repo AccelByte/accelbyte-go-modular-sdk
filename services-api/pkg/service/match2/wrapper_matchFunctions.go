@@ -9,7 +9,6 @@ package match2
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_functions"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *MatchFunctionsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *MatchFunctionsService) MatchFunctionListShort(input *match_functions.MatchFunctionListParams) (*match2clientmodels.APIListMatchFunctionsResponse, error) {
+func (aaa *MatchFunctionsService) MatchFunctionListShort(input *match_functions.MatchFunctionListParams) (*match_functions.MatchFunctionListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *MatchFunctionsService) MatchFunctionListShort(input *match_functions.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *MatchFunctionsService) CreateMatchFunctionShort(input *match_functions.CreateMatchFunctionParams) error {
@@ -99,7 +98,7 @@ func (aaa *MatchFunctionsService) CreateMatchFunctionShort(input *match_function
 	return nil
 }
 
-func (aaa *MatchFunctionsService) UpdateMatchFunctionShort(input *match_functions.UpdateMatchFunctionParams) (*match2clientmodels.APIMatchFunctionConfig, error) {
+func (aaa *MatchFunctionsService) UpdateMatchFunctionShort(input *match_functions.UpdateMatchFunctionParams) (*match_functions.UpdateMatchFunctionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *MatchFunctionsService) UpdateMatchFunctionShort(input *match_function
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *MatchFunctionsService) DeleteMatchFunctionShort(input *match_functions.DeleteMatchFunctionParams) error {

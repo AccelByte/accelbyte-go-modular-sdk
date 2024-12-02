@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetServerLogsShort(params *GetServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerLogsOK, error)
+	GetServerLogsShort(params *GetServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerLogsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ Required scope: social
 
 This endpoint queries a specified dedicated server's logs.
 */
-func (a *Client) GetServerLogsShort(params *GetServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerLogsOK, error) {
+func (a *Client) GetServerLogsShort(params *GetServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerLogsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetServerLogsParams()
@@ -81,15 +81,40 @@ func (a *Client) GetServerLogsShort(params *GetServerLogsParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetServerLogsOK:
-		return v, nil
+		response := &GetServerLogsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetServerLogsBadRequest:
-		return nil, v
+		response := &GetServerLogsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerLogsUnauthorized:
-		return nil, v
+		response := &GetServerLogsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerLogsNotFound:
-		return nil, v
+		response := &GetServerLogsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerLogsInternalServerError:
-		return nil, v
+		response := &GetServerLogsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

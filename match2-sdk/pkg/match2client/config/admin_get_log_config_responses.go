@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 )
 
+type AdminGetLogConfigResponse struct {
+	match2clientmodels.ApiResponse
+	Data *match2clientmodels.LogconfigConfiguration
+}
+
+func (m *AdminGetLogConfigResponse) Unpack() (*match2clientmodels.LogconfigConfiguration, *match2clientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &match2clientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetLogConfigReader is a Reader for the AdminGetLogConfig structure.
 type AdminGetLogConfigReader struct {
 	formats strfmt.Registry

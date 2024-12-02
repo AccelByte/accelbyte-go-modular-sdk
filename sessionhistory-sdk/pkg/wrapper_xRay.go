@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/x_ray"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclientmodels"
 )
 
 type XRayService struct {
@@ -37,7 +36,7 @@ func (aaa *XRayService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *XRayService) QueryXrayMatchPoolShort(input *x_ray.QueryXrayMatchPoolParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchPoolQueryResponse, error) {
+func (aaa *XRayService) QueryXrayMatchPoolShort(input *x_ray.QueryXrayMatchPoolParams) (*x_ray.QueryXrayMatchPoolResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *XRayService) QueryXrayMatchPoolShort(input *x_ray.QueryXrayMatchPoolP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryDetailTickMatchPoolShort(input *x_ray.QueryDetailTickMatchPoolParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchPoolPodTickQueryResponse, error) {
+func (aaa *XRayService) QueryDetailTickMatchPoolShort(input *x_ray.QueryDetailTickMatchPoolParams) (*x_ray.QueryDetailTickMatchPoolResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *XRayService) QueryDetailTickMatchPoolShort(input *x_ray.QueryDetailTi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryDetailTickMatchPoolMatchesShort(input *x_ray.QueryDetailTickMatchPoolMatchesParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchPoolPodTickMatchResponse, error) {
+func (aaa *XRayService) QueryDetailTickMatchPoolMatchesShort(input *x_ray.QueryDetailTickMatchPoolMatchesParams) (*x_ray.QueryDetailTickMatchPoolMatchesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *XRayService) QueryDetailTickMatchPoolMatchesShort(input *x_ray.QueryD
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryDetailTickMatchPoolTicketShort(input *x_ray.QueryDetailTickMatchPoolTicketParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchPoolPodTickTicketResponse, error) {
+func (aaa *XRayService) QueryDetailTickMatchPoolTicketShort(input *x_ray.QueryDetailTickMatchPoolTicketParams) (*x_ray.QueryDetailTickMatchPoolTicketResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *XRayService) QueryDetailTickMatchPoolTicketShort(input *x_ray.QueryDe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryMatchHistoriesShort(input *x_ray.QueryMatchHistoriesParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchHistorQueryResponse, error) {
+func (aaa *XRayService) QueryMatchHistoriesShort(input *x_ray.QueryMatchHistoriesParams) (*x_ray.QueryMatchHistoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *XRayService) QueryMatchHistoriesShort(input *x_ray.QueryMatchHistorie
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryMatchTicketHistoriesShort(input *x_ray.QueryMatchTicketHistoriesParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchTicketHistoryQueryResponse, error) {
+func (aaa *XRayService) QueryMatchTicketHistoriesShort(input *x_ray.QueryMatchTicketHistoriesParams) (*x_ray.QueryMatchTicketHistoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *XRayService) QueryMatchTicketHistoriesShort(input *x_ray.QueryMatchTi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryXrayMatchShort(input *x_ray.QueryXrayMatchParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchesQueryResponse, error) {
+func (aaa *XRayService) QueryXrayMatchShort(input *x_ray.QueryXrayMatchParams) (*x_ray.QueryXrayMatchResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *XRayService) QueryXrayMatchShort(input *x_ray.QueryXrayMatchParams) (
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryAcquiringDSShort(input *x_ray.QueryAcquiringDSParams) (*sessionhistoryclientmodels.ApimodelsXRayAcquiringDsQueryResponse, error) {
+func (aaa *XRayService) QueryAcquiringDSShort(input *x_ray.QueryAcquiringDSParams) (*x_ray.QueryAcquiringDSResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *XRayService) QueryAcquiringDSShort(input *x_ray.QueryAcquiringDSParam
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryAcquiringDSWaitTimeAvgShort(input *x_ray.QueryAcquiringDSWaitTimeAvgParams) (*sessionhistoryclientmodels.ApimodelsXRayAcquiringDsWaitTimeQueryResponse, error) {
+func (aaa *XRayService) QueryAcquiringDSWaitTimeAvgShort(input *x_ray.QueryAcquiringDSWaitTimeAvgParams) (*x_ray.QueryAcquiringDSWaitTimeAvgResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *XRayService) QueryAcquiringDSWaitTimeAvgShort(input *x_ray.QueryAcqui
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryMatchLengthDurationpAvgShort(input *x_ray.QueryMatchLengthDurationpAvgParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchLengthDurationQueryResponse, error) {
+func (aaa *XRayService) QueryMatchLengthDurationpAvgShort(input *x_ray.QueryMatchLengthDurationpAvgParams) (*x_ray.QueryMatchLengthDurationpAvgResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *XRayService) QueryMatchLengthDurationpAvgShort(input *x_ray.QueryMatc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryMatchLengthDurationp99Short(input *x_ray.QueryMatchLengthDurationp99Params) (*sessionhistoryclientmodels.ApimodelsXRayMatchLengthDurationQueryResponse, error) {
+func (aaa *XRayService) QueryMatchLengthDurationp99Short(input *x_ray.QueryMatchLengthDurationp99Params) (*x_ray.QueryMatchLengthDurationp99Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *XRayService) QueryMatchLengthDurationp99Short(input *x_ray.QueryMatch
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryTotalActiveSessionShort(input *x_ray.QueryTotalActiveSessionParams) (*sessionhistoryclientmodels.ApimodelsXRayTotalActiveSessionQueryResponse, error) {
+func (aaa *XRayService) QueryTotalActiveSessionShort(input *x_ray.QueryTotalActiveSessionParams) (*x_ray.QueryTotalActiveSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *XRayService) QueryTotalActiveSessionShort(input *x_ray.QueryTotalActi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryTotalMatchmakingMatchShort(input *x_ray.QueryTotalMatchmakingMatchParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchMatchmakingQueryResponse, error) {
+func (aaa *XRayService) QueryTotalMatchmakingMatchShort(input *x_ray.QueryTotalMatchmakingMatchParams) (*x_ray.QueryTotalMatchmakingMatchResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,10 +423,10 @@ func (aaa *XRayService) QueryTotalMatchmakingMatchShort(input *x_ray.QueryTotalM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryTotalPlayerPersessionShort(input *x_ray.QueryTotalPlayerPersessionParams) (*sessionhistoryclientmodels.ApimodelsXRayTotalPlayerPersessionAVGQueryResponse, error) {
+func (aaa *XRayService) QueryTotalPlayerPersessionShort(input *x_ray.QueryTotalPlayerPersessionParams) (*x_ray.QueryTotalPlayerPersessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *XRayService) QueryTotalPlayerPersessionShort(input *x_ray.QueryTotalP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryTotalMatchmakingCanceledShort(input *x_ray.QueryTotalMatchmakingCanceledParams) (*sessionhistoryclientmodels.ApimodelsXRayCanceledMatchmakingTicketQueryResponse, error) {
+func (aaa *XRayService) QueryTotalMatchmakingCanceledShort(input *x_ray.QueryTotalMatchmakingCanceledParams) (*x_ray.QueryTotalMatchmakingCanceledResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,10 +483,10 @@ func (aaa *XRayService) QueryTotalMatchmakingCanceledShort(input *x_ray.QueryTot
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryTotalMatchmakingCreatedShort(input *x_ray.QueryTotalMatchmakingCreatedParams) (*sessionhistoryclientmodels.ApimodelsXRayCreatedMatchmakingTicketQueryResponse, error) {
+func (aaa *XRayService) QueryTotalMatchmakingCreatedShort(input *x_ray.QueryTotalMatchmakingCreatedParams) (*x_ray.QueryTotalMatchmakingCreatedResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,10 +513,10 @@ func (aaa *XRayService) QueryTotalMatchmakingCreatedShort(input *x_ray.QueryTota
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryTotalMatchmakingExpiredShort(input *x_ray.QueryTotalMatchmakingExpiredParams) (*sessionhistoryclientmodels.ApimodelsXRayExpiredMatchmakingTicketQueryResponse, error) {
+func (aaa *XRayService) QueryTotalMatchmakingExpiredShort(input *x_ray.QueryTotalMatchmakingExpiredParams) (*x_ray.QueryTotalMatchmakingExpiredResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -544,10 +543,10 @@ func (aaa *XRayService) QueryTotalMatchmakingExpiredShort(input *x_ray.QueryTota
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryTotalMatchmakingMatchTicketShort(input *x_ray.QueryTotalMatchmakingMatchTicketParams) (*sessionhistoryclientmodels.ApimodelsXRayMatchMatchmakingTicketQueryResponse, error) {
+func (aaa *XRayService) QueryTotalMatchmakingMatchTicketShort(input *x_ray.QueryTotalMatchmakingMatchTicketParams) (*x_ray.QueryTotalMatchmakingMatchTicketResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -574,10 +573,10 @@ func (aaa *XRayService) QueryTotalMatchmakingMatchTicketShort(input *x_ray.Query
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) CreateXrayTicketObservabilityShort(input *x_ray.CreateXrayTicketObservabilityParams) (*sessionhistoryclientmodels.ApimodelsXRayTicketObservabilityResponse, error) {
+func (aaa *XRayService) CreateXrayTicketObservabilityShort(input *x_ray.CreateXrayTicketObservabilityParams) (*x_ray.CreateXrayTicketObservabilityResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -604,10 +603,10 @@ func (aaa *XRayService) CreateXrayTicketObservabilityShort(input *x_ray.CreateXr
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) CreateXrayBulkTicketObservabilityShort(input *x_ray.CreateXrayBulkTicketObservabilityParams) (*sessionhistoryclientmodels.ApimodelsXRayBulkTicketObservabilityResponse, error) {
+func (aaa *XRayService) CreateXrayBulkTicketObservabilityShort(input *x_ray.CreateXrayBulkTicketObservabilityParams) (*x_ray.CreateXrayBulkTicketObservabilityResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -634,10 +633,10 @@ func (aaa *XRayService) CreateXrayBulkTicketObservabilityShort(input *x_ray.Crea
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryXrayTimelineByTicketIDShort(input *x_ray.QueryXrayTimelineByTicketIDParams) (*sessionhistoryclientmodels.ApimodelsXRayTicketQueryResponse, error) {
+func (aaa *XRayService) QueryXrayTimelineByTicketIDShort(input *x_ray.QueryXrayTimelineByTicketIDParams) (*x_ray.QueryXrayTimelineByTicketIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -664,10 +663,10 @@ func (aaa *XRayService) QueryXrayTimelineByTicketIDShort(input *x_ray.QueryXrayT
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *XRayService) QueryXrayTimelineByUserIDShort(input *x_ray.QueryXrayTimelineByUserIDParams) (*sessionhistoryclientmodels.ApimodelsXRayTicketQueryResponse, error) {
+func (aaa *XRayService) QueryXrayTimelineByUserIDShort(input *x_ray.QueryXrayTimelineByUserIDParams) (*x_ray.QueryXrayTimelineByUserIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -694,5 +693,5 @@ func (aaa *XRayService) QueryXrayTimelineByUserIDShort(input *x_ray.QueryXrayTim
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

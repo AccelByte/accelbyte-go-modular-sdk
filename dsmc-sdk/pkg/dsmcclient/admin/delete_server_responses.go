@@ -19,6 +19,53 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 )
 
+type DeleteServerResponse struct {
+	dsmcclientmodels.ApiResponse
+
+	Error401 *dsmcclientmodels.ResponseError
+	Error404 *dsmcclientmodels.ResponseError
+	Error500 *dsmcclientmodels.ResponseError
+}
+
+func (m *DeleteServerResponse) Unpack() *dsmcclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &dsmcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteServerReader is a Reader for the DeleteServer structure.
 type DeleteServerReader struct {
 	formats strfmt.Registry

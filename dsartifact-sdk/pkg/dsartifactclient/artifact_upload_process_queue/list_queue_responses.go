@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclientmodels"
 )
 
+type ListQueueResponse struct {
+	dsartifactclientmodels.ApiResponse
+	Data *dsartifactclientmodels.ModelsListQueueResponse
+
+	Error400 *dsartifactclientmodels.ResponseError
+	Error401 *dsartifactclientmodels.ResponseError
+	Error404 *dsartifactclientmodels.ResponseError
+	Error500 *dsartifactclientmodels.ResponseError
+}
+
+func (m *ListQueueResponse) Unpack() (*dsartifactclientmodels.ModelsListQueueResponse, *dsartifactclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dsartifactclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ListQueueReader is a Reader for the ListQueue structure.
 type ListQueueReader struct {
 	formats strfmt.Registry

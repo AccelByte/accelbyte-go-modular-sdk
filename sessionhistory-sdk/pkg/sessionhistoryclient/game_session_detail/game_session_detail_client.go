@@ -30,16 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminQueryGameSessionDetailShort(params *AdminQueryGameSessionDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionDetailOK, error)
-	GetGameSessionDetailShort(params *GetGameSessionDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionDetailOK, error)
-	AdminQueryMatchmakingDetailShort(params *AdminQueryMatchmakingDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryMatchmakingDetailOK, error)
-	AdminGetMatchmakingDetailBySessionIDShort(params *AdminGetMatchmakingDetailBySessionIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchmakingDetailBySessionIDOK, error)
-	AdminGetMatchmakingDetailByTicketIDShort(params *AdminGetMatchmakingDetailByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchmakingDetailByTicketIDOK, error)
-	AdminQueryPartyDetailShort(params *AdminQueryPartyDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartyDetailOK, error)
-	GetPartyDetailShort(params *GetPartyDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetPartyDetailOK, error)
-	AdminQueryTicketDetailShort(params *AdminQueryTicketDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTicketDetailOK, error)
-	AdminTicketDetailGetByTicketIDShort(params *AdminTicketDetailGetByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTicketDetailGetByTicketIDOK, error)
-	PublicQueryGameSessionMeShort(params *PublicQueryGameSessionMeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionMeOK, error)
+	AdminQueryGameSessionDetailShort(params *AdminQueryGameSessionDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionDetailResponse, error)
+	GetGameSessionDetailShort(params *GetGameSessionDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionDetailResponse, error)
+	AdminQueryMatchmakingDetailShort(params *AdminQueryMatchmakingDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryMatchmakingDetailResponse, error)
+	AdminGetMatchmakingDetailBySessionIDShort(params *AdminGetMatchmakingDetailBySessionIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchmakingDetailBySessionIDResponse, error)
+	AdminGetMatchmakingDetailByTicketIDShort(params *AdminGetMatchmakingDetailByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchmakingDetailByTicketIDResponse, error)
+	AdminQueryPartyDetailShort(params *AdminQueryPartyDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartyDetailResponse, error)
+	GetPartyDetailShort(params *GetPartyDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetPartyDetailResponse, error)
+	AdminQueryTicketDetailShort(params *AdminQueryTicketDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTicketDetailResponse, error)
+	AdminTicketDetailGetByTicketIDShort(params *AdminTicketDetailGetByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTicketDetailGetByTicketIDResponse, error)
+	PublicQueryGameSessionMeShort(params *PublicQueryGameSessionMeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionMeResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ type ClientService interface {
 AdminQueryGameSessionDetailShort get all game sessions history.
 Get all game sessions.
 */
-func (a *Client) AdminQueryGameSessionDetailShort(params *AdminQueryGameSessionDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionDetailOK, error) {
+func (a *Client) AdminQueryGameSessionDetailShort(params *AdminQueryGameSessionDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryGameSessionDetailParams()
@@ -86,15 +86,40 @@ func (a *Client) AdminQueryGameSessionDetailShort(params *AdminQueryGameSessionD
 	switch v := result.(type) {
 
 	case *AdminQueryGameSessionDetailOK:
-		return v, nil
+		response := &AdminQueryGameSessionDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryGameSessionDetailBadRequest:
-		return nil, v
+		response := &AdminQueryGameSessionDetailResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionDetailUnauthorized:
-		return nil, v
+		response := &AdminQueryGameSessionDetailResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionDetailForbidden:
-		return nil, v
+		response := &AdminQueryGameSessionDetailResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionDetailInternalServerError:
-		return nil, v
+		response := &AdminQueryGameSessionDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +130,7 @@ func (a *Client) AdminQueryGameSessionDetailShort(params *AdminQueryGameSessionD
 GetGameSessionDetailShort get game session detail.
 Get game session detail.
 */
-func (a *Client) GetGameSessionDetailShort(params *GetGameSessionDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionDetailOK, error) {
+func (a *Client) GetGameSessionDetailShort(params *GetGameSessionDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGameSessionDetailParams()
@@ -143,17 +168,47 @@ func (a *Client) GetGameSessionDetailShort(params *GetGameSessionDetailParams, a
 	switch v := result.(type) {
 
 	case *GetGameSessionDetailOK:
-		return v, nil
+		response := &GetGameSessionDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGameSessionDetailBadRequest:
-		return nil, v
+		response := &GetGameSessionDetailResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionDetailUnauthorized:
-		return nil, v
+		response := &GetGameSessionDetailResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionDetailForbidden:
-		return nil, v
+		response := &GetGameSessionDetailResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionDetailNotFound:
-		return nil, v
+		response := &GetGameSessionDetailResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionDetailInternalServerError:
-		return nil, v
+		response := &GetGameSessionDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,7 +219,7 @@ func (a *Client) GetGameSessionDetailShort(params *GetGameSessionDetailParams, a
 AdminQueryMatchmakingDetailShort get all matchmaking history.
 Get all matchmaking.
 */
-func (a *Client) AdminQueryMatchmakingDetailShort(params *AdminQueryMatchmakingDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryMatchmakingDetailOK, error) {
+func (a *Client) AdminQueryMatchmakingDetailShort(params *AdminQueryMatchmakingDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryMatchmakingDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryMatchmakingDetailParams()
@@ -202,15 +257,40 @@ func (a *Client) AdminQueryMatchmakingDetailShort(params *AdminQueryMatchmakingD
 	switch v := result.(type) {
 
 	case *AdminQueryMatchmakingDetailOK:
-		return v, nil
+		response := &AdminQueryMatchmakingDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryMatchmakingDetailBadRequest:
-		return nil, v
+		response := &AdminQueryMatchmakingDetailResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryMatchmakingDetailUnauthorized:
-		return nil, v
+		response := &AdminQueryMatchmakingDetailResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryMatchmakingDetailForbidden:
-		return nil, v
+		response := &AdminQueryMatchmakingDetailResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryMatchmakingDetailInternalServerError:
-		return nil, v
+		response := &AdminQueryMatchmakingDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -221,7 +301,7 @@ func (a *Client) AdminQueryMatchmakingDetailShort(params *AdminQueryMatchmakingD
 AdminGetMatchmakingDetailBySessionIDShort get detail matchmaking history by session id.
 Get detail matchmaking history by session ID.
 */
-func (a *Client) AdminGetMatchmakingDetailBySessionIDShort(params *AdminGetMatchmakingDetailBySessionIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchmakingDetailBySessionIDOK, error) {
+func (a *Client) AdminGetMatchmakingDetailBySessionIDShort(params *AdminGetMatchmakingDetailBySessionIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchmakingDetailBySessionIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMatchmakingDetailBySessionIDParams()
@@ -259,15 +339,40 @@ func (a *Client) AdminGetMatchmakingDetailBySessionIDShort(params *AdminGetMatch
 	switch v := result.(type) {
 
 	case *AdminGetMatchmakingDetailBySessionIDOK:
-		return v, nil
+		response := &AdminGetMatchmakingDetailBySessionIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMatchmakingDetailBySessionIDBadRequest:
-		return nil, v
+		response := &AdminGetMatchmakingDetailBySessionIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchmakingDetailBySessionIDUnauthorized:
-		return nil, v
+		response := &AdminGetMatchmakingDetailBySessionIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchmakingDetailBySessionIDForbidden:
-		return nil, v
+		response := &AdminGetMatchmakingDetailBySessionIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchmakingDetailBySessionIDInternalServerError:
-		return nil, v
+		response := &AdminGetMatchmakingDetailBySessionIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -278,7 +383,7 @@ func (a *Client) AdminGetMatchmakingDetailBySessionIDShort(params *AdminGetMatch
 AdminGetMatchmakingDetailByTicketIDShort get detail matchmaking history by ticket id.
 Get detail matchmaking history by ticket ID.
 */
-func (a *Client) AdminGetMatchmakingDetailByTicketIDShort(params *AdminGetMatchmakingDetailByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchmakingDetailByTicketIDOK, error) {
+func (a *Client) AdminGetMatchmakingDetailByTicketIDShort(params *AdminGetMatchmakingDetailByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchmakingDetailByTicketIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMatchmakingDetailByTicketIDParams()
@@ -316,15 +421,40 @@ func (a *Client) AdminGetMatchmakingDetailByTicketIDShort(params *AdminGetMatchm
 	switch v := result.(type) {
 
 	case *AdminGetMatchmakingDetailByTicketIDOK:
-		return v, nil
+		response := &AdminGetMatchmakingDetailByTicketIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMatchmakingDetailByTicketIDBadRequest:
-		return nil, v
+		response := &AdminGetMatchmakingDetailByTicketIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchmakingDetailByTicketIDUnauthorized:
-		return nil, v
+		response := &AdminGetMatchmakingDetailByTicketIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchmakingDetailByTicketIDForbidden:
-		return nil, v
+		response := &AdminGetMatchmakingDetailByTicketIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchmakingDetailByTicketIDInternalServerError:
-		return nil, v
+		response := &AdminGetMatchmakingDetailByTicketIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -335,7 +465,7 @@ func (a *Client) AdminGetMatchmakingDetailByTicketIDShort(params *AdminGetMatchm
 AdminQueryPartyDetailShort get all parties history.
 Get all parties.
 */
-func (a *Client) AdminQueryPartyDetailShort(params *AdminQueryPartyDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartyDetailOK, error) {
+func (a *Client) AdminQueryPartyDetailShort(params *AdminQueryPartyDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartyDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryPartyDetailParams()
@@ -373,15 +503,40 @@ func (a *Client) AdminQueryPartyDetailShort(params *AdminQueryPartyDetailParams,
 	switch v := result.(type) {
 
 	case *AdminQueryPartyDetailOK:
-		return v, nil
+		response := &AdminQueryPartyDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryPartyDetailBadRequest:
-		return nil, v
+		response := &AdminQueryPartyDetailResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryPartyDetailUnauthorized:
-		return nil, v
+		response := &AdminQueryPartyDetailResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryPartyDetailForbidden:
-		return nil, v
+		response := &AdminQueryPartyDetailResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryPartyDetailInternalServerError:
-		return nil, v
+		response := &AdminQueryPartyDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -392,7 +547,7 @@ func (a *Client) AdminQueryPartyDetailShort(params *AdminQueryPartyDetailParams,
 GetPartyDetailShort get party detail.
 Get party detail.
 */
-func (a *Client) GetPartyDetailShort(params *GetPartyDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetPartyDetailOK, error) {
+func (a *Client) GetPartyDetailShort(params *GetPartyDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetPartyDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPartyDetailParams()
@@ -430,17 +585,47 @@ func (a *Client) GetPartyDetailShort(params *GetPartyDetailParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetPartyDetailOK:
-		return v, nil
+		response := &GetPartyDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPartyDetailBadRequest:
-		return nil, v
+		response := &GetPartyDetailResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPartyDetailUnauthorized:
-		return nil, v
+		response := &GetPartyDetailResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPartyDetailForbidden:
-		return nil, v
+		response := &GetPartyDetailResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPartyDetailNotFound:
-		return nil, v
+		response := &GetPartyDetailResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPartyDetailInternalServerError:
-		return nil, v
+		response := &GetPartyDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -451,7 +636,7 @@ func (a *Client) GetPartyDetailShort(params *GetPartyDetailParams, authInfo runt
 AdminQueryTicketDetailShort get all matchmaking ticket history.
 Get all matchmaking ticket.
 */
-func (a *Client) AdminQueryTicketDetailShort(params *AdminQueryTicketDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTicketDetailOK, error) {
+func (a *Client) AdminQueryTicketDetailShort(params *AdminQueryTicketDetailParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTicketDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryTicketDetailParams()
@@ -489,15 +674,40 @@ func (a *Client) AdminQueryTicketDetailShort(params *AdminQueryTicketDetailParam
 	switch v := result.(type) {
 
 	case *AdminQueryTicketDetailOK:
-		return v, nil
+		response := &AdminQueryTicketDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryTicketDetailBadRequest:
-		return nil, v
+		response := &AdminQueryTicketDetailResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTicketDetailUnauthorized:
-		return nil, v
+		response := &AdminQueryTicketDetailResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTicketDetailForbidden:
-		return nil, v
+		response := &AdminQueryTicketDetailResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryTicketDetailInternalServerError:
-		return nil, v
+		response := &AdminQueryTicketDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -508,7 +718,7 @@ func (a *Client) AdminQueryTicketDetailShort(params *AdminQueryTicketDetailParam
 AdminTicketDetailGetByTicketIDShort get detail matchmaking ticket history by ticket id.
 Get detail matchmaking ticket history by ticket ID.
 */
-func (a *Client) AdminTicketDetailGetByTicketIDShort(params *AdminTicketDetailGetByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTicketDetailGetByTicketIDOK, error) {
+func (a *Client) AdminTicketDetailGetByTicketIDShort(params *AdminTicketDetailGetByTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTicketDetailGetByTicketIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminTicketDetailGetByTicketIDParams()
@@ -546,15 +756,40 @@ func (a *Client) AdminTicketDetailGetByTicketIDShort(params *AdminTicketDetailGe
 	switch v := result.(type) {
 
 	case *AdminTicketDetailGetByTicketIDOK:
-		return v, nil
+		response := &AdminTicketDetailGetByTicketIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminTicketDetailGetByTicketIDBadRequest:
-		return nil, v
+		response := &AdminTicketDetailGetByTicketIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTicketDetailGetByTicketIDUnauthorized:
-		return nil, v
+		response := &AdminTicketDetailGetByTicketIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTicketDetailGetByTicketIDForbidden:
-		return nil, v
+		response := &AdminTicketDetailGetByTicketIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminTicketDetailGetByTicketIDInternalServerError:
-		return nil, v
+		response := &AdminTicketDetailGetByTicketIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -565,7 +800,7 @@ func (a *Client) AdminTicketDetailGetByTicketIDShort(params *AdminTicketDetailGe
 PublicQueryGameSessionMeShort get all game sessions history for current user.
 Get all game sessions history for current user.
 */
-func (a *Client) PublicQueryGameSessionMeShort(params *PublicQueryGameSessionMeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionMeOK, error) {
+func (a *Client) PublicQueryGameSessionMeShort(params *PublicQueryGameSessionMeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionMeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryGameSessionMeParams()
@@ -603,17 +838,47 @@ func (a *Client) PublicQueryGameSessionMeShort(params *PublicQueryGameSessionMeP
 	switch v := result.(type) {
 
 	case *PublicQueryGameSessionMeOK:
-		return v, nil
+		response := &PublicQueryGameSessionMeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicQueryGameSessionMeBadRequest:
-		return nil, v
+		response := &PublicQueryGameSessionMeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryGameSessionMeUnauthorized:
-		return nil, v
+		response := &PublicQueryGameSessionMeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryGameSessionMeForbidden:
-		return nil, v
+		response := &PublicQueryGameSessionMeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryGameSessionMeTooManyRequests:
-		return nil, v
+		response := &PublicQueryGameSessionMeResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryGameSessionMeInternalServerError:
-		return nil, v
+		response := &PublicQueryGameSessionMeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

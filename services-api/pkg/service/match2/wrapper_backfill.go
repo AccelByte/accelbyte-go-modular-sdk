@@ -9,7 +9,6 @@ package match2
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/backfill"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *BackfillService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *BackfillService) CreateBackfillShort(input *backfill.CreateBackfillParams) (*match2clientmodels.APIBackfillCreateResponse, error) {
+func (aaa *BackfillService) CreateBackfillShort(input *backfill.CreateBackfillParams) (*backfill.CreateBackfillResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *BackfillService) CreateBackfillShort(input *backfill.CreateBackfillPa
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *BackfillService) GetBackfillProposalShort(input *backfill.GetBackfillProposalParams) (*match2clientmodels.APIBackfillProposalResponse, error) {
+func (aaa *BackfillService) GetBackfillProposalShort(input *backfill.GetBackfillProposalParams) (*backfill.GetBackfillProposalResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *BackfillService) GetBackfillProposalShort(input *backfill.GetBackfill
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *BackfillService) GetBackfillShort(input *backfill.GetBackfillParams) (*match2clientmodels.APIBackfillGetResponse, error) {
+func (aaa *BackfillService) GetBackfillShort(input *backfill.GetBackfillParams) (*backfill.GetBackfillResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *BackfillService) GetBackfillShort(input *backfill.GetBackfillParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *BackfillService) DeleteBackfillShort(input *backfill.DeleteBackfillParams) error {
@@ -159,7 +158,7 @@ func (aaa *BackfillService) DeleteBackfillShort(input *backfill.DeleteBackfillPa
 	return nil
 }
 
-func (aaa *BackfillService) AcceptBackfillShort(input *backfill.AcceptBackfillParams) (*match2clientmodels.ModelsGameSession, error) {
+func (aaa *BackfillService) AcceptBackfillShort(input *backfill.AcceptBackfillParams) (*backfill.AcceptBackfillResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *BackfillService) AcceptBackfillShort(input *backfill.AcceptBackfillPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *BackfillService) RejectBackfillShort(input *backfill.RejectBackfillParams) error {

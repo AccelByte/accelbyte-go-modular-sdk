@@ -9,7 +9,6 @@ package achievement
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/tags"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *TagsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *TagsService) AdminListTagsShort(input *tags.AdminListTagsParams) (*achievementclientmodels.ModelsPaginatedTagResponse, error) {
+func (aaa *TagsService) AdminListTagsShort(input *tags.AdminListTagsParams) (*tags.AdminListTagsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *TagsService) AdminListTagsShort(input *tags.AdminListTagsParams) (*ac
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TagsService) PublicListTagsShort(input *tags.PublicListTagsParams) (*achievementclientmodels.ModelsPaginatedTagResponse, error) {
+func (aaa *TagsService) PublicListTagsShort(input *tags.PublicListTagsParams) (*tags.PublicListTagsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *TagsService) PublicListTagsShort(input *tags.PublicListTagsParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

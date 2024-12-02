@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DevelopmentServerConfigurationListShort(params *DevelopmentServerConfigurationListParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationListOK, error)
-	DevelopmentServerConfigurationCreateShort(params *DevelopmentServerConfigurationCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationCreateCreated, error)
-	DevelopmentServerConfigurationGetShort(params *DevelopmentServerConfigurationGetParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationGetOK, error)
-	DevelopmentServerConfigurationDeleteShort(params *DevelopmentServerConfigurationDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationDeleteNoContent, error)
+	DevelopmentServerConfigurationListShort(params *DevelopmentServerConfigurationListParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationListResponse, error)
+	DevelopmentServerConfigurationCreateShort(params *DevelopmentServerConfigurationCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationCreateResponse, error)
+	DevelopmentServerConfigurationGetShort(params *DevelopmentServerConfigurationGetParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationGetResponse, error)
+	DevelopmentServerConfigurationDeleteShort(params *DevelopmentServerConfigurationDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationDeleteResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 DevelopmentServerConfigurationListShort lists development server configurations with pagination
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]
 */
-func (a *Client) DevelopmentServerConfigurationListShort(params *DevelopmentServerConfigurationListParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationListOK, error) {
+func (a *Client) DevelopmentServerConfigurationListShort(params *DevelopmentServerConfigurationListParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDevelopmentServerConfigurationListParams()
@@ -80,13 +80,33 @@ func (a *Client) DevelopmentServerConfigurationListShort(params *DevelopmentServ
 	switch v := result.(type) {
 
 	case *DevelopmentServerConfigurationListOK:
-		return v, nil
+		response := &DevelopmentServerConfigurationListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DevelopmentServerConfigurationListUnauthorized:
-		return nil, v
+		response := &DevelopmentServerConfigurationListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationListForbidden:
-		return nil, v
+		response := &DevelopmentServerConfigurationListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationListInternalServerError:
-		return nil, v
+		response := &DevelopmentServerConfigurationListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -99,7 +119,7 @@ Configuration name can be up to 128 characters and must conform to ^[.a-zA-Z0-9_
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [CREATE]
 */
-func (a *Client) DevelopmentServerConfigurationCreateShort(params *DevelopmentServerConfigurationCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationCreateCreated, error) {
+func (a *Client) DevelopmentServerConfigurationCreateShort(params *DevelopmentServerConfigurationCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationCreateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDevelopmentServerConfigurationCreateParams()
@@ -137,15 +157,40 @@ func (a *Client) DevelopmentServerConfigurationCreateShort(params *DevelopmentSe
 	switch v := result.(type) {
 
 	case *DevelopmentServerConfigurationCreateCreated:
-		return v, nil
+		response := &DevelopmentServerConfigurationCreateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DevelopmentServerConfigurationCreateBadRequest:
-		return nil, v
+		response := &DevelopmentServerConfigurationCreateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationCreateUnauthorized:
-		return nil, v
+		response := &DevelopmentServerConfigurationCreateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationCreateForbidden:
-		return nil, v
+		response := &DevelopmentServerConfigurationCreateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationCreateInternalServerError:
-		return nil, v
+		response := &DevelopmentServerConfigurationCreateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +201,7 @@ func (a *Client) DevelopmentServerConfigurationCreateShort(params *DevelopmentSe
 DevelopmentServerConfigurationGetShort get a development server configuration
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]
 */
-func (a *Client) DevelopmentServerConfigurationGetShort(params *DevelopmentServerConfigurationGetParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationGetOK, error) {
+func (a *Client) DevelopmentServerConfigurationGetShort(params *DevelopmentServerConfigurationGetParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDevelopmentServerConfigurationGetParams()
@@ -194,15 +239,40 @@ func (a *Client) DevelopmentServerConfigurationGetShort(params *DevelopmentServe
 	switch v := result.(type) {
 
 	case *DevelopmentServerConfigurationGetOK:
-		return v, nil
+		response := &DevelopmentServerConfigurationGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DevelopmentServerConfigurationGetUnauthorized:
-		return nil, v
+		response := &DevelopmentServerConfigurationGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationGetForbidden:
-		return nil, v
+		response := &DevelopmentServerConfigurationGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationGetNotFound:
-		return nil, v
+		response := &DevelopmentServerConfigurationGetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationGetInternalServerError:
-		return nil, v
+		response := &DevelopmentServerConfigurationGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -213,7 +283,7 @@ func (a *Client) DevelopmentServerConfigurationGetShort(params *DevelopmentServe
 DevelopmentServerConfigurationDeleteShort delete a development server configuration
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [DELETE]
 */
-func (a *Client) DevelopmentServerConfigurationDeleteShort(params *DevelopmentServerConfigurationDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationDeleteNoContent, error) {
+func (a *Client) DevelopmentServerConfigurationDeleteShort(params *DevelopmentServerConfigurationDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationDeleteResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDevelopmentServerConfigurationDeleteParams()
@@ -251,15 +321,39 @@ func (a *Client) DevelopmentServerConfigurationDeleteShort(params *DevelopmentSe
 	switch v := result.(type) {
 
 	case *DevelopmentServerConfigurationDeleteNoContent:
-		return v, nil
+		response := &DevelopmentServerConfigurationDeleteResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DevelopmentServerConfigurationDeleteUnauthorized:
-		return nil, v
+		response := &DevelopmentServerConfigurationDeleteResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationDeleteForbidden:
-		return nil, v
+		response := &DevelopmentServerConfigurationDeleteResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationDeleteNotFound:
-		return nil, v
+		response := &DevelopmentServerConfigurationDeleteResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DevelopmentServerConfigurationDeleteInternalServerError:
-		return nil, v
+		response := &DevelopmentServerConfigurationDeleteResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

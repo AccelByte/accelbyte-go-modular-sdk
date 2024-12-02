@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicListInventoriesShort(params *PublicListInventoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListInventoriesOK, error)
+	PublicListInventoriesShort(params *PublicListInventoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListInventoriesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ PublicListInventoriesShort to list all my inventories
 Listing all my inventories in a namespace.
 The response body will be in the form of standard pagination.
 */
-func (a *Client) PublicListInventoriesShort(params *PublicListInventoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListInventoriesOK, error) {
+func (a *Client) PublicListInventoriesShort(params *PublicListInventoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListInventoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListInventoriesParams()
@@ -79,11 +79,26 @@ func (a *Client) PublicListInventoriesShort(params *PublicListInventoriesParams,
 	switch v := result.(type) {
 
 	case *PublicListInventoriesOK:
-		return v, nil
+		response := &PublicListInventoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListInventoriesBadRequest:
-		return nil, v
+		response := &PublicListInventoriesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListInventoriesInternalServerError:
-		return nil, v
+		response := &PublicListInventoriesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -9,7 +9,6 @@ package challenge
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/player_reward"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PlayerRewardService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PlayerRewardService) AdminClaimUsersRewardsShort(input *player_reward.AdminClaimUsersRewardsParams) ([]*challengeclientmodels.ModelClaimUsersRewardsResponse, error) {
+func (aaa *PlayerRewardService) AdminClaimUsersRewardsShort(input *player_reward.AdminClaimUsersRewardsParams) (*player_reward.AdminClaimUsersRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PlayerRewardService) AdminClaimUsersRewardsShort(input *player_reward
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerRewardService) AdminClaimUserRewardsByGoalCodeShort(input *player_reward.AdminClaimUserRewardsByGoalCodeParams) ([]*challengeclientmodels.ModelUserReward, error) {
+func (aaa *PlayerRewardService) AdminClaimUserRewardsByGoalCodeShort(input *player_reward.AdminClaimUserRewardsByGoalCodeParams) (*player_reward.AdminClaimUserRewardsByGoalCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PlayerRewardService) AdminClaimUserRewardsByGoalCodeShort(input *play
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerRewardService) AdminGetUserRewardsShort(input *player_reward.AdminGetUserRewardsParams) (*challengeclientmodels.ModelListUserRewardsResponse, error) {
+func (aaa *PlayerRewardService) AdminGetUserRewardsShort(input *player_reward.AdminGetUserRewardsParams) (*player_reward.AdminGetUserRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *PlayerRewardService) AdminGetUserRewardsShort(input *player_reward.Ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerRewardService) AdminClaimUserRewardsShort(input *player_reward.AdminClaimUserRewardsParams) ([]*challengeclientmodels.ModelUserReward, error) {
+func (aaa *PlayerRewardService) AdminClaimUserRewardsShort(input *player_reward.AdminClaimUserRewardsParams) (*player_reward.AdminClaimUserRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *PlayerRewardService) AdminClaimUserRewardsShort(input *player_reward.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerRewardService) PublicClaimUserRewardsByGoalCodeShort(input *player_reward.PublicClaimUserRewardsByGoalCodeParams) ([]*challengeclientmodels.ModelUserReward, error) {
+func (aaa *PlayerRewardService) PublicClaimUserRewardsByGoalCodeShort(input *player_reward.PublicClaimUserRewardsByGoalCodeParams) (*player_reward.PublicClaimUserRewardsByGoalCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *PlayerRewardService) PublicClaimUserRewardsByGoalCodeShort(input *pla
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerRewardService) PublicGetUserRewardsShort(input *player_reward.PublicGetUserRewardsParams) (*challengeclientmodels.ModelListUserRewardsResponse, error) {
+func (aaa *PlayerRewardService) PublicGetUserRewardsShort(input *player_reward.PublicGetUserRewardsParams) (*player_reward.PublicGetUserRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *PlayerRewardService) PublicGetUserRewardsShort(input *player_reward.P
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerRewardService) PublicClaimUserRewardsShort(input *player_reward.PublicClaimUserRewardsParams) ([]*challengeclientmodels.ModelUserReward, error) {
+func (aaa *PlayerRewardService) PublicClaimUserRewardsShort(input *player_reward.PublicClaimUserRewardsParams) (*player_reward.PublicClaimUserRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,5 +243,5 @@ func (aaa *PlayerRewardService) PublicClaimUserRewardsShort(input *player_reward
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

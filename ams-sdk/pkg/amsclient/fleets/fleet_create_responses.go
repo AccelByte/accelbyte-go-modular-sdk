@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 )
 
+type FleetCreateResponse struct {
+	amsclientmodels.ApiResponse
+	Data *amsclientmodels.APIFleetCreateResponse
+
+	Error400 *amsclientmodels.ResponseErrorResponse
+	Error401 *amsclientmodels.ResponseErrorResponse
+	Error403 *amsclientmodels.ResponseErrorResponse
+	Error500 *amsclientmodels.ResponseErrorResponse
+}
+
+func (m *FleetCreateResponse) Unpack() (*amsclientmodels.APIFleetCreateResponse, *amsclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &amsclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // FleetCreateReader is a Reader for the FleetCreate structure.
 type FleetCreateReader struct {
 	formats strfmt.Registry

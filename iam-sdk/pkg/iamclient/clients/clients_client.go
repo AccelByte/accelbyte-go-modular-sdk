@@ -30,28 +30,28 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetClientsShort(params *GetClientsParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientsOK, error)
-	CreateClientShort(params *CreateClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreateClientCreated, error)
-	GetClientShort(params *GetClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientOK, error)
-	UpdateClientShort(params *UpdateClientParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientOK, error)
-	DeleteClientShort(params *DeleteClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientNoContent, error)
-	UpdateClientPermissionShort(params *UpdateClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientPermissionNoContent, error)
-	AddClientPermissionShort(params *AddClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddClientPermissionNoContent, error)
-	DeleteClientPermissionShort(params *DeleteClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientPermissionNoContent, error)
-	UpdateClientSecretShort(params *UpdateClientSecretParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientSecretNoContent, error)
-	GetClientsbyNamespaceShort(params *GetClientsbyNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientsbyNamespaceOK, error)
-	CreateClientByNamespaceShort(params *CreateClientByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*CreateClientByNamespaceCreated, error)
-	DeleteClientByNamespaceShort(params *DeleteClientByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientByNamespaceNoContent, error)
-	AdminGetClientsByNamespaceV3Short(params *AdminGetClientsByNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetClientsByNamespaceV3OK, error)
-	AdminBulkUpdateClientsV3Short(params *AdminBulkUpdateClientsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateClientsV3NoContent, error)
-	AdminCreateClientV3Short(params *AdminCreateClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateClientV3Created, error)
-	AdminGetClientsbyNamespacebyIDV3Short(params *AdminGetClientsbyNamespacebyIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetClientsbyNamespacebyIDV3OK, error)
-	AdminDeleteClientV3Short(params *AdminDeleteClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteClientV3NoContent, error)
-	AdminUpdateClientV3Short(params *AdminUpdateClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientV3OK, error)
-	AdminUpdateClientPermissionV3Short(params *AdminUpdateClientPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientPermissionV3NoContent, error)
-	AdminAddClientPermissionsV3Short(params *AdminAddClientPermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddClientPermissionsV3NoContent, error)
-	AdminDeleteClientPermissionV3Short(params *AdminDeleteClientPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteClientPermissionV3NoContent, error)
-	AdminUpdateClientSecretV3Short(params *AdminUpdateClientSecretV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientSecretV3NoContent, error)
+	GetClientsShort(params *GetClientsParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientsResponse, error)
+	CreateClientShort(params *CreateClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreateClientResponse, error)
+	GetClientShort(params *GetClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientResponse, error)
+	UpdateClientShort(params *UpdateClientParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientResponse, error)
+	DeleteClientShort(params *DeleteClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientResponse, error)
+	UpdateClientPermissionShort(params *UpdateClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientPermissionResponse, error)
+	AddClientPermissionShort(params *AddClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddClientPermissionResponse, error)
+	DeleteClientPermissionShort(params *DeleteClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientPermissionResponse, error)
+	UpdateClientSecretShort(params *UpdateClientSecretParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientSecretResponse, error)
+	GetClientsbyNamespaceShort(params *GetClientsbyNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientsbyNamespaceResponse, error)
+	CreateClientByNamespaceShort(params *CreateClientByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*CreateClientByNamespaceResponse, error)
+	DeleteClientByNamespaceShort(params *DeleteClientByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientByNamespaceResponse, error)
+	AdminGetClientsByNamespaceV3Short(params *AdminGetClientsByNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetClientsByNamespaceV3Response, error)
+	AdminBulkUpdateClientsV3Short(params *AdminBulkUpdateClientsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateClientsV3Response, error)
+	AdminCreateClientV3Short(params *AdminCreateClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateClientV3Response, error)
+	AdminGetClientsbyNamespacebyIDV3Short(params *AdminGetClientsbyNamespacebyIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetClientsbyNamespacebyIDV3Response, error)
+	AdminDeleteClientV3Short(params *AdminDeleteClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteClientV3Response, error)
+	AdminUpdateClientV3Short(params *AdminUpdateClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientV3Response, error)
+	AdminUpdateClientPermissionV3Short(params *AdminUpdateClientPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientPermissionV3Response, error)
+	AdminAddClientPermissionsV3Short(params *AdminAddClientPermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddClientPermissionsV3Response, error)
+	AdminDeleteClientPermissionV3Short(params *AdminDeleteClientPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteClientPermissionV3Response, error)
+	AdminUpdateClientSecretV3Short(params *AdminUpdateClientSecretV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientSecretV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -62,7 +62,7 @@ GetClientsShort get all clients
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients [GET]_**
 */
-func (a *Client) GetClientsShort(params *GetClientsParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientsOK, error) {
+func (a *Client) GetClientsShort(params *GetClientsParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetClientsParams()
@@ -100,11 +100,26 @@ func (a *Client) GetClientsShort(params *GetClientsParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *GetClientsOK:
-		return v, nil
+		response := &GetClientsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetClientsUnauthorized:
-		return nil, v
+		response := &GetClientsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetClientsForbidden:
-		return nil, v
+		response := &GetClientsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -117,7 +132,7 @@ CreateClientShort create client
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients [POST]_**
 */
-func (a *Client) CreateClientShort(params *CreateClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreateClientCreated, error) {
+func (a *Client) CreateClientShort(params *CreateClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreateClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateClientParams()
@@ -155,15 +170,39 @@ func (a *Client) CreateClientShort(params *CreateClientParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *CreateClientCreated:
-		return v, nil
+		response := &CreateClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateClientBadRequest:
-		return nil, v
+		response := &CreateClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateClientUnauthorized:
-		return nil, v
+		response := &CreateClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateClientForbidden:
-		return nil, v
+		response := &CreateClientResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateClientConflict:
-		return nil, v
+		response := &CreateClientResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -176,7 +215,7 @@ GetClientShort get client
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients/{clientId} [GET]_**
 */
-func (a *Client) GetClientShort(params *GetClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientOK, error) {
+func (a *Client) GetClientShort(params *GetClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetClientParams()
@@ -214,13 +253,32 @@ func (a *Client) GetClientShort(params *GetClientParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetClientOK:
-		return v, nil
+		response := &GetClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetClientUnauthorized:
-		return nil, v
+		response := &GetClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetClientForbidden:
-		return nil, v
+		response := &GetClientResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetClientNotFound:
-		return nil, v
+		response := &GetClientResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -233,7 +291,7 @@ UpdateClientShort update client
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients/{clientId} [PATCH]_**
 */
-func (a *Client) UpdateClientShort(params *UpdateClientParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientOK, error) {
+func (a *Client) UpdateClientShort(params *UpdateClientParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateClientParams()
@@ -271,15 +329,39 @@ func (a *Client) UpdateClientShort(params *UpdateClientParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UpdateClientOK:
-		return v, nil
+		response := &UpdateClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateClientBadRequest:
-		return nil, v
+		response := &UpdateClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientUnauthorized:
-		return nil, v
+		response := &UpdateClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientForbidden:
-		return nil, v
+		response := &UpdateClientResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientNotFound:
-		return nil, v
+		response := &UpdateClientResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -292,7 +374,7 @@ DeleteClientShort delete client
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients/{clientId} [DELETE]_**
 */
-func (a *Client) DeleteClientShort(params *DeleteClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientNoContent, error) {
+func (a *Client) DeleteClientShort(params *DeleteClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteClientParams()
@@ -330,13 +412,31 @@ func (a *Client) DeleteClientShort(params *DeleteClientParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteClientNoContent:
-		return v, nil
+		response := &DeleteClientResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteClientUnauthorized:
-		return nil, v
+		response := &DeleteClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteClientForbidden:
-		return nil, v
+		response := &DeleteClientResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteClientNotFound:
-		return nil, v
+		response := &DeleteClientResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -349,7 +449,7 @@ UpdateClientPermissionShort update client permissions
 **Endpoint migration guide**
 - **Substitute endpoint: _iam/v3/admin/namespaces/{namespace}/clients/{clientId}/permissions [PUT]_**
 */
-func (a *Client) UpdateClientPermissionShort(params *UpdateClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientPermissionNoContent, error) {
+func (a *Client) UpdateClientPermissionShort(params *UpdateClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientPermissionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateClientPermissionParams()
@@ -387,15 +487,38 @@ func (a *Client) UpdateClientPermissionShort(params *UpdateClientPermissionParam
 	switch v := result.(type) {
 
 	case *UpdateClientPermissionNoContent:
-		return v, nil
+		response := &UpdateClientPermissionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateClientPermissionBadRequest:
-		return nil, v
+		response := &UpdateClientPermissionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientPermissionUnauthorized:
-		return nil, v
+		response := &UpdateClientPermissionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientPermissionForbidden:
-		return nil, v
+		response := &UpdateClientPermissionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientPermissionNotFound:
-		return nil, v
+		response := &UpdateClientPermissionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -408,7 +531,7 @@ AddClientPermissionShort add client permission
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients/{clientId}/permissions [POST]_**
 */
-func (a *Client) AddClientPermissionShort(params *AddClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddClientPermissionNoContent, error) {
+func (a *Client) AddClientPermissionShort(params *AddClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddClientPermissionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddClientPermissionParams()
@@ -446,15 +569,38 @@ func (a *Client) AddClientPermissionShort(params *AddClientPermissionParams, aut
 	switch v := result.(type) {
 
 	case *AddClientPermissionNoContent:
-		return v, nil
+		response := &AddClientPermissionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddClientPermissionBadRequest:
-		return nil, v
+		response := &AddClientPermissionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddClientPermissionUnauthorized:
-		return nil, v
+		response := &AddClientPermissionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddClientPermissionForbidden:
-		return nil, v
+		response := &AddClientPermissionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddClientPermissionNotFound:
-		return nil, v
+		response := &AddClientPermissionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -467,7 +613,7 @@ DeleteClientPermissionShort delete client permission
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients/{clientId}/permissions/{resource}/{action} [DELETE]_**
 */
-func (a *Client) DeleteClientPermissionShort(params *DeleteClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientPermissionNoContent, error) {
+func (a *Client) DeleteClientPermissionShort(params *DeleteClientPermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientPermissionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteClientPermissionParams()
@@ -505,15 +651,38 @@ func (a *Client) DeleteClientPermissionShort(params *DeleteClientPermissionParam
 	switch v := result.(type) {
 
 	case *DeleteClientPermissionNoContent:
-		return v, nil
+		response := &DeleteClientPermissionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteClientPermissionBadRequest:
-		return nil, v
+		response := &DeleteClientPermissionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteClientPermissionUnauthorized:
-		return nil, v
+		response := &DeleteClientPermissionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteClientPermissionForbidden:
-		return nil, v
+		response := &DeleteClientPermissionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteClientPermissionNotFound:
-		return nil, v
+		response := &DeleteClientPermissionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -526,7 +695,7 @@ UpdateClientSecretShort update client secret
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/{clientId}/secret [PUT]_**
 */
-func (a *Client) UpdateClientSecretShort(params *UpdateClientSecretParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientSecretNoContent, error) {
+func (a *Client) UpdateClientSecretShort(params *UpdateClientSecretParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateClientSecretResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateClientSecretParams()
@@ -564,15 +733,38 @@ func (a *Client) UpdateClientSecretShort(params *UpdateClientSecretParams, authI
 	switch v := result.(type) {
 
 	case *UpdateClientSecretNoContent:
-		return v, nil
+		response := &UpdateClientSecretResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateClientSecretBadRequest:
-		return nil, v
+		response := &UpdateClientSecretResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientSecretUnauthorized:
-		return nil, v
+		response := &UpdateClientSecretResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientSecretForbidden:
-		return nil, v
+		response := &UpdateClientSecretResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateClientSecretNotFound:
-		return nil, v
+		response := &UpdateClientSecretResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -585,7 +777,7 @@ GetClientsbyNamespaceShort get clients by namespace
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients [GET]_**
 */
-func (a *Client) GetClientsbyNamespaceShort(params *GetClientsbyNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientsbyNamespaceOK, error) {
+func (a *Client) GetClientsbyNamespaceShort(params *GetClientsbyNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetClientsbyNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetClientsbyNamespaceParams()
@@ -623,11 +815,26 @@ func (a *Client) GetClientsbyNamespaceShort(params *GetClientsbyNamespaceParams,
 	switch v := result.(type) {
 
 	case *GetClientsbyNamespaceOK:
-		return v, nil
+		response := &GetClientsbyNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetClientsbyNamespaceUnauthorized:
-		return nil, v
+		response := &GetClientsbyNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetClientsbyNamespaceForbidden:
-		return nil, v
+		response := &GetClientsbyNamespaceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -640,7 +847,7 @@ CreateClientByNamespaceShort create client
 **Endpoint migration guide**
 - **Substitute endpoint: _/v3/admin/namespaces/{namespace}/clients [POST]_**
 */
-func (a *Client) CreateClientByNamespaceShort(params *CreateClientByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*CreateClientByNamespaceCreated, error) {
+func (a *Client) CreateClientByNamespaceShort(params *CreateClientByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*CreateClientByNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateClientByNamespaceParams()
@@ -678,15 +885,39 @@ func (a *Client) CreateClientByNamespaceShort(params *CreateClientByNamespacePar
 	switch v := result.(type) {
 
 	case *CreateClientByNamespaceCreated:
-		return v, nil
+		response := &CreateClientByNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateClientByNamespaceBadRequest:
-		return nil, v
+		response := &CreateClientByNamespaceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateClientByNamespaceUnauthorized:
-		return nil, v
+		response := &CreateClientByNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateClientByNamespaceForbidden:
-		return nil, v
+		response := &CreateClientByNamespaceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateClientByNamespaceConflict:
-		return nil, v
+		response := &CreateClientByNamespaceResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -699,7 +930,7 @@ DeleteClientByNamespaceShort delete client
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/clients/{clientId} [DELETE]_**
 */
-func (a *Client) DeleteClientByNamespaceShort(params *DeleteClientByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientByNamespaceNoContent, error) {
+func (a *Client) DeleteClientByNamespaceShort(params *DeleteClientByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteClientByNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteClientByNamespaceParams()
@@ -737,13 +968,31 @@ func (a *Client) DeleteClientByNamespaceShort(params *DeleteClientByNamespacePar
 	switch v := result.(type) {
 
 	case *DeleteClientByNamespaceNoContent:
-		return v, nil
+		response := &DeleteClientByNamespaceResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteClientByNamespaceUnauthorized:
-		return nil, v
+		response := &DeleteClientByNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteClientByNamespaceForbidden:
-		return nil, v
+		response := &DeleteClientByNamespaceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteClientByNamespaceNotFound:
-		return nil, v
+		response := &DeleteClientByNamespaceResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -754,7 +1003,7 @@ func (a *Client) DeleteClientByNamespaceShort(params *DeleteClientByNamespacePar
 AdminGetClientsByNamespaceV3Short get clients by namespace
 action code: 10308
 */
-func (a *Client) AdminGetClientsByNamespaceV3Short(params *AdminGetClientsByNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetClientsByNamespaceV3OK, error) {
+func (a *Client) AdminGetClientsByNamespaceV3Short(params *AdminGetClientsByNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetClientsByNamespaceV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetClientsByNamespaceV3Params()
@@ -792,13 +1041,33 @@ func (a *Client) AdminGetClientsByNamespaceV3Short(params *AdminGetClientsByName
 	switch v := result.(type) {
 
 	case *AdminGetClientsByNamespaceV3OK:
-		return v, nil
+		response := &AdminGetClientsByNamespaceV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetClientsByNamespaceV3BadRequest:
-		return nil, v
+		response := &AdminGetClientsByNamespaceV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetClientsByNamespaceV3Unauthorized:
-		return nil, v
+		response := &AdminGetClientsByNamespaceV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetClientsByNamespaceV3Forbidden:
-		return nil, v
+		response := &AdminGetClientsByNamespaceV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -840,7 +1109,7 @@ action code: 10302
 - **oauthRefreshTokenExpirationTimeUnit**: a configurable expiration time unit for **refresh_token**, will use previous value if not specified
 - **skipLoginQueue**: a flag to indicate whether this client should be exempted from login queue or not
 */
-func (a *Client) AdminBulkUpdateClientsV3Short(params *AdminBulkUpdateClientsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateClientsV3NoContent, error) {
+func (a *Client) AdminBulkUpdateClientsV3Short(params *AdminBulkUpdateClientsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateClientsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkUpdateClientsV3Params()
@@ -878,15 +1147,39 @@ func (a *Client) AdminBulkUpdateClientsV3Short(params *AdminBulkUpdateClientsV3P
 	switch v := result.(type) {
 
 	case *AdminBulkUpdateClientsV3NoContent:
-		return v, nil
+		response := &AdminBulkUpdateClientsV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkUpdateClientsV3BadRequest:
-		return nil, v
+		response := &AdminBulkUpdateClientsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateClientsV3Unauthorized:
-		return nil, v
+		response := &AdminBulkUpdateClientsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateClientsV3Forbidden:
-		return nil, v
+		response := &AdminBulkUpdateClientsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateClientsV3NotFound:
-		return nil, v
+		response := &AdminBulkUpdateClientsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -935,7 +1228,7 @@ Supported oAuthClientType :
 - **oauthAccessTokenExpirationTimeUnit**: a configurable expiration time unit for **access_token**, default value: SECONDS
 - **oauthRefreshTokenExpirationTimeUnit**: a configurable expiration time unit for **refresh_token**, default value: SECONDS
 */
-func (a *Client) AdminCreateClientV3Short(params *AdminCreateClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateClientV3Created, error) {
+func (a *Client) AdminCreateClientV3Short(params *AdminCreateClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateClientV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateClientV3Params()
@@ -973,15 +1266,40 @@ func (a *Client) AdminCreateClientV3Short(params *AdminCreateClientV3Params, aut
 	switch v := result.(type) {
 
 	case *AdminCreateClientV3Created:
-		return v, nil
+		response := &AdminCreateClientV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateClientV3BadRequest:
-		return nil, v
+		response := &AdminCreateClientV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateClientV3Unauthorized:
-		return nil, v
+		response := &AdminCreateClientV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateClientV3Forbidden:
-		return nil, v
+		response := &AdminCreateClientV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateClientV3Conflict:
-		return nil, v
+		response := &AdminCreateClientV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -992,7 +1310,7 @@ func (a *Client) AdminCreateClientV3Short(params *AdminCreateClientV3Params, aut
 AdminGetClientsbyNamespacebyIDV3Short get clients by namespace and client id. multi tenant mode allows admin portal client to be accessible regardless of namespace path.
 action code: 10309
 */
-func (a *Client) AdminGetClientsbyNamespacebyIDV3Short(params *AdminGetClientsbyNamespacebyIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetClientsbyNamespacebyIDV3OK, error) {
+func (a *Client) AdminGetClientsbyNamespacebyIDV3Short(params *AdminGetClientsbyNamespacebyIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetClientsbyNamespacebyIDV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetClientsbyNamespacebyIDV3Params()
@@ -1030,15 +1348,40 @@ func (a *Client) AdminGetClientsbyNamespacebyIDV3Short(params *AdminGetClientsby
 	switch v := result.(type) {
 
 	case *AdminGetClientsbyNamespacebyIDV3OK:
-		return v, nil
+		response := &AdminGetClientsbyNamespacebyIDV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetClientsbyNamespacebyIDV3BadRequest:
-		return nil, v
+		response := &AdminGetClientsbyNamespacebyIDV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetClientsbyNamespacebyIDV3Unauthorized:
-		return nil, v
+		response := &AdminGetClientsbyNamespacebyIDV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetClientsbyNamespacebyIDV3Forbidden:
-		return nil, v
+		response := &AdminGetClientsbyNamespacebyIDV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetClientsbyNamespacebyIDV3NotFound:
-		return nil, v
+		response := &AdminGetClientsbyNamespacebyIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1049,7 +1392,7 @@ func (a *Client) AdminGetClientsbyNamespacebyIDV3Short(params *AdminGetClientsby
 AdminDeleteClientV3Short delete client
 action code : 10310
 */
-func (a *Client) AdminDeleteClientV3Short(params *AdminDeleteClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteClientV3NoContent, error) {
+func (a *Client) AdminDeleteClientV3Short(params *AdminDeleteClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteClientV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteClientV3Params()
@@ -1087,17 +1430,46 @@ func (a *Client) AdminDeleteClientV3Short(params *AdminDeleteClientV3Params, aut
 	switch v := result.(type) {
 
 	case *AdminDeleteClientV3NoContent:
-		return v, nil
+		response := &AdminDeleteClientV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteClientV3BadRequest:
-		return nil, v
+		response := &AdminDeleteClientV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteClientV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteClientV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteClientV3Forbidden:
-		return nil, v
+		response := &AdminDeleteClientV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteClientV3NotFound:
-		return nil, v
+		response := &AdminDeleteClientV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteClientV3Conflict:
-		return nil, v
+		response := &AdminDeleteClientV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1139,7 +1511,7 @@ action code: 10302
 - **oauthRefreshTokenExpirationTimeUnit**: a configurable expiration time unit for **refresh_token**, will use previous value if not specified
 - **skipLoginQueue**: a flag to indicate whether this client should be exempted from login queue or not
 */
-func (a *Client) AdminUpdateClientV3Short(params *AdminUpdateClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientV3OK, error) {
+func (a *Client) AdminUpdateClientV3Short(params *AdminUpdateClientV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateClientV3Params()
@@ -1177,15 +1549,40 @@ func (a *Client) AdminUpdateClientV3Short(params *AdminUpdateClientV3Params, aut
 	switch v := result.(type) {
 
 	case *AdminUpdateClientV3OK:
-		return v, nil
+		response := &AdminUpdateClientV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateClientV3BadRequest:
-		return nil, v
+		response := &AdminUpdateClientV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateClientV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientV3Forbidden:
-		return nil, v
+		response := &AdminUpdateClientV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientV3NotFound:
-		return nil, v
+		response := &AdminUpdateClientV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1198,7 +1595,7 @@ AdminUpdateClientPermissionV3Short update client permissions
 This is for super admin only.
 action code: 10307
 */
-func (a *Client) AdminUpdateClientPermissionV3Short(params *AdminUpdateClientPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientPermissionV3NoContent, error) {
+func (a *Client) AdminUpdateClientPermissionV3Short(params *AdminUpdateClientPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientPermissionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateClientPermissionV3Params()
@@ -1236,15 +1633,39 @@ func (a *Client) AdminUpdateClientPermissionV3Short(params *AdminUpdateClientPer
 	switch v := result.(type) {
 
 	case *AdminUpdateClientPermissionV3NoContent:
-		return v, nil
+		response := &AdminUpdateClientPermissionV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateClientPermissionV3BadRequest:
-		return nil, v
+		response := &AdminUpdateClientPermissionV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientPermissionV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateClientPermissionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientPermissionV3Forbidden:
-		return nil, v
+		response := &AdminUpdateClientPermissionV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientPermissionV3NotFound:
-		return nil, v
+		response := &AdminUpdateClientPermissionV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1257,7 +1678,7 @@ AdminAddClientPermissionsV3Short add client permissions
 This is for super admin only.
 action code: 10303
 */
-func (a *Client) AdminAddClientPermissionsV3Short(params *AdminAddClientPermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddClientPermissionsV3NoContent, error) {
+func (a *Client) AdminAddClientPermissionsV3Short(params *AdminAddClientPermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddClientPermissionsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddClientPermissionsV3Params()
@@ -1295,15 +1716,39 @@ func (a *Client) AdminAddClientPermissionsV3Short(params *AdminAddClientPermissi
 	switch v := result.(type) {
 
 	case *AdminAddClientPermissionsV3NoContent:
-		return v, nil
+		response := &AdminAddClientPermissionsV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddClientPermissionsV3BadRequest:
-		return nil, v
+		response := &AdminAddClientPermissionsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddClientPermissionsV3Unauthorized:
-		return nil, v
+		response := &AdminAddClientPermissionsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddClientPermissionsV3Forbidden:
-		return nil, v
+		response := &AdminAddClientPermissionsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddClientPermissionsV3NotFound:
-		return nil, v
+		response := &AdminAddClientPermissionsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1316,7 +1761,7 @@ AdminDeleteClientPermissionV3Short delete client permission
 This is for super admin only.
 action code : 10304
 */
-func (a *Client) AdminDeleteClientPermissionV3Short(params *AdminDeleteClientPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteClientPermissionV3NoContent, error) {
+func (a *Client) AdminDeleteClientPermissionV3Short(params *AdminDeleteClientPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteClientPermissionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteClientPermissionV3Params()
@@ -1354,15 +1799,39 @@ func (a *Client) AdminDeleteClientPermissionV3Short(params *AdminDeleteClientPer
 	switch v := result.(type) {
 
 	case *AdminDeleteClientPermissionV3NoContent:
-		return v, nil
+		response := &AdminDeleteClientPermissionV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteClientPermissionV3BadRequest:
-		return nil, v
+		response := &AdminDeleteClientPermissionV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteClientPermissionV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteClientPermissionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteClientPermissionV3Forbidden:
-		return nil, v
+		response := &AdminDeleteClientPermissionV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteClientPermissionV3NotFound:
-		return nil, v
+		response := &AdminDeleteClientPermissionV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1373,7 +1842,7 @@ func (a *Client) AdminDeleteClientPermissionV3Short(params *AdminDeleteClientPer
 AdminUpdateClientSecretV3Short update client secret
 Update Client Secret
 */
-func (a *Client) AdminUpdateClientSecretV3Short(params *AdminUpdateClientSecretV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientSecretV3NoContent, error) {
+func (a *Client) AdminUpdateClientSecretV3Short(params *AdminUpdateClientSecretV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateClientSecretV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateClientSecretV3Params()
@@ -1411,15 +1880,38 @@ func (a *Client) AdminUpdateClientSecretV3Short(params *AdminUpdateClientSecretV
 	switch v := result.(type) {
 
 	case *AdminUpdateClientSecretV3NoContent:
-		return v, nil
+		response := &AdminUpdateClientSecretV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateClientSecretV3BadRequest:
-		return nil, v
+		response := &AdminUpdateClientSecretV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientSecretV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateClientSecretV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientSecretV3Forbidden:
-		return nil, v
+		response := &AdminUpdateClientSecretV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateClientSecretV3NotFound:
-		return nil, v
+		response := &AdminUpdateClientSecretV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

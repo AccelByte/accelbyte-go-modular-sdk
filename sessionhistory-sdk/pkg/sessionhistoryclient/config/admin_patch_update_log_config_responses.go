@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclientmodels"
 )
 
+type AdminPatchUpdateLogConfigResponse struct {
+	sessionhistoryclientmodels.ApiResponse
+	Data *sessionhistoryclientmodels.LogconfigConfiguration
+
+	Error401 *sessionhistoryclientmodels.ResponseError
+	Error403 *sessionhistoryclientmodels.ResponseError
+}
+
+func (m *AdminPatchUpdateLogConfigResponse) Unpack() (*sessionhistoryclientmodels.LogconfigConfiguration, *sessionhistoryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionhistoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminPatchUpdateLogConfigReader is a Reader for the AdminPatchUpdateLogConfig structure.
 type AdminPatchUpdateLogConfigReader struct {
 	formats strfmt.Registry

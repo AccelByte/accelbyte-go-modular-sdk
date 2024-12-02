@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 )
 
+type ListGlobalAchievementContributorsResponse struct {
+	achievementclientmodels.ApiResponse
+	Data *achievementclientmodels.ModelsPaginatedContributorResponse
+
+	Error400 *achievementclientmodels.ResponseError
+	Error401 *achievementclientmodels.ResponseError
+	Error500 *achievementclientmodels.ResponseError
+}
+
+func (m *ListGlobalAchievementContributorsResponse) Unpack() (*achievementclientmodels.ModelsPaginatedContributorResponse, *achievementclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &achievementclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ListGlobalAchievementContributorsReader is a Reader for the ListGlobalAchievementContributors structure.
 type ListGlobalAchievementContributorsReader struct {
 	formats strfmt.Registry

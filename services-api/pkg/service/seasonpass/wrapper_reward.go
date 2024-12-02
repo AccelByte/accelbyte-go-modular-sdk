@@ -9,7 +9,6 @@ package seasonpass
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/reward"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *RewardService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) ([]*seasonpassclientmodels.RewardInfo, error) {
+func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) (*reward.QueryRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) ([
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*seasonpassclientmodels.RewardInfo, error) {
+func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*reward.CreateRewardResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*seasonpassclientmodels.RewardInfo, error) {
+func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*reward.GetRewardResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*season
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RewardService) DeleteRewardShort(input *reward.DeleteRewardParams) error {
@@ -159,7 +158,7 @@ func (aaa *RewardService) DeleteRewardShort(input *reward.DeleteRewardParams) er
 	return nil
 }
 
-func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*seasonpassclientmodels.RewardInfo, error) {
+func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*reward.UpdateRewardResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) PublicClaimUserRewardShort(input *reward.PublicClaimUserRewardParams) (*seasonpassclientmodels.ClaimableRewards, error) {
+func (aaa *RewardService) PublicClaimUserRewardShort(input *reward.PublicClaimUserRewardParams) (*reward.PublicClaimUserRewardResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *RewardService) PublicClaimUserRewardShort(input *reward.PublicClaimUs
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RewardService) PublicBulkClaimUserRewardsShort(input *reward.PublicBulkClaimUserRewardsParams) (*seasonpassclientmodels.ClaimableRewards, error) {
+func (aaa *RewardService) PublicBulkClaimUserRewardsShort(input *reward.PublicBulkClaimUserRewardsParams) (*reward.PublicBulkClaimUserRewardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,5 +245,5 @@ func (aaa *RewardService) PublicBulkClaimUserRewardsShort(input *reward.PublicBu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

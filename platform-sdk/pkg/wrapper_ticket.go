@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/ticket"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *TicketService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *TicketService) GetTicketDynamicShort(input *ticket.GetTicketDynamicParams) (*platformclientmodels.TicketDynamicInfo, error) {
+func (aaa *TicketService) GetTicketDynamicShort(input *ticket.GetTicketDynamicParams) (*ticket.GetTicketDynamicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,7 +63,7 @@ func (aaa *TicketService) GetTicketDynamicShort(input *ticket.GetTicketDynamicPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *TicketService) DecreaseTicketSaleShort(input *ticket.DecreaseTicketSaleParams) error {
@@ -97,7 +96,7 @@ func (aaa *TicketService) DecreaseTicketSaleShort(input *ticket.DecreaseTicketSa
 	return nil
 }
 
-func (aaa *TicketService) GetTicketBoothIDShort(input *ticket.GetTicketBoothIDParams) (*platformclientmodels.TicketBoothID, error) {
+func (aaa *TicketService) GetTicketBoothIDShort(input *ticket.GetTicketBoothIDParams) (*ticket.GetTicketBoothIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *TicketService) GetTicketBoothIDShort(input *ticket.GetTicketBoothIDPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TicketService) IncreaseTicketSaleShort(input *ticket.IncreaseTicketSaleParams) (*platformclientmodels.TicketSaleIncrementResult, error) {
+func (aaa *TicketService) IncreaseTicketSaleShort(input *ticket.IncreaseTicketSaleParams) (*ticket.IncreaseTicketSaleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *TicketService) IncreaseTicketSaleShort(input *ticket.IncreaseTicketSa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TicketService) AcquireUserTicketShort(input *ticket.AcquireUserTicketParams) (*platformclientmodels.TicketAcquireResult, error) {
+func (aaa *TicketService) AcquireUserTicketShort(input *ticket.AcquireUserTicketParams) (*ticket.AcquireUserTicketResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,5 +183,5 @@ func (aaa *TicketService) AcquireUserTicketShort(input *ticket.AcquireUserTicket
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

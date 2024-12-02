@@ -19,6 +19,44 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type TokenRevocationV3Response struct {
+	iamclientmodels.ApiResponse
+
+	Error400 *iamclientmodels.OauthmodelErrorResponse
+	Error401 *iamclientmodels.OauthmodelErrorResponse
+}
+
+func (m *TokenRevocationV3Response) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // TokenRevocationV3Reader is a Reader for the TokenRevocationV3 structure.
 type TokenRevocationV3Reader struct {
 	formats strfmt.Registry

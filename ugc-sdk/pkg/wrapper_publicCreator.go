@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_creator"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type PublicCreatorService struct {
@@ -37,7 +36,7 @@ func (aaa *PublicCreatorService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicCreatorService) PublicSearchCreatorShort(input *public_creator.PublicSearchCreatorParams) (*ugcclientmodels.ModelsPaginatedCreatorOverviewResponse, error) {
+func (aaa *PublicCreatorService) PublicSearchCreatorShort(input *public_creator.PublicSearchCreatorParams) (*public_creator.PublicSearchCreatorResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicCreatorService) PublicSearchCreatorShort(input *public_creator.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicCreatorService) PublicGetCreatorShort(input *public_creator.PublicGetCreatorParams) (*ugcclientmodels.ModelsCreatorResponse, error) {
+func (aaa *PublicCreatorService) PublicGetCreatorShort(input *public_creator.PublicGetCreatorParams) (*public_creator.PublicGetCreatorResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,5 +93,5 @@ func (aaa *PublicCreatorService) PublicGetCreatorShort(input *public_creator.Pub
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

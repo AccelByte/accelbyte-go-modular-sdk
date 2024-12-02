@@ -9,7 +9,6 @@ package seasonpass
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/season"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *SeasonService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *SeasonService) QuerySeasonsShort(input *season.QuerySeasonsParams) (*seasonpassclientmodels.ListSeasonInfoPagingSlicedResult, error) {
+func (aaa *SeasonService) QuerySeasonsShort(input *season.QuerySeasonsParams) (*season.QuerySeasonsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *SeasonService) QuerySeasonsShort(input *season.QuerySeasonsParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) CreateSeasonShort(input *season.CreateSeasonParams) (*seasonpassclientmodels.SeasonInfo, error) {
+func (aaa *SeasonService) CreateSeasonShort(input *season.CreateSeasonParams) (*season.CreateSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *SeasonService) CreateSeasonShort(input *season.CreateSeasonParams) (*
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *SeasonService) GetCurrentSeasonShort(input *season.GetCurrentSeasonParams) (*seasonpassclientmodels.SeasonSummary, error) {
+func (aaa *SeasonService) GetCurrentSeasonShort(input *season.GetCurrentSeasonParams) (*season.GetCurrentSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *SeasonService) GetCurrentSeasonShort(input *season.GetCurrentSeasonPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) BulkGetUserSeasonProgressionShort(input *season.BulkGetUserSeasonProgressionParams) ([]*seasonpassclientmodels.UserSeasonSummary, error) {
+func (aaa *SeasonService) BulkGetUserSeasonProgressionShort(input *season.BulkGetUserSeasonProgressionParams) (*season.BulkGetUserSeasonProgressionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *SeasonService) BulkGetUserSeasonProgressionShort(input *season.BulkGe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) GetSeasonShort(input *season.GetSeasonParams) (*seasonpassclientmodels.SeasonInfo, error) {
+func (aaa *SeasonService) GetSeasonShort(input *season.GetSeasonParams) (*season.GetSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,7 +183,7 @@ func (aaa *SeasonService) GetSeasonShort(input *season.GetSeasonParams) (*season
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *SeasonService) DeleteSeasonShort(input *season.DeleteSeasonParams) error {
@@ -217,7 +216,7 @@ func (aaa *SeasonService) DeleteSeasonShort(input *season.DeleteSeasonParams) er
 	return nil
 }
 
-func (aaa *SeasonService) UpdateSeasonShort(input *season.UpdateSeasonParams) (*seasonpassclientmodels.SeasonInfo, error) {
+func (aaa *SeasonService) UpdateSeasonShort(input *season.UpdateSeasonParams) (*season.UpdateSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *SeasonService) UpdateSeasonShort(input *season.UpdateSeasonParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) CloneSeasonShort(input *season.CloneSeasonParams) (*seasonpassclientmodels.SeasonInfo, error) {
+func (aaa *SeasonService) CloneSeasonShort(input *season.CloneSeasonParams) (*season.CloneSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *SeasonService) CloneSeasonShort(input *season.CloneSeasonParams) (*se
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) GetFullSeasonShort(input *season.GetFullSeasonParams) (*seasonpassclientmodels.FullSeasonInfo, error) {
+func (aaa *SeasonService) GetFullSeasonShort(input *season.GetFullSeasonParams) (*season.GetFullSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *SeasonService) GetFullSeasonShort(input *season.GetFullSeasonParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) PublishSeasonShort(input *season.PublishSeasonParams) (*seasonpassclientmodels.SeasonInfo, error) {
+func (aaa *SeasonService) PublishSeasonShort(input *season.PublishSeasonParams) (*season.PublishSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *SeasonService) PublishSeasonShort(input *season.PublishSeasonParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) RetireSeasonShort(input *season.RetireSeasonParams) (*seasonpassclientmodels.SeasonInfo, error) {
+func (aaa *SeasonService) RetireSeasonShort(input *season.RetireSeasonParams) (*season.RetireSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *SeasonService) RetireSeasonShort(input *season.RetireSeasonParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) UnpublishSeasonShort(input *season.UnpublishSeasonParams) (*seasonpassclientmodels.SeasonInfo, error) {
+func (aaa *SeasonService) UnpublishSeasonShort(input *season.UnpublishSeasonParams) (*season.UnpublishSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *SeasonService) UnpublishSeasonShort(input *season.UnpublishSeasonPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) GetUserParticipatedSeasonsShort(input *season.GetUserParticipatedSeasonsParams) (*seasonpassclientmodels.ListUserSeasonInfoPagingSlicedResult, error) {
+func (aaa *SeasonService) GetUserParticipatedSeasonsShort(input *season.GetUserParticipatedSeasonsParams) (*season.GetUserParticipatedSeasonsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,10 +423,10 @@ func (aaa *SeasonService) GetUserParticipatedSeasonsShort(input *season.GetUserP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) ExistsAnyPassByPassCodesShort(input *season.ExistsAnyPassByPassCodesParams) (*seasonpassclientmodels.Ownership, error) {
+func (aaa *SeasonService) ExistsAnyPassByPassCodesShort(input *season.ExistsAnyPassByPassCodesParams) (*season.ExistsAnyPassByPassCodesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *SeasonService) ExistsAnyPassByPassCodesShort(input *season.ExistsAnyP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) GetCurrentUserSeasonProgressionShort(input *season.GetCurrentUserSeasonProgressionParams) (*seasonpassclientmodels.UserSeasonSummary, error) {
+func (aaa *SeasonService) GetCurrentUserSeasonProgressionShort(input *season.GetCurrentUserSeasonProgressionParams) (*season.GetCurrentUserSeasonProgressionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,7 +483,7 @@ func (aaa *SeasonService) GetCurrentUserSeasonProgressionShort(input *season.Get
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *SeasonService) CheckSeasonPurchasableShort(input *season.CheckSeasonPurchasableParams) error {
@@ -547,7 +546,7 @@ func (aaa *SeasonService) ResetUserSeasonShort(input *season.ResetUserSeasonPara
 	return nil
 }
 
-func (aaa *SeasonService) QueryUserExpGrantHistoryShort(input *season.QueryUserExpGrantHistoryParams) (*seasonpassclientmodels.ExpGrantHistoryPagingSlicedResult, error) {
+func (aaa *SeasonService) QueryUserExpGrantHistoryShort(input *season.QueryUserExpGrantHistoryParams) (*season.QueryUserExpGrantHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -574,10 +573,10 @@ func (aaa *SeasonService) QueryUserExpGrantHistoryShort(input *season.QueryUserE
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) QueryUserExpGrantHistoryTagShort(input *season.QueryUserExpGrantHistoryTagParams) (*seasonpassclientmodels.ReasonTagsResult, error) {
+func (aaa *SeasonService) QueryUserExpGrantHistoryTagShort(input *season.QueryUserExpGrantHistoryTagParams) (*season.QueryUserExpGrantHistoryTagResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -604,10 +603,10 @@ func (aaa *SeasonService) QueryUserExpGrantHistoryTagShort(input *season.QueryUs
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) GetUserSeasonShort(input *season.GetUserSeasonParams) (*seasonpassclientmodels.ClaimableUserSeasonInfo, error) {
+func (aaa *SeasonService) GetUserSeasonShort(input *season.GetUserSeasonParams) (*season.GetUserSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -634,10 +633,10 @@ func (aaa *SeasonService) GetUserSeasonShort(input *season.GetUserSeasonParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) PublicGetCurrentSeasonShort(input *season.PublicGetCurrentSeasonParams) (*seasonpassclientmodels.LocalizedSeasonInfo, error) {
+func (aaa *SeasonService) PublicGetCurrentSeasonShort(input *season.PublicGetCurrentSeasonParams) (*season.PublicGetCurrentSeasonResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -657,10 +656,10 @@ func (aaa *SeasonService) PublicGetCurrentSeasonShort(input *season.PublicGetCur
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) PublicGetCurrentUserSeasonShort(input *season.PublicGetCurrentUserSeasonParams) (*seasonpassclientmodels.ClaimableUserSeasonInfo, error) {
+func (aaa *SeasonService) PublicGetCurrentUserSeasonShort(input *season.PublicGetCurrentUserSeasonParams) (*season.PublicGetCurrentUserSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -687,10 +686,10 @@ func (aaa *SeasonService) PublicGetCurrentUserSeasonShort(input *season.PublicGe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SeasonService) PublicGetUserSeasonShort(input *season.PublicGetUserSeasonParams) (*seasonpassclientmodels.ClaimableUserSeasonInfo, error) {
+func (aaa *SeasonService) PublicGetUserSeasonShort(input *season.PublicGetUserSeasonParams) (*season.PublicGetUserSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -717,5 +716,5 @@ func (aaa *SeasonService) PublicGetUserSeasonShort(input *season.PublicGetUserSe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

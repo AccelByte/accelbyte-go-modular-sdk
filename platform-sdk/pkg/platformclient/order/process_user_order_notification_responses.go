@@ -13,7 +13,33 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
+
+type ProcessUserOrderNotificationResponse struct {
+	platformclientmodels.ApiResponse
+
+	Error400 string
+}
+
+func (m *ProcessUserOrderNotificationResponse) Unpack() *platformclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			return &platformclientmodels.ApiError{Code: "400", Message: m.Error400}
+
+		default:
+			return &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // ProcessUserOrderNotificationReader is a Reader for the ProcessUserOrderNotification structure.
 type ProcessUserOrderNotificationReader struct {

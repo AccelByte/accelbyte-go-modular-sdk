@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryUserIAPOrdersResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.IAPOrderPagingSlicedResult
+}
+
+func (m *QueryUserIAPOrdersResponse) Unpack() (*platformclientmodels.IAPOrderPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryUserIAPOrdersReader is a Reader for the QueryUserIAPOrders structure.
 type QueryUserIAPOrdersReader struct {
 	formats strfmt.Registry

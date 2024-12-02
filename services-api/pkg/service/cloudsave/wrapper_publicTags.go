@@ -9,7 +9,6 @@ package cloudsave
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/public_tags"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *PublicTagsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicTagsService) PublicListTagsHandlerV1Short(input *public_tags.PublicListTagsHandlerV1Params) (*cloudsaveclientmodels.ModelsListTagsResponse, error) {
+func (aaa *PublicTagsService) PublicListTagsHandlerV1Short(input *public_tags.PublicListTagsHandlerV1Params) (*public_tags.PublicListTagsHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,5 +65,5 @@ func (aaa *PublicTagsService) PublicListTagsHandlerV1Short(input *public_tags.Pu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

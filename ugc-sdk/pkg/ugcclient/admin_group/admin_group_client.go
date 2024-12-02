@@ -30,19 +30,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SingleAdminGetAllGroupsShort(params *SingleAdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetAllGroupsOK, error)
-	AdminCreateGroupShort(params *AdminCreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGroupCreated, error)
-	SingleAdminGetGroupShort(params *SingleAdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupOK, error)
-	SingleAdminUpdateGroupShort(params *SingleAdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateGroupOK, error)
-	SingleAdminDeleteGroupShort(params *SingleAdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteGroupNoContent, error)
-	SingleAdminGetGroupContentsShort(params *SingleAdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupContentsOK, error)
-	AdminGetAllGroupsShort(params *AdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllGroupsOK, error)
-	AdminGetGroupShort(params *AdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupOK, error)
-	AdminUpdateGroupShort(params *AdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGroupOK, error)
-	AdminDeleteGroupShort(params *AdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGroupNoContent, error)
-	AdminGetGroupContentsShort(params *AdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupContentsOK, error)
-	AdminGetOfficialGroupContentsV2Short(params *AdminGetOfficialGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetOfficialGroupContentsV2OK, error)
-	AdminGetUserGroupContentsV2Short(params *AdminGetUserGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupContentsV2OK, error)
+	SingleAdminGetAllGroupsShort(params *SingleAdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetAllGroupsResponse, error)
+	AdminCreateGroupShort(params *AdminCreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGroupResponse, error)
+	SingleAdminGetGroupShort(params *SingleAdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupResponse, error)
+	SingleAdminUpdateGroupShort(params *SingleAdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateGroupResponse, error)
+	SingleAdminDeleteGroupShort(params *SingleAdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteGroupResponse, error)
+	SingleAdminGetGroupContentsShort(params *SingleAdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupContentsResponse, error)
+	AdminGetAllGroupsShort(params *AdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllGroupsResponse, error)
+	AdminGetGroupShort(params *AdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupResponse, error)
+	AdminUpdateGroupShort(params *AdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGroupResponse, error)
+	AdminDeleteGroupShort(params *AdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGroupResponse, error)
+	AdminGetGroupContentsShort(params *AdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupContentsResponse, error)
+	AdminGetOfficialGroupContentsV2Short(params *AdminGetOfficialGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetOfficialGroupContentsV2Response, error)
+	AdminGetUserGroupContentsV2Short(params *AdminGetUserGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupContentsV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ type ClientService interface {
 SingleAdminGetAllGroupsShort get all user groups
 Get user group paginated
 */
-func (a *Client) SingleAdminGetAllGroupsShort(params *SingleAdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetAllGroupsOK, error) {
+func (a *Client) SingleAdminGetAllGroupsShort(params *SingleAdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetAllGroupsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminGetAllGroupsParams()
@@ -89,13 +89,33 @@ func (a *Client) SingleAdminGetAllGroupsShort(params *SingleAdminGetAllGroupsPar
 	switch v := result.(type) {
 
 	case *SingleAdminGetAllGroupsOK:
-		return v, nil
+		response := &SingleAdminGetAllGroupsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SingleAdminGetAllGroupsBadRequest:
-		return nil, v
+		response := &SingleAdminGetAllGroupsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetAllGroupsUnauthorized:
-		return nil, v
+		response := &SingleAdminGetAllGroupsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetAllGroupsInternalServerError:
-		return nil, v
+		response := &SingleAdminGetAllGroupsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -106,7 +126,7 @@ func (a *Client) SingleAdminGetAllGroupsShort(params *SingleAdminGetAllGroupsPar
 AdminCreateGroupShort create groups
 Create group
 */
-func (a *Client) AdminCreateGroupShort(params *AdminCreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGroupCreated, error) {
+func (a *Client) AdminCreateGroupShort(params *AdminCreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateGroupParams()
@@ -144,13 +164,33 @@ func (a *Client) AdminCreateGroupShort(params *AdminCreateGroupParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminCreateGroupCreated:
-		return v, nil
+		response := &AdminCreateGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateGroupBadRequest:
-		return nil, v
+		response := &AdminCreateGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateGroupUnauthorized:
-		return nil, v
+		response := &AdminCreateGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateGroupInternalServerError:
-		return nil, v
+		response := &AdminCreateGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -161,7 +201,7 @@ func (a *Client) AdminCreateGroupShort(params *AdminCreateGroupParams, authInfo 
 SingleAdminGetGroupShort get specific user group
 Get user group by group ID
 */
-func (a *Client) SingleAdminGetGroupShort(params *SingleAdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupOK, error) {
+func (a *Client) SingleAdminGetGroupShort(params *SingleAdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminGetGroupParams()
@@ -199,13 +239,33 @@ func (a *Client) SingleAdminGetGroupShort(params *SingleAdminGetGroupParams, aut
 	switch v := result.(type) {
 
 	case *SingleAdminGetGroupOK:
-		return v, nil
+		response := &SingleAdminGetGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SingleAdminGetGroupUnauthorized:
-		return nil, v
+		response := &SingleAdminGetGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetGroupNotFound:
-		return nil, v
+		response := &SingleAdminGetGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetGroupInternalServerError:
-		return nil, v
+		response := &SingleAdminGetGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,7 +276,7 @@ func (a *Client) SingleAdminGetGroupShort(params *SingleAdminGetGroupParams, aut
 SingleAdminUpdateGroupShort update group
 Replace group name and contents with new ones.
 */
-func (a *Client) SingleAdminUpdateGroupShort(params *SingleAdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateGroupOK, error) {
+func (a *Client) SingleAdminUpdateGroupShort(params *SingleAdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminUpdateGroupParams()
@@ -254,15 +314,40 @@ func (a *Client) SingleAdminUpdateGroupShort(params *SingleAdminUpdateGroupParam
 	switch v := result.(type) {
 
 	case *SingleAdminUpdateGroupOK:
-		return v, nil
+		response := &SingleAdminUpdateGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SingleAdminUpdateGroupBadRequest:
-		return nil, v
+		response := &SingleAdminUpdateGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminUpdateGroupUnauthorized:
-		return nil, v
+		response := &SingleAdminUpdateGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminUpdateGroupNotFound:
-		return nil, v
+		response := &SingleAdminUpdateGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminUpdateGroupInternalServerError:
-		return nil, v
+		response := &SingleAdminUpdateGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -273,7 +358,7 @@ func (a *Client) SingleAdminUpdateGroupShort(params *SingleAdminUpdateGroupParam
 SingleAdminDeleteGroupShort delete group
 Delete group by group ID
 */
-func (a *Client) SingleAdminDeleteGroupShort(params *SingleAdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteGroupNoContent, error) {
+func (a *Client) SingleAdminDeleteGroupShort(params *SingleAdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminDeleteGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminDeleteGroupParams()
@@ -311,13 +396,32 @@ func (a *Client) SingleAdminDeleteGroupShort(params *SingleAdminDeleteGroupParam
 	switch v := result.(type) {
 
 	case *SingleAdminDeleteGroupNoContent:
-		return v, nil
+		response := &SingleAdminDeleteGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SingleAdminDeleteGroupUnauthorized:
-		return nil, v
+		response := &SingleAdminDeleteGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminDeleteGroupNotFound:
-		return nil, v
+		response := &SingleAdminDeleteGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminDeleteGroupInternalServerError:
-		return nil, v
+		response := &SingleAdminDeleteGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -328,7 +432,7 @@ func (a *Client) SingleAdminDeleteGroupShort(params *SingleAdminDeleteGroupParam
 SingleAdminGetGroupContentsShort (legacy) get contents belong to a group
 Get content belong to a group
 */
-func (a *Client) SingleAdminGetGroupContentsShort(params *SingleAdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupContentsOK, error) {
+func (a *Client) SingleAdminGetGroupContentsShort(params *SingleAdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminGetGroupContentsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSingleAdminGetGroupContentsParams()
@@ -366,15 +470,40 @@ func (a *Client) SingleAdminGetGroupContentsShort(params *SingleAdminGetGroupCon
 	switch v := result.(type) {
 
 	case *SingleAdminGetGroupContentsOK:
-		return v, nil
+		response := &SingleAdminGetGroupContentsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SingleAdminGetGroupContentsBadRequest:
-		return nil, v
+		response := &SingleAdminGetGroupContentsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetGroupContentsUnauthorized:
-		return nil, v
+		response := &SingleAdminGetGroupContentsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetGroupContentsNotFound:
-		return nil, v
+		response := &SingleAdminGetGroupContentsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SingleAdminGetGroupContentsInternalServerError:
-		return nil, v
+		response := &SingleAdminGetGroupContentsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -385,7 +514,7 @@ func (a *Client) SingleAdminGetGroupContentsShort(params *SingleAdminGetGroupCon
 AdminGetAllGroupsShort get all user groups
 Get user group paginated
 */
-func (a *Client) AdminGetAllGroupsShort(params *AdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllGroupsOK, error) {
+func (a *Client) AdminGetAllGroupsShort(params *AdminGetAllGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllGroupsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAllGroupsParams()
@@ -423,13 +552,33 @@ func (a *Client) AdminGetAllGroupsShort(params *AdminGetAllGroupsParams, authInf
 	switch v := result.(type) {
 
 	case *AdminGetAllGroupsOK:
-		return v, nil
+		response := &AdminGetAllGroupsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAllGroupsBadRequest:
-		return nil, v
+		response := &AdminGetAllGroupsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllGroupsUnauthorized:
-		return nil, v
+		response := &AdminGetAllGroupsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllGroupsInternalServerError:
-		return nil, v
+		response := &AdminGetAllGroupsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -440,7 +589,7 @@ func (a *Client) AdminGetAllGroupsShort(params *AdminGetAllGroupsParams, authInf
 AdminGetGroupShort get specific user group
 Get user group by group ID
 */
-func (a *Client) AdminGetGroupShort(params *AdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupOK, error) {
+func (a *Client) AdminGetGroupShort(params *AdminGetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetGroupParams()
@@ -478,13 +627,33 @@ func (a *Client) AdminGetGroupShort(params *AdminGetGroupParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *AdminGetGroupOK:
-		return v, nil
+		response := &AdminGetGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetGroupUnauthorized:
-		return nil, v
+		response := &AdminGetGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGroupNotFound:
-		return nil, v
+		response := &AdminGetGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGroupInternalServerError:
-		return nil, v
+		response := &AdminGetGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -495,7 +664,7 @@ func (a *Client) AdminGetGroupShort(params *AdminGetGroupParams, authInfo runtim
 AdminUpdateGroupShort update group
 Replace group name and contents with new ones.
 */
-func (a *Client) AdminUpdateGroupShort(params *AdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGroupOK, error) {
+func (a *Client) AdminUpdateGroupShort(params *AdminUpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateGroupParams()
@@ -533,15 +702,40 @@ func (a *Client) AdminUpdateGroupShort(params *AdminUpdateGroupParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminUpdateGroupOK:
-		return v, nil
+		response := &AdminUpdateGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateGroupBadRequest:
-		return nil, v
+		response := &AdminUpdateGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGroupUnauthorized:
-		return nil, v
+		response := &AdminUpdateGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGroupNotFound:
-		return nil, v
+		response := &AdminUpdateGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGroupInternalServerError:
-		return nil, v
+		response := &AdminUpdateGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -552,7 +746,7 @@ func (a *Client) AdminUpdateGroupShort(params *AdminUpdateGroupParams, authInfo 
 AdminDeleteGroupShort delete group
 Delete group
 */
-func (a *Client) AdminDeleteGroupShort(params *AdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGroupNoContent, error) {
+func (a *Client) AdminDeleteGroupShort(params *AdminDeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteGroupParams()
@@ -590,13 +784,32 @@ func (a *Client) AdminDeleteGroupShort(params *AdminDeleteGroupParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminDeleteGroupNoContent:
-		return v, nil
+		response := &AdminDeleteGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteGroupUnauthorized:
-		return nil, v
+		response := &AdminDeleteGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGroupNotFound:
-		return nil, v
+		response := &AdminDeleteGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGroupInternalServerError:
-		return nil, v
+		response := &AdminDeleteGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -607,7 +820,7 @@ func (a *Client) AdminDeleteGroupShort(params *AdminDeleteGroupParams, authInfo 
 AdminGetGroupContentsShort (legacy) get contents belong to a group
 Get content belong to a group
 */
-func (a *Client) AdminGetGroupContentsShort(params *AdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupContentsOK, error) {
+func (a *Client) AdminGetGroupContentsShort(params *AdminGetGroupContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGroupContentsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetGroupContentsParams()
@@ -645,15 +858,40 @@ func (a *Client) AdminGetGroupContentsShort(params *AdminGetGroupContentsParams,
 	switch v := result.(type) {
 
 	case *AdminGetGroupContentsOK:
-		return v, nil
+		response := &AdminGetGroupContentsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetGroupContentsBadRequest:
-		return nil, v
+		response := &AdminGetGroupContentsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGroupContentsUnauthorized:
-		return nil, v
+		response := &AdminGetGroupContentsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGroupContentsNotFound:
-		return nil, v
+		response := &AdminGetGroupContentsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGroupContentsInternalServerError:
-		return nil, v
+		response := &AdminGetGroupContentsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -664,7 +902,7 @@ func (a *Client) AdminGetGroupContentsShort(params *AdminGetGroupContentsParams,
 AdminGetOfficialGroupContentsV2Short get contents belong to a group
 Get contents belong to a group
 */
-func (a *Client) AdminGetOfficialGroupContentsV2Short(params *AdminGetOfficialGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetOfficialGroupContentsV2OK, error) {
+func (a *Client) AdminGetOfficialGroupContentsV2Short(params *AdminGetOfficialGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetOfficialGroupContentsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetOfficialGroupContentsV2Params()
@@ -702,15 +940,40 @@ func (a *Client) AdminGetOfficialGroupContentsV2Short(params *AdminGetOfficialGr
 	switch v := result.(type) {
 
 	case *AdminGetOfficialGroupContentsV2OK:
-		return v, nil
+		response := &AdminGetOfficialGroupContentsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetOfficialGroupContentsV2BadRequest:
-		return nil, v
+		response := &AdminGetOfficialGroupContentsV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetOfficialGroupContentsV2Unauthorized:
-		return nil, v
+		response := &AdminGetOfficialGroupContentsV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetOfficialGroupContentsV2NotFound:
-		return nil, v
+		response := &AdminGetOfficialGroupContentsV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetOfficialGroupContentsV2InternalServerError:
-		return nil, v
+		response := &AdminGetOfficialGroupContentsV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -721,7 +984,7 @@ func (a *Client) AdminGetOfficialGroupContentsV2Short(params *AdminGetOfficialGr
 AdminGetUserGroupContentsV2Short get contents belong to a group
 Get contents belong to a group
 */
-func (a *Client) AdminGetUserGroupContentsV2Short(params *AdminGetUserGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupContentsV2OK, error) {
+func (a *Client) AdminGetUserGroupContentsV2Short(params *AdminGetUserGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserGroupContentsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserGroupContentsV2Params()
@@ -759,15 +1022,40 @@ func (a *Client) AdminGetUserGroupContentsV2Short(params *AdminGetUserGroupConte
 	switch v := result.(type) {
 
 	case *AdminGetUserGroupContentsV2OK:
-		return v, nil
+		response := &AdminGetUserGroupContentsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserGroupContentsV2BadRequest:
-		return nil, v
+		response := &AdminGetUserGroupContentsV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserGroupContentsV2Unauthorized:
-		return nil, v
+		response := &AdminGetUserGroupContentsV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserGroupContentsV2NotFound:
-		return nil, v
+		response := &AdminGetUserGroupContentsV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserGroupContentsV2InternalServerError:
-		return nil, v
+		response := &AdminGetUserGroupContentsV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

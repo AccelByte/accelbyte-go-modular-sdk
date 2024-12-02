@@ -30,18 +30,18 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingAdminV3OK, error)
-	GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurrentCycleLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingAdminV3OK, error)
-	DeleteAllUserRankingByCycleIDAdminV3Short(params *DeleteAllUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserRankingByCycleIDAdminV3NoContent, error)
-	DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByCycleIDAdminV3NoContent, error)
-	DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUserRankingByLeaderboardCodeAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV3NoContent, error)
-	GetUserRankingAdminV3Short(params *GetUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingAdminV3OK, error)
-	DeleteUserRankingAdminV3Short(params *DeleteUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingAdminV3NoContent, error)
-	DeleteUserRankingsAdminV3Short(params *DeleteUserRankingsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingsAdminV3NoContent, error)
-	GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingPublicV3OK, error)
-	GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurrentCycleLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingPublicV3OK, error)
-	BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUsersRankingPublicV3OK, error)
-	GetUserRankingPublicV3Short(params *GetUserRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingPublicV3OK, error)
+	GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingAdminV3Response, error)
+	GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurrentCycleLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingAdminV3Response, error)
+	DeleteAllUserRankingByCycleIDAdminV3Short(params *DeleteAllUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserRankingByCycleIDAdminV3Response, error)
+	DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByCycleIDAdminV3Response, error)
+	DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUserRankingByLeaderboardCodeAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV3Response, error)
+	GetUserRankingAdminV3Short(params *GetUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingAdminV3Response, error)
+	DeleteUserRankingAdminV3Short(params *DeleteUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingAdminV3Response, error)
+	DeleteUserRankingsAdminV3Short(params *DeleteUserRankingsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingsAdminV3Response, error)
+	GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingPublicV3Response, error)
+	GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurrentCycleLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingPublicV3Response, error)
+	BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUsersRankingPublicV3Response, error)
+	GetUserRankingPublicV3Short(params *GetUserRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingPublicV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ GetAllTimeLeaderboardRankingAdminV3Short get all time leaderboard ranking data
 
 Get rankings in an all time leaderboard.
 */
-func (a *Client) GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingAdminV3OK, error) {
+func (a *Client) GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllTimeLeaderboardRankingAdminV3Params()
@@ -90,17 +90,47 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLead
 	switch v := result.(type) {
 
 	case *GetAllTimeLeaderboardRankingAdminV3OK:
-		return v, nil
+		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllTimeLeaderboardRankingAdminV3BadRequest:
-		return nil, v
+		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllTimeLeaderboardRankingAdminV3Unauthorized:
-		return nil, v
+		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllTimeLeaderboardRankingAdminV3Forbidden:
-		return nil, v
+		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllTimeLeaderboardRankingAdminV3NotFound:
-		return nil, v
+		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllTimeLeaderboardRankingAdminV3InternalServerError:
-		return nil, v
+		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -113,7 +143,7 @@ GetCurrentCycleLeaderboardRankingAdminV3Short get cycle leaderboard ranking data
 
 Get rankings in cycle leaderboard.
 */
-func (a *Client) GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurrentCycleLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingAdminV3OK, error) {
+func (a *Client) GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurrentCycleLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCurrentCycleLeaderboardRankingAdminV3Params()
@@ -151,17 +181,47 @@ func (a *Client) GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurren
 	switch v := result.(type) {
 
 	case *GetCurrentCycleLeaderboardRankingAdminV3OK:
-		return v, nil
+		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCurrentCycleLeaderboardRankingAdminV3BadRequest:
-		return nil, v
+		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCurrentCycleLeaderboardRankingAdminV3Unauthorized:
-		return nil, v
+		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCurrentCycleLeaderboardRankingAdminV3Forbidden:
-		return nil, v
+		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCurrentCycleLeaderboardRankingAdminV3NotFound:
-		return nil, v
+		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCurrentCycleLeaderboardRankingAdminV3InternalServerError:
-		return nil, v
+		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -179,7 +239,7 @@ This endpoint will delete user ranking by cycleId
 
 Warning : This will permanently delete your data. Make sure to back up anything important before continuing.
 */
-func (a *Client) DeleteAllUserRankingByCycleIDAdminV3Short(params *DeleteAllUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserRankingByCycleIDAdminV3NoContent, error) {
+func (a *Client) DeleteAllUserRankingByCycleIDAdminV3Short(params *DeleteAllUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAllUserRankingByCycleIDAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAllUserRankingByCycleIDAdminV3Params()
@@ -217,15 +277,39 @@ func (a *Client) DeleteAllUserRankingByCycleIDAdminV3Short(params *DeleteAllUser
 	switch v := result.(type) {
 
 	case *DeleteAllUserRankingByCycleIDAdminV3NoContent:
-		return v, nil
+		response := &DeleteAllUserRankingByCycleIDAdminV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAllUserRankingByCycleIDAdminV3Unauthorized:
-		return nil, v
+		response := &DeleteAllUserRankingByCycleIDAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserRankingByCycleIDAdminV3Forbidden:
-		return nil, v
+		response := &DeleteAllUserRankingByCycleIDAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserRankingByCycleIDAdminV3NotFound:
-		return nil, v
+		response := &DeleteAllUserRankingByCycleIDAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAllUserRankingByCycleIDAdminV3InternalServerError:
-		return nil, v
+		response := &DeleteAllUserRankingByCycleIDAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -240,7 +324,7 @@ Remove entry with provided cycleId and userId from leaderboard.
 If leaderboard with given leaderboard code not found, it will return http status not found (404).
 If the leaderboard is found and no entry found in it, it will still return success (204)
 */
-func (a *Client) DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByCycleIDAdminV3NoContent, error) {
+func (a *Client) DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankingByCycleIDAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByCycleIDAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserRankingByCycleIDAdminV3Params()
@@ -278,15 +362,39 @@ func (a *Client) DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankin
 	switch v := result.(type) {
 
 	case *DeleteUserRankingByCycleIDAdminV3NoContent:
-		return v, nil
+		response := &DeleteUserRankingByCycleIDAdminV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserRankingByCycleIDAdminV3Unauthorized:
-		return nil, v
+		response := &DeleteUserRankingByCycleIDAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingByCycleIDAdminV3Forbidden:
-		return nil, v
+		response := &DeleteUserRankingByCycleIDAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingByCycleIDAdminV3NotFound:
-		return nil, v
+		response := &DeleteUserRankingByCycleIDAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingByCycleIDAdminV3InternalServerError:
-		return nil, v
+		response := &DeleteUserRankingByCycleIDAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -304,7 +412,7 @@ This endpoint will delete user ranking by leaderboard code
 
 Warning : This will permanently delete your data. Make sure to back up anything important before continuing.
 */
-func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUserRankingByLeaderboardCodeAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV3NoContent, error) {
+func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUserRankingByLeaderboardCodeAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingByLeaderboardCodeAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserRankingByLeaderboardCodeAdminV3Params()
@@ -342,15 +450,39 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUs
 	switch v := result.(type) {
 
 	case *DeleteUserRankingByLeaderboardCodeAdminV3NoContent:
-		return v, nil
+		response := &DeleteUserRankingByLeaderboardCodeAdminV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserRankingByLeaderboardCodeAdminV3Unauthorized:
-		return nil, v
+		response := &DeleteUserRankingByLeaderboardCodeAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingByLeaderboardCodeAdminV3Forbidden:
-		return nil, v
+		response := &DeleteUserRankingByLeaderboardCodeAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingByLeaderboardCodeAdminV3NotFound:
-		return nil, v
+		response := &DeleteUserRankingByLeaderboardCodeAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingByLeaderboardCodeAdminV3InternalServerError:
-		return nil, v
+		response := &DeleteUserRankingByLeaderboardCodeAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -363,7 +495,7 @@ GetUserRankingAdminV3Short get user ranking
 
 Get user ranking in leaderboard
 */
-func (a *Client) GetUserRankingAdminV3Short(params *GetUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingAdminV3OK, error) {
+func (a *Client) GetUserRankingAdminV3Short(params *GetUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserRankingAdminV3Params()
@@ -401,15 +533,40 @@ func (a *Client) GetUserRankingAdminV3Short(params *GetUserRankingAdminV3Params,
 	switch v := result.(type) {
 
 	case *GetUserRankingAdminV3OK:
-		return v, nil
+		response := &GetUserRankingAdminV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserRankingAdminV3Unauthorized:
-		return nil, v
+		response := &GetUserRankingAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserRankingAdminV3Forbidden:
-		return nil, v
+		response := &GetUserRankingAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserRankingAdminV3NotFound:
-		return nil, v
+		response := &GetUserRankingAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserRankingAdminV3InternalServerError:
-		return nil, v
+		response := &GetUserRankingAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -424,7 +581,7 @@ Remove entry with provided userId from leaderboard.
 If leaderboard with given leaderboard code not found, it will return http status not found (404).
 If the leaderboard is found and no entry found in it, it will still return success (204)
 */
-func (a *Client) DeleteUserRankingAdminV3Short(params *DeleteUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingAdminV3NoContent, error) {
+func (a *Client) DeleteUserRankingAdminV3Short(params *DeleteUserRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserRankingAdminV3Params()
@@ -462,15 +619,39 @@ func (a *Client) DeleteUserRankingAdminV3Short(params *DeleteUserRankingAdminV3P
 	switch v := result.(type) {
 
 	case *DeleteUserRankingAdminV3NoContent:
-		return v, nil
+		response := &DeleteUserRankingAdminV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserRankingAdminV3Unauthorized:
-		return nil, v
+		response := &DeleteUserRankingAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingAdminV3Forbidden:
-		return nil, v
+		response := &DeleteUserRankingAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingAdminV3NotFound:
-		return nil, v
+		response := &DeleteUserRankingAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingAdminV3InternalServerError:
-		return nil, v
+		response := &DeleteUserRankingAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -483,7 +664,7 @@ Delete user ranking across leaderboard
 
 Remove entry with provided userId from leaderboard.
 */
-func (a *Client) DeleteUserRankingsAdminV3Short(params *DeleteUserRankingsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingsAdminV3NoContent, error) {
+func (a *Client) DeleteUserRankingsAdminV3Short(params *DeleteUserRankingsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserRankingsAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserRankingsAdminV3Params()
@@ -521,13 +702,32 @@ func (a *Client) DeleteUserRankingsAdminV3Short(params *DeleteUserRankingsAdminV
 	switch v := result.(type) {
 
 	case *DeleteUserRankingsAdminV3NoContent:
-		return v, nil
+		response := &DeleteUserRankingsAdminV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserRankingsAdminV3Unauthorized:
-		return nil, v
+		response := &DeleteUserRankingsAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingsAdminV3Forbidden:
-		return nil, v
+		response := &DeleteUserRankingsAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserRankingsAdminV3InternalServerError:
-		return nil, v
+		response := &DeleteUserRankingsAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -540,7 +740,7 @@ GetAllTimeLeaderboardRankingPublicV3Short get all time leaderboard ranking data
 
 Get rankings in an all time leaderboard.
 */
-func (a *Client) GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingPublicV3OK, error) {
+func (a *Client) GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingPublicV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllTimeLeaderboardRankingPublicV3Params()
@@ -578,13 +778,33 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLea
 	switch v := result.(type) {
 
 	case *GetAllTimeLeaderboardRankingPublicV3OK:
-		return v, nil
+		response := &GetAllTimeLeaderboardRankingPublicV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllTimeLeaderboardRankingPublicV3BadRequest:
-		return nil, v
+		response := &GetAllTimeLeaderboardRankingPublicV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllTimeLeaderboardRankingPublicV3NotFound:
-		return nil, v
+		response := &GetAllTimeLeaderboardRankingPublicV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllTimeLeaderboardRankingPublicV3InternalServerError:
-		return nil, v
+		response := &GetAllTimeLeaderboardRankingPublicV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -597,7 +817,7 @@ GetCurrentCycleLeaderboardRankingPublicV3Short get cycle leaderboard ranking dat
 
 Get rankings in cycle leaderboard.
 */
-func (a *Client) GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurrentCycleLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingPublicV3OK, error) {
+func (a *Client) GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurrentCycleLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingPublicV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCurrentCycleLeaderboardRankingPublicV3Params()
@@ -635,13 +855,33 @@ func (a *Client) GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurre
 	switch v := result.(type) {
 
 	case *GetCurrentCycleLeaderboardRankingPublicV3OK:
-		return v, nil
+		response := &GetCurrentCycleLeaderboardRankingPublicV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCurrentCycleLeaderboardRankingPublicV3BadRequest:
-		return nil, v
+		response := &GetCurrentCycleLeaderboardRankingPublicV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCurrentCycleLeaderboardRankingPublicV3NotFound:
-		return nil, v
+		response := &GetCurrentCycleLeaderboardRankingPublicV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCurrentCycleLeaderboardRankingPublicV3InternalServerError:
-		return nil, v
+		response := &GetCurrentCycleLeaderboardRankingPublicV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -654,7 +894,7 @@ BulkGetUsersRankingPublicV3Short bulk get users ranking
 
 Bulk get users ranking in leaderboard, max allowed 20 userIDs at a time.
 */
-func (a *Client) BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUsersRankingPublicV3OK, error) {
+func (a *Client) BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUsersRankingPublicV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetUsersRankingPublicV3Params()
@@ -692,17 +932,47 @@ func (a *Client) BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPub
 	switch v := result.(type) {
 
 	case *BulkGetUsersRankingPublicV3OK:
-		return v, nil
+		response := &BulkGetUsersRankingPublicV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetUsersRankingPublicV3BadRequest:
-		return nil, v
+		response := &BulkGetUsersRankingPublicV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetUsersRankingPublicV3Unauthorized:
-		return nil, v
+		response := &BulkGetUsersRankingPublicV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetUsersRankingPublicV3Forbidden:
-		return nil, v
+		response := &BulkGetUsersRankingPublicV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetUsersRankingPublicV3NotFound:
-		return nil, v
+		response := &BulkGetUsersRankingPublicV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetUsersRankingPublicV3InternalServerError:
-		return nil, v
+		response := &BulkGetUsersRankingPublicV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -715,7 +985,7 @@ GetUserRankingPublicV3Short get user ranking
 
 Get user ranking in leaderboard
 */
-func (a *Client) GetUserRankingPublicV3Short(params *GetUserRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingPublicV3OK, error) {
+func (a *Client) GetUserRankingPublicV3Short(params *GetUserRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingPublicV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserRankingPublicV3Params()
@@ -753,15 +1023,40 @@ func (a *Client) GetUserRankingPublicV3Short(params *GetUserRankingPublicV3Param
 	switch v := result.(type) {
 
 	case *GetUserRankingPublicV3OK:
-		return v, nil
+		response := &GetUserRankingPublicV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserRankingPublicV3Unauthorized:
-		return nil, v
+		response := &GetUserRankingPublicV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserRankingPublicV3Forbidden:
-		return nil, v
+		response := &GetUserRankingPublicV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserRankingPublicV3NotFound:
-		return nil, v
+		response := &GetUserRankingPublicV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserRankingPublicV3InternalServerError:
-		return nil, v
+		response := &GetUserRankingPublicV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

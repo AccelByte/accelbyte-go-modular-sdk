@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 )
 
+type AdminSearchSessionsV2Response struct {
+	sessionbrowserclientmodels.ApiResponse
+	Data *sessionbrowserclientmodels.ModelsGetSessionHistorySearchResponseV2
+
+	Error400 *sessionbrowserclientmodels.RestapiErrorV1
+	Error401 *sessionbrowserclientmodels.RestapiErrorV1
+	Error403 *sessionbrowserclientmodels.RestapiErrorV1
+	Error500 *sessionbrowserclientmodels.ResponseError
+}
+
+func (m *AdminSearchSessionsV2Response) Unpack() (*sessionbrowserclientmodels.ModelsGetSessionHistorySearchResponseV2, *sessionbrowserclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionbrowserclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminSearchSessionsV2Reader is a Reader for the AdminSearchSessionsV2 structure.
 type AdminSearchSessionsV2Reader struct {
 	formats strfmt.Registry

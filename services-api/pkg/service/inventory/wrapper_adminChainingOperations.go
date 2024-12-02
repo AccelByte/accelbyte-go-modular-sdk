@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_chaining_operations"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AdminChainingOperationsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminChainingOperationsService) AdminCreateChainingOperationsShort(input *admin_chaining_operations.AdminCreateChainingOperationsParams) (*inventoryclientmodels.ApimodelsChainingOperationResp, error) {
+func (aaa *AdminChainingOperationsService) AdminCreateChainingOperationsShort(input *admin_chaining_operations.AdminCreateChainingOperationsParams) (*admin_chaining_operations.AdminCreateChainingOperationsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,5 +65,5 @@ func (aaa *AdminChainingOperationsService) AdminCreateChainingOperationsShort(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

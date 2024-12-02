@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicListReasonGroupsShort(params *PublicListReasonGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListReasonGroupsOK, error)
-	PublicGetReasonsShort(params *PublicGetReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetReasonsOK, error)
+	PublicListReasonGroupsShort(params *PublicListReasonGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListReasonGroupsResponse, error)
+	PublicGetReasonsShort(params *PublicGetReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetReasonsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 PublicListReasonGroupsShort list reason groups under a namespace
 Return list of reason groups ID and title under given namespace.
 */
-func (a *Client) PublicListReasonGroupsShort(params *PublicListReasonGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListReasonGroupsOK, error) {
+func (a *Client) PublicListReasonGroupsShort(params *PublicListReasonGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListReasonGroupsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListReasonGroupsParams()
@@ -78,9 +78,19 @@ func (a *Client) PublicListReasonGroupsShort(params *PublicListReasonGroupsParam
 	switch v := result.(type) {
 
 	case *PublicListReasonGroupsOK:
-		return v, nil
+		response := &PublicListReasonGroupsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListReasonGroupsInternalServerError:
-		return nil, v
+		response := &PublicListReasonGroupsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -90,7 +100,7 @@ func (a *Client) PublicListReasonGroupsShort(params *PublicListReasonGroupsParam
 /*
 PublicGetReasonsShort get list of reasons
 */
-func (a *Client) PublicGetReasonsShort(params *PublicGetReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetReasonsOK, error) {
+func (a *Client) PublicGetReasonsShort(params *PublicGetReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetReasonsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetReasonsParams()
@@ -128,11 +138,26 @@ func (a *Client) PublicGetReasonsShort(params *PublicGetReasonsParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicGetReasonsOK:
-		return v, nil
+		response := &PublicGetReasonsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetReasonsNotFound:
-		return nil, v
+		response := &PublicGetReasonsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetReasonsInternalServerError:
-		return nil, v
+		response := &PublicGetReasonsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

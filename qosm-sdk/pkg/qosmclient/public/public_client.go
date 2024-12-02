@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListServerPerNamespaceShort(params *ListServerPerNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerPerNamespaceOK, error)
-	ListServerShort(params *ListServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerOK, error)
+	ListServerPerNamespaceShort(params *ListServerPerNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerPerNamespaceResponse, error)
+	ListServerShort(params *ListServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -56,7 +56,7 @@ The game then can use ping latency information to either:
 in nearby regions
 ```
 */
-func (a *Client) ListServerPerNamespaceShort(params *ListServerPerNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerPerNamespaceOK, error) {
+func (a *Client) ListServerPerNamespaceShort(params *ListServerPerNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerPerNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListServerPerNamespaceParams()
@@ -94,9 +94,19 @@ func (a *Client) ListServerPerNamespaceShort(params *ListServerPerNamespaceParam
 	switch v := result.(type) {
 
 	case *ListServerPerNamespaceOK:
-		return v, nil
+		response := &ListServerPerNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListServerPerNamespaceInternalServerError:
-		return nil, v
+		response := &ListServerPerNamespaceResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -123,7 +133,7 @@ The game then can use ping latency information to either:
 in nearby regions
 ```
 */
-func (a *Client) ListServerShort(params *ListServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerOK, error) {
+func (a *Client) ListServerShort(params *ListServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListServerParams()
@@ -161,9 +171,19 @@ func (a *Client) ListServerShort(params *ListServerParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *ListServerOK:
-		return v, nil
+		response := &ListServerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListServerInternalServerError:
-		return nil, v
+		response := &ListServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

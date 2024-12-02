@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/deployment_v2"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *DeploymentV2Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *DeploymentV2Service) CreateDeploymentV2Short(input *deployment_v2.CreateDeploymentV2Params) (*csmclientmodels.ApimodelCreateDeploymentV2Response, error) {
+func (aaa *DeploymentV2Service) CreateDeploymentV2Short(input *deployment_v2.CreateDeploymentV2Params) (*deployment_v2.CreateDeploymentV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *DeploymentV2Service) CreateDeploymentV2Short(input *deployment_v2.Cre
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *DeploymentV2Service) GetListOfDeploymentV2Short(input *deployment_v2.GetListOfDeploymentV2Params) (*csmclientmodels.ApimodelGetDeploymentListV2Response, error) {
+func (aaa *DeploymentV2Service) GetListOfDeploymentV2Short(input *deployment_v2.GetListOfDeploymentV2Params) (*deployment_v2.GetListOfDeploymentV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *DeploymentV2Service) GetListOfDeploymentV2Short(input *deployment_v2.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DeploymentV2Service) GetDeploymentV2Short(input *deployment_v2.GetDeploymentV2Params) (*csmclientmodels.ApimodelGetDeploymentListV2DataItem, error) {
+func (aaa *DeploymentV2Service) GetDeploymentV2Short(input *deployment_v2.GetDeploymentV2Params) (*deployment_v2.GetDeploymentV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *DeploymentV2Service) GetDeploymentV2Short(input *deployment_v2.GetDep
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *DeploymentV2Service) DeleteDeploymentV2Short(input *deployment_v2.DeleteDeploymentV2Params) error {

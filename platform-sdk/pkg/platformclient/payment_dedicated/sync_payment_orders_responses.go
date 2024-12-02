@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type SyncPaymentOrdersResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PaymentOrderSyncResult
+}
+
+func (m *SyncPaymentOrdersResponse) Unpack() (*platformclientmodels.PaymentOrderSyncResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // SyncPaymentOrdersReader is a Reader for the SyncPaymentOrders structure.
 type SyncPaymentOrdersReader struct {
 	formats strfmt.Registry

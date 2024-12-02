@@ -30,33 +30,33 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByPublicIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoByPublicIDOK, error)
-	AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserProfilePublicInfoByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProfilePublicInfoByIdsOK, error)
-	GetUserProfileInfoShort(params *GetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoOK, error)
-	UpdateUserProfileShort(params *UpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileOK, error)
-	DeleteUserProfileShort(params *DeleteUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserProfileOK, error)
-	GetCustomAttributesInfoShort(params *GetCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetCustomAttributesInfoOK, error)
-	UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCustomAttributesPartiallyOK, error)
-	GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetPrivateCustomAttributesInfoOK, error)
-	UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePrivateCustomAttributesPartiallyOK, error)
-	UpdateUserProfileStatusShort(params *UpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileStatusOK, error)
-	PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserProfilePublicInfoByIdsParams) (*PublicGetUserProfilePublicInfoByIdsOK, error)
-	PublicBulkGetUserProfilePublicInfoShort(params *PublicBulkGetUserProfilePublicInfoParams) (*PublicBulkGetUserProfilePublicInfoOK, error)
-	PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserProfileInfoByPublicIDParams) (*PublicGetUserProfileInfoByPublicIDOK, error)
-	GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyProfileInfoOK, error)
-	UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyProfileOK, error)
-	CreateMyProfileShort(params *CreateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMyProfileCreated, error)
-	GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyPrivateCustomAttributesInfoOK, error)
-	UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyPrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyPrivateCustomAttributesPartiallyOK, error)
-	GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyZipCodeOK, error)
-	UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyZipCodeOK, error)
-	PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfileInfoOK, error)
-	PublicUpdateUserProfileShort(params *PublicUpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileOK, error)
-	PublicCreateUserProfileShort(params *PublicCreateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserProfileCreated, error)
-	PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttributesInfoParams) (*PublicGetCustomAttributesInfoOK, error)
-	PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateCustomAttributesPartiallyOK, error)
-	PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfilePublicInfoParams) (*PublicGetUserProfilePublicInfoOK, error)
-	PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileStatusOK, error)
+	GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByPublicIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoByPublicIDResponse, error)
+	AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserProfilePublicInfoByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProfilePublicInfoByIdsResponse, error)
+	GetUserProfileInfoShort(params *GetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoResponse, error)
+	UpdateUserProfileShort(params *UpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileResponse, error)
+	DeleteUserProfileShort(params *DeleteUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserProfileResponse, error)
+	GetCustomAttributesInfoShort(params *GetCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetCustomAttributesInfoResponse, error)
+	UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCustomAttributesPartiallyResponse, error)
+	GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetPrivateCustomAttributesInfoResponse, error)
+	UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePrivateCustomAttributesPartiallyResponse, error)
+	UpdateUserProfileStatusShort(params *UpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileStatusResponse, error)
+	PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserProfilePublicInfoByIdsParams) (*PublicGetUserProfilePublicInfoByIdsResponse, error)
+	PublicBulkGetUserProfilePublicInfoShort(params *PublicBulkGetUserProfilePublicInfoParams) (*PublicBulkGetUserProfilePublicInfoResponse, error)
+	PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserProfileInfoByPublicIDParams) (*PublicGetUserProfileInfoByPublicIDResponse, error)
+	GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyProfileInfoResponse, error)
+	UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyProfileResponse, error)
+	CreateMyProfileShort(params *CreateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMyProfileResponse, error)
+	GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyPrivateCustomAttributesInfoResponse, error)
+	UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyPrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyPrivateCustomAttributesPartiallyResponse, error)
+	GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyZipCodeResponse, error)
+	UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyZipCodeResponse, error)
+	PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfileInfoResponse, error)
+	PublicUpdateUserProfileShort(params *PublicUpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileResponse, error)
+	PublicCreateUserProfileShort(params *PublicCreateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserProfileResponse, error)
+	PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttributesInfoParams) (*PublicGetCustomAttributesInfoResponse, error)
+	PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateCustomAttributesPartiallyResponse, error)
+	PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfilePublicInfoParams) (*PublicGetUserProfilePublicInfoResponse, error)
+	PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileStatusResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -68,7 +68,7 @@ Other detail info:
 
   * Returns : user profile info
 */
-func (a *Client) GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByPublicIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoByPublicIDOK, error) {
+func (a *Client) GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByPublicIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoByPublicIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserProfileInfoByPublicIDParams()
@@ -106,15 +106,40 @@ func (a *Client) GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByP
 	switch v := result.(type) {
 
 	case *GetUserProfileInfoByPublicIDOK:
-		return v, nil
+		response := &GetUserProfileInfoByPublicIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserProfileInfoByPublicIDBadRequest:
-		return nil, v
+		response := &GetUserProfileInfoByPublicIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserProfileInfoByPublicIDUnauthorized:
-		return nil, v
+		response := &GetUserProfileInfoByPublicIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserProfileInfoByPublicIDForbidden:
-		return nil, v
+		response := &GetUserProfileInfoByPublicIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserProfileInfoByPublicIDNotFound:
-		return nil, v
+		response := &GetUserProfileInfoByPublicIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -130,7 +155,7 @@ Other detail info:
   *  Action code : 11405
   *  Returns : user public profiles
 */
-func (a *Client) AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserProfilePublicInfoByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProfilePublicInfoByIdsOK, error) {
+func (a *Client) AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserProfilePublicInfoByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProfilePublicInfoByIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserProfilePublicInfoByIdsParams()
@@ -168,9 +193,19 @@ func (a *Client) AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserPro
 	switch v := result.(type) {
 
 	case *AdminGetUserProfilePublicInfoByIdsOK:
-		return v, nil
+		response := &AdminGetUserProfilePublicInfoByIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserProfilePublicInfoByIdsBadRequest:
-		return nil, v
+		response := &AdminGetUserProfilePublicInfoByIdsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -185,7 +220,7 @@ Other detail info:
   * Returns : user profile
   *  Action code : 11403
 */
-func (a *Client) GetUserProfileInfoShort(params *GetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoOK, error) {
+func (a *Client) GetUserProfileInfoShort(params *GetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserProfileInfoParams()
@@ -223,15 +258,40 @@ func (a *Client) GetUserProfileInfoShort(params *GetUserProfileInfoParams, authI
 	switch v := result.(type) {
 
 	case *GetUserProfileInfoOK:
-		return v, nil
+		response := &GetUserProfileInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserProfileInfoBadRequest:
-		return nil, v
+		response := &GetUserProfileInfoResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserProfileInfoUnauthorized:
-		return nil, v
+		response := &GetUserProfileInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserProfileInfoForbidden:
-		return nil, v
+		response := &GetUserProfileInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserProfileInfoNotFound:
-		return nil, v
+		response := &GetUserProfileInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -246,7 +306,7 @@ Other detail info:
   * Action code : 11402
   *  Returns : Updated user profile
 */
-func (a *Client) UpdateUserProfileShort(params *UpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileOK, error) {
+func (a *Client) UpdateUserProfileShort(params *UpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserProfileParams()
@@ -284,15 +344,40 @@ func (a *Client) UpdateUserProfileShort(params *UpdateUserProfileParams, authInf
 	switch v := result.(type) {
 
 	case *UpdateUserProfileOK:
-		return v, nil
+		response := &UpdateUserProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateUserProfileBadRequest:
-		return nil, v
+		response := &UpdateUserProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserProfileUnauthorized:
-		return nil, v
+		response := &UpdateUserProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserProfileForbidden:
-		return nil, v
+		response := &UpdateUserProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserProfileNotFound:
-		return nil, v
+		response := &UpdateUserProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -307,7 +392,7 @@ Other detail info:
   * Action code : 11407
   *  Returns : Delete user profile
 */
-func (a *Client) DeleteUserProfileShort(params *DeleteUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserProfileOK, error) {
+func (a *Client) DeleteUserProfileShort(params *DeleteUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserProfileParams()
@@ -345,15 +430,40 @@ func (a *Client) DeleteUserProfileShort(params *DeleteUserProfileParams, authInf
 	switch v := result.(type) {
 
 	case *DeleteUserProfileOK:
-		return v, nil
+		response := &DeleteUserProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserProfileBadRequest:
-		return nil, v
+		response := &DeleteUserProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserProfileUnauthorized:
-		return nil, v
+		response := &DeleteUserProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserProfileForbidden:
-		return nil, v
+		response := &DeleteUserProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserProfileNotFound:
-		return nil, v
+		response := &DeleteUserProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -368,7 +478,7 @@ Other detail info:
   * Returns : custom attributes
   *  Action code : 11403
 */
-func (a *Client) GetCustomAttributesInfoShort(params *GetCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetCustomAttributesInfoOK, error) {
+func (a *Client) GetCustomAttributesInfoShort(params *GetCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetCustomAttributesInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCustomAttributesInfoParams()
@@ -406,13 +516,33 @@ func (a *Client) GetCustomAttributesInfoShort(params *GetCustomAttributesInfoPar
 	switch v := result.(type) {
 
 	case *GetCustomAttributesInfoOK:
-		return v, nil
+		response := &GetCustomAttributesInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCustomAttributesInfoUnauthorized:
-		return nil, v
+		response := &GetCustomAttributesInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCustomAttributesInfoForbidden:
-		return nil, v
+		response := &GetCustomAttributesInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCustomAttributesInfoNotFound:
-		return nil, v
+		response := &GetCustomAttributesInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -428,7 +558,7 @@ Other detail info:
   *  Request body : allowed format: JSON object
   *  Returns : Updated custom attributes
 */
-func (a *Client) UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCustomAttributesPartiallyOK, error) {
+func (a *Client) UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCustomAttributesPartiallyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCustomAttributesPartiallyParams()
@@ -466,15 +596,40 @@ func (a *Client) UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttrib
 	switch v := result.(type) {
 
 	case *UpdateCustomAttributesPartiallyOK:
-		return v, nil
+		response := &UpdateCustomAttributesPartiallyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateCustomAttributesPartiallyBadRequest:
-		return nil, v
+		response := &UpdateCustomAttributesPartiallyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCustomAttributesPartiallyUnauthorized:
-		return nil, v
+		response := &UpdateCustomAttributesPartiallyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCustomAttributesPartiallyForbidden:
-		return nil, v
+		response := &UpdateCustomAttributesPartiallyResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCustomAttributesPartiallyNotFound:
-		return nil, v
+		response := &UpdateCustomAttributesPartiallyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -489,7 +644,7 @@ Other detail info:
   * Returns : custom attributes
   *  Action code : 11403
 */
-func (a *Client) GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetPrivateCustomAttributesInfoOK, error) {
+func (a *Client) GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetPrivateCustomAttributesInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPrivateCustomAttributesInfoParams()
@@ -527,13 +682,33 @@ func (a *Client) GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAtt
 	switch v := result.(type) {
 
 	case *GetPrivateCustomAttributesInfoOK:
-		return v, nil
+		response := &GetPrivateCustomAttributesInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPrivateCustomAttributesInfoUnauthorized:
-		return nil, v
+		response := &GetPrivateCustomAttributesInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPrivateCustomAttributesInfoForbidden:
-		return nil, v
+		response := &GetPrivateCustomAttributesInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPrivateCustomAttributesInfoNotFound:
-		return nil, v
+		response := &GetPrivateCustomAttributesInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -549,7 +724,7 @@ Other detail info:
   *  Request body : allowed format: JSON object
   *  Returns : Updated custom attributes
 */
-func (a *Client) UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePrivateCustomAttributesPartiallyOK, error) {
+func (a *Client) UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePrivateCustomAttributesPartiallyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePrivateCustomAttributesPartiallyParams()
@@ -587,15 +762,40 @@ func (a *Client) UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePriva
 	switch v := result.(type) {
 
 	case *UpdatePrivateCustomAttributesPartiallyOK:
-		return v, nil
+		response := &UpdatePrivateCustomAttributesPartiallyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePrivateCustomAttributesPartiallyBadRequest:
-		return nil, v
+		response := &UpdatePrivateCustomAttributesPartiallyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePrivateCustomAttributesPartiallyUnauthorized:
-		return nil, v
+		response := &UpdatePrivateCustomAttributesPartiallyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePrivateCustomAttributesPartiallyForbidden:
-		return nil, v
+		response := &UpdatePrivateCustomAttributesPartiallyResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePrivateCustomAttributesPartiallyNotFound:
-		return nil, v
+		response := &UpdatePrivateCustomAttributesPartiallyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -610,7 +810,7 @@ Other detail info:
   * Action code : 11406
   *  Returns : user profile
 */
-func (a *Client) UpdateUserProfileStatusShort(params *UpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileStatusOK, error) {
+func (a *Client) UpdateUserProfileStatusShort(params *UpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserProfileStatusParams()
@@ -648,15 +848,40 @@ func (a *Client) UpdateUserProfileStatusShort(params *UpdateUserProfileStatusPar
 	switch v := result.(type) {
 
 	case *UpdateUserProfileStatusOK:
-		return v, nil
+		response := &UpdateUserProfileStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateUserProfileStatusBadRequest:
-		return nil, v
+		response := &UpdateUserProfileStatusResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserProfileStatusUnauthorized:
-		return nil, v
+		response := &UpdateUserProfileStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserProfileStatusForbidden:
-		return nil, v
+		response := &UpdateUserProfileStatusResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserProfileStatusNotFound:
-		return nil, v
+		response := &UpdateUserProfileStatusResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -671,7 +896,7 @@ Other detail info:
   * Action code : 11405
   *  Returns : user public profiles
 */
-func (a *Client) PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserProfilePublicInfoByIdsParams) (*PublicGetUserProfilePublicInfoByIdsOK, error) {
+func (a *Client) PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserProfilePublicInfoByIdsParams) (*PublicGetUserProfilePublicInfoByIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserProfilePublicInfoByIdsParams()
@@ -708,9 +933,19 @@ func (a *Client) PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserP
 	switch v := result.(type) {
 
 	case *PublicGetUserProfilePublicInfoByIdsOK:
-		return v, nil
+		response := &PublicGetUserProfilePublicInfoByIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserProfilePublicInfoByIdsBadRequest:
-		return nil, v
+		response := &PublicGetUserProfilePublicInfoByIdsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -724,7 +959,7 @@ Other detail info:
 
   * Returns : user public profiles
 */
-func (a *Client) PublicBulkGetUserProfilePublicInfoShort(params *PublicBulkGetUserProfilePublicInfoParams) (*PublicBulkGetUserProfilePublicInfoOK, error) {
+func (a *Client) PublicBulkGetUserProfilePublicInfoShort(params *PublicBulkGetUserProfilePublicInfoParams) (*PublicBulkGetUserProfilePublicInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicBulkGetUserProfilePublicInfoParams()
@@ -761,9 +996,19 @@ func (a *Client) PublicBulkGetUserProfilePublicInfoShort(params *PublicBulkGetUs
 	switch v := result.(type) {
 
 	case *PublicBulkGetUserProfilePublicInfoOK:
-		return v, nil
+		response := &PublicBulkGetUserProfilePublicInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicBulkGetUserProfilePublicInfoBadRequest:
-		return nil, v
+		response := &PublicBulkGetUserProfilePublicInfoResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -777,7 +1022,7 @@ Other detail info:
 
   * Returns : user public profile
 */
-func (a *Client) PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserProfileInfoByPublicIDParams) (*PublicGetUserProfileInfoByPublicIDOK, error) {
+func (a *Client) PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserProfileInfoByPublicIDParams) (*PublicGetUserProfileInfoByPublicIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserProfileInfoByPublicIDParams()
@@ -814,11 +1059,26 @@ func (a *Client) PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserPr
 	switch v := result.(type) {
 
 	case *PublicGetUserProfileInfoByPublicIDOK:
-		return v, nil
+		response := &PublicGetUserProfileInfoByPublicIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserProfileInfoByPublicIDBadRequest:
-		return nil, v
+		response := &PublicGetUserProfileInfoByPublicIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProfileInfoByPublicIDNotFound:
-		return nil, v
+		response := &PublicGetUserProfileInfoByPublicIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -839,7 +1099,7 @@ Other detail info:
   *  Language : allowed format: en, en-US
   *  Timezone : IANA time zone, e.g. Asia/Shanghai
 */
-func (a *Client) GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyProfileInfoOK, error) {
+func (a *Client) GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyProfileInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMyProfileInfoParams()
@@ -877,15 +1137,40 @@ func (a *Client) GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetMyProfileInfoOK:
-		return v, nil
+		response := &GetMyProfileInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMyProfileInfoBadRequest:
-		return nil, v
+		response := &GetMyProfileInfoResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyProfileInfoUnauthorized:
-		return nil, v
+		response := &GetMyProfileInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyProfileInfoForbidden:
-		return nil, v
+		response := &GetMyProfileInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyProfileInfoNotFound:
-		return nil, v
+		response := &GetMyProfileInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -906,7 +1191,7 @@ Other detail info:
   *  Language : allowed format: en, en-US
   *  Timezone : IANA time zone, e.g. Asia/Shanghai
 */
-func (a *Client) UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyProfileOK, error) {
+func (a *Client) UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMyProfileParams()
@@ -944,15 +1229,40 @@ func (a *Client) UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo ru
 	switch v := result.(type) {
 
 	case *UpdateMyProfileOK:
-		return v, nil
+		response := &UpdateMyProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMyProfileBadRequest:
-		return nil, v
+		response := &UpdateMyProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMyProfileUnauthorized:
-		return nil, v
+		response := &UpdateMyProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMyProfileForbidden:
-		return nil, v
+		response := &UpdateMyProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMyProfileNotFound:
-		return nil, v
+		response := &UpdateMyProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -974,7 +1284,7 @@ Other detail info:
   *  Country : ISO3166-1 alpha-2 two letter, e.g. US
   * Timezone : IANA time zone, e.g. Asia/Shanghai
 */
-func (a *Client) CreateMyProfileShort(params *CreateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMyProfileCreated, error) {
+func (a *Client) CreateMyProfileShort(params *CreateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMyProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMyProfileParams()
@@ -1012,17 +1322,47 @@ func (a *Client) CreateMyProfileShort(params *CreateMyProfileParams, authInfo ru
 	switch v := result.(type) {
 
 	case *CreateMyProfileCreated:
-		return v, nil
+		response := &CreateMyProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateMyProfileBadRequest:
-		return nil, v
+		response := &CreateMyProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMyProfileUnauthorized:
-		return nil, v
+		response := &CreateMyProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMyProfileForbidden:
-		return nil, v
+		response := &CreateMyProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMyProfileNotFound:
-		return nil, v
+		response := &CreateMyProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMyProfileConflict:
-		return nil, v
+		response := &CreateMyProfileResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1037,7 +1377,7 @@ Other detail info:
   * Returns : custom attributes
   *  Action code : 11403
 */
-func (a *Client) GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyPrivateCustomAttributesInfoOK, error) {
+func (a *Client) GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyPrivateCustomAttributesInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMyPrivateCustomAttributesInfoParams()
@@ -1075,13 +1415,33 @@ func (a *Client) GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCusto
 	switch v := result.(type) {
 
 	case *GetMyPrivateCustomAttributesInfoOK:
-		return v, nil
+		response := &GetMyPrivateCustomAttributesInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMyPrivateCustomAttributesInfoUnauthorized:
-		return nil, v
+		response := &GetMyPrivateCustomAttributesInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyPrivateCustomAttributesInfoForbidden:
-		return nil, v
+		response := &GetMyPrivateCustomAttributesInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyPrivateCustomAttributesInfoNotFound:
-		return nil, v
+		response := &GetMyPrivateCustomAttributesInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1097,7 +1457,7 @@ Other detail info:
   *  Request body : allowed format: JSON object
   *  Returns : Updated custom attributes
 */
-func (a *Client) UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyPrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyPrivateCustomAttributesPartiallyOK, error) {
+func (a *Client) UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyPrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyPrivateCustomAttributesPartiallyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMyPrivateCustomAttributesPartiallyParams()
@@ -1135,15 +1495,40 @@ func (a *Client) UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyP
 	switch v := result.(type) {
 
 	case *UpdateMyPrivateCustomAttributesPartiallyOK:
-		return v, nil
+		response := &UpdateMyPrivateCustomAttributesPartiallyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMyPrivateCustomAttributesPartiallyBadRequest:
-		return nil, v
+		response := &UpdateMyPrivateCustomAttributesPartiallyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMyPrivateCustomAttributesPartiallyUnauthorized:
-		return nil, v
+		response := &UpdateMyPrivateCustomAttributesPartiallyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMyPrivateCustomAttributesPartiallyForbidden:
-		return nil, v
+		response := &UpdateMyPrivateCustomAttributesPartiallyResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMyPrivateCustomAttributesPartiallyNotFound:
-		return nil, v
+		response := &UpdateMyPrivateCustomAttributesPartiallyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1158,7 +1543,7 @@ Other detail info:
   * Action code : 11407
   *  Returns : user zip code
 */
-func (a *Client) GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyZipCodeOK, error) {
+func (a *Client) GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyZipCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMyZipCodeParams()
@@ -1196,11 +1581,26 @@ func (a *Client) GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetMyZipCodeOK:
-		return v, nil
+		response := &GetMyZipCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMyZipCodeUnauthorized:
-		return nil, v
+		response := &GetMyZipCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyZipCodeForbidden:
-		return nil, v
+		response := &GetMyZipCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1215,7 +1615,7 @@ Other detail info:
   * Action code : 11408
   *  Returns : user zip code
 */
-func (a *Client) UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyZipCodeOK, error) {
+func (a *Client) UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyZipCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMyZipCodeParams()
@@ -1253,13 +1653,33 @@ func (a *Client) UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo ru
 	switch v := result.(type) {
 
 	case *UpdateMyZipCodeOK:
-		return v, nil
+		response := &UpdateMyZipCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMyZipCodeBadRequest:
-		return nil, v
+		response := &UpdateMyZipCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMyZipCodeUnauthorized:
-		return nil, v
+		response := &UpdateMyZipCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMyZipCodeForbidden:
-		return nil, v
+		response := &UpdateMyZipCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1274,7 +1694,7 @@ Other detail info:
   * Action code : 11403
   *  Returns : user profile
 */
-func (a *Client) PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfileInfoOK, error) {
+func (a *Client) PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfileInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserProfileInfoParams()
@@ -1312,15 +1732,40 @@ func (a *Client) PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoP
 	switch v := result.(type) {
 
 	case *PublicGetUserProfileInfoOK:
-		return v, nil
+		response := &PublicGetUserProfileInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserProfileInfoBadRequest:
-		return nil, v
+		response := &PublicGetUserProfileInfoResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProfileInfoUnauthorized:
-		return nil, v
+		response := &PublicGetUserProfileInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProfileInfoForbidden:
-		return nil, v
+		response := &PublicGetUserProfileInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProfileInfoNotFound:
-		return nil, v
+		response := &PublicGetUserProfileInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1337,7 +1782,7 @@ Other detail info:
   *  Timezone : IANA time zone, e.g. Asia/Shanghai
   *  Returns : Updated user profile
 */
-func (a *Client) PublicUpdateUserProfileShort(params *PublicUpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileOK, error) {
+func (a *Client) PublicUpdateUserProfileShort(params *PublicUpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateUserProfileParams()
@@ -1375,15 +1820,40 @@ func (a *Client) PublicUpdateUserProfileShort(params *PublicUpdateUserProfilePar
 	switch v := result.(type) {
 
 	case *PublicUpdateUserProfileOK:
-		return v, nil
+		response := &PublicUpdateUserProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateUserProfileBadRequest:
-		return nil, v
+		response := &PublicUpdateUserProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserProfileUnauthorized:
-		return nil, v
+		response := &PublicUpdateUserProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserProfileForbidden:
-		return nil, v
+		response := &PublicUpdateUserProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserProfileNotFound:
-		return nil, v
+		response := &PublicUpdateUserProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1400,7 +1870,7 @@ Other detail info:
   *  Timezone : IANA time zone, e.g. Asia/Shanghai
   *  Returns : Created user profile
 */
-func (a *Client) PublicCreateUserProfileShort(params *PublicCreateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserProfileCreated, error) {
+func (a *Client) PublicCreateUserProfileShort(params *PublicCreateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateUserProfileParams()
@@ -1438,15 +1908,40 @@ func (a *Client) PublicCreateUserProfileShort(params *PublicCreateUserProfilePar
 	switch v := result.(type) {
 
 	case *PublicCreateUserProfileCreated:
-		return v, nil
+		response := &PublicCreateUserProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateUserProfileBadRequest:
-		return nil, v
+		response := &PublicCreateUserProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserProfileUnauthorized:
-		return nil, v
+		response := &PublicCreateUserProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserProfileForbidden:
-		return nil, v
+		response := &PublicCreateUserProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserProfileConflict:
-		return nil, v
+		response := &PublicCreateUserProfileResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1461,7 +1956,7 @@ Other detail info:
   * Action code : 11404
   *  Returns : user custom attributes
 */
-func (a *Client) PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttributesInfoParams) (*PublicGetCustomAttributesInfoOK, error) {
+func (a *Client) PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttributesInfoParams) (*PublicGetCustomAttributesInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCustomAttributesInfoParams()
@@ -1498,9 +1993,19 @@ func (a *Client) PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttri
 	switch v := result.(type) {
 
 	case *PublicGetCustomAttributesInfoOK:
-		return v, nil
+		response := &PublicGetCustomAttributesInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCustomAttributesInfoNotFound:
-		return nil, v
+		response := &PublicGetCustomAttributesInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1516,7 +2021,7 @@ Other detail info:
   *  Request body : allowed format: JSON object
   *  Returns : Updated custom attributes
 */
-func (a *Client) PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateCustomAttributesPartiallyOK, error) {
+func (a *Client) PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateCustomAttributesPartiallyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateCustomAttributesPartiallyParams()
@@ -1554,15 +2059,40 @@ func (a *Client) PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdate
 	switch v := result.(type) {
 
 	case *PublicUpdateCustomAttributesPartiallyOK:
-		return v, nil
+		response := &PublicUpdateCustomAttributesPartiallyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateCustomAttributesPartiallyBadRequest:
-		return nil, v
+		response := &PublicUpdateCustomAttributesPartiallyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateCustomAttributesPartiallyUnauthorized:
-		return nil, v
+		response := &PublicUpdateCustomAttributesPartiallyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateCustomAttributesPartiallyForbidden:
-		return nil, v
+		response := &PublicUpdateCustomAttributesPartiallyResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateCustomAttributesPartiallyNotFound:
-		return nil, v
+		response := &PublicUpdateCustomAttributesPartiallyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1577,7 +2107,7 @@ Other detail info:
   * Action code : 11404
   *  Returns : user public profile
 */
-func (a *Client) PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfilePublicInfoParams) (*PublicGetUserProfilePublicInfoOK, error) {
+func (a *Client) PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfilePublicInfoParams) (*PublicGetUserProfilePublicInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserProfilePublicInfoParams()
@@ -1614,11 +2144,26 @@ func (a *Client) PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfil
 	switch v := result.(type) {
 
 	case *PublicGetUserProfilePublicInfoOK:
-		return v, nil
+		response := &PublicGetUserProfilePublicInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserProfilePublicInfoBadRequest:
-		return nil, v
+		response := &PublicGetUserProfilePublicInfoResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProfilePublicInfoNotFound:
-		return nil, v
+		response := &PublicGetUserProfilePublicInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1633,7 +2178,7 @@ Other detail info:
   * Action code : 11406
   *  Returns : user profile
 */
-func (a *Client) PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileStatusOK, error) {
+func (a *Client) PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateUserProfileStatusParams()
@@ -1671,15 +2216,40 @@ func (a *Client) PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProf
 	switch v := result.(type) {
 
 	case *PublicUpdateUserProfileStatusOK:
-		return v, nil
+		response := &PublicUpdateUserProfileStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateUserProfileStatusBadRequest:
-		return nil, v
+		response := &PublicUpdateUserProfileStatusResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserProfileStatusUnauthorized:
-		return nil, v
+		response := &PublicUpdateUserProfileStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserProfileStatusForbidden:
-		return nil, v
+		response := &PublicUpdateUserProfileStatusResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserProfileStatusNotFound:
-		return nil, v
+		response := &PublicUpdateUserProfileStatusResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

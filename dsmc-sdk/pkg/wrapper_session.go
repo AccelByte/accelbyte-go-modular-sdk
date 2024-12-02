@@ -9,7 +9,6 @@ package dsmc
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient/session"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *SessionService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *SessionService) CreateSessionShort(input *session.CreateSessionParams) (*dsmcclientmodels.ModelsSessionResponse, error) {
+func (aaa *SessionService) CreateSessionShort(input *session.CreateSessionParams) (*session.CreateSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,7 +63,7 @@ func (aaa *SessionService) CreateSessionShort(input *session.CreateSessionParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *SessionService) ClaimServerShort(input *session.ClaimServerParams) error {
@@ -97,7 +96,7 @@ func (aaa *SessionService) ClaimServerShort(input *session.ClaimServerParams) er
 	return nil
 }
 
-func (aaa *SessionService) GetSessionShort(input *session.GetSessionParams) (*dsmcclientmodels.ModelsSessionResponse, error) {
+func (aaa *SessionService) GetSessionShort(input *session.GetSessionParams) (*session.GetSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *SessionService) GetSessionShort(input *session.GetSessionParams) (*ds
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *SessionService) CancelSessionShort(input *session.CancelSessionParams) error {

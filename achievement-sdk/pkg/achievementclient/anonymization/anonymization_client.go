@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminAnonymizeUserAchievementShort(params *AdminAnonymizeUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserAchievementNoContent, error)
+	AdminAnonymizeUserAchievementShort(params *AdminAnonymizeUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserAchievementResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ This API will delete specified user achievement
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION [DELETE]`
 */
-func (a *Client) AdminAnonymizeUserAchievementShort(params *AdminAnonymizeUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserAchievementNoContent, error) {
+func (a *Client) AdminAnonymizeUserAchievementShort(params *AdminAnonymizeUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAnonymizeUserAchievementParams()
@@ -85,11 +85,25 @@ func (a *Client) AdminAnonymizeUserAchievementShort(params *AdminAnonymizeUserAc
 	switch v := result.(type) {
 
 	case *AdminAnonymizeUserAchievementNoContent:
-		return v, nil
+		response := &AdminAnonymizeUserAchievementResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAnonymizeUserAchievementUnauthorized:
-		return nil, v
+		response := &AdminAnonymizeUserAchievementResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAnonymizeUserAchievementInternalServerError:
-		return nil, v
+		response := &AdminAnonymizeUserAchievementResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

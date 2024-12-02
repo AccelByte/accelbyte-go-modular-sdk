@@ -9,7 +9,6 @@ package reporting
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_tickets"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminTicketsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminTicketsService) ListTicketsShort(input *admin_tickets.ListTicketsParams) (*reportingclientmodels.RestapiTicketListResponse, error) {
+func (aaa *AdminTicketsService) ListTicketsShort(input *admin_tickets.ListTicketsParams) (*admin_tickets.ListTicketsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminTicketsService) ListTicketsShort(input *admin_tickets.ListTicket
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminTicketsService) TicketStatisticShort(input *admin_tickets.TicketStatisticParams) (*reportingclientmodels.RestapiTicketStatisticResponse, error) {
+func (aaa *AdminTicketsService) TicketStatisticShort(input *admin_tickets.TicketStatisticParams) (*admin_tickets.TicketStatisticResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminTicketsService) TicketStatisticShort(input *admin_tickets.Ticket
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminTicketsService) GetTicketDetailShort(input *admin_tickets.GetTicketDetailParams) (*reportingclientmodels.RestapiTicketResponse, error) {
+func (aaa *AdminTicketsService) GetTicketDetailShort(input *admin_tickets.GetTicketDetailParams) (*admin_tickets.GetTicketDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *AdminTicketsService) GetTicketDetailShort(input *admin_tickets.GetTic
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminTicketsService) DeleteTicketShort(input *admin_tickets.DeleteTicketParams) error {
@@ -157,7 +156,7 @@ func (aaa *AdminTicketsService) DeleteTicketShort(input *admin_tickets.DeleteTic
 	return nil
 }
 
-func (aaa *AdminTicketsService) GetReportsByTicketShort(input *admin_tickets.GetReportsByTicketParams) (*reportingclientmodels.RestapiReportListResponse, error) {
+func (aaa *AdminTicketsService) GetReportsByTicketShort(input *admin_tickets.GetReportsByTicketParams) (*admin_tickets.GetReportsByTicketResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *AdminTicketsService) GetReportsByTicketShort(input *admin_tickets.Get
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminTicketsService) UpdateTicketResolutionsShort(input *admin_tickets.UpdateTicketResolutionsParams) (*reportingclientmodels.RestapiTicketResponse, error) {
+func (aaa *AdminTicketsService) UpdateTicketResolutionsShort(input *admin_tickets.UpdateTicketResolutionsParams) (*admin_tickets.UpdateTicketResolutionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,5 +213,5 @@ func (aaa *AdminTicketsService) UpdateTicketResolutionsShort(input *admin_ticket
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

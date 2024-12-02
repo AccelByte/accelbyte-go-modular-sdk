@@ -19,6 +19,71 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 )
 
+type StartAppV2Response struct {
+	csmclientmodels.ApiResponse
+
+	Error400 *csmclientmodels.ResponseErrorResponse
+	Error401 *csmclientmodels.ResponseErrorResponse
+	Error403 *csmclientmodels.ResponseErrorResponse
+	Error404 *csmclientmodels.ResponseErrorResponse
+	Error500 *csmclientmodels.ResponseErrorResponse
+}
+
+func (m *StartAppV2Response) Unpack() *csmclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &csmclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // StartAppV2Reader is a Reader for the StartAppV2 structure.
 type StartAppV2Reader struct {
 	formats strfmt.Registry

@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalizedPolicyNoContent, error)
-	RetrieveLocalizedPolicyVersions1Short(params *RetrieveLocalizedPolicyVersions1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLocalizedPolicyVersions1OK, error)
-	CreateLocalizedPolicyVersion1Short(params *CreateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLocalizedPolicyVersion1Created, error)
-	RetrieveSingleLocalizedPolicyVersion1Short(params *RetrieveSingleLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSingleLocalizedPolicyVersion1OK, error)
-	UpdateLocalizedPolicyVersion1Short(params *UpdateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizedPolicyVersion1OK, error)
-	RequestPresignedURL1Short(params *RequestPresignedURL1Params, authInfo runtime.ClientAuthInfoWriter) (*RequestPresignedURL1Created, error)
-	SetDefaultPolicy1Short(params *SetDefaultPolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy1OK, error)
-	RetrieveSingleLocalizedPolicyVersion3Short(params *RetrieveSingleLocalizedPolicyVersion3Params) (*RetrieveSingleLocalizedPolicyVersion3OK, error)
+	DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalizedPolicyResponse, error)
+	RetrieveLocalizedPolicyVersions1Short(params *RetrieveLocalizedPolicyVersions1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLocalizedPolicyVersions1Response, error)
+	CreateLocalizedPolicyVersion1Short(params *CreateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLocalizedPolicyVersion1Response, error)
+	RetrieveSingleLocalizedPolicyVersion1Short(params *RetrieveSingleLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSingleLocalizedPolicyVersion1Response, error)
+	UpdateLocalizedPolicyVersion1Short(params *UpdateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizedPolicyVersion1Response, error)
+	RequestPresignedURL1Short(params *RequestPresignedURL1Params, authInfo runtime.ClientAuthInfoWriter) (*RequestPresignedURL1Response, error)
+	SetDefaultPolicy1Short(params *SetDefaultPolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy1Response, error)
+	RetrieveSingleLocalizedPolicyVersion3Short(params *RetrieveSingleLocalizedPolicyVersion3Params) (*RetrieveSingleLocalizedPolicyVersion3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ Can only be deleted if match these criteria:
   * Policy Version that this localized policy version belongs to is not active
   * Has never been accepted by any user
 */
-func (a *Client) DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalizedPolicyNoContent, error) {
+func (a *Client) DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalizedPolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteLocalizedPolicyParams()
@@ -89,9 +89,18 @@ func (a *Client) DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams,
 	switch v := result.(type) {
 
 	case *DeleteLocalizedPolicyNoContent:
-		return v, nil
+		response := &DeleteLocalizedPolicyResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteLocalizedPolicyBadRequest:
-		return nil, v
+		response := &DeleteLocalizedPolicyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -102,7 +111,7 @@ func (a *Client) DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams,
 RetrieveLocalizedPolicyVersions1Short retrieve versions from country-specific policy
 Retrieve versions of a particular country-specific policy.
 */
-func (a *Client) RetrieveLocalizedPolicyVersions1Short(params *RetrieveLocalizedPolicyVersions1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLocalizedPolicyVersions1OK, error) {
+func (a *Client) RetrieveLocalizedPolicyVersions1Short(params *RetrieveLocalizedPolicyVersions1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLocalizedPolicyVersions1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveLocalizedPolicyVersions1Params()
@@ -140,7 +149,12 @@ func (a *Client) RetrieveLocalizedPolicyVersions1Short(params *RetrieveLocalized
 	switch v := result.(type) {
 
 	case *RetrieveLocalizedPolicyVersions1OK:
-		return v, nil
+		response := &RetrieveLocalizedPolicyVersions1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -151,7 +165,7 @@ func (a *Client) RetrieveLocalizedPolicyVersions1Short(params *RetrieveLocalized
 CreateLocalizedPolicyVersion1Short create a localized version from country-specific policy
 Create a version of a particular country-specific policy.
 */
-func (a *Client) CreateLocalizedPolicyVersion1Short(params *CreateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLocalizedPolicyVersion1Created, error) {
+func (a *Client) CreateLocalizedPolicyVersion1Short(params *CreateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLocalizedPolicyVersion1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateLocalizedPolicyVersion1Params()
@@ -189,11 +203,26 @@ func (a *Client) CreateLocalizedPolicyVersion1Short(params *CreateLocalizedPolic
 	switch v := result.(type) {
 
 	case *CreateLocalizedPolicyVersion1Created:
-		return v, nil
+		response := &CreateLocalizedPolicyVersion1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateLocalizedPolicyVersion1BadRequest:
-		return nil, v
+		response := &CreateLocalizedPolicyVersion1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateLocalizedPolicyVersion1Conflict:
-		return nil, v
+		response := &CreateLocalizedPolicyVersion1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -204,7 +233,7 @@ func (a *Client) CreateLocalizedPolicyVersion1Short(params *CreateLocalizedPolic
 RetrieveSingleLocalizedPolicyVersion1Short retrieve a localized version from country-specific policy
 Retrieve a version of a particular country-specific policy.
 */
-func (a *Client) RetrieveSingleLocalizedPolicyVersion1Short(params *RetrieveSingleLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSingleLocalizedPolicyVersion1OK, error) {
+func (a *Client) RetrieveSingleLocalizedPolicyVersion1Short(params *RetrieveSingleLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSingleLocalizedPolicyVersion1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveSingleLocalizedPolicyVersion1Params()
@@ -242,9 +271,19 @@ func (a *Client) RetrieveSingleLocalizedPolicyVersion1Short(params *RetrieveSing
 	switch v := result.(type) {
 
 	case *RetrieveSingleLocalizedPolicyVersion1OK:
-		return v, nil
+		response := &RetrieveSingleLocalizedPolicyVersion1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveSingleLocalizedPolicyVersion1NotFound:
-		return nil, v
+		response := &RetrieveSingleLocalizedPolicyVersion1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -255,7 +294,7 @@ func (a *Client) RetrieveSingleLocalizedPolicyVersion1Short(params *RetrieveSing
 UpdateLocalizedPolicyVersion1Short update a localized version from country-specific policy
 Update a version of a particular country-specific policy.
 */
-func (a *Client) UpdateLocalizedPolicyVersion1Short(params *UpdateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizedPolicyVersion1OK, error) {
+func (a *Client) UpdateLocalizedPolicyVersion1Short(params *UpdateLocalizedPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizedPolicyVersion1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateLocalizedPolicyVersion1Params()
@@ -293,9 +332,19 @@ func (a *Client) UpdateLocalizedPolicyVersion1Short(params *UpdateLocalizedPolic
 	switch v := result.(type) {
 
 	case *UpdateLocalizedPolicyVersion1OK:
-		return v, nil
+		response := &UpdateLocalizedPolicyVersion1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateLocalizedPolicyVersion1BadRequest:
-		return nil, v
+		response := &UpdateLocalizedPolicyVersion1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -306,7 +355,7 @@ func (a *Client) UpdateLocalizedPolicyVersion1Short(params *UpdateLocalizedPolic
 RequestPresignedURL1Short request presigned url for upload document
 Request presigned URL for upload attachment for a particular localized version of base policy.
 */
-func (a *Client) RequestPresignedURL1Short(params *RequestPresignedURL1Params, authInfo runtime.ClientAuthInfoWriter) (*RequestPresignedURL1Created, error) {
+func (a *Client) RequestPresignedURL1Short(params *RequestPresignedURL1Params, authInfo runtime.ClientAuthInfoWriter) (*RequestPresignedURL1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRequestPresignedURL1Params()
@@ -344,9 +393,19 @@ func (a *Client) RequestPresignedURL1Short(params *RequestPresignedURL1Params, a
 	switch v := result.(type) {
 
 	case *RequestPresignedURL1Created:
-		return v, nil
+		response := &RequestPresignedURL1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RequestPresignedURL1BadRequest:
-		return nil, v
+		response := &RequestPresignedURL1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -357,7 +416,7 @@ func (a *Client) RequestPresignedURL1Short(params *RequestPresignedURL1Params, a
 SetDefaultPolicy1Short set default localized policy
 Update a localized version policy to be the default.
 */
-func (a *Client) SetDefaultPolicy1Short(params *SetDefaultPolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy1OK, error) {
+func (a *Client) SetDefaultPolicy1Short(params *SetDefaultPolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetDefaultPolicy1Params()
@@ -395,7 +454,11 @@ func (a *Client) SetDefaultPolicy1Short(params *SetDefaultPolicy1Params, authInf
 	switch v := result.(type) {
 
 	case *SetDefaultPolicy1OK:
-		return v, nil
+		response := &SetDefaultPolicy1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -407,7 +470,7 @@ RetrieveSingleLocalizedPolicyVersion3Short retrieve a localized version
 Retrieve specific localized policy version including the policy version and base policy version where the localized policy version located.
 Other detail info:
 */
-func (a *Client) RetrieveSingleLocalizedPolicyVersion3Short(params *RetrieveSingleLocalizedPolicyVersion3Params) (*RetrieveSingleLocalizedPolicyVersion3OK, error) {
+func (a *Client) RetrieveSingleLocalizedPolicyVersion3Short(params *RetrieveSingleLocalizedPolicyVersion3Params) (*RetrieveSingleLocalizedPolicyVersion3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveSingleLocalizedPolicyVersion3Params()
@@ -444,11 +507,26 @@ func (a *Client) RetrieveSingleLocalizedPolicyVersion3Short(params *RetrieveSing
 	switch v := result.(type) {
 
 	case *RetrieveSingleLocalizedPolicyVersion3OK:
-		return v, nil
+		response := &RetrieveSingleLocalizedPolicyVersion3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveSingleLocalizedPolicyVersion3Forbidden:
-		return nil, v
+		response := &RetrieveSingleLocalizedPolicyVersion3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveSingleLocalizedPolicyVersion3NotFound:
-		return nil, v
+		response := &RetrieveSingleLocalizedPolicyVersion3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

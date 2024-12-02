@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	HeartbeatShort(params *HeartbeatParams, authInfo runtime.ClientAuthInfoWriter) (*HeartbeatNoContent, error)
+	HeartbeatShort(params *HeartbeatParams, authInfo runtime.ClientAuthInfoWriter) (*HeartbeatResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ This endpoint is intended to be called by QoS service
 to register and periodically let QoS Manager know that it is still alive.
 ```
 */
-func (a *Client) HeartbeatShort(params *HeartbeatParams, authInfo runtime.ClientAuthInfoWriter) (*HeartbeatNoContent, error) {
+func (a *Client) HeartbeatShort(params *HeartbeatParams, authInfo runtime.ClientAuthInfoWriter) (*HeartbeatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewHeartbeatParams()
@@ -83,11 +83,25 @@ func (a *Client) HeartbeatShort(params *HeartbeatParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *HeartbeatNoContent:
-		return v, nil
+		response := &HeartbeatResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *HeartbeatBadRequest:
-		return nil, v
+		response := &HeartbeatResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *HeartbeatInternalServerError:
-		return nil, v
+		response := &HeartbeatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

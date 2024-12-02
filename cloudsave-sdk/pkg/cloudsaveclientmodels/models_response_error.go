@@ -7,6 +7,8 @@
 package cloudsaveclientmodels
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -79,4 +81,8 @@ func (m *ModelsResponseError) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+func (m *ModelsResponseError) TranslateToApiError() (*ApiError, error) {
+	return &ApiError{Code: fmt.Sprint(*m.ErrorCode), Message: *m.ErrorMessage}, nil
 }

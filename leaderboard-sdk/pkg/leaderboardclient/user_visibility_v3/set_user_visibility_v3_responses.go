@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 )
 
+type SetUserVisibilityV3Response struct {
+	leaderboardclientmodels.ApiResponse
+	Data *leaderboardclientmodels.ModelsGetUserVisibilityResponse
+
+	Error400 *leaderboardclientmodels.ResponseErrorResponse
+	Error401 *leaderboardclientmodels.ResponseErrorResponse
+	Error403 *leaderboardclientmodels.ResponseErrorResponse
+	Error500 *leaderboardclientmodels.ResponseErrorResponse
+}
+
+func (m *SetUserVisibilityV3Response) Unpack() (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, *leaderboardclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &leaderboardclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // SetUserVisibilityV3Reader is a Reader for the SetUserVisibilityV3 structure.
 type SetUserVisibilityV3Reader struct {
 	formats strfmt.Registry

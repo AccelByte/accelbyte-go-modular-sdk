@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type MockPlayStationStreamEventResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.ClawbackInfo
+}
+
+func (m *MockPlayStationStreamEventResponse) Unpack() (*platformclientmodels.ClawbackInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // MockPlayStationStreamEventReader is a Reader for the MockPlayStationStreamEvent structure.
 type MockPlayStationStreamEventReader struct {
 	formats strfmt.Registry

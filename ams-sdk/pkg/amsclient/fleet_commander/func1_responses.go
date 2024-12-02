@@ -13,7 +13,28 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 )
+
+type Func1Response struct {
+	amsclientmodels.ApiResponse
+}
+
+func (m *Func1Response) Unpack() *amsclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &amsclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // Func1Reader is a Reader for the Func1 structure.
 type Func1Reader struct {

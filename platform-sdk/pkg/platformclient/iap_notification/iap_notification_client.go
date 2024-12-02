@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryThirdPartyNotificationsShort(params *QueryThirdPartyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartyNotificationsOK, error)
+	QueryThirdPartyNotificationsShort(params *QueryThirdPartyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartyNotificationsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ Other detail info:
 
   * Returns : Third Party Platform notifications
 */
-func (a *Client) QueryThirdPartyNotificationsShort(params *QueryThirdPartyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartyNotificationsOK, error) {
+func (a *Client) QueryThirdPartyNotificationsShort(params *QueryThirdPartyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartyNotificationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryThirdPartyNotificationsParams()
@@ -80,7 +80,12 @@ func (a *Client) QueryThirdPartyNotificationsShort(params *QueryThirdPartyNotifi
 	switch v := result.(type) {
 
 	case *QueryThirdPartyNotificationsOK:
-		return v, nil
+		response := &QueryThirdPartyNotificationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

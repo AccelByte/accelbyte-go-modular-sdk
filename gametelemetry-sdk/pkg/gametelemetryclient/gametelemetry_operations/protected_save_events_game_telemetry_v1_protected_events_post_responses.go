@@ -19,6 +19,53 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclientmodels"
 )
 
+type ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostResponse struct {
+	gametelemetryclientmodels.ApiResponse
+
+	Error422 *gametelemetryclientmodels.BaseErrorResponse
+	Error500 *gametelemetryclientmodels.BaseErrorResponse
+	Error507 *gametelemetryclientmodels.BaseErrorResponse
+}
+
+func (m *ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostResponse) Unpack() *gametelemetryclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 507:
+			e, err := m.Error507.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &gametelemetryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostReader is a Reader for the ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost structure.
 type ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostReader struct {
 	formats strfmt.Registry

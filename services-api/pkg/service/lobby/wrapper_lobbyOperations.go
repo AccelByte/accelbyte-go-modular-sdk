@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/lobby_operations"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *LobbyOperationsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *LobbyOperationsService) AdminUpdatePartyAttributesV1Short(input *lobby_operations.AdminUpdatePartyAttributesV1Params) (*lobbyclientmodels.ModelsPartyData, error) {
+func (aaa *LobbyOperationsService) AdminUpdatePartyAttributesV1Short(input *lobby_operations.AdminUpdatePartyAttributesV1Params) (*lobby_operations.AdminUpdatePartyAttributesV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *LobbyOperationsService) AdminUpdatePartyAttributesV1Short(input *lobb
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *LobbyOperationsService) AdminJoinPartyV1Short(input *lobby_operations.AdminJoinPartyV1Params) error {
@@ -99,7 +98,7 @@ func (aaa *LobbyOperationsService) AdminJoinPartyV1Short(input *lobby_operations
 	return nil
 }
 
-func (aaa *LobbyOperationsService) PublicGetMessagesShort(input *lobby_operations.PublicGetMessagesParams) ([]*lobbyclientmodels.LogAppMessageDeclaration, error) {
+func (aaa *LobbyOperationsService) PublicGetMessagesShort(input *lobby_operations.PublicGetMessagesParams) (*lobby_operations.PublicGetMessagesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,5 +125,5 @@ func (aaa *LobbyOperationsService) PublicGetMessagesShort(input *lobby_operation
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

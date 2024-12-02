@@ -19,6 +19,41 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type RetryFulfillItemsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.FulfillmentV2Result
+
+	Error404 *platformclientmodels.ErrorEntity
+	Error409 *platformclientmodels.FulfillmentV2Result
+}
+
+func (m *RetryFulfillItemsResponse) Unpack() (*platformclientmodels.FulfillmentV2Result, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+
+			return m.Error409, nil
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RetryFulfillItemsReader is a Reader for the RetryFulfillItems structure.
 type RetryFulfillItemsReader struct {
 	formats strfmt.Registry

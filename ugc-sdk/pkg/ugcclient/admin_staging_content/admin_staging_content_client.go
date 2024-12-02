@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListStagingContentsShort(params *AdminListStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListStagingContentsOK, error)
-	AdminGetStagingContentByIDShort(params *AdminGetStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetStagingContentByIDOK, error)
-	AdminApproveStagingContentShort(params *AdminApproveStagingContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminApproveStagingContentOK, error)
-	AdminListUserStagingContentsShort(params *AdminListUserStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserStagingContentsOK, error)
+	AdminListStagingContentsShort(params *AdminListStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListStagingContentsResponse, error)
+	AdminGetStagingContentByIDShort(params *AdminGetStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetStagingContentByIDResponse, error)
+	AdminApproveStagingContentShort(params *AdminApproveStagingContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminApproveStagingContentResponse, error)
+	AdminListUserStagingContentsShort(params *AdminListUserStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserStagingContentsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 AdminListStagingContentsShort list staging contents
 List content that need admin's approval
 */
-func (a *Client) AdminListStagingContentsShort(params *AdminListStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListStagingContentsOK, error) {
+func (a *Client) AdminListStagingContentsShort(params *AdminListStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListStagingContentsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListStagingContentsParams()
@@ -80,15 +80,40 @@ func (a *Client) AdminListStagingContentsShort(params *AdminListStagingContentsP
 	switch v := result.(type) {
 
 	case *AdminListStagingContentsOK:
-		return v, nil
+		response := &AdminListStagingContentsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListStagingContentsBadRequest:
-		return nil, v
+		response := &AdminListStagingContentsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListStagingContentsUnauthorized:
-		return nil, v
+		response := &AdminListStagingContentsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListStagingContentsForbidden:
-		return nil, v
+		response := &AdminListStagingContentsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListStagingContentsInternalServerError:
-		return nil, v
+		response := &AdminListStagingContentsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -99,7 +124,7 @@ func (a *Client) AdminListStagingContentsShort(params *AdminListStagingContentsP
 AdminGetStagingContentByIDShort get staging content by id
 Get staging content by ID
 */
-func (a *Client) AdminGetStagingContentByIDShort(params *AdminGetStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetStagingContentByIDOK, error) {
+func (a *Client) AdminGetStagingContentByIDShort(params *AdminGetStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetStagingContentByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetStagingContentByIDParams()
@@ -137,15 +162,40 @@ func (a *Client) AdminGetStagingContentByIDShort(params *AdminGetStagingContentB
 	switch v := result.(type) {
 
 	case *AdminGetStagingContentByIDOK:
-		return v, nil
+		response := &AdminGetStagingContentByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetStagingContentByIDUnauthorized:
-		return nil, v
+		response := &AdminGetStagingContentByIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetStagingContentByIDForbidden:
-		return nil, v
+		response := &AdminGetStagingContentByIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetStagingContentByIDNotFound:
-		return nil, v
+		response := &AdminGetStagingContentByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetStagingContentByIDInternalServerError:
-		return nil, v
+		response := &AdminGetStagingContentByIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +206,7 @@ func (a *Client) AdminGetStagingContentByIDShort(params *AdminGetStagingContentB
 AdminApproveStagingContentShort approve or reject content
 Approved content will shown to public player. Rejected content stays in staging area and couldn't be seen by other player
 */
-func (a *Client) AdminApproveStagingContentShort(params *AdminApproveStagingContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminApproveStagingContentOK, error) {
+func (a *Client) AdminApproveStagingContentShort(params *AdminApproveStagingContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminApproveStagingContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminApproveStagingContentParams()
@@ -194,17 +244,47 @@ func (a *Client) AdminApproveStagingContentShort(params *AdminApproveStagingCont
 	switch v := result.(type) {
 
 	case *AdminApproveStagingContentOK:
-		return v, nil
+		response := &AdminApproveStagingContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminApproveStagingContentBadRequest:
-		return nil, v
+		response := &AdminApproveStagingContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminApproveStagingContentUnauthorized:
-		return nil, v
+		response := &AdminApproveStagingContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminApproveStagingContentForbidden:
-		return nil, v
+		response := &AdminApproveStagingContentResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminApproveStagingContentNotFound:
-		return nil, v
+		response := &AdminApproveStagingContentResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminApproveStagingContentInternalServerError:
-		return nil, v
+		response := &AdminApproveStagingContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -215,7 +295,7 @@ func (a *Client) AdminApproveStagingContentShort(params *AdminApproveStagingCont
 AdminListUserStagingContentsShort list user staging contents
 List user content's that need admin approval
 */
-func (a *Client) AdminListUserStagingContentsShort(params *AdminListUserStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserStagingContentsOK, error) {
+func (a *Client) AdminListUserStagingContentsShort(params *AdminListUserStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserStagingContentsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListUserStagingContentsParams()
@@ -253,15 +333,40 @@ func (a *Client) AdminListUserStagingContentsShort(params *AdminListUserStagingC
 	switch v := result.(type) {
 
 	case *AdminListUserStagingContentsOK:
-		return v, nil
+		response := &AdminListUserStagingContentsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListUserStagingContentsBadRequest:
-		return nil, v
+		response := &AdminListUserStagingContentsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserStagingContentsUnauthorized:
-		return nil, v
+		response := &AdminListUserStagingContentsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserStagingContentsForbidden:
-		return nil, v
+		response := &AdminListUserStagingContentsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserStagingContentsInternalServerError:
-		return nil, v
+		response := &AdminListUserStagingContentsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

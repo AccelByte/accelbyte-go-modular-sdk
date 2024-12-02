@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyNoContent, error)
-	UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicy1OK, error)
-	SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy3OK, error)
+	DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyResponse, error)
+	UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicy1Response, error)
+	SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ Delete policy.Can only be deleted if match these criteria:
   * Policy is not default policy
   * Policy version under policy has never been accepted by any user
 */
-func (a *Client) DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyNoContent, error) {
+func (a *Client) DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePolicyParams()
@@ -83,9 +83,18 @@ func (a *Client) DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeletePolicyNoContent:
-		return v, nil
+		response := &DeletePolicyResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePolicyBadRequest:
-		return nil, v
+		response := &DeletePolicyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -96,7 +105,7 @@ func (a *Client) DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.
 UpdatePolicy1Short update country-specific policy
 Update country-specific and country-group policy.
 */
-func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicy1OK, error) {
+func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicy1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePolicy1Params()
@@ -134,9 +143,18 @@ func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtim
 	switch v := result.(type) {
 
 	case *UpdatePolicy1OK:
-		return v, nil
+		response := &UpdatePolicy1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePolicy1BadRequest:
-		return nil, v
+		response := &UpdatePolicy1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -147,7 +165,7 @@ func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtim
 SetDefaultPolicy3Short set default policy
 Update a policy to be the default.
 */
-func (a *Client) SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy3OK, error) {
+func (a *Client) SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetDefaultPolicy3Params()
@@ -185,9 +203,18 @@ func (a *Client) SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInf
 	switch v := result.(type) {
 
 	case *SetDefaultPolicy3OK:
-		return v, nil
+		response := &SetDefaultPolicy3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SetDefaultPolicy3BadRequest:
-		return nil, v
+		response := &SetDefaultPolicy3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

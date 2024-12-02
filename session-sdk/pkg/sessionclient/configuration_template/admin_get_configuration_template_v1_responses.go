@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
+type AdminGetConfigurationTemplateV1Response struct {
+	sessionclientmodels.ApiResponse
+	Data *sessionclientmodels.ApimodelsConfigurationTemplateResponse
+
+	Error400 *sessionclientmodels.ResponseError
+	Error401 *sessionclientmodels.ResponseError
+	Error403 *sessionclientmodels.ResponseError
+	Error404 *sessionclientmodels.ResponseError
+	Error500 *sessionclientmodels.ResponseError
+}
+
+func (m *AdminGetConfigurationTemplateV1Response) Unpack() (*sessionclientmodels.ApimodelsConfigurationTemplateResponse, *sessionclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetConfigurationTemplateV1Reader is a Reader for the AdminGetConfigurationTemplateV1 structure.
 type AdminGetConfigurationTemplateV1Reader struct {
 	formats strfmt.Registry

@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 )
 
+type CountServerDetailedClientResponse struct {
+	dsmcclientmodels.ApiResponse
+	Data *dsmcclientmodels.ModelsDetailedCountServerResponse
+
+	Error401 *dsmcclientmodels.ResponseError
+	Error500 *dsmcclientmodels.ResponseError
+}
+
+func (m *CountServerDetailedClientResponse) Unpack() (*dsmcclientmodels.ModelsDetailedCountServerResponse, *dsmcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dsmcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // CountServerDetailedClientReader is a Reader for the CountServerDetailedClient structure.
 type CountServerDetailedClientReader struct {
 	formats strfmt.Registry

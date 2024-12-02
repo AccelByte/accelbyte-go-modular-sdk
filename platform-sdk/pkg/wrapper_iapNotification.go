@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/iap_notification"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *IAPNotificationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *IAPNotificationService) QueryThirdPartyNotificationsShort(input *iap_notification.QueryThirdPartyNotificationsParams) (*platformclientmodels.NotificationPagingSlicedResult, error) {
+func (aaa *IAPNotificationService) QueryThirdPartyNotificationsShort(input *iap_notification.QueryThirdPartyNotificationsParams) (*iap_notification.QueryThirdPartyNotificationsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *IAPNotificationService) QueryThirdPartyNotificationsShort(input *iap_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

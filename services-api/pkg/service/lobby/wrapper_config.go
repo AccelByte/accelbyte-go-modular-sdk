@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -41,7 +40,7 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigService) AdminGetAllConfigV1Short(input *config.AdminGetAllConfigV1Params) (*lobbyclientmodels.ModelsConfigList, error) {
+func (aaa *ConfigService) AdminGetAllConfigV1Short(input *config.AdminGetAllConfigV1Params) (*config.AdminGetAllConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -68,10 +67,10 @@ func (aaa *ConfigService) AdminGetAllConfigV1Short(input *config.AdminGetAllConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfigParams) (*lobbyclientmodels.LogconfigConfiguration, error) {
+func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfigParams) (*config.AdminGetLogConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -98,10 +97,10 @@ func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfig
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatchUpdateLogConfigParams) (*lobbyclientmodels.LogconfigConfiguration, error) {
+func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatchUpdateLogConfigParams) (*config.AdminPatchUpdateLogConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -128,10 +127,10 @@ func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminGetConfigV1Short(input *config.AdminGetConfigV1Params) (*lobbyclientmodels.ModelsConfigReq, error) {
+func (aaa *ConfigService) AdminGetConfigV1Short(input *config.AdminGetConfigV1Params) (*config.AdminGetConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -158,10 +157,10 @@ func (aaa *ConfigService) AdminGetConfigV1Short(input *config.AdminGetConfigV1Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminUpdateConfigV1Short(input *config.AdminUpdateConfigV1Params) (*lobbyclientmodels.ModelsConfigReq, error) {
+func (aaa *ConfigService) AdminUpdateConfigV1Short(input *config.AdminUpdateConfigV1Params) (*config.AdminUpdateConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -188,10 +187,10 @@ func (aaa *ConfigService) AdminUpdateConfigV1Short(input *config.AdminUpdateConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminExportConfigV1Short(input *config.AdminExportConfigV1Params, writer io.Writer) (io.Writer, error) {
+func (aaa *ConfigService) AdminExportConfigV1Short(input *config.AdminExportConfigV1Params, writer io.Writer) (*config.AdminExportConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -218,10 +217,10 @@ func (aaa *ConfigService) AdminExportConfigV1Short(input *config.AdminExportConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminImportConfigV1Short(input *config.AdminImportConfigV1Params) (*lobbyclientmodels.ModelsImportConfigResponse, error) {
+func (aaa *ConfigService) AdminImportConfigV1Short(input *config.AdminImportConfigV1Params) (*config.AdminImportConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -248,5 +247,5 @@ func (aaa *ConfigService) AdminImportConfigV1Short(input *config.AdminImportConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

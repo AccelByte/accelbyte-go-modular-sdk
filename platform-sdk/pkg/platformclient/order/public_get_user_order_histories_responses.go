@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type PublicGetUserOrderHistoriesResponse struct {
+	platformclientmodels.ApiResponse
+	Data []*platformclientmodels.OrderHistoryInfo
+}
+
+func (m *PublicGetUserOrderHistoriesResponse) Unpack() ([]*platformclientmodels.OrderHistoryInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetUserOrderHistoriesReader is a Reader for the PublicGetUserOrderHistories structure.
 type PublicGetUserOrderHistoriesReader struct {
 	formats strfmt.Registry

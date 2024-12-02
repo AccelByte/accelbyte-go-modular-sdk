@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetTypeShort(params *GetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetTypeOK, error)
+	GetTypeShort(params *GetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetTypeResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 GetTypeShort get types
 Get available types paginated
 */
-func (a *Client) GetTypeShort(params *GetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetTypeOK, error) {
+func (a *Client) GetTypeShort(params *GetTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTypeParams()
@@ -77,13 +77,33 @@ func (a *Client) GetTypeShort(params *GetTypeParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *GetTypeOK:
-		return v, nil
+		response := &GetTypeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTypeBadRequest:
-		return nil, v
+		response := &GetTypeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTypeUnauthorized:
-		return nil, v
+		response := &GetTypeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTypeInternalServerError:
-		return nil, v
+		response := &GetTypeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

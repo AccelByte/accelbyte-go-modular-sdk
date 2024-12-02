@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/dlc"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *DLCService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *DLCService) GetDLCItemConfigShort(input *dlc.GetDLCItemConfigParams) (*platformclientmodels.DLCItemConfigInfo, error) {
+func (aaa *DLCService) GetDLCItemConfigShort(input *dlc.GetDLCItemConfigParams) (*dlc.GetDLCItemConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *DLCService) GetDLCItemConfigShort(input *dlc.GetDLCItemConfigParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DLCService) UpdateDLCItemConfigShort(input *dlc.UpdateDLCItemConfigParams) (*platformclientmodels.DLCItemConfigInfo, error) {
+func (aaa *DLCService) UpdateDLCItemConfigShort(input *dlc.UpdateDLCItemConfigParams) (*dlc.UpdateDLCItemConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *DLCService) UpdateDLCItemConfigShort(input *dlc.UpdateDLCItemConfigPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *DLCService) DeleteDLCItemConfigShort(input *dlc.DeleteDLCItemConfigParams) error {
@@ -129,7 +128,7 @@ func (aaa *DLCService) DeleteDLCItemConfigShort(input *dlc.DeleteDLCItemConfigPa
 	return nil
 }
 
-func (aaa *DLCService) GetPlatformDLCConfigShort(input *dlc.GetPlatformDLCConfigParams) (*platformclientmodels.PlatformDLCConfigInfo, error) {
+func (aaa *DLCService) GetPlatformDLCConfigShort(input *dlc.GetPlatformDLCConfigParams) (*dlc.GetPlatformDLCConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *DLCService) GetPlatformDLCConfigShort(input *dlc.GetPlatformDLCConfig
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DLCService) UpdatePlatformDLCConfigShort(input *dlc.UpdatePlatformDLCConfigParams) (*platformclientmodels.PlatformDLCConfigInfo, error) {
+func (aaa *DLCService) UpdatePlatformDLCConfigShort(input *dlc.UpdatePlatformDLCConfigParams) (*dlc.UpdatePlatformDLCConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *DLCService) UpdatePlatformDLCConfigShort(input *dlc.UpdatePlatformDLC
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *DLCService) DeletePlatformDLCConfigShort(input *dlc.DeletePlatformDLCConfigParams) error {
@@ -219,7 +218,7 @@ func (aaa *DLCService) DeletePlatformDLCConfigShort(input *dlc.DeletePlatformDLC
 	return nil
 }
 
-func (aaa *DLCService) GetUserDLCByPlatformShort(input *dlc.GetUserDLCByPlatformParams) (*platformclientmodels.UserDLC, error) {
+func (aaa *DLCService) GetUserDLCByPlatformShort(input *dlc.GetUserDLCByPlatformParams) (*dlc.GetUserDLCByPlatformResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *DLCService) GetUserDLCByPlatformShort(input *dlc.GetUserDLCByPlatform
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DLCService) GetUserDLCShort(input *dlc.GetUserDLCParams) ([]*platformclientmodels.UserDLCRecord, error) {
+func (aaa *DLCService) GetUserDLCShort(input *dlc.GetUserDLCParams) (*dlc.GetUserDLCResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *DLCService) GetUserDLCShort(input *dlc.GetUserDLCParams) ([]*platform
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DLCService) GeDLCDurableRewardShortMapShort(input *dlc.GeDLCDurableRewardShortMapParams) (*platformclientmodels.DLCConfigRewardShortInfo, error) {
+func (aaa *DLCService) GeDLCDurableRewardShortMapShort(input *dlc.GeDLCDurableRewardShortMapParams) (*dlc.GeDLCDurableRewardShortMapResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,7 +305,7 @@ func (aaa *DLCService) GeDLCDurableRewardShortMapShort(input *dlc.GeDLCDurableRe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *DLCService) SyncEpicGameDLCShort(input *dlc.SyncEpicGameDLCParams) error {
@@ -489,7 +488,7 @@ func (aaa *DLCService) SyncXboxDLCShort(input *dlc.SyncXboxDLCParams) error {
 	return nil
 }
 
-func (aaa *DLCService) PublicGetMyDLCContentShort(input *dlc.PublicGetMyDLCContentParams) (*platformclientmodels.SimpleUserDLCRewardContentsResponse, error) {
+func (aaa *DLCService) PublicGetMyDLCContentShort(input *dlc.PublicGetMyDLCContentParams) (*dlc.PublicGetMyDLCContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -516,5 +515,5 @@ func (aaa *DLCService) PublicGetMyDLCContentShort(input *dlc.PublicGetMyDLCConte
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

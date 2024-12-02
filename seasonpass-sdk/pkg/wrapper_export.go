@@ -38,7 +38,7 @@ func (aaa *ExportService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ExportService) ExportSeasonShort(input *export.ExportSeasonParams, writer io.Writer) (io.Writer, error) {
+func (aaa *ExportService) ExportSeasonShort(input *export.ExportSeasonParams, writer io.Writer) (*export.ExportSeasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -65,5 +65,5 @@ func (aaa *ExportService) ExportSeasonShort(input *export.ExportSeasonParams, wr
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

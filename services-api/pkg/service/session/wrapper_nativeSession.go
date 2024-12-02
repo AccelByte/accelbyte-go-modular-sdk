@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/native_session"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 // NativeSessionService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *NativeSessionService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *NativeSessionService) AdminGetListNativeSessionShort(input *native_session.AdminGetListNativeSessionParams) (*sessionclientmodels.ApimodelsNativeSessionPagingResponse, error) {
+func (aaa *NativeSessionService) AdminGetListNativeSessionShort(input *native_session.AdminGetListNativeSessionParams) (*native_session.AdminGetListNativeSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,5 +65,5 @@ func (aaa *NativeSessionService) AdminGetListNativeSessionShort(input *native_se
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

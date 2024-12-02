@@ -9,7 +9,6 @@ package dsartifact
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclient/download_server_artifact"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -69,7 +68,7 @@ func (aaa *DownloadServerArtifactService) DownloadServerArtifactsShort(input *do
 	return nil
 }
 
-func (aaa *DownloadServerArtifactService) CheckServerArtifactShort(input *download_server_artifact.CheckServerArtifactParams) (*dsartifactclientmodels.ModelsArtifactFileStatus, error) {
+func (aaa *DownloadServerArtifactService) CheckServerArtifactShort(input *download_server_artifact.CheckServerArtifactParams) (*download_server_artifact.CheckServerArtifactResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *DownloadServerArtifactService) CheckServerArtifactShort(input *downlo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

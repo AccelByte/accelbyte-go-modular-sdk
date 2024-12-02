@@ -31,27 +31,27 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryOrdersShort(params *QueryOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryOrdersOK, error)
-	GetOrderStatisticsShort(params *GetOrderStatisticsParams, authInfo runtime.ClientAuthInfoWriter) (*GetOrderStatisticsOK, error)
-	GetOrderShort(params *GetOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetOrderOK, error)
-	RefundOrderShort(params *RefundOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundOrderOK, error)
-	QueryUserOrdersShort(params *QueryUserOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserOrdersOK, error)
-	AdminCreateUserOrderShort(params *AdminCreateUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserOrderCreated, error)
-	CountOfPurchasedItemShort(params *CountOfPurchasedItemParams, authInfo runtime.ClientAuthInfoWriter) (*CountOfPurchasedItemOK, error)
-	GetUserOrderShort(params *GetUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderOK, error)
-	UpdateUserOrderStatusShort(params *UpdateUserOrderStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserOrderStatusOK, error)
-	FulfillUserOrderShort(params *FulfillUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillUserOrderOK, error)
-	GetUserOrderGrantShort(params *GetUserOrderGrantParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderGrantOK, error)
-	GetUserOrderHistoriesShort(params *GetUserOrderHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderHistoriesOK, error)
-	ProcessUserOrderNotificationShort(params *ProcessUserOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserOrderNotificationNoContent, error)
-	DownloadUserOrderReceiptShort(params *DownloadUserOrderReceiptParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadUserOrderReceiptOK, error)
-	PublicQueryUserOrdersShort(params *PublicQueryUserOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserOrdersOK, error)
-	PublicCreateUserOrderShort(params *PublicCreateUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserOrderCreated, error)
-	PublicPreviewOrderPriceShort(params *PublicPreviewOrderPriceParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPreviewOrderPriceOK, error)
-	PublicGetUserOrderShort(params *PublicGetUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserOrderOK, error)
-	PublicCancelUserOrderShort(params *PublicCancelUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserOrderOK, error)
-	PublicGetUserOrderHistoriesShort(params *PublicGetUserOrderHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserOrderHistoriesOK, error)
-	PublicDownloadUserOrderReceiptShort(params *PublicDownloadUserOrderReceiptParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadUserOrderReceiptOK, error)
+	QueryOrdersShort(params *QueryOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryOrdersResponse, error)
+	GetOrderStatisticsShort(params *GetOrderStatisticsParams, authInfo runtime.ClientAuthInfoWriter) (*GetOrderStatisticsResponse, error)
+	GetOrderShort(params *GetOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetOrderResponse, error)
+	RefundOrderShort(params *RefundOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundOrderResponse, error)
+	QueryUserOrdersShort(params *QueryUserOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserOrdersResponse, error)
+	AdminCreateUserOrderShort(params *AdminCreateUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserOrderResponse, error)
+	CountOfPurchasedItemShort(params *CountOfPurchasedItemParams, authInfo runtime.ClientAuthInfoWriter) (*CountOfPurchasedItemResponse, error)
+	GetUserOrderShort(params *GetUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderResponse, error)
+	UpdateUserOrderStatusShort(params *UpdateUserOrderStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserOrderStatusResponse, error)
+	FulfillUserOrderShort(params *FulfillUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillUserOrderResponse, error)
+	GetUserOrderGrantShort(params *GetUserOrderGrantParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderGrantResponse, error)
+	GetUserOrderHistoriesShort(params *GetUserOrderHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderHistoriesResponse, error)
+	ProcessUserOrderNotificationShort(params *ProcessUserOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserOrderNotificationResponse, error)
+	DownloadUserOrderReceiptShort(params *DownloadUserOrderReceiptParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadUserOrderReceiptResponse, error)
+	PublicQueryUserOrdersShort(params *PublicQueryUserOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserOrdersResponse, error)
+	PublicCreateUserOrderShort(params *PublicCreateUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserOrderResponse, error)
+	PublicPreviewOrderPriceShort(params *PublicPreviewOrderPriceParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPreviewOrderPriceResponse, error)
+	PublicGetUserOrderShort(params *PublicGetUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserOrderResponse, error)
+	PublicCancelUserOrderShort(params *PublicCancelUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserOrderResponse, error)
+	PublicGetUserOrderHistoriesShort(params *PublicGetUserOrderHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserOrderHistoriesResponse, error)
+	PublicDownloadUserOrderReceiptShort(params *PublicDownloadUserOrderReceiptParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadUserOrderReceiptResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -63,7 +63,7 @@ Other detail info:
 
   * Returns : query orders
 */
-func (a *Client) QueryOrdersShort(params *QueryOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryOrdersOK, error) {
+func (a *Client) QueryOrdersShort(params *QueryOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryOrdersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryOrdersParams()
@@ -101,9 +101,19 @@ func (a *Client) QueryOrdersShort(params *QueryOrdersParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *QueryOrdersOK:
-		return v, nil
+		response := &QueryOrdersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryOrdersUnprocessableEntity:
-		return nil, v
+		response := &QueryOrdersResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -117,7 +127,7 @@ Other detail info:
 
   * Returns : order statistics
 */
-func (a *Client) GetOrderStatisticsShort(params *GetOrderStatisticsParams, authInfo runtime.ClientAuthInfoWriter) (*GetOrderStatisticsOK, error) {
+func (a *Client) GetOrderStatisticsShort(params *GetOrderStatisticsParams, authInfo runtime.ClientAuthInfoWriter) (*GetOrderStatisticsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetOrderStatisticsParams()
@@ -155,7 +165,12 @@ func (a *Client) GetOrderStatisticsShort(params *GetOrderStatisticsParams, authI
 	switch v := result.(type) {
 
 	case *GetOrderStatisticsOK:
-		return v, nil
+		response := &GetOrderStatisticsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -169,7 +184,7 @@ Other detail info:
 
   * Returns : order instance
 */
-func (a *Client) GetOrderShort(params *GetOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetOrderOK, error) {
+func (a *Client) GetOrderShort(params *GetOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetOrderParams()
@@ -207,9 +222,19 @@ func (a *Client) GetOrderShort(params *GetOrderParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *GetOrderOK:
-		return v, nil
+		response := &GetOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetOrderNotFound:
-		return nil, v
+		response := &GetOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -220,7 +245,7 @@ func (a *Client) GetOrderShort(params *GetOrderParams, authInfo runtime.ClientAu
 RefundOrderShort refund order
 Refund order by orderNo.
 */
-func (a *Client) RefundOrderShort(params *RefundOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundOrderOK, error) {
+func (a *Client) RefundOrderShort(params *RefundOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRefundOrderParams()
@@ -258,13 +283,33 @@ func (a *Client) RefundOrderShort(params *RefundOrderParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *RefundOrderOK:
-		return v, nil
+		response := &RefundOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RefundOrderNotFound:
-		return nil, v
+		response := &RefundOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RefundOrderConflict:
-		return nil, v
+		response := &RefundOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RefundOrderUnprocessableEntity:
-		return nil, v
+		response := &RefundOrderResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -278,7 +323,7 @@ Other detail info:
 
   * Returns : get order
 */
-func (a *Client) QueryUserOrdersShort(params *QueryUserOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserOrdersOK, error) {
+func (a *Client) QueryUserOrdersShort(params *QueryUserOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserOrdersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserOrdersParams()
@@ -316,7 +361,12 @@ func (a *Client) QueryUserOrdersShort(params *QueryUserOrdersParams, authInfo ru
 	switch v := result.(type) {
 
 	case *QueryUserOrdersOK:
-		return v, nil
+		response := &QueryUserOrdersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -351,7 +401,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) AdminCreateUserOrderShort(params *AdminCreateUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserOrderCreated, error) {
+func (a *Client) AdminCreateUserOrderShort(params *AdminCreateUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateUserOrderParams()
@@ -389,17 +439,47 @@ func (a *Client) AdminCreateUserOrderShort(params *AdminCreateUserOrderParams, a
 	switch v := result.(type) {
 
 	case *AdminCreateUserOrderCreated:
-		return v, nil
+		response := &AdminCreateUserOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateUserOrderBadRequest:
-		return nil, v
+		response := &AdminCreateUserOrderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserOrderForbidden:
-		return nil, v
+		response := &AdminCreateUserOrderResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserOrderNotFound:
-		return nil, v
+		response := &AdminCreateUserOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserOrderConflict:
-		return nil, v
+		response := &AdminCreateUserOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserOrderUnprocessableEntity:
-		return nil, v
+		response := &AdminCreateUserOrderResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -413,7 +493,7 @@ Other detail info:
 
   * Returns : Item purchased count
 */
-func (a *Client) CountOfPurchasedItemShort(params *CountOfPurchasedItemParams, authInfo runtime.ClientAuthInfoWriter) (*CountOfPurchasedItemOK, error) {
+func (a *Client) CountOfPurchasedItemShort(params *CountOfPurchasedItemParams, authInfo runtime.ClientAuthInfoWriter) (*CountOfPurchasedItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCountOfPurchasedItemParams()
@@ -451,7 +531,12 @@ func (a *Client) CountOfPurchasedItemShort(params *CountOfPurchasedItemParams, a
 	switch v := result.(type) {
 
 	case *CountOfPurchasedItemOK:
-		return v, nil
+		response := &CountOfPurchasedItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -465,7 +550,7 @@ Other detail info:
 
   * Returns : get order
 */
-func (a *Client) GetUserOrderShort(params *GetUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderOK, error) {
+func (a *Client) GetUserOrderShort(params *GetUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserOrderParams()
@@ -503,9 +588,19 @@ func (a *Client) GetUserOrderShort(params *GetUserOrderParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetUserOrderOK:
-		return v, nil
+		response := &GetUserOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserOrderNotFound:
-		return nil, v
+		response := &GetUserOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -519,7 +614,7 @@ Other detail info:
 
   * Returns : updated order
 */
-func (a *Client) UpdateUserOrderStatusShort(params *UpdateUserOrderStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserOrderStatusOK, error) {
+func (a *Client) UpdateUserOrderStatusShort(params *UpdateUserOrderStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserOrderStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserOrderStatusParams()
@@ -557,13 +652,33 @@ func (a *Client) UpdateUserOrderStatusShort(params *UpdateUserOrderStatusParams,
 	switch v := result.(type) {
 
 	case *UpdateUserOrderStatusOK:
-		return v, nil
+		response := &UpdateUserOrderStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateUserOrderStatusNotFound:
-		return nil, v
+		response := &UpdateUserOrderStatusResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserOrderStatusConflict:
-		return nil, v
+		response := &UpdateUserOrderStatusResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserOrderStatusUnprocessableEntity:
-		return nil, v
+		response := &UpdateUserOrderStatusResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -577,7 +692,7 @@ Other detail info:
 
   * Returns : fulfilled order
 */
-func (a *Client) FulfillUserOrderShort(params *FulfillUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillUserOrderOK, error) {
+func (a *Client) FulfillUserOrderShort(params *FulfillUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillUserOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFulfillUserOrderParams()
@@ -615,13 +730,33 @@ func (a *Client) FulfillUserOrderShort(params *FulfillUserOrderParams, authInfo 
 	switch v := result.(type) {
 
 	case *FulfillUserOrderOK:
-		return v, nil
+		response := &FulfillUserOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FulfillUserOrderBadRequest:
-		return nil, v
+		response := &FulfillUserOrderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillUserOrderNotFound:
-		return nil, v
+		response := &FulfillUserOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillUserOrderConflict:
-		return nil, v
+		response := &FulfillUserOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -635,7 +770,7 @@ Other detail info:
 
   * Returns : get order grant
 */
-func (a *Client) GetUserOrderGrantShort(params *GetUserOrderGrantParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderGrantOK, error) {
+func (a *Client) GetUserOrderGrantShort(params *GetUserOrderGrantParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderGrantResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserOrderGrantParams()
@@ -673,7 +808,12 @@ func (a *Client) GetUserOrderGrantShort(params *GetUserOrderGrantParams, authInf
 	switch v := result.(type) {
 
 	case *GetUserOrderGrantOK:
-		return v, nil
+		response := &GetUserOrderGrantResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -687,7 +827,7 @@ Other detail info:
 
   * Returns : get order history
 */
-func (a *Client) GetUserOrderHistoriesShort(params *GetUserOrderHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderHistoriesOK, error) {
+func (a *Client) GetUserOrderHistoriesShort(params *GetUserOrderHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOrderHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserOrderHistoriesParams()
@@ -725,7 +865,12 @@ func (a *Client) GetUserOrderHistoriesShort(params *GetUserOrderHistoriesParams,
 	switch v := result.(type) {
 
 	case *GetUserOrderHistoriesOK:
-		return v, nil
+		response := &GetUserOrderHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -739,7 +884,7 @@ Other detail info:
 
   * Returns : Process result
 */
-func (a *Client) ProcessUserOrderNotificationShort(params *ProcessUserOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserOrderNotificationNoContent, error) {
+func (a *Client) ProcessUserOrderNotificationShort(params *ProcessUserOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserOrderNotificationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewProcessUserOrderNotificationParams()
@@ -777,9 +922,17 @@ func (a *Client) ProcessUserOrderNotificationShort(params *ProcessUserOrderNotif
 	switch v := result.(type) {
 
 	case *ProcessUserOrderNotificationNoContent:
-		return v, nil
+		response := &ProcessUserOrderNotificationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ProcessUserOrderNotificationBadRequest:
-		return nil, v
+		response := &ProcessUserOrderNotificationResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -793,7 +946,7 @@ Other detail info:
 
   * Returns : order receipt pdf
 */
-func (a *Client) DownloadUserOrderReceiptShort(params *DownloadUserOrderReceiptParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadUserOrderReceiptOK, error) {
+func (a *Client) DownloadUserOrderReceiptShort(params *DownloadUserOrderReceiptParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadUserOrderReceiptResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadUserOrderReceiptParams()
@@ -831,11 +984,26 @@ func (a *Client) DownloadUserOrderReceiptShort(params *DownloadUserOrderReceiptP
 	switch v := result.(type) {
 
 	case *DownloadUserOrderReceiptOK:
-		return v, nil
+		response := &DownloadUserOrderReceiptResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DownloadUserOrderReceiptNotFound:
-		return nil, v
+		response := &DownloadUserOrderReceiptResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DownloadUserOrderReceiptConflict:
-		return nil, v
+		response := &DownloadUserOrderReceiptResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -849,7 +1017,7 @@ Other detail info:
 
   * Returns : get order
 */
-func (a *Client) PublicQueryUserOrdersShort(params *PublicQueryUserOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserOrdersOK, error) {
+func (a *Client) PublicQueryUserOrdersShort(params *PublicQueryUserOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserOrdersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryUserOrdersParams()
@@ -887,7 +1055,12 @@ func (a *Client) PublicQueryUserOrdersShort(params *PublicQueryUserOrdersParams,
 	switch v := result.(type) {
 
 	case *PublicQueryUserOrdersOK:
-		return v, nil
+		response := &PublicQueryUserOrdersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -921,7 +1094,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) PublicCreateUserOrderShort(params *PublicCreateUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserOrderCreated, error) {
+func (a *Client) PublicCreateUserOrderShort(params *PublicCreateUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateUserOrderParams()
@@ -959,17 +1132,47 @@ func (a *Client) PublicCreateUserOrderShort(params *PublicCreateUserOrderParams,
 	switch v := result.(type) {
 
 	case *PublicCreateUserOrderCreated:
-		return v, nil
+		response := &PublicCreateUserOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateUserOrderBadRequest:
-		return nil, v
+		response := &PublicCreateUserOrderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserOrderForbidden:
-		return nil, v
+		response := &PublicCreateUserOrderResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserOrderNotFound:
-		return nil, v
+		response := &PublicCreateUserOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserOrderConflict:
-		return nil, v
+		response := &PublicCreateUserOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserOrderUnprocessableEntity:
-		return nil, v
+		response := &PublicCreateUserOrderResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -982,7 +1185,7 @@ Preview order price with discount code, this api is used to auto calc order pric
 
   * Returns : previewed order
 */
-func (a *Client) PublicPreviewOrderPriceShort(params *PublicPreviewOrderPriceParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPreviewOrderPriceOK, error) {
+func (a *Client) PublicPreviewOrderPriceShort(params *PublicPreviewOrderPriceParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPreviewOrderPriceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPreviewOrderPriceParams()
@@ -1020,17 +1223,47 @@ func (a *Client) PublicPreviewOrderPriceShort(params *PublicPreviewOrderPricePar
 	switch v := result.(type) {
 
 	case *PublicPreviewOrderPriceOK:
-		return v, nil
+		response := &PublicPreviewOrderPriceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPreviewOrderPriceBadRequest:
-		return nil, v
+		response := &PublicPreviewOrderPriceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPreviewOrderPriceForbidden:
-		return nil, v
+		response := &PublicPreviewOrderPriceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPreviewOrderPriceNotFound:
-		return nil, v
+		response := &PublicPreviewOrderPriceResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPreviewOrderPriceConflict:
-		return nil, v
+		response := &PublicPreviewOrderPriceResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPreviewOrderPriceUnprocessableEntity:
-		return nil, v
+		response := &PublicPreviewOrderPriceResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1044,7 +1277,7 @@ Other detail info:
 
   * Returns : get order
 */
-func (a *Client) PublicGetUserOrderShort(params *PublicGetUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserOrderOK, error) {
+func (a *Client) PublicGetUserOrderShort(params *PublicGetUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserOrderParams()
@@ -1082,9 +1315,19 @@ func (a *Client) PublicGetUserOrderShort(params *PublicGetUserOrderParams, authI
 	switch v := result.(type) {
 
 	case *PublicGetUserOrderOK:
-		return v, nil
+		response := &PublicGetUserOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserOrderNotFound:
-		return nil, v
+		response := &PublicGetUserOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1098,7 +1341,7 @@ Other detail info:
 
   * Returns : cancelled order
 */
-func (a *Client) PublicCancelUserOrderShort(params *PublicCancelUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserOrderOK, error) {
+func (a *Client) PublicCancelUserOrderShort(params *PublicCancelUserOrderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCancelUserOrderParams()
@@ -1136,11 +1379,26 @@ func (a *Client) PublicCancelUserOrderShort(params *PublicCancelUserOrderParams,
 	switch v := result.(type) {
 
 	case *PublicCancelUserOrderOK:
-		return v, nil
+		response := &PublicCancelUserOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCancelUserOrderNotFound:
-		return nil, v
+		response := &PublicCancelUserOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelUserOrderConflict:
-		return nil, v
+		response := &PublicCancelUserOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1154,7 +1412,7 @@ Other detail info:
 
   * Returns : get order history
 */
-func (a *Client) PublicGetUserOrderHistoriesShort(params *PublicGetUserOrderHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserOrderHistoriesOK, error) {
+func (a *Client) PublicGetUserOrderHistoriesShort(params *PublicGetUserOrderHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserOrderHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserOrderHistoriesParams()
@@ -1192,7 +1450,12 @@ func (a *Client) PublicGetUserOrderHistoriesShort(params *PublicGetUserOrderHist
 	switch v := result.(type) {
 
 	case *PublicGetUserOrderHistoriesOK:
-		return v, nil
+		response := &PublicGetUserOrderHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1206,7 +1469,7 @@ Other detail info:
 
   * Returns : order receipt pdf
 */
-func (a *Client) PublicDownloadUserOrderReceiptShort(params *PublicDownloadUserOrderReceiptParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadUserOrderReceiptOK, error) {
+func (a *Client) PublicDownloadUserOrderReceiptShort(params *PublicDownloadUserOrderReceiptParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadUserOrderReceiptResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDownloadUserOrderReceiptParams()
@@ -1244,11 +1507,26 @@ func (a *Client) PublicDownloadUserOrderReceiptShort(params *PublicDownloadUserO
 	switch v := result.(type) {
 
 	case *PublicDownloadUserOrderReceiptOK:
-		return v, nil
+		response := &PublicDownloadUserOrderReceiptResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDownloadUserOrderReceiptNotFound:
-		return nil, v
+		response := &PublicDownloadUserOrderReceiptResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadUserOrderReceiptConflict:
-		return nil, v
+		response := &PublicDownloadUserOrderReceiptResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

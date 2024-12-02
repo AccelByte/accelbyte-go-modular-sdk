@@ -13,7 +13,28 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 )
+
+type VersionCheckHandlerResponse struct {
+	match2clientmodels.ApiResponse
+}
+
+func (m *VersionCheckHandlerResponse) Unpack() *match2clientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &match2clientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // VersionCheckHandlerReader is a Reader for the VersionCheckHandler structure.
 type VersionCheckHandlerReader struct {

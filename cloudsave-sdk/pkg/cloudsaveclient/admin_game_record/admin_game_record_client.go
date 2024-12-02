@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListGameRecordsHandlerV1Short(params *ListGameRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListGameRecordsHandlerV1OK, error)
-	AdminGetGameRecordHandlerV1Short(params *AdminGetGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGameRecordHandlerV1OK, error)
-	AdminPutGameRecordHandlerV1Short(params *AdminPutGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameRecordHandlerV1OK, error)
-	AdminPostGameRecordHandlerV1Short(params *AdminPostGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameRecordHandlerV1Created, error)
-	AdminDeleteGameRecordHandlerV1Short(params *AdminDeleteGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGameRecordHandlerV1NoContent, error)
+	ListGameRecordsHandlerV1Short(params *ListGameRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListGameRecordsHandlerV1Response, error)
+	AdminGetGameRecordHandlerV1Short(params *AdminGetGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGameRecordHandlerV1Response, error)
+	AdminPutGameRecordHandlerV1Short(params *AdminPutGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameRecordHandlerV1Response, error)
+	AdminPostGameRecordHandlerV1Short(params *AdminPostGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameRecordHandlerV1Response, error)
+	AdminDeleteGameRecordHandlerV1Short(params *AdminDeleteGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGameRecordHandlerV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 ListGameRecordsHandlerV1Short query game records
 Retrieve list of records key by namespace
 */
-func (a *Client) ListGameRecordsHandlerV1Short(params *ListGameRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListGameRecordsHandlerV1OK, error) {
+func (a *Client) ListGameRecordsHandlerV1Short(params *ListGameRecordsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListGameRecordsHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListGameRecordsHandlerV1Params()
@@ -81,15 +81,40 @@ func (a *Client) ListGameRecordsHandlerV1Short(params *ListGameRecordsHandlerV1P
 	switch v := result.(type) {
 
 	case *ListGameRecordsHandlerV1OK:
-		return v, nil
+		response := &ListGameRecordsHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListGameRecordsHandlerV1BadRequest:
-		return nil, v
+		response := &ListGameRecordsHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGameRecordsHandlerV1Unauthorized:
-		return nil, v
+		response := &ListGameRecordsHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGameRecordsHandlerV1Forbidden:
-		return nil, v
+		response := &ListGameRecordsHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGameRecordsHandlerV1InternalServerError:
-		return nil, v
+		response := &ListGameRecordsHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +125,7 @@ func (a *Client) ListGameRecordsHandlerV1Short(params *ListGameRecordsHandlerV1P
 AdminGetGameRecordHandlerV1Short get game record
 Get a record by its key in namespace-level.
 */
-func (a *Client) AdminGetGameRecordHandlerV1Short(params *AdminGetGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGameRecordHandlerV1OK, error) {
+func (a *Client) AdminGetGameRecordHandlerV1Short(params *AdminGetGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGameRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetGameRecordHandlerV1Params()
@@ -138,15 +163,40 @@ func (a *Client) AdminGetGameRecordHandlerV1Short(params *AdminGetGameRecordHand
 	switch v := result.(type) {
 
 	case *AdminGetGameRecordHandlerV1OK:
-		return v, nil
+		response := &AdminGetGameRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetGameRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminGetGameRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGameRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminGetGameRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGameRecordHandlerV1NotFound:
-		return nil, v
+		response := &AdminGetGameRecordHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGameRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminGetGameRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -219,7 +269,7 @@ Indicate the tagging for the game record.
 }
 ```
 */
-func (a *Client) AdminPutGameRecordHandlerV1Short(params *AdminPutGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameRecordHandlerV1OK, error) {
+func (a *Client) AdminPutGameRecordHandlerV1Short(params *AdminPutGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPutGameRecordHandlerV1Params()
@@ -257,15 +307,40 @@ func (a *Client) AdminPutGameRecordHandlerV1Short(params *AdminPutGameRecordHand
 	switch v := result.(type) {
 
 	case *AdminPutGameRecordHandlerV1OK:
-		return v, nil
+		response := &AdminPutGameRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPutGameRecordHandlerV1BadRequest:
-		return nil, v
+		response := &AdminPutGameRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminPutGameRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminPutGameRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminPutGameRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -350,7 +425,7 @@ Indicate the tagging for the game record.
 }
 ```
 */
-func (a *Client) AdminPostGameRecordHandlerV1Short(params *AdminPostGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameRecordHandlerV1Created, error) {
+func (a *Client) AdminPostGameRecordHandlerV1Short(params *AdminPostGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPostGameRecordHandlerV1Params()
@@ -388,15 +463,40 @@ func (a *Client) AdminPostGameRecordHandlerV1Short(params *AdminPostGameRecordHa
 	switch v := result.(type) {
 
 	case *AdminPostGameRecordHandlerV1Created:
-		return v, nil
+		response := &AdminPostGameRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPostGameRecordHandlerV1BadRequest:
-		return nil, v
+		response := &AdminPostGameRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminPostGameRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminPostGameRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminPostGameRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -407,7 +507,7 @@ func (a *Client) AdminPostGameRecordHandlerV1Short(params *AdminPostGameRecordHa
 AdminDeleteGameRecordHandlerV1Short delete game record
 This endpoints delete game record in namespace-level
 */
-func (a *Client) AdminDeleteGameRecordHandlerV1Short(params *AdminDeleteGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGameRecordHandlerV1NoContent, error) {
+func (a *Client) AdminDeleteGameRecordHandlerV1Short(params *AdminDeleteGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGameRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteGameRecordHandlerV1Params()
@@ -445,15 +545,39 @@ func (a *Client) AdminDeleteGameRecordHandlerV1Short(params *AdminDeleteGameReco
 	switch v := result.(type) {
 
 	case *AdminDeleteGameRecordHandlerV1NoContent:
-		return v, nil
+		response := &AdminDeleteGameRecordHandlerV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteGameRecordHandlerV1BadRequest:
-		return nil, v
+		response := &AdminDeleteGameRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGameRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &AdminDeleteGameRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGameRecordHandlerV1Forbidden:
-		return nil, v
+		response := &AdminDeleteGameRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGameRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &AdminDeleteGameRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

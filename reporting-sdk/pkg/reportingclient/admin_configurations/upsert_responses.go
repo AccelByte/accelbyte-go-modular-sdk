@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type UpsertResponse struct {
+	reportingclientmodels.ApiResponse
+	Data *reportingclientmodels.RestapiConfigResponse
+
+	Error400 *reportingclientmodels.RestapiErrorResponse
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *UpsertResponse) Unpack() (*reportingclientmodels.RestapiConfigResponse, *reportingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpsertReader is a Reader for the Upsert structure.
 type UpsertReader struct {
 	formats strfmt.Registry

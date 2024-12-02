@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 )
 
+type AdminGetInventoryItemResponse struct {
+	inventoryclientmodels.ApiResponse
+	Data *inventoryclientmodels.ApimodelsItemResp
+
+	Error400 *inventoryclientmodels.ApimodelsErrorResponse
+	Error404 *inventoryclientmodels.ApimodelsErrorResponse
+	Error500 *inventoryclientmodels.ApimodelsErrorResponse
+}
+
+func (m *AdminGetInventoryItemResponse) Unpack() (*inventoryclientmodels.ApimodelsItemResp, *inventoryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &inventoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetInventoryItemReader is a Reader for the AdminGetInventoryItem structure.
 type AdminGetInventoryItemReader struct {
 	formats strfmt.Registry

@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListGroupConfigurationAdminV1Short(params *ListGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListGroupConfigurationAdminV1OK, error)
-	CreateGroupConfigurationAdminV1Short(params *CreateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateGroupConfigurationAdminV1Created, error)
-	InitiateGroupConfigurationAdminV1Short(params *InitiateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*InitiateGroupConfigurationAdminV1Created, error)
-	GetGroupConfigurationAdminV1Short(params *GetGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupConfigurationAdminV1OK, error)
-	DeleteGroupConfigurationV1Short(params *DeleteGroupConfigurationV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupConfigurationV1NoContent, error)
-	UpdateGroupConfigurationAdminV1Short(params *UpdateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupConfigurationAdminV1OK, error)
-	UpdateGroupConfigurationGlobalRuleAdminV1Short(params *UpdateGroupConfigurationGlobalRuleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupConfigurationGlobalRuleAdminV1OK, error)
-	DeleteGroupConfigurationGlobalRuleAdminV1Short(params *DeleteGroupConfigurationGlobalRuleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupConfigurationGlobalRuleAdminV1OK, error)
+	ListGroupConfigurationAdminV1Short(params *ListGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListGroupConfigurationAdminV1Response, error)
+	CreateGroupConfigurationAdminV1Short(params *CreateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateGroupConfigurationAdminV1Response, error)
+	InitiateGroupConfigurationAdminV1Short(params *InitiateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*InitiateGroupConfigurationAdminV1Response, error)
+	GetGroupConfigurationAdminV1Short(params *GetGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupConfigurationAdminV1Response, error)
+	DeleteGroupConfigurationV1Short(params *DeleteGroupConfigurationV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupConfigurationV1Response, error)
+	UpdateGroupConfigurationAdminV1Short(params *UpdateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupConfigurationAdminV1Response, error)
+	UpdateGroupConfigurationGlobalRuleAdminV1Short(params *UpdateGroupConfigurationGlobalRuleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupConfigurationGlobalRuleAdminV1Response, error)
+	DeleteGroupConfigurationGlobalRuleAdminV1Short(params *DeleteGroupConfigurationGlobalRuleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupConfigurationGlobalRuleAdminV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ This endpoint is used to get existing configuration. This Configuration is used 
 
 Action Code: 73101
 */
-func (a *Client) ListGroupConfigurationAdminV1Short(params *ListGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListGroupConfigurationAdminV1OK, error) {
+func (a *Client) ListGroupConfigurationAdminV1Short(params *ListGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListGroupConfigurationAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListGroupConfigurationAdminV1Params()
@@ -86,17 +86,47 @@ func (a *Client) ListGroupConfigurationAdminV1Short(params *ListGroupConfigurati
 	switch v := result.(type) {
 
 	case *ListGroupConfigurationAdminV1OK:
-		return v, nil
+		response := &ListGroupConfigurationAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListGroupConfigurationAdminV1BadRequest:
-		return nil, v
+		response := &ListGroupConfigurationAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGroupConfigurationAdminV1Unauthorized:
-		return nil, v
+		response := &ListGroupConfigurationAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGroupConfigurationAdminV1Forbidden:
-		return nil, v
+		response := &ListGroupConfigurationAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGroupConfigurationAdminV1NotFound:
-		return nil, v
+		response := &ListGroupConfigurationAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGroupConfigurationAdminV1InternalServerError:
-		return nil, v
+		response := &ListGroupConfigurationAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -117,7 +147,7 @@ Allowed Action can only be filled with any available action in the Group Service
 
 Action Code: 73103
 */
-func (a *Client) CreateGroupConfigurationAdminV1Short(params *CreateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateGroupConfigurationAdminV1Created, error) {
+func (a *Client) CreateGroupConfigurationAdminV1Short(params *CreateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateGroupConfigurationAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateGroupConfigurationAdminV1Params()
@@ -155,17 +185,47 @@ func (a *Client) CreateGroupConfigurationAdminV1Short(params *CreateGroupConfigu
 	switch v := result.(type) {
 
 	case *CreateGroupConfigurationAdminV1Created:
-		return v, nil
+		response := &CreateGroupConfigurationAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateGroupConfigurationAdminV1BadRequest:
-		return nil, v
+		response := &CreateGroupConfigurationAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGroupConfigurationAdminV1Unauthorized:
-		return nil, v
+		response := &CreateGroupConfigurationAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGroupConfigurationAdminV1Forbidden:
-		return nil, v
+		response := &CreateGroupConfigurationAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGroupConfigurationAdminV1Conflict:
-		return nil, v
+		response := &CreateGroupConfigurationAdminV1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGroupConfigurationAdminV1InternalServerError:
-		return nil, v
+		response := &CreateGroupConfigurationAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -184,7 +244,7 @@ Default Permission for admin role will cover these permission:
 Default max member value will be 50 and global rules will be empty
 Action Code: 73104
 */
-func (a *Client) InitiateGroupConfigurationAdminV1Short(params *InitiateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*InitiateGroupConfigurationAdminV1Created, error) {
+func (a *Client) InitiateGroupConfigurationAdminV1Short(params *InitiateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*InitiateGroupConfigurationAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewInitiateGroupConfigurationAdminV1Params()
@@ -222,15 +282,40 @@ func (a *Client) InitiateGroupConfigurationAdminV1Short(params *InitiateGroupCon
 	switch v := result.(type) {
 
 	case *InitiateGroupConfigurationAdminV1Created:
-		return v, nil
+		response := &InitiateGroupConfigurationAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *InitiateGroupConfigurationAdminV1Unauthorized:
-		return nil, v
+		response := &InitiateGroupConfigurationAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InitiateGroupConfigurationAdminV1Forbidden:
-		return nil, v
+		response := &InitiateGroupConfigurationAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InitiateGroupConfigurationAdminV1Conflict:
-		return nil, v
+		response := &InitiateGroupConfigurationAdminV1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InitiateGroupConfigurationAdminV1InternalServerError:
-		return nil, v
+		response := &InitiateGroupConfigurationAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -243,7 +328,7 @@ This endpoint is used to get existing configuration. This Configuration is used 
 
 Action Code: 73101
 */
-func (a *Client) GetGroupConfigurationAdminV1Short(params *GetGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupConfigurationAdminV1OK, error) {
+func (a *Client) GetGroupConfigurationAdminV1Short(params *GetGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupConfigurationAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupConfigurationAdminV1Params()
@@ -281,17 +366,47 @@ func (a *Client) GetGroupConfigurationAdminV1Short(params *GetGroupConfiguration
 	switch v := result.(type) {
 
 	case *GetGroupConfigurationAdminV1OK:
-		return v, nil
+		response := &GetGroupConfigurationAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupConfigurationAdminV1BadRequest:
-		return nil, v
+		response := &GetGroupConfigurationAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupConfigurationAdminV1Unauthorized:
-		return nil, v
+		response := &GetGroupConfigurationAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupConfigurationAdminV1Forbidden:
-		return nil, v
+		response := &GetGroupConfigurationAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupConfigurationAdminV1NotFound:
-		return nil, v
+		response := &GetGroupConfigurationAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupConfigurationAdminV1InternalServerError:
-		return nil, v
+		response := &GetGroupConfigurationAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -304,7 +419,7 @@ This endpoint is used to delete group configuration. This Configuration is used 
 
 Action Code: 73101
 */
-func (a *Client) DeleteGroupConfigurationV1Short(params *DeleteGroupConfigurationV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupConfigurationV1NoContent, error) {
+func (a *Client) DeleteGroupConfigurationV1Short(params *DeleteGroupConfigurationV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupConfigurationV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGroupConfigurationV1Params()
@@ -342,17 +457,46 @@ func (a *Client) DeleteGroupConfigurationV1Short(params *DeleteGroupConfiguratio
 	switch v := result.(type) {
 
 	case *DeleteGroupConfigurationV1NoContent:
-		return v, nil
+		response := &DeleteGroupConfigurationV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGroupConfigurationV1BadRequest:
-		return nil, v
+		response := &DeleteGroupConfigurationV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupConfigurationV1Unauthorized:
-		return nil, v
+		response := &DeleteGroupConfigurationV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupConfigurationV1Forbidden:
-		return nil, v
+		response := &DeleteGroupConfigurationV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupConfigurationV1NotFound:
-		return nil, v
+		response := &DeleteGroupConfigurationV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupConfigurationV1InternalServerError:
-		return nil, v
+		response := &DeleteGroupConfigurationV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -365,7 +509,7 @@ This endpoint is used to update existing configuration. groupAdminRoleId and gro
 
 Action Code: 73102
 */
-func (a *Client) UpdateGroupConfigurationAdminV1Short(params *UpdateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupConfigurationAdminV1OK, error) {
+func (a *Client) UpdateGroupConfigurationAdminV1Short(params *UpdateGroupConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupConfigurationAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupConfigurationAdminV1Params()
@@ -403,17 +547,47 @@ func (a *Client) UpdateGroupConfigurationAdminV1Short(params *UpdateGroupConfigu
 	switch v := result.(type) {
 
 	case *UpdateGroupConfigurationAdminV1OK:
-		return v, nil
+		response := &UpdateGroupConfigurationAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupConfigurationAdminV1BadRequest:
-		return nil, v
+		response := &UpdateGroupConfigurationAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupConfigurationAdminV1Unauthorized:
-		return nil, v
+		response := &UpdateGroupConfigurationAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupConfigurationAdminV1Forbidden:
-		return nil, v
+		response := &UpdateGroupConfigurationAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupConfigurationAdminV1NotFound:
-		return nil, v
+		response := &UpdateGroupConfigurationAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupConfigurationAdminV1InternalServerError:
-		return nil, v
+		response := &UpdateGroupConfigurationAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -426,7 +600,7 @@ This endpoint is used to update existing global rule configuration based on the 
 
 Action Code: 73106
 */
-func (a *Client) UpdateGroupConfigurationGlobalRuleAdminV1Short(params *UpdateGroupConfigurationGlobalRuleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupConfigurationGlobalRuleAdminV1OK, error) {
+func (a *Client) UpdateGroupConfigurationGlobalRuleAdminV1Short(params *UpdateGroupConfigurationGlobalRuleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupConfigurationGlobalRuleAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupConfigurationGlobalRuleAdminV1Params()
@@ -464,17 +638,47 @@ func (a *Client) UpdateGroupConfigurationGlobalRuleAdminV1Short(params *UpdateGr
 	switch v := result.(type) {
 
 	case *UpdateGroupConfigurationGlobalRuleAdminV1OK:
-		return v, nil
+		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupConfigurationGlobalRuleAdminV1BadRequest:
-		return nil, v
+		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupConfigurationGlobalRuleAdminV1Unauthorized:
-		return nil, v
+		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupConfigurationGlobalRuleAdminV1Forbidden:
-		return nil, v
+		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupConfigurationGlobalRuleAdminV1NotFound:
-		return nil, v
+		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupConfigurationGlobalRuleAdminV1InternalServerError:
-		return nil, v
+		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -487,7 +691,7 @@ This endpoint is used to delete existing global rule configuration based on the 
 
 Action Code: 73105
 */
-func (a *Client) DeleteGroupConfigurationGlobalRuleAdminV1Short(params *DeleteGroupConfigurationGlobalRuleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupConfigurationGlobalRuleAdminV1OK, error) {
+func (a *Client) DeleteGroupConfigurationGlobalRuleAdminV1Short(params *DeleteGroupConfigurationGlobalRuleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupConfigurationGlobalRuleAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGroupConfigurationGlobalRuleAdminV1Params()
@@ -525,17 +729,47 @@ func (a *Client) DeleteGroupConfigurationGlobalRuleAdminV1Short(params *DeleteGr
 	switch v := result.(type) {
 
 	case *DeleteGroupConfigurationGlobalRuleAdminV1OK:
-		return v, nil
+		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGroupConfigurationGlobalRuleAdminV1BadRequest:
-		return nil, v
+		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupConfigurationGlobalRuleAdminV1Unauthorized:
-		return nil, v
+		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupConfigurationGlobalRuleAdminV1Forbidden:
-		return nil, v
+		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupConfigurationGlobalRuleAdminV1NotFound:
-		return nil, v
+		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupConfigurationGlobalRuleAdminV1InternalServerError:
-		return nil, v
+		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListTicketsShort(params *ListTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*ListTicketsOK, error)
-	TicketStatisticShort(params *TicketStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*TicketStatisticOK, error)
-	GetTicketDetailShort(params *GetTicketDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDetailOK, error)
-	DeleteTicketShort(params *DeleteTicketParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTicketNoContent, error)
-	GetReportsByTicketShort(params *GetReportsByTicketParams, authInfo runtime.ClientAuthInfoWriter) (*GetReportsByTicketOK, error)
-	UpdateTicketResolutionsShort(params *UpdateTicketResolutionsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTicketResolutionsOK, error)
+	ListTicketsShort(params *ListTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*ListTicketsResponse, error)
+	TicketStatisticShort(params *TicketStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*TicketStatisticResponse, error)
+	GetTicketDetailShort(params *GetTicketDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDetailResponse, error)
+	DeleteTicketShort(params *DeleteTicketParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTicketResponse, error)
+	GetReportsByTicketShort(params *GetReportsByTicketParams, authInfo runtime.ClientAuthInfoWriter) (*GetReportsByTicketResponse, error)
+	UpdateTicketResolutionsShort(params *UpdateTicketResolutionsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTicketResolutionsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ Tickets list can be ordered by:
 - reportsCount
 - status (currently there are OPEN, AUTO_MODERATED and CLOSED statuses, desc order will put ticket with CLOSED status at the top)
 */
-func (a *Client) ListTicketsShort(params *ListTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*ListTicketsOK, error) {
+func (a *Client) ListTicketsShort(params *ListTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*ListTicketsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListTicketsParams()
@@ -85,9 +85,19 @@ func (a *Client) ListTicketsShort(params *ListTicketsParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ListTicketsOK:
-		return v, nil
+		response := &ListTicketsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListTicketsInternalServerError:
-		return nil, v
+		response := &ListTicketsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +110,7 @@ Ticket statistic can be filtered by:
 - category
 - extension category
 */
-func (a *Client) TicketStatisticShort(params *TicketStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*TicketStatisticOK, error) {
+func (a *Client) TicketStatisticShort(params *TicketStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*TicketStatisticResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTicketStatisticParams()
@@ -138,9 +148,19 @@ func (a *Client) TicketStatisticShort(params *TicketStatisticParams, authInfo ru
 	switch v := result.(type) {
 
 	case *TicketStatisticOK:
-		return v, nil
+		response := &TicketStatisticResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TicketStatisticInternalServerError:
-		return nil, v
+		response := &TicketStatisticResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -151,7 +171,7 @@ func (a *Client) TicketStatisticShort(params *TicketStatisticParams, authInfo ru
 GetTicketDetailShort get single ticket
 This endpoint will return ticket detail with ticket id.
 */
-func (a *Client) GetTicketDetailShort(params *GetTicketDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDetailOK, error) {
+func (a *Client) GetTicketDetailShort(params *GetTicketDetailParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDetailResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTicketDetailParams()
@@ -189,11 +209,26 @@ func (a *Client) GetTicketDetailShort(params *GetTicketDetailParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetTicketDetailOK:
-		return v, nil
+		response := &GetTicketDetailResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTicketDetailNotFound:
-		return nil, v
+		response := &GetTicketDetailResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTicketDetailInternalServerError:
-		return nil, v
+		response := &GetTicketDetailResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -204,7 +239,7 @@ func (a *Client) GetTicketDetailShort(params *GetTicketDetailParams, authInfo ru
 DeleteTicketShort delete single ticket
 This endpoint will delete ticket and all its reports.
 */
-func (a *Client) DeleteTicketShort(params *DeleteTicketParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTicketNoContent, error) {
+func (a *Client) DeleteTicketShort(params *DeleteTicketParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTicketResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTicketParams()
@@ -242,11 +277,25 @@ func (a *Client) DeleteTicketShort(params *DeleteTicketParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteTicketNoContent:
-		return v, nil
+		response := &DeleteTicketResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteTicketNotFound:
-		return nil, v
+		response := &DeleteTicketResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTicketInternalServerError:
-		return nil, v
+		response := &DeleteTicketResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -257,7 +306,7 @@ func (a *Client) DeleteTicketShort(params *DeleteTicketParams, authInfo runtime.
 GetReportsByTicketShort get reports by ticket id
 List reports ordered by createdAt in descending order.
 */
-func (a *Client) GetReportsByTicketShort(params *GetReportsByTicketParams, authInfo runtime.ClientAuthInfoWriter) (*GetReportsByTicketOK, error) {
+func (a *Client) GetReportsByTicketShort(params *GetReportsByTicketParams, authInfo runtime.ClientAuthInfoWriter) (*GetReportsByTicketResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetReportsByTicketParams()
@@ -295,9 +344,19 @@ func (a *Client) GetReportsByTicketShort(params *GetReportsByTicketParams, authI
 	switch v := result.(type) {
 
 	case *GetReportsByTicketOK:
-		return v, nil
+		response := &GetReportsByTicketResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetReportsByTicketInternalServerError:
-		return nil, v
+		response := &GetReportsByTicketResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -308,7 +367,7 @@ func (a *Client) GetReportsByTicketShort(params *GetReportsByTicketParams, authI
 UpdateTicketResolutionsShort update ticket resolution to a given status
 Update ticket resolution status to either OPEN or CLOSED. It is mandatory to provide notes
 */
-func (a *Client) UpdateTicketResolutionsShort(params *UpdateTicketResolutionsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTicketResolutionsOK, error) {
+func (a *Client) UpdateTicketResolutionsShort(params *UpdateTicketResolutionsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTicketResolutionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateTicketResolutionsParams()
@@ -346,9 +405,19 @@ func (a *Client) UpdateTicketResolutionsShort(params *UpdateTicketResolutionsPar
 	switch v := result.(type) {
 
 	case *UpdateTicketResolutionsOK:
-		return v, nil
+		response := &UpdateTicketResolutionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateTicketResolutionsInternalServerError:
-		return nil, v
+		response := &UpdateTicketResolutionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

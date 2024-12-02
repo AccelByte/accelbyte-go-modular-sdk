@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/app"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AppService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AppService) GetAppListV1Short(input *app.GetAppListV1Params) (*csmclientmodels.GeneratedGetAppListV1Response, error) {
+func (aaa *AppService) GetAppListV1Short(input *app.GetAppListV1Params) (*app.GetAppListV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AppService) GetAppListV1Short(input *app.GetAppListV1Params) (*csmcli
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AppService) GetAppV1Short(input *app.GetAppV1Params) (*csmclientmodels.GeneratedGetAppV1Response, error) {
+func (aaa *AppService) GetAppV1Short(input *app.GetAppV1Params) (*app.GetAppV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AppService) GetAppV1Short(input *app.GetAppV1Params) (*csmclientmodel
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AppService) CreateAppV1Short(input *app.CreateAppV1Params) (*csmclientmodels.GeneratedCreateAppV1Response, error) {
+func (aaa *AppService) CreateAppV1Short(input *app.CreateAppV1Params) (*app.CreateAppV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *AppService) CreateAppV1Short(input *app.CreateAppV1Params) (*csmclien
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AppService) DeleteAppV1Short(input *app.DeleteAppV1Params) error {
@@ -159,7 +158,7 @@ func (aaa *AppService) DeleteAppV1Short(input *app.DeleteAppV1Params) error {
 	return nil
 }
 
-func (aaa *AppService) UpdateAppV1Short(input *app.UpdateAppV1Params) (*csmclientmodels.GeneratedUpdateAppV1Response, error) {
+func (aaa *AppService) UpdateAppV1Short(input *app.UpdateAppV1Params) (*app.UpdateAppV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *AppService) UpdateAppV1Short(input *app.UpdateAppV1Params) (*csmclien
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AppService) GetAppReleaseV1Short(input *app.GetAppReleaseV1Params) (*csmclientmodels.GeneratedGetAppReleaseV1Response, error) {
+func (aaa *AppService) GetAppReleaseV1Short(input *app.GetAppReleaseV1Params) (*app.GetAppReleaseV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *AppService) GetAppReleaseV1Short(input *app.GetAppReleaseV1Params) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AppService) StartAppV1Short(input *app.StartAppV1Params) (*csmclientmodels.GeneratedStartAppV1Response, error) {
+func (aaa *AppService) StartAppV1Short(input *app.StartAppV1Params) (*app.StartAppV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *AppService) StartAppV1Short(input *app.StartAppV1Params) (*csmclientm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AppService) StopAppV1Short(input *app.StopAppV1Params) (*csmclientmodels.GeneratedStopAppV1Response, error) {
+func (aaa *AppService) StopAppV1Short(input *app.StopAppV1Params) (*app.StopAppV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,5 +275,5 @@ func (aaa *AppService) StopAppV1Short(input *app.StopAppV1Params) (*csmclientmod
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

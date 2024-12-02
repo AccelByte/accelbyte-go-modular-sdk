@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type UsersPresenceHandlerV1Response struct {
+	lobbyclientmodels.ApiResponse
+	Data *lobbyclientmodels.HandlersGetUsersPresenceResponse
+
+	Error400 *lobbyclientmodels.RestapiErrorResponseBody
+	Error401 *lobbyclientmodels.RestapiErrorResponseBody
+	Error500 *lobbyclientmodels.RestapiErrorResponseBody
+}
+
+func (m *UsersPresenceHandlerV1Response) Unpack() (*lobbyclientmodels.HandlersGetUsersPresenceResponse, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UsersPresenceHandlerV1Reader is a Reader for the UsersPresenceHandlerV1 structure.
 type UsersPresenceHandlerV1Reader struct {
 	formats strfmt.Registry

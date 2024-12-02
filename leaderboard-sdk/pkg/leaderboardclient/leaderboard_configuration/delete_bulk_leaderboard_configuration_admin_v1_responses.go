@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 )
 
+type DeleteBulkLeaderboardConfigurationAdminV1Response struct {
+	leaderboardclientmodels.ApiResponse
+	Data *leaderboardclientmodels.ModelsDeleteBulkLeaderboardsResp
+
+	Error400 *leaderboardclientmodels.ResponseErrorResponse
+	Error401 *leaderboardclientmodels.ResponseErrorResponse
+	Error403 *leaderboardclientmodels.ResponseErrorResponse
+	Error500 *leaderboardclientmodels.ResponseErrorResponse
+}
+
+func (m *DeleteBulkLeaderboardConfigurationAdminV1Response) Unpack() (*leaderboardclientmodels.ModelsDeleteBulkLeaderboardsResp, *leaderboardclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &leaderboardclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // DeleteBulkLeaderboardConfigurationAdminV1Reader is a Reader for the DeleteBulkLeaderboardConfigurationAdminV1 structure.
 type DeleteBulkLeaderboardConfigurationAdminV1Reader struct {
 	formats strfmt.Registry

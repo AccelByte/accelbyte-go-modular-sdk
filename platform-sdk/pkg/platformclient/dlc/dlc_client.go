@@ -30,22 +30,22 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetDLCItemConfigOK, error)
-	UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDLCItemConfigOK, error)
-	DeleteDLCItemConfigShort(params *DeleteDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDLCItemConfigNoContent, error)
-	GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformDLCConfigOK, error)
-	UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformDLCConfigOK, error)
-	DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlatformDLCConfigNoContent, error)
-	GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformOK, error)
-	GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCOK, error)
-	GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShortMapParams, authInfo runtime.ClientAuthInfoWriter) (*GeDLCDurableRewardShortMapOK, error)
-	SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGameDLCNoContent, error)
-	SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusDLCNoContent, error)
-	PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryNoContent, error)
-	PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryWithMultipleServiceLabelsNoContent, error)
-	SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamDLCNoContent, error)
-	SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxDLCNoContent, error)
-	PublicGetMyDLCContentShort(params *PublicGetMyDLCContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyDLCContentOK, error)
+	GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetDLCItemConfigResponse, error)
+	UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDLCItemConfigResponse, error)
+	DeleteDLCItemConfigShort(params *DeleteDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDLCItemConfigResponse, error)
+	GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformDLCConfigResponse, error)
+	UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformDLCConfigResponse, error)
+	DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlatformDLCConfigResponse, error)
+	GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformResponse, error)
+	GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCResponse, error)
+	GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShortMapParams, authInfo runtime.ClientAuthInfoWriter) (*GeDLCDurableRewardShortMapResponse, error)
+	SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGameDLCResponse, error)
+	SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusDLCResponse, error)
+	PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryResponse, error)
+	PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryWithMultipleServiceLabelsResponse, error)
+	SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamDLCResponse, error)
+	SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxDLCResponse, error)
+	PublicGetMyDLCContentShort(params *PublicGetMyDLCContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyDLCContentResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -54,7 +54,7 @@ type ClientService interface {
 GetDLCItemConfigShort get dlc item config
 Get DLC item config.
 */
-func (a *Client) GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetDLCItemConfigOK, error) {
+func (a *Client) GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetDLCItemConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDLCItemConfigParams()
@@ -92,9 +92,19 @@ func (a *Client) GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetDLCItemConfigOK:
-		return v, nil
+		response := &GetDLCItemConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetDLCItemConfigNotFound:
-		return nil, v
+		response := &GetDLCItemConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -106,7 +116,7 @@ UpdateDLCItemConfigShort update dlc item config
 Update DLC item config. Other detail info:
   * Returns : updated DLC item config
 */
-func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDLCItemConfigOK, error) {
+func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDLCItemConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateDLCItemConfigParams()
@@ -144,13 +154,33 @@ func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, aut
 	switch v := result.(type) {
 
 	case *UpdateDLCItemConfigOK:
-		return v, nil
+		response := &UpdateDLCItemConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateDLCItemConfigBadRequest:
-		return nil, v
+		response := &UpdateDLCItemConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDLCItemConfigConflict:
-		return nil, v
+		response := &UpdateDLCItemConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateDLCItemConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdateDLCItemConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -161,7 +191,7 @@ func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, aut
 DeleteDLCItemConfigShort delete a dlc item config
 delete a DLC item config.
 */
-func (a *Client) DeleteDLCItemConfigShort(params *DeleteDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDLCItemConfigNoContent, error) {
+func (a *Client) DeleteDLCItemConfigShort(params *DeleteDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteDLCItemConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteDLCItemConfigParams()
@@ -199,7 +229,11 @@ func (a *Client) DeleteDLCItemConfigShort(params *DeleteDLCItemConfigParams, aut
 	switch v := result.(type) {
 
 	case *DeleteDLCItemConfigNoContent:
-		return v, nil
+		response := &DeleteDLCItemConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -210,7 +244,7 @@ func (a *Client) DeleteDLCItemConfigShort(params *DeleteDLCItemConfigParams, aut
 GetPlatformDLCConfigShort get platform dlc config
 Get Platform DLC config.
 */
-func (a *Client) GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformDLCConfigOK, error) {
+func (a *Client) GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformDLCConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlatformDLCConfigParams()
@@ -248,9 +282,19 @@ func (a *Client) GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, a
 	switch v := result.(type) {
 
 	case *GetPlatformDLCConfigOK:
-		return v, nil
+		response := &GetPlatformDLCConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPlatformDLCConfigNotFound:
-		return nil, v
+		response := &GetPlatformDLCConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -280,7 +324,7 @@ Update Platform DLC config. Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformDLCConfigOK, error) {
+func (a *Client) UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformDLCConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePlatformDLCConfigParams()
@@ -318,9 +362,19 @@ func (a *Client) UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigPar
 	switch v := result.(type) {
 
 	case *UpdatePlatformDLCConfigOK:
-		return v, nil
+		response := &UpdatePlatformDLCConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePlatformDLCConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdatePlatformDLCConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -331,7 +385,7 @@ func (a *Client) UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigPar
 DeletePlatformDLCConfigShort delete a platform dlc config
 delete a Platform DLC config.
 */
-func (a *Client) DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlatformDLCConfigNoContent, error) {
+func (a *Client) DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlatformDLCConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePlatformDLCConfigParams()
@@ -369,7 +423,11 @@ func (a *Client) DeletePlatformDLCConfigShort(params *DeletePlatformDLCConfigPar
 	switch v := result.(type) {
 
 	case *DeletePlatformDLCConfigNoContent:
-		return v, nil
+		response := &DeletePlatformDLCConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -383,7 +441,7 @@ Other detail info:
 
   * Returns : user dlc
 */
-func (a *Client) GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformOK, error) {
+func (a *Client) GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserDLCByPlatformParams()
@@ -421,7 +479,12 @@ func (a *Client) GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, a
 	switch v := result.(type) {
 
 	case *GetUserDLCByPlatformOK:
-		return v, nil
+		response := &GetUserDLCByPlatformResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -436,7 +499,7 @@ Other detail info:
 
   * Returns : user dlc
 */
-func (a *Client) GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCOK, error) {
+func (a *Client) GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserDLCParams()
@@ -474,7 +537,12 @@ func (a *Client) GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *GetUserDLCOK:
-		return v, nil
+		response := &GetUserDLCResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -485,7 +553,7 @@ func (a *Client) GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.Clie
 GeDLCDurableRewardShortMapShort get dlc durable reward simple map
 Get dlc reward simple map, only return the sku of durable item reward.
 */
-func (a *Client) GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShortMapParams, authInfo runtime.ClientAuthInfoWriter) (*GeDLCDurableRewardShortMapOK, error) {
+func (a *Client) GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShortMapParams, authInfo runtime.ClientAuthInfoWriter) (*GeDLCDurableRewardShortMapResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGeDLCDurableRewardShortMapParams()
@@ -523,9 +591,19 @@ func (a *Client) GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShort
 	switch v := result.(type) {
 
 	case *GeDLCDurableRewardShortMapOK:
-		return v, nil
+		response := &GeDLCDurableRewardShortMapResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GeDLCDurableRewardShortMapNotFound:
-		return nil, v
+		response := &GeDLCDurableRewardShortMapResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -536,7 +614,7 @@ func (a *Client) GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShort
 SyncEpicGameDLCShort sync epic games dlc items
 Sync epic games dlc items
 */
-func (a *Client) SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGameDLCNoContent, error) {
+func (a *Client) SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGameDLCResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncEpicGameDLCParams()
@@ -574,11 +652,25 @@ func (a *Client) SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo ru
 	switch v := result.(type) {
 
 	case *SyncEpicGameDLCNoContent:
-		return v, nil
+		response := &SyncEpicGameDLCResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncEpicGameDLCBadRequest:
-		return nil, v
+		response := &SyncEpicGameDLCResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncEpicGameDLCNotFound:
-		return nil, v
+		response := &SyncEpicGameDLCResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -589,7 +681,7 @@ func (a *Client) SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo ru
 SyncOculusDLCShort sync oculus dlc.
 Sync oculus dlc
 */
-func (a *Client) SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusDLCNoContent, error) {
+func (a *Client) SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusDLCResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncOculusDLCParams()
@@ -627,11 +719,25 @@ func (a *Client) SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *SyncOculusDLCNoContent:
-		return v, nil
+		response := &SyncOculusDLCResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncOculusDLCBadRequest:
-		return nil, v
+		response := &SyncOculusDLCResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncOculusDLCNotFound:
-		return nil, v
+		response := &SyncOculusDLCResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -643,7 +749,7 @@ PublicSyncPsnDLCInventoryShort synchronize with dlc entitlements in psn store.
 Synchronize with dlc entitlements in PSN Store.Other detail info:
   * Returns : result of synchronization
 */
-func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryNoContent, error) {
+func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSyncPsnDLCInventoryParams()
@@ -681,11 +787,25 @@ func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventor
 	switch v := result.(type) {
 
 	case *PublicSyncPsnDLCInventoryNoContent:
-		return v, nil
+		response := &PublicSyncPsnDLCInventoryResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSyncPsnDLCInventoryBadRequest:
-		return nil, v
+		response := &PublicSyncPsnDLCInventoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSyncPsnDLCInventoryNotFound:
-		return nil, v
+		response := &PublicSyncPsnDLCInventoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -697,7 +817,7 @@ PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort synchronize with dlc ent
 Synchronize with dlc entitlements in PSN Store with multiple service labels.Other detail info:
   * Returns : result of synchronization
 */
-func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryWithMultipleServiceLabelsNoContent, error) {
+func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryWithMultipleServiceLabelsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams()
@@ -735,11 +855,25 @@ func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params 
 	switch v := result.(type) {
 
 	case *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsNoContent:
-		return v, nil
+		response := &PublicSyncPsnDLCInventoryWithMultipleServiceLabelsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsBadRequest:
-		return nil, v
+		response := &PublicSyncPsnDLCInventoryWithMultipleServiceLabelsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsNotFound:
-		return nil, v
+		response := &PublicSyncPsnDLCInventoryWithMultipleServiceLabelsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -750,7 +884,7 @@ func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params 
 SyncSteamDLCShort sync steam dlc.
 Sync steam dlc
 */
-func (a *Client) SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamDLCNoContent, error) {
+func (a *Client) SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamDLCResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncSteamDLCParams()
@@ -788,11 +922,25 @@ func (a *Client) SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *SyncSteamDLCNoContent:
-		return v, nil
+		response := &SyncSteamDLCResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncSteamDLCBadRequest:
-		return nil, v
+		response := &SyncSteamDLCResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncSteamDLCNotFound:
-		return nil, v
+		response := &SyncSteamDLCResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -803,7 +951,7 @@ func (a *Client) SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.
 SyncXboxDLCShort sync xbox dlc items.
 Sync Xbox inventory's dlc items
 */
-func (a *Client) SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxDLCNoContent, error) {
+func (a *Client) SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxDLCResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncXboxDLCParams()
@@ -841,11 +989,25 @@ func (a *Client) SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *SyncXboxDLCNoContent:
-		return v, nil
+		response := &SyncXboxDLCResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncXboxDLCBadRequest:
-		return nil, v
+		response := &SyncXboxDLCResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncXboxDLCNotFound:
-		return nil, v
+		response := &SyncXboxDLCResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -859,7 +1021,7 @@ Other detail info:
 
   * Returns : user dlc
 */
-func (a *Client) PublicGetMyDLCContentShort(params *PublicGetMyDLCContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyDLCContentOK, error) {
+func (a *Client) PublicGetMyDLCContentShort(params *PublicGetMyDLCContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyDLCContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyDLCContentParams()
@@ -897,7 +1059,12 @@ func (a *Client) PublicGetMyDLCContentShort(params *PublicGetMyDLCContentParams,
 	switch v := result.(type) {
 
 	case *PublicGetMyDLCContentOK:
-		return v, nil
+		response := &PublicGetMyDLCContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

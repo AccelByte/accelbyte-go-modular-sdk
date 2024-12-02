@@ -30,29 +30,29 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetPlatformWalletConfigShort(params *GetPlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformWalletConfigOK, error)
-	UpdatePlatformWalletConfigShort(params *UpdatePlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformWalletConfigOK, error)
-	ResetPlatformWalletConfigShort(params *ResetPlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ResetPlatformWalletConfigOK, error)
-	QueryUserCurrencyWalletsShort(params *QueryUserCurrencyWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserCurrencyWalletsOK, error)
-	DebitUserWalletByCurrencyCodeShort(params *DebitUserWalletByCurrencyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DebitUserWalletByCurrencyCodeOK, error)
-	ListUserCurrencyTransactionsShort(params *ListUserCurrencyTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserCurrencyTransactionsOK, error)
-	CheckBalanceShort(params *CheckBalanceParams, authInfo runtime.ClientAuthInfoWriter) (*CheckBalanceOK, error)
-	CheckWalletShort(params *CheckWalletParams, authInfo runtime.ClientAuthInfoWriter) (*CheckWalletNoContent, error)
-	CreditUserWalletShort(params *CreditUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*CreditUserWalletOK, error)
-	DebitByWalletPlatformShort(params *DebitByWalletPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*DebitByWalletPlatformOK, error)
-	PayWithUserWalletShort(params *PayWithUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PayWithUserWalletOK, error)
-	GetUserWalletShort(params *GetUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserWalletOK, error)
-	DebitUserWalletShort(params *DebitUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DebitUserWalletOK, error)
-	DisableUserWalletShort(params *DisableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserWalletNoContent, error)
-	EnableUserWalletShort(params *EnableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserWalletNoContent, error)
-	ListUserWalletTransactionsShort(params *ListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserWalletTransactionsOK, error)
-	QueryWalletsShort(params *QueryWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryWalletsOK, error)
-	BulkCreditShort(params *BulkCreditParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreditOK, error)
-	BulkDebitShort(params *BulkDebitParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDebitOK, error)
-	GetWalletShort(params *GetWalletParams, authInfo runtime.ClientAuthInfoWriter) (*GetWalletOK, error)
-	PublicGetMyWalletShort(params *PublicGetMyWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyWalletOK, error)
-	PublicGetWalletShort(params *PublicGetWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetWalletOK, error)
-	PublicListUserWalletTransactionsShort(params *PublicListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserWalletTransactionsOK, error)
+	GetPlatformWalletConfigShort(params *GetPlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformWalletConfigResponse, error)
+	UpdatePlatformWalletConfigShort(params *UpdatePlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformWalletConfigResponse, error)
+	ResetPlatformWalletConfigShort(params *ResetPlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ResetPlatformWalletConfigResponse, error)
+	QueryUserCurrencyWalletsShort(params *QueryUserCurrencyWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserCurrencyWalletsResponse, error)
+	DebitUserWalletByCurrencyCodeShort(params *DebitUserWalletByCurrencyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DebitUserWalletByCurrencyCodeResponse, error)
+	ListUserCurrencyTransactionsShort(params *ListUserCurrencyTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserCurrencyTransactionsResponse, error)
+	CheckBalanceShort(params *CheckBalanceParams, authInfo runtime.ClientAuthInfoWriter) (*CheckBalanceResponse, error)
+	CheckWalletShort(params *CheckWalletParams, authInfo runtime.ClientAuthInfoWriter) (*CheckWalletResponse, error)
+	CreditUserWalletShort(params *CreditUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*CreditUserWalletResponse, error)
+	DebitByWalletPlatformShort(params *DebitByWalletPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*DebitByWalletPlatformResponse, error)
+	PayWithUserWalletShort(params *PayWithUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PayWithUserWalletResponse, error)
+	GetUserWalletShort(params *GetUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserWalletResponse, error)
+	DebitUserWalletShort(params *DebitUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DebitUserWalletResponse, error)
+	DisableUserWalletShort(params *DisableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserWalletResponse, error)
+	EnableUserWalletShort(params *EnableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserWalletResponse, error)
+	ListUserWalletTransactionsShort(params *ListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserWalletTransactionsResponse, error)
+	QueryWalletsShort(params *QueryWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryWalletsResponse, error)
+	BulkCreditShort(params *BulkCreditParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreditResponse, error)
+	BulkDebitShort(params *BulkDebitParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDebitResponse, error)
+	GetWalletShort(params *GetWalletParams, authInfo runtime.ClientAuthInfoWriter) (*GetWalletResponse, error)
+	PublicGetMyWalletShort(params *PublicGetMyWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyWalletResponse, error)
+	PublicGetWalletShort(params *PublicGetWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetWalletResponse, error)
+	PublicListUserWalletTransactionsShort(params *PublicListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserWalletTransactionsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -64,7 +64,7 @@ Other detail info:
 
   * Returns : wallet info
 */
-func (a *Client) GetPlatformWalletConfigShort(params *GetPlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformWalletConfigOK, error) {
+func (a *Client) GetPlatformWalletConfigShort(params *GetPlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformWalletConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlatformWalletConfigParams()
@@ -102,7 +102,12 @@ func (a *Client) GetPlatformWalletConfigShort(params *GetPlatformWalletConfigPar
 	switch v := result.(type) {
 
 	case *GetPlatformWalletConfigOK:
-		return v, nil
+		response := &GetPlatformWalletConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -116,7 +121,7 @@ Other detail info:
 
   * Returns : platform wallet config
 */
-func (a *Client) UpdatePlatformWalletConfigShort(params *UpdatePlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformWalletConfigOK, error) {
+func (a *Client) UpdatePlatformWalletConfigShort(params *UpdatePlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformWalletConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePlatformWalletConfigParams()
@@ -154,7 +159,12 @@ func (a *Client) UpdatePlatformWalletConfigShort(params *UpdatePlatformWalletCon
 	switch v := result.(type) {
 
 	case *UpdatePlatformWalletConfigOK:
-		return v, nil
+		response := &UpdatePlatformWalletConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,7 +178,7 @@ Other detail info:
 
   * Returns : platform wallet config
 */
-func (a *Client) ResetPlatformWalletConfigShort(params *ResetPlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ResetPlatformWalletConfigOK, error) {
+func (a *Client) ResetPlatformWalletConfigShort(params *ResetPlatformWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ResetPlatformWalletConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewResetPlatformWalletConfigParams()
@@ -206,7 +216,12 @@ func (a *Client) ResetPlatformWalletConfigShort(params *ResetPlatformWalletConfi
 	switch v := result.(type) {
 
 	case *ResetPlatformWalletConfigOK:
-		return v, nil
+		response := &ResetPlatformWalletConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -221,7 +236,7 @@ Other detail info:
 (READ)
   *  Returns : currency wallet summary
 */
-func (a *Client) QueryUserCurrencyWalletsShort(params *QueryUserCurrencyWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserCurrencyWalletsOK, error) {
+func (a *Client) QueryUserCurrencyWalletsShort(params *QueryUserCurrencyWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserCurrencyWalletsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserCurrencyWalletsParams()
@@ -259,7 +274,12 @@ func (a *Client) QueryUserCurrencyWalletsShort(params *QueryUserCurrencyWalletsP
 	switch v := result.(type) {
 
 	case *QueryUserCurrencyWalletsOK:
-		return v, nil
+		response := &QueryUserCurrencyWalletsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -270,7 +290,7 @@ func (a *Client) QueryUserCurrencyWalletsShort(params *QueryUserCurrencyWalletsP
 DebitUserWalletByCurrencyCodeShort debit a user wallet by currency code
 Debit a user wallet by currency code, default is debit system wallet.
 */
-func (a *Client) DebitUserWalletByCurrencyCodeShort(params *DebitUserWalletByCurrencyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DebitUserWalletByCurrencyCodeOK, error) {
+func (a *Client) DebitUserWalletByCurrencyCodeShort(params *DebitUserWalletByCurrencyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DebitUserWalletByCurrencyCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDebitUserWalletByCurrencyCodeParams()
@@ -308,13 +328,33 @@ func (a *Client) DebitUserWalletByCurrencyCodeShort(params *DebitUserWalletByCur
 	switch v := result.(type) {
 
 	case *DebitUserWalletByCurrencyCodeOK:
-		return v, nil
+		response := &DebitUserWalletByCurrencyCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DebitUserWalletByCurrencyCodeBadRequest:
-		return nil, v
+		response := &DebitUserWalletByCurrencyCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DebitUserWalletByCurrencyCodeConflict:
-		return nil, v
+		response := &DebitUserWalletByCurrencyCodeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DebitUserWalletByCurrencyCodeUnprocessableEntity:
-		return nil, v
+		response := &DebitUserWalletByCurrencyCodeResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -328,7 +368,7 @@ Other detail info:
 
   * Returns : currency transaction info
 */
-func (a *Client) ListUserCurrencyTransactionsShort(params *ListUserCurrencyTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserCurrencyTransactionsOK, error) {
+func (a *Client) ListUserCurrencyTransactionsShort(params *ListUserCurrencyTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserCurrencyTransactionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListUserCurrencyTransactionsParams()
@@ -366,9 +406,19 @@ func (a *Client) ListUserCurrencyTransactionsShort(params *ListUserCurrencyTrans
 	switch v := result.(type) {
 
 	case *ListUserCurrencyTransactionsOK:
-		return v, nil
+		response := &ListUserCurrencyTransactionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListUserCurrencyTransactionsNotFound:
-		return nil, v
+		response := &ListUserCurrencyTransactionsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -382,7 +432,7 @@ Other detail info:
 
   * Returns : boolean value indicating if the user has enough balance
 */
-func (a *Client) CheckBalanceShort(params *CheckBalanceParams, authInfo runtime.ClientAuthInfoWriter) (*CheckBalanceOK, error) {
+func (a *Client) CheckBalanceShort(params *CheckBalanceParams, authInfo runtime.ClientAuthInfoWriter) (*CheckBalanceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCheckBalanceParams()
@@ -420,9 +470,18 @@ func (a *Client) CheckBalanceShort(params *CheckBalanceParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *CheckBalanceOK:
-		return v, nil
+		response := &CheckBalanceResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CheckBalanceBadRequest:
-		return nil, v
+		response := &CheckBalanceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -433,7 +492,7 @@ func (a *Client) CheckBalanceShort(params *CheckBalanceParams, authInfo runtime.
 CheckWalletShort check wallet by balance origin and currency code
  [SERVICE COMMUNICATION ONLY] Check wallet by balance origin and currency code whether it's inactive.
 */
-func (a *Client) CheckWalletShort(params *CheckWalletParams, authInfo runtime.ClientAuthInfoWriter) (*CheckWalletNoContent, error) {
+func (a *Client) CheckWalletShort(params *CheckWalletParams, authInfo runtime.ClientAuthInfoWriter) (*CheckWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCheckWalletParams()
@@ -471,13 +530,32 @@ func (a *Client) CheckWalletShort(params *CheckWalletParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CheckWalletNoContent:
-		return v, nil
+		response := &CheckWalletResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CheckWalletBadRequest:
-		return nil, v
+		response := &CheckWalletResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CheckWalletConflict:
-		return nil, v
+		response := &CheckWalletResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CheckWalletUnprocessableEntity:
-		return nil, v
+		response := &CheckWalletResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -491,7 +569,7 @@ Other detail info:
 
 (UPDATE)
 */
-func (a *Client) CreditUserWalletShort(params *CreditUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*CreditUserWalletOK, error) {
+func (a *Client) CreditUserWalletShort(params *CreditUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*CreditUserWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreditUserWalletParams()
@@ -529,11 +607,26 @@ func (a *Client) CreditUserWalletShort(params *CreditUserWalletParams, authInfo 
 	switch v := result.(type) {
 
 	case *CreditUserWalletOK:
-		return v, nil
+		response := &CreditUserWalletResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreditUserWalletBadRequest:
-		return nil, v
+		response := &CreditUserWalletResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreditUserWalletUnprocessableEntity:
-		return nil, v
+		response := &CreditUserWalletResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -564,7 +657,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) DebitByWalletPlatformShort(params *DebitByWalletPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*DebitByWalletPlatformOK, error) {
+func (a *Client) DebitByWalletPlatformShort(params *DebitByWalletPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*DebitByWalletPlatformResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDebitByWalletPlatformParams()
@@ -602,11 +695,26 @@ func (a *Client) DebitByWalletPlatformShort(params *DebitByWalletPlatformParams,
 	switch v := result.(type) {
 
 	case *DebitByWalletPlatformOK:
-		return v, nil
+		response := &DebitByWalletPlatformResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DebitByWalletPlatformBadRequest:
-		return nil, v
+		response := &DebitByWalletPlatformResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DebitByWalletPlatformUnprocessableEntity:
-		return nil, v
+		response := &DebitByWalletPlatformResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -617,7 +725,7 @@ func (a *Client) DebitByWalletPlatformShort(params *DebitByWalletPlatformParams,
 PayWithUserWalletShort pay with user wallet by currency code and client platform
 Pay with user wallet by currency code and client platform.
 */
-func (a *Client) PayWithUserWalletShort(params *PayWithUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PayWithUserWalletOK, error) {
+func (a *Client) PayWithUserWalletShort(params *PayWithUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PayWithUserWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPayWithUserWalletParams()
@@ -655,11 +763,26 @@ func (a *Client) PayWithUserWalletShort(params *PayWithUserWalletParams, authInf
 	switch v := result.(type) {
 
 	case *PayWithUserWalletOK:
-		return v, nil
+		response := &PayWithUserWalletResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PayWithUserWalletBadRequest:
-		return nil, v
+		response := &PayWithUserWalletResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PayWithUserWalletUnprocessableEntity:
-		return nil, v
+		response := &PayWithUserWalletResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -673,7 +796,7 @@ Other detail info:
 
   * Returns : wallet info
 */
-func (a *Client) GetUserWalletShort(params *GetUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserWalletOK, error) {
+func (a *Client) GetUserWalletShort(params *GetUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserWalletParams()
@@ -711,9 +834,19 @@ func (a *Client) GetUserWalletShort(params *GetUserWalletParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetUserWalletOK:
-		return v, nil
+		response := &GetUserWalletResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserWalletNotFound:
-		return nil, v
+		response := &GetUserWalletResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -724,7 +857,7 @@ func (a *Client) GetUserWalletShort(params *GetUserWalletParams, authInfo runtim
 DebitUserWalletShort debit a user wallet
 Debit a user wallet.
 */
-func (a *Client) DebitUserWalletShort(params *DebitUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DebitUserWalletOK, error) {
+func (a *Client) DebitUserWalletShort(params *DebitUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DebitUserWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDebitUserWalletParams()
@@ -762,15 +895,40 @@ func (a *Client) DebitUserWalletShort(params *DebitUserWalletParams, authInfo ru
 	switch v := result.(type) {
 
 	case *DebitUserWalletOK:
-		return v, nil
+		response := &DebitUserWalletResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DebitUserWalletBadRequest:
-		return nil, v
+		response := &DebitUserWalletResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DebitUserWalletNotFound:
-		return nil, v
+		response := &DebitUserWalletResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DebitUserWalletConflict:
-		return nil, v
+		response := &DebitUserWalletResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DebitUserWalletUnprocessableEntity:
-		return nil, v
+		response := &DebitUserWalletResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -781,7 +939,7 @@ func (a *Client) DebitUserWalletShort(params *DebitUserWalletParams, authInfo ru
 DisableUserWalletShort disable a user wallet
 disable a user wallet.
 */
-func (a *Client) DisableUserWalletShort(params *DisableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserWalletNoContent, error) {
+func (a *Client) DisableUserWalletShort(params *DisableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDisableUserWalletParams()
@@ -819,11 +977,25 @@ func (a *Client) DisableUserWalletShort(params *DisableUserWalletParams, authInf
 	switch v := result.(type) {
 
 	case *DisableUserWalletNoContent:
-		return v, nil
+		response := &DisableUserWalletResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DisableUserWalletNotFound:
-		return nil, v
+		response := &DisableUserWalletResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserWalletConflict:
-		return nil, v
+		response := &DisableUserWalletResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -834,7 +1006,7 @@ func (a *Client) DisableUserWalletShort(params *DisableUserWalletParams, authInf
 EnableUserWalletShort enable a user wallet
 enable a user wallet.
 */
-func (a *Client) EnableUserWalletShort(params *EnableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserWalletNoContent, error) {
+func (a *Client) EnableUserWalletShort(params *EnableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEnableUserWalletParams()
@@ -872,11 +1044,25 @@ func (a *Client) EnableUserWalletShort(params *EnableUserWalletParams, authInfo 
 	switch v := result.(type) {
 
 	case *EnableUserWalletNoContent:
-		return v, nil
+		response := &EnableUserWalletResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *EnableUserWalletNotFound:
-		return nil, v
+		response := &EnableUserWalletResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableUserWalletConflict:
-		return nil, v
+		response := &EnableUserWalletResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -890,7 +1076,7 @@ Other detail info:
 
   * Returns : wallet transaction info
 */
-func (a *Client) ListUserWalletTransactionsShort(params *ListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserWalletTransactionsOK, error) {
+func (a *Client) ListUserWalletTransactionsShort(params *ListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserWalletTransactionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListUserWalletTransactionsParams()
@@ -928,9 +1114,19 @@ func (a *Client) ListUserWalletTransactionsShort(params *ListUserWalletTransacti
 	switch v := result.(type) {
 
 	case *ListUserWalletTransactionsOK:
-		return v, nil
+		response := &ListUserWalletTransactionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListUserWalletTransactionsNotFound:
-		return nil, v
+		response := &ListUserWalletTransactionsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -944,7 +1140,7 @@ Other detail info:
 
   * Returns : paginated wallets info
 */
-func (a *Client) QueryWalletsShort(params *QueryWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryWalletsOK, error) {
+func (a *Client) QueryWalletsShort(params *QueryWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryWalletsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryWalletsParams()
@@ -982,7 +1178,12 @@ func (a *Client) QueryWalletsShort(params *QueryWalletsParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *QueryWalletsOK:
-		return v, nil
+		response := &QueryWalletsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -996,7 +1197,7 @@ Other detail info:
 
   * Returns : bulk credit result
 */
-func (a *Client) BulkCreditShort(params *BulkCreditParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreditOK, error) {
+func (a *Client) BulkCreditShort(params *BulkCreditParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreditResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkCreditParams()
@@ -1034,9 +1235,19 @@ func (a *Client) BulkCreditShort(params *BulkCreditParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *BulkCreditOK:
-		return v, nil
+		response := &BulkCreditResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkCreditUnprocessableEntity:
-		return nil, v
+		response := &BulkCreditResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1050,7 +1261,7 @@ Other detail info:
 
   * Returns : bulk credit result
 */
-func (a *Client) BulkDebitShort(params *BulkDebitParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDebitOK, error) {
+func (a *Client) BulkDebitShort(params *BulkDebitParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDebitResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkDebitParams()
@@ -1088,9 +1299,19 @@ func (a *Client) BulkDebitShort(params *BulkDebitParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *BulkDebitOK:
-		return v, nil
+		response := &BulkDebitResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkDebitUnprocessableEntity:
-		return nil, v
+		response := &BulkDebitResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1104,7 +1325,7 @@ Other detail info:
 
   * Returns : wallet info
 */
-func (a *Client) GetWalletShort(params *GetWalletParams, authInfo runtime.ClientAuthInfoWriter) (*GetWalletOK, error) {
+func (a *Client) GetWalletShort(params *GetWalletParams, authInfo runtime.ClientAuthInfoWriter) (*GetWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetWalletParams()
@@ -1142,9 +1363,19 @@ func (a *Client) GetWalletShort(params *GetWalletParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetWalletOK:
-		return v, nil
+		response := &GetWalletResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetWalletNotFound:
-		return nil, v
+		response := &GetWalletResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1161,7 +1392,7 @@ Other detail info:
     * can be filled with publisher namespace in order to get publisher user wallet
     * can be filled with game namespace in order to get game user wallet
 */
-func (a *Client) PublicGetMyWalletShort(params *PublicGetMyWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyWalletOK, error) {
+func (a *Client) PublicGetMyWalletShort(params *PublicGetMyWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyWalletParams()
@@ -1199,7 +1430,12 @@ func (a *Client) PublicGetMyWalletShort(params *PublicGetMyWalletParams, authInf
 	switch v := result.(type) {
 
 	case *PublicGetMyWalletOK:
-		return v, nil
+		response := &PublicGetMyWalletResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1213,7 +1449,7 @@ Other detail info:
 
   * Returns : wallet info
 */
-func (a *Client) PublicGetWalletShort(params *PublicGetWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetWalletOK, error) {
+func (a *Client) PublicGetWalletShort(params *PublicGetWalletParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetWalletParams()
@@ -1251,7 +1487,12 @@ func (a *Client) PublicGetWalletShort(params *PublicGetWalletParams, authInfo ru
 	switch v := result.(type) {
 
 	case *PublicGetWalletOK:
-		return v, nil
+		response := &PublicGetWalletResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1265,7 +1506,7 @@ Other detail info:
 
   * Returns : currency transaction info
 */
-func (a *Client) PublicListUserWalletTransactionsShort(params *PublicListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserWalletTransactionsOK, error) {
+func (a *Client) PublicListUserWalletTransactionsShort(params *PublicListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserWalletTransactionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListUserWalletTransactionsParams()
@@ -1303,7 +1544,12 @@ func (a *Client) PublicListUserWalletTransactionsShort(params *PublicListUserWal
 	switch v := result.(type) {
 
 	case *PublicListUserWalletTransactionsOK:
-		return v, nil
+		response := &PublicListUserWalletTransactionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

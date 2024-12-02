@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 )
 
+type AdminCreateTopicResponse struct {
+	chatclientmodels.ApiResponse
+	Data *chatclientmodels.APICreateTopicResponse
+}
+
+func (m *AdminCreateTopicResponse) Unpack() (*chatclientmodels.APICreateTopicResponse, *chatclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminCreateTopicReader is a Reader for the AdminCreateTopic structure.
 type AdminCreateTopicReader struct {
 	formats strfmt.Registry

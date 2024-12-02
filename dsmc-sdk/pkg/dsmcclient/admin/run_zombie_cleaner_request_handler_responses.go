@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 )
 
+type RunZombieCleanerRequestHandlerResponse struct {
+	dsmcclientmodels.ApiResponse
+
+	Error401 *dsmcclientmodels.ResponseError
+}
+
+func (m *RunZombieCleanerRequestHandlerResponse) Unpack() *dsmcclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &dsmcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // RunZombieCleanerRequestHandlerReader is a Reader for the RunZombieCleanerRequestHandler structure.
 type RunZombieCleanerRequestHandlerReader struct {
 	formats strfmt.Registry

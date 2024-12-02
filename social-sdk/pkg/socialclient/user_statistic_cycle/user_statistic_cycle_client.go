@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItemsOK, error)
-	PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatCycleItemsOK, error)
-	GetUserStatCycleItems1Short(params *GetUserStatCycleItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItems1OK, error)
+	GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItemsResponse, error)
+	PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatCycleItemsResponse, error)
+	GetUserStatCycleItems1Short(params *GetUserStatCycleItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItems1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ List user's statCycleItems by statCycle.
 Other detail info:
             *  Returns : stat cycle items
 */
-func (a *Client) GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItemsOK, error) {
+func (a *Client) GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserStatCycleItemsParams()
@@ -81,17 +81,47 @@ func (a *Client) GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams,
 	switch v := result.(type) {
 
 	case *GetUserStatCycleItemsOK:
-		return v, nil
+		response := &GetUserStatCycleItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserStatCycleItemsUnauthorized:
-		return nil, v
+		response := &GetUserStatCycleItemsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStatCycleItemsForbidden:
-		return nil, v
+		response := &GetUserStatCycleItemsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStatCycleItemsNotFound:
-		return nil, v
+		response := &GetUserStatCycleItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStatCycleItemsUnprocessableEntity:
-		return nil, v
+		response := &GetUserStatCycleItemsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStatCycleItemsInternalServerError:
-		return nil, v
+		response := &GetUserStatCycleItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +134,7 @@ List user's statCycleItems by statCycle.
 Other detail info:
             *  Returns : stat cycle items
 */
-func (a *Client) PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatCycleItemsOK, error) {
+func (a *Client) PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatCycleItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListMyStatCycleItemsParams()
@@ -142,17 +172,47 @@ func (a *Client) PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleIt
 	switch v := result.(type) {
 
 	case *PublicListMyStatCycleItemsOK:
-		return v, nil
+		response := &PublicListMyStatCycleItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListMyStatCycleItemsUnauthorized:
-		return nil, v
+		response := &PublicListMyStatCycleItemsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListMyStatCycleItemsForbidden:
-		return nil, v
+		response := &PublicListMyStatCycleItemsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListMyStatCycleItemsNotFound:
-		return nil, v
+		response := &PublicListMyStatCycleItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListMyStatCycleItemsUnprocessableEntity:
-		return nil, v
+		response := &PublicListMyStatCycleItemsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListMyStatCycleItemsInternalServerError:
-		return nil, v
+		response := &PublicListMyStatCycleItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -165,7 +225,7 @@ List user's statCycleItems by statCycle.
 Other detail info:
             *  Returns : stat cycle items
 */
-func (a *Client) GetUserStatCycleItems1Short(params *GetUserStatCycleItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItems1OK, error) {
+func (a *Client) GetUserStatCycleItems1Short(params *GetUserStatCycleItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItems1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserStatCycleItems1Params()
@@ -203,17 +263,47 @@ func (a *Client) GetUserStatCycleItems1Short(params *GetUserStatCycleItems1Param
 	switch v := result.(type) {
 
 	case *GetUserStatCycleItems1OK:
-		return v, nil
+		response := &GetUserStatCycleItems1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserStatCycleItems1Unauthorized:
-		return nil, v
+		response := &GetUserStatCycleItems1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStatCycleItems1Forbidden:
-		return nil, v
+		response := &GetUserStatCycleItems1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStatCycleItems1NotFound:
-		return nil, v
+		response := &GetUserStatCycleItems1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStatCycleItems1UnprocessableEntity:
-		return nil, v
+		response := &GetUserStatCycleItems1Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStatCycleItems1InternalServerError:
-		return nil, v
+		response := &GetUserStatCycleItems1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

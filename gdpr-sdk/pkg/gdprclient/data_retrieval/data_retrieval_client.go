@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetListPersonalDataRequestShort(params *AdminGetListPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListPersonalDataRequestOK, error)
-	AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPersonalDataRequestsOK, error)
-	AdminRequestDataRetrievalShort(params *AdminRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRequestDataRetrievalCreated, error)
-	AdminCancelUserPersonalDataRequestShort(params *AdminCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserPersonalDataRequestNoContent, error)
-	AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGeneratePersonalDataURLOK, error)
-	PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPersonalDataRequestsOK, error)
-	PublicRequestDataRetrievalShort(params *PublicRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRequestDataRetrievalCreated, error)
-	PublicCancelUserPersonalDataRequestShort(params *PublicCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserPersonalDataRequestNoContent, error)
-	PublicGeneratePersonalDataURLShort(params *PublicGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePersonalDataURLOK, error)
+	AdminGetListPersonalDataRequestShort(params *AdminGetListPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListPersonalDataRequestResponse, error)
+	AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPersonalDataRequestsResponse, error)
+	AdminRequestDataRetrievalShort(params *AdminRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRequestDataRetrievalResponse, error)
+	AdminCancelUserPersonalDataRequestShort(params *AdminCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserPersonalDataRequestResponse, error)
+	AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGeneratePersonalDataURLResponse, error)
+	PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPersonalDataRequestsResponse, error)
+	PublicRequestDataRetrievalShort(params *PublicRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRequestDataRetrievalResponse, error)
+	PublicCancelUserPersonalDataRequestShort(params *PublicCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserPersonalDataRequestResponse, error)
+	PublicGeneratePersonalDataURLShort(params *PublicGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePersonalDataURLResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ AdminGetListPersonalDataRequestShort get list personal data requests
 Get list personal data requests
 Scope: account
 */
-func (a *Client) AdminGetListPersonalDataRequestShort(params *AdminGetListPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListPersonalDataRequestOK, error) {
+func (a *Client) AdminGetListPersonalDataRequestShort(params *AdminGetListPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListPersonalDataRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetListPersonalDataRequestParams()
@@ -86,17 +86,47 @@ func (a *Client) AdminGetListPersonalDataRequestShort(params *AdminGetListPerson
 	switch v := result.(type) {
 
 	case *AdminGetListPersonalDataRequestOK:
-		return v, nil
+		response := &AdminGetListPersonalDataRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetListPersonalDataRequestBadRequest:
-		return nil, v
+		response := &AdminGetListPersonalDataRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListPersonalDataRequestUnauthorized:
-		return nil, v
+		response := &AdminGetListPersonalDataRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListPersonalDataRequestForbidden:
-		return nil, v
+		response := &AdminGetListPersonalDataRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListPersonalDataRequestNotFound:
-		return nil, v
+		response := &AdminGetListPersonalDataRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListPersonalDataRequestInternalServerError:
-		return nil, v
+		response := &AdminGetListPersonalDataRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -108,7 +138,7 @@ AdminGetUserPersonalDataRequestsShort get user's personal data requests
 Get user's personal data requests
 Scope: account
 */
-func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPersonalDataRequestsOK, error) {
+func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPersonalDataRequestsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserPersonalDataRequestsParams()
@@ -146,13 +176,33 @@ func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPerso
 	switch v := result.(type) {
 
 	case *AdminGetUserPersonalDataRequestsOK:
-		return v, nil
+		response := &AdminGetUserPersonalDataRequestsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserPersonalDataRequestsBadRequest:
-		return nil, v
+		response := &AdminGetUserPersonalDataRequestsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPersonalDataRequestsUnauthorized:
-		return nil, v
+		response := &AdminGetUserPersonalDataRequestsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserPersonalDataRequestsInternalServerError:
-		return nil, v
+		response := &AdminGetUserPersonalDataRequestsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,7 +217,7 @@ Scope: account
 ### Request Header:
 - **Content-Type: application/x-www-form-urlencoded**
 */
-func (a *Client) AdminRequestDataRetrievalShort(params *AdminRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRequestDataRetrievalCreated, error) {
+func (a *Client) AdminRequestDataRetrievalShort(params *AdminRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRequestDataRetrievalResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRequestDataRetrievalParams()
@@ -205,17 +255,47 @@ func (a *Client) AdminRequestDataRetrievalShort(params *AdminRequestDataRetrieva
 	switch v := result.(type) {
 
 	case *AdminRequestDataRetrievalCreated:
-		return v, nil
+		response := &AdminRequestDataRetrievalResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRequestDataRetrievalBadRequest:
-		return nil, v
+		response := &AdminRequestDataRetrievalResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRequestDataRetrievalUnauthorized:
-		return nil, v
+		response := &AdminRequestDataRetrievalResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRequestDataRetrievalNotFound:
-		return nil, v
+		response := &AdminRequestDataRetrievalResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRequestDataRetrievalTooManyRequests:
-		return nil, v
+		response := &AdminRequestDataRetrievalResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRequestDataRetrievalInternalServerError:
-		return nil, v
+		response := &AdminRequestDataRetrievalResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -227,7 +307,7 @@ AdminCancelUserPersonalDataRequestShort cancel user's personal data requests
 Cancel user's personal data requests
 Scope: account
 */
-func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserPersonalDataRequestNoContent, error) {
+func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserPersonalDataRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCancelUserPersonalDataRequestParams()
@@ -265,15 +345,39 @@ func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUser
 	switch v := result.(type) {
 
 	case *AdminCancelUserPersonalDataRequestNoContent:
-		return v, nil
+		response := &AdminCancelUserPersonalDataRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCancelUserPersonalDataRequestUnauthorized:
-		return nil, v
+		response := &AdminCancelUserPersonalDataRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCancelUserPersonalDataRequestNotFound:
-		return nil, v
+		response := &AdminCancelUserPersonalDataRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCancelUserPersonalDataRequestConflict:
-		return nil, v
+		response := &AdminCancelUserPersonalDataRequestResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCancelUserPersonalDataRequestInternalServerError:
-		return nil, v
+		response := &AdminCancelUserPersonalDataRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,7 +392,7 @@ Scope: account
 ### Request Header:
 - **Content-Type: application/x-www-form-urlencoded**
 */
-func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGeneratePersonalDataURLOK, error) {
+func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGeneratePersonalDataURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGeneratePersonalDataURLParams()
@@ -326,15 +430,40 @@ func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonal
 	switch v := result.(type) {
 
 	case *AdminGeneratePersonalDataURLOK:
-		return v, nil
+		response := &AdminGeneratePersonalDataURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGeneratePersonalDataURLBadRequest:
-		return nil, v
+		response := &AdminGeneratePersonalDataURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGeneratePersonalDataURLUnauthorized:
-		return nil, v
+		response := &AdminGeneratePersonalDataURLResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGeneratePersonalDataURLNotFound:
-		return nil, v
+		response := &AdminGeneratePersonalDataURLResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGeneratePersonalDataURLInternalServerError:
-		return nil, v
+		response := &AdminGeneratePersonalDataURLResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -347,7 +476,7 @@ Get user's personal data requests
 Requires valid user access token
 Scope: account
 */
-func (a *Client) PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPersonalDataRequestsOK, error) {
+func (a *Client) PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPersonalDataRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPersonalDataRequestsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserPersonalDataRequestsParams()
@@ -385,13 +514,33 @@ func (a *Client) PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPer
 	switch v := result.(type) {
 
 	case *PublicGetUserPersonalDataRequestsOK:
-		return v, nil
+		response := &PublicGetUserPersonalDataRequestsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserPersonalDataRequestsBadRequest:
-		return nil, v
+		response := &PublicGetUserPersonalDataRequestsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserPersonalDataRequestsUnauthorized:
-		return nil, v
+		response := &PublicGetUserPersonalDataRequestsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserPersonalDataRequestsInternalServerError:
-		return nil, v
+		response := &PublicGetUserPersonalDataRequestsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -406,7 +555,7 @@ Scope: account
 ### Request Header:
 - **Content-Type: application/x-www-form-urlencoded**
 */
-func (a *Client) PublicRequestDataRetrievalShort(params *PublicRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRequestDataRetrievalCreated, error) {
+func (a *Client) PublicRequestDataRetrievalShort(params *PublicRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRequestDataRetrievalResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicRequestDataRetrievalParams()
@@ -444,15 +593,40 @@ func (a *Client) PublicRequestDataRetrievalShort(params *PublicRequestDataRetrie
 	switch v := result.(type) {
 
 	case *PublicRequestDataRetrievalCreated:
-		return v, nil
+		response := &PublicRequestDataRetrievalResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicRequestDataRetrievalBadRequest:
-		return nil, v
+		response := &PublicRequestDataRetrievalResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRequestDataRetrievalUnauthorized:
-		return nil, v
+		response := &PublicRequestDataRetrievalResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRequestDataRetrievalTooManyRequests:
-		return nil, v
+		response := &PublicRequestDataRetrievalResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRequestDataRetrievalInternalServerError:
-		return nil, v
+		response := &PublicRequestDataRetrievalResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -465,7 +639,7 @@ Cancel user's personal data requests
 Requires valid user access token
 Scope: account
 */
-func (a *Client) PublicCancelUserPersonalDataRequestShort(params *PublicCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserPersonalDataRequestNoContent, error) {
+func (a *Client) PublicCancelUserPersonalDataRequestShort(params *PublicCancelUserPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserPersonalDataRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCancelUserPersonalDataRequestParams()
@@ -503,15 +677,39 @@ func (a *Client) PublicCancelUserPersonalDataRequestShort(params *PublicCancelUs
 	switch v := result.(type) {
 
 	case *PublicCancelUserPersonalDataRequestNoContent:
-		return v, nil
+		response := &PublicCancelUserPersonalDataRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCancelUserPersonalDataRequestUnauthorized:
-		return nil, v
+		response := &PublicCancelUserPersonalDataRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelUserPersonalDataRequestNotFound:
-		return nil, v
+		response := &PublicCancelUserPersonalDataRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelUserPersonalDataRequestConflict:
-		return nil, v
+		response := &PublicCancelUserPersonalDataRequestResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelUserPersonalDataRequestInternalServerError:
-		return nil, v
+		response := &PublicCancelUserPersonalDataRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -527,7 +725,7 @@ Scope: account
 ### Request Header:
 - **Content-Type: application/x-www-form-urlencoded**
 */
-func (a *Client) PublicGeneratePersonalDataURLShort(params *PublicGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePersonalDataURLOK, error) {
+func (a *Client) PublicGeneratePersonalDataURLShort(params *PublicGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePersonalDataURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGeneratePersonalDataURLParams()
@@ -565,15 +763,40 @@ func (a *Client) PublicGeneratePersonalDataURLShort(params *PublicGeneratePerson
 	switch v := result.(type) {
 
 	case *PublicGeneratePersonalDataURLOK:
-		return v, nil
+		response := &PublicGeneratePersonalDataURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGeneratePersonalDataURLBadRequest:
-		return nil, v
+		response := &PublicGeneratePersonalDataURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratePersonalDataURLUnauthorized:
-		return nil, v
+		response := &PublicGeneratePersonalDataURLResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratePersonalDataURLNotFound:
-		return nil, v
+		response := &PublicGeneratePersonalDataURLResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratePersonalDataURLInternalServerError:
-		return nil, v
+		response := &PublicGeneratePersonalDataURLResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

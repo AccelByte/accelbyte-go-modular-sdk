@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 )
 
+type GrantUserPassResponse struct {
+	seasonpassclientmodels.ApiResponse
+	Data *seasonpassclientmodels.UserSeasonSummary
+
+	Error400 *seasonpassclientmodels.ErrorEntity
+}
+
+func (m *GrantUserPassResponse) Unpack() (*seasonpassclientmodels.UserSeasonSummary, *seasonpassclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &seasonpassclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GrantUserPassReader is a Reader for the GrantUserPass structure.
 type GrantUserPassReader struct {
 	formats strfmt.Registry

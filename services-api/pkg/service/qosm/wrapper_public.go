@@ -9,7 +9,6 @@ package qosm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclient/public"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *PublicService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicService) ListServerPerNamespaceShort(input *public.ListServerPerNamespaceParams) (*qosmclientmodels.ModelsListServerResponse, error) {
+func (aaa *PublicService) ListServerPerNamespaceShort(input *public.ListServerPerNamespaceParams) (*public.ListServerPerNamespaceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *PublicService) ListServerPerNamespaceShort(input *public.ListServerPe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicService) ListServerShort(input *public.ListServerParams) (*qosmclientmodels.ModelsListServerResponse, error) {
+func (aaa *PublicService) ListServerShort(input *public.ListServerParams) (*public.ListServerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *PublicService) ListServerShort(input *public.ListServerParams) (*qosm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

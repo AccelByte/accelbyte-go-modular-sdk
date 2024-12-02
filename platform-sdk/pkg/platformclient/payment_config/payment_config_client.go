@@ -30,45 +30,45 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfigOK, error)
-	UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDomainWhitelistConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentDomainWhitelistConfigOK, error)
-	TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigOK, error)
-	TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigOK, error)
-	TestCheckoutConfigShort(params *TestCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigOK, error)
-	DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentMerchantConfigOK, error)
-	TestNeonPayConfigShort(params *TestNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigOK, error)
-	TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigOK, error)
-	TestStripeConfigShort(params *TestStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigOK, error)
-	TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigOK, error)
-	TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigOK, error)
-	GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfig1OK, error)
-	UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdyenConfigOK, error)
-	TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigByIDOK, error)
-	UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAliPayConfigOK, error)
-	TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigByIDOK, error)
-	UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCheckoutConfigOK, error)
-	TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigByIDOK, error)
-	UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNeonPayConfigOK, error)
-	TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigByIDOK, error)
-	UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePayPalConfigOK, error)
-	TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigByIDOK, error)
-	UpdateStripeConfigShort(params *UpdateStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStripeConfigOK, error)
-	TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigByIDOK, error)
-	UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigOK, error)
-	UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigCertOK, error)
-	TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigByIDOK, error)
-	UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaConfigOK, error)
-	TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigByIDOK, error)
-	UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaUIConfigOK, error)
-	QueryPaymentProviderConfigShort(params *QueryPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentProviderConfigOK, error)
-	CreatePaymentProviderConfigShort(params *CreatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentProviderConfigOK, error)
-	GetAggregatePaymentProvidersShort(params *GetAggregatePaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregatePaymentProvidersOK, error)
-	DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentProviderConfigOK, error)
-	GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetSpecialPaymentProvidersOK, error)
-	UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentProviderConfigOK, error)
-	DeletePaymentProviderConfigShort(params *DeletePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePaymentProviderConfigNoContent, error)
-	GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentTaxConfigOK, error)
-	UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentTaxConfigOK, error)
+	GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfigResponse, error)
+	UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDomainWhitelistConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentDomainWhitelistConfigResponse, error)
+	TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigResponse, error)
+	TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigResponse, error)
+	TestCheckoutConfigShort(params *TestCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigResponse, error)
+	DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentMerchantConfigResponse, error)
+	TestNeonPayConfigShort(params *TestNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigResponse, error)
+	TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigResponse, error)
+	TestStripeConfigShort(params *TestStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigResponse, error)
+	TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigResponse, error)
+	TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigResponse, error)
+	GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfig1Response, error)
+	UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdyenConfigResponse, error)
+	TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigByIDResponse, error)
+	UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAliPayConfigResponse, error)
+	TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigByIDResponse, error)
+	UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCheckoutConfigResponse, error)
+	TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigByIDResponse, error)
+	UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNeonPayConfigResponse, error)
+	TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigByIDResponse, error)
+	UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePayPalConfigResponse, error)
+	TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigByIDResponse, error)
+	UpdateStripeConfigShort(params *UpdateStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStripeConfigResponse, error)
+	TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigByIDResponse, error)
+	UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigResponse, error)
+	UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigCertResponse, error)
+	TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigByIDResponse, error)
+	UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaConfigResponse, error)
+	TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigByIDResponse, error)
+	UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaUIConfigResponse, error)
+	QueryPaymentProviderConfigShort(params *QueryPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentProviderConfigResponse, error)
+	CreatePaymentProviderConfigShort(params *CreatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentProviderConfigResponse, error)
+	GetAggregatePaymentProvidersShort(params *GetAggregatePaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregatePaymentProvidersResponse, error)
+	DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentProviderConfigResponse, error)
+	GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetSpecialPaymentProvidersResponse, error)
+	UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentProviderConfigResponse, error)
+	DeletePaymentProviderConfigShort(params *DeletePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePaymentProviderConfigResponse, error)
+	GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentTaxConfigResponse, error)
+	UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentTaxConfigResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -80,7 +80,7 @@ Other detail info:
 
   * Returns : payment domain whitelist config info
 */
-func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfigOK, error) {
+func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPaymentMerchantConfigParams()
@@ -118,7 +118,12 @@ func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigP
 	switch v := result.(type) {
 
 	case *GetPaymentMerchantConfigOK:
-		return v, nil
+		response := &GetPaymentMerchantConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -145,7 +150,7 @@ Other detail info:
   * Validation : the domain should include the protocol (http/https), but the whitelist check will only compare the host part (www.example.com)
   *  Returns : payment domain whitelist config
 */
-func (a *Client) UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDomainWhitelistConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentDomainWhitelistConfigOK, error) {
+func (a *Client) UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDomainWhitelistConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentDomainWhitelistConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePaymentDomainWhitelistConfigParams()
@@ -183,9 +188,19 @@ func (a *Client) UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDo
 	switch v := result.(type) {
 
 	case *UpdatePaymentDomainWhitelistConfigOK:
-		return v, nil
+		response := &UpdatePaymentDomainWhitelistConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePaymentDomainWhitelistConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdatePaymentDomainWhitelistConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,7 +231,7 @@ TestAdyenConfigShort test adyen configuration
 Other detail info:
   * Returns : test adyen config
 */
-func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigOK, error) {
+func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestAdyenConfigParams()
@@ -254,7 +269,12 @@ func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *TestAdyenConfigOK:
-		return v, nil
+		response := &TestAdyenConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -268,7 +288,7 @@ Other detail info:
 
   * Returns : test result
 */
-func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigOK, error) {
+func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestAliPayConfigParams()
@@ -306,7 +326,12 @@ func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo 
 	switch v := result.(type) {
 
 	case *TestAliPayConfigOK:
-		return v, nil
+		response := &TestAliPayConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -325,7 +350,7 @@ TestCheckoutConfigShort test checkout.com configuration
 Other detail info:
   * Returns : test result
 */
-func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigOK, error) {
+func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestCheckoutConfigParams()
@@ -363,7 +388,12 @@ func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authI
 	switch v := result.(type) {
 
 	case *TestCheckoutConfigOK:
-		return v, nil
+		response := &TestCheckoutConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -377,7 +407,7 @@ Other detail info:
 
   * Returns : payment merchant config info
 */
-func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentMerchantConfigOK, error) {
+func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentMerchantConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDebugMatchedPaymentMerchantConfigParams()
@@ -415,9 +445,19 @@ func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaym
 	switch v := result.(type) {
 
 	case *DebugMatchedPaymentMerchantConfigOK:
-		return v, nil
+		response := &DebugMatchedPaymentMerchantConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DebugMatchedPaymentMerchantConfigNotFound:
-		return nil, v
+		response := &DebugMatchedPaymentMerchantConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -436,7 +476,7 @@ TestNeonPayConfigShort test neon pay configuration
 Other detail info:
   * Returns : test result
 */
-func (a *Client) TestNeonPayConfigShort(params *TestNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigOK, error) {
+func (a *Client) TestNeonPayConfigShort(params *TestNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestNeonPayConfigParams()
@@ -474,7 +514,12 @@ func (a *Client) TestNeonPayConfigShort(params *TestNeonPayConfigParams, authInf
 	switch v := result.(type) {
 
 	case *TestNeonPayConfigOK:
-		return v, nil
+		response := &TestNeonPayConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -499,7 +544,7 @@ TestPayPalConfigShort test paypal configuration
 Other detail info:
   * Returns : test result
 */
-func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigOK, error) {
+func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestPayPalConfigParams()
@@ -537,7 +582,12 @@ func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo 
 	switch v := result.(type) {
 
 	case *TestPayPalConfigOK:
-		return v, nil
+		response := &TestPayPalConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -563,7 +613,7 @@ TestStripeConfigShort test stripe configuration
 Other detail info:
   * Returns : test adyen config
 */
-func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigOK, error) {
+func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestStripeConfigParams()
@@ -601,7 +651,12 @@ func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo 
 	switch v := result.(type) {
 
 	case *TestStripeConfigOK:
-		return v, nil
+		response := &TestStripeConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -615,7 +670,7 @@ Other detail info:
 
   * Returns : test WxPay config
 */
-func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigOK, error) {
+func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestWxPayConfigParams()
@@ -653,7 +708,12 @@ func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *TestWxPayConfigOK:
-		return v, nil
+		response := &TestWxPayConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -679,7 +739,7 @@ TestXsollaConfigShort test xsolla configuration
 Other detail info:
   * Returns : test result
 */
-func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigOK, error) {
+func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestXsollaConfigParams()
@@ -717,7 +777,12 @@ func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo 
 	switch v := result.(type) {
 
 	case *TestXsollaConfigOK:
-		return v, nil
+		response := &TestXsollaConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -731,7 +796,7 @@ Other detail info:
 
   * Returns : payment merchant config info
 */
-func (a *Client) GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfig1OK, error) {
+func (a *Client) GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfig1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPaymentMerchantConfig1Params()
@@ -769,9 +834,19 @@ func (a *Client) GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig
 	switch v := result.(type) {
 
 	case *GetPaymentMerchantConfig1OK:
-		return v, nil
+		response := &GetPaymentMerchantConfig1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPaymentMerchantConfig1NotFound:
-		return nil, v
+		response := &GetPaymentMerchantConfig1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -785,7 +860,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdyenConfigOK, error) {
+func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdyenConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAdyenConfigParams()
@@ -823,9 +898,19 @@ func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInf
 	switch v := result.(type) {
 
 	case *UpdateAdyenConfigOK:
-		return v, nil
+		response := &UpdateAdyenConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateAdyenConfigNotFound:
-		return nil, v
+		response := &UpdateAdyenConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -838,7 +923,7 @@ TestAdyenConfigByIDShort test adyen configuration by id
 
   * Returns : test adyen config
 */
-func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigByIDOK, error) {
+func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestAdyenConfigByIDParams()
@@ -876,9 +961,19 @@ func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, aut
 	switch v := result.(type) {
 
 	case *TestAdyenConfigByIDOK:
-		return v, nil
+		response := &TestAdyenConfigByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TestAdyenConfigByIDNotFound:
-		return nil, v
+		response := &TestAdyenConfigByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -892,7 +987,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAliPayConfigOK, error) {
+func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAliPayConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAliPayConfigParams()
@@ -930,9 +1025,19 @@ func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authI
 	switch v := result.(type) {
 
 	case *UpdateAliPayConfigOK:
-		return v, nil
+		response := &UpdateAliPayConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateAliPayConfigNotFound:
-		return nil, v
+		response := &UpdateAliPayConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -946,7 +1051,7 @@ Other detail info:
 
   * Returns : test alipay config
 */
-func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigByIDOK, error) {
+func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestAliPayConfigByIDParams()
@@ -984,9 +1089,19 @@ func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, a
 	switch v := result.(type) {
 
 	case *TestAliPayConfigByIDOK:
-		return v, nil
+		response := &TestAliPayConfigByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TestAliPayConfigByIDNotFound:
-		return nil, v
+		response := &TestAliPayConfigByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1000,7 +1115,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCheckoutConfigOK, error) {
+func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCheckoutConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCheckoutConfigParams()
@@ -1038,9 +1153,19 @@ func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, a
 	switch v := result.(type) {
 
 	case *UpdateCheckoutConfigOK:
-		return v, nil
+		response := &UpdateCheckoutConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateCheckoutConfigNotFound:
-		return nil, v
+		response := &UpdateCheckoutConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1053,7 +1178,7 @@ TestCheckoutConfigByIDShort test checkout.com configuration by id
 
   * Returns : test result
 */
-func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigByIDOK, error) {
+func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestCheckoutConfigByIDParams()
@@ -1091,9 +1216,19 @@ func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParam
 	switch v := result.(type) {
 
 	case *TestCheckoutConfigByIDOK:
-		return v, nil
+		response := &TestCheckoutConfigByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TestCheckoutConfigByIDNotFound:
-		return nil, v
+		response := &TestCheckoutConfigByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1107,7 +1242,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNeonPayConfigOK, error) {
+func (a *Client) UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNeonPayConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateNeonPayConfigParams()
@@ -1145,9 +1280,19 @@ func (a *Client) UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, aut
 	switch v := result.(type) {
 
 	case *UpdateNeonPayConfigOK:
-		return v, nil
+		response := &UpdateNeonPayConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateNeonPayConfigNotFound:
-		return nil, v
+		response := &UpdateNeonPayConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1160,7 +1305,7 @@ TestNeonPayConfigByIDShort test neon pay configuration by id
 
   * Returns : test result
 */
-func (a *Client) TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigByIDOK, error) {
+func (a *Client) TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestNeonPayConfigByIDParams()
@@ -1198,9 +1343,19 @@ func (a *Client) TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams,
 	switch v := result.(type) {
 
 	case *TestNeonPayConfigByIDOK:
-		return v, nil
+		response := &TestNeonPayConfigByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TestNeonPayConfigByIDNotFound:
-		return nil, v
+		response := &TestNeonPayConfigByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1214,7 +1369,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePayPalConfigOK, error) {
+func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePayPalConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePayPalConfigParams()
@@ -1252,9 +1407,19 @@ func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authI
 	switch v := result.(type) {
 
 	case *UpdatePayPalConfigOK:
-		return v, nil
+		response := &UpdatePayPalConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePayPalConfigNotFound:
-		return nil, v
+		response := &UpdatePayPalConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1267,7 +1432,7 @@ TestPayPalConfigByIDShort test paypal configuration by id
 
   * Returns : test result
 */
-func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigByIDOK, error) {
+func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestPayPalConfigByIDParams()
@@ -1305,9 +1470,19 @@ func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, a
 	switch v := result.(type) {
 
 	case *TestPayPalConfigByIDOK:
-		return v, nil
+		response := &TestPayPalConfigByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TestPayPalConfigByIDNotFound:
-		return nil, v
+		response := &TestPayPalConfigByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1321,7 +1496,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStripeConfigOK, error) {
+func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStripeConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateStripeConfigParams()
@@ -1359,9 +1534,19 @@ func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authI
 	switch v := result.(type) {
 
 	case *UpdateStripeConfigOK:
-		return v, nil
+		response := &UpdateStripeConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateStripeConfigNotFound:
-		return nil, v
+		response := &UpdateStripeConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1374,7 +1559,7 @@ TestStripeConfigByIDShort test stripe configuration by id
 
   * Returns : test adyen config
 */
-func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigByIDOK, error) {
+func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestStripeConfigByIDParams()
@@ -1412,9 +1597,19 @@ func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, a
 	switch v := result.(type) {
 
 	case *TestStripeConfigByIDOK:
-		return v, nil
+		response := &TestStripeConfigByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TestStripeConfigByIDNotFound:
-		return nil, v
+		response := &TestStripeConfigByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1428,7 +1623,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigOK, error) {
+func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateWxPayConfigParams()
@@ -1466,9 +1661,19 @@ func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInf
 	switch v := result.(type) {
 
 	case *UpdateWxPayConfigOK:
-		return v, nil
+		response := &UpdateWxPayConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateWxPayConfigNotFound:
-		return nil, v
+		response := &UpdateWxPayConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1482,7 +1687,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigCertOK, error) {
+func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigCertResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateWxPayConfigCertParams()
@@ -1520,9 +1725,19 @@ func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams,
 	switch v := result.(type) {
 
 	case *UpdateWxPayConfigCertOK:
-		return v, nil
+		response := &UpdateWxPayConfigCertResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateWxPayConfigCertNotFound:
-		return nil, v
+		response := &UpdateWxPayConfigCertResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1536,7 +1751,7 @@ Other detail info:
 
   * Returns : test WxPay config
 */
-func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigByIDOK, error) {
+func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestWxPayConfigByIDParams()
@@ -1574,9 +1789,19 @@ func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, aut
 	switch v := result.(type) {
 
 	case *TestWxPayConfigByIDOK:
-		return v, nil
+		response := &TestWxPayConfigByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TestWxPayConfigByIDNotFound:
-		return nil, v
+		response := &TestWxPayConfigByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1590,7 +1815,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaConfigOK, error) {
+func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateXsollaConfigParams()
@@ -1628,9 +1853,19 @@ func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authI
 	switch v := result.(type) {
 
 	case *UpdateXsollaConfigOK:
-		return v, nil
+		response := &UpdateXsollaConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateXsollaConfigNotFound:
-		return nil, v
+		response := &UpdateXsollaConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1644,7 +1879,7 @@ Other detail info:
 
   * Returns : test xsolla config
 */
-func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigByIDOK, error) {
+func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTestXsollaConfigByIDParams()
@@ -1682,9 +1917,19 @@ func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, a
 	switch v := result.(type) {
 
 	case *TestXsollaConfigByIDOK:
-		return v, nil
+		response := &TestXsollaConfigByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TestXsollaConfigByIDNotFound:
-		return nil, v
+		response := &TestXsollaConfigByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1698,7 +1943,7 @@ Other detail info:
 
   * Returns : updated payment merchant config
 */
-func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaUIConfigOK, error) {
+func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaUIConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateXsollaUIConfigParams()
@@ -1736,9 +1981,19 @@ func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, a
 	switch v := result.(type) {
 
 	case *UpdateXsollaUIConfigOK:
-		return v, nil
+		response := &UpdateXsollaUIConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateXsollaUIConfigNotFound:
-		return nil, v
+		response := &UpdateXsollaUIConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1752,7 +2007,7 @@ Other detail info:
 
   * Returns : payment provider config list
 */
-func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentProviderConfigOK, error) {
+func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPaymentProviderConfigParams()
@@ -1790,7 +2045,12 @@ func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderCon
 	switch v := result.(type) {
 
 	case *QueryPaymentProviderConfigOK:
-		return v, nil
+		response := &QueryPaymentProviderConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1825,7 +2085,7 @@ payment provider applied has priority:
 Other detail info:
   * Returns : payment provider config
 */
-func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentProviderConfigOK, error) {
+func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePaymentProviderConfigParams()
@@ -1863,13 +2123,33 @@ func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderC
 	switch v := result.(type) {
 
 	case *CreatePaymentProviderConfigOK:
-		return v, nil
+		response := &CreatePaymentProviderConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePaymentProviderConfigBadRequest:
-		return nil, v
+		response := &CreatePaymentProviderConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePaymentProviderConfigConflict:
-		return nil, v
+		response := &CreatePaymentProviderConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePaymentProviderConfigUnprocessableEntity:
-		return nil, v
+		response := &CreatePaymentProviderConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1883,7 +2163,7 @@ Other detail info:
 
   * Returns : payment provider list
 */
-func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregatePaymentProvidersOK, error) {
+func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregatePaymentProvidersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAggregatePaymentProvidersParams()
@@ -1921,7 +2201,12 @@ func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentPr
 	switch v := result.(type) {
 
 	case *GetAggregatePaymentProvidersOK:
-		return v, nil
+		response := &GetAggregatePaymentProvidersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1935,7 +2220,7 @@ Other detail info:
 
   * Returns : payment provider config
 */
-func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentProviderConfigOK, error) {
+func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDebugMatchedPaymentProviderConfigParams()
@@ -1973,9 +2258,19 @@ func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaym
 	switch v := result.(type) {
 
 	case *DebugMatchedPaymentProviderConfigOK:
-		return v, nil
+		response := &DebugMatchedPaymentProviderConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DebugMatchedPaymentProviderConfigNotFound:
-		return nil, v
+		response := &DebugMatchedPaymentProviderConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1989,7 +2284,7 @@ Other detail info:
 
   * Returns : payment provider list
 */
-func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetSpecialPaymentProvidersOK, error) {
+func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetSpecialPaymentProvidersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSpecialPaymentProvidersParams()
@@ -2027,7 +2322,12 @@ func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvid
 	switch v := result.(type) {
 
 	case *GetSpecialPaymentProvidersOK:
-		return v, nil
+		response := &GetSpecialPaymentProvidersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2062,7 +2362,7 @@ payment provider applied has priority:
 Other detail info:
   * Returns : payment provider config
 */
-func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentProviderConfigOK, error) {
+func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePaymentProviderConfigParams()
@@ -2100,15 +2400,40 @@ func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderC
 	switch v := result.(type) {
 
 	case *UpdatePaymentProviderConfigOK:
-		return v, nil
+		response := &UpdatePaymentProviderConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePaymentProviderConfigBadRequest:
-		return nil, v
+		response := &UpdatePaymentProviderConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePaymentProviderConfigNotFound:
-		return nil, v
+		response := &UpdatePaymentProviderConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePaymentProviderConfigConflict:
-		return nil, v
+		response := &UpdatePaymentProviderConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePaymentProviderConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdatePaymentProviderConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2122,7 +2447,7 @@ Other detail info:
 
   * Returns : payment provider config
 */
-func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePaymentProviderConfigNoContent, error) {
+func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePaymentProviderConfigParams()
@@ -2160,9 +2485,18 @@ func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderC
 	switch v := result.(type) {
 
 	case *DeletePaymentProviderConfigNoContent:
-		return v, nil
+		response := &DeletePaymentProviderConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePaymentProviderConfigNotFound:
-		return nil, v
+		response := &DeletePaymentProviderConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2176,7 +2510,7 @@ Other detail info:
 
   * Returns : payment provider list
 */
-func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentTaxConfigOK, error) {
+func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentTaxConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPaymentTaxConfigParams()
@@ -2214,7 +2548,12 @@ func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, aut
 	switch v := result.(type) {
 
 	case *GetPaymentTaxConfigOK:
-		return v, nil
+		response := &GetPaymentTaxConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2242,7 +2581,7 @@ UpdatePaymentTaxConfigShort update payment global tax config
 Other detail info:
   * Returns : payment global tax config
 */
-func (a *Client) UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentTaxConfigOK, error) {
+func (a *Client) UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentTaxConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePaymentTaxConfigParams()
@@ -2280,11 +2619,26 @@ func (a *Client) UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParam
 	switch v := result.(type) {
 
 	case *UpdatePaymentTaxConfigOK:
-		return v, nil
+		response := &UpdatePaymentTaxConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePaymentTaxConfigBadRequest:
-		return nil, v
+		response := &UpdatePaymentTaxConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePaymentTaxConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdatePaymentTaxConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

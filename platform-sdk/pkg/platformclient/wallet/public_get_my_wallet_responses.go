@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type PublicGetMyWalletResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PlatformWallet
+}
+
+func (m *PublicGetMyWalletResponse) Unpack() (*platformclientmodels.PlatformWallet, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetMyWalletReader is a Reader for the PublicGetMyWallet structure.
 type PublicGetMyWalletReader struct {
 	formats strfmt.Registry

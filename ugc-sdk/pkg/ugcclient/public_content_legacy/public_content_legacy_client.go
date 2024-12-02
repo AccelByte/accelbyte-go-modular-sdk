@@ -30,25 +30,25 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SearchChannelSpecificContentShort(params *SearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*SearchChannelSpecificContentOK, error)
-	PublicSearchContentShort(params *PublicSearchContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchContentOK, error)
-	PublicGetContentBulkShort(params *PublicGetContentBulkParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetContentBulkOK, error)
-	PublicGetContentBulkByShareCodesShort(params *PublicGetContentBulkByShareCodesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetContentBulkByShareCodesOK, error)
-	PublicDownloadContentByShareCodeShort(params *PublicDownloadContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentByShareCodeOK, error)
-	PublicDownloadContentByContentIDShort(params *PublicDownloadContentByContentIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentByContentIDOK, error)
-	PublicDownloadContentPreviewShort(params *PublicDownloadContentPreviewParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentPreviewOK, error)
-	CreateContentDirectShort(params *CreateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*CreateContentDirectCreated, error)
-	CreateContentS3Short(params *CreateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateContentS3Created, error)
-	PublicUpdateContentByShareCodeShort(params *PublicUpdateContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateContentByShareCodeOK, error)
-	UpdateContentS3Short(params *UpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentS3OK, error)
-	PublicDeleteContentByShareCodeShort(params *PublicDeleteContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteContentByShareCodeNoContent, error)
-	UpdateContentDirectShort(params *UpdateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentDirectOK, error)
-	DeleteContentShort(params *DeleteContentParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteContentNoContent, error)
-	UpdateContentShareCodeShort(params *UpdateContentShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentShareCodeOK, error)
-	PublicGetUserContentShort(params *PublicGetUserContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserContentOK, error)
-	UpdateScreenshotsShort(params *UpdateScreenshotsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateScreenshotsOK, error)
-	UploadContentScreenshotShort(params *UploadContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*UploadContentScreenshotCreated, error)
-	DeleteContentScreenshotShort(params *DeleteContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteContentScreenshotNoContent, error)
+	SearchChannelSpecificContentShort(params *SearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*SearchChannelSpecificContentResponse, error)
+	PublicSearchContentShort(params *PublicSearchContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchContentResponse, error)
+	PublicGetContentBulkShort(params *PublicGetContentBulkParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetContentBulkResponse, error)
+	PublicGetContentBulkByShareCodesShort(params *PublicGetContentBulkByShareCodesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetContentBulkByShareCodesResponse, error)
+	PublicDownloadContentByShareCodeShort(params *PublicDownloadContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentByShareCodeResponse, error)
+	PublicDownloadContentByContentIDShort(params *PublicDownloadContentByContentIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentByContentIDResponse, error)
+	PublicDownloadContentPreviewShort(params *PublicDownloadContentPreviewParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentPreviewResponse, error)
+	CreateContentDirectShort(params *CreateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*CreateContentDirectResponse, error)
+	CreateContentS3Short(params *CreateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateContentS3Response, error)
+	PublicUpdateContentByShareCodeShort(params *PublicUpdateContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateContentByShareCodeResponse, error)
+	UpdateContentS3Short(params *UpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentS3Response, error)
+	PublicDeleteContentByShareCodeShort(params *PublicDeleteContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteContentByShareCodeResponse, error)
+	UpdateContentDirectShort(params *UpdateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentDirectResponse, error)
+	DeleteContentShort(params *DeleteContentParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteContentResponse, error)
+	UpdateContentShareCodeShort(params *UpdateContentShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentShareCodeResponse, error)
+	PublicGetUserContentShort(params *PublicGetUserContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserContentResponse, error)
+	UpdateScreenshotsShort(params *UpdateScreenshotsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateScreenshotsResponse, error)
+	UploadContentScreenshotShort(params *UploadContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*UploadContentScreenshotResponse, error)
+	DeleteContentScreenshotShort(params *DeleteContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteContentScreenshotResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -77,7 +77,7 @@ Allowed character for operator: `&` `|` `(` `)`
 
  Please note that value of tags query param should be URL encoded
 */
-func (a *Client) SearchChannelSpecificContentShort(params *SearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*SearchChannelSpecificContentOK, error) {
+func (a *Client) SearchChannelSpecificContentShort(params *SearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*SearchChannelSpecificContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSearchChannelSpecificContentParams()
@@ -115,13 +115,33 @@ func (a *Client) SearchChannelSpecificContentShort(params *SearchChannelSpecific
 	switch v := result.(type) {
 
 	case *SearchChannelSpecificContentOK:
-		return v, nil
+		response := &SearchChannelSpecificContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SearchChannelSpecificContentBadRequest:
-		return nil, v
+		response := &SearchChannelSpecificContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchChannelSpecificContentUnauthorized:
-		return nil, v
+		response := &SearchChannelSpecificContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SearchChannelSpecificContentInternalServerError:
-		return nil, v
+		response := &SearchChannelSpecificContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -152,7 +172,7 @@ Allowed character for operator: `&` `|` `(` `)`
 
  Please note that value of tags query param should be URL encoded
 */
-func (a *Client) PublicSearchContentShort(params *PublicSearchContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchContentOK, error) {
+func (a *Client) PublicSearchContentShort(params *PublicSearchContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSearchContentParams()
@@ -190,13 +210,33 @@ func (a *Client) PublicSearchContentShort(params *PublicSearchContentParams, aut
 	switch v := result.(type) {
 
 	case *PublicSearchContentOK:
-		return v, nil
+		response := &PublicSearchContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSearchContentBadRequest:
-		return nil, v
+		response := &PublicSearchContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSearchContentUnauthorized:
-		return nil, v
+		response := &PublicSearchContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSearchContentInternalServerError:
-		return nil, v
+		response := &PublicSearchContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -208,7 +248,7 @@ PublicGetContentBulkShort get contents by content ids
 Maximum requested Ids: 100.
 Public user can access without token or if token specified, requires valid user token
 */
-func (a *Client) PublicGetContentBulkShort(params *PublicGetContentBulkParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetContentBulkOK, error) {
+func (a *Client) PublicGetContentBulkShort(params *PublicGetContentBulkParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetContentBulkResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetContentBulkParams()
@@ -246,13 +286,33 @@ func (a *Client) PublicGetContentBulkShort(params *PublicGetContentBulkParams, a
 	switch v := result.(type) {
 
 	case *PublicGetContentBulkOK:
-		return v, nil
+		response := &PublicGetContentBulkResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetContentBulkBadRequest:
-		return nil, v
+		response := &PublicGetContentBulkResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetContentBulkUnauthorized:
-		return nil, v
+		response := &PublicGetContentBulkResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetContentBulkInternalServerError:
-		return nil, v
+		response := &PublicGetContentBulkResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -264,7 +324,7 @@ PublicGetContentBulkByShareCodesShort bulk get content by content sharecodes
 Require valid user token.
 Maximum sharecodes per request 100
 */
-func (a *Client) PublicGetContentBulkByShareCodesShort(params *PublicGetContentBulkByShareCodesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetContentBulkByShareCodesOK, error) {
+func (a *Client) PublicGetContentBulkByShareCodesShort(params *PublicGetContentBulkByShareCodesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetContentBulkByShareCodesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetContentBulkByShareCodesParams()
@@ -302,15 +362,40 @@ func (a *Client) PublicGetContentBulkByShareCodesShort(params *PublicGetContentB
 	switch v := result.(type) {
 
 	case *PublicGetContentBulkByShareCodesOK:
-		return v, nil
+		response := &PublicGetContentBulkByShareCodesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetContentBulkByShareCodesBadRequest:
-		return nil, v
+		response := &PublicGetContentBulkByShareCodesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetContentBulkByShareCodesUnauthorized:
-		return nil, v
+		response := &PublicGetContentBulkByShareCodesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetContentBulkByShareCodesForbidden:
-		return nil, v
+		response := &PublicGetContentBulkByShareCodesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetContentBulkByShareCodesInternalServerError:
-		return nil, v
+		response := &PublicGetContentBulkByShareCodesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -321,7 +406,7 @@ func (a *Client) PublicGetContentBulkByShareCodesShort(params *PublicGetContentB
 PublicDownloadContentByShareCodeShort get content by sharecode
 Public user can access without token or if token specified, requires valid user token
 */
-func (a *Client) PublicDownloadContentByShareCodeShort(params *PublicDownloadContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentByShareCodeOK, error) {
+func (a *Client) PublicDownloadContentByShareCodeShort(params *PublicDownloadContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentByShareCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDownloadContentByShareCodeParams()
@@ -359,13 +444,33 @@ func (a *Client) PublicDownloadContentByShareCodeShort(params *PublicDownloadCon
 	switch v := result.(type) {
 
 	case *PublicDownloadContentByShareCodeOK:
-		return v, nil
+		response := &PublicDownloadContentByShareCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDownloadContentByShareCodeUnauthorized:
-		return nil, v
+		response := &PublicDownloadContentByShareCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadContentByShareCodeNotFound:
-		return nil, v
+		response := &PublicDownloadContentByShareCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadContentByShareCodeInternalServerError:
-		return nil, v
+		response := &PublicDownloadContentByShareCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -376,7 +481,7 @@ func (a *Client) PublicDownloadContentByShareCodeShort(params *PublicDownloadCon
 PublicDownloadContentByContentIDShort get user specific content
 Public user can access without token or if token specified, requires valid user token
 */
-func (a *Client) PublicDownloadContentByContentIDShort(params *PublicDownloadContentByContentIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentByContentIDOK, error) {
+func (a *Client) PublicDownloadContentByContentIDShort(params *PublicDownloadContentByContentIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentByContentIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDownloadContentByContentIDParams()
@@ -414,13 +519,33 @@ func (a *Client) PublicDownloadContentByContentIDShort(params *PublicDownloadCon
 	switch v := result.(type) {
 
 	case *PublicDownloadContentByContentIDOK:
-		return v, nil
+		response := &PublicDownloadContentByContentIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDownloadContentByContentIDUnauthorized:
-		return nil, v
+		response := &PublicDownloadContentByContentIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadContentByContentIDNotFound:
-		return nil, v
+		response := &PublicDownloadContentByContentIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadContentByContentIDInternalServerError:
-		return nil, v
+		response := &PublicDownloadContentByContentIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -435,7 +560,7 @@ Requires valid user token
 
  NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
-func (a *Client) PublicDownloadContentPreviewShort(params *PublicDownloadContentPreviewParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentPreviewOK, error) {
+func (a *Client) PublicDownloadContentPreviewShort(params *PublicDownloadContentPreviewParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentPreviewResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDownloadContentPreviewParams()
@@ -473,13 +598,33 @@ func (a *Client) PublicDownloadContentPreviewShort(params *PublicDownloadContent
 	switch v := result.(type) {
 
 	case *PublicDownloadContentPreviewOK:
-		return v, nil
+		response := &PublicDownloadContentPreviewResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDownloadContentPreviewUnauthorized:
-		return nil, v
+		response := &PublicDownloadContentPreviewResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadContentPreviewNotFound:
-		return nil, v
+		response := &PublicDownloadContentPreviewResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadContentPreviewInternalServerError:
-		return nil, v
+		response := &PublicDownloadContentPreviewResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -492,7 +637,7 @@ Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
 
 All request body are required except preview, tags and customAttributes.
 */
-func (a *Client) CreateContentDirectShort(params *CreateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*CreateContentDirectCreated, error) {
+func (a *Client) CreateContentDirectShort(params *CreateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*CreateContentDirectResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateContentDirectParams()
@@ -530,15 +675,40 @@ func (a *Client) CreateContentDirectShort(params *CreateContentDirectParams, aut
 	switch v := result.(type) {
 
 	case *CreateContentDirectCreated:
-		return v, nil
+		response := &CreateContentDirectResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateContentDirectBadRequest:
-		return nil, v
+		response := &CreateContentDirectResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateContentDirectUnauthorized:
-		return nil, v
+		response := &CreateContentDirectResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateContentDirectForbidden:
-		return nil, v
+		response := &CreateContentDirectResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateContentDirectInternalServerError:
-		return nil, v
+		response := &CreateContentDirectResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -557,7 +727,7 @@ If not specified, it will use fileExtension value.
 
 NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
-func (a *Client) CreateContentS3Short(params *CreateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateContentS3Created, error) {
+func (a *Client) CreateContentS3Short(params *CreateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateContentS3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateContentS3Params()
@@ -595,15 +765,40 @@ func (a *Client) CreateContentS3Short(params *CreateContentS3Params, authInfo ru
 	switch v := result.(type) {
 
 	case *CreateContentS3Created:
-		return v, nil
+		response := &CreateContentS3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateContentS3BadRequest:
-		return nil, v
+		response := &CreateContentS3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateContentS3Unauthorized:
-		return nil, v
+		response := &CreateContentS3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateContentS3Forbidden:
-		return nil, v
+		response := &CreateContentS3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateContentS3InternalServerError:
-		return nil, v
+		response := &CreateContentS3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -627,7 +822,7 @@ To update content file, set `updateContentFile` to `true` and upload the file us
 
  NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
-func (a *Client) PublicUpdateContentByShareCodeShort(params *PublicUpdateContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateContentByShareCodeOK, error) {
+func (a *Client) PublicUpdateContentByShareCodeShort(params *PublicUpdateContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateContentByShareCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateContentByShareCodeParams()
@@ -665,19 +860,54 @@ func (a *Client) PublicUpdateContentByShareCodeShort(params *PublicUpdateContent
 	switch v := result.(type) {
 
 	case *PublicUpdateContentByShareCodeOK:
-		return v, nil
+		response := &PublicUpdateContentByShareCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateContentByShareCodeBadRequest:
-		return nil, v
+		response := &PublicUpdateContentByShareCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateContentByShareCodeUnauthorized:
-		return nil, v
+		response := &PublicUpdateContentByShareCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateContentByShareCodeForbidden:
-		return nil, v
+		response := &PublicUpdateContentByShareCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateContentByShareCodeNotFound:
-		return nil, v
+		response := &PublicUpdateContentByShareCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateContentByShareCodeConflict:
-		return nil, v
+		response := &PublicUpdateContentByShareCodeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateContentByShareCodeInternalServerError:
-		return nil, v
+		response := &PublicUpdateContentByShareCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -696,7 +926,7 @@ To update content's file, set `updateContentFile` to `true` and upload the file 
 
 NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
-func (a *Client) UpdateContentS3Short(params *UpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentS3OK, error) {
+func (a *Client) UpdateContentS3Short(params *UpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentS3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateContentS3Params()
@@ -734,17 +964,47 @@ func (a *Client) UpdateContentS3Short(params *UpdateContentS3Params, authInfo ru
 	switch v := result.(type) {
 
 	case *UpdateContentS3OK:
-		return v, nil
+		response := &UpdateContentS3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateContentS3BadRequest:
-		return nil, v
+		response := &UpdateContentS3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentS3Unauthorized:
-		return nil, v
+		response := &UpdateContentS3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentS3Forbidden:
-		return nil, v
+		response := &UpdateContentS3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentS3NotFound:
-		return nil, v
+		response := &UpdateContentS3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentS3InternalServerError:
-		return nil, v
+		response := &UpdateContentS3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -755,7 +1015,7 @@ func (a *Client) UpdateContentS3Short(params *UpdateContentS3Params, authInfo ru
 PublicDeleteContentByShareCodeShort delete content by share code
 Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
 */
-func (a *Client) PublicDeleteContentByShareCodeShort(params *PublicDeleteContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteContentByShareCodeNoContent, error) {
+func (a *Client) PublicDeleteContentByShareCodeShort(params *PublicDeleteContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteContentByShareCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDeleteContentByShareCodeParams()
@@ -793,13 +1053,32 @@ func (a *Client) PublicDeleteContentByShareCodeShort(params *PublicDeleteContent
 	switch v := result.(type) {
 
 	case *PublicDeleteContentByShareCodeNoContent:
-		return v, nil
+		response := &PublicDeleteContentByShareCodeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDeleteContentByShareCodeUnauthorized:
-		return nil, v
+		response := &PublicDeleteContentByShareCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeleteContentByShareCodeNotFound:
-		return nil, v
+		response := &PublicDeleteContentByShareCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeleteContentByShareCodeInternalServerError:
-		return nil, v
+		response := &PublicDeleteContentByShareCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -812,7 +1091,7 @@ Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
 
 All request body are required except preview, tags and customAttributes.
 */
-func (a *Client) UpdateContentDirectShort(params *UpdateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentDirectOK, error) {
+func (a *Client) UpdateContentDirectShort(params *UpdateContentDirectParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentDirectResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateContentDirectParams()
@@ -850,17 +1129,47 @@ func (a *Client) UpdateContentDirectShort(params *UpdateContentDirectParams, aut
 	switch v := result.(type) {
 
 	case *UpdateContentDirectOK:
-		return v, nil
+		response := &UpdateContentDirectResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateContentDirectBadRequest:
-		return nil, v
+		response := &UpdateContentDirectResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentDirectUnauthorized:
-		return nil, v
+		response := &UpdateContentDirectResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentDirectForbidden:
-		return nil, v
+		response := &UpdateContentDirectResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentDirectNotFound:
-		return nil, v
+		response := &UpdateContentDirectResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentDirectInternalServerError:
-		return nil, v
+		response := &UpdateContentDirectResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -871,7 +1180,7 @@ func (a *Client) UpdateContentDirectShort(params *UpdateContentDirectParams, aut
 DeleteContentShort delete content
 Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
 */
-func (a *Client) DeleteContentShort(params *DeleteContentParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteContentNoContent, error) {
+func (a *Client) DeleteContentShort(params *DeleteContentParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteContentParams()
@@ -909,13 +1218,32 @@ func (a *Client) DeleteContentShort(params *DeleteContentParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *DeleteContentNoContent:
-		return v, nil
+		response := &DeleteContentResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteContentUnauthorized:
-		return nil, v
+		response := &DeleteContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteContentNotFound:
-		return nil, v
+		response := &DeleteContentResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteContentInternalServerError:
-		return nil, v
+		response := &DeleteContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -932,7 +1260,7 @@ This endpoint is used to modify the shareCode of a content. However, this operat
 Max length: 7
 Available characters: abcdefhkpqrstuxyz
 */
-func (a *Client) UpdateContentShareCodeShort(params *UpdateContentShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentShareCodeOK, error) {
+func (a *Client) UpdateContentShareCodeShort(params *UpdateContentShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentShareCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateContentShareCodeParams()
@@ -970,19 +1298,54 @@ func (a *Client) UpdateContentShareCodeShort(params *UpdateContentShareCodeParam
 	switch v := result.(type) {
 
 	case *UpdateContentShareCodeOK:
-		return v, nil
+		response := &UpdateContentShareCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateContentShareCodeBadRequest:
-		return nil, v
+		response := &UpdateContentShareCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentShareCodeUnauthorized:
-		return nil, v
+		response := &UpdateContentShareCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentShareCodeForbidden:
-		return nil, v
+		response := &UpdateContentShareCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentShareCodeNotFound:
-		return nil, v
+		response := &UpdateContentShareCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentShareCodeConflict:
-		return nil, v
+		response := &UpdateContentShareCodeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentShareCodeInternalServerError:
-		return nil, v
+		response := &UpdateContentShareCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -993,7 +1356,7 @@ func (a *Client) UpdateContentShareCodeShort(params *UpdateContentShareCodeParam
 PublicGetUserContentShort get user's generated contents
 Public user can access without token or if token specified, required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
 */
-func (a *Client) PublicGetUserContentShort(params *PublicGetUserContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserContentOK, error) {
+func (a *Client) PublicGetUserContentShort(params *PublicGetUserContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserContentParams()
@@ -1031,13 +1394,33 @@ func (a *Client) PublicGetUserContentShort(params *PublicGetUserContentParams, a
 	switch v := result.(type) {
 
 	case *PublicGetUserContentOK:
-		return v, nil
+		response := &PublicGetUserContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserContentBadRequest:
-		return nil, v
+		response := &PublicGetUserContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserContentUnauthorized:
-		return nil, v
+		response := &PublicGetUserContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserContentInternalServerError:
-		return nil, v
+		response := &PublicGetUserContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1048,7 +1431,7 @@ func (a *Client) PublicGetUserContentShort(params *PublicGetUserContentParams, a
 UpdateScreenshotsShort update screenshot of content
 Maximum description length: 1024
 */
-func (a *Client) UpdateScreenshotsShort(params *UpdateScreenshotsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateScreenshotsOK, error) {
+func (a *Client) UpdateScreenshotsShort(params *UpdateScreenshotsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateScreenshotsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateScreenshotsParams()
@@ -1086,17 +1469,47 @@ func (a *Client) UpdateScreenshotsShort(params *UpdateScreenshotsParams, authInf
 	switch v := result.(type) {
 
 	case *UpdateScreenshotsOK:
-		return v, nil
+		response := &UpdateScreenshotsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateScreenshotsBadRequest:
-		return nil, v
+		response := &UpdateScreenshotsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateScreenshotsUnauthorized:
-		return nil, v
+		response := &UpdateScreenshotsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateScreenshotsForbidden:
-		return nil, v
+		response := &UpdateScreenshotsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateScreenshotsNotFound:
-		return nil, v
+		response := &UpdateScreenshotsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateScreenshotsInternalServerError:
-		return nil, v
+		response := &UpdateScreenshotsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1111,7 +1524,7 @@ If not specified, it will use *fileExtension* value.
 Supported file extensions: *pjp*, *jpg*, *jpeg*, *jfif*, *bmp*, *png*.
 Maximum description length: 1024
 */
-func (a *Client) UploadContentScreenshotShort(params *UploadContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*UploadContentScreenshotCreated, error) {
+func (a *Client) UploadContentScreenshotShort(params *UploadContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*UploadContentScreenshotResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadContentScreenshotParams()
@@ -1149,17 +1562,47 @@ func (a *Client) UploadContentScreenshotShort(params *UploadContentScreenshotPar
 	switch v := result.(type) {
 
 	case *UploadContentScreenshotCreated:
-		return v, nil
+		response := &UploadContentScreenshotResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UploadContentScreenshotBadRequest:
-		return nil, v
+		response := &UploadContentScreenshotResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UploadContentScreenshotUnauthorized:
-		return nil, v
+		response := &UploadContentScreenshotResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UploadContentScreenshotForbidden:
-		return nil, v
+		response := &UploadContentScreenshotResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UploadContentScreenshotNotFound:
-		return nil, v
+		response := &UploadContentScreenshotResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UploadContentScreenshotInternalServerError:
-		return nil, v
+		response := &UploadContentScreenshotResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1170,7 +1613,7 @@ func (a *Client) UploadContentScreenshotShort(params *UploadContentScreenshotPar
 DeleteContentScreenshotShort delete content's screenshot
 Delete existing screenshot from a content
 */
-func (a *Client) DeleteContentScreenshotShort(params *DeleteContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteContentScreenshotNoContent, error) {
+func (a *Client) DeleteContentScreenshotShort(params *DeleteContentScreenshotParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteContentScreenshotResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteContentScreenshotParams()
@@ -1208,17 +1651,46 @@ func (a *Client) DeleteContentScreenshotShort(params *DeleteContentScreenshotPar
 	switch v := result.(type) {
 
 	case *DeleteContentScreenshotNoContent:
-		return v, nil
+		response := &DeleteContentScreenshotResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteContentScreenshotBadRequest:
-		return nil, v
+		response := &DeleteContentScreenshotResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteContentScreenshotUnauthorized:
-		return nil, v
+		response := &DeleteContentScreenshotResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteContentScreenshotForbidden:
-		return nil, v
+		response := &DeleteContentScreenshotResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteContentScreenshotNotFound:
-		return nil, v
+		response := &DeleteContentScreenshotResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteContentScreenshotInternalServerError:
-		return nil, v
+		response := &DeleteContentScreenshotResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

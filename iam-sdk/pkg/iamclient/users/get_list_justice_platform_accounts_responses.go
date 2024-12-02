@@ -19,6 +19,40 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type GetListJusticePlatformAccountsResponse struct {
+	iamclientmodels.ApiResponse
+	Data []*iamclientmodels.ModelGetUserMapping
+
+	Error400 *iamclientmodels.RestErrorResponse
+	Error404 string
+}
+
+func (m *GetListJusticePlatformAccountsResponse) Unpack() ([]*iamclientmodels.ModelGetUserMapping, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			return nil, &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetListJusticePlatformAccountsReader is a Reader for the GetListJusticePlatformAccounts structure.
 type GetListJusticePlatformAccountsReader struct {
 	formats strfmt.Registry

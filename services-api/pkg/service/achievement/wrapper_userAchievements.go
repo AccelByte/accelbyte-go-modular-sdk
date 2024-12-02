@@ -9,7 +9,6 @@ package achievement
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/user_achievements"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *UserAchievementsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *UserAchievementsService) AdminListUserAchievementsShort(input *user_achievements.AdminListUserAchievementsParams) (*achievementclientmodels.ModelsPaginatedUserAchievementResponse, error) {
+func (aaa *UserAchievementsService) AdminListUserAchievementsShort(input *user_achievements.AdminListUserAchievementsParams) (*user_achievements.AdminListUserAchievementsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *UserAchievementsService) AdminListUserAchievementsShort(input *user_a
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UserAchievementsService) AdminResetAchievementShort(input *user_achievements.AdminResetAchievementParams) error {
@@ -129,7 +128,7 @@ func (aaa *UserAchievementsService) AdminUnlockAchievementShort(input *user_achi
 	return nil
 }
 
-func (aaa *UserAchievementsService) PublicListUserAchievementsShort(input *user_achievements.PublicListUserAchievementsParams) (*achievementclientmodels.ModelsPaginatedUserAchievementResponse, error) {
+func (aaa *UserAchievementsService) PublicListUserAchievementsShort(input *user_achievements.PublicListUserAchievementsParams) (*user_achievements.PublicListUserAchievementsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *UserAchievementsService) PublicListUserAchievementsShort(input *user_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UserAchievementsService) PublicUnlockAchievementShort(input *user_achievements.PublicUnlockAchievementParams) error {

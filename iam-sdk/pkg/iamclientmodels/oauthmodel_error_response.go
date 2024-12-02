@@ -7,6 +7,8 @@
 package iamclientmodels
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -102,4 +104,8 @@ func (m *OauthmodelErrorResponse) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+func (m *OauthmodelErrorResponse) TranslateToApiError() (*ApiError, error) {
+	return &ApiError{Code: fmt.Sprint(*m.Error), Message: m.ErrorDescription}, nil
 }

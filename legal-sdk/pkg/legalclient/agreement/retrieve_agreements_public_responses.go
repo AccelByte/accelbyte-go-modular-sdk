@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type RetrieveAgreementsPublicResponse struct {
+	legalclientmodels.ApiResponse
+	Data []*legalclientmodels.RetrieveAcceptedAgreementResponse
+
+	Error400 *legalclientmodels.ErrorEntity
+}
+
+func (m *RetrieveAgreementsPublicResponse) Unpack() ([]*legalclientmodels.RetrieveAcceptedAgreementResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RetrieveAgreementsPublicReader is a Reader for the RetrieveAgreementsPublic structure.
 type RetrieveAgreementsPublicReader struct {
 	formats strfmt.Registry

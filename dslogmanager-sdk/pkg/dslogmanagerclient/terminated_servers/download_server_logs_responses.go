@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclientmodels"
 )
 
+type DownloadServerLogsResponse struct {
+	dslogmanagerclientmodels.ApiResponse
+	Data io.Writer
+
+	Error404 *dslogmanagerclientmodels.ResponseError
+	Error500 *dslogmanagerclientmodels.ResponseError
+}
+
+func (m *DownloadServerLogsResponse) Unpack() (io.Writer, *dslogmanagerclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dslogmanagerclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // DownloadServerLogsReader is a Reader for the DownloadServerLogs structure.
 type DownloadServerLogsReader struct {
 	formats strfmt.Registry

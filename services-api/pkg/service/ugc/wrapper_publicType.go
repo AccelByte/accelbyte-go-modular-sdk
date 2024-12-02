@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_type"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 // PublicTypeService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *PublicTypeService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicTypeService) GetTypeShort(input *public_type.GetTypeParams) (*ugcclientmodels.ModelsPaginatedGetTypeResponse, error) {
+func (aaa *PublicTypeService) GetTypeShort(input *public_type.GetTypeParams) (*public_type.GetTypeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,5 +65,5 @@ func (aaa *PublicTypeService) GetTypeShort(input *public_type.GetTypeParams) (*u
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

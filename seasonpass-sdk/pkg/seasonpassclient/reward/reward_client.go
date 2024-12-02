@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRewardsOK, error)
-	CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardCreated, error)
-	GetRewardShort(params *GetRewardParams, authInfo runtime.ClientAuthInfoWriter) (*GetRewardOK, error)
-	DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRewardNoContent, error)
-	UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRewardOK, error)
-	PublicClaimUserRewardShort(params *PublicClaimUserRewardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardOK, error)
-	PublicBulkClaimUserRewardsShort(params *PublicBulkClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkClaimUserRewardsOK, error)
+	QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRewardsResponse, error)
+	CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardResponse, error)
+	GetRewardShort(params *GetRewardParams, authInfo runtime.ClientAuthInfoWriter) (*GetRewardResponse, error)
+	DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRewardResponse, error)
+	UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRewardResponse, error)
+	PublicClaimUserRewardShort(params *PublicClaimUserRewardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardResponse, error)
+	PublicBulkClaimUserRewardsShort(params *PublicBulkClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkClaimUserRewardsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ Other detail info:
 
   * Returns : the list of rewards
 */
-func (a *Client) QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRewardsOK, error) {
+func (a *Client) QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRewardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRewardsParams()
@@ -87,11 +87,26 @@ func (a *Client) QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *QueryRewardsOK:
-		return v, nil
+		response := &QueryRewardsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryRewardsBadRequest:
-		return nil, v
+		response := &QueryRewardsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryRewardsNotFound:
-		return nil, v
+		response := &QueryRewardsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -106,7 +121,7 @@ Other detail info:
 
   * Returns : created reward
 */
-func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardCreated, error) {
+func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRewardParams()
@@ -144,15 +159,40 @@ func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *CreateRewardCreated:
-		return v, nil
+		response := &CreateRewardResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateRewardBadRequest:
-		return nil, v
+		response := &CreateRewardResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRewardNotFound:
-		return nil, v
+		response := &CreateRewardResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRewardConflict:
-		return nil, v
+		response := &CreateRewardResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRewardUnprocessableEntity:
-		return nil, v
+		response := &CreateRewardResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,7 +207,7 @@ Other detail info:
 
   * Returns : reward data
 */
-func (a *Client) GetRewardShort(params *GetRewardParams, authInfo runtime.ClientAuthInfoWriter) (*GetRewardOK, error) {
+func (a *Client) GetRewardShort(params *GetRewardParams, authInfo runtime.ClientAuthInfoWriter) (*GetRewardResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRewardParams()
@@ -205,11 +245,26 @@ func (a *Client) GetRewardShort(params *GetRewardParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetRewardOK:
-		return v, nil
+		response := &GetRewardResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRewardBadRequest:
-		return nil, v
+		response := &GetRewardResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRewardNotFound:
-		return nil, v
+		response := &GetRewardResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -222,7 +277,7 @@ This API is used to delete a reward permanently, only draft season reward can be
 
 Other detail info:
 */
-func (a *Client) DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRewardNoContent, error) {
+func (a *Client) DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRewardResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRewardParams()
@@ -260,13 +315,32 @@ func (a *Client) DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteRewardNoContent:
-		return v, nil
+		response := &DeleteRewardResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteRewardBadRequest:
-		return nil, v
+		response := &DeleteRewardResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRewardNotFound:
-		return nil, v
+		response := &DeleteRewardResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRewardConflict:
-		return nil, v
+		response := &DeleteRewardResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -281,7 +355,7 @@ Other detail info:
 
   * Returns : updated reward
 */
-func (a *Client) UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRewardOK, error) {
+func (a *Client) UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRewardResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRewardParams()
@@ -319,15 +393,40 @@ func (a *Client) UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UpdateRewardOK:
-		return v, nil
+		response := &UpdateRewardResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateRewardBadRequest:
-		return nil, v
+		response := &UpdateRewardResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRewardNotFound:
-		return nil, v
+		response := &UpdateRewardResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRewardConflict:
-		return nil, v
+		response := &UpdateRewardResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRewardUnprocessableEntity:
-		return nil, v
+		response := &UpdateRewardResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -342,7 +441,7 @@ Other detail info:
 
   * Returns : user season data
 */
-func (a *Client) PublicClaimUserRewardShort(params *PublicClaimUserRewardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardOK, error) {
+func (a *Client) PublicClaimUserRewardShort(params *PublicClaimUserRewardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicClaimUserRewardParams()
@@ -380,13 +479,33 @@ func (a *Client) PublicClaimUserRewardShort(params *PublicClaimUserRewardParams,
 	switch v := result.(type) {
 
 	case *PublicClaimUserRewardOK:
-		return v, nil
+		response := &PublicClaimUserRewardResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicClaimUserRewardBadRequest:
-		return nil, v
+		response := &PublicClaimUserRewardResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardNotFound:
-		return nil, v
+		response := &PublicClaimUserRewardResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardConflict:
-		return nil, v
+		response := &PublicClaimUserRewardResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -401,7 +520,7 @@ Other detail info:
 
   * Returns : user season data
 */
-func (a *Client) PublicBulkClaimUserRewardsShort(params *PublicBulkClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkClaimUserRewardsOK, error) {
+func (a *Client) PublicBulkClaimUserRewardsShort(params *PublicBulkClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkClaimUserRewardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicBulkClaimUserRewardsParams()
@@ -439,11 +558,26 @@ func (a *Client) PublicBulkClaimUserRewardsShort(params *PublicBulkClaimUserRewa
 	switch v := result.(type) {
 
 	case *PublicBulkClaimUserRewardsOK:
-		return v, nil
+		response := &PublicBulkClaimUserRewardsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicBulkClaimUserRewardsBadRequest:
-		return nil, v
+		response := &PublicBulkClaimUserRewardsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBulkClaimUserRewardsNotFound:
-		return nil, v
+		response := &PublicBulkClaimUserRewardsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

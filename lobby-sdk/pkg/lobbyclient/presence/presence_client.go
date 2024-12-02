@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	UsersPresenceHandlerV1Short(params *UsersPresenceHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*UsersPresenceHandlerV1OK, error)
-	UsersPresenceHandlerV2Short(params *UsersPresenceHandlerV2Params, authInfo runtime.ClientAuthInfoWriter) (*UsersPresenceHandlerV2OK, error)
+	UsersPresenceHandlerV1Short(params *UsersPresenceHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*UsersPresenceHandlerV1Response, error)
+	UsersPresenceHandlerV2Short(params *UsersPresenceHandlerV2Params, authInfo runtime.ClientAuthInfoWriter) (*UsersPresenceHandlerV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 UsersPresenceHandlerV1Short query users presence
 Query users presence with given namespace and userIds.
 */
-func (a *Client) UsersPresenceHandlerV1Short(params *UsersPresenceHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*UsersPresenceHandlerV1OK, error) {
+func (a *Client) UsersPresenceHandlerV1Short(params *UsersPresenceHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*UsersPresenceHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUsersPresenceHandlerV1Params()
@@ -78,13 +78,33 @@ func (a *Client) UsersPresenceHandlerV1Short(params *UsersPresenceHandlerV1Param
 	switch v := result.(type) {
 
 	case *UsersPresenceHandlerV1OK:
-		return v, nil
+		response := &UsersPresenceHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UsersPresenceHandlerV1BadRequest:
-		return nil, v
+		response := &UsersPresenceHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UsersPresenceHandlerV1Unauthorized:
-		return nil, v
+		response := &UsersPresenceHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UsersPresenceHandlerV1InternalServerError:
-		return nil, v
+		response := &UsersPresenceHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -95,7 +115,7 @@ func (a *Client) UsersPresenceHandlerV1Short(params *UsersPresenceHandlerV1Param
 UsersPresenceHandlerV2Short query users presence
 Query users presence with given namespace and userIds.
 */
-func (a *Client) UsersPresenceHandlerV2Short(params *UsersPresenceHandlerV2Params, authInfo runtime.ClientAuthInfoWriter) (*UsersPresenceHandlerV2OK, error) {
+func (a *Client) UsersPresenceHandlerV2Short(params *UsersPresenceHandlerV2Params, authInfo runtime.ClientAuthInfoWriter) (*UsersPresenceHandlerV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUsersPresenceHandlerV2Params()
@@ -133,13 +153,33 @@ func (a *Client) UsersPresenceHandlerV2Short(params *UsersPresenceHandlerV2Param
 	switch v := result.(type) {
 
 	case *UsersPresenceHandlerV2OK:
-		return v, nil
+		response := &UsersPresenceHandlerV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UsersPresenceHandlerV2BadRequest:
-		return nil, v
+		response := &UsersPresenceHandlerV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UsersPresenceHandlerV2Unauthorized:
-		return nil, v
+		response := &UsersPresenceHandlerV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UsersPresenceHandlerV2InternalServerError:
-		return nil, v
+		response := &UsersPresenceHandlerV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

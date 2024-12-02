@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListInventoryConfigurationsShort(params *AdminListInventoryConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListInventoryConfigurationsOK, error)
-	AdminCreateInventoryConfigurationShort(params *AdminCreateInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateInventoryConfigurationCreated, error)
-	AdminGetInventoryConfigurationShort(params *AdminGetInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInventoryConfigurationOK, error)
-	AdminUpdateInventoryConfigurationShort(params *AdminUpdateInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInventoryConfigurationOK, error)
-	AdminDeleteInventoryConfigurationShort(params *AdminDeleteInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInventoryConfigurationNoContent, error)
+	AdminListInventoryConfigurationsShort(params *AdminListInventoryConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListInventoryConfigurationsResponse, error)
+	AdminCreateInventoryConfigurationShort(params *AdminCreateInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateInventoryConfigurationResponse, error)
+	AdminGetInventoryConfigurationShort(params *AdminGetInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInventoryConfigurationResponse, error)
+	AdminUpdateInventoryConfigurationShort(params *AdminUpdateInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInventoryConfigurationResponse, error)
+	AdminDeleteInventoryConfigurationShort(params *AdminDeleteInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInventoryConfigurationResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ The response body will be in the form of standard pagination.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:CONFIGURATION [READ]
 */
-func (a *Client) AdminListInventoryConfigurationsShort(params *AdminListInventoryConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListInventoryConfigurationsOK, error) {
+func (a *Client) AdminListInventoryConfigurationsShort(params *AdminListInventoryConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListInventoryConfigurationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListInventoryConfigurationsParams()
@@ -85,11 +85,26 @@ func (a *Client) AdminListInventoryConfigurationsShort(params *AdminListInventor
 	switch v := result.(type) {
 
 	case *AdminListInventoryConfigurationsOK:
-		return v, nil
+		response := &AdminListInventoryConfigurationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListInventoryConfigurationsBadRequest:
-		return nil, v
+		response := &AdminListInventoryConfigurationsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListInventoryConfigurationsInternalServerError:
-		return nil, v
+		response := &AdminListInventoryConfigurationsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +119,7 @@ There cannot be one inventory configuration duplicate code per namespace.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:CONFIGURATION [CREATE]
 */
-func (a *Client) AdminCreateInventoryConfigurationShort(params *AdminCreateInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateInventoryConfigurationCreated, error) {
+func (a *Client) AdminCreateInventoryConfigurationShort(params *AdminCreateInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateInventoryConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateInventoryConfigurationParams()
@@ -142,13 +157,33 @@ func (a *Client) AdminCreateInventoryConfigurationShort(params *AdminCreateInven
 	switch v := result.(type) {
 
 	case *AdminCreateInventoryConfigurationCreated:
-		return v, nil
+		response := &AdminCreateInventoryConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateInventoryConfigurationBadRequest:
-		return nil, v
+		response := &AdminCreateInventoryConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateInventoryConfigurationConflict:
-		return nil, v
+		response := &AdminCreateInventoryConfigurationResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateInventoryConfigurationInternalServerError:
-		return nil, v
+		response := &AdminCreateInventoryConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -162,7 +197,7 @@ Getting an inventory configuration info.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:CONFIGURATION [READ]
 */
-func (a *Client) AdminGetInventoryConfigurationShort(params *AdminGetInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInventoryConfigurationOK, error) {
+func (a *Client) AdminGetInventoryConfigurationShort(params *AdminGetInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInventoryConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetInventoryConfigurationParams()
@@ -200,13 +235,33 @@ func (a *Client) AdminGetInventoryConfigurationShort(params *AdminGetInventoryCo
 	switch v := result.(type) {
 
 	case *AdminGetInventoryConfigurationOK:
-		return v, nil
+		response := &AdminGetInventoryConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetInventoryConfigurationBadRequest:
-		return nil, v
+		response := &AdminGetInventoryConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInventoryConfigurationNotFound:
-		return nil, v
+		response := &AdminGetInventoryConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInventoryConfigurationInternalServerError:
-		return nil, v
+		response := &AdminGetInventoryConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -221,7 +276,7 @@ There cannot be duplicate code per namespace.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:CONFIGURATION [UPDATE]
 */
-func (a *Client) AdminUpdateInventoryConfigurationShort(params *AdminUpdateInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInventoryConfigurationOK, error) {
+func (a *Client) AdminUpdateInventoryConfigurationShort(params *AdminUpdateInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInventoryConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateInventoryConfigurationParams()
@@ -259,15 +314,40 @@ func (a *Client) AdminUpdateInventoryConfigurationShort(params *AdminUpdateInven
 	switch v := result.(type) {
 
 	case *AdminUpdateInventoryConfigurationOK:
-		return v, nil
+		response := &AdminUpdateInventoryConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateInventoryConfigurationBadRequest:
-		return nil, v
+		response := &AdminUpdateInventoryConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInventoryConfigurationNotFound:
-		return nil, v
+		response := &AdminUpdateInventoryConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInventoryConfigurationConflict:
-		return nil, v
+		response := &AdminUpdateInventoryConfigurationResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInventoryConfigurationInternalServerError:
-		return nil, v
+		response := &AdminUpdateInventoryConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -282,7 +362,7 @@ If an inventory already reference this type (i.e. STATUS is "TIED"), then the ty
 
 ADMIN:NAMESPACE:{namespace}:INVENTORY:CONFIGURATION [DELETE]
 */
-func (a *Client) AdminDeleteInventoryConfigurationShort(params *AdminDeleteInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInventoryConfigurationNoContent, error) {
+func (a *Client) AdminDeleteInventoryConfigurationShort(params *AdminDeleteInventoryConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInventoryConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteInventoryConfigurationParams()
@@ -320,13 +400,32 @@ func (a *Client) AdminDeleteInventoryConfigurationShort(params *AdminDeleteInven
 	switch v := result.(type) {
 
 	case *AdminDeleteInventoryConfigurationNoContent:
-		return v, nil
+		response := &AdminDeleteInventoryConfigurationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteInventoryConfigurationBadRequest:
-		return nil, v
+		response := &AdminDeleteInventoryConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteInventoryConfigurationNotFound:
-		return nil, v
+		response := &AdminDeleteInventoryConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteInventoryConfigurationInternalServerError:
-		return nil, v
+		response := &AdminDeleteInventoryConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

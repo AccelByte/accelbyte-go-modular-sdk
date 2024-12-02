@@ -9,7 +9,6 @@ package leaderboard
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/user_visibility_v3"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *UserVisibilityV3Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *UserVisibilityV3Service) GetHiddenUsersV3Short(input *user_visibility_v3.GetHiddenUsersV3Params) (*leaderboardclientmodels.ModelsGetHiddenUserResponse, error) {
+func (aaa *UserVisibilityV3Service) GetHiddenUsersV3Short(input *user_visibility_v3.GetHiddenUsersV3Params) (*user_visibility_v3.GetHiddenUsersV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *UserVisibilityV3Service) GetHiddenUsersV3Short(input *user_visibility
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserVisibilityV3Service) GetUserVisibilityStatusV3Short(input *user_visibility_v3.GetUserVisibilityStatusV3Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
+func (aaa *UserVisibilityV3Service) GetUserVisibilityStatusV3Short(input *user_visibility_v3.GetUserVisibilityStatusV3Params) (*user_visibility_v3.GetUserVisibilityStatusV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *UserVisibilityV3Service) GetUserVisibilityStatusV3Short(input *user_v
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserVisibilityV3Service) SetUserLeaderboardVisibilityV3Short(input *user_visibility_v3.SetUserLeaderboardVisibilityV3Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
+func (aaa *UserVisibilityV3Service) SetUserLeaderboardVisibilityV3Short(input *user_visibility_v3.SetUserLeaderboardVisibilityV3Params) (*user_visibility_v3.SetUserLeaderboardVisibilityV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *UserVisibilityV3Service) SetUserLeaderboardVisibilityV3Short(input *u
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserVisibilityV3Service) SetUserVisibilityV3Short(input *user_visibility_v3.SetUserVisibilityV3Params) (*leaderboardclientmodels.ModelsGetUserVisibilityResponse, error) {
+func (aaa *UserVisibilityV3Service) SetUserVisibilityV3Short(input *user_visibility_v3.SetUserVisibilityV3Params) (*user_visibility_v3.SetUserVisibilityV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,5 +153,5 @@ func (aaa *UserVisibilityV3Service) SetUserVisibilityV3Short(input *user_visibil
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

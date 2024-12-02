@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
+type AdminGetGroupResponse struct {
+	ugcclientmodels.ApiResponse
+	Data *ugcclientmodels.ModelsCreateGroupResponse
+
+	Error401 *ugcclientmodels.ResponseError
+	Error404 *ugcclientmodels.ResponseError
+	Error500 *ugcclientmodels.ResponseError
+}
+
+func (m *AdminGetGroupResponse) Unpack() (*ugcclientmodels.ModelsCreateGroupResponse, *ugcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &ugcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetGroupReader is a Reader for the AdminGetGroup structure.
 type AdminGetGroupReader struct {
 	formats strfmt.Registry

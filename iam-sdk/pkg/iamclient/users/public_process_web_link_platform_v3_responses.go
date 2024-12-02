@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type PublicProcessWebLinkPlatformV3Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelLinkRequest
+
+	Error400 *iamclientmodels.RestErrorResponse
+}
+
+func (m *PublicProcessWebLinkPlatformV3Response) Unpack() (*iamclientmodels.ModelLinkRequest, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicProcessWebLinkPlatformV3Reader is a Reader for the PublicProcessWebLinkPlatformV3 structure.
 type PublicProcessWebLinkPlatformV3Reader struct {
 	formats strfmt.Registry

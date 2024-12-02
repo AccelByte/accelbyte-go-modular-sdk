@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/messages"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *MessagesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *MessagesService) PublicGetMessagesShort(input *messages.PublicGetMessagesParams) ([]*csmclientmodels.LogAppMessageDeclaration, error) {
+func (aaa *MessagesService) PublicGetMessagesShort(input *messages.PublicGetMessagesParams) (*messages.PublicGetMessagesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *MessagesService) PublicGetMessagesShort(input *messages.PublicGetMess
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

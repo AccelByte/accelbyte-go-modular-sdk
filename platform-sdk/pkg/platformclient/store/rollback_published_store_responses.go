@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type RollbackPublishedStoreResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.StoreInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *RollbackPublishedStoreResponse) Unpack() (*platformclientmodels.StoreInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RollbackPublishedStoreReader is a Reader for the RollbackPublishedStore structure.
 type RollbackPublishedStoreReader struct {
 	formats strfmt.Registry

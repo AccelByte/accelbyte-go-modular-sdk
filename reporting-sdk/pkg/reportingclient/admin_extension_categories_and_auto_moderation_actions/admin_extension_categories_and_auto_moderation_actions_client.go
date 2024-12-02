@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminFindActionListShort(params *AdminFindActionListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindActionListOK, error)
-	AdminCreateModActionShort(params *AdminCreateModActionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateModActionCreated, error)
-	AdminFindExtensionCategoryListShort(params *AdminFindExtensionCategoryListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindExtensionCategoryListOK, error)
-	AdminCreateExtensionCategoryShort(params *AdminCreateExtensionCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateExtensionCategoryCreated, error)
+	AdminFindActionListShort(params *AdminFindActionListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindActionListResponse, error)
+	AdminCreateModActionShort(params *AdminCreateModActionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateModActionResponse, error)
+	AdminFindExtensionCategoryListShort(params *AdminFindExtensionCategoryListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindExtensionCategoryListResponse, error)
+	AdminCreateExtensionCategoryShort(params *AdminCreateExtensionCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateExtensionCategoryResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 AdminFindActionListShort find auto moderation action list
 Get a list of auto moderation actions
 */
-func (a *Client) AdminFindActionListShort(params *AdminFindActionListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindActionListOK, error) {
+func (a *Client) AdminFindActionListShort(params *AdminFindActionListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindActionListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminFindActionListParams()
@@ -80,11 +80,26 @@ func (a *Client) AdminFindActionListShort(params *AdminFindActionListParams, aut
 	switch v := result.(type) {
 
 	case *AdminFindActionListOK:
-		return v, nil
+		response := &AdminFindActionListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminFindActionListBadRequest:
-		return nil, v
+		response := &AdminFindActionListResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminFindActionListInternalServerError:
-		return nil, v
+		response := &AdminFindActionListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -95,7 +110,7 @@ func (a *Client) AdminFindActionListShort(params *AdminFindActionListParams, aut
 AdminCreateModActionShort create auto moderation action data
 Create auto moderation action
 */
-func (a *Client) AdminCreateModActionShort(params *AdminCreateModActionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateModActionCreated, error) {
+func (a *Client) AdminCreateModActionShort(params *AdminCreateModActionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateModActionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateModActionParams()
@@ -133,11 +148,26 @@ func (a *Client) AdminCreateModActionShort(params *AdminCreateModActionParams, a
 	switch v := result.(type) {
 
 	case *AdminCreateModActionCreated:
-		return v, nil
+		response := &AdminCreateModActionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateModActionBadRequest:
-		return nil, v
+		response := &AdminCreateModActionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateModActionInternalServerError:
-		return nil, v
+		response := &AdminCreateModActionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -148,7 +178,7 @@ func (a *Client) AdminCreateModActionShort(params *AdminCreateModActionParams, a
 AdminFindExtensionCategoryListShort find extension category list
 Get a list of extension category data with the specified name
 */
-func (a *Client) AdminFindExtensionCategoryListShort(params *AdminFindExtensionCategoryListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindExtensionCategoryListOK, error) {
+func (a *Client) AdminFindExtensionCategoryListShort(params *AdminFindExtensionCategoryListParams, authInfo runtime.ClientAuthInfoWriter) (*AdminFindExtensionCategoryListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminFindExtensionCategoryListParams()
@@ -186,11 +216,26 @@ func (a *Client) AdminFindExtensionCategoryListShort(params *AdminFindExtensionC
 	switch v := result.(type) {
 
 	case *AdminFindExtensionCategoryListOK:
-		return v, nil
+		response := &AdminFindExtensionCategoryListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminFindExtensionCategoryListBadRequest:
-		return nil, v
+		response := &AdminFindExtensionCategoryListResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminFindExtensionCategoryListInternalServerError:
-		return nil, v
+		response := &AdminFindExtensionCategoryListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -201,7 +246,7 @@ func (a *Client) AdminFindExtensionCategoryListShort(params *AdminFindExtensionC
 AdminCreateExtensionCategoryShort create extension category
 Create extension category data
 */
-func (a *Client) AdminCreateExtensionCategoryShort(params *AdminCreateExtensionCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateExtensionCategoryCreated, error) {
+func (a *Client) AdminCreateExtensionCategoryShort(params *AdminCreateExtensionCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateExtensionCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateExtensionCategoryParams()
@@ -239,11 +284,26 @@ func (a *Client) AdminCreateExtensionCategoryShort(params *AdminCreateExtensionC
 	switch v := result.(type) {
 
 	case *AdminCreateExtensionCategoryCreated:
-		return v, nil
+		response := &AdminCreateExtensionCategoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateExtensionCategoryBadRequest:
-		return nil, v
+		response := &AdminCreateExtensionCategoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateExtensionCategoryInternalServerError:
-		return nil, v
+		response := &AdminCreateExtensionCategoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

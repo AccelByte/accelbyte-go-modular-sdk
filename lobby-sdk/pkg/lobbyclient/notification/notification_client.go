@@ -30,34 +30,34 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SendMultipleUsersFreeformNotificationV1AdminShort(params *SendMultipleUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendMultipleUsersFreeformNotificationV1AdminNoContent, error)
-	SendUsersFreeformNotificationV1AdminShort(params *SendUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersFreeformNotificationV1AdminAccepted, error)
-	SendPartyFreeformNotificationV1AdminShort(params *SendPartyFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendPartyFreeformNotificationV1AdminNoContent, error)
-	SendPartyTemplatedNotificationV1AdminShort(params *SendPartyTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendPartyTemplatedNotificationV1AdminNoContent, error)
-	GetAllNotificationTemplatesV1AdminShort(params *GetAllNotificationTemplatesV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTemplatesV1AdminOK, error)
-	CreateNotificationTemplateV1AdminShort(params *CreateNotificationTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTemplateV1AdminNoContent, error)
-	SendUsersTemplatedNotificationV1AdminShort(params *SendUsersTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersTemplatedNotificationV1AdminAccepted, error)
-	GetTemplateSlugLocalizationsTemplateV1AdminShort(params *GetTemplateSlugLocalizationsTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetTemplateSlugLocalizationsTemplateV1AdminOK, error)
-	DeleteNotificationTemplateSlugV1AdminShort(params *DeleteNotificationTemplateSlugV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTemplateSlugV1AdminNoContent, error)
-	GetSingleTemplateLocalizationV1AdminShort(params *GetSingleTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleTemplateLocalizationV1AdminOK, error)
-	UpdateTemplateLocalizationV1AdminShort(params *UpdateTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTemplateLocalizationV1AdminNoContent, error)
-	DeleteTemplateLocalizationV1AdminShort(params *DeleteTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationV1AdminNoContent, error)
-	PublishTemplateLocalizationV1AdminShort(params *PublishTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateLocalizationV1AdminNoContent, error)
-	GetAllNotificationTopicsV1AdminShort(params *GetAllNotificationTopicsV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTopicsV1AdminOK, error)
-	CreateNotificationTopicV1AdminShort(params *CreateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTopicV1AdminNoContent, error)
-	GetNotificationTopicV1AdminShort(params *GetNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationTopicV1AdminOK, error)
-	UpdateNotificationTopicV1AdminShort(params *UpdateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNotificationTopicV1AdminNoContent, error)
-	DeleteNotificationTopicV1AdminShort(params *DeleteNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTopicV1AdminNoContent, error)
-	SendSpecificUserFreeformNotificationV1AdminShort(params *SendSpecificUserFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserFreeformNotificationV1AdminNoContent, error)
-	SendSpecificUserTemplatedNotificationV1AdminShort(params *SendSpecificUserTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserTemplatedNotificationV1AdminNoContent, error)
-	GetMyNotificationsShort(params *GetMyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyNotificationsOK, error)
-	GetTopicByNamespaceShort(params *GetTopicByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByNamespaceOK, error)
-	CreateTopicShort(params *CreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTopicCreated, error)
-	GetTopicByTopicNameShort(params *GetTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByTopicNameOK, error)
-	UpdateTopicByTopicNameShort(params *UpdateTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTopicByTopicNameNoContent, error)
-	DeleteTopicByTopicNameShort(params *DeleteTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTopicByTopicNameNoContent, error)
-	FreeFormNotificationByUserIDShort(params *FreeFormNotificationByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*FreeFormNotificationByUserIDNoContent, error)
-	NotificationWithTemplateByUserIDShort(params *NotificationWithTemplateByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*NotificationWithTemplateByUserIDNoContent, error)
+	SendMultipleUsersFreeformNotificationV1AdminShort(params *SendMultipleUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendMultipleUsersFreeformNotificationV1AdminResponse, error)
+	SendUsersFreeformNotificationV1AdminShort(params *SendUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersFreeformNotificationV1AdminResponse, error)
+	SendPartyFreeformNotificationV1AdminShort(params *SendPartyFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendPartyFreeformNotificationV1AdminResponse, error)
+	SendPartyTemplatedNotificationV1AdminShort(params *SendPartyTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendPartyTemplatedNotificationV1AdminResponse, error)
+	GetAllNotificationTemplatesV1AdminShort(params *GetAllNotificationTemplatesV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTemplatesV1AdminResponse, error)
+	CreateNotificationTemplateV1AdminShort(params *CreateNotificationTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTemplateV1AdminResponse, error)
+	SendUsersTemplatedNotificationV1AdminShort(params *SendUsersTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersTemplatedNotificationV1AdminResponse, error)
+	GetTemplateSlugLocalizationsTemplateV1AdminShort(params *GetTemplateSlugLocalizationsTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetTemplateSlugLocalizationsTemplateV1AdminResponse, error)
+	DeleteNotificationTemplateSlugV1AdminShort(params *DeleteNotificationTemplateSlugV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTemplateSlugV1AdminResponse, error)
+	GetSingleTemplateLocalizationV1AdminShort(params *GetSingleTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleTemplateLocalizationV1AdminResponse, error)
+	UpdateTemplateLocalizationV1AdminShort(params *UpdateTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTemplateLocalizationV1AdminResponse, error)
+	DeleteTemplateLocalizationV1AdminShort(params *DeleteTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationV1AdminResponse, error)
+	PublishTemplateLocalizationV1AdminShort(params *PublishTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateLocalizationV1AdminResponse, error)
+	GetAllNotificationTopicsV1AdminShort(params *GetAllNotificationTopicsV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTopicsV1AdminResponse, error)
+	CreateNotificationTopicV1AdminShort(params *CreateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTopicV1AdminResponse, error)
+	GetNotificationTopicV1AdminShort(params *GetNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationTopicV1AdminResponse, error)
+	UpdateNotificationTopicV1AdminShort(params *UpdateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNotificationTopicV1AdminResponse, error)
+	DeleteNotificationTopicV1AdminShort(params *DeleteNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTopicV1AdminResponse, error)
+	SendSpecificUserFreeformNotificationV1AdminShort(params *SendSpecificUserFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserFreeformNotificationV1AdminResponse, error)
+	SendSpecificUserTemplatedNotificationV1AdminShort(params *SendSpecificUserTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserTemplatedNotificationV1AdminResponse, error)
+	GetMyNotificationsShort(params *GetMyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyNotificationsResponse, error)
+	GetTopicByNamespaceShort(params *GetTopicByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByNamespaceResponse, error)
+	CreateTopicShort(params *CreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTopicResponse, error)
+	GetTopicByTopicNameShort(params *GetTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByTopicNameResponse, error)
+	UpdateTopicByTopicNameShort(params *UpdateTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTopicByTopicNameResponse, error)
+	DeleteTopicByTopicNameShort(params *DeleteTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTopicByTopicNameResponse, error)
+	FreeFormNotificationByUserIDShort(params *FreeFormNotificationByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*FreeFormNotificationByUserIDResponse, error)
+	NotificationWithTemplateByUserIDShort(params *NotificationWithTemplateByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*NotificationWithTemplateByUserIDResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -67,7 +67,7 @@ SendMultipleUsersFreeformNotificationV1AdminShort send freeform notification to 
 Sends notification to multiple user.
 Action Code: 50211
 */
-func (a *Client) SendMultipleUsersFreeformNotificationV1AdminShort(params *SendMultipleUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendMultipleUsersFreeformNotificationV1AdminNoContent, error) {
+func (a *Client) SendMultipleUsersFreeformNotificationV1AdminShort(params *SendMultipleUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendMultipleUsersFreeformNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendMultipleUsersFreeformNotificationV1AdminParams()
@@ -105,13 +105,32 @@ func (a *Client) SendMultipleUsersFreeformNotificationV1AdminShort(params *SendM
 	switch v := result.(type) {
 
 	case *SendMultipleUsersFreeformNotificationV1AdminNoContent:
-		return v, nil
+		response := &SendMultipleUsersFreeformNotificationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendMultipleUsersFreeformNotificationV1AdminBadRequest:
-		return nil, v
+		response := &SendMultipleUsersFreeformNotificationV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendMultipleUsersFreeformNotificationV1AdminUnauthorized:
-		return nil, v
+		response := &SendMultipleUsersFreeformNotificationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendMultipleUsersFreeformNotificationV1AdminForbidden:
-		return nil, v
+		response := &SendMultipleUsersFreeformNotificationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -124,7 +143,7 @@ Sends notification to all connected users in a namespace.
 
 Action Code: 50201
 */
-func (a *Client) SendUsersFreeformNotificationV1AdminShort(params *SendUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersFreeformNotificationV1AdminAccepted, error) {
+func (a *Client) SendUsersFreeformNotificationV1AdminShort(params *SendUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersFreeformNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendUsersFreeformNotificationV1AdminParams()
@@ -162,15 +181,39 @@ func (a *Client) SendUsersFreeformNotificationV1AdminShort(params *SendUsersFree
 	switch v := result.(type) {
 
 	case *SendUsersFreeformNotificationV1AdminAccepted:
-		return v, nil
+		response := &SendUsersFreeformNotificationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendUsersFreeformNotificationV1AdminBadRequest:
-		return nil, v
+		response := &SendUsersFreeformNotificationV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendUsersFreeformNotificationV1AdminUnauthorized:
-		return nil, v
+		response := &SendUsersFreeformNotificationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendUsersFreeformNotificationV1AdminForbidden:
-		return nil, v
+		response := &SendUsersFreeformNotificationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendUsersFreeformNotificationV1AdminNotFound:
-		return nil, v
+		response := &SendUsersFreeformNotificationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,7 +224,7 @@ func (a *Client) SendUsersFreeformNotificationV1AdminShort(params *SendUsersFree
 SendPartyFreeformNotificationV1AdminShort send freeform notification to a party
 Sends notification to a party.
 */
-func (a *Client) SendPartyFreeformNotificationV1AdminShort(params *SendPartyFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendPartyFreeformNotificationV1AdminNoContent, error) {
+func (a *Client) SendPartyFreeformNotificationV1AdminShort(params *SendPartyFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendPartyFreeformNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendPartyFreeformNotificationV1AdminParams()
@@ -219,15 +262,39 @@ func (a *Client) SendPartyFreeformNotificationV1AdminShort(params *SendPartyFree
 	switch v := result.(type) {
 
 	case *SendPartyFreeformNotificationV1AdminNoContent:
-		return v, nil
+		response := &SendPartyFreeformNotificationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendPartyFreeformNotificationV1AdminBadRequest:
-		return nil, v
+		response := &SendPartyFreeformNotificationV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendPartyFreeformNotificationV1AdminUnauthorized:
-		return nil, v
+		response := &SendPartyFreeformNotificationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendPartyFreeformNotificationV1AdminForbidden:
-		return nil, v
+		response := &SendPartyFreeformNotificationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendPartyFreeformNotificationV1AdminNotFound:
-		return nil, v
+		response := &SendPartyFreeformNotificationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -243,7 +310,7 @@ In the request body, specify which template slug (template identifier) to use an
 NotificationTemplate context is the key-value pair defining the value of each handlebar specified in the template content.
 Template need to be published before it can be use to send notifications
 */
-func (a *Client) SendPartyTemplatedNotificationV1AdminShort(params *SendPartyTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendPartyTemplatedNotificationV1AdminNoContent, error) {
+func (a *Client) SendPartyTemplatedNotificationV1AdminShort(params *SendPartyTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendPartyTemplatedNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendPartyTemplatedNotificationV1AdminParams()
@@ -281,15 +348,39 @@ func (a *Client) SendPartyTemplatedNotificationV1AdminShort(params *SendPartyTem
 	switch v := result.(type) {
 
 	case *SendPartyTemplatedNotificationV1AdminNoContent:
-		return v, nil
+		response := &SendPartyTemplatedNotificationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendPartyTemplatedNotificationV1AdminBadRequest:
-		return nil, v
+		response := &SendPartyTemplatedNotificationV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendPartyTemplatedNotificationV1AdminUnauthorized:
-		return nil, v
+		response := &SendPartyTemplatedNotificationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendPartyTemplatedNotificationV1AdminForbidden:
-		return nil, v
+		response := &SendPartyTemplatedNotificationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendPartyTemplatedNotificationV1AdminNotFound:
-		return nil, v
+		response := &SendPartyTemplatedNotificationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -302,7 +393,7 @@ Get all templates in a namespace
 
 Action Code: 50203
 */
-func (a *Client) GetAllNotificationTemplatesV1AdminShort(params *GetAllNotificationTemplatesV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTemplatesV1AdminOK, error) {
+func (a *Client) GetAllNotificationTemplatesV1AdminShort(params *GetAllNotificationTemplatesV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTemplatesV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllNotificationTemplatesV1AdminParams()
@@ -340,17 +431,47 @@ func (a *Client) GetAllNotificationTemplatesV1AdminShort(params *GetAllNotificat
 	switch v := result.(type) {
 
 	case *GetAllNotificationTemplatesV1AdminOK:
-		return v, nil
+		response := &GetAllNotificationTemplatesV1AdminResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllNotificationTemplatesV1AdminBadRequest:
-		return nil, v
+		response := &GetAllNotificationTemplatesV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllNotificationTemplatesV1AdminUnauthorized:
-		return nil, v
+		response := &GetAllNotificationTemplatesV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllNotificationTemplatesV1AdminForbidden:
-		return nil, v
+		response := &GetAllNotificationTemplatesV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllNotificationTemplatesV1AdminNotFound:
-		return nil, v
+		response := &GetAllNotificationTemplatesV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllNotificationTemplatesV1AdminInternalServerError:
-		return nil, v
+		response := &GetAllNotificationTemplatesV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -367,7 +488,7 @@ Check model description for detailed input restrictions.
 
 Action Code: 50204
 */
-func (a *Client) CreateNotificationTemplateV1AdminShort(params *CreateNotificationTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTemplateV1AdminNoContent, error) {
+func (a *Client) CreateNotificationTemplateV1AdminShort(params *CreateNotificationTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTemplateV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateNotificationTemplateV1AdminParams()
@@ -405,17 +526,46 @@ func (a *Client) CreateNotificationTemplateV1AdminShort(params *CreateNotificati
 	switch v := result.(type) {
 
 	case *CreateNotificationTemplateV1AdminNoContent:
-		return v, nil
+		response := &CreateNotificationTemplateV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateNotificationTemplateV1AdminBadRequest:
-		return nil, v
+		response := &CreateNotificationTemplateV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNotificationTemplateV1AdminUnauthorized:
-		return nil, v
+		response := &CreateNotificationTemplateV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNotificationTemplateV1AdminForbidden:
-		return nil, v
+		response := &CreateNotificationTemplateV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNotificationTemplateV1AdminNotFound:
-		return nil, v
+		response := &CreateNotificationTemplateV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNotificationTemplateV1AdminConflict:
-		return nil, v
+		response := &CreateNotificationTemplateV1AdminResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -433,7 +583,7 @@ Template need to be published before it can be use to send notifications
 
 Action Code: 50202
 */
-func (a *Client) SendUsersTemplatedNotificationV1AdminShort(params *SendUsersTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersTemplatedNotificationV1AdminAccepted, error) {
+func (a *Client) SendUsersTemplatedNotificationV1AdminShort(params *SendUsersTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersTemplatedNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendUsersTemplatedNotificationV1AdminParams()
@@ -471,15 +621,39 @@ func (a *Client) SendUsersTemplatedNotificationV1AdminShort(params *SendUsersTem
 	switch v := result.(type) {
 
 	case *SendUsersTemplatedNotificationV1AdminAccepted:
-		return v, nil
+		response := &SendUsersTemplatedNotificationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendUsersTemplatedNotificationV1AdminBadRequest:
-		return nil, v
+		response := &SendUsersTemplatedNotificationV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendUsersTemplatedNotificationV1AdminUnauthorized:
-		return nil, v
+		response := &SendUsersTemplatedNotificationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendUsersTemplatedNotificationV1AdminForbidden:
-		return nil, v
+		response := &SendUsersTemplatedNotificationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendUsersTemplatedNotificationV1AdminNotFound:
-		return nil, v
+		response := &SendUsersTemplatedNotificationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -492,7 +666,7 @@ Get all templates in a namespace
 
 Action Code: 50205
 */
-func (a *Client) GetTemplateSlugLocalizationsTemplateV1AdminShort(params *GetTemplateSlugLocalizationsTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetTemplateSlugLocalizationsTemplateV1AdminOK, error) {
+func (a *Client) GetTemplateSlugLocalizationsTemplateV1AdminShort(params *GetTemplateSlugLocalizationsTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetTemplateSlugLocalizationsTemplateV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTemplateSlugLocalizationsTemplateV1AdminParams()
@@ -530,15 +704,40 @@ func (a *Client) GetTemplateSlugLocalizationsTemplateV1AdminShort(params *GetTem
 	switch v := result.(type) {
 
 	case *GetTemplateSlugLocalizationsTemplateV1AdminOK:
-		return v, nil
+		response := &GetTemplateSlugLocalizationsTemplateV1AdminResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTemplateSlugLocalizationsTemplateV1AdminBadRequest:
-		return nil, v
+		response := &GetTemplateSlugLocalizationsTemplateV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTemplateSlugLocalizationsTemplateV1AdminUnauthorized:
-		return nil, v
+		response := &GetTemplateSlugLocalizationsTemplateV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTemplateSlugLocalizationsTemplateV1AdminForbidden:
-		return nil, v
+		response := &GetTemplateSlugLocalizationsTemplateV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTemplateSlugLocalizationsTemplateV1AdminNotFound:
-		return nil, v
+		response := &GetTemplateSlugLocalizationsTemplateV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -551,7 +750,7 @@ Delete template slug in notification template
 
 Action Code: 50206
 */
-func (a *Client) DeleteNotificationTemplateSlugV1AdminShort(params *DeleteNotificationTemplateSlugV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTemplateSlugV1AdminNoContent, error) {
+func (a *Client) DeleteNotificationTemplateSlugV1AdminShort(params *DeleteNotificationTemplateSlugV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTemplateSlugV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteNotificationTemplateSlugV1AdminParams()
@@ -589,15 +788,39 @@ func (a *Client) DeleteNotificationTemplateSlugV1AdminShort(params *DeleteNotifi
 	switch v := result.(type) {
 
 	case *DeleteNotificationTemplateSlugV1AdminNoContent:
-		return v, nil
+		response := &DeleteNotificationTemplateSlugV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteNotificationTemplateSlugV1AdminBadRequest:
-		return nil, v
+		response := &DeleteNotificationTemplateSlugV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNotificationTemplateSlugV1AdminUnauthorized:
-		return nil, v
+		response := &DeleteNotificationTemplateSlugV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNotificationTemplateSlugV1AdminForbidden:
-		return nil, v
+		response := &DeleteNotificationTemplateSlugV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNotificationTemplateSlugV1AdminNotFound:
-		return nil, v
+		response := &DeleteNotificationTemplateSlugV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -610,7 +833,7 @@ Get a template localization
 
 Action Code: 50207
 */
-func (a *Client) GetSingleTemplateLocalizationV1AdminShort(params *GetSingleTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleTemplateLocalizationV1AdminOK, error) {
+func (a *Client) GetSingleTemplateLocalizationV1AdminShort(params *GetSingleTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleTemplateLocalizationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSingleTemplateLocalizationV1AdminParams()
@@ -648,15 +871,40 @@ func (a *Client) GetSingleTemplateLocalizationV1AdminShort(params *GetSingleTemp
 	switch v := result.(type) {
 
 	case *GetSingleTemplateLocalizationV1AdminOK:
-		return v, nil
+		response := &GetSingleTemplateLocalizationV1AdminResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSingleTemplateLocalizationV1AdminUnauthorized:
-		return nil, v
+		response := &GetSingleTemplateLocalizationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleTemplateLocalizationV1AdminForbidden:
-		return nil, v
+		response := &GetSingleTemplateLocalizationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleTemplateLocalizationV1AdminNotFound:
-		return nil, v
+		response := &GetSingleTemplateLocalizationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleTemplateLocalizationV1AdminInternalServerError:
-		return nil, v
+		response := &GetSingleTemplateLocalizationV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -669,7 +917,7 @@ Update template localization
 
 Action Code: 50208
 */
-func (a *Client) UpdateTemplateLocalizationV1AdminShort(params *UpdateTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTemplateLocalizationV1AdminNoContent, error) {
+func (a *Client) UpdateTemplateLocalizationV1AdminShort(params *UpdateTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTemplateLocalizationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateTemplateLocalizationV1AdminParams()
@@ -707,17 +955,46 @@ func (a *Client) UpdateTemplateLocalizationV1AdminShort(params *UpdateTemplateLo
 	switch v := result.(type) {
 
 	case *UpdateTemplateLocalizationV1AdminNoContent:
-		return v, nil
+		response := &UpdateTemplateLocalizationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateTemplateLocalizationV1AdminBadRequest:
-		return nil, v
+		response := &UpdateTemplateLocalizationV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTemplateLocalizationV1AdminUnauthorized:
-		return nil, v
+		response := &UpdateTemplateLocalizationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTemplateLocalizationV1AdminForbidden:
-		return nil, v
+		response := &UpdateTemplateLocalizationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTemplateLocalizationV1AdminNotFound:
-		return nil, v
+		response := &UpdateTemplateLocalizationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTemplateLocalizationV1AdminInternalServerError:
-		return nil, v
+		response := &UpdateTemplateLocalizationV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -730,7 +1007,7 @@ Delete template localization
 
 Action Code: 50209
 */
-func (a *Client) DeleteTemplateLocalizationV1AdminShort(params *DeleteTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationV1AdminNoContent, error) {
+func (a *Client) DeleteTemplateLocalizationV1AdminShort(params *DeleteTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTemplateLocalizationV1AdminParams()
@@ -768,15 +1045,39 @@ func (a *Client) DeleteTemplateLocalizationV1AdminShort(params *DeleteTemplateLo
 	switch v := result.(type) {
 
 	case *DeleteTemplateLocalizationV1AdminNoContent:
-		return v, nil
+		response := &DeleteTemplateLocalizationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteTemplateLocalizationV1AdminUnauthorized:
-		return nil, v
+		response := &DeleteTemplateLocalizationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateLocalizationV1AdminForbidden:
-		return nil, v
+		response := &DeleteTemplateLocalizationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateLocalizationV1AdminNotFound:
-		return nil, v
+		response := &DeleteTemplateLocalizationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateLocalizationV1AdminInternalServerError:
-		return nil, v
+		response := &DeleteTemplateLocalizationV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -789,7 +1090,7 @@ Publish notification template draft. Empty draft can not be published.
 
 Action Code: 50210
 */
-func (a *Client) PublishTemplateLocalizationV1AdminShort(params *PublishTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateLocalizationV1AdminNoContent, error) {
+func (a *Client) PublishTemplateLocalizationV1AdminShort(params *PublishTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateLocalizationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublishTemplateLocalizationV1AdminParams()
@@ -827,15 +1128,39 @@ func (a *Client) PublishTemplateLocalizationV1AdminShort(params *PublishTemplate
 	switch v := result.(type) {
 
 	case *PublishTemplateLocalizationV1AdminNoContent:
-		return v, nil
+		response := &PublishTemplateLocalizationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublishTemplateLocalizationV1AdminUnauthorized:
-		return nil, v
+		response := &PublishTemplateLocalizationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishTemplateLocalizationV1AdminForbidden:
-		return nil, v
+		response := &PublishTemplateLocalizationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishTemplateLocalizationV1AdminNotFound:
-		return nil, v
+		response := &PublishTemplateLocalizationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishTemplateLocalizationV1AdminInternalServerError:
-		return nil, v
+		response := &PublishTemplateLocalizationV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -848,7 +1173,7 @@ Get topic by namespace.
 
 Action Code: 50213
 */
-func (a *Client) GetAllNotificationTopicsV1AdminShort(params *GetAllNotificationTopicsV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTopicsV1AdminOK, error) {
+func (a *Client) GetAllNotificationTopicsV1AdminShort(params *GetAllNotificationTopicsV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTopicsV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllNotificationTopicsV1AdminParams()
@@ -886,15 +1211,40 @@ func (a *Client) GetAllNotificationTopicsV1AdminShort(params *GetAllNotification
 	switch v := result.(type) {
 
 	case *GetAllNotificationTopicsV1AdminOK:
-		return v, nil
+		response := &GetAllNotificationTopicsV1AdminResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllNotificationTopicsV1AdminUnauthorized:
-		return nil, v
+		response := &GetAllNotificationTopicsV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllNotificationTopicsV1AdminForbidden:
-		return nil, v
+		response := &GetAllNotificationTopicsV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllNotificationTopicsV1AdminNotFound:
-		return nil, v
+		response := &GetAllNotificationTopicsV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllNotificationTopicsV1AdminInternalServerError:
-		return nil, v
+		response := &GetAllNotificationTopicsV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -910,7 +1260,7 @@ Already existing topic can not be created
 
 Action Code: 50214
 */
-func (a *Client) CreateNotificationTopicV1AdminShort(params *CreateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTopicV1AdminNoContent, error) {
+func (a *Client) CreateNotificationTopicV1AdminShort(params *CreateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTopicV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateNotificationTopicV1AdminParams()
@@ -948,13 +1298,32 @@ func (a *Client) CreateNotificationTopicV1AdminShort(params *CreateNotificationT
 	switch v := result.(type) {
 
 	case *CreateNotificationTopicV1AdminNoContent:
-		return v, nil
+		response := &CreateNotificationTopicV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateNotificationTopicV1AdminBadRequest:
-		return nil, v
+		response := &CreateNotificationTopicV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNotificationTopicV1AdminUnauthorized:
-		return nil, v
+		response := &CreateNotificationTopicV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNotificationTopicV1AdminForbidden:
-		return nil, v
+		response := &CreateNotificationTopicV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -967,7 +1336,7 @@ Get topic information by topic name.
 
 Action Code: 50215
 */
-func (a *Client) GetNotificationTopicV1AdminShort(params *GetNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationTopicV1AdminOK, error) {
+func (a *Client) GetNotificationTopicV1AdminShort(params *GetNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationTopicV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetNotificationTopicV1AdminParams()
@@ -1005,15 +1374,40 @@ func (a *Client) GetNotificationTopicV1AdminShort(params *GetNotificationTopicV1
 	switch v := result.(type) {
 
 	case *GetNotificationTopicV1AdminOK:
-		return v, nil
+		response := &GetNotificationTopicV1AdminResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetNotificationTopicV1AdminUnauthorized:
-		return nil, v
+		response := &GetNotificationTopicV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNotificationTopicV1AdminForbidden:
-		return nil, v
+		response := &GetNotificationTopicV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNotificationTopicV1AdminNotFound:
-		return nil, v
+		response := &GetNotificationTopicV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNotificationTopicV1AdminInternalServerError:
-		return nil, v
+		response := &GetNotificationTopicV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1029,7 +1423,7 @@ Already existing topic can not be created
 
 Action Code: 50216
 */
-func (a *Client) UpdateNotificationTopicV1AdminShort(params *UpdateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNotificationTopicV1AdminNoContent, error) {
+func (a *Client) UpdateNotificationTopicV1AdminShort(params *UpdateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNotificationTopicV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateNotificationTopicV1AdminParams()
@@ -1067,17 +1461,46 @@ func (a *Client) UpdateNotificationTopicV1AdminShort(params *UpdateNotificationT
 	switch v := result.(type) {
 
 	case *UpdateNotificationTopicV1AdminNoContent:
-		return v, nil
+		response := &UpdateNotificationTopicV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateNotificationTopicV1AdminBadRequest:
-		return nil, v
+		response := &UpdateNotificationTopicV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateNotificationTopicV1AdminUnauthorized:
-		return nil, v
+		response := &UpdateNotificationTopicV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateNotificationTopicV1AdminForbidden:
-		return nil, v
+		response := &UpdateNotificationTopicV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateNotificationTopicV1AdminNotFound:
-		return nil, v
+		response := &UpdateNotificationTopicV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateNotificationTopicV1AdminInternalServerError:
-		return nil, v
+		response := &UpdateNotificationTopicV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1093,7 +1516,7 @@ Already existing topic can not be created
 
 Action Code: 50217
 */
-func (a *Client) DeleteNotificationTopicV1AdminShort(params *DeleteNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTopicV1AdminNoContent, error) {
+func (a *Client) DeleteNotificationTopicV1AdminShort(params *DeleteNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTopicV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteNotificationTopicV1AdminParams()
@@ -1131,15 +1554,39 @@ func (a *Client) DeleteNotificationTopicV1AdminShort(params *DeleteNotificationT
 	switch v := result.(type) {
 
 	case *DeleteNotificationTopicV1AdminNoContent:
-		return v, nil
+		response := &DeleteNotificationTopicV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteNotificationTopicV1AdminUnauthorized:
-		return nil, v
+		response := &DeleteNotificationTopicV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNotificationTopicV1AdminForbidden:
-		return nil, v
+		response := &DeleteNotificationTopicV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNotificationTopicV1AdminNotFound:
-		return nil, v
+		response := &DeleteNotificationTopicV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNotificationTopicV1AdminInternalServerError:
-		return nil, v
+		response := &DeleteNotificationTopicV1AdminResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1151,7 +1598,7 @@ SendSpecificUserFreeformNotificationV1AdminShort send freeform notification to a
 Sends notification to a user.
 Action Code: 50211
 */
-func (a *Client) SendSpecificUserFreeformNotificationV1AdminShort(params *SendSpecificUserFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserFreeformNotificationV1AdminNoContent, error) {
+func (a *Client) SendSpecificUserFreeformNotificationV1AdminShort(params *SendSpecificUserFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserFreeformNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendSpecificUserFreeformNotificationV1AdminParams()
@@ -1189,15 +1636,39 @@ func (a *Client) SendSpecificUserFreeformNotificationV1AdminShort(params *SendSp
 	switch v := result.(type) {
 
 	case *SendSpecificUserFreeformNotificationV1AdminNoContent:
-		return v, nil
+		response := &SendSpecificUserFreeformNotificationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendSpecificUserFreeformNotificationV1AdminBadRequest:
-		return nil, v
+		response := &SendSpecificUserFreeformNotificationV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendSpecificUserFreeformNotificationV1AdminUnauthorized:
-		return nil, v
+		response := &SendSpecificUserFreeformNotificationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendSpecificUserFreeformNotificationV1AdminForbidden:
-		return nil, v
+		response := &SendSpecificUserFreeformNotificationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendSpecificUserFreeformNotificationV1AdminNotFound:
-		return nil, v
+		response := &SendSpecificUserFreeformNotificationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1215,7 +1686,7 @@ Template need to be published before it can be use to send notifications
 
 Action Code: 50212
 */
-func (a *Client) SendSpecificUserTemplatedNotificationV1AdminShort(params *SendSpecificUserTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserTemplatedNotificationV1AdminNoContent, error) {
+func (a *Client) SendSpecificUserTemplatedNotificationV1AdminShort(params *SendSpecificUserTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserTemplatedNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSendSpecificUserTemplatedNotificationV1AdminParams()
@@ -1253,15 +1724,39 @@ func (a *Client) SendSpecificUserTemplatedNotificationV1AdminShort(params *SendS
 	switch v := result.(type) {
 
 	case *SendSpecificUserTemplatedNotificationV1AdminNoContent:
-		return v, nil
+		response := &SendSpecificUserTemplatedNotificationV1AdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SendSpecificUserTemplatedNotificationV1AdminBadRequest:
-		return nil, v
+		response := &SendSpecificUserTemplatedNotificationV1AdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendSpecificUserTemplatedNotificationV1AdminUnauthorized:
-		return nil, v
+		response := &SendSpecificUserTemplatedNotificationV1AdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendSpecificUserTemplatedNotificationV1AdminForbidden:
-		return nil, v
+		response := &SendSpecificUserTemplatedNotificationV1AdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SendSpecificUserTemplatedNotificationV1AdminNotFound:
-		return nil, v
+		response := &SendSpecificUserTemplatedNotificationV1AdminResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1274,7 +1769,7 @@ Get list of notifications in a namespace.
 The query parameters **startTime** and **endTime** can be filled with the **sequenceID** value in the notification, where the value is an epoch timestamp.
 Example **sequenceID** or epoch timestamp value: **1706595813**
 */
-func (a *Client) GetMyNotificationsShort(params *GetMyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyNotificationsOK, error) {
+func (a *Client) GetMyNotificationsShort(params *GetMyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyNotificationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMyNotificationsParams()
@@ -1312,17 +1807,47 @@ func (a *Client) GetMyNotificationsShort(params *GetMyNotificationsParams, authI
 	switch v := result.(type) {
 
 	case *GetMyNotificationsOK:
-		return v, nil
+		response := &GetMyNotificationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMyNotificationsBadRequest:
-		return nil, v
+		response := &GetMyNotificationsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyNotificationsUnauthorized:
-		return nil, v
+		response := &GetMyNotificationsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyNotificationsForbidden:
-		return nil, v
+		response := &GetMyNotificationsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyNotificationsNotFound:
-		return nil, v
+		response := &GetMyNotificationsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyNotificationsInternalServerError:
-		return nil, v
+		response := &GetMyNotificationsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1333,7 +1858,7 @@ func (a *Client) GetMyNotificationsShort(params *GetMyNotificationsParams, authI
 GetTopicByNamespaceShort get topic by namespace
 get topic by namespace.
 */
-func (a *Client) GetTopicByNamespaceShort(params *GetTopicByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByNamespaceOK, error) {
+func (a *Client) GetTopicByNamespaceShort(params *GetTopicByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTopicByNamespaceParams()
@@ -1371,15 +1896,40 @@ func (a *Client) GetTopicByNamespaceShort(params *GetTopicByNamespaceParams, aut
 	switch v := result.(type) {
 
 	case *GetTopicByNamespaceOK:
-		return v, nil
+		response := &GetTopicByNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTopicByNamespaceUnauthorized:
-		return nil, v
+		response := &GetTopicByNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTopicByNamespaceForbidden:
-		return nil, v
+		response := &GetTopicByNamespaceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTopicByNamespaceNotFound:
-		return nil, v
+		response := &GetTopicByNamespaceResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTopicByNamespaceInternalServerError:
-		return nil, v
+		response := &GetTopicByNamespaceResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1393,7 +1943,7 @@ Create new notification topic.
 topic should be alphabets, no special char except underscore, uppercase and no spacing. for example: TOPIC_TEST.
 Already existing topic can not be created
 */
-func (a *Client) CreateTopicShort(params *CreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTopicCreated, error) {
+func (a *Client) CreateTopicShort(params *CreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTopicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateTopicParams()
@@ -1431,15 +1981,39 @@ func (a *Client) CreateTopicShort(params *CreateTopicParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CreateTopicCreated:
-		return v, nil
+		response := &CreateTopicResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateTopicBadRequest:
-		return nil, v
+		response := &CreateTopicResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTopicUnauthorized:
-		return nil, v
+		response := &CreateTopicResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTopicForbidden:
-		return nil, v
+		response := &CreateTopicResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTopicConflict:
-		return nil, v
+		response := &CreateTopicResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1450,7 +2024,7 @@ func (a *Client) CreateTopicShort(params *CreateTopicParams, authInfo runtime.Cl
 GetTopicByTopicNameShort get topic information by topic name
 get topic information by topic name.
 */
-func (a *Client) GetTopicByTopicNameShort(params *GetTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByTopicNameOK, error) {
+func (a *Client) GetTopicByTopicNameShort(params *GetTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByTopicNameResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTopicByTopicNameParams()
@@ -1488,15 +2062,40 @@ func (a *Client) GetTopicByTopicNameShort(params *GetTopicByTopicNameParams, aut
 	switch v := result.(type) {
 
 	case *GetTopicByTopicNameOK:
-		return v, nil
+		response := &GetTopicByTopicNameResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTopicByTopicNameUnauthorized:
-		return nil, v
+		response := &GetTopicByTopicNameResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTopicByTopicNameForbidden:
-		return nil, v
+		response := &GetTopicByTopicNameResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTopicByTopicNameNotFound:
-		return nil, v
+		response := &GetTopicByTopicNameResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTopicByTopicNameInternalServerError:
-		return nil, v
+		response := &GetTopicByTopicNameResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1510,7 +2109,7 @@ update topic information by topic name.
 topic should be alphabets, no special char except underscore, uppercase and no spacing. for example: TOPIC_TEST.
 Already existing topic can not be created
 */
-func (a *Client) UpdateTopicByTopicNameShort(params *UpdateTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTopicByTopicNameNoContent, error) {
+func (a *Client) UpdateTopicByTopicNameShort(params *UpdateTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTopicByTopicNameResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateTopicByTopicNameParams()
@@ -1548,15 +2147,39 @@ func (a *Client) UpdateTopicByTopicNameShort(params *UpdateTopicByTopicNameParam
 	switch v := result.(type) {
 
 	case *UpdateTopicByTopicNameNoContent:
-		return v, nil
+		response := &UpdateTopicByTopicNameResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateTopicByTopicNameUnauthorized:
-		return nil, v
+		response := &UpdateTopicByTopicNameResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTopicByTopicNameForbidden:
-		return nil, v
+		response := &UpdateTopicByTopicNameResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTopicByTopicNameNotFound:
-		return nil, v
+		response := &UpdateTopicByTopicNameResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTopicByTopicNameInternalServerError:
-		return nil, v
+		response := &UpdateTopicByTopicNameResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1570,7 +2193,7 @@ delete topic information by topic name.
 topic should be alphabets, no special char except underscore, uppercase and no spacing. for example: TOPIC_TEST.
 Already existing topic can not be created
 */
-func (a *Client) DeleteTopicByTopicNameShort(params *DeleteTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTopicByTopicNameNoContent, error) {
+func (a *Client) DeleteTopicByTopicNameShort(params *DeleteTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTopicByTopicNameResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTopicByTopicNameParams()
@@ -1608,15 +2231,39 @@ func (a *Client) DeleteTopicByTopicNameShort(params *DeleteTopicByTopicNameParam
 	switch v := result.(type) {
 
 	case *DeleteTopicByTopicNameNoContent:
-		return v, nil
+		response := &DeleteTopicByTopicNameResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteTopicByTopicNameUnauthorized:
-		return nil, v
+		response := &DeleteTopicByTopicNameResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTopicByTopicNameForbidden:
-		return nil, v
+		response := &DeleteTopicByTopicNameResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTopicByTopicNameNotFound:
-		return nil, v
+		response := &DeleteTopicByTopicNameResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTopicByTopicNameInternalServerError:
-		return nil, v
+		response := &DeleteTopicByTopicNameResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1627,7 +2274,7 @@ func (a *Client) DeleteTopicByTopicNameShort(params *DeleteTopicByTopicNameParam
 FreeFormNotificationByUserIDShort send freeform notification to a user
 Sends notification to a user.
 */
-func (a *Client) FreeFormNotificationByUserIDShort(params *FreeFormNotificationByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*FreeFormNotificationByUserIDNoContent, error) {
+func (a *Client) FreeFormNotificationByUserIDShort(params *FreeFormNotificationByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*FreeFormNotificationByUserIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFreeFormNotificationByUserIDParams()
@@ -1665,15 +2312,39 @@ func (a *Client) FreeFormNotificationByUserIDShort(params *FreeFormNotificationB
 	switch v := result.(type) {
 
 	case *FreeFormNotificationByUserIDNoContent:
-		return v, nil
+		response := &FreeFormNotificationByUserIDResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FreeFormNotificationByUserIDBadRequest:
-		return nil, v
+		response := &FreeFormNotificationByUserIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FreeFormNotificationByUserIDUnauthorized:
-		return nil, v
+		response := &FreeFormNotificationByUserIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FreeFormNotificationByUserIDForbidden:
-		return nil, v
+		response := &FreeFormNotificationByUserIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FreeFormNotificationByUserIDNotFound:
-		return nil, v
+		response := &FreeFormNotificationByUserIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1689,7 +2360,7 @@ In the request body, specify which template slug (template identifier) to use an
 NotificationTemplate context is the key-value pair defining the value of each handlebar specified in the template content.
 Template need to be published before it can be use to send notifications
 */
-func (a *Client) NotificationWithTemplateByUserIDShort(params *NotificationWithTemplateByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*NotificationWithTemplateByUserIDNoContent, error) {
+func (a *Client) NotificationWithTemplateByUserIDShort(params *NotificationWithTemplateByUserIDParams, authInfo runtime.ClientAuthInfoWriter) (*NotificationWithTemplateByUserIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewNotificationWithTemplateByUserIDParams()
@@ -1727,15 +2398,39 @@ func (a *Client) NotificationWithTemplateByUserIDShort(params *NotificationWithT
 	switch v := result.(type) {
 
 	case *NotificationWithTemplateByUserIDNoContent:
-		return v, nil
+		response := &NotificationWithTemplateByUserIDResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *NotificationWithTemplateByUserIDBadRequest:
-		return nil, v
+		response := &NotificationWithTemplateByUserIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *NotificationWithTemplateByUserIDUnauthorized:
-		return nil, v
+		response := &NotificationWithTemplateByUserIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *NotificationWithTemplateByUserIDForbidden:
-		return nil, v
+		response := &NotificationWithTemplateByUserIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *NotificationWithTemplateByUserIDNotFound:
-		return nil, v
+		response := &NotificationWithTemplateByUserIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

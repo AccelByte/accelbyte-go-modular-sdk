@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type PublicUpdateUserNamespaceSlotResponse struct {
+	socialclientmodels.ApiResponse
+	Data *socialclientmodels.SlotInfo
+
+	Error400 *socialclientmodels.ErrorEntity
+	Error404 *socialclientmodels.ErrorEntity
+}
+
+func (m *PublicUpdateUserNamespaceSlotResponse) Unpack() (*socialclientmodels.SlotInfo, *socialclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicUpdateUserNamespaceSlotReader is a Reader for the PublicUpdateUserNamespaceSlot structure.
 type PublicUpdateUserNamespaceSlotReader struct {
 	formats strfmt.Registry

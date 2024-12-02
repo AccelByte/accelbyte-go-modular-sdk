@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclientmodels"
 )
 
 // ConfigService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfigParams) (*sessionhistoryclientmodels.LogconfigConfiguration, error) {
+func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfigParams) (*config.AdminGetLogConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfig
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatchUpdateLogConfigParams) (*sessionhistoryclientmodels.LogconfigConfiguration, error) {
+func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatchUpdateLogConfigParams) (*config.AdminPatchUpdateLogConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

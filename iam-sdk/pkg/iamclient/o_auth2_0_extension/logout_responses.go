@@ -13,7 +13,28 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
+
+type LogoutResponse struct {
+	iamclientmodels.ApiResponse
+}
+
+func (m *LogoutResponse) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // LogoutReader is a Reader for the Logout structure.
 type LogoutReader struct {

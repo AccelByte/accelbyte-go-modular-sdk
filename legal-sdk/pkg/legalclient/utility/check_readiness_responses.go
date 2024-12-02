@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type CheckReadinessResponse struct {
+	legalclientmodels.ApiResponse
+	Data *legalclientmodels.LegalReadinessStatusResponse
+}
+
+func (m *CheckReadinessResponse) Unpack() (*legalclientmodels.LegalReadinessStatusResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // CheckReadinessReader is a Reader for the CheckReadiness structure.
 type CheckReadinessReader struct {
 	formats strfmt.Registry

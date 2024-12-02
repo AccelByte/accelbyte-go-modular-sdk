@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type DeleteItemResponse struct {
+	platformclientmodels.ApiResponse
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *DeleteItemResponse) Unpack() *platformclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteItemReader is a Reader for the DeleteItem structure.
 type DeleteItemReader struct {
 	formats strfmt.Registry

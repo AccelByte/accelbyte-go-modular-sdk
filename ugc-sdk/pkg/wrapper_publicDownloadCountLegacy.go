@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_download_count_legacy"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type PublicDownloadCountLegacyService struct {
@@ -37,7 +36,7 @@ func (aaa *PublicDownloadCountLegacyService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicDownloadCountLegacyService) AddDownloadCountShort(input *public_download_count_legacy.AddDownloadCountParams) (*ugcclientmodels.ModelsAddDownloadCountResponse, error) {
+func (aaa *PublicDownloadCountLegacyService) AddDownloadCountShort(input *public_download_count_legacy.AddDownloadCountParams) (*public_download_count_legacy.AddDownloadCountResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *PublicDownloadCountLegacyService) AddDownloadCountShort(input *public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

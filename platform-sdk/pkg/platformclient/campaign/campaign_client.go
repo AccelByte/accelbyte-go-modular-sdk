@@ -31,23 +31,23 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryCampaignsShort(params *QueryCampaignsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignsOK, error)
-	CreateCampaignShort(params *CreateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCampaignCreated, error)
-	GetCampaignShort(params *GetCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignOK, error)
-	UpdateCampaignShort(params *UpdateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCampaignOK, error)
-	RenameBatchShort(params *RenameBatchParams, authInfo runtime.ClientAuthInfoWriter) (*RenameBatchNoContent, error)
-	QueryCampaignBatchNamesShort(params *QueryCampaignBatchNamesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignBatchNamesOK, error)
-	GetCampaignDynamicShort(params *GetCampaignDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignDynamicOK, error)
-	QueryCodesShort(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesOK, error)
-	CreateCodesShort(params *CreateCodesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCodesCreated, error)
-	DownloadShort(params *DownloadParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadOK, error)
-	BulkDisableCodesShort(params *BulkDisableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDisableCodesOK, error)
-	BulkEnableCodesShort(params *BulkEnableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkEnableCodesOK, error)
-	QueryRedeemHistoryShort(params *QueryRedeemHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRedeemHistoryOK, error)
-	GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetCodeOK, error)
-	DisableCodeShort(params *DisableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DisableCodeOK, error)
-	EnableCodeShort(params *EnableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*EnableCodeOK, error)
-	ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, authInfo runtime.ClientAuthInfoWriter) (*ApplyUserRedemptionOK, error)
+	QueryCampaignsShort(params *QueryCampaignsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignsResponse, error)
+	CreateCampaignShort(params *CreateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCampaignResponse, error)
+	GetCampaignShort(params *GetCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignResponse, error)
+	UpdateCampaignShort(params *UpdateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCampaignResponse, error)
+	RenameBatchShort(params *RenameBatchParams, authInfo runtime.ClientAuthInfoWriter) (*RenameBatchResponse, error)
+	QueryCampaignBatchNamesShort(params *QueryCampaignBatchNamesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignBatchNamesResponse, error)
+	GetCampaignDynamicShort(params *GetCampaignDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignDynamicResponse, error)
+	QueryCodesShort(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesResponse, error)
+	CreateCodesShort(params *CreateCodesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCodesResponse, error)
+	DownloadShort(params *DownloadParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadResponse, error)
+	BulkDisableCodesShort(params *BulkDisableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDisableCodesResponse, error)
+	BulkEnableCodesShort(params *BulkEnableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkEnableCodesResponse, error)
+	QueryRedeemHistoryShort(params *QueryRedeemHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRedeemHistoryResponse, error)
+	GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetCodeResponse, error)
+	DisableCodeShort(params *DisableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DisableCodeResponse, error)
+	EnableCodeShort(params *EnableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*EnableCodeResponse, error)
+	ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, authInfo runtime.ClientAuthInfoWriter) (*ApplyUserRedemptionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -59,7 +59,7 @@ Other detail info:
 
   * Returns : slice of campaigns
 */
-func (a *Client) QueryCampaignsShort(params *QueryCampaignsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignsOK, error) {
+func (a *Client) QueryCampaignsShort(params *QueryCampaignsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCampaignsParams()
@@ -97,7 +97,12 @@ func (a *Client) QueryCampaignsShort(params *QueryCampaignsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *QueryCampaignsOK:
-		return v, nil
+		response := &QueryCampaignsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -111,7 +116,7 @@ Other detail info:
 
   * Returns : created campaign
 */
-func (a *Client) CreateCampaignShort(params *CreateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCampaignCreated, error) {
+func (a *Client) CreateCampaignShort(params *CreateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCampaignResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCampaignParams()
@@ -149,13 +154,33 @@ func (a *Client) CreateCampaignShort(params *CreateCampaignParams, authInfo runt
 	switch v := result.(type) {
 
 	case *CreateCampaignCreated:
-		return v, nil
+		response := &CreateCampaignResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateCampaignBadRequest:
-		return nil, v
+		response := &CreateCampaignResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateCampaignConflict:
-		return nil, v
+		response := &CreateCampaignResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateCampaignUnprocessableEntity:
-		return nil, v
+		response := &CreateCampaignResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -169,7 +194,7 @@ Other detail info:
 
   * Returns : campaign info
 */
-func (a *Client) GetCampaignShort(params *GetCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignOK, error) {
+func (a *Client) GetCampaignShort(params *GetCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCampaignParams()
@@ -207,9 +232,19 @@ func (a *Client) GetCampaignShort(params *GetCampaignParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *GetCampaignOK:
-		return v, nil
+		response := &GetCampaignResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCampaignNotFound:
-		return nil, v
+		response := &GetCampaignResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -223,7 +258,7 @@ Other detail info:
 
   * Returns : updated campaign
 */
-func (a *Client) UpdateCampaignShort(params *UpdateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCampaignOK, error) {
+func (a *Client) UpdateCampaignShort(params *UpdateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCampaignResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCampaignParams()
@@ -261,13 +296,33 @@ func (a *Client) UpdateCampaignShort(params *UpdateCampaignParams, authInfo runt
 	switch v := result.(type) {
 
 	case *UpdateCampaignOK:
-		return v, nil
+		response := &UpdateCampaignResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateCampaignNotFound:
-		return nil, v
+		response := &UpdateCampaignResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCampaignConflict:
-		return nil, v
+		response := &UpdateCampaignResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCampaignUnprocessableEntity:
-		return nil, v
+		response := &UpdateCampaignResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -279,7 +334,7 @@ RenameBatchShort rename batch
 Change campaign batch name.
 Other detail info:
 */
-func (a *Client) RenameBatchShort(params *RenameBatchParams, authInfo runtime.ClientAuthInfoWriter) (*RenameBatchNoContent, error) {
+func (a *Client) RenameBatchShort(params *RenameBatchParams, authInfo runtime.ClientAuthInfoWriter) (*RenameBatchResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRenameBatchParams()
@@ -317,9 +372,18 @@ func (a *Client) RenameBatchShort(params *RenameBatchParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *RenameBatchNoContent:
-		return v, nil
+		response := &RenameBatchResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RenameBatchNotFound:
-		return nil, v
+		response := &RenameBatchResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -333,7 +397,7 @@ Other detail info:
 
   * Returns : list of campaign batch names
 */
-func (a *Client) QueryCampaignBatchNamesShort(params *QueryCampaignBatchNamesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignBatchNamesOK, error) {
+func (a *Client) QueryCampaignBatchNamesShort(params *QueryCampaignBatchNamesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignBatchNamesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCampaignBatchNamesParams()
@@ -371,7 +435,12 @@ func (a *Client) QueryCampaignBatchNamesShort(params *QueryCampaignBatchNamesPar
 	switch v := result.(type) {
 
 	case *QueryCampaignBatchNamesOK:
-		return v, nil
+		response := &QueryCampaignBatchNamesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -385,7 +454,7 @@ Other detail info:
 
   * Returns : campaign dynamic
 */
-func (a *Client) GetCampaignDynamicShort(params *GetCampaignDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignDynamicOK, error) {
+func (a *Client) GetCampaignDynamicShort(params *GetCampaignDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignDynamicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCampaignDynamicParams()
@@ -423,9 +492,19 @@ func (a *Client) GetCampaignDynamicShort(params *GetCampaignDynamicParams, authI
 	switch v := result.(type) {
 
 	case *GetCampaignDynamicOK:
-		return v, nil
+		response := &GetCampaignDynamicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCampaignDynamicNotFound:
-		return nil, v
+		response := &GetCampaignDynamicResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -440,7 +519,7 @@ Other detail info:
   * Returns : list of codes
   * The batchName field in the codes response will be present only when the withBatchName parameter is true , or when the batchName filter is not blank.
 */
-func (a *Client) QueryCodesShort(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesOK, error) {
+func (a *Client) QueryCodesShort(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryCodesParams()
@@ -478,7 +557,12 @@ func (a *Client) QueryCodesShort(params *QueryCodesParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *QueryCodesOK:
-		return v, nil
+		response := &QueryCodesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -492,7 +576,7 @@ Other detail info:
 
   * Returns : number of codes created
 */
-func (a *Client) CreateCodesShort(params *CreateCodesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCodesCreated, error) {
+func (a *Client) CreateCodesShort(params *CreateCodesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCodesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCodesParams()
@@ -530,13 +614,33 @@ func (a *Client) CreateCodesShort(params *CreateCodesParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CreateCodesCreated:
-		return v, nil
+		response := &CreateCodesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateCodesNotFound:
-		return nil, v
+		response := &CreateCodesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateCodesConflict:
-		return nil, v
+		response := &CreateCodesResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateCodesUnprocessableEntity:
-		return nil, v
+		response := &CreateCodesResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -551,7 +655,7 @@ Other detail info:
   * Returns : codes csv file
   * The csv file will always have Batch Name column, but this column will be filled only when the withBatchName parameter is true , or when the batchName filter is not blank.
 */
-func (a *Client) DownloadShort(params *DownloadParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadOK, error) {
+func (a *Client) DownloadShort(params *DownloadParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadParams()
@@ -589,7 +693,12 @@ func (a *Client) DownloadShort(params *DownloadParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *DownloadOK:
-		return v, nil
+		response := &DownloadResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -605,7 +714,7 @@ Other detail info:
 
   * Returns : the number of code actually disabled
 */
-func (a *Client) BulkDisableCodesShort(params *BulkDisableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDisableCodesOK, error) {
+func (a *Client) BulkDisableCodesShort(params *BulkDisableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDisableCodesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkDisableCodesParams()
@@ -643,7 +752,12 @@ func (a *Client) BulkDisableCodesShort(params *BulkDisableCodesParams, authInfo 
 	switch v := result.(type) {
 
 	case *BulkDisableCodesOK:
-		return v, nil
+		response := &BulkDisableCodesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -657,7 +771,7 @@ Other detail info:
 
   * Returns : the number of code actually enabled
 */
-func (a *Client) BulkEnableCodesShort(params *BulkEnableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkEnableCodesOK, error) {
+func (a *Client) BulkEnableCodesShort(params *BulkEnableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkEnableCodesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkEnableCodesParams()
@@ -695,7 +809,12 @@ func (a *Client) BulkEnableCodesShort(params *BulkEnableCodesParams, authInfo ru
 	switch v := result.(type) {
 
 	case *BulkEnableCodesOK:
-		return v, nil
+		response := &BulkEnableCodesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -709,7 +828,7 @@ Other detail info:
 
   * Returns : slice of redeem history
 */
-func (a *Client) QueryRedeemHistoryShort(params *QueryRedeemHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRedeemHistoryOK, error) {
+func (a *Client) QueryRedeemHistoryShort(params *QueryRedeemHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRedeemHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryRedeemHistoryParams()
@@ -747,7 +866,12 @@ func (a *Client) QueryRedeemHistoryShort(params *QueryRedeemHistoryParams, authI
 	switch v := result.(type) {
 
 	case *QueryRedeemHistoryOK:
-		return v, nil
+		response := &QueryRedeemHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -761,7 +885,7 @@ Other detail info:
 
   * Returns : code info
 */
-func (a *Client) GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetCodeOK, error) {
+func (a *Client) GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCodeParams()
@@ -799,11 +923,26 @@ func (a *Client) GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *GetCodeOK:
-		return v, nil
+		response := &GetCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCodeNotFound:
-		return nil, v
+		response := &GetCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCodeConflict:
-		return nil, v
+		response := &GetCodeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -819,7 +958,7 @@ Other detail info:
 
   * Returns : disabled code
 */
-func (a *Client) DisableCodeShort(params *DisableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DisableCodeOK, error) {
+func (a *Client) DisableCodeShort(params *DisableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DisableCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDisableCodeParams()
@@ -857,9 +996,19 @@ func (a *Client) DisableCodeShort(params *DisableCodeParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DisableCodeOK:
-		return v, nil
+		response := &DisableCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DisableCodeNotFound:
-		return nil, v
+		response := &DisableCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -873,7 +1022,7 @@ Other detail info:
 
   * Returns : enabled code
 */
-func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*EnableCodeOK, error) {
+func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*EnableCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEnableCodeParams()
@@ -911,9 +1060,19 @@ func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *EnableCodeOK:
-		return v, nil
+		response := &EnableCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *EnableCodeNotFound:
-		return nil, v
+		response := &EnableCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -927,7 +1086,7 @@ Other detail info:
 
   * Returns : Redeem result
 */
-func (a *Client) ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, authInfo runtime.ClientAuthInfoWriter) (*ApplyUserRedemptionOK, error) {
+func (a *Client) ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, authInfo runtime.ClientAuthInfoWriter) (*ApplyUserRedemptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewApplyUserRedemptionParams()
@@ -965,13 +1124,33 @@ func (a *Client) ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, aut
 	switch v := result.(type) {
 
 	case *ApplyUserRedemptionOK:
-		return v, nil
+		response := &ApplyUserRedemptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ApplyUserRedemptionNotFound:
-		return nil, v
+		response := &ApplyUserRedemptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ApplyUserRedemptionConflict:
-		return nil, v
+		response := &ApplyUserRedemptionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ApplyUserRedemptionUnprocessableEntity:
-		return nil, v
+		response := &ApplyUserRedemptionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,16 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserProfilesShort(params *GetUserProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfilesOK, error)
-	GetProfileShort(params *GetProfileParams, authInfo runtime.ClientAuthInfoWriter) (*GetProfileOK, error)
-	PublicGetUserGameProfilesShort(params *PublicGetUserGameProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserGameProfilesOK, error)
-	PublicGetUserProfilesShort(params *PublicGetUserProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfilesOK, error)
-	PublicCreateProfileShort(params *PublicCreateProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateProfileCreated, error)
-	PublicGetProfileShort(params *PublicGetProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileOK, error)
-	PublicUpdateProfileShort(params *PublicUpdateProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateProfileOK, error)
-	PublicDeleteProfileShort(params *PublicDeleteProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteProfileNoContent, error)
-	PublicGetProfileAttributeShort(params *PublicGetProfileAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileAttributeOK, error)
-	PublicUpdateAttributeShort(params *PublicUpdateAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateAttributeOK, error)
+	GetUserProfilesShort(params *GetUserProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfilesResponse, error)
+	GetProfileShort(params *GetProfileParams, authInfo runtime.ClientAuthInfoWriter) (*GetProfileResponse, error)
+	PublicGetUserGameProfilesShort(params *PublicGetUserGameProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserGameProfilesResponse, error)
+	PublicGetUserProfilesShort(params *PublicGetUserProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfilesResponse, error)
+	PublicCreateProfileShort(params *PublicCreateProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateProfileResponse, error)
+	PublicGetProfileShort(params *PublicGetProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileResponse, error)
+	PublicUpdateProfileShort(params *PublicUpdateProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateProfileResponse, error)
+	PublicDeleteProfileShort(params *PublicDeleteProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteProfileResponse, error)
+	PublicGetProfileAttributeShort(params *PublicGetProfileAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileAttributeResponse, error)
+	PublicUpdateAttributeShort(params *PublicUpdateAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateAttributeResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,7 +50,7 @@ Returns all profiles' header for a user.
 Other detail info:
         *  Returns : list of profiles
 */
-func (a *Client) GetUserProfilesShort(params *GetUserProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfilesOK, error) {
+func (a *Client) GetUserProfilesShort(params *GetUserProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfilesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserProfilesParams()
@@ -88,13 +88,33 @@ func (a *Client) GetUserProfilesShort(params *GetUserProfilesParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetUserProfilesOK:
-		return v, nil
+		response := &GetUserProfilesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserProfilesUnauthorized:
-		return nil, v
+		response := &GetUserProfilesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserProfilesForbidden:
-		return nil, v
+		response := &GetUserProfilesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserProfilesInternalServerError:
-		return nil, v
+		response := &GetUserProfilesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -107,7 +127,7 @@ Returns profile for a user.
 Other detail info:
         *  Returns : game profile info
 */
-func (a *Client) GetProfileShort(params *GetProfileParams, authInfo runtime.ClientAuthInfoWriter) (*GetProfileOK, error) {
+func (a *Client) GetProfileShort(params *GetProfileParams, authInfo runtime.ClientAuthInfoWriter) (*GetProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetProfileParams()
@@ -145,15 +165,40 @@ func (a *Client) GetProfileShort(params *GetProfileParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *GetProfileOK:
-		return v, nil
+		response := &GetProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetProfileUnauthorized:
-		return nil, v
+		response := &GetProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetProfileForbidden:
-		return nil, v
+		response := &GetProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetProfileNotFound:
-		return nil, v
+		response := &GetProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetProfileInternalServerError:
-		return nil, v
+		response := &GetProfileResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +211,7 @@ Returns all profiles for specified users.
 Other detail info:
         *  Returns : list of profiles
 */
-func (a *Client) PublicGetUserGameProfilesShort(params *PublicGetUserGameProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserGameProfilesOK, error) {
+func (a *Client) PublicGetUserGameProfilesShort(params *PublicGetUserGameProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserGameProfilesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserGameProfilesParams()
@@ -204,15 +249,40 @@ func (a *Client) PublicGetUserGameProfilesShort(params *PublicGetUserGameProfile
 	switch v := result.(type) {
 
 	case *PublicGetUserGameProfilesOK:
-		return v, nil
+		response := &PublicGetUserGameProfilesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserGameProfilesBadRequest:
-		return nil, v
+		response := &PublicGetUserGameProfilesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserGameProfilesUnauthorized:
-		return nil, v
+		response := &PublicGetUserGameProfilesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserGameProfilesForbidden:
-		return nil, v
+		response := &PublicGetUserGameProfilesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserGameProfilesInternalServerError:
-		return nil, v
+		response := &PublicGetUserGameProfilesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -225,7 +295,7 @@ Returns all profiles' header for a user.
 Other detail info:
         *  Returns : list of profiles
 */
-func (a *Client) PublicGetUserProfilesShort(params *PublicGetUserProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfilesOK, error) {
+func (a *Client) PublicGetUserProfilesShort(params *PublicGetUserProfilesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfilesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserProfilesParams()
@@ -263,13 +333,33 @@ func (a *Client) PublicGetUserProfilesShort(params *PublicGetUserProfilesParams,
 	switch v := result.(type) {
 
 	case *PublicGetUserProfilesOK:
-		return v, nil
+		response := &PublicGetUserProfilesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserProfilesUnauthorized:
-		return nil, v
+		response := &PublicGetUserProfilesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProfilesForbidden:
-		return nil, v
+		response := &PublicGetUserProfilesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserProfilesInternalServerError:
-		return nil, v
+		response := &PublicGetUserProfilesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -283,7 +373,7 @@ Other detail info:
         *  Returns
 : created game profile
 */
-func (a *Client) PublicCreateProfileShort(params *PublicCreateProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateProfileCreated, error) {
+func (a *Client) PublicCreateProfileShort(params *PublicCreateProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateProfileParams()
@@ -321,17 +411,46 @@ func (a *Client) PublicCreateProfileShort(params *PublicCreateProfileParams, aut
 	switch v := result.(type) {
 
 	case *PublicCreateProfileCreated:
-		return v, nil
+		response := &PublicCreateProfileResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateProfileBadRequest:
-		return nil, v
+		response := &PublicCreateProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateProfileUnauthorized:
-		return nil, v
+		response := &PublicCreateProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateProfileForbidden:
-		return nil, v
+		response := &PublicCreateProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateProfileUnprocessableEntity:
-		return nil, v
+		response := &PublicCreateProfileResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateProfileInternalServerError:
-		return nil, v
+		response := &PublicCreateProfileResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -344,7 +463,7 @@ Returns profile for a user.
 Other detail info:
         *  Returns : game profile info
 */
-func (a *Client) PublicGetProfileShort(params *PublicGetProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileOK, error) {
+func (a *Client) PublicGetProfileShort(params *PublicGetProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetProfileParams()
@@ -382,15 +501,40 @@ func (a *Client) PublicGetProfileShort(params *PublicGetProfileParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicGetProfileOK:
-		return v, nil
+		response := &PublicGetProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetProfileUnauthorized:
-		return nil, v
+		response := &PublicGetProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileForbidden:
-		return nil, v
+		response := &PublicGetProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileNotFound:
-		return nil, v
+		response := &PublicGetProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileInternalServerError:
-		return nil, v
+		response := &PublicGetProfileResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -403,7 +547,7 @@ Updates user game profile, returns updated profile.
 Other detail info:
         *  Returns : updated game profile
 */
-func (a *Client) PublicUpdateProfileShort(params *PublicUpdateProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateProfileOK, error) {
+func (a *Client) PublicUpdateProfileShort(params *PublicUpdateProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateProfileParams()
@@ -441,19 +585,54 @@ func (a *Client) PublicUpdateProfileShort(params *PublicUpdateProfileParams, aut
 	switch v := result.(type) {
 
 	case *PublicUpdateProfileOK:
-		return v, nil
+		response := &PublicUpdateProfileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateProfileBadRequest:
-		return nil, v
+		response := &PublicUpdateProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateProfileUnauthorized:
-		return nil, v
+		response := &PublicUpdateProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateProfileForbidden:
-		return nil, v
+		response := &PublicUpdateProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateProfileNotFound:
-		return nil, v
+		response := &PublicUpdateProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateProfileUnprocessableEntity:
-		return nil, v
+		response := &PublicUpdateProfileResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateProfileInternalServerError:
-		return nil, v
+		response := &PublicUpdateProfileResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -464,7 +643,7 @@ func (a *Client) PublicUpdateProfileShort(params *PublicUpdateProfileParams, aut
 PublicDeleteProfileShort deletes game profile
 Deletes game profile.
 */
-func (a *Client) PublicDeleteProfileShort(params *PublicDeleteProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteProfileNoContent, error) {
+func (a *Client) PublicDeleteProfileShort(params *PublicDeleteProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDeleteProfileParams()
@@ -502,15 +681,39 @@ func (a *Client) PublicDeleteProfileShort(params *PublicDeleteProfileParams, aut
 	switch v := result.(type) {
 
 	case *PublicDeleteProfileNoContent:
-		return v, nil
+		response := &PublicDeleteProfileResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDeleteProfileUnauthorized:
-		return nil, v
+		response := &PublicDeleteProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeleteProfileForbidden:
-		return nil, v
+		response := &PublicDeleteProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeleteProfileNotFound:
-		return nil, v
+		response := &PublicDeleteProfileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeleteProfileInternalServerError:
-		return nil, v
+		response := &PublicDeleteProfileResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -523,7 +726,7 @@ Returns game profile attribute.
 Other detail info:
         *  Returns : attribute info
 */
-func (a *Client) PublicGetProfileAttributeShort(params *PublicGetProfileAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileAttributeOK, error) {
+func (a *Client) PublicGetProfileAttributeShort(params *PublicGetProfileAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileAttributeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetProfileAttributeParams()
@@ -561,15 +764,40 @@ func (a *Client) PublicGetProfileAttributeShort(params *PublicGetProfileAttribut
 	switch v := result.(type) {
 
 	case *PublicGetProfileAttributeOK:
-		return v, nil
+		response := &PublicGetProfileAttributeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetProfileAttributeUnauthorized:
-		return nil, v
+		response := &PublicGetProfileAttributeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileAttributeForbidden:
-		return nil, v
+		response := &PublicGetProfileAttributeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileAttributeNotFound:
-		return nil, v
+		response := &PublicGetProfileAttributeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileAttributeInternalServerError:
-		return nil, v
+		response := &PublicGetProfileAttributeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -582,7 +810,7 @@ Updates game profile attribute, returns updated profile.
 Other detail info:
         *  Returns : updated attribute
 */
-func (a *Client) PublicUpdateAttributeShort(params *PublicUpdateAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateAttributeOK, error) {
+func (a *Client) PublicUpdateAttributeShort(params *PublicUpdateAttributeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateAttributeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateAttributeParams()
@@ -620,19 +848,54 @@ func (a *Client) PublicUpdateAttributeShort(params *PublicUpdateAttributeParams,
 	switch v := result.(type) {
 
 	case *PublicUpdateAttributeOK:
-		return v, nil
+		response := &PublicUpdateAttributeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateAttributeBadRequest:
-		return nil, v
+		response := &PublicUpdateAttributeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateAttributeUnauthorized:
-		return nil, v
+		response := &PublicUpdateAttributeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateAttributeForbidden:
-		return nil, v
+		response := &PublicUpdateAttributeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateAttributeNotFound:
-		return nil, v
+		response := &PublicUpdateAttributeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateAttributeUnprocessableEntity:
-		return nil, v
+		response := &PublicUpdateAttributeResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateAttributeInternalServerError:
-		return nil, v
+		response := &PublicUpdateAttributeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

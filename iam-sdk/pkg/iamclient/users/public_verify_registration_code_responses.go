@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type PublicVerifyRegistrationCodeResponse struct {
+	iamclientmodels.ApiResponse
+
+	Error400 *iamclientmodels.RestErrorResponse
+}
+
+func (m *PublicVerifyRegistrationCodeResponse) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // PublicVerifyRegistrationCodeReader is a Reader for the PublicVerifyRegistrationCode structure.
 type PublicVerifyRegistrationCodeReader struct {
 	formats strfmt.Registry

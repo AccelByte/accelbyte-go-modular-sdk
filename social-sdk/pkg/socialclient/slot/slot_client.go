@@ -31,14 +31,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserNamespaceSlotsOK, error)
-	GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*GetSlotDataOK, error)
-	PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserNamespaceSlotsOK, error)
-	PublicCreateUserNamespaceSlotShort(params *PublicCreateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserNamespaceSlotCreated, error)
-	PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicGetSlotDataOK, error)
-	PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotOK, error)
-	PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteUserNamespaceSlotNoContent, error)
-	PublicUpdateUserNamespaceSlotMetadataShort(params *PublicUpdateUserNamespaceSlotMetadataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotMetadataOK, error)
+	GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserNamespaceSlotsResponse, error)
+	GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*GetSlotDataResponse, error)
+	PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserNamespaceSlotsResponse, error)
+	PublicCreateUserNamespaceSlotShort(params *PublicCreateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserNamespaceSlotResponse, error)
+	PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicGetSlotDataResponse, error)
+	PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotResponse, error)
+	PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteUserNamespaceSlotResponse, error)
+	PublicUpdateUserNamespaceSlotMetadataShort(params *PublicUpdateUserNamespaceSlotMetadataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotMetadataResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -54,7 +54,7 @@ Get slots for a given user.
 Other detail info:
         *  Returns : list of slots
 */
-func (a *Client) GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserNamespaceSlotsOK, error) {
+func (a *Client) GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserNamespaceSlotsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserNamespaceSlotsParams()
@@ -92,7 +92,12 @@ func (a *Client) GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams,
 	switch v := result.(type) {
 
 	case *GetUserNamespaceSlotsOK:
-		return v, nil
+		response := &GetUserNamespaceSlotsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -110,7 +115,7 @@ Get slot data.
 Other detail info:
         *  Returns : slot data
 */
-func (a *Client) GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*GetSlotDataOK, error) {
+func (a *Client) GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*GetSlotDataResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSlotDataParams()
@@ -148,9 +153,19 @@ func (a *Client) GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *GetSlotDataOK:
-		return v, nil
+		response := &GetSlotDataResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSlotDataNotFound:
-		return nil, v
+		response := &GetSlotDataResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,7 +183,7 @@ Get list of slots for a given user in namespace.
 Other detail info:
         *  Returns : list of slots
 */
-func (a *Client) PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserNamespaceSlotsOK, error) {
+func (a *Client) PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserNamespaceSlotsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserNamespaceSlotsParams()
@@ -206,7 +221,12 @@ func (a *Client) PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespace
 	switch v := result.(type) {
 
 	case *PublicGetUserNamespaceSlotsOK:
-		return v, nil
+		response := &PublicGetUserNamespaceSlotsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -224,7 +244,7 @@ Creates a slot.
 Other detail info:
         *  Returns : created slot info
 */
-func (a *Client) PublicCreateUserNamespaceSlotShort(params *PublicCreateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserNamespaceSlotCreated, error) {
+func (a *Client) PublicCreateUserNamespaceSlotShort(params *PublicCreateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserNamespaceSlotResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateUserNamespaceSlotParams()
@@ -262,11 +282,25 @@ func (a *Client) PublicCreateUserNamespaceSlotShort(params *PublicCreateUserName
 	switch v := result.(type) {
 
 	case *PublicCreateUserNamespaceSlotCreated:
-		return v, nil
+		response := &PublicCreateUserNamespaceSlotResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateUserNamespaceSlotBadRequest:
-		return nil, v
+		response := &PublicCreateUserNamespaceSlotResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserNamespaceSlotConflict:
-		return nil, v
+		response := &PublicCreateUserNamespaceSlotResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -284,7 +318,7 @@ Get slot data.
 Other detail info:
         *  Returns : slot data
 */
-func (a *Client) PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicGetSlotDataOK, error) {
+func (a *Client) PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicGetSlotDataResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetSlotDataParams()
@@ -322,9 +356,19 @@ func (a *Client) PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInf
 	switch v := result.(type) {
 
 	case *PublicGetSlotDataOK:
-		return v, nil
+		response := &PublicGetSlotDataResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetSlotDataNotFound:
-		return nil, v
+		response := &PublicGetSlotDataResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -342,7 +386,7 @@ Updates a slot.
 Other detail info:
         *  Returns : updated slot
 */
-func (a *Client) PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotOK, error) {
+func (a *Client) PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateUserNamespaceSlotParams()
@@ -380,11 +424,26 @@ func (a *Client) PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserName
 	switch v := result.(type) {
 
 	case *PublicUpdateUserNamespaceSlotOK:
-		return v, nil
+		response := &PublicUpdateUserNamespaceSlotResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateUserNamespaceSlotBadRequest:
-		return nil, v
+		response := &PublicUpdateUserNamespaceSlotResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserNamespaceSlotNotFound:
-		return nil, v
+		response := &PublicUpdateUserNamespaceSlotResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -401,7 +460,7 @@ PublicDeleteUserNamespaceSlotShort deletes the slot
 Deletes the slot.
 Other detail info:
 */
-func (a *Client) PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteUserNamespaceSlotNoContent, error) {
+func (a *Client) PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeleteUserNamespaceSlotResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDeleteUserNamespaceSlotParams()
@@ -439,9 +498,18 @@ func (a *Client) PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserName
 	switch v := result.(type) {
 
 	case *PublicDeleteUserNamespaceSlotNoContent:
-		return v, nil
+		response := &PublicDeleteUserNamespaceSlotResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDeleteUserNamespaceSlotNotFound:
-		return nil, v
+		response := &PublicDeleteUserNamespaceSlotResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -459,7 +527,7 @@ Updates the slot metadata.
 Other detail info:
         *  Returns : updated slot
 */
-func (a *Client) PublicUpdateUserNamespaceSlotMetadataShort(params *PublicUpdateUserNamespaceSlotMetadataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotMetadataOK, error) {
+func (a *Client) PublicUpdateUserNamespaceSlotMetadataShort(params *PublicUpdateUserNamespaceSlotMetadataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotMetadataResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateUserNamespaceSlotMetadataParams()
@@ -497,9 +565,19 @@ func (a *Client) PublicUpdateUserNamespaceSlotMetadataShort(params *PublicUpdate
 	switch v := result.(type) {
 
 	case *PublicUpdateUserNamespaceSlotMetadataOK:
-		return v, nil
+		response := &PublicUpdateUserNamespaceSlotMetadataResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateUserNamespaceSlotMetadataNotFound:
-		return nil, v
+		response := &PublicUpdateUserNamespaceSlotMetadataResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

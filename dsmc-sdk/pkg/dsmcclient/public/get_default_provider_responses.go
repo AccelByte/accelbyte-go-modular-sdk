@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 )
 
+type GetDefaultProviderResponse struct {
+	dsmcclientmodels.ApiResponse
+	Data *dsmcclientmodels.ModelsDefaultProvider
+}
+
+func (m *GetDefaultProviderResponse) Unpack() (*dsmcclientmodels.ModelsDefaultProvider, *dsmcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &dsmcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetDefaultProviderReader is a Reader for the GetDefaultProvider structure.
 type GetDefaultProviderReader struct {
 	formats strfmt.Registry

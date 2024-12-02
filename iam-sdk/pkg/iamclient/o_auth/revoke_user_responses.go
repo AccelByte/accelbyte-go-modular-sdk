@@ -13,7 +13,33 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
+
+type RevokeUserResponse struct {
+	iamclientmodels.ApiResponse
+
+	Error401 string
+}
+
+func (m *RevokeUserResponse) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			return &iamclientmodels.ApiError{Code: "401", Message: m.Error401}
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // RevokeUserReader is a Reader for the RevokeUser structure.
 type RevokeUserReader struct {

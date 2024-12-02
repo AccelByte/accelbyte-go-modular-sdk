@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetLowestInstanceSpecShort(params *GetLowestInstanceSpecParams, authInfo runtime.ClientAuthInfoWriter) (*GetLowestInstanceSpecOK, error)
-	GetAllPodConfigShort(params *GetAllPodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPodConfigOK, error)
-	GetPodConfigShort(params *GetPodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPodConfigOK, error)
-	CreatePodConfigShort(params *CreatePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePodConfigCreated, error)
-	DeletePodConfigShort(params *DeletePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePodConfigNoContent, error)
-	UpdatePodConfigShort(params *UpdatePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePodConfigOK, error)
-	GetAllPodConfigClientShort(params *GetAllPodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPodConfigClientOK, error)
-	CreatePodConfigClientShort(params *CreatePodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePodConfigClientCreated, error)
-	DeletePodConfigClientShort(params *DeletePodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePodConfigClientNoContent, error)
+	GetLowestInstanceSpecShort(params *GetLowestInstanceSpecParams, authInfo runtime.ClientAuthInfoWriter) (*GetLowestInstanceSpecResponse, error)
+	GetAllPodConfigShort(params *GetAllPodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPodConfigResponse, error)
+	GetPodConfigShort(params *GetPodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPodConfigResponse, error)
+	CreatePodConfigShort(params *CreatePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePodConfigResponse, error)
+	DeletePodConfigShort(params *DeletePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePodConfigResponse, error)
+	UpdatePodConfigShort(params *UpdatePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePodConfigResponse, error)
+	GetAllPodConfigClientShort(params *GetAllPodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPodConfigClientResponse, error)
+	CreatePodConfigClientShort(params *CreatePodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePodConfigClientResponse, error)
+	DeletePodConfigClientShort(params *DeletePodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePodConfigClientResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ Required scope: social
 
 This endpoint returns the lowest instance spec, both cpu (in Mhz) and memory (in Mb).
 */
-func (a *Client) GetLowestInstanceSpecShort(params *GetLowestInstanceSpecParams, authInfo runtime.ClientAuthInfoWriter) (*GetLowestInstanceSpecOK, error) {
+func (a *Client) GetLowestInstanceSpecShort(params *GetLowestInstanceSpecParams, authInfo runtime.ClientAuthInfoWriter) (*GetLowestInstanceSpecResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLowestInstanceSpecParams()
@@ -89,11 +89,26 @@ func (a *Client) GetLowestInstanceSpecShort(params *GetLowestInstanceSpecParams,
 	switch v := result.(type) {
 
 	case *GetLowestInstanceSpecOK:
-		return v, nil
+		response := &GetLowestInstanceSpecResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLowestInstanceSpecUnauthorized:
-		return nil, v
+		response := &GetLowestInstanceSpecResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLowestInstanceSpecInternalServerError:
-		return nil, v
+		response := &GetLowestInstanceSpecResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -110,7 +125,7 @@ This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
-func (a *Client) GetAllPodConfigShort(params *GetAllPodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPodConfigOK, error) {
+func (a *Client) GetAllPodConfigShort(params *GetAllPodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPodConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllPodConfigParams()
@@ -148,13 +163,33 @@ func (a *Client) GetAllPodConfigShort(params *GetAllPodConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetAllPodConfigOK:
-		return v, nil
+		response := &GetAllPodConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllPodConfigBadRequest:
-		return nil, v
+		response := &GetAllPodConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPodConfigUnauthorized:
-		return nil, v
+		response := &GetAllPodConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPodConfigInternalServerError:
-		return nil, v
+		response := &GetAllPodConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -169,7 +204,7 @@ Required scope: social
 
 This endpoint get a dedicated server pod config in a namespace
 */
-func (a *Client) GetPodConfigShort(params *GetPodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPodConfigOK, error) {
+func (a *Client) GetPodConfigShort(params *GetPodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPodConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPodConfigParams()
@@ -207,15 +242,40 @@ func (a *Client) GetPodConfigShort(params *GetPodConfigParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetPodConfigOK:
-		return v, nil
+		response := &GetPodConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPodConfigBadRequest:
-		return nil, v
+		response := &GetPodConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPodConfigUnauthorized:
-		return nil, v
+		response := &GetPodConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPodConfigNotFound:
-		return nil, v
+		response := &GetPodConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPodConfigInternalServerError:
-		return nil, v
+		response := &GetPodConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -230,7 +290,7 @@ Required scope: social
 
 This endpoint create a dedicated servers pod config in a namespace.
 */
-func (a *Client) CreatePodConfigShort(params *CreatePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePodConfigCreated, error) {
+func (a *Client) CreatePodConfigShort(params *CreatePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePodConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePodConfigParams()
@@ -268,15 +328,40 @@ func (a *Client) CreatePodConfigShort(params *CreatePodConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *CreatePodConfigCreated:
-		return v, nil
+		response := &CreatePodConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePodConfigBadRequest:
-		return nil, v
+		response := &CreatePodConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePodConfigUnauthorized:
-		return nil, v
+		response := &CreatePodConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePodConfigConflict:
-		return nil, v
+		response := &CreatePodConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePodConfigInternalServerError:
-		return nil, v
+		response := &CreatePodConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -291,7 +376,7 @@ Required scope: social
 
 This endpoint delete a dedicated server pod config in a namespace
 */
-func (a *Client) DeletePodConfigShort(params *DeletePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePodConfigNoContent, error) {
+func (a *Client) DeletePodConfigShort(params *DeletePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePodConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePodConfigParams()
@@ -329,17 +414,46 @@ func (a *Client) DeletePodConfigShort(params *DeletePodConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *DeletePodConfigNoContent:
-		return v, nil
+		response := &DeletePodConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePodConfigBadRequest:
-		return nil, v
+		response := &DeletePodConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePodConfigUnauthorized:
-		return nil, v
+		response := &DeletePodConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePodConfigNotFound:
-		return nil, v
+		response := &DeletePodConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePodConfigConflict:
-		return nil, v
+		response := &DeletePodConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePodConfigInternalServerError:
-		return nil, v
+		response := &DeletePodConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -354,7 +468,7 @@ Required scope: social
 
 This endpoint update a dedicated servers pod config in a namespace.
 */
-func (a *Client) UpdatePodConfigShort(params *UpdatePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePodConfigOK, error) {
+func (a *Client) UpdatePodConfigShort(params *UpdatePodConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePodConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePodConfigParams()
@@ -392,17 +506,47 @@ func (a *Client) UpdatePodConfigShort(params *UpdatePodConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *UpdatePodConfigOK:
-		return v, nil
+		response := &UpdatePodConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePodConfigBadRequest:
-		return nil, v
+		response := &UpdatePodConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePodConfigUnauthorized:
-		return nil, v
+		response := &UpdatePodConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePodConfigNotFound:
-		return nil, v
+		response := &UpdatePodConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePodConfigConflict:
-		return nil, v
+		response := &UpdatePodConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePodConfigInternalServerError:
-		return nil, v
+		response := &UpdatePodConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -419,7 +563,7 @@ This endpoint get a all pod configs in a namespace
 
 Parameter Offset and Count is Required
 */
-func (a *Client) GetAllPodConfigClientShort(params *GetAllPodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPodConfigClientOK, error) {
+func (a *Client) GetAllPodConfigClientShort(params *GetAllPodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllPodConfigClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllPodConfigClientParams()
@@ -457,13 +601,33 @@ func (a *Client) GetAllPodConfigClientShort(params *GetAllPodConfigClientParams,
 	switch v := result.(type) {
 
 	case *GetAllPodConfigClientOK:
-		return v, nil
+		response := &GetAllPodConfigClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllPodConfigClientBadRequest:
-		return nil, v
+		response := &GetAllPodConfigClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPodConfigClientUnauthorized:
-		return nil, v
+		response := &GetAllPodConfigClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllPodConfigClientInternalServerError:
-		return nil, v
+		response := &GetAllPodConfigClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -478,7 +642,7 @@ Required scope: social
 
 This endpoint create a dedicated servers pod config in a namespace.
 */
-func (a *Client) CreatePodConfigClientShort(params *CreatePodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePodConfigClientCreated, error) {
+func (a *Client) CreatePodConfigClientShort(params *CreatePodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePodConfigClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePodConfigClientParams()
@@ -516,15 +680,40 @@ func (a *Client) CreatePodConfigClientShort(params *CreatePodConfigClientParams,
 	switch v := result.(type) {
 
 	case *CreatePodConfigClientCreated:
-		return v, nil
+		response := &CreatePodConfigClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePodConfigClientBadRequest:
-		return nil, v
+		response := &CreatePodConfigClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePodConfigClientUnauthorized:
-		return nil, v
+		response := &CreatePodConfigClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePodConfigClientConflict:
-		return nil, v
+		response := &CreatePodConfigClientResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePodConfigClientInternalServerError:
-		return nil, v
+		response := &CreatePodConfigClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -539,7 +728,7 @@ Required scope: social
 
 This endpoint delete a dedicated server pod config in a namespace
 */
-func (a *Client) DeletePodConfigClientShort(params *DeletePodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePodConfigClientNoContent, error) {
+func (a *Client) DeletePodConfigClientShort(params *DeletePodConfigClientParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePodConfigClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePodConfigClientParams()
@@ -577,17 +766,46 @@ func (a *Client) DeletePodConfigClientShort(params *DeletePodConfigClientParams,
 	switch v := result.(type) {
 
 	case *DeletePodConfigClientNoContent:
-		return v, nil
+		response := &DeletePodConfigClientResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePodConfigClientBadRequest:
-		return nil, v
+		response := &DeletePodConfigClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePodConfigClientUnauthorized:
-		return nil, v
+		response := &DeletePodConfigClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePodConfigClientNotFound:
-		return nil, v
+		response := &DeletePodConfigClientResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePodConfigClientConflict:
-		return nil, v
+		response := &DeletePodConfigClientResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePodConfigClientInternalServerError:
-		return nil, v
+		response := &DeletePodConfigClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AnonymizeCampaignShort(params *AnonymizeCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeCampaignNoContent, error)
-	AnonymizeEntitlementShort(params *AnonymizeEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeEntitlementNoContent, error)
-	AnonymizeFulfillmentShort(params *AnonymizeFulfillmentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeFulfillmentNoContent, error)
-	AnonymizeIntegrationShort(params *AnonymizeIntegrationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeIntegrationNoContent, error)
-	AnonymizeOrderShort(params *AnonymizeOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeOrderNoContent, error)
-	AnonymizePaymentShort(params *AnonymizePaymentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizePaymentNoContent, error)
-	AnonymizeRevocationShort(params *AnonymizeRevocationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeRevocationNoContent, error)
-	AnonymizeSubscriptionShort(params *AnonymizeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeSubscriptionNoContent, error)
-	AnonymizeWalletShort(params *AnonymizeWalletParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeWalletNoContent, error)
+	AnonymizeCampaignShort(params *AnonymizeCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeCampaignResponse, error)
+	AnonymizeEntitlementShort(params *AnonymizeEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeEntitlementResponse, error)
+	AnonymizeFulfillmentShort(params *AnonymizeFulfillmentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeFulfillmentResponse, error)
+	AnonymizeIntegrationShort(params *AnonymizeIntegrationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeIntegrationResponse, error)
+	AnonymizeOrderShort(params *AnonymizeOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeOrderResponse, error)
+	AnonymizePaymentShort(params *AnonymizePaymentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizePaymentResponse, error)
+	AnonymizeRevocationShort(params *AnonymizeRevocationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeRevocationResponse, error)
+	AnonymizeSubscriptionShort(params *AnonymizeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeSubscriptionResponse, error)
+	AnonymizeWalletShort(params *AnonymizeWalletParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeWalletResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ type ClientService interface {
 AnonymizeCampaignShort anonymize campaign
 Anonymize campaign. At current it will only anonymize redeem history.
 */
-func (a *Client) AnonymizeCampaignShort(params *AnonymizeCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeCampaignNoContent, error) {
+func (a *Client) AnonymizeCampaignShort(params *AnonymizeCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeCampaignResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeCampaignParams()
@@ -85,7 +85,11 @@ func (a *Client) AnonymizeCampaignShort(params *AnonymizeCampaignParams, authInf
 	switch v := result.(type) {
 
 	case *AnonymizeCampaignNoContent:
-		return v, nil
+		response := &AnonymizeCampaignResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -96,7 +100,7 @@ func (a *Client) AnonymizeCampaignShort(params *AnonymizeCampaignParams, authInf
 AnonymizeEntitlementShort anonymize entitlement
 Anonymize entitlement. At current it will only anonymize entitlement, entitlement history.
 */
-func (a *Client) AnonymizeEntitlementShort(params *AnonymizeEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeEntitlementNoContent, error) {
+func (a *Client) AnonymizeEntitlementShort(params *AnonymizeEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeEntitlementParams()
@@ -134,7 +138,11 @@ func (a *Client) AnonymizeEntitlementShort(params *AnonymizeEntitlementParams, a
 	switch v := result.(type) {
 
 	case *AnonymizeEntitlementNoContent:
-		return v, nil
+		response := &AnonymizeEntitlementResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -145,7 +153,7 @@ func (a *Client) AnonymizeEntitlementShort(params *AnonymizeEntitlementParams, a
 AnonymizeFulfillmentShort anonymize fulfillment
 Anonymize fulfillment. At current it will only anonymize fulfillment history.
 */
-func (a *Client) AnonymizeFulfillmentShort(params *AnonymizeFulfillmentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeFulfillmentNoContent, error) {
+func (a *Client) AnonymizeFulfillmentShort(params *AnonymizeFulfillmentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeFulfillmentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeFulfillmentParams()
@@ -183,7 +191,11 @@ func (a *Client) AnonymizeFulfillmentShort(params *AnonymizeFulfillmentParams, a
 	switch v := result.(type) {
 
 	case *AnonymizeFulfillmentNoContent:
-		return v, nil
+		response := &AnonymizeFulfillmentResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -194,7 +206,7 @@ func (a *Client) AnonymizeFulfillmentShort(params *AnonymizeFulfillmentParams, a
 AnonymizeIntegrationShort anonymize integrations
 Anonymize integrations. At current it will only anonymize iap histories.
 */
-func (a *Client) AnonymizeIntegrationShort(params *AnonymizeIntegrationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeIntegrationNoContent, error) {
+func (a *Client) AnonymizeIntegrationShort(params *AnonymizeIntegrationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeIntegrationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeIntegrationParams()
@@ -232,7 +244,11 @@ func (a *Client) AnonymizeIntegrationShort(params *AnonymizeIntegrationParams, a
 	switch v := result.(type) {
 
 	case *AnonymizeIntegrationNoContent:
-		return v, nil
+		response := &AnonymizeIntegrationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -243,7 +259,7 @@ func (a *Client) AnonymizeIntegrationShort(params *AnonymizeIntegrationParams, a
 AnonymizeOrderShort anonymize order
 Anonymize order. At current it will only anonymize order, order history.
 */
-func (a *Client) AnonymizeOrderShort(params *AnonymizeOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeOrderNoContent, error) {
+func (a *Client) AnonymizeOrderShort(params *AnonymizeOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeOrderParams()
@@ -281,7 +297,11 @@ func (a *Client) AnonymizeOrderShort(params *AnonymizeOrderParams, authInfo runt
 	switch v := result.(type) {
 
 	case *AnonymizeOrderNoContent:
-		return v, nil
+		response := &AnonymizeOrderResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -292,7 +312,7 @@ func (a *Client) AnonymizeOrderShort(params *AnonymizeOrderParams, authInfo runt
 AnonymizePaymentShort anonymize payment
 Anonymize payment. At current it will only anonymize payment order, payment order history.
 */
-func (a *Client) AnonymizePaymentShort(params *AnonymizePaymentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizePaymentNoContent, error) {
+func (a *Client) AnonymizePaymentShort(params *AnonymizePaymentParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizePaymentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizePaymentParams()
@@ -330,7 +350,11 @@ func (a *Client) AnonymizePaymentShort(params *AnonymizePaymentParams, authInfo 
 	switch v := result.(type) {
 
 	case *AnonymizePaymentNoContent:
-		return v, nil
+		response := &AnonymizePaymentResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -341,7 +365,7 @@ func (a *Client) AnonymizePaymentShort(params *AnonymizePaymentParams, authInfo 
 AnonymizeRevocationShort anonymize revocation
 Anonymize revocation. At current it will only anonymize revocation history.
 */
-func (a *Client) AnonymizeRevocationShort(params *AnonymizeRevocationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeRevocationNoContent, error) {
+func (a *Client) AnonymizeRevocationShort(params *AnonymizeRevocationParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeRevocationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeRevocationParams()
@@ -379,7 +403,11 @@ func (a *Client) AnonymizeRevocationShort(params *AnonymizeRevocationParams, aut
 	switch v := result.(type) {
 
 	case *AnonymizeRevocationNoContent:
-		return v, nil
+		response := &AnonymizeRevocationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -390,7 +418,7 @@ func (a *Client) AnonymizeRevocationShort(params *AnonymizeRevocationParams, aut
 AnonymizeSubscriptionShort anonymize subscription
 Anonymize subscription. At current it will anonymize subscription, billing history and subscription activity.
 */
-func (a *Client) AnonymizeSubscriptionShort(params *AnonymizeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeSubscriptionNoContent, error) {
+func (a *Client) AnonymizeSubscriptionShort(params *AnonymizeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeSubscriptionParams()
@@ -428,7 +456,11 @@ func (a *Client) AnonymizeSubscriptionShort(params *AnonymizeSubscriptionParams,
 	switch v := result.(type) {
 
 	case *AnonymizeSubscriptionNoContent:
-		return v, nil
+		response := &AnonymizeSubscriptionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -439,7 +471,7 @@ func (a *Client) AnonymizeSubscriptionShort(params *AnonymizeSubscriptionParams,
 AnonymizeWalletShort anonymize wallet
 Anonymize wallet. At current it will only anonymize wallet, wallet transaction.
 */
-func (a *Client) AnonymizeWalletShort(params *AnonymizeWalletParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeWalletNoContent, error) {
+func (a *Client) AnonymizeWalletShort(params *AnonymizeWalletParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeWalletResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeWalletParams()
@@ -477,7 +509,11 @@ func (a *Client) AnonymizeWalletShort(params *AnonymizeWalletParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AnonymizeWalletNoContent:
-		return v, nil
+		response := &AnonymizeWalletResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

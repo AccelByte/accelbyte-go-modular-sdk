@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 )
 
+type PublicListGlobalAchievementsResponse struct {
+	achievementclientmodels.ApiResponse
+	Data *achievementclientmodels.ModelsPaginatedGlobalAchievementResponse
+
+	Error400 *achievementclientmodels.ResponseError
+	Error401 *achievementclientmodels.ResponseError
+	Error500 *achievementclientmodels.ResponseError
+}
+
+func (m *PublicListGlobalAchievementsResponse) Unpack() (*achievementclientmodels.ModelsPaginatedGlobalAchievementResponse, *achievementclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &achievementclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicListGlobalAchievementsReader is a Reader for the PublicListGlobalAchievements structure.
 type PublicListGlobalAchievementsReader struct {
 	formats strfmt.Registry

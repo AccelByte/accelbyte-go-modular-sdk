@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type DeleteReasonGroupResponse struct {
+	reportingclientmodels.ApiResponse
+
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *DeleteReasonGroupResponse) Unpack() *reportingclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteReasonGroupReader is a Reader for the DeleteReasonGroup structure.
 type DeleteReasonGroupReader struct {
 	formats strfmt.Registry

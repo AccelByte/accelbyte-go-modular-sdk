@@ -14,7 +14,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/stat_cycle_configuration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
 // StatCycleConfigurationService this is use for compatibility with latest modular sdk only
@@ -41,7 +40,7 @@ func (aaa *StatCycleConfigurationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *StatCycleConfigurationService) GetStatCyclesShort(input *stat_cycle_configuration.GetStatCyclesParams) (*socialclientmodels.StatCyclePagingSlicedResult, error) {
+func (aaa *StatCycleConfigurationService) GetStatCyclesShort(input *stat_cycle_configuration.GetStatCyclesParams) (*stat_cycle_configuration.GetStatCyclesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -68,10 +67,10 @@ func (aaa *StatCycleConfigurationService) GetStatCyclesShort(input *stat_cycle_c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatCycleConfigurationService) CreateStatCycleShort(input *stat_cycle_configuration.CreateStatCycleParams) (*socialclientmodels.StatCycleInfo, error) {
+func (aaa *StatCycleConfigurationService) CreateStatCycleShort(input *stat_cycle_configuration.CreateStatCycleParams) (*stat_cycle_configuration.CreateStatCycleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -98,10 +97,10 @@ func (aaa *StatCycleConfigurationService) CreateStatCycleShort(input *stat_cycle
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *StatCycleConfigurationService) BulkGetStatCycleShort(input *stat_cycle_configuration.BulkGetStatCycleParams) (*socialclientmodels.BulkStatCycleResult, error) {
+func (aaa *StatCycleConfigurationService) BulkGetStatCycleShort(input *stat_cycle_configuration.BulkGetStatCycleParams) (*stat_cycle_configuration.BulkGetStatCycleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -128,10 +127,10 @@ func (aaa *StatCycleConfigurationService) BulkGetStatCycleShort(input *stat_cycl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatCycleConfigurationService) ExportStatCycleShort(input *stat_cycle_configuration.ExportStatCycleParams, writer io.Writer) (io.Writer, error) {
+func (aaa *StatCycleConfigurationService) ExportStatCycleShort(input *stat_cycle_configuration.ExportStatCycleParams, writer io.Writer) (*stat_cycle_configuration.ExportStatCycleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -158,10 +157,10 @@ func (aaa *StatCycleConfigurationService) ExportStatCycleShort(input *stat_cycle
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatCycleConfigurationService) ImportStatCycleShort(input *stat_cycle_configuration.ImportStatCycleParams) (*socialclientmodels.StatImportInfo, error) {
+func (aaa *StatCycleConfigurationService) ImportStatCycleShort(input *stat_cycle_configuration.ImportStatCycleParams) (*stat_cycle_configuration.ImportStatCycleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -188,10 +187,10 @@ func (aaa *StatCycleConfigurationService) ImportStatCycleShort(input *stat_cycle
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *StatCycleConfigurationService) GetStatCycleShort(input *stat_cycle_configuration.GetStatCycleParams) (*socialclientmodels.StatCycleInfo, error) {
+func (aaa *StatCycleConfigurationService) GetStatCycleShort(input *stat_cycle_configuration.GetStatCycleParams) (*stat_cycle_configuration.GetStatCycleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -218,10 +217,10 @@ func (aaa *StatCycleConfigurationService) GetStatCycleShort(input *stat_cycle_co
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatCycleConfigurationService) UpdateStatCycleShort(input *stat_cycle_configuration.UpdateStatCycleParams) (*socialclientmodels.StatCycleInfo, error) {
+func (aaa *StatCycleConfigurationService) UpdateStatCycleShort(input *stat_cycle_configuration.UpdateStatCycleParams) (*stat_cycle_configuration.UpdateStatCycleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -248,7 +247,7 @@ func (aaa *StatCycleConfigurationService) UpdateStatCycleShort(input *stat_cycle
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *StatCycleConfigurationService) DeleteStatCycleShort(input *stat_cycle_configuration.DeleteStatCycleParams) error {
@@ -281,7 +280,7 @@ func (aaa *StatCycleConfigurationService) DeleteStatCycleShort(input *stat_cycle
 	return nil
 }
 
-func (aaa *StatCycleConfigurationService) BulkAddStatsShort(input *stat_cycle_configuration.BulkAddStatsParams) ([]*socialclientmodels.BulkStatCycleOperationResult, error) {
+func (aaa *StatCycleConfigurationService) BulkAddStatsShort(input *stat_cycle_configuration.BulkAddStatsParams) (*stat_cycle_configuration.BulkAddStatsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -308,10 +307,10 @@ func (aaa *StatCycleConfigurationService) BulkAddStatsShort(input *stat_cycle_co
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatCycleConfigurationService) StopStatCycleShort(input *stat_cycle_configuration.StopStatCycleParams) (*socialclientmodels.StatCycleInfo, error) {
+func (aaa *StatCycleConfigurationService) StopStatCycleShort(input *stat_cycle_configuration.StopStatCycleParams) (*stat_cycle_configuration.StopStatCycleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -338,10 +337,10 @@ func (aaa *StatCycleConfigurationService) StopStatCycleShort(input *stat_cycle_c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatCycleConfigurationService) GetStatCycles1Short(input *stat_cycle_configuration.GetStatCycles1Params) (*socialclientmodels.StatCyclePagingSlicedResult, error) {
+func (aaa *StatCycleConfigurationService) GetStatCycles1Short(input *stat_cycle_configuration.GetStatCycles1Params) (*stat_cycle_configuration.GetStatCycles1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -368,10 +367,10 @@ func (aaa *StatCycleConfigurationService) GetStatCycles1Short(input *stat_cycle_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatCycleConfigurationService) BulkGetStatCycle1Short(input *stat_cycle_configuration.BulkGetStatCycle1Params) (*socialclientmodels.BulkStatCycleResult, error) {
+func (aaa *StatCycleConfigurationService) BulkGetStatCycle1Short(input *stat_cycle_configuration.BulkGetStatCycle1Params) (*stat_cycle_configuration.BulkGetStatCycle1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -398,10 +397,10 @@ func (aaa *StatCycleConfigurationService) BulkGetStatCycle1Short(input *stat_cyc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatCycleConfigurationService) GetStatCycle1Short(input *stat_cycle_configuration.GetStatCycle1Params) (*socialclientmodels.StatCycleInfo, error) {
+func (aaa *StatCycleConfigurationService) GetStatCycle1Short(input *stat_cycle_configuration.GetStatCycle1Params) (*stat_cycle_configuration.GetStatCycle1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -428,5 +427,5 @@ func (aaa *StatCycleConfigurationService) GetStatCycle1Short(input *stat_cycle_c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

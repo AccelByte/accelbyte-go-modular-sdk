@@ -12,7 +12,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -53,7 +52,7 @@ func (aaa *OAuth20Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *OAuth20Service) AdminRetrieveUserThirdPartyPlatformTokenV3Short(input *o_auth2_0.AdminRetrieveUserThirdPartyPlatformTokenV3Params) (*iamclientmodels.OauthmodelTokenThirdPartyResponse, error) {
+func (aaa *OAuth20Service) AdminRetrieveUserThirdPartyPlatformTokenV3Short(input *o_auth2_0.AdminRetrieveUserThirdPartyPlatformTokenV3Params) (*o_auth2_0.AdminRetrieveUserThirdPartyPlatformTokenV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -80,7 +79,7 @@ func (aaa *OAuth20Service) AdminRetrieveUserThirdPartyPlatformTokenV3Short(input
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OAuth20Service) RevokeUserV3Short(input *o_auth2_0.RevokeUserV3Params) error {
@@ -140,7 +139,7 @@ func (aaa *OAuth20Service) AuthorizeV3Short(input *o_auth2_0.AuthorizeV3Params) 
 		return "", err
 	}
 
-	parsedURL, err := url.Parse(found.Location)
+	parsedURL, err := url.Parse(found.Data)
 	if err != nil {
 		return "", err
 	}
@@ -153,7 +152,7 @@ func (aaa *OAuth20Service) AuthorizeV3Short(input *o_auth2_0.AuthorizeV3Params) 
 	return requestID, nil
 }
 
-func (aaa *OAuth20Service) TokenIntrospectionV3Short(input *o_auth2_0.TokenIntrospectionV3Params) (*iamclientmodels.OauthmodelTokenIntrospectResponse, error) {
+func (aaa *OAuth20Service) TokenIntrospectionV3Short(input *o_auth2_0.TokenIntrospectionV3Params) (*o_auth2_0.TokenIntrospectionV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -181,10 +180,10 @@ func (aaa *OAuth20Service) TokenIntrospectionV3Short(input *o_auth2_0.TokenIntro
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20Service) GetJWKSV3Short(input *o_auth2_0.GetJWKSV3Params) (*iamclientmodels.OauthcommonJWKSet, error) {
+func (aaa *OAuth20Service) GetJWKSV3Short(input *o_auth2_0.GetJWKSV3Params) (*o_auth2_0.GetJWKSV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -211,7 +210,7 @@ func (aaa *OAuth20Service) GetJWKSV3Short(input *o_auth2_0.GetJWKSV3Params) (*ia
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OAuth20Service) SendMFAAuthenticationCodeShort(input *o_auth2_0.SendMFAAuthenticationCodeParams) error {
@@ -274,7 +273,7 @@ func (aaa *OAuth20Service) Change2FAMethodShort(input *o_auth2_0.Change2FAMethod
 	return nil
 }
 
-func (aaa *OAuth20Service) Verify2FACodeShort(input *o_auth2_0.Verify2FACodeParams) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (aaa *OAuth20Service) Verify2FACodeShort(input *o_auth2_0.Verify2FACodeParams) (*o_auth2_0.Verify2FACodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -301,10 +300,10 @@ func (aaa *OAuth20Service) Verify2FACodeShort(input *o_auth2_0.Verify2FACodePara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20Service) RetrieveUserThirdPartyPlatformTokenV3Short(input *o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3Params) (*iamclientmodels.OauthmodelTokenThirdPartyResponse, error) {
+func (aaa *OAuth20Service) RetrieveUserThirdPartyPlatformTokenV3Short(input *o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3Params) (*o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -331,7 +330,7 @@ func (aaa *OAuth20Service) RetrieveUserThirdPartyPlatformTokenV3Short(input *o_a
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OAuth20Service) AuthCodeRequestV3Short(input *o_auth2_0.AuthCodeRequestV3Params) (string, error) {
@@ -361,10 +360,10 @@ func (aaa *OAuth20Service) AuthCodeRequestV3Short(input *o_auth2_0.AuthCodeReque
 		return "", err
 	}
 
-	return found.Location, nil
+	return found.Data, nil
 }
 
-func (aaa *OAuth20Service) PlatformTokenGrantV3Short(input *o_auth2_0.PlatformTokenGrantV3Params) (*iamclientmodels.OauthmodelTokenResponse, error) {
+func (aaa *OAuth20Service) PlatformTokenGrantV3Short(input *o_auth2_0.PlatformTokenGrantV3Params) (*o_auth2_0.PlatformTokenGrantV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -391,10 +390,10 @@ func (aaa *OAuth20Service) PlatformTokenGrantV3Short(input *o_auth2_0.PlatformTo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20Service) GetRevocationListV3Short(input *o_auth2_0.GetRevocationListV3Params) (*iamclientmodels.OauthapiRevocationList, error) {
+func (aaa *OAuth20Service) GetRevocationListV3Short(input *o_auth2_0.GetRevocationListV3Params) (*o_auth2_0.GetRevocationListV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -421,7 +420,7 @@ func (aaa *OAuth20Service) GetRevocationListV3Short(input *o_auth2_0.GetRevocati
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OAuth20Service) TokenRevocationV3Short(input *o_auth2_0.TokenRevocationV3Params) error {
@@ -454,7 +453,7 @@ func (aaa *OAuth20Service) TokenRevocationV3Short(input *o_auth2_0.TokenRevocati
 	return nil
 }
 
-func (aaa *OAuth20Service) SimultaneousLoginV3Short(input *o_auth2_0.SimultaneousLoginV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (aaa *OAuth20Service) SimultaneousLoginV3Short(input *o_auth2_0.SimultaneousLoginV3Params) (*o_auth2_0.SimultaneousLoginV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -481,10 +480,10 @@ func (aaa *OAuth20Service) SimultaneousLoginV3Short(input *o_auth2_0.Simultaneou
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20Service) TokenGrantV3Short(input *o_auth2_0.TokenGrantV3Params) (*iamclientmodels.OauthmodelTokenWithDeviceCookieResponseV3, error) {
+func (aaa *OAuth20Service) TokenGrantV3Short(input *o_auth2_0.TokenGrantV3Params) (*o_auth2_0.TokenGrantV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,14 +513,14 @@ func (aaa *OAuth20Service) TokenGrantV3Short(input *o_auth2_0.TokenGrantV3Params
 	if ok == nil {
 		return nil, errors.New("empty access token")
 	}
-	err = aaa.TokenRepository.Store(*ok.GetPayload())
+	err = aaa.TokenRepository.Store(*ok.Data)
 	if err != nil {
 		return nil, err
 	}
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20Service) VerifyTokenV3Short(input *o_auth2_0.VerifyTokenV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (aaa *OAuth20Service) VerifyTokenV3Short(input *o_auth2_0.VerifyTokenV3Params) (*o_auth2_0.VerifyTokenV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -548,5 +547,5 @@ func (aaa *OAuth20Service) VerifyTokenV3Short(input *o_auth2_0.VerifyTokenV3Para
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

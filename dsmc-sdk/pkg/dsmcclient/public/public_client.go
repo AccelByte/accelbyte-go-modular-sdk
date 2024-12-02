@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetDefaultProviderShort(params *GetDefaultProviderParams, authInfo runtime.ClientAuthInfoWriter) (*GetDefaultProviderOK, error)
-	ListProvidersShort(params *ListProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*ListProvidersOK, error)
-	ListProvidersByRegionShort(params *ListProvidersByRegionParams, authInfo runtime.ClientAuthInfoWriter) (*ListProvidersByRegionOK, error)
+	GetDefaultProviderShort(params *GetDefaultProviderParams, authInfo runtime.ClientAuthInfoWriter) (*GetDefaultProviderResponse, error)
+	ListProvidersShort(params *ListProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*ListProvidersResponse, error)
+	ListProvidersByRegionShort(params *ListProvidersByRegionParams, authInfo runtime.ClientAuthInfoWriter) (*ListProvidersByRegionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 GetDefaultProviderShort get default provider
 This endpoints returns the default provider.
 */
-func (a *Client) GetDefaultProviderShort(params *GetDefaultProviderParams, authInfo runtime.ClientAuthInfoWriter) (*GetDefaultProviderOK, error) {
+func (a *Client) GetDefaultProviderShort(params *GetDefaultProviderParams, authInfo runtime.ClientAuthInfoWriter) (*GetDefaultProviderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDefaultProviderParams()
@@ -79,7 +79,12 @@ func (a *Client) GetDefaultProviderShort(params *GetDefaultProviderParams, authI
 	switch v := result.(type) {
 
 	case *GetDefaultProviderOK:
-		return v, nil
+		response := &GetDefaultProviderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -90,7 +95,7 @@ func (a *Client) GetDefaultProviderShort(params *GetDefaultProviderParams, authI
 ListProvidersShort list all supported providers
 This endpoints returns list of supported providers. Armada is the default provider.
 */
-func (a *Client) ListProvidersShort(params *ListProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*ListProvidersOK, error) {
+func (a *Client) ListProvidersShort(params *ListProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*ListProvidersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListProvidersParams()
@@ -128,7 +133,12 @@ func (a *Client) ListProvidersShort(params *ListProvidersParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *ListProvidersOK:
-		return v, nil
+		response := &ListProvidersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -139,7 +149,7 @@ func (a *Client) ListProvidersShort(params *ListProvidersParams, authInfo runtim
 ListProvidersByRegionShort list providers by region
 This endpoint returns the providers by region.
 */
-func (a *Client) ListProvidersByRegionShort(params *ListProvidersByRegionParams, authInfo runtime.ClientAuthInfoWriter) (*ListProvidersByRegionOK, error) {
+func (a *Client) ListProvidersByRegionShort(params *ListProvidersByRegionParams, authInfo runtime.ClientAuthInfoWriter) (*ListProvidersByRegionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListProvidersByRegionParams()
@@ -177,7 +187,12 @@ func (a *Client) ListProvidersByRegionShort(params *ListProvidersByRegionParams,
 	switch v := result.(type) {
 
 	case *ListProvidersByRegionOK:
-		return v, nil
+		response := &ListProvidersByRegionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

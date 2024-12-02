@@ -9,7 +9,6 @@ package cloudsave
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/admin_game_binary_record"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminGameBinaryRecordService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminGameBinaryRecordService) AdminListGameBinaryRecordsV1Short(input *admin_game_binary_record.AdminListGameBinaryRecordsV1Params) (*cloudsaveclientmodels.ModelsListGameBinaryRecordsAdminResponse, error) {
+func (aaa *AdminGameBinaryRecordService) AdminListGameBinaryRecordsV1Short(input *admin_game_binary_record.AdminListGameBinaryRecordsV1Params) (*admin_game_binary_record.AdminListGameBinaryRecordsV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminGameBinaryRecordService) AdminListGameBinaryRecordsV1Short(input
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGameBinaryRecordService) AdminPostGameBinaryRecordV1Short(input *admin_game_binary_record.AdminPostGameBinaryRecordV1Params) (*cloudsaveclientmodels.ModelsUploadBinaryRecordResponse, error) {
+func (aaa *AdminGameBinaryRecordService) AdminPostGameBinaryRecordV1Short(input *admin_game_binary_record.AdminPostGameBinaryRecordV1Params) (*admin_game_binary_record.AdminPostGameBinaryRecordV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminGameBinaryRecordService) AdminPostGameBinaryRecordV1Short(input 
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminGameBinaryRecordService) AdminGetGameBinaryRecordV1Short(input *admin_game_binary_record.AdminGetGameBinaryRecordV1Params) (*cloudsaveclientmodels.ModelsGameBinaryRecordAdminResponse, error) {
+func (aaa *AdminGameBinaryRecordService) AdminGetGameBinaryRecordV1Short(input *admin_game_binary_record.AdminGetGameBinaryRecordV1Params) (*admin_game_binary_record.AdminGetGameBinaryRecordV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *AdminGameBinaryRecordService) AdminGetGameBinaryRecordV1Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGameBinaryRecordService) AdminPutGameBinaryRecordV1Short(input *admin_game_binary_record.AdminPutGameBinaryRecordV1Params) (*cloudsaveclientmodels.ModelsGameBinaryRecordAdminResponse, error) {
+func (aaa *AdminGameBinaryRecordService) AdminPutGameBinaryRecordV1Short(input *admin_game_binary_record.AdminPutGameBinaryRecordV1Params) (*admin_game_binary_record.AdminPutGameBinaryRecordV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,7 +153,7 @@ func (aaa *AdminGameBinaryRecordService) AdminPutGameBinaryRecordV1Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminGameBinaryRecordService) AdminDeleteGameBinaryRecordV1Short(input *admin_game_binary_record.AdminDeleteGameBinaryRecordV1Params) error {
@@ -187,7 +186,7 @@ func (aaa *AdminGameBinaryRecordService) AdminDeleteGameBinaryRecordV1Short(inpu
 	return nil
 }
 
-func (aaa *AdminGameBinaryRecordService) AdminPutGameBinaryRecorMetadataV1Short(input *admin_game_binary_record.AdminPutGameBinaryRecorMetadataV1Params) (*cloudsaveclientmodels.ModelsGameBinaryRecordAdminResponse, error) {
+func (aaa *AdminGameBinaryRecordService) AdminPutGameBinaryRecorMetadataV1Short(input *admin_game_binary_record.AdminPutGameBinaryRecorMetadataV1Params) (*admin_game_binary_record.AdminPutGameBinaryRecorMetadataV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *AdminGameBinaryRecordService) AdminPutGameBinaryRecorMetadataV1Short(
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGameBinaryRecordService) AdminPostGameBinaryPresignedURLV1Short(input *admin_game_binary_record.AdminPostGameBinaryPresignedURLV1Params) (*cloudsaveclientmodels.ModelsUploadBinaryRecordResponse, error) {
+func (aaa *AdminGameBinaryRecordService) AdminPostGameBinaryPresignedURLV1Short(input *admin_game_binary_record.AdminPostGameBinaryPresignedURLV1Params) (*admin_game_binary_record.AdminPostGameBinaryPresignedURLV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,5 +243,5 @@ func (aaa *AdminGameBinaryRecordService) AdminPostGameBinaryPresignedURLV1Short(
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }

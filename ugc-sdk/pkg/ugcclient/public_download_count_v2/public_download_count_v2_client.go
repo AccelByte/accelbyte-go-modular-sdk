@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicAddDownloadCountV2Short(params *PublicAddDownloadCountV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicAddDownloadCountV2OK, error)
-	PublicListContentDownloaderV2Short(params *PublicListContentDownloaderV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentDownloaderV2OK, error)
+	PublicAddDownloadCountV2Short(params *PublicAddDownloadCountV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicAddDownloadCountV2Response, error)
+	PublicListContentDownloaderV2Short(params *PublicListContentDownloaderV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentDownloaderV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 PublicAddDownloadCountV2Short add unique download count to a content
 This endpoint can be used to count how many the ugc downloaded
 */
-func (a *Client) PublicAddDownloadCountV2Short(params *PublicAddDownloadCountV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicAddDownloadCountV2OK, error) {
+func (a *Client) PublicAddDownloadCountV2Short(params *PublicAddDownloadCountV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicAddDownloadCountV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicAddDownloadCountV2Params()
@@ -78,15 +78,40 @@ func (a *Client) PublicAddDownloadCountV2Short(params *PublicAddDownloadCountV2P
 	switch v := result.(type) {
 
 	case *PublicAddDownloadCountV2OK:
-		return v, nil
+		response := &PublicAddDownloadCountV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicAddDownloadCountV2Unauthorized:
-		return nil, v
+		response := &PublicAddDownloadCountV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicAddDownloadCountV2NotFound:
-		return nil, v
+		response := &PublicAddDownloadCountV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicAddDownloadCountV2TooManyRequests:
-		return nil, v
+		response := &PublicAddDownloadCountV2Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicAddDownloadCountV2InternalServerError:
-		return nil, v
+		response := &PublicAddDownloadCountV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +122,7 @@ func (a *Client) PublicAddDownloadCountV2Short(params *PublicAddDownloadCountV2P
 PublicListContentDownloaderV2Short list content downloader
 This endpoint will only display the list of users who performed add download count from v2 endpoint.
 */
-func (a *Client) PublicListContentDownloaderV2Short(params *PublicListContentDownloaderV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentDownloaderV2OK, error) {
+func (a *Client) PublicListContentDownloaderV2Short(params *PublicListContentDownloaderV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentDownloaderV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListContentDownloaderV2Params()
@@ -135,13 +160,33 @@ func (a *Client) PublicListContentDownloaderV2Short(params *PublicListContentDow
 	switch v := result.(type) {
 
 	case *PublicListContentDownloaderV2OK:
-		return v, nil
+		response := &PublicListContentDownloaderV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListContentDownloaderV2BadRequest:
-		return nil, v
+		response := &PublicListContentDownloaderV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListContentDownloaderV2Unauthorized:
-		return nil, v
+		response := &PublicListContentDownloaderV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListContentDownloaderV2InternalServerError:
-		return nil, v
+		response := &PublicListContentDownloaderV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

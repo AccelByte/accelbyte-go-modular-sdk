@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryPaymentNotificationsShort(params *QueryPaymentNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentNotificationsOK, error)
-	QueryPaymentOrdersShort(params *QueryPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentOrdersOK, error)
-	ListExtOrderNoByExtTxIDShort(params *ListExtOrderNoByExtTxIDParams, authInfo runtime.ClientAuthInfoWriter) (*ListExtOrderNoByExtTxIDOK, error)
-	GetPaymentOrderShort(params *GetPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderOK, error)
-	ChargePaymentOrderShort(params *ChargePaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*ChargePaymentOrderOK, error)
-	SimulatePaymentOrderNotificationShort(params *SimulatePaymentOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*SimulatePaymentOrderNotificationOK, error)
-	GetPaymentOrderChargeStatusShort(params *GetPaymentOrderChargeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderChargeStatusOK, error)
-	CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserPaymentOrderCreated, error)
-	RefundUserPaymentOrderShort(params *RefundUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundUserPaymentOrderOK, error)
+	QueryPaymentNotificationsShort(params *QueryPaymentNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentNotificationsResponse, error)
+	QueryPaymentOrdersShort(params *QueryPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentOrdersResponse, error)
+	ListExtOrderNoByExtTxIDShort(params *ListExtOrderNoByExtTxIDParams, authInfo runtime.ClientAuthInfoWriter) (*ListExtOrderNoByExtTxIDResponse, error)
+	GetPaymentOrderShort(params *GetPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderResponse, error)
+	ChargePaymentOrderShort(params *ChargePaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*ChargePaymentOrderResponse, error)
+	SimulatePaymentOrderNotificationShort(params *SimulatePaymentOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*SimulatePaymentOrderNotificationResponse, error)
+	GetPaymentOrderChargeStatusShort(params *GetPaymentOrderChargeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderChargeStatusResponse, error)
+	CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserPaymentOrderResponse, error)
+	RefundUserPaymentOrderShort(params *RefundUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundUserPaymentOrderResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,7 +50,7 @@ Other detail info:
 
   * Returns : Payment notifications
 */
-func (a *Client) QueryPaymentNotificationsShort(params *QueryPaymentNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentNotificationsOK, error) {
+func (a *Client) QueryPaymentNotificationsShort(params *QueryPaymentNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentNotificationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPaymentNotificationsParams()
@@ -88,7 +88,12 @@ func (a *Client) QueryPaymentNotificationsShort(params *QueryPaymentNotification
 	switch v := result.(type) {
 
 	case *QueryPaymentNotificationsOK:
-		return v, nil
+		response := &QueryPaymentNotificationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -102,7 +107,7 @@ Other detail info:
 
   * Returns : query payment orders
 */
-func (a *Client) QueryPaymentOrdersShort(params *QueryPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentOrdersOK, error) {
+func (a *Client) QueryPaymentOrdersShort(params *QueryPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentOrdersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPaymentOrdersParams()
@@ -140,7 +145,12 @@ func (a *Client) QueryPaymentOrdersShort(params *QueryPaymentOrdersParams, authI
 	switch v := result.(type) {
 
 	case *QueryPaymentOrdersOK:
-		return v, nil
+		response := &QueryPaymentOrdersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -154,7 +164,7 @@ Other detail info:
 
   * Returns : payment orders
 */
-func (a *Client) ListExtOrderNoByExtTxIDShort(params *ListExtOrderNoByExtTxIDParams, authInfo runtime.ClientAuthInfoWriter) (*ListExtOrderNoByExtTxIDOK, error) {
+func (a *Client) ListExtOrderNoByExtTxIDShort(params *ListExtOrderNoByExtTxIDParams, authInfo runtime.ClientAuthInfoWriter) (*ListExtOrderNoByExtTxIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListExtOrderNoByExtTxIDParams()
@@ -192,7 +202,12 @@ func (a *Client) ListExtOrderNoByExtTxIDShort(params *ListExtOrderNoByExtTxIDPar
 	switch v := result.(type) {
 
 	case *ListExtOrderNoByExtTxIDOK:
-		return v, nil
+		response := &ListExtOrderNoByExtTxIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -206,7 +221,7 @@ Other detail info:
 
   * Returns : payment order instance
 */
-func (a *Client) GetPaymentOrderShort(params *GetPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderOK, error) {
+func (a *Client) GetPaymentOrderShort(params *GetPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPaymentOrderParams()
@@ -244,9 +259,19 @@ func (a *Client) GetPaymentOrderShort(params *GetPaymentOrderParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetPaymentOrderOK:
-		return v, nil
+		response := &GetPaymentOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPaymentOrderNotFound:
-		return nil, v
+		response := &GetPaymentOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -260,7 +285,7 @@ Other detail info:
 
   * Returns : payment order instance
 */
-func (a *Client) ChargePaymentOrderShort(params *ChargePaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*ChargePaymentOrderOK, error) {
+func (a *Client) ChargePaymentOrderShort(params *ChargePaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*ChargePaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewChargePaymentOrderParams()
@@ -298,13 +323,33 @@ func (a *Client) ChargePaymentOrderShort(params *ChargePaymentOrderParams, authI
 	switch v := result.(type) {
 
 	case *ChargePaymentOrderOK:
-		return v, nil
+		response := &ChargePaymentOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ChargePaymentOrderBadRequest:
-		return nil, v
+		response := &ChargePaymentOrderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ChargePaymentOrderNotFound:
-		return nil, v
+		response := &ChargePaymentOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ChargePaymentOrderConflict:
-		return nil, v
+		response := &ChargePaymentOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -318,7 +363,7 @@ Other detail info:
 
   * Returns : notification process result
 */
-func (a *Client) SimulatePaymentOrderNotificationShort(params *SimulatePaymentOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*SimulatePaymentOrderNotificationOK, error) {
+func (a *Client) SimulatePaymentOrderNotificationShort(params *SimulatePaymentOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*SimulatePaymentOrderNotificationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSimulatePaymentOrderNotificationParams()
@@ -356,11 +401,26 @@ func (a *Client) SimulatePaymentOrderNotificationShort(params *SimulatePaymentOr
 	switch v := result.(type) {
 
 	case *SimulatePaymentOrderNotificationOK:
-		return v, nil
+		response := &SimulatePaymentOrderNotificationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SimulatePaymentOrderNotificationBadRequest:
-		return nil, v
+		response := &SimulatePaymentOrderNotificationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SimulatePaymentOrderNotificationNotFound:
-		return nil, v
+		response := &SimulatePaymentOrderNotificationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -374,7 +434,7 @@ Other detail info:
 
   * Returns : payment order charge status
 */
-func (a *Client) GetPaymentOrderChargeStatusShort(params *GetPaymentOrderChargeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderChargeStatusOK, error) {
+func (a *Client) GetPaymentOrderChargeStatusShort(params *GetPaymentOrderChargeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderChargeStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPaymentOrderChargeStatusParams()
@@ -412,9 +472,19 @@ func (a *Client) GetPaymentOrderChargeStatusShort(params *GetPaymentOrderChargeS
 	switch v := result.(type) {
 
 	case *GetPaymentOrderChargeStatusOK:
-		return v, nil
+		response := &GetPaymentOrderChargeStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPaymentOrderChargeStatusNotFound:
-		return nil, v
+		response := &GetPaymentOrderChargeStatusResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -447,7 +517,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserPaymentOrderCreated, error) {
+func (a *Client) CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserPaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateUserPaymentOrderParams()
@@ -485,17 +555,47 @@ func (a *Client) CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParam
 	switch v := result.(type) {
 
 	case *CreateUserPaymentOrderCreated:
-		return v, nil
+		response := &CreateUserPaymentOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateUserPaymentOrderBadRequest:
-		return nil, v
+		response := &CreateUserPaymentOrderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserPaymentOrderForbidden:
-		return nil, v
+		response := &CreateUserPaymentOrderResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserPaymentOrderNotFound:
-		return nil, v
+		response := &CreateUserPaymentOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserPaymentOrderConflict:
-		return nil, v
+		response := &CreateUserPaymentOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserPaymentOrderUnprocessableEntity:
-		return nil, v
+		response := &CreateUserPaymentOrderResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -506,7 +606,7 @@ func (a *Client) CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParam
 RefundUserPaymentOrderShort refund payment order
  [Not supported yet in AGS Shared Cloud] [SERVICE COMMUNICATION ONLY] This API is used to refund order by paymentOrderNo from justice service.
 */
-func (a *Client) RefundUserPaymentOrderShort(params *RefundUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundUserPaymentOrderOK, error) {
+func (a *Client) RefundUserPaymentOrderShort(params *RefundUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundUserPaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRefundUserPaymentOrderParams()
@@ -544,13 +644,33 @@ func (a *Client) RefundUserPaymentOrderShort(params *RefundUserPaymentOrderParam
 	switch v := result.(type) {
 
 	case *RefundUserPaymentOrderOK:
-		return v, nil
+		response := &RefundUserPaymentOrderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RefundUserPaymentOrderNotFound:
-		return nil, v
+		response := &RefundUserPaymentOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RefundUserPaymentOrderConflict:
-		return nil, v
+		response := &RefundUserPaymentOrderResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RefundUserPaymentOrderUnprocessableEntity:
-		return nil, v
+		response := &RefundUserPaymentOrderResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

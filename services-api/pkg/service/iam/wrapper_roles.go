@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *RolesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *RolesService) GetRolesShort(input *roles.GetRolesParams) ([]*iamclientmodels.ModelRoleResponseWithManagers, error) {
+func (aaa *RolesService) GetRolesShort(input *roles.GetRolesParams) (*roles.GetRolesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *RolesService) GetRolesShort(input *roles.GetRolesParams) ([]*iamclien
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) CreateRoleShort(input *roles.CreateRoleParams) (*iamclientmodels.AccountcommonRole, error) {
+func (aaa *RolesService) CreateRoleShort(input *roles.CreateRoleParams) (*roles.CreateRoleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *RolesService) CreateRoleShort(input *roles.CreateRoleParams) (*iamcli
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *RolesService) GetRoleShort(input *roles.GetRoleParams) (*iamclientmodels.ModelRoleResponse, error) {
+func (aaa *RolesService) GetRoleShort(input *roles.GetRoleParams) (*roles.GetRoleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *RolesService) GetRoleShort(input *roles.GetRoleParams) (*iamclientmod
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) UpdateRoleShort(input *roles.UpdateRoleParams) (*iamclientmodels.ModelRoleResponse, error) {
+func (aaa *RolesService) UpdateRoleShort(input *roles.UpdateRoleParams) (*roles.UpdateRoleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *RolesService) UpdateRoleShort(input *roles.UpdateRoleParams) (*iamcli
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) DeleteRoleShort(input *roles.DeleteRoleParams) error {
@@ -189,7 +188,7 @@ func (aaa *RolesService) DeleteRoleShort(input *roles.DeleteRoleParams) error {
 	return nil
 }
 
-func (aaa *RolesService) GetRoleAdminStatusShort(input *roles.GetRoleAdminStatusParams) (*iamclientmodels.ModelRoleAdminStatusResponse, error) {
+func (aaa *RolesService) GetRoleAdminStatusShort(input *roles.GetRoleAdminStatusParams) (*roles.GetRoleAdminStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *RolesService) GetRoleAdminStatusShort(input *roles.GetRoleAdminStatus
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) SetRoleAsAdminShort(input *roles.SetRoleAsAdminParams) error {
@@ -279,7 +278,7 @@ func (aaa *RolesService) RemoveRoleAdminShort(input *roles.RemoveRoleAdminParams
 	return nil
 }
 
-func (aaa *RolesService) GetRoleManagersShort(input *roles.GetRoleManagersParams) (*iamclientmodels.ModelRoleManagersResponse, error) {
+func (aaa *RolesService) GetRoleManagersShort(input *roles.GetRoleManagersParams) (*roles.GetRoleManagersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,7 +305,7 @@ func (aaa *RolesService) GetRoleManagersShort(input *roles.GetRoleManagersParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) AddRoleManagersShort(input *roles.AddRoleManagersParams) error {
@@ -369,7 +368,7 @@ func (aaa *RolesService) RemoveRoleManagersShort(input *roles.RemoveRoleManagers
 	return nil
 }
 
-func (aaa *RolesService) GetRoleMembersShort(input *roles.GetRoleMembersParams) (*iamclientmodels.ModelRoleMembersResponse, error) {
+func (aaa *RolesService) GetRoleMembersShort(input *roles.GetRoleMembersParams) (*roles.GetRoleMembersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,7 +395,7 @@ func (aaa *RolesService) GetRoleMembersShort(input *roles.GetRoleMembersParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) AddRoleMembersShort(input *roles.AddRoleMembersParams) error {
@@ -549,7 +548,7 @@ func (aaa *RolesService) DeleteRolePermissionShort(input *roles.DeleteRolePermis
 	return nil
 }
 
-func (aaa *RolesService) AdminGetRolesV3Short(input *roles.AdminGetRolesV3Params) (*iamclientmodels.ModelRoleResponseWithManagersAndPaginationV3, error) {
+func (aaa *RolesService) AdminGetRolesV3Short(input *roles.AdminGetRolesV3Params) (*roles.AdminGetRolesV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -576,10 +575,10 @@ func (aaa *RolesService) AdminGetRolesV3Short(input *roles.AdminGetRolesV3Params
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) AdminCreateRoleV3Short(input *roles.AdminCreateRoleV3Params) (*iamclientmodels.AccountcommonRoleV3, error) {
+func (aaa *RolesService) AdminCreateRoleV3Short(input *roles.AdminCreateRoleV3Params) (*roles.AdminCreateRoleV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -606,10 +605,10 @@ func (aaa *RolesService) AdminCreateRoleV3Short(input *roles.AdminCreateRoleV3Pa
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *RolesService) AdminGetRoleV3Short(input *roles.AdminGetRoleV3Params) (*iamclientmodels.ModelRoleResponseV3, error) {
+func (aaa *RolesService) AdminGetRoleV3Short(input *roles.AdminGetRoleV3Params) (*roles.AdminGetRoleV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -636,7 +635,7 @@ func (aaa *RolesService) AdminGetRoleV3Short(input *roles.AdminGetRoleV3Params) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) AdminDeleteRoleV3Short(input *roles.AdminDeleteRoleV3Params) error {
@@ -669,7 +668,7 @@ func (aaa *RolesService) AdminDeleteRoleV3Short(input *roles.AdminDeleteRoleV3Pa
 	return nil
 }
 
-func (aaa *RolesService) AdminUpdateRoleV3Short(input *roles.AdminUpdateRoleV3Params) (*iamclientmodels.ModelRoleResponseV3, error) {
+func (aaa *RolesService) AdminUpdateRoleV3Short(input *roles.AdminUpdateRoleV3Params) (*roles.AdminUpdateRoleV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -696,10 +695,10 @@ func (aaa *RolesService) AdminUpdateRoleV3Short(input *roles.AdminUpdateRoleV3Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) AdminGetRoleAdminStatusV3Short(input *roles.AdminGetRoleAdminStatusV3Params) (*iamclientmodels.ModelRoleAdminStatusResponseV3, error) {
+func (aaa *RolesService) AdminGetRoleAdminStatusV3Short(input *roles.AdminGetRoleAdminStatusV3Params) (*roles.AdminGetRoleAdminStatusV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -726,7 +725,7 @@ func (aaa *RolesService) AdminGetRoleAdminStatusV3Short(input *roles.AdminGetRol
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) AdminUpdateAdminRoleStatusV3Short(input *roles.AdminUpdateAdminRoleStatusV3Params) error {
@@ -789,7 +788,7 @@ func (aaa *RolesService) AdminRemoveRoleAdminV3Short(input *roles.AdminRemoveRol
 	return nil
 }
 
-func (aaa *RolesService) AdminGetRoleManagersV3Short(input *roles.AdminGetRoleManagersV3Params) (*iamclientmodels.ModelRoleManagersResponsesV3, error) {
+func (aaa *RolesService) AdminGetRoleManagersV3Short(input *roles.AdminGetRoleManagersV3Params) (*roles.AdminGetRoleManagersV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -816,7 +815,7 @@ func (aaa *RolesService) AdminGetRoleManagersV3Short(input *roles.AdminGetRoleMa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) AdminAddRoleManagersV3Short(input *roles.AdminAddRoleManagersV3Params) error {
@@ -879,7 +878,7 @@ func (aaa *RolesService) AdminRemoveRoleManagersV3Short(input *roles.AdminRemove
 	return nil
 }
 
-func (aaa *RolesService) AdminGetRoleMembersV3Short(input *roles.AdminGetRoleMembersV3Params) (*iamclientmodels.ModelRoleMembersResponseV3, error) {
+func (aaa *RolesService) AdminGetRoleMembersV3Short(input *roles.AdminGetRoleMembersV3Params) (*roles.AdminGetRoleMembersV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -906,7 +905,7 @@ func (aaa *RolesService) AdminGetRoleMembersV3Short(input *roles.AdminGetRoleMem
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) AdminAddRoleMembersV3Short(input *roles.AdminAddRoleMembersV3Params) error {
@@ -1089,7 +1088,7 @@ func (aaa *RolesService) AdminDeleteRolePermissionV3Short(input *roles.AdminDele
 	return nil
 }
 
-func (aaa *RolesService) PublicGetRolesV3Short(input *roles.PublicGetRolesV3Params) (*iamclientmodels.ModelRoleNamesResponseV3, error) {
+func (aaa *RolesService) PublicGetRolesV3Short(input *roles.PublicGetRolesV3Params) (*roles.PublicGetRolesV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1116,10 +1115,10 @@ func (aaa *RolesService) PublicGetRolesV3Short(input *roles.PublicGetRolesV3Para
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) PublicGetRoleV3Short(input *roles.PublicGetRoleV3Params) (*iamclientmodels.ModelRoleResponse, error) {
+func (aaa *RolesService) PublicGetRoleV3Short(input *roles.PublicGetRoleV3Params) (*roles.PublicGetRoleV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1146,10 +1145,10 @@ func (aaa *RolesService) PublicGetRoleV3Short(input *roles.PublicGetRoleV3Params
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) AdminGetRolesV4Short(input *roles.AdminGetRolesV4Params) (*iamclientmodels.ModelListRoleV4Response, error) {
+func (aaa *RolesService) AdminGetRolesV4Short(input *roles.AdminGetRolesV4Params) (*roles.AdminGetRolesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1176,10 +1175,10 @@ func (aaa *RolesService) AdminGetRolesV4Short(input *roles.AdminGetRolesV4Params
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) AdminCreateRoleV4Short(input *roles.AdminCreateRoleV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
+func (aaa *RolesService) AdminCreateRoleV4Short(input *roles.AdminCreateRoleV4Params) (*roles.AdminCreateRoleV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1206,10 +1205,10 @@ func (aaa *RolesService) AdminCreateRoleV4Short(input *roles.AdminCreateRoleV4Pa
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *RolesService) AdminGetRoleV4Short(input *roles.AdminGetRoleV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
+func (aaa *RolesService) AdminGetRoleV4Short(input *roles.AdminGetRoleV4Params) (*roles.AdminGetRoleV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1236,7 +1235,7 @@ func (aaa *RolesService) AdminGetRoleV4Short(input *roles.AdminGetRoleV4Params) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) AdminDeleteRoleV4Short(input *roles.AdminDeleteRoleV4Params) error {
@@ -1269,7 +1268,7 @@ func (aaa *RolesService) AdminDeleteRoleV4Short(input *roles.AdminDeleteRoleV4Pa
 	return nil
 }
 
-func (aaa *RolesService) AdminUpdateRoleV4Short(input *roles.AdminUpdateRoleV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
+func (aaa *RolesService) AdminUpdateRoleV4Short(input *roles.AdminUpdateRoleV4Params) (*roles.AdminUpdateRoleV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1296,10 +1295,10 @@ func (aaa *RolesService) AdminUpdateRoleV4Short(input *roles.AdminUpdateRoleV4Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) AdminUpdateRolePermissionsV4Short(input *roles.AdminUpdateRolePermissionsV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
+func (aaa *RolesService) AdminUpdateRolePermissionsV4Short(input *roles.AdminUpdateRolePermissionsV4Params) (*roles.AdminUpdateRolePermissionsV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1326,10 +1325,10 @@ func (aaa *RolesService) AdminUpdateRolePermissionsV4Short(input *roles.AdminUpd
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) AdminAddRolePermissionsV4Short(input *roles.AdminAddRolePermissionsV4Params) (*iamclientmodels.ModelRoleV4Response, error) {
+func (aaa *RolesService) AdminAddRolePermissionsV4Short(input *roles.AdminAddRolePermissionsV4Params) (*roles.AdminAddRolePermissionsV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1356,7 +1355,7 @@ func (aaa *RolesService) AdminAddRolePermissionsV4Short(input *roles.AdminAddRol
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RolesService) AdminDeleteRolePermissionsV4Short(input *roles.AdminDeleteRolePermissionsV4Params) error {
@@ -1389,7 +1388,7 @@ func (aaa *RolesService) AdminDeleteRolePermissionsV4Short(input *roles.AdminDel
 	return nil
 }
 
-func (aaa *RolesService) AdminListAssignedUsersV4Short(input *roles.AdminListAssignedUsersV4Params) (*iamclientmodels.ModelListAssignedUsersV4Response, error) {
+func (aaa *RolesService) AdminListAssignedUsersV4Short(input *roles.AdminListAssignedUsersV4Params) (*roles.AdminListAssignedUsersV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1416,10 +1415,10 @@ func (aaa *RolesService) AdminListAssignedUsersV4Short(input *roles.AdminListAss
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RolesService) AdminAssignUserToRoleV4Short(input *roles.AdminAssignUserToRoleV4Params) (*iamclientmodels.ModelAssignedUserV4Response, error) {
+func (aaa *RolesService) AdminAssignUserToRoleV4Short(input *roles.AdminAssignUserToRoleV4Params) (*roles.AdminAssignUserToRoleV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1446,7 +1445,7 @@ func (aaa *RolesService) AdminAssignUserToRoleV4Short(input *roles.AdminAssignUs
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *RolesService) AdminRevokeUserFromRoleV4Short(input *roles.AdminRevokeUserFromRoleV4Params) error {

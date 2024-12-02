@@ -9,7 +9,6 @@ package chat
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigService) AdminGetAllConfigV1Short(input *config.AdminGetAllConfigV1Params) (*chatclientmodels.ModelsConfigList, error) {
+func (aaa *ConfigService) AdminGetAllConfigV1Short(input *config.AdminGetAllConfigV1Params) (*config.AdminGetAllConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ConfigService) AdminGetAllConfigV1Short(input *config.AdminGetAllConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfigParams) (*chatclientmodels.LogconfigConfiguration, error) {
+func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfigParams) (*config.AdminGetLogConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfig
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatchUpdateLogConfigParams) (*chatclientmodels.LogconfigConfiguration, error) {
+func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatchUpdateLogConfigParams) (*config.AdminPatchUpdateLogConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminGetConfigV1Short(input *config.AdminGetConfigV1Params) (*chatclientmodels.ModelsConfigResponse, error) {
+func (aaa *ConfigService) AdminGetConfigV1Short(input *config.AdminGetConfigV1Params) (*config.AdminGetConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *ConfigService) AdminGetConfigV1Short(input *config.AdminGetConfigV1Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) AdminUpdateConfigV1Short(input *config.AdminUpdateConfigV1Params) (*chatclientmodels.ModelsConfigResponse, error) {
+func (aaa *ConfigService) AdminUpdateConfigV1Short(input *config.AdminUpdateConfigV1Params) (*config.AdminUpdateConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *ConfigService) AdminUpdateConfigV1Short(input *config.AdminUpdateConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) ExportConfigShort(input *config.ExportConfigParams) ([]*chatclientmodels.ModelsConfigExport, error) {
+func (aaa *ConfigService) ExportConfigShort(input *config.ExportConfigParams) (*config.ExportConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *ConfigService) ExportConfigShort(input *config.ExportConfigParams) ([
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) ImportConfigShort(input *config.ImportConfigParams) (*chatclientmodels.ModelsImportConfigResponse, error) {
+func (aaa *ConfigService) ImportConfigShort(input *config.ImportConfigParams) (*config.ImportConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *ConfigService) ImportConfigShort(input *config.ImportConfigParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) PublicGetConfigV1Short(input *config.PublicGetConfigV1Params) (*chatclientmodels.ModelsPublicConfigResponse, error) {
+func (aaa *ConfigService) PublicGetConfigV1Short(input *config.PublicGetConfigV1Params) (*config.PublicGetConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,5 +275,5 @@ func (aaa *ConfigService) PublicGetConfigV1Short(input *config.PublicGetConfigV1
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

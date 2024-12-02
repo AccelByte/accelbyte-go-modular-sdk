@@ -9,7 +9,6 @@ package ams
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *FleetsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *FleetsService) FleetListShort(input *fleets.FleetListParams) (*amsclientmodels.APIFleetListResponse, error) {
+func (aaa *FleetsService) FleetListShort(input *fleets.FleetListParams) (*fleets.FleetListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *FleetsService) FleetListShort(input *fleets.FleetListParams) (*amscli
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FleetsService) FleetCreateShort(input *fleets.FleetCreateParams) (*amsclientmodels.APIFleetCreateResponse, error) {
+func (aaa *FleetsService) FleetCreateShort(input *fleets.FleetCreateParams) (*fleets.FleetCreateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *FleetsService) FleetCreateShort(input *fleets.FleetCreateParams) (*am
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *FleetsService) FleetGetShort(input *fleets.FleetGetParams) (*amsclientmodels.APIFleetGetResponse, error) {
+func (aaa *FleetsService) FleetGetShort(input *fleets.FleetGetParams) (*fleets.FleetGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *FleetsService) FleetGetShort(input *fleets.FleetGetParams) (*amsclien
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *FleetsService) FleetUpdateShort(input *fleets.FleetUpdateParams) error {
@@ -187,7 +186,7 @@ func (aaa *FleetsService) FleetDeleteShort(input *fleets.FleetDeleteParams) erro
 	return nil
 }
 
-func (aaa *FleetsService) FleetServersShort(input *fleets.FleetServersParams) (*amsclientmodels.APIFleetServersResponse, error) {
+func (aaa *FleetsService) FleetServersShort(input *fleets.FleetServersParams) (*fleets.FleetServersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *FleetsService) FleetServersShort(input *fleets.FleetServersParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FleetsService) FleetClaimByIDShort(input *fleets.FleetClaimByIDParams) (*amsclientmodels.APIFleetClaimResponse, error) {
+func (aaa *FleetsService) FleetClaimByIDShort(input *fleets.FleetClaimByIDParams) (*fleets.FleetClaimByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *FleetsService) FleetClaimByIDShort(input *fleets.FleetClaimByIDParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FleetsService) FleetClaimByKeysShort(input *fleets.FleetClaimByKeysParams) (*amsclientmodels.APIFleetClaimResponse, error) {
+func (aaa *FleetsService) FleetClaimByKeysShort(input *fleets.FleetClaimByKeysParams) (*fleets.FleetClaimByKeysResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,5 +273,5 @@ func (aaa *FleetsService) FleetClaimByKeysShort(input *fleets.FleetClaimByKeysPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

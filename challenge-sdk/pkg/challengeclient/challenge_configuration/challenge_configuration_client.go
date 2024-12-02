@@ -30,16 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetChallengesShort(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesOK, error)
-	AdminCreateChallengeShort(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeCreated, error)
-	AdminGetActiveChallengesShort(params *AdminGetActiveChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetActiveChallengesOK, error)
-	AdminGetChallengeShort(params *AdminGetChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeOK, error)
-	AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeOK, error)
-	AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChallengeNoContent, error)
-	AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPeriodsOK, error)
-	AdminRandomizeChallengeShort(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeOK, error)
-	AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTiedChallengeNoContent, error)
-	AdminUpdateTiedChallengeScheduleShort(params *AdminUpdateTiedChallengeScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTiedChallengeScheduleOK, error)
+	AdminGetChallengesShort(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesResponse, error)
+	AdminCreateChallengeShort(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeResponse, error)
+	AdminGetActiveChallengesShort(params *AdminGetActiveChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetActiveChallengesResponse, error)
+	AdminGetChallengeShort(params *AdminGetChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeResponse, error)
+	AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeResponse, error)
+	AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChallengeResponse, error)
+	AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPeriodsResponse, error)
+	AdminRandomizeChallengeShort(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeResponse, error)
+	AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTiedChallengeResponse, error)
+	AdminUpdateTiedChallengeScheduleShort(params *AdminUpdateTiedChallengeScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTiedChallengeScheduleResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ type ClientService interface {
 AdminGetChallengesShort list challenges
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) AdminGetChallengesShort(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesOK, error) {
+func (a *Client) AdminGetChallengesShort(params *AdminGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetChallengesParams()
@@ -86,13 +86,33 @@ func (a *Client) AdminGetChallengesShort(params *AdminGetChallengesParams, authI
 	switch v := result.(type) {
 
 	case *AdminGetChallengesOK:
-		return v, nil
+		response := &AdminGetChallengesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetChallengesUnauthorized:
-		return nil, v
+		response := &AdminGetChallengesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChallengesForbidden:
-		return nil, v
+		response := &AdminGetChallengesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChallengesInternalServerError:
-		return nil, v
+		response := &AdminGetChallengesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -128,7 +148,7 @@ To configure challenge that never end, leave the endDate and endAfter field null
     * true: each goal will be randomly assigned to multiple periods
     * false: a goal will only be assigned to one period
 */
-func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeCreated, error) {
+func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateChallengeParams()
@@ -166,19 +186,54 @@ func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, a
 	switch v := result.(type) {
 
 	case *AdminCreateChallengeCreated:
-		return v, nil
+		response := &AdminCreateChallengeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateChallengeBadRequest:
-		return nil, v
+		response := &AdminCreateChallengeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChallengeUnauthorized:
-		return nil, v
+		response := &AdminCreateChallengeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChallengeForbidden:
-		return nil, v
+		response := &AdminCreateChallengeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChallengeConflict:
-		return nil, v
+		response := &AdminCreateChallengeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChallengeUnprocessableEntity:
-		return nil, v
+		response := &AdminCreateChallengeResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChallengeInternalServerError:
-		return nil, v
+		response := &AdminCreateChallengeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -191,7 +246,7 @@ AdminGetActiveChallengesShort list user's active challenges
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) AdminGetActiveChallengesShort(params *AdminGetActiveChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetActiveChallengesOK, error) {
+func (a *Client) AdminGetActiveChallengesShort(params *AdminGetActiveChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetActiveChallengesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetActiveChallengesParams()
@@ -229,13 +284,33 @@ func (a *Client) AdminGetActiveChallengesShort(params *AdminGetActiveChallengesP
 	switch v := result.(type) {
 
 	case *AdminGetActiveChallengesOK:
-		return v, nil
+		response := &AdminGetActiveChallengesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetActiveChallengesUnauthorized:
-		return nil, v
+		response := &AdminGetActiveChallengesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetActiveChallengesForbidden:
-		return nil, v
+		response := &AdminGetActiveChallengesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetActiveChallengesInternalServerError:
-		return nil, v
+		response := &AdminGetActiveChallengesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -247,7 +322,7 @@ AdminGetChallengeShort get a challenge
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) AdminGetChallengeShort(params *AdminGetChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeOK, error) {
+func (a *Client) AdminGetChallengeShort(params *AdminGetChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetChallengeParams()
@@ -285,15 +360,40 @@ func (a *Client) AdminGetChallengeShort(params *AdminGetChallengeParams, authInf
 	switch v := result.(type) {
 
 	case *AdminGetChallengeOK:
-		return v, nil
+		response := &AdminGetChallengeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetChallengeUnauthorized:
-		return nil, v
+		response := &AdminGetChallengeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChallengeForbidden:
-		return nil, v
+		response := &AdminGetChallengeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChallengeNotFound:
-		return nil, v
+		response := &AdminGetChallengeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChallengeInternalServerError:
-		return nil, v
+		response := &AdminGetChallengeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -328,7 +428,7 @@ To configure challenge that never end, leave the endDate and endAfter field null
     * true: each goal will be randomly assigned to multiple periods
     * false: a goal will only be assigned to one period
 */
-func (a *Client) AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeOK, error) {
+func (a *Client) AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateChallengeParams()
@@ -366,19 +466,54 @@ func (a *Client) AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, a
 	switch v := result.(type) {
 
 	case *AdminUpdateChallengeOK:
-		return v, nil
+		response := &AdminUpdateChallengeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateChallengeBadRequest:
-		return nil, v
+		response := &AdminUpdateChallengeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateChallengeUnauthorized:
-		return nil, v
+		response := &AdminUpdateChallengeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateChallengeForbidden:
-		return nil, v
+		response := &AdminUpdateChallengeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateChallengeNotFound:
-		return nil, v
+		response := &AdminUpdateChallengeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateChallengeUnprocessableEntity:
-		return nil, v
+		response := &AdminUpdateChallengeResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateChallengeInternalServerError:
-		return nil, v
+		response := &AdminUpdateChallengeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -391,7 +526,7 @@ AdminDeleteChallengeShort delete a challenge
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
 */
-func (a *Client) AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChallengeNoContent, error) {
+func (a *Client) AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChallengeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteChallengeParams()
@@ -429,17 +564,46 @@ func (a *Client) AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, a
 	switch v := result.(type) {
 
 	case *AdminDeleteChallengeNoContent:
-		return v, nil
+		response := &AdminDeleteChallengeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteChallengeBadRequest:
-		return nil, v
+		response := &AdminDeleteChallengeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChallengeUnauthorized:
-		return nil, v
+		response := &AdminDeleteChallengeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChallengeForbidden:
-		return nil, v
+		response := &AdminDeleteChallengeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChallengeNotFound:
-		return nil, v
+		response := &AdminDeleteChallengeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChallengeInternalServerError:
-		return nil, v
+		response := &AdminDeleteChallengeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -451,7 +615,7 @@ AdminGetPeriodsShort get challenge's periods
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPeriodsOK, error) {
+func (a *Client) AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPeriodsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPeriodsParams()
@@ -489,15 +653,40 @@ func (a *Client) AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminGetPeriodsOK:
-		return v, nil
+		response := &AdminGetPeriodsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPeriodsUnauthorized:
-		return nil, v
+		response := &AdminGetPeriodsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPeriodsForbidden:
-		return nil, v
+		response := &AdminGetPeriodsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPeriodsNotFound:
-		return nil, v
+		response := &AdminGetPeriodsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPeriodsInternalServerError:
-		return nil, v
+		response := &AdminGetPeriodsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -511,7 +700,7 @@ AdminRandomizeChallengeShort randomize goals of a challenge
 
 This is a utility endpoint to execute randomize goals schedule on challenge that the assignmentRule is RANDOMIZED and RandomizePerRotation assigned with true.
 */
-func (a *Client) AdminRandomizeChallengeShort(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeOK, error) {
+func (a *Client) AdminRandomizeChallengeShort(params *AdminRandomizeChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminRandomizeChallengeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRandomizeChallengeParams()
@@ -549,17 +738,47 @@ func (a *Client) AdminRandomizeChallengeShort(params *AdminRandomizeChallengePar
 	switch v := result.(type) {
 
 	case *AdminRandomizeChallengeOK:
-		return v, nil
+		response := &AdminRandomizeChallengeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRandomizeChallengeBadRequest:
-		return nil, v
+		response := &AdminRandomizeChallengeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRandomizeChallengeUnauthorized:
-		return nil, v
+		response := &AdminRandomizeChallengeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRandomizeChallengeForbidden:
-		return nil, v
+		response := &AdminRandomizeChallengeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRandomizeChallengeNotFound:
-		return nil, v
+		response := &AdminRandomizeChallengeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRandomizeChallengeInternalServerError:
-		return nil, v
+		response := &AdminRandomizeChallengeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -572,7 +791,7 @@ AdminDeleteTiedChallengeShort delete tied challenge
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
   * This endpoint will delete the combination of related data: CHALLENGES, GOALS, SCHEDULES, PLAYER PROGRESSIONS
 */
-func (a *Client) AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTiedChallengeNoContent, error) {
+func (a *Client) AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTiedChallengeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteTiedChallengeParams()
@@ -610,17 +829,46 @@ func (a *Client) AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeP
 	switch v := result.(type) {
 
 	case *AdminDeleteTiedChallengeNoContent:
-		return v, nil
+		response := &AdminDeleteTiedChallengeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteTiedChallengeBadRequest:
-		return nil, v
+		response := &AdminDeleteTiedChallengeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteTiedChallengeUnauthorized:
-		return nil, v
+		response := &AdminDeleteTiedChallengeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteTiedChallengeForbidden:
-		return nil, v
+		response := &AdminDeleteTiedChallengeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteTiedChallengeNotFound:
-		return nil, v
+		response := &AdminDeleteTiedChallengeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteTiedChallengeInternalServerError:
-		return nil, v
+		response := &AdminDeleteTiedChallengeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -641,7 +889,7 @@ Request body:
     * ACCELERATE: Speeds up the challenge's end time. Note that this option does not apply to challenges with an 'endAfter' value.
   * endDate: The timestamp specifying when the challenge should end (required if the action is ACCELERATE).
 */
-func (a *Client) AdminUpdateTiedChallengeScheduleShort(params *AdminUpdateTiedChallengeScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTiedChallengeScheduleOK, error) {
+func (a *Client) AdminUpdateTiedChallengeScheduleShort(params *AdminUpdateTiedChallengeScheduleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTiedChallengeScheduleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateTiedChallengeScheduleParams()
@@ -679,17 +927,47 @@ func (a *Client) AdminUpdateTiedChallengeScheduleShort(params *AdminUpdateTiedCh
 	switch v := result.(type) {
 
 	case *AdminUpdateTiedChallengeScheduleOK:
-		return v, nil
+		response := &AdminUpdateTiedChallengeScheduleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateTiedChallengeScheduleBadRequest:
-		return nil, v
+		response := &AdminUpdateTiedChallengeScheduleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateTiedChallengeScheduleUnauthorized:
-		return nil, v
+		response := &AdminUpdateTiedChallengeScheduleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateTiedChallengeScheduleForbidden:
-		return nil, v
+		response := &AdminUpdateTiedChallengeScheduleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateTiedChallengeScheduleNotFound:
-		return nil, v
+		response := &AdminUpdateTiedChallengeScheduleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateTiedChallengeScheduleInternalServerError:
-		return nil, v
+		response := &AdminUpdateTiedChallengeScheduleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

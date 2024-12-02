@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryPassesShort(params *QueryPassesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPassesOK, error)
-	CreatePassShort(params *CreatePassParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePassCreated, error)
-	GetPassShort(params *GetPassParams, authInfo runtime.ClientAuthInfoWriter) (*GetPassOK, error)
-	DeletePassShort(params *DeletePassParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePassNoContent, error)
-	UpdatePassShort(params *UpdatePassParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePassOK, error)
-	GrantUserPassShort(params *GrantUserPassParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserPassOK, error)
+	QueryPassesShort(params *QueryPassesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPassesResponse, error)
+	CreatePassShort(params *CreatePassParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePassResponse, error)
+	GetPassShort(params *GetPassParams, authInfo runtime.ClientAuthInfoWriter) (*GetPassResponse, error)
+	DeletePassShort(params *DeletePassParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePassResponse, error)
+	UpdatePassShort(params *UpdatePassParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePassResponse, error)
+	GrantUserPassShort(params *GrantUserPassParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserPassResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ Other detail info:
 
   * Returns : the list of passes
 */
-func (a *Client) QueryPassesShort(params *QueryPassesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPassesOK, error) {
+func (a *Client) QueryPassesShort(params *QueryPassesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPassesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryPassesParams()
@@ -86,11 +86,26 @@ func (a *Client) QueryPassesShort(params *QueryPassesParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *QueryPassesOK:
-		return v, nil
+		response := &QueryPassesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryPassesBadRequest:
-		return nil, v
+		response := &QueryPassesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryPassesNotFound:
-		return nil, v
+		response := &QueryPassesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +120,7 @@ Other detail info:
 
   * Returns : created pass
 */
-func (a *Client) CreatePassShort(params *CreatePassParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePassCreated, error) {
+func (a *Client) CreatePassShort(params *CreatePassParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePassResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePassParams()
@@ -143,15 +158,40 @@ func (a *Client) CreatePassShort(params *CreatePassParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *CreatePassCreated:
-		return v, nil
+		response := &CreatePassResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePassBadRequest:
-		return nil, v
+		response := &CreatePassResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePassNotFound:
-		return nil, v
+		response := &CreatePassResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePassConflict:
-		return nil, v
+		response := &CreatePassResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePassUnprocessableEntity:
-		return nil, v
+		response := &CreatePassResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +206,7 @@ Other detail info:
 
   * Returns : pass data
 */
-func (a *Client) GetPassShort(params *GetPassParams, authInfo runtime.ClientAuthInfoWriter) (*GetPassOK, error) {
+func (a *Client) GetPassShort(params *GetPassParams, authInfo runtime.ClientAuthInfoWriter) (*GetPassResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPassParams()
@@ -204,11 +244,26 @@ func (a *Client) GetPassShort(params *GetPassParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *GetPassOK:
-		return v, nil
+		response := &GetPassResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPassBadRequest:
-		return nil, v
+		response := &GetPassResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPassNotFound:
-		return nil, v
+		response := &GetPassResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -219,7 +274,7 @@ func (a *Client) GetPassShort(params *GetPassParams, authInfo runtime.ClientAuth
 DeletePassShort delete a pass
 This API is used to delete a pass permanently, only draft season pass can be deleted.
 */
-func (a *Client) DeletePassShort(params *DeletePassParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePassNoContent, error) {
+func (a *Client) DeletePassShort(params *DeletePassParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePassResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePassParams()
@@ -257,13 +312,32 @@ func (a *Client) DeletePassShort(params *DeletePassParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *DeletePassNoContent:
-		return v, nil
+		response := &DeletePassResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePassBadRequest:
-		return nil, v
+		response := &DeletePassResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePassNotFound:
-		return nil, v
+		response := &DeletePassResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePassConflict:
-		return nil, v
+		response := &DeletePassResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -278,7 +352,7 @@ Other detail info:
 
   * Returns : updated pass
 */
-func (a *Client) UpdatePassShort(params *UpdatePassParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePassOK, error) {
+func (a *Client) UpdatePassShort(params *UpdatePassParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePassResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePassParams()
@@ -316,15 +390,40 @@ func (a *Client) UpdatePassShort(params *UpdatePassParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UpdatePassOK:
-		return v, nil
+		response := &UpdatePassResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePassBadRequest:
-		return nil, v
+		response := &UpdatePassResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePassNotFound:
-		return nil, v
+		response := &UpdatePassResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePassConflict:
-		return nil, v
+		response := &UpdatePassResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePassUnprocessableEntity:
-		return nil, v
+		response := &UpdatePassResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -339,7 +438,7 @@ Other detail info:
 
   * Returns : user season data
 */
-func (a *Client) GrantUserPassShort(params *GrantUserPassParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserPassOK, error) {
+func (a *Client) GrantUserPassShort(params *GrantUserPassParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserPassResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGrantUserPassParams()
@@ -377,9 +476,19 @@ func (a *Client) GrantUserPassShort(params *GrantUserPassParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GrantUserPassOK:
-		return v, nil
+		response := &GrantUserPassResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GrantUserPassBadRequest:
-		return nil, v
+		response := &GrantUserPassResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

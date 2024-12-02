@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type FreeFormNotificationByUserIDResponse struct {
+	lobbyclientmodels.ApiResponse
+
+	Error400 *lobbyclientmodels.RestapiErrorResponseBody
+	Error401 *lobbyclientmodels.RestapiErrorResponseBody
+	Error403 *lobbyclientmodels.RestapiErrorResponseBody
+	Error404 *lobbyclientmodels.RestapiErrorResponseBody
+}
+
+func (m *FreeFormNotificationByUserIDResponse) Unpack() *lobbyclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // FreeFormNotificationByUserIDReader is a Reader for the FreeFormNotificationByUserID structure.
 type FreeFormNotificationByUserIDReader struct {
 	formats strfmt.Registry

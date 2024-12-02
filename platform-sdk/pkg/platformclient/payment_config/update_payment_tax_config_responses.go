@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type UpdatePaymentTaxConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PaymentTaxConfigInfo
+
+	Error400 *platformclientmodels.ErrorEntity
+	Error422 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *UpdatePaymentTaxConfigResponse) Unpack() (*platformclientmodels.PaymentTaxConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdatePaymentTaxConfigReader is a Reader for the UpdatePaymentTaxConfig structure.
 type UpdatePaymentTaxConfigReader struct {
 	formats strfmt.Registry

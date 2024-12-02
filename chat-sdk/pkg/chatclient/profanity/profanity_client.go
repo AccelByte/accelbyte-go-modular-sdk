@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminProfanityQueryShort(params *AdminProfanityQueryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityQueryOK, error)
-	AdminProfanityCreateShort(params *AdminProfanityCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityCreateOK, error)
-	AdminProfanityCreateBulkShort(params *AdminProfanityCreateBulkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityCreateBulkNoContent, error)
-	AdminProfanityExportShort(params *AdminProfanityExportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityExportOK, error)
-	AdminProfanityGroupShort(params *AdminProfanityGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityGroupOK, error)
-	AdminProfanityImportShort(params *AdminProfanityImportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityImportOK, error)
-	AdminProfanityUpdateShort(params *AdminProfanityUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityUpdateOK, error)
-	AdminProfanityDeleteShort(params *AdminProfanityDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityDeleteNoContent, error)
+	AdminProfanityQueryShort(params *AdminProfanityQueryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityQueryResponse, error)
+	AdminProfanityCreateShort(params *AdminProfanityCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityCreateResponse, error)
+	AdminProfanityCreateBulkShort(params *AdminProfanityCreateBulkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityCreateBulkResponse, error)
+	AdminProfanityExportShort(params *AdminProfanityExportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityExportResponse, error)
+	AdminProfanityGroupShort(params *AdminProfanityGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityGroupResponse, error)
+	AdminProfanityImportShort(params *AdminProfanityImportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityImportResponse, error)
+	AdminProfanityUpdateShort(params *AdminProfanityUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityUpdateResponse, error)
+	AdminProfanityDeleteShort(params *AdminProfanityDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityDeleteResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ type ClientService interface {
 AdminProfanityQueryShort admin query profanity words
 Query all profanity words.
 */
-func (a *Client) AdminProfanityQueryShort(params *AdminProfanityQueryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityQueryOK, error) {
+func (a *Client) AdminProfanityQueryShort(params *AdminProfanityQueryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityQueryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminProfanityQueryParams()
@@ -84,17 +84,47 @@ func (a *Client) AdminProfanityQueryShort(params *AdminProfanityQueryParams, aut
 	switch v := result.(type) {
 
 	case *AdminProfanityQueryOK:
-		return v, nil
+		response := &AdminProfanityQueryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityQueryBadRequest:
-		return nil, v
+		response := &AdminProfanityQueryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityQueryUnauthorized:
-		return nil, v
+		response := &AdminProfanityQueryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityQueryForbidden:
-		return nil, v
+		response := &AdminProfanityQueryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityQueryNotFound:
-		return nil, v
+		response := &AdminProfanityQueryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityQueryInternalServerError:
-		return nil, v
+		response := &AdminProfanityQueryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +135,7 @@ func (a *Client) AdminProfanityQueryShort(params *AdminProfanityQueryParams, aut
 AdminProfanityCreateShort admin insert new profanity words
 Insert new word for profanity censor
 */
-func (a *Client) AdminProfanityCreateShort(params *AdminProfanityCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityCreateOK, error) {
+func (a *Client) AdminProfanityCreateShort(params *AdminProfanityCreateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityCreateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminProfanityCreateParams()
@@ -143,17 +173,47 @@ func (a *Client) AdminProfanityCreateShort(params *AdminProfanityCreateParams, a
 	switch v := result.(type) {
 
 	case *AdminProfanityCreateOK:
-		return v, nil
+		response := &AdminProfanityCreateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityCreateBadRequest:
-		return nil, v
+		response := &AdminProfanityCreateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityCreateUnauthorized:
-		return nil, v
+		response := &AdminProfanityCreateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityCreateForbidden:
-		return nil, v
+		response := &AdminProfanityCreateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityCreateNotFound:
-		return nil, v
+		response := &AdminProfanityCreateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityCreateInternalServerError:
-		return nil, v
+		response := &AdminProfanityCreateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,7 +224,7 @@ func (a *Client) AdminProfanityCreateShort(params *AdminProfanityCreateParams, a
 AdminProfanityCreateBulkShort admin bulk insert new profanity words
 Bulk insert new word for profanity censor
 */
-func (a *Client) AdminProfanityCreateBulkShort(params *AdminProfanityCreateBulkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityCreateBulkNoContent, error) {
+func (a *Client) AdminProfanityCreateBulkShort(params *AdminProfanityCreateBulkParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityCreateBulkResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminProfanityCreateBulkParams()
@@ -202,17 +262,47 @@ func (a *Client) AdminProfanityCreateBulkShort(params *AdminProfanityCreateBulkP
 	switch v := result.(type) {
 
 	case *AdminProfanityCreateBulkNoContent:
-		return v, nil
+		response := &AdminProfanityCreateBulkResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityCreateBulkBadRequest:
-		return nil, v
+		response := &AdminProfanityCreateBulkResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityCreateBulkUnauthorized:
-		return nil, v
+		response := &AdminProfanityCreateBulkResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityCreateBulkForbidden:
-		return nil, v
+		response := &AdminProfanityCreateBulkResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityCreateBulkNotFound:
-		return nil, v
+		response := &AdminProfanityCreateBulkResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityCreateBulkInternalServerError:
-		return nil, v
+		response := &AdminProfanityCreateBulkResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -223,7 +313,7 @@ func (a *Client) AdminProfanityCreateBulkShort(params *AdminProfanityCreateBulkP
 AdminProfanityExportShort admin export profanity words
 Export profanity words
 */
-func (a *Client) AdminProfanityExportShort(params *AdminProfanityExportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityExportOK, error) {
+func (a *Client) AdminProfanityExportShort(params *AdminProfanityExportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityExportResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminProfanityExportParams()
@@ -261,15 +351,40 @@ func (a *Client) AdminProfanityExportShort(params *AdminProfanityExportParams, a
 	switch v := result.(type) {
 
 	case *AdminProfanityExportOK:
-		return v, nil
+		response := &AdminProfanityExportResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityExportBadRequest:
-		return nil, v
+		response := &AdminProfanityExportResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityExportUnauthorized:
-		return nil, v
+		response := &AdminProfanityExportResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityExportForbidden:
-		return nil, v
+		response := &AdminProfanityExportResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityExportInternalServerError:
-		return nil, v
+		response := &AdminProfanityExportResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -280,7 +395,7 @@ func (a *Client) AdminProfanityExportShort(params *AdminProfanityExportParams, a
 AdminProfanityGroupShort admin get profanity words group
 Get profanity words group.
 */
-func (a *Client) AdminProfanityGroupShort(params *AdminProfanityGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityGroupOK, error) {
+func (a *Client) AdminProfanityGroupShort(params *AdminProfanityGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminProfanityGroupParams()
@@ -318,15 +433,40 @@ func (a *Client) AdminProfanityGroupShort(params *AdminProfanityGroupParams, aut
 	switch v := result.(type) {
 
 	case *AdminProfanityGroupOK:
-		return v, nil
+		response := &AdminProfanityGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityGroupBadRequest:
-		return nil, v
+		response := &AdminProfanityGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityGroupUnauthorized:
-		return nil, v
+		response := &AdminProfanityGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityGroupForbidden:
-		return nil, v
+		response := &AdminProfanityGroupResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityGroupInternalServerError:
-		return nil, v
+		response := &AdminProfanityGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -337,7 +477,7 @@ func (a *Client) AdminProfanityGroupShort(params *AdminProfanityGroupParams, aut
 AdminProfanityImportShort admin import profanity words
 Import profanity words
 */
-func (a *Client) AdminProfanityImportShort(params *AdminProfanityImportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityImportOK, error) {
+func (a *Client) AdminProfanityImportShort(params *AdminProfanityImportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityImportResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminProfanityImportParams()
@@ -375,17 +515,46 @@ func (a *Client) AdminProfanityImportShort(params *AdminProfanityImportParams, a
 	switch v := result.(type) {
 
 	case *AdminProfanityImportOK:
-		return v, nil
+		response := &AdminProfanityImportResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityImportNoContent:
-		return nil, v
+		response := &AdminProfanityImportResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityImportBadRequest:
-		return nil, v
+		response := &AdminProfanityImportResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityImportUnauthorized:
-		return nil, v
+		response := &AdminProfanityImportResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityImportForbidden:
-		return nil, v
+		response := &AdminProfanityImportResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityImportInternalServerError:
-		return nil, v
+		response := &AdminProfanityImportResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -396,7 +565,7 @@ func (a *Client) AdminProfanityImportShort(params *AdminProfanityImportParams, a
 AdminProfanityUpdateShort admin update profanity word
 Update profanity word
 */
-func (a *Client) AdminProfanityUpdateShort(params *AdminProfanityUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityUpdateOK, error) {
+func (a *Client) AdminProfanityUpdateShort(params *AdminProfanityUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityUpdateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminProfanityUpdateParams()
@@ -434,17 +603,47 @@ func (a *Client) AdminProfanityUpdateShort(params *AdminProfanityUpdateParams, a
 	switch v := result.(type) {
 
 	case *AdminProfanityUpdateOK:
-		return v, nil
+		response := &AdminProfanityUpdateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityUpdateBadRequest:
-		return nil, v
+		response := &AdminProfanityUpdateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityUpdateUnauthorized:
-		return nil, v
+		response := &AdminProfanityUpdateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityUpdateForbidden:
-		return nil, v
+		response := &AdminProfanityUpdateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityUpdateNotFound:
-		return nil, v
+		response := &AdminProfanityUpdateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityUpdateInternalServerError:
-		return nil, v
+		response := &AdminProfanityUpdateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -455,7 +654,7 @@ func (a *Client) AdminProfanityUpdateShort(params *AdminProfanityUpdateParams, a
 AdminProfanityDeleteShort admin delete profanity words
 Delete profanity words.
 */
-func (a *Client) AdminProfanityDeleteShort(params *AdminProfanityDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityDeleteNoContent, error) {
+func (a *Client) AdminProfanityDeleteShort(params *AdminProfanityDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*AdminProfanityDeleteResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminProfanityDeleteParams()
@@ -493,17 +692,46 @@ func (a *Client) AdminProfanityDeleteShort(params *AdminProfanityDeleteParams, a
 	switch v := result.(type) {
 
 	case *AdminProfanityDeleteNoContent:
-		return v, nil
+		response := &AdminProfanityDeleteResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminProfanityDeleteBadRequest:
-		return nil, v
+		response := &AdminProfanityDeleteResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityDeleteUnauthorized:
-		return nil, v
+		response := &AdminProfanityDeleteResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityDeleteForbidden:
-		return nil, v
+		response := &AdminProfanityDeleteResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityDeleteNotFound:
-		return nil, v
+		response := &AdminProfanityDeleteResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminProfanityDeleteInternalServerError:
-		return nil, v
+		response := &AdminProfanityDeleteResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

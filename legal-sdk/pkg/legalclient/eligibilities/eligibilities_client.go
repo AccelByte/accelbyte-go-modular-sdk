@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RetrieveEligibilitiesPublicShort(params *RetrieveEligibilitiesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEligibilitiesPublicOK, error)
-	RetrieveEligibilitiesPublicIndirectShort(params *RetrieveEligibilitiesPublicIndirectParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEligibilitiesPublicIndirectOK, error)
+	RetrieveEligibilitiesPublicShort(params *RetrieveEligibilitiesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEligibilitiesPublicResponse, error)
+	RetrieveEligibilitiesPublicIndirectShort(params *RetrieveEligibilitiesPublicIndirectParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEligibilitiesPublicIndirectResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ RetrieveEligibilitiesPublicShort check user legal eligibility
 Retrieve the active policies and its conformance status by user.
 This process supports cross-namespace checking, that means if the active policy already accepted by the same user in other namespace, then it will be considered as eligible.
 */
-func (a *Client) RetrieveEligibilitiesPublicShort(params *RetrieveEligibilitiesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEligibilitiesPublicOK, error) {
+func (a *Client) RetrieveEligibilitiesPublicShort(params *RetrieveEligibilitiesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEligibilitiesPublicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveEligibilitiesPublicParams()
@@ -79,11 +79,26 @@ func (a *Client) RetrieveEligibilitiesPublicShort(params *RetrieveEligibilitiesP
 	switch v := result.(type) {
 
 	case *RetrieveEligibilitiesPublicOK:
-		return v, nil
+		response := &RetrieveEligibilitiesPublicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveEligibilitiesPublicBadRequest:
-		return nil, v
+		response := &RetrieveEligibilitiesPublicResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveEligibilitiesPublicNotFound:
-		return nil, v
+		response := &RetrieveEligibilitiesPublicResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -95,7 +110,7 @@ RetrieveEligibilitiesPublicIndirectShort check user legal eligibility
 Retrieve the active policies and its conformance status by user.
 This process only supports cross-namespace checking between game namespace and publisher namespace , that means if the active policy already accepted by the same user in publisher namespace, then it will also be considered as eligible in non-publisher namespace.
 */
-func (a *Client) RetrieveEligibilitiesPublicIndirectShort(params *RetrieveEligibilitiesPublicIndirectParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEligibilitiesPublicIndirectOK, error) {
+func (a *Client) RetrieveEligibilitiesPublicIndirectShort(params *RetrieveEligibilitiesPublicIndirectParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveEligibilitiesPublicIndirectResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveEligibilitiesPublicIndirectParams()
@@ -133,9 +148,19 @@ func (a *Client) RetrieveEligibilitiesPublicIndirectShort(params *RetrieveEligib
 	switch v := result.(type) {
 
 	case *RetrieveEligibilitiesPublicIndirectOK:
-		return v, nil
+		response := &RetrieveEligibilitiesPublicIndirectResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveEligibilitiesPublicIndirectBadRequest:
-		return nil, v
+		response := &RetrieveEligibilitiesPublicIndirectResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

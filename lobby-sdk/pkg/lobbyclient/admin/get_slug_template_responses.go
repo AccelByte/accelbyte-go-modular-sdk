@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type GetSlugTemplateResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data *lobbyclientmodels.ModelTemplateLocalizationResponse
+
+	Error400 *lobbyclientmodels.RestapiErrorResponseBody
+	Error401 *lobbyclientmodels.RestapiErrorResponseBody
+	Error403 *lobbyclientmodels.RestapiErrorResponseBody
+	Error404 *lobbyclientmodels.RestapiErrorResponseBody
+}
+
+func (m *GetSlugTemplateResponse) Unpack() (*lobbyclientmodels.ModelTemplateLocalizationResponse, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetSlugTemplateReader is a Reader for the GetSlugTemplate structure.
 type GetSlugTemplateReader struct {
 	formats strfmt.Registry

@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/campaign"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -41,7 +40,7 @@ func (aaa *CampaignService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *CampaignService) QueryCampaignsShort(input *campaign.QueryCampaignsParams) (*platformclientmodels.CampaignPagingSlicedResult, error) {
+func (aaa *CampaignService) QueryCampaignsShort(input *campaign.QueryCampaignsParams) (*campaign.QueryCampaignsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -68,10 +67,10 @@ func (aaa *CampaignService) QueryCampaignsShort(input *campaign.QueryCampaignsPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) CreateCampaignShort(input *campaign.CreateCampaignParams) (*platformclientmodels.CampaignInfo, error) {
+func (aaa *CampaignService) CreateCampaignShort(input *campaign.CreateCampaignParams) (*campaign.CreateCampaignResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -98,10 +97,10 @@ func (aaa *CampaignService) CreateCampaignShort(input *campaign.CreateCampaignPa
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *CampaignService) GetCampaignShort(input *campaign.GetCampaignParams) (*platformclientmodels.CampaignInfo, error) {
+func (aaa *CampaignService) GetCampaignShort(input *campaign.GetCampaignParams) (*campaign.GetCampaignResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -128,10 +127,10 @@ func (aaa *CampaignService) GetCampaignShort(input *campaign.GetCampaignParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) UpdateCampaignShort(input *campaign.UpdateCampaignParams) (*platformclientmodels.CampaignInfo, error) {
+func (aaa *CampaignService) UpdateCampaignShort(input *campaign.UpdateCampaignParams) (*campaign.UpdateCampaignResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -158,7 +157,7 @@ func (aaa *CampaignService) UpdateCampaignShort(input *campaign.UpdateCampaignPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *CampaignService) RenameBatchShort(input *campaign.RenameBatchParams) error {
@@ -191,7 +190,7 @@ func (aaa *CampaignService) RenameBatchShort(input *campaign.RenameBatchParams) 
 	return nil
 }
 
-func (aaa *CampaignService) QueryCampaignBatchNamesShort(input *campaign.QueryCampaignBatchNamesParams) ([]*platformclientmodels.CampaignBatchNameInfo, error) {
+func (aaa *CampaignService) QueryCampaignBatchNamesShort(input *campaign.QueryCampaignBatchNamesParams) (*campaign.QueryCampaignBatchNamesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -218,10 +217,10 @@ func (aaa *CampaignService) QueryCampaignBatchNamesShort(input *campaign.QueryCa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) GetCampaignDynamicShort(input *campaign.GetCampaignDynamicParams) (*platformclientmodels.CampaignDynamicInfo, error) {
+func (aaa *CampaignService) GetCampaignDynamicShort(input *campaign.GetCampaignDynamicParams) (*campaign.GetCampaignDynamicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -248,10 +247,10 @@ func (aaa *CampaignService) GetCampaignDynamicShort(input *campaign.GetCampaignD
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) QueryCodesShort(input *campaign.QueryCodesParams) (*platformclientmodels.CodeInfoPagingSlicedResult, error) {
+func (aaa *CampaignService) QueryCodesShort(input *campaign.QueryCodesParams) (*campaign.QueryCodesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -278,10 +277,10 @@ func (aaa *CampaignService) QueryCodesShort(input *campaign.QueryCodesParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) CreateCodesShort(input *campaign.CreateCodesParams) (*platformclientmodels.CodeCreateResult, error) {
+func (aaa *CampaignService) CreateCodesShort(input *campaign.CreateCodesParams) (*campaign.CreateCodesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -308,10 +307,10 @@ func (aaa *CampaignService) CreateCodesShort(input *campaign.CreateCodesParams) 
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *CampaignService) DownloadShort(input *campaign.DownloadParams, writer io.Writer) (io.Writer, error) {
+func (aaa *CampaignService) DownloadShort(input *campaign.DownloadParams, writer io.Writer) (*campaign.DownloadResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -338,10 +337,10 @@ func (aaa *CampaignService) DownloadShort(input *campaign.DownloadParams, writer
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) BulkDisableCodesShort(input *campaign.BulkDisableCodesParams) (*platformclientmodels.BulkOperationResult, error) {
+func (aaa *CampaignService) BulkDisableCodesShort(input *campaign.BulkDisableCodesParams) (*campaign.BulkDisableCodesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -368,10 +367,10 @@ func (aaa *CampaignService) BulkDisableCodesShort(input *campaign.BulkDisableCod
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) BulkEnableCodesShort(input *campaign.BulkEnableCodesParams) (*platformclientmodels.BulkOperationResult, error) {
+func (aaa *CampaignService) BulkEnableCodesShort(input *campaign.BulkEnableCodesParams) (*campaign.BulkEnableCodesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -398,10 +397,10 @@ func (aaa *CampaignService) BulkEnableCodesShort(input *campaign.BulkEnableCodes
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) QueryRedeemHistoryShort(input *campaign.QueryRedeemHistoryParams) (*platformclientmodels.RedeemHistoryPagingSlicedResult, error) {
+func (aaa *CampaignService) QueryRedeemHistoryShort(input *campaign.QueryRedeemHistoryParams) (*campaign.QueryRedeemHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -428,10 +427,10 @@ func (aaa *CampaignService) QueryRedeemHistoryShort(input *campaign.QueryRedeemH
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) GetCodeShort(input *campaign.GetCodeParams) (*platformclientmodels.CodeInfo, error) {
+func (aaa *CampaignService) GetCodeShort(input *campaign.GetCodeParams) (*campaign.GetCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -458,10 +457,10 @@ func (aaa *CampaignService) GetCodeShort(input *campaign.GetCodeParams) (*platfo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) DisableCodeShort(input *campaign.DisableCodeParams) (*platformclientmodels.CodeInfo, error) {
+func (aaa *CampaignService) DisableCodeShort(input *campaign.DisableCodeParams) (*campaign.DisableCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -488,10 +487,10 @@ func (aaa *CampaignService) DisableCodeShort(input *campaign.DisableCodeParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) EnableCodeShort(input *campaign.EnableCodeParams) (*platformclientmodels.CodeInfo, error) {
+func (aaa *CampaignService) EnableCodeShort(input *campaign.EnableCodeParams) (*campaign.EnableCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -518,10 +517,10 @@ func (aaa *CampaignService) EnableCodeShort(input *campaign.EnableCodeParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CampaignService) ApplyUserRedemptionShort(input *campaign.ApplyUserRedemptionParams) (*platformclientmodels.RedeemResult, error) {
+func (aaa *CampaignService) ApplyUserRedemptionShort(input *campaign.ApplyUserRedemptionParams) (*campaign.ApplyUserRedemptionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -548,5 +547,5 @@ func (aaa *CampaignService) ApplyUserRedemptionShort(input *campaign.ApplyUserRe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

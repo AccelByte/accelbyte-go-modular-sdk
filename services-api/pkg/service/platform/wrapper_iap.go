@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/iap"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *IAPService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *IAPService) GetAppleIAPConfigShort(input *iap.GetAppleIAPConfigParams) (*platformclientmodels.AppleIAPConfigInfo, error) {
+func (aaa *IAPService) GetAppleIAPConfigShort(input *iap.GetAppleIAPConfigParams) (*iap.GetAppleIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *IAPService) GetAppleIAPConfigShort(input *iap.GetAppleIAPConfigParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdateAppleIAPConfigShort(input *iap.UpdateAppleIAPConfigParams) (*platformclientmodels.AppleIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateAppleIAPConfigShort(input *iap.UpdateAppleIAPConfigParams) (*iap.UpdateAppleIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *IAPService) UpdateAppleIAPConfigShort(input *iap.UpdateAppleIAPConfig
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeleteAppleIAPConfigShort(input *iap.DeleteAppleIAPConfigParams) error {
@@ -129,7 +128,7 @@ func (aaa *IAPService) DeleteAppleIAPConfigShort(input *iap.DeleteAppleIAPConfig
 	return nil
 }
 
-func (aaa *IAPService) UpdateAppleP8FileShort(input *iap.UpdateAppleP8FileParams) (*platformclientmodels.AppleIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateAppleP8FileShort(input *iap.UpdateAppleP8FileParams) (*iap.UpdateAppleP8FileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *IAPService) UpdateAppleP8FileShort(input *iap.UpdateAppleP8FileParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) GetEpicGamesIAPConfigShort(input *iap.GetEpicGamesIAPConfigParams) (*platformclientmodels.EpicGamesIAPConfigInfo, error) {
+func (aaa *IAPService) GetEpicGamesIAPConfigShort(input *iap.GetEpicGamesIAPConfigParams) (*iap.GetEpicGamesIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *IAPService) GetEpicGamesIAPConfigShort(input *iap.GetEpicGamesIAPConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdateEpicGamesIAPConfigShort(input *iap.UpdateEpicGamesIAPConfigParams) (*platformclientmodels.EpicGamesIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateEpicGamesIAPConfigShort(input *iap.UpdateEpicGamesIAPConfigParams) (*iap.UpdateEpicGamesIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *IAPService) UpdateEpicGamesIAPConfigShort(input *iap.UpdateEpicGamesI
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeleteEpicGamesIAPConfigShort(input *iap.DeleteEpicGamesIAPConfigParams) error {
@@ -249,7 +248,7 @@ func (aaa *IAPService) DeleteEpicGamesIAPConfigShort(input *iap.DeleteEpicGamesI
 	return nil
 }
 
-func (aaa *IAPService) GetGoogleIAPConfigShort(input *iap.GetGoogleIAPConfigParams) (*platformclientmodels.GoogleIAPConfigInfo, error) {
+func (aaa *IAPService) GetGoogleIAPConfigShort(input *iap.GetGoogleIAPConfigParams) (*iap.GetGoogleIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *IAPService) GetGoogleIAPConfigShort(input *iap.GetGoogleIAPConfigPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdateGoogleIAPConfigShort(input *iap.UpdateGoogleIAPConfigParams) (*platformclientmodels.GoogleIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateGoogleIAPConfigShort(input *iap.UpdateGoogleIAPConfigParams) (*iap.UpdateGoogleIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,7 +305,7 @@ func (aaa *IAPService) UpdateGoogleIAPConfigShort(input *iap.UpdateGoogleIAPConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeleteGoogleIAPConfigShort(input *iap.DeleteGoogleIAPConfigParams) error {
@@ -339,7 +338,7 @@ func (aaa *IAPService) DeleteGoogleIAPConfigShort(input *iap.DeleteGoogleIAPConf
 	return nil
 }
 
-func (aaa *IAPService) UpdateGoogleP12FileShort(input *iap.UpdateGoogleP12FileParams) (*platformclientmodels.GoogleIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateGoogleP12FileShort(input *iap.UpdateGoogleP12FileParams) (*iap.UpdateGoogleP12FileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,10 +365,10 @@ func (aaa *IAPService) UpdateGoogleP12FileShort(input *iap.UpdateGoogleP12FilePa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) GetIAPItemConfigShort(input *iap.GetIAPItemConfigParams) (*platformclientmodels.IAPItemConfigInfo, error) {
+func (aaa *IAPService) GetIAPItemConfigShort(input *iap.GetIAPItemConfigParams) (*iap.GetIAPItemConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,10 +395,10 @@ func (aaa *IAPService) GetIAPItemConfigShort(input *iap.GetIAPItemConfigParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdateIAPItemConfigShort(input *iap.UpdateIAPItemConfigParams) (*platformclientmodels.IAPItemConfigInfo, error) {
+func (aaa *IAPService) UpdateIAPItemConfigShort(input *iap.UpdateIAPItemConfigParams) (*iap.UpdateIAPItemConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -426,7 +425,7 @@ func (aaa *IAPService) UpdateIAPItemConfigShort(input *iap.UpdateIAPItemConfigPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeleteIAPItemConfigShort(input *iap.DeleteIAPItemConfigParams) error {
@@ -459,7 +458,7 @@ func (aaa *IAPService) DeleteIAPItemConfigShort(input *iap.DeleteIAPItemConfigPa
 	return nil
 }
 
-func (aaa *IAPService) GetOculusIAPConfigShort(input *iap.GetOculusIAPConfigParams) (*platformclientmodels.OculusIAPConfigInfo, error) {
+func (aaa *IAPService) GetOculusIAPConfigShort(input *iap.GetOculusIAPConfigParams) (*iap.GetOculusIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -486,10 +485,10 @@ func (aaa *IAPService) GetOculusIAPConfigShort(input *iap.GetOculusIAPConfigPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdateOculusIAPConfigShort(input *iap.UpdateOculusIAPConfigParams) (*platformclientmodels.OculusIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateOculusIAPConfigShort(input *iap.UpdateOculusIAPConfigParams) (*iap.UpdateOculusIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -516,7 +515,7 @@ func (aaa *IAPService) UpdateOculusIAPConfigShort(input *iap.UpdateOculusIAPConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeleteOculusIAPConfigShort(input *iap.DeleteOculusIAPConfigParams) error {
@@ -549,7 +548,7 @@ func (aaa *IAPService) DeleteOculusIAPConfigShort(input *iap.DeleteOculusIAPConf
 	return nil
 }
 
-func (aaa *IAPService) GetPlayStationIAPConfigShort(input *iap.GetPlayStationIAPConfigParams) (*platformclientmodels.PlayStationIAPConfigInfo, error) {
+func (aaa *IAPService) GetPlayStationIAPConfigShort(input *iap.GetPlayStationIAPConfigParams) (*iap.GetPlayStationIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -576,10 +575,10 @@ func (aaa *IAPService) GetPlayStationIAPConfigShort(input *iap.GetPlayStationIAP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdatePlaystationIAPConfigShort(input *iap.UpdatePlaystationIAPConfigParams) (*platformclientmodels.PlayStationIAPConfigInfo, error) {
+func (aaa *IAPService) UpdatePlaystationIAPConfigShort(input *iap.UpdatePlaystationIAPConfigParams) (*iap.UpdatePlaystationIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -606,7 +605,7 @@ func (aaa *IAPService) UpdatePlaystationIAPConfigShort(input *iap.UpdatePlaystat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeletePlaystationIAPConfigShort(input *iap.DeletePlaystationIAPConfigParams) error {
@@ -639,7 +638,7 @@ func (aaa *IAPService) DeletePlaystationIAPConfigShort(input *iap.DeletePlaystat
 	return nil
 }
 
-func (aaa *IAPService) ValidateExistedPlaystationIAPConfigShort(input *iap.ValidateExistedPlaystationIAPConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *IAPService) ValidateExistedPlaystationIAPConfigShort(input *iap.ValidateExistedPlaystationIAPConfigParams) (*iap.ValidateExistedPlaystationIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -666,10 +665,10 @@ func (aaa *IAPService) ValidateExistedPlaystationIAPConfigShort(input *iap.Valid
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) ValidatePlaystationIAPConfigShort(input *iap.ValidatePlaystationIAPConfigParams) (*platformclientmodels.TestResult, error) {
+func (aaa *IAPService) ValidatePlaystationIAPConfigShort(input *iap.ValidatePlaystationIAPConfigParams) (*iap.ValidatePlaystationIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -696,10 +695,10 @@ func (aaa *IAPService) ValidatePlaystationIAPConfigShort(input *iap.ValidatePlay
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) GetSteamIAPConfigShort(input *iap.GetSteamIAPConfigParams) (*platformclientmodels.SteamIAPConfig, error) {
+func (aaa *IAPService) GetSteamIAPConfigShort(input *iap.GetSteamIAPConfigParams) (*iap.GetSteamIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -726,10 +725,10 @@ func (aaa *IAPService) GetSteamIAPConfigShort(input *iap.GetSteamIAPConfigParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdateSteamIAPConfigShort(input *iap.UpdateSteamIAPConfigParams) (*platformclientmodels.SteamIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateSteamIAPConfigShort(input *iap.UpdateSteamIAPConfigParams) (*iap.UpdateSteamIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -756,7 +755,7 @@ func (aaa *IAPService) UpdateSteamIAPConfigShort(input *iap.UpdateSteamIAPConfig
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeleteSteamIAPConfigShort(input *iap.DeleteSteamIAPConfigParams) error {
@@ -789,7 +788,7 @@ func (aaa *IAPService) DeleteSteamIAPConfigShort(input *iap.DeleteSteamIAPConfig
 	return nil
 }
 
-func (aaa *IAPService) GetTwitchIAPConfigShort(input *iap.GetTwitchIAPConfigParams) (*platformclientmodels.TwitchIAPConfigInfo, error) {
+func (aaa *IAPService) GetTwitchIAPConfigShort(input *iap.GetTwitchIAPConfigParams) (*iap.GetTwitchIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -816,10 +815,10 @@ func (aaa *IAPService) GetTwitchIAPConfigShort(input *iap.GetTwitchIAPConfigPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdateTwitchIAPConfigShort(input *iap.UpdateTwitchIAPConfigParams) (*platformclientmodels.TwitchIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateTwitchIAPConfigShort(input *iap.UpdateTwitchIAPConfigParams) (*iap.UpdateTwitchIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -846,7 +845,7 @@ func (aaa *IAPService) UpdateTwitchIAPConfigShort(input *iap.UpdateTwitchIAPConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeleteTwitchIAPConfigShort(input *iap.DeleteTwitchIAPConfigParams) error {
@@ -879,7 +878,7 @@ func (aaa *IAPService) DeleteTwitchIAPConfigShort(input *iap.DeleteTwitchIAPConf
 	return nil
 }
 
-func (aaa *IAPService) GetXblIAPConfigShort(input *iap.GetXblIAPConfigParams) (*platformclientmodels.XblIAPConfigInfo, error) {
+func (aaa *IAPService) GetXblIAPConfigShort(input *iap.GetXblIAPConfigParams) (*iap.GetXblIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -906,10 +905,10 @@ func (aaa *IAPService) GetXblIAPConfigShort(input *iap.GetXblIAPConfigParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) UpdateXblIAPConfigShort(input *iap.UpdateXblIAPConfigParams) (*platformclientmodels.XblIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateXblIAPConfigShort(input *iap.UpdateXblIAPConfigParams) (*iap.UpdateXblIAPConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -936,7 +935,7 @@ func (aaa *IAPService) UpdateXblIAPConfigShort(input *iap.UpdateXblIAPConfigPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) DeleteXblAPConfigShort(input *iap.DeleteXblAPConfigParams) error {
@@ -969,7 +968,7 @@ func (aaa *IAPService) DeleteXblAPConfigShort(input *iap.DeleteXblAPConfigParams
 	return nil
 }
 
-func (aaa *IAPService) UpdateXblBPCertFileShort(input *iap.UpdateXblBPCertFileParams) (*platformclientmodels.XblIAPConfigInfo, error) {
+func (aaa *IAPService) UpdateXblBPCertFileShort(input *iap.UpdateXblBPCertFileParams) (*iap.UpdateXblBPCertFileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -996,10 +995,10 @@ func (aaa *IAPService) UpdateXblBPCertFileShort(input *iap.UpdateXblBPCertFilePa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) GetIAPOrderConsumeDetailsShort(input *iap.GetIAPOrderConsumeDetailsParams) ([]*platformclientmodels.IAPOrderConsumeDetailInfo, error) {
+func (aaa *IAPService) GetIAPOrderConsumeDetailsShort(input *iap.GetIAPOrderConsumeDetailsParams) (*iap.GetIAPOrderConsumeDetailsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1026,10 +1025,10 @@ func (aaa *IAPService) GetIAPOrderConsumeDetailsShort(input *iap.GetIAPOrderCons
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) QueryUserIAPOrdersShort(input *iap.QueryUserIAPOrdersParams) (*platformclientmodels.IAPOrderPagingSlicedResult, error) {
+func (aaa *IAPService) QueryUserIAPOrdersShort(input *iap.QueryUserIAPOrdersParams) (*iap.QueryUserIAPOrdersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1056,10 +1055,10 @@ func (aaa *IAPService) QueryUserIAPOrdersShort(input *iap.QueryUserIAPOrdersPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) QueryAllUserIAPOrdersShort(input *iap.QueryAllUserIAPOrdersParams) (*platformclientmodels.IAPOrderPagingSlicedResult, error) {
+func (aaa *IAPService) QueryAllUserIAPOrdersShort(input *iap.QueryAllUserIAPOrdersParams) (*iap.QueryAllUserIAPOrdersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1086,10 +1085,10 @@ func (aaa *IAPService) QueryAllUserIAPOrdersShort(input *iap.QueryAllUserIAPOrde
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) QueryUserIAPConsumeHistoryShort(input *iap.QueryUserIAPConsumeHistoryParams) (*platformclientmodels.IAPConsumeHistoryPagingSlicedResult, error) {
+func (aaa *IAPService) QueryUserIAPConsumeHistoryShort(input *iap.QueryUserIAPConsumeHistoryParams) (*iap.QueryUserIAPConsumeHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1116,7 +1115,7 @@ func (aaa *IAPService) QueryUserIAPConsumeHistoryShort(input *iap.QueryUserIAPCo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) MockFulfillIAPItemShort(input *iap.MockFulfillIAPItemParams) error {
@@ -1149,7 +1148,7 @@ func (aaa *IAPService) MockFulfillIAPItemShort(input *iap.MockFulfillIAPItemPara
 	return nil
 }
 
-func (aaa *IAPService) GetAppleConfigVersionShort(input *iap.GetAppleConfigVersionParams) (*platformclientmodels.AppleIAPConfigVersionInfo, error) {
+func (aaa *IAPService) GetAppleConfigVersionShort(input *iap.GetAppleConfigVersionParams) (*iap.GetAppleConfigVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1176,10 +1175,10 @@ func (aaa *IAPService) GetAppleConfigVersionShort(input *iap.GetAppleConfigVersi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) GetIAPItemMappingShort(input *iap.GetIAPItemMappingParams) (*platformclientmodels.IAPItemMappingInfo, error) {
+func (aaa *IAPService) GetIAPItemMappingShort(input *iap.GetIAPItemMappingParams) (*iap.GetIAPItemMappingResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1206,10 +1205,10 @@ func (aaa *IAPService) GetIAPItemMappingShort(input *iap.GetIAPItemMappingParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) SyncTwitchDropsEntitlementShort(input *iap.SyncTwitchDropsEntitlementParams) ([]*platformclientmodels.TwitchSyncResult, error) {
+func (aaa *IAPService) SyncTwitchDropsEntitlementShort(input *iap.SyncTwitchDropsEntitlementParams) (*iap.SyncTwitchDropsEntitlementResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1236,7 +1235,7 @@ func (aaa *IAPService) SyncTwitchDropsEntitlementShort(input *iap.SyncTwitchDrop
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) PublicFulfillAppleIAPItemShort(input *iap.PublicFulfillAppleIAPItemParams) error {
@@ -1269,7 +1268,7 @@ func (aaa *IAPService) PublicFulfillAppleIAPItemShort(input *iap.PublicFulfillAp
 	return nil
 }
 
-func (aaa *IAPService) SyncEpicGamesInventoryShort(input *iap.SyncEpicGamesInventoryParams) ([]*platformclientmodels.EpicGamesReconcileResult, error) {
+func (aaa *IAPService) SyncEpicGamesInventoryShort(input *iap.SyncEpicGamesInventoryParams) (*iap.SyncEpicGamesInventoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1296,10 +1295,10 @@ func (aaa *IAPService) SyncEpicGamesInventoryShort(input *iap.SyncEpicGamesInven
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) PublicFulfillGoogleIAPItemShort(input *iap.PublicFulfillGoogleIAPItemParams) (*platformclientmodels.GoogleReceiptResolveResult, error) {
+func (aaa *IAPService) PublicFulfillGoogleIAPItemShort(input *iap.PublicFulfillGoogleIAPItemParams) (*iap.PublicFulfillGoogleIAPItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1326,10 +1325,10 @@ func (aaa *IAPService) PublicFulfillGoogleIAPItemShort(input *iap.PublicFulfillG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) SyncOculusConsumableEntitlementsShort(input *iap.SyncOculusConsumableEntitlementsParams) ([]*platformclientmodels.OculusReconcileResult, error) {
+func (aaa *IAPService) SyncOculusConsumableEntitlementsShort(input *iap.SyncOculusConsumableEntitlementsParams) (*iap.SyncOculusConsumableEntitlementsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1356,10 +1355,10 @@ func (aaa *IAPService) SyncOculusConsumableEntitlementsShort(input *iap.SyncOcul
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) PublicReconcilePlayStationStoreShort(input *iap.PublicReconcilePlayStationStoreParams) ([]*platformclientmodels.PlayStationReconcileResult, error) {
+func (aaa *IAPService) PublicReconcilePlayStationStoreShort(input *iap.PublicReconcilePlayStationStoreParams) (*iap.PublicReconcilePlayStationStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1386,10 +1385,10 @@ func (aaa *IAPService) PublicReconcilePlayStationStoreShort(input *iap.PublicRec
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPService) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(input *iap.PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams) ([]*platformclientmodels.PlayStationReconcileResult, error) {
+func (aaa *IAPService) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(input *iap.PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams) (*iap.PublicReconcilePlayStationStoreWithMultipleServiceLabelsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1416,7 +1415,7 @@ func (aaa *IAPService) PublicReconcilePlayStationStoreWithMultipleServiceLabelsS
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) SyncSteamInventoryShort(input *iap.SyncSteamInventoryParams) error {
@@ -1479,7 +1478,7 @@ func (aaa *IAPService) SyncTwitchDropsEntitlement1Short(input *iap.SyncTwitchDro
 	return nil
 }
 
-func (aaa *IAPService) SyncXboxInventoryShort(input *iap.SyncXboxInventoryParams) ([]*platformclientmodels.XblReconcileResult, error) {
+func (aaa *IAPService) SyncXboxInventoryShort(input *iap.SyncXboxInventoryParams) (*iap.SyncXboxInventoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1506,7 +1505,7 @@ func (aaa *IAPService) SyncXboxInventoryShort(input *iap.SyncXboxInventoryParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *IAPService) V2PublicFulfillAppleIAPItemShort(input *iap.V2PublicFulfillAppleIAPItemParams) error {

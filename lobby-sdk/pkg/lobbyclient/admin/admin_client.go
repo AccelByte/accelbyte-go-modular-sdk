@@ -30,19 +30,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetGlobalConfigShort(params *AdminGetGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGlobalConfigOK, error)
-	AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigOK, error)
-	AdminDeleteGlobalConfigShort(params *AdminDeleteGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigNoContent, error)
-	FreeFormNotificationShort(params *FreeFormNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*FreeFormNotificationAccepted, error)
-	NotificationWithTemplateShort(params *NotificationWithTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*NotificationWithTemplateAccepted, error)
-	GetGameTemplateShort(params *GetGameTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameTemplateOK, error)
-	CreateTemplateShort(params *CreateTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTemplateNoContent, error)
-	GetSlugTemplateShort(params *GetSlugTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetSlugTemplateOK, error)
-	DeleteTemplateSlugShort(params *DeleteTemplateSlugParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateSlugNoContent, error)
-	GetLocalizationTemplateShort(params *GetLocalizationTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocalizationTemplateOK, error)
-	UpdateLocalizationTemplateShort(params *UpdateLocalizationTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizationTemplateNoContent, error)
-	DeleteTemplateLocalizationShort(params *DeleteTemplateLocalizationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationNoContent, error)
-	PublishTemplateShort(params *PublishTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateNoContent, error)
+	AdminGetGlobalConfigShort(params *AdminGetGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGlobalConfigResponse, error)
+	AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigResponse, error)
+	AdminDeleteGlobalConfigShort(params *AdminDeleteGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigResponse, error)
+	FreeFormNotificationShort(params *FreeFormNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*FreeFormNotificationResponse, error)
+	NotificationWithTemplateShort(params *NotificationWithTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*NotificationWithTemplateResponse, error)
+	GetGameTemplateShort(params *GetGameTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameTemplateResponse, error)
+	CreateTemplateShort(params *CreateTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTemplateResponse, error)
+	GetSlugTemplateShort(params *GetSlugTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetSlugTemplateResponse, error)
+	DeleteTemplateSlugShort(params *DeleteTemplateSlugParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateSlugResponse, error)
+	GetLocalizationTemplateShort(params *GetLocalizationTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocalizationTemplateResponse, error)
+	UpdateLocalizationTemplateShort(params *UpdateLocalizationTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizationTemplateResponse, error)
+	DeleteTemplateLocalizationShort(params *DeleteTemplateLocalizationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationResponse, error)
+	PublishTemplateShort(params *PublishTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ type ClientService interface {
 AdminGetGlobalConfigShort record of global configuration dsmc.
 Get dsmc global configuration.
 */
-func (a *Client) AdminGetGlobalConfigShort(params *AdminGetGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGlobalConfigOK, error) {
+func (a *Client) AdminGetGlobalConfigShort(params *AdminGetGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGlobalConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetGlobalConfigParams()
@@ -89,17 +89,47 @@ func (a *Client) AdminGetGlobalConfigShort(params *AdminGetGlobalConfigParams, a
 	switch v := result.(type) {
 
 	case *AdminGetGlobalConfigOK:
-		return v, nil
+		response := &AdminGetGlobalConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetGlobalConfigBadRequest:
-		return nil, v
+		response := &AdminGetGlobalConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGlobalConfigUnauthorized:
-		return nil, v
+		response := &AdminGetGlobalConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGlobalConfigForbidden:
-		return nil, v
+		response := &AdminGetGlobalConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGlobalConfigNotFound:
-		return nil, v
+		response := &AdminGetGlobalConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGlobalConfigInternalServerError:
-		return nil, v
+		response := &AdminGetGlobalConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -110,7 +140,7 @@ func (a *Client) AdminGetGlobalConfigShort(params *AdminGetGlobalConfigParams, a
 AdminUpdateGlobalConfigShort upsert global configuration data.
 Upsert global configuration data.
 */
-func (a *Client) AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigOK, error) {
+func (a *Client) AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateGlobalConfigParams()
@@ -148,11 +178,26 @@ func (a *Client) AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigPar
 	switch v := result.(type) {
 
 	case *AdminUpdateGlobalConfigOK:
-		return v, nil
+		response := &AdminUpdateGlobalConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateGlobalConfigUnauthorized:
-		return nil, v
+		response := &AdminUpdateGlobalConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGlobalConfigForbidden:
-		return nil, v
+		response := &AdminUpdateGlobalConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -163,7 +208,7 @@ func (a *Client) AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigPar
 AdminDeleteGlobalConfigShort delete of global configuration data.
 Delete of global configuration data.
 */
-func (a *Client) AdminDeleteGlobalConfigShort(params *AdminDeleteGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigNoContent, error) {
+func (a *Client) AdminDeleteGlobalConfigShort(params *AdminDeleteGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteGlobalConfigParams()
@@ -201,11 +246,26 @@ func (a *Client) AdminDeleteGlobalConfigShort(params *AdminDeleteGlobalConfigPar
 	switch v := result.(type) {
 
 	case *AdminDeleteGlobalConfigNoContent:
-		return v, nil
+		response := &AdminDeleteGlobalConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteGlobalConfigUnauthorized:
-		return nil, v
+		response := &AdminDeleteGlobalConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGlobalConfigForbidden:
-		return nil, v
+		response := &AdminDeleteGlobalConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,7 +276,7 @@ func (a *Client) AdminDeleteGlobalConfigShort(params *AdminDeleteGlobalConfigPar
 FreeFormNotificationShort send freeform notification to a user
 Sends notification to all connected users in a namespace.
 */
-func (a *Client) FreeFormNotificationShort(params *FreeFormNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*FreeFormNotificationAccepted, error) {
+func (a *Client) FreeFormNotificationShort(params *FreeFormNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*FreeFormNotificationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFreeFormNotificationParams()
@@ -254,15 +314,39 @@ func (a *Client) FreeFormNotificationShort(params *FreeFormNotificationParams, a
 	switch v := result.(type) {
 
 	case *FreeFormNotificationAccepted:
-		return v, nil
+		response := &FreeFormNotificationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FreeFormNotificationBadRequest:
-		return nil, v
+		response := &FreeFormNotificationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FreeFormNotificationUnauthorized:
-		return nil, v
+		response := &FreeFormNotificationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FreeFormNotificationForbidden:
-		return nil, v
+		response := &FreeFormNotificationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FreeFormNotificationNotFound:
-		return nil, v
+		response := &FreeFormNotificationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -278,7 +362,7 @@ In the request body, specify which template slug (template identifier) to use an
 NotificationTemplate context is the key-value pair defining the value of each handlebar specified in the template content.
 Template need to be published before it can be use to send notifications
 */
-func (a *Client) NotificationWithTemplateShort(params *NotificationWithTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*NotificationWithTemplateAccepted, error) {
+func (a *Client) NotificationWithTemplateShort(params *NotificationWithTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*NotificationWithTemplateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewNotificationWithTemplateParams()
@@ -316,15 +400,39 @@ func (a *Client) NotificationWithTemplateShort(params *NotificationWithTemplateP
 	switch v := result.(type) {
 
 	case *NotificationWithTemplateAccepted:
-		return v, nil
+		response := &NotificationWithTemplateResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *NotificationWithTemplateBadRequest:
-		return nil, v
+		response := &NotificationWithTemplateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *NotificationWithTemplateUnauthorized:
-		return nil, v
+		response := &NotificationWithTemplateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *NotificationWithTemplateForbidden:
-		return nil, v
+		response := &NotificationWithTemplateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *NotificationWithTemplateNotFound:
-		return nil, v
+		response := &NotificationWithTemplateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -335,7 +443,7 @@ func (a *Client) NotificationWithTemplateShort(params *NotificationWithTemplateP
 GetGameTemplateShort get all notification template in a namespace
 Get all templates in a namespace
 */
-func (a *Client) GetGameTemplateShort(params *GetGameTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameTemplateOK, error) {
+func (a *Client) GetGameTemplateShort(params *GetGameTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameTemplateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGameTemplateParams()
@@ -373,15 +481,40 @@ func (a *Client) GetGameTemplateShort(params *GetGameTemplateParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetGameTemplateOK:
-		return v, nil
+		response := &GetGameTemplateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGameTemplateBadRequest:
-		return nil, v
+		response := &GetGameTemplateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameTemplateUnauthorized:
-		return nil, v
+		response := &GetGameTemplateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameTemplateForbidden:
-		return nil, v
+		response := &GetGameTemplateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameTemplateNotFound:
-		return nil, v
+		response := &GetGameTemplateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -396,7 +529,7 @@ slug and language can not be created.
 
 Check model description for detailed input restrictions.
 */
-func (a *Client) CreateTemplateShort(params *CreateTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTemplateNoContent, error) {
+func (a *Client) CreateTemplateShort(params *CreateTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTemplateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateTemplateParams()
@@ -434,15 +567,39 @@ func (a *Client) CreateTemplateShort(params *CreateTemplateParams, authInfo runt
 	switch v := result.(type) {
 
 	case *CreateTemplateNoContent:
-		return v, nil
+		response := &CreateTemplateResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateTemplateBadRequest:
-		return nil, v
+		response := &CreateTemplateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTemplateUnauthorized:
-		return nil, v
+		response := &CreateTemplateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTemplateForbidden:
-		return nil, v
+		response := &CreateTemplateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTemplateNotFound:
-		return nil, v
+		response := &CreateTemplateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -453,7 +610,7 @@ func (a *Client) CreateTemplateShort(params *CreateTemplateParams, authInfo runt
 GetSlugTemplateShort get all notification template in a slug
 Get all templates in a namespace
 */
-func (a *Client) GetSlugTemplateShort(params *GetSlugTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetSlugTemplateOK, error) {
+func (a *Client) GetSlugTemplateShort(params *GetSlugTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetSlugTemplateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSlugTemplateParams()
@@ -491,15 +648,40 @@ func (a *Client) GetSlugTemplateShort(params *GetSlugTemplateParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetSlugTemplateOK:
-		return v, nil
+		response := &GetSlugTemplateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSlugTemplateBadRequest:
-		return nil, v
+		response := &GetSlugTemplateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSlugTemplateUnauthorized:
-		return nil, v
+		response := &GetSlugTemplateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSlugTemplateForbidden:
-		return nil, v
+		response := &GetSlugTemplateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSlugTemplateNotFound:
-		return nil, v
+		response := &GetSlugTemplateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -510,7 +692,7 @@ func (a *Client) GetSlugTemplateShort(params *GetSlugTemplateParams, authInfo ru
 DeleteTemplateSlugShort delete template localization
 Delete localization template
 */
-func (a *Client) DeleteTemplateSlugShort(params *DeleteTemplateSlugParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateSlugNoContent, error) {
+func (a *Client) DeleteTemplateSlugShort(params *DeleteTemplateSlugParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateSlugResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTemplateSlugParams()
@@ -548,15 +730,39 @@ func (a *Client) DeleteTemplateSlugShort(params *DeleteTemplateSlugParams, authI
 	switch v := result.(type) {
 
 	case *DeleteTemplateSlugNoContent:
-		return v, nil
+		response := &DeleteTemplateSlugResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteTemplateSlugBadRequest:
-		return nil, v
+		response := &DeleteTemplateSlugResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateSlugUnauthorized:
-		return nil, v
+		response := &DeleteTemplateSlugResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateSlugForbidden:
-		return nil, v
+		response := &DeleteTemplateSlugResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateSlugNotFound:
-		return nil, v
+		response := &DeleteTemplateSlugResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -567,7 +773,7 @@ func (a *Client) DeleteTemplateSlugShort(params *DeleteTemplateSlugParams, authI
 GetLocalizationTemplateShort get a template localization
 Get a template localization
 */
-func (a *Client) GetLocalizationTemplateShort(params *GetLocalizationTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocalizationTemplateOK, error) {
+func (a *Client) GetLocalizationTemplateShort(params *GetLocalizationTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocalizationTemplateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLocalizationTemplateParams()
@@ -605,15 +811,40 @@ func (a *Client) GetLocalizationTemplateShort(params *GetLocalizationTemplatePar
 	switch v := result.(type) {
 
 	case *GetLocalizationTemplateOK:
-		return v, nil
+		response := &GetLocalizationTemplateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLocalizationTemplateBadRequest:
-		return nil, v
+		response := &GetLocalizationTemplateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLocalizationTemplateUnauthorized:
-		return nil, v
+		response := &GetLocalizationTemplateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLocalizationTemplateForbidden:
-		return nil, v
+		response := &GetLocalizationTemplateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLocalizationTemplateNotFound:
-		return nil, v
+		response := &GetLocalizationTemplateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -624,7 +855,7 @@ func (a *Client) GetLocalizationTemplateShort(params *GetLocalizationTemplatePar
 UpdateLocalizationTemplateShort update template draft
 Modify draft template
 */
-func (a *Client) UpdateLocalizationTemplateShort(params *UpdateLocalizationTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizationTemplateNoContent, error) {
+func (a *Client) UpdateLocalizationTemplateShort(params *UpdateLocalizationTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLocalizationTemplateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateLocalizationTemplateParams()
@@ -662,15 +893,39 @@ func (a *Client) UpdateLocalizationTemplateShort(params *UpdateLocalizationTempl
 	switch v := result.(type) {
 
 	case *UpdateLocalizationTemplateNoContent:
-		return v, nil
+		response := &UpdateLocalizationTemplateResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateLocalizationTemplateBadRequest:
-		return nil, v
+		response := &UpdateLocalizationTemplateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateLocalizationTemplateUnauthorized:
-		return nil, v
+		response := &UpdateLocalizationTemplateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateLocalizationTemplateForbidden:
-		return nil, v
+		response := &UpdateLocalizationTemplateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateLocalizationTemplateNotFound:
-		return nil, v
+		response := &UpdateLocalizationTemplateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -681,7 +936,7 @@ func (a *Client) UpdateLocalizationTemplateShort(params *UpdateLocalizationTempl
 DeleteTemplateLocalizationShort delete template localization
 Delete all template in a slug
 */
-func (a *Client) DeleteTemplateLocalizationShort(params *DeleteTemplateLocalizationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationNoContent, error) {
+func (a *Client) DeleteTemplateLocalizationShort(params *DeleteTemplateLocalizationParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTemplateLocalizationParams()
@@ -719,15 +974,39 @@ func (a *Client) DeleteTemplateLocalizationShort(params *DeleteTemplateLocalizat
 	switch v := result.(type) {
 
 	case *DeleteTemplateLocalizationNoContent:
-		return v, nil
+		response := &DeleteTemplateLocalizationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteTemplateLocalizationBadRequest:
-		return nil, v
+		response := &DeleteTemplateLocalizationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateLocalizationUnauthorized:
-		return nil, v
+		response := &DeleteTemplateLocalizationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateLocalizationForbidden:
-		return nil, v
+		response := &DeleteTemplateLocalizationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTemplateLocalizationNotFound:
-		return nil, v
+		response := &DeleteTemplateLocalizationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -738,7 +1017,7 @@ func (a *Client) DeleteTemplateLocalizationShort(params *DeleteTemplateLocalizat
 PublishTemplateShort publish draft template
 Publish notification template draft. Empty draft can not be published.
 */
-func (a *Client) PublishTemplateShort(params *PublishTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateNoContent, error) {
+func (a *Client) PublishTemplateShort(params *PublishTemplateParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublishTemplateParams()
@@ -776,15 +1055,39 @@ func (a *Client) PublishTemplateShort(params *PublishTemplateParams, authInfo ru
 	switch v := result.(type) {
 
 	case *PublishTemplateNoContent:
-		return v, nil
+		response := &PublishTemplateResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublishTemplateBadRequest:
-		return nil, v
+		response := &PublishTemplateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishTemplateUnauthorized:
-		return nil, v
+		response := &PublishTemplateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishTemplateForbidden:
-		return nil, v
+		response := &PublishTemplateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishTemplateNotFound:
-		return nil, v
+		response := &PublishTemplateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

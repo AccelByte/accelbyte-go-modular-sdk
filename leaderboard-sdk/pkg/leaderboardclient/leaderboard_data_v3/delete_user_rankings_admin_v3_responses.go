@@ -19,6 +19,53 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 )
 
+type DeleteUserRankingsAdminV3Response struct {
+	leaderboardclientmodels.ApiResponse
+
+	Error401 *leaderboardclientmodels.ResponseErrorResponse
+	Error403 *leaderboardclientmodels.ResponseErrorResponse
+	Error500 *leaderboardclientmodels.ResponseErrorResponse
+}
+
+func (m *DeleteUserRankingsAdminV3Response) Unpack() *leaderboardclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &leaderboardclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteUserRankingsAdminV3Reader is a Reader for the DeleteUserRankingsAdminV3 structure.
 type DeleteUserRankingsAdminV3Reader struct {
 	formats strfmt.Registry

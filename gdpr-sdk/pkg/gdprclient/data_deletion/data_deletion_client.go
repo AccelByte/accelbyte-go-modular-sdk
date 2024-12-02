@@ -30,16 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetListDeletionDataRequestShort(params *AdminGetListDeletionDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListDeletionDataRequestOK, error)
-	AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserAccountDeletionRequestOK, error)
-	AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitUserAccountDeletionRequestCreated, error)
-	AdminCancelUserAccountDeletionRequestShort(params *AdminCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserAccountDeletionRequestNoContent, error)
-	PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitUserAccountDeletionRequestCreated, error)
-	PublicCancelUserAccountDeletionRequestShort(params *PublicCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserAccountDeletionRequestNoContent, error)
-	PublicGetUserAccountDeletionStatusShort(params *PublicGetUserAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAccountDeletionStatusOK, error)
-	PublicSubmitMyAccountDeletionRequestShort(params *PublicSubmitMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitMyAccountDeletionRequestCreated, error)
-	PublicCancelMyAccountDeletionRequestShort(params *PublicCancelMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelMyAccountDeletionRequestNoContent, error)
-	PublicGetMyAccountDeletionStatusShort(params *PublicGetMyAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAccountDeletionStatusOK, error)
+	AdminGetListDeletionDataRequestShort(params *AdminGetListDeletionDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListDeletionDataRequestResponse, error)
+	AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserAccountDeletionRequestResponse, error)
+	AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitUserAccountDeletionRequestResponse, error)
+	AdminCancelUserAccountDeletionRequestShort(params *AdminCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserAccountDeletionRequestResponse, error)
+	PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitUserAccountDeletionRequestResponse, error)
+	PublicCancelUserAccountDeletionRequestShort(params *PublicCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserAccountDeletionRequestResponse, error)
+	PublicGetUserAccountDeletionStatusShort(params *PublicGetUserAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAccountDeletionStatusResponse, error)
+	PublicSubmitMyAccountDeletionRequestShort(params *PublicSubmitMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitMyAccountDeletionRequestResponse, error)
+	PublicCancelMyAccountDeletionRequestShort(params *PublicCancelMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelMyAccountDeletionRequestResponse, error)
+	PublicGetMyAccountDeletionStatusShort(params *PublicGetMyAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAccountDeletionStatusResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ AdminGetListDeletionDataRequestShort retrieve all user's account deletion reques
 Retrieve all user's account deletion requests in specified date
 Scope: account
 */
-func (a *Client) AdminGetListDeletionDataRequestShort(params *AdminGetListDeletionDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListDeletionDataRequestOK, error) {
+func (a *Client) AdminGetListDeletionDataRequestShort(params *AdminGetListDeletionDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListDeletionDataRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetListDeletionDataRequestParams()
@@ -87,17 +87,47 @@ func (a *Client) AdminGetListDeletionDataRequestShort(params *AdminGetListDeleti
 	switch v := result.(type) {
 
 	case *AdminGetListDeletionDataRequestOK:
-		return v, nil
+		response := &AdminGetListDeletionDataRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetListDeletionDataRequestBadRequest:
-		return nil, v
+		response := &AdminGetListDeletionDataRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListDeletionDataRequestUnauthorized:
-		return nil, v
+		response := &AdminGetListDeletionDataRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListDeletionDataRequestForbidden:
-		return nil, v
+		response := &AdminGetListDeletionDataRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListDeletionDataRequestNotFound:
-		return nil, v
+		response := &AdminGetListDeletionDataRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListDeletionDataRequestInternalServerError:
-		return nil, v
+		response := &AdminGetListDeletionDataRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -109,7 +139,7 @@ AdminGetUserAccountDeletionRequestShort retrieve specific user's account deletio
 Retrieve specific user's account deletion request
 Scope: account
 */
-func (a *Client) AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserAccountDeletionRequestOK, error) {
+func (a *Client) AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserAccountDeletionRequestParams()
@@ -147,15 +177,40 @@ func (a *Client) AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAcc
 	switch v := result.(type) {
 
 	case *AdminGetUserAccountDeletionRequestOK:
-		return v, nil
+		response := &AdminGetUserAccountDeletionRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &AdminGetUserAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserAccountDeletionRequestForbidden:
-		return nil, v
+		response := &AdminGetUserAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserAccountDeletionRequestNotFound:
-		return nil, v
+		response := &AdminGetUserAccountDeletionRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &AdminGetUserAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,7 +222,7 @@ AdminSubmitUserAccountDeletionRequestShort submit user's account deletion reques
 Submit user's account deletion request.
 Scope: account
 */
-func (a *Client) AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitUserAccountDeletionRequestCreated, error) {
+func (a *Client) AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitUserAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSubmitUserAccountDeletionRequestParams()
@@ -205,17 +260,47 @@ func (a *Client) AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitU
 	switch v := result.(type) {
 
 	case *AdminSubmitUserAccountDeletionRequestCreated:
-		return v, nil
+		response := &AdminSubmitUserAccountDeletionRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSubmitUserAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &AdminSubmitUserAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSubmitUserAccountDeletionRequestForbidden:
-		return nil, v
+		response := &AdminSubmitUserAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSubmitUserAccountDeletionRequestNotFound:
-		return nil, v
+		response := &AdminSubmitUserAccountDeletionRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSubmitUserAccountDeletionRequestConflict:
-		return nil, v
+		response := &AdminSubmitUserAccountDeletionRequestResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSubmitUserAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &AdminSubmitUserAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -227,7 +312,7 @@ AdminCancelUserAccountDeletionRequestShort cancel user's account deletion reques
 Cancel user's account deletion request
 Scope: account
 */
-func (a *Client) AdminCancelUserAccountDeletionRequestShort(params *AdminCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserAccountDeletionRequestNoContent, error) {
+func (a *Client) AdminCancelUserAccountDeletionRequestShort(params *AdminCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCancelUserAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCancelUserAccountDeletionRequestParams()
@@ -265,17 +350,46 @@ func (a *Client) AdminCancelUserAccountDeletionRequestShort(params *AdminCancelU
 	switch v := result.(type) {
 
 	case *AdminCancelUserAccountDeletionRequestNoContent:
-		return v, nil
+		response := &AdminCancelUserAccountDeletionRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCancelUserAccountDeletionRequestBadRequest:
-		return nil, v
+		response := &AdminCancelUserAccountDeletionRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCancelUserAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &AdminCancelUserAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCancelUserAccountDeletionRequestForbidden:
-		return nil, v
+		response := &AdminCancelUserAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCancelUserAccountDeletionRequestNotFound:
-		return nil, v
+		response := &AdminCancelUserAccountDeletionRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCancelUserAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &AdminCancelUserAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -291,7 +405,7 @@ Scope: account
 ### Request Header:
 - **Content-Type: application/x-www-form-urlencoded**
 */
-func (a *Client) PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitUserAccountDeletionRequestCreated, error) {
+func (a *Client) PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitUserAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSubmitUserAccountDeletionRequestParams()
@@ -329,19 +443,54 @@ func (a *Client) PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmi
 	switch v := result.(type) {
 
 	case *PublicSubmitUserAccountDeletionRequestCreated:
-		return v, nil
+		response := &PublicSubmitUserAccountDeletionRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSubmitUserAccountDeletionRequestBadRequest:
-		return nil, v
+		response := &PublicSubmitUserAccountDeletionRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitUserAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &PublicSubmitUserAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitUserAccountDeletionRequestForbidden:
-		return nil, v
+		response := &PublicSubmitUserAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitUserAccountDeletionRequestNotFound:
-		return nil, v
+		response := &PublicSubmitUserAccountDeletionRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitUserAccountDeletionRequestConflict:
-		return nil, v
+		response := &PublicSubmitUserAccountDeletionRequestResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitUserAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &PublicSubmitUserAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -354,7 +503,7 @@ Cancel user's account deletion request
 Requires valid user access token
 Scope: account
 */
-func (a *Client) PublicCancelUserAccountDeletionRequestShort(params *PublicCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserAccountDeletionRequestNoContent, error) {
+func (a *Client) PublicCancelUserAccountDeletionRequestShort(params *PublicCancelUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelUserAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCancelUserAccountDeletionRequestParams()
@@ -392,15 +541,39 @@ func (a *Client) PublicCancelUserAccountDeletionRequestShort(params *PublicCance
 	switch v := result.(type) {
 
 	case *PublicCancelUserAccountDeletionRequestNoContent:
-		return v, nil
+		response := &PublicCancelUserAccountDeletionRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCancelUserAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &PublicCancelUserAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelUserAccountDeletionRequestForbidden:
-		return nil, v
+		response := &PublicCancelUserAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelUserAccountDeletionRequestNotFound:
-		return nil, v
+		response := &PublicCancelUserAccountDeletionRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelUserAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &PublicCancelUserAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -413,7 +586,7 @@ Retrieve specific user's account deletion status
 Requires valid user access token
 Scope: account
 */
-func (a *Client) PublicGetUserAccountDeletionStatusShort(params *PublicGetUserAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAccountDeletionStatusOK, error) {
+func (a *Client) PublicGetUserAccountDeletionStatusShort(params *PublicGetUserAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAccountDeletionStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserAccountDeletionStatusParams()
@@ -451,13 +624,33 @@ func (a *Client) PublicGetUserAccountDeletionStatusShort(params *PublicGetUserAc
 	switch v := result.(type) {
 
 	case *PublicGetUserAccountDeletionStatusOK:
-		return v, nil
+		response := &PublicGetUserAccountDeletionStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserAccountDeletionStatusUnauthorized:
-		return nil, v
+		response := &PublicGetUserAccountDeletionStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserAccountDeletionStatusForbidden:
-		return nil, v
+		response := &PublicGetUserAccountDeletionStatusResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserAccountDeletionStatusInternalServerError:
-		return nil, v
+		response := &PublicGetUserAccountDeletionStatusResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -473,7 +666,7 @@ This is for in-game only and require a valid platformId and platform token. If a
 ### Request Header:
 - **Content-Type: application/x-www-form-urlencoded**
 */
-func (a *Client) PublicSubmitMyAccountDeletionRequestShort(params *PublicSubmitMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitMyAccountDeletionRequestCreated, error) {
+func (a *Client) PublicSubmitMyAccountDeletionRequestShort(params *PublicSubmitMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubmitMyAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSubmitMyAccountDeletionRequestParams()
@@ -511,19 +704,54 @@ func (a *Client) PublicSubmitMyAccountDeletionRequestShort(params *PublicSubmitM
 	switch v := result.(type) {
 
 	case *PublicSubmitMyAccountDeletionRequestCreated:
-		return v, nil
+		response := &PublicSubmitMyAccountDeletionRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSubmitMyAccountDeletionRequestBadRequest:
-		return nil, v
+		response := &PublicSubmitMyAccountDeletionRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitMyAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &PublicSubmitMyAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitMyAccountDeletionRequestForbidden:
-		return nil, v
+		response := &PublicSubmitMyAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitMyAccountDeletionRequestNotFound:
-		return nil, v
+		response := &PublicSubmitMyAccountDeletionRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitMyAccountDeletionRequestConflict:
-		return nil, v
+		response := &PublicSubmitMyAccountDeletionRequestResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSubmitMyAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &PublicSubmitMyAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -535,7 +763,7 @@ PublicCancelMyAccountDeletionRequestShort cancel my account deletion request
 Cancel my account deletion request
 Requires valid user access token
 */
-func (a *Client) PublicCancelMyAccountDeletionRequestShort(params *PublicCancelMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelMyAccountDeletionRequestNoContent, error) {
+func (a *Client) PublicCancelMyAccountDeletionRequestShort(params *PublicCancelMyAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelMyAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCancelMyAccountDeletionRequestParams()
@@ -573,15 +801,39 @@ func (a *Client) PublicCancelMyAccountDeletionRequestShort(params *PublicCancelM
 	switch v := result.(type) {
 
 	case *PublicCancelMyAccountDeletionRequestNoContent:
-		return v, nil
+		response := &PublicCancelMyAccountDeletionRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCancelMyAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &PublicCancelMyAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelMyAccountDeletionRequestForbidden:
-		return nil, v
+		response := &PublicCancelMyAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelMyAccountDeletionRequestNotFound:
-		return nil, v
+		response := &PublicCancelMyAccountDeletionRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCancelMyAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &PublicCancelMyAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -593,7 +845,7 @@ PublicGetMyAccountDeletionStatusShort retrieve my account deletion status
 Retrieve my account deletion status
 Requires valid user access token
 */
-func (a *Client) PublicGetMyAccountDeletionStatusShort(params *PublicGetMyAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAccountDeletionStatusOK, error) {
+func (a *Client) PublicGetMyAccountDeletionStatusShort(params *PublicGetMyAccountDeletionStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAccountDeletionStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyAccountDeletionStatusParams()
@@ -631,13 +883,33 @@ func (a *Client) PublicGetMyAccountDeletionStatusShort(params *PublicGetMyAccoun
 	switch v := result.(type) {
 
 	case *PublicGetMyAccountDeletionStatusOK:
-		return v, nil
+		response := &PublicGetMyAccountDeletionStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMyAccountDeletionStatusUnauthorized:
-		return nil, v
+		response := &PublicGetMyAccountDeletionStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyAccountDeletionStatusForbidden:
-		return nil, v
+		response := &PublicGetMyAccountDeletionStatusResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyAccountDeletionStatusInternalServerError:
-		return nil, v
+		response := &PublicGetMyAccountDeletionStatusResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

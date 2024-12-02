@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type PublicGetUserEntitlementOwnershipBySkuResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.TimedOwnership
+}
+
+func (m *PublicGetUserEntitlementOwnershipBySkuResponse) Unpack() (*platformclientmodels.TimedOwnership, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetUserEntitlementOwnershipBySkuReader is a Reader for the PublicGetUserEntitlementOwnershipBySku structure.
 type PublicGetUserEntitlementOwnershipBySkuReader struct {
 	formats strfmt.Registry

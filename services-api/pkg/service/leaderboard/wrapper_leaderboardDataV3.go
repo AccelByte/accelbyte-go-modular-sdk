@@ -9,7 +9,6 @@ package leaderboard
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_data_v3"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *LeaderboardDataV3Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *LeaderboardDataV3Service) GetAllTimeLeaderboardRankingAdminV3Short(input *leaderboard_data_v3.GetAllTimeLeaderboardRankingAdminV3Params) (*leaderboardclientmodels.ModelsGetLeaderboardRankingResp, error) {
+func (aaa *LeaderboardDataV3Service) GetAllTimeLeaderboardRankingAdminV3Short(input *leaderboard_data_v3.GetAllTimeLeaderboardRankingAdminV3Params) (*leaderboard_data_v3.GetAllTimeLeaderboardRankingAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *LeaderboardDataV3Service) GetAllTimeLeaderboardRankingAdminV3Short(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LeaderboardDataV3Service) GetCurrentCycleLeaderboardRankingAdminV3Short(input *leaderboard_data_v3.GetCurrentCycleLeaderboardRankingAdminV3Params) (*leaderboardclientmodels.ModelsGetLeaderboardRankingResp, error) {
+func (aaa *LeaderboardDataV3Service) GetCurrentCycleLeaderboardRankingAdminV3Short(input *leaderboard_data_v3.GetCurrentCycleLeaderboardRankingAdminV3Params) (*leaderboard_data_v3.GetCurrentCycleLeaderboardRankingAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *LeaderboardDataV3Service) GetCurrentCycleLeaderboardRankingAdminV3Sho
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *LeaderboardDataV3Service) DeleteAllUserRankingByCycleIDAdminV3Short(input *leaderboard_data_v3.DeleteAllUserRankingByCycleIDAdminV3Params) error {
@@ -189,7 +188,7 @@ func (aaa *LeaderboardDataV3Service) DeleteUserRankingByLeaderboardCodeAdminV3Sh
 	return nil
 }
 
-func (aaa *LeaderboardDataV3Service) GetUserRankingAdminV3Short(input *leaderboard_data_v3.GetUserRankingAdminV3Params) (*leaderboardclientmodels.ModelsUserRankingResponseV3, error) {
+func (aaa *LeaderboardDataV3Service) GetUserRankingAdminV3Short(input *leaderboard_data_v3.GetUserRankingAdminV3Params) (*leaderboard_data_v3.GetUserRankingAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *LeaderboardDataV3Service) GetUserRankingAdminV3Short(input *leaderboa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *LeaderboardDataV3Service) DeleteUserRankingAdminV3Short(input *leaderboard_data_v3.DeleteUserRankingAdminV3Params) error {
@@ -279,7 +278,7 @@ func (aaa *LeaderboardDataV3Service) DeleteUserRankingsAdminV3Short(input *leade
 	return nil
 }
 
-func (aaa *LeaderboardDataV3Service) GetAllTimeLeaderboardRankingPublicV3Short(input *leaderboard_data_v3.GetAllTimeLeaderboardRankingPublicV3Params) (*leaderboardclientmodels.ModelsGetLeaderboardRankingResp, error) {
+func (aaa *LeaderboardDataV3Service) GetAllTimeLeaderboardRankingPublicV3Short(input *leaderboard_data_v3.GetAllTimeLeaderboardRankingPublicV3Params) (*leaderboard_data_v3.GetAllTimeLeaderboardRankingPublicV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *LeaderboardDataV3Service) GetAllTimeLeaderboardRankingPublicV3Short(i
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LeaderboardDataV3Service) GetCurrentCycleLeaderboardRankingPublicV3Short(input *leaderboard_data_v3.GetCurrentCycleLeaderboardRankingPublicV3Params) (*leaderboardclientmodels.ModelsGetLeaderboardRankingResp, error) {
+func (aaa *LeaderboardDataV3Service) GetCurrentCycleLeaderboardRankingPublicV3Short(input *leaderboard_data_v3.GetCurrentCycleLeaderboardRankingPublicV3Params) (*leaderboard_data_v3.GetCurrentCycleLeaderboardRankingPublicV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,10 +335,10 @@ func (aaa *LeaderboardDataV3Service) GetCurrentCycleLeaderboardRankingPublicV3Sh
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LeaderboardDataV3Service) BulkGetUsersRankingPublicV3Short(input *leaderboard_data_v3.BulkGetUsersRankingPublicV3Params) (*leaderboardclientmodels.ModelsBulkUserRankingResponseV3, error) {
+func (aaa *LeaderboardDataV3Service) BulkGetUsersRankingPublicV3Short(input *leaderboard_data_v3.BulkGetUsersRankingPublicV3Params) (*leaderboard_data_v3.BulkGetUsersRankingPublicV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,10 +365,10 @@ func (aaa *LeaderboardDataV3Service) BulkGetUsersRankingPublicV3Short(input *lea
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LeaderboardDataV3Service) GetUserRankingPublicV3Short(input *leaderboard_data_v3.GetUserRankingPublicV3Params) (*leaderboardclientmodels.ModelsUserRankingResponseV3, error) {
+func (aaa *LeaderboardDataV3Service) GetUserRankingPublicV3Short(input *leaderboard_data_v3.GetUserRankingPublicV3Params) (*leaderboard_data_v3.GetUserRankingPublicV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,5 +395,5 @@ func (aaa *LeaderboardDataV3Service) GetUserRankingPublicV3Short(input *leaderbo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

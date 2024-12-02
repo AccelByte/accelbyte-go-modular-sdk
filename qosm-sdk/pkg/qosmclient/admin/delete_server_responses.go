@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclientmodels"
 )
 
+type DeleteServerResponse struct {
+	qosmclientmodels.ApiResponse
+
+	Error500 *qosmclientmodels.ResponseError
+}
+
+func (m *DeleteServerResponse) Unpack() *qosmclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &qosmclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteServerReader is a Reader for the DeleteServer structure.
 type DeleteServerReader struct {
 	formats strfmt.Registry

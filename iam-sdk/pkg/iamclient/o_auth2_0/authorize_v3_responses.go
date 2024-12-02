@@ -13,7 +13,30 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
+
+type AuthorizeV3Response struct {
+	iamclientmodels.ApiResponse
+
+	Data string
+}
+
+func (m *AuthorizeV3Response) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // AuthorizeV3Reader is a Reader for the AuthorizeV3 structure.
 type AuthorizeV3Reader struct {

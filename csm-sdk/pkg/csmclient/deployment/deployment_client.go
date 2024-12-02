@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateDeploymentV1Short(params *CreateDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentV1Created, error)
-	GetListOfDeploymentV1Short(params *GetListOfDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfDeploymentV1OK, error)
-	GetDeploymentV1Short(params *GetDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentV1OK, error)
-	DeleteDeploymentV1Short(params *DeleteDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentV1NoContent, error)
+	CreateDeploymentV1Short(params *CreateDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentV1Response, error)
+	GetListOfDeploymentV1Short(params *GetListOfDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfDeploymentV1Response, error)
+	GetDeploymentV1Short(params *GetDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentV1Response, error)
+	DeleteDeploymentV1Short(params *DeleteDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -55,7 +55,7 @@ Logic in this endpoint:
 
 Required: Valid Access Token
 */
-func (a *Client) CreateDeploymentV1Short(params *CreateDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentV1Created, error) {
+func (a *Client) CreateDeploymentV1Short(params *CreateDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateDeploymentV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateDeploymentV1Params()
@@ -93,17 +93,47 @@ func (a *Client) CreateDeploymentV1Short(params *CreateDeploymentV1Params, authI
 	switch v := result.(type) {
 
 	case *CreateDeploymentV1Created:
-		return v, nil
+		response := &CreateDeploymentV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateDeploymentV1BadRequest:
-		return nil, v
+		response := &CreateDeploymentV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentV1Unauthorized:
-		return nil, v
+		response := &CreateDeploymentV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentV1Forbidden:
-		return nil, v
+		response := &CreateDeploymentV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentV1NotFound:
-		return nil, v
+		response := &CreateDeploymentV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateDeploymentV1InternalServerError:
-		return nil, v
+		response := &CreateDeploymentV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -120,7 +150,7 @@ This endpoint intended to get list of Deployment done for the given publisher an
 
 Required: Valid Access Token
 */
-func (a *Client) GetListOfDeploymentV1Short(params *GetListOfDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfDeploymentV1OK, error) {
+func (a *Client) GetListOfDeploymentV1Short(params *GetListOfDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfDeploymentV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListOfDeploymentV1Params()
@@ -158,15 +188,40 @@ func (a *Client) GetListOfDeploymentV1Short(params *GetListOfDeploymentV1Params,
 	switch v := result.(type) {
 
 	case *GetListOfDeploymentV1OK:
-		return v, nil
+		response := &GetListOfDeploymentV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListOfDeploymentV1BadRequest:
-		return nil, v
+		response := &GetListOfDeploymentV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfDeploymentV1Unauthorized:
-		return nil, v
+		response := &GetListOfDeploymentV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfDeploymentV1Forbidden:
-		return nil, v
+		response := &GetListOfDeploymentV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfDeploymentV1InternalServerError:
-		return nil, v
+		response := &GetListOfDeploymentV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -183,7 +238,7 @@ This endpoint intended to get Deployment information by given Deployment ID from
 
 Required: Valid Access Token
 */
-func (a *Client) GetDeploymentV1Short(params *GetDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentV1OK, error) {
+func (a *Client) GetDeploymentV1Short(params *GetDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetDeploymentV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDeploymentV1Params()
@@ -221,15 +276,40 @@ func (a *Client) GetDeploymentV1Short(params *GetDeploymentV1Params, authInfo ru
 	switch v := result.(type) {
 
 	case *GetDeploymentV1OK:
-		return v, nil
+		response := &GetDeploymentV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetDeploymentV1Unauthorized:
-		return nil, v
+		response := &GetDeploymentV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentV1Forbidden:
-		return nil, v
+		response := &GetDeploymentV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentV1NotFound:
-		return nil, v
+		response := &GetDeploymentV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetDeploymentV1InternalServerError:
-		return nil, v
+		response := &GetDeploymentV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -246,7 +326,7 @@ This endpoint intended to delete helm release object and update the deleted_at i
 
 Required: Valid Access Token
 */
-func (a *Client) DeleteDeploymentV1Short(params *DeleteDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentV1NoContent, error) {
+func (a *Client) DeleteDeploymentV1Short(params *DeleteDeploymentV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteDeploymentV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteDeploymentV1Params()
@@ -284,15 +364,39 @@ func (a *Client) DeleteDeploymentV1Short(params *DeleteDeploymentV1Params, authI
 	switch v := result.(type) {
 
 	case *DeleteDeploymentV1NoContent:
-		return v, nil
+		response := &DeleteDeploymentV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteDeploymentV1Unauthorized:
-		return nil, v
+		response := &DeleteDeploymentV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentV1Forbidden:
-		return nil, v
+		response := &DeleteDeploymentV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentV1NotFound:
-		return nil, v
+		response := &DeleteDeploymentV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteDeploymentV1InternalServerError:
-		return nil, v
+		response := &DeleteDeploymentV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

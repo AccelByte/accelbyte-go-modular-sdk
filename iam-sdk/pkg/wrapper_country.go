@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/country"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *CountryService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *CountryService) AdminGetCountryListV3Short(input *country.AdminGetCountryListV3Params) ([]*iamclientmodels.ModelCountryResponse, error) {
+func (aaa *CountryService) AdminGetCountryListV3Short(input *country.AdminGetCountryListV3Params) (*country.AdminGetCountryListV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *CountryService) AdminGetCountryListV3Short(input *country.AdminGetCou
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CountryService) AdminGetCountryBlacklistV3Short(input *country.AdminGetCountryBlacklistV3Params) (*iamclientmodels.ModelCountryBlacklistResponse, error) {
+func (aaa *CountryService) AdminGetCountryBlacklistV3Short(input *country.AdminGetCountryBlacklistV3Params) (*country.AdminGetCountryBlacklistV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *CountryService) AdminGetCountryBlacklistV3Short(input *country.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *CountryService) AdminAddCountryBlacklistV3Short(input *country.AdminAddCountryBlacklistV3Params) error {
@@ -127,7 +126,7 @@ func (aaa *CountryService) AdminAddCountryBlacklistV3Short(input *country.AdminA
 	return nil
 }
 
-func (aaa *CountryService) PublicGetCountryListV3Short(input *country.PublicGetCountryListV3Params) ([]*iamclientmodels.ModelCountryResponse, error) {
+func (aaa *CountryService) PublicGetCountryListV3Short(input *country.PublicGetCountryListV3Params) (*country.PublicGetCountryListV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,5 +153,5 @@ func (aaa *CountryService) PublicGetCountryListV3Short(input *country.PublicGetC
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

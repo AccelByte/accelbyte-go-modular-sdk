@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type PublicInviteUserV4Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelInviteUserResponseV3
+
+	Error400 *iamclientmodels.RestErrorResponse
+	Error409 *iamclientmodels.RestErrorResponse
+	Error422 *iamclientmodels.RestErrorResponse
+	Error429 *iamclientmodels.RestErrorResponse
+	Error500 *iamclientmodels.RestErrorResponse
+}
+
+func (m *PublicInviteUserV4Response) Unpack() (*iamclientmodels.ModelInviteUserResponseV3, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 429:
+			e, err := m.Error429.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicInviteUserV4Reader is a Reader for the PublicInviteUserV4 structure.
 type PublicInviteUserV4Reader struct {
 	formats strfmt.Registry

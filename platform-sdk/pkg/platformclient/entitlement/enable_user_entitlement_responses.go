@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type EnableUserEntitlementResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.EntitlementInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+	Error409 *platformclientmodels.ErrorEntity
+}
+
+func (m *EnableUserEntitlementResponse) Unpack() (*platformclientmodels.EntitlementInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // EnableUserEntitlementReader is a Reader for the EnableUserEntitlement structure.
 type EnableUserEntitlementReader struct {
 	formats strfmt.Registry

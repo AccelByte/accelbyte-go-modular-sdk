@@ -19,6 +19,31 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 )
 
+type PublicGetMessagesResponse struct {
+	csmclientmodels.ApiResponse
+	Data []*csmclientmodels.LogAppMessageDeclaration
+
+	Error500 string
+}
+
+func (m *PublicGetMessagesResponse) Unpack() ([]*csmclientmodels.LogAppMessageDeclaration, *csmclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			return nil, &csmclientmodels.ApiError{Code: "500", Message: m.Error500}
+
+		default:
+			return nil, &csmclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetMessagesReader is a Reader for the PublicGetMessages structure.
 type PublicGetMessagesReader struct {
 	formats strfmt.Registry

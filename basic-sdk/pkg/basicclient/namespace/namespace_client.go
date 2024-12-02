@@ -30,19 +30,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetNamespacesShort(params *GetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacesOK, error)
-	CreateNamespaceShort(params *CreateNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNamespaceCreated, error)
-	GetNamespaceShort(params *GetNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceOK, error)
-	DeleteNamespaceShort(params *DeleteNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNamespaceOK, error)
-	UpdateNamespaceShort(params *UpdateNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNamespaceOK, error)
-	GetChildNamespacesShort(params *GetChildNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildNamespacesOK, error)
-	GetNamespaceContextShort(params *GetNamespaceContextParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceContextOK, error)
-	GetGameNamespacesShort(params *GetGameNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameNamespacesOK, error)
-	GetNamespacePublisherShort(params *GetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacePublisherOK, error)
-	ChangeNamespaceStatusShort(params *ChangeNamespaceStatusParams, authInfo runtime.ClientAuthInfoWriter) (*ChangeNamespaceStatusOK, error)
-	PublicGetNamespacesShort(params *PublicGetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacesOK, error)
-	GetNamespace1Short(params *GetNamespace1Params) (*GetNamespace1OK, error)
-	PublicGetNamespacePublisherShort(params *PublicGetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacePublisherOK, error)
+	GetNamespacesShort(params *GetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacesResponse, error)
+	CreateNamespaceShort(params *CreateNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNamespaceResponse, error)
+	GetNamespaceShort(params *GetNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceResponse, error)
+	DeleteNamespaceShort(params *DeleteNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNamespaceResponse, error)
+	UpdateNamespaceShort(params *UpdateNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNamespaceResponse, error)
+	GetChildNamespacesShort(params *GetChildNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildNamespacesResponse, error)
+	GetNamespaceContextShort(params *GetNamespaceContextParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceContextResponse, error)
+	GetGameNamespacesShort(params *GetGameNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameNamespacesResponse, error)
+	GetNamespacePublisherShort(params *GetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacePublisherResponse, error)
+	ChangeNamespaceStatusShort(params *ChangeNamespaceStatusParams, authInfo runtime.ClientAuthInfoWriter) (*ChangeNamespaceStatusResponse, error)
+	PublicGetNamespacesShort(params *PublicGetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacesResponse, error)
+	GetNamespace1Short(params *GetNamespace1Params) (*GetNamespace1Response, error)
+	PublicGetNamespacePublisherShort(params *PublicGetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacePublisherResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -55,7 +55,7 @@ Other detail info:
   * Action code : 11303
   *  Returns : list of namespaces
 */
-func (a *Client) GetNamespacesShort(params *GetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacesOK, error) {
+func (a *Client) GetNamespacesShort(params *GetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetNamespacesParams()
@@ -93,11 +93,26 @@ func (a *Client) GetNamespacesShort(params *GetNamespacesParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetNamespacesOK:
-		return v, nil
+		response := &GetNamespacesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetNamespacesUnauthorized:
-		return nil, v
+		response := &GetNamespacesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNamespacesForbidden:
-		return nil, v
+		response := &GetNamespacesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -123,7 +138,7 @@ Other detail info:
   * Action code : 11301
   *  Returns : created namespace
 */
-func (a *Client) CreateNamespaceShort(params *CreateNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNamespaceCreated, error) {
+func (a *Client) CreateNamespaceShort(params *CreateNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateNamespaceParams()
@@ -161,15 +176,40 @@ func (a *Client) CreateNamespaceShort(params *CreateNamespaceParams, authInfo ru
 	switch v := result.(type) {
 
 	case *CreateNamespaceCreated:
-		return v, nil
+		response := &CreateNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateNamespaceBadRequest:
-		return nil, v
+		response := &CreateNamespaceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNamespaceUnauthorized:
-		return nil, v
+		response := &CreateNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNamespaceForbidden:
-		return nil, v
+		response := &CreateNamespaceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNamespaceConflict:
-		return nil, v
+		response := &CreateNamespaceResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -185,7 +225,7 @@ Other detail info:
   * Action code : 11304
   *  Returns : namespace
 */
-func (a *Client) GetNamespaceShort(params *GetNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceOK, error) {
+func (a *Client) GetNamespaceShort(params *GetNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetNamespaceParams()
@@ -223,15 +263,40 @@ func (a *Client) GetNamespaceShort(params *GetNamespaceParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetNamespaceOK:
-		return v, nil
+		response := &GetNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetNamespaceBadRequest:
-		return nil, v
+		response := &GetNamespaceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNamespaceUnauthorized:
-		return nil, v
+		response := &GetNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNamespaceForbidden:
-		return nil, v
+		response := &GetNamespaceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNamespaceNotFound:
-		return nil, v
+		response := &GetNamespaceResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -246,7 +311,7 @@ Other detail info:
   * Action code : 11307
   *  Returns : deleted namespace
 */
-func (a *Client) DeleteNamespaceShort(params *DeleteNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNamespaceOK, error) {
+func (a *Client) DeleteNamespaceShort(params *DeleteNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteNamespaceParams()
@@ -284,17 +349,47 @@ func (a *Client) DeleteNamespaceShort(params *DeleteNamespaceParams, authInfo ru
 	switch v := result.(type) {
 
 	case *DeleteNamespaceOK:
-		return v, nil
+		response := &DeleteNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteNamespaceBadRequest:
-		return nil, v
+		response := &DeleteNamespaceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNamespaceUnauthorized:
-		return nil, v
+		response := &DeleteNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNamespaceForbidden:
-		return nil, v
+		response := &DeleteNamespaceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNamespaceNotFound:
-		return nil, v
+		response := &DeleteNamespaceResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteNamespaceConflict:
-		return nil, v
+		response := &DeleteNamespaceResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -318,7 +413,7 @@ Other detail info:
   * Action code : 11302
   *  Returns : updated namespace
 */
-func (a *Client) UpdateNamespaceShort(params *UpdateNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNamespaceOK, error) {
+func (a *Client) UpdateNamespaceShort(params *UpdateNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNamespaceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateNamespaceParams()
@@ -356,17 +451,47 @@ func (a *Client) UpdateNamespaceShort(params *UpdateNamespaceParams, authInfo ru
 	switch v := result.(type) {
 
 	case *UpdateNamespaceOK:
-		return v, nil
+		response := &UpdateNamespaceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateNamespaceBadRequest:
-		return nil, v
+		response := &UpdateNamespaceResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateNamespaceUnauthorized:
-		return nil, v
+		response := &UpdateNamespaceResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateNamespaceForbidden:
-		return nil, v
+		response := &UpdateNamespaceResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateNamespaceNotFound:
-		return nil, v
+		response := &UpdateNamespaceResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateNamespaceConflict:
-		return nil, v
+		response := &UpdateNamespaceResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -382,7 +507,7 @@ Other detail info:
 
   * Returns : list of child namespaces
 */
-func (a *Client) GetChildNamespacesShort(params *GetChildNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildNamespacesOK, error) {
+func (a *Client) GetChildNamespacesShort(params *GetChildNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildNamespacesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetChildNamespacesParams()
@@ -420,11 +545,26 @@ func (a *Client) GetChildNamespacesShort(params *GetChildNamespacesParams, authI
 	switch v := result.(type) {
 
 	case *GetChildNamespacesOK:
-		return v, nil
+		response := &GetChildNamespacesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetChildNamespacesUnauthorized:
-		return nil, v
+		response := &GetChildNamespacesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetChildNamespacesForbidden:
-		return nil, v
+		response := &GetChildNamespacesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -438,7 +578,7 @@ Other detail info:
 
   * Returns : context of namespace
 */
-func (a *Client) GetNamespaceContextShort(params *GetNamespaceContextParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceContextOK, error) {
+func (a *Client) GetNamespaceContextShort(params *GetNamespaceContextParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceContextResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetNamespaceContextParams()
@@ -476,11 +616,26 @@ func (a *Client) GetNamespaceContextShort(params *GetNamespaceContextParams, aut
 	switch v := result.(type) {
 
 	case *GetNamespaceContextOK:
-		return v, nil
+		response := &GetNamespaceContextResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetNamespaceContextUnauthorized:
-		return nil, v
+		response := &GetNamespaceContextResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNamespaceContextForbidden:
-		return nil, v
+		response := &GetNamespaceContextResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -496,7 +651,7 @@ Other detail info:
   * Action code : 11308
   *  Returns : list of namespaces
 */
-func (a *Client) GetGameNamespacesShort(params *GetGameNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameNamespacesOK, error) {
+func (a *Client) GetGameNamespacesShort(params *GetGameNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameNamespacesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGameNamespacesParams()
@@ -534,11 +689,26 @@ func (a *Client) GetGameNamespacesShort(params *GetGameNamespacesParams, authInf
 	switch v := result.(type) {
 
 	case *GetGameNamespacesOK:
-		return v, nil
+		response := &GetGameNamespacesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGameNamespacesUnauthorized:
-		return nil, v
+		response := &GetGameNamespacesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameNamespacesForbidden:
-		return nil, v
+		response := &GetGameNamespacesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -553,7 +723,7 @@ Other detail info:
   * Action code : 11305
   *  Returns : Namespace info related publisher namespace
 */
-func (a *Client) GetNamespacePublisherShort(params *GetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacePublisherOK, error) {
+func (a *Client) GetNamespacePublisherShort(params *GetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacePublisherResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetNamespacePublisherParams()
@@ -591,15 +761,40 @@ func (a *Client) GetNamespacePublisherShort(params *GetNamespacePublisherParams,
 	switch v := result.(type) {
 
 	case *GetNamespacePublisherOK:
-		return v, nil
+		response := &GetNamespacePublisherResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetNamespacePublisherBadRequest:
-		return nil, v
+		response := &GetNamespacePublisherResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNamespacePublisherUnauthorized:
-		return nil, v
+		response := &GetNamespacePublisherResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNamespacePublisherForbidden:
-		return nil, v
+		response := &GetNamespacePublisherResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNamespacePublisherNotFound:
-		return nil, v
+		response := &GetNamespacePublisherResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -614,7 +809,7 @@ Other detail info:
   * Action code : 11306
   *  Returns : updated namespace
 */
-func (a *Client) ChangeNamespaceStatusShort(params *ChangeNamespaceStatusParams, authInfo runtime.ClientAuthInfoWriter) (*ChangeNamespaceStatusOK, error) {
+func (a *Client) ChangeNamespaceStatusShort(params *ChangeNamespaceStatusParams, authInfo runtime.ClientAuthInfoWriter) (*ChangeNamespaceStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewChangeNamespaceStatusParams()
@@ -652,17 +847,47 @@ func (a *Client) ChangeNamespaceStatusShort(params *ChangeNamespaceStatusParams,
 	switch v := result.(type) {
 
 	case *ChangeNamespaceStatusOK:
-		return v, nil
+		response := &ChangeNamespaceStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ChangeNamespaceStatusBadRequest:
-		return nil, v
+		response := &ChangeNamespaceStatusResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ChangeNamespaceStatusUnauthorized:
-		return nil, v
+		response := &ChangeNamespaceStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ChangeNamespaceStatusForbidden:
-		return nil, v
+		response := &ChangeNamespaceStatusResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ChangeNamespaceStatusNotFound:
-		return nil, v
+		response := &ChangeNamespaceStatusResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ChangeNamespaceStatusConflict:
-		return nil, v
+		response := &ChangeNamespaceStatusResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -677,7 +902,7 @@ Other detail info:
   * Action code : 11303
   *  Returns : list of namespaces
 */
-func (a *Client) PublicGetNamespacesShort(params *PublicGetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacesOK, error) {
+func (a *Client) PublicGetNamespacesShort(params *PublicGetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetNamespacesParams()
@@ -715,9 +940,19 @@ func (a *Client) PublicGetNamespacesShort(params *PublicGetNamespacesParams, aut
 	switch v := result.(type) {
 
 	case *PublicGetNamespacesOK:
-		return v, nil
+		response := &PublicGetNamespacesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetNamespacesUnauthorized:
-		return nil, v
+		response := &PublicGetNamespacesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -731,7 +966,7 @@ Other detail info:
 
   * Returns : namespace info
 */
-func (a *Client) GetNamespace1Short(params *GetNamespace1Params) (*GetNamespace1OK, error) {
+func (a *Client) GetNamespace1Short(params *GetNamespace1Params) (*GetNamespace1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetNamespace1Params()
@@ -768,9 +1003,19 @@ func (a *Client) GetNamespace1Short(params *GetNamespace1Params) (*GetNamespace1
 	switch v := result.(type) {
 
 	case *GetNamespace1OK:
-		return v, nil
+		response := &GetNamespace1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetNamespace1NotFound:
-		return nil, v
+		response := &GetNamespace1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -785,7 +1030,7 @@ Other detail info:
   * Action code : 11305
   *  Returns : Namespace info related publisher namespace
 */
-func (a *Client) PublicGetNamespacePublisherShort(params *PublicGetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacePublisherOK, error) {
+func (a *Client) PublicGetNamespacePublisherShort(params *PublicGetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacePublisherResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetNamespacePublisherParams()
@@ -823,15 +1068,40 @@ func (a *Client) PublicGetNamespacePublisherShort(params *PublicGetNamespacePubl
 	switch v := result.(type) {
 
 	case *PublicGetNamespacePublisherOK:
-		return v, nil
+		response := &PublicGetNamespacePublisherResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetNamespacePublisherBadRequest:
-		return nil, v
+		response := &PublicGetNamespacePublisherResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetNamespacePublisherUnauthorized:
-		return nil, v
+		response := &PublicGetNamespacePublisherResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetNamespacePublisherForbidden:
-		return nil, v
+		response := &PublicGetNamespacePublisherResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetNamespacePublisherNotFound:
-		return nil, v
+		response := &PublicGetNamespacePublisherResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

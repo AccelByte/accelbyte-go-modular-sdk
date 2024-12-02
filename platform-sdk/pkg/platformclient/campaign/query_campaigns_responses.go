@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryCampaignsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.CampaignPagingSlicedResult
+}
+
+func (m *QueryCampaignsResponse) Unpack() (*platformclientmodels.CampaignPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryCampaignsReader is a Reader for the QueryCampaigns structure.
 type QueryCampaignsReader struct {
 	formats strfmt.Registry

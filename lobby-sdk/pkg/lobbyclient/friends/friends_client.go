@@ -30,25 +30,25 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserFriendsUpdatedShort(params *GetUserFriendsUpdatedParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserFriendsUpdatedOK, error)
-	GetUserIncomingFriendsShort(params *GetUserIncomingFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserIncomingFriendsOK, error)
-	GetUserIncomingFriendsWithTimeShort(params *GetUserIncomingFriendsWithTimeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserIncomingFriendsWithTimeOK, error)
-	GetUserOutgoingFriendsShort(params *GetUserOutgoingFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOutgoingFriendsOK, error)
-	GetUserOutgoingFriendsWithTimeShort(params *GetUserOutgoingFriendsWithTimeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOutgoingFriendsWithTimeOK, error)
-	GetUserFriendsWithPlatformShort(params *GetUserFriendsWithPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserFriendsWithPlatformOK, error)
-	UserRequestFriendShort(params *UserRequestFriendParams, authInfo runtime.ClientAuthInfoWriter) (*UserRequestFriendCreated, error)
-	UserAcceptFriendRequestShort(params *UserAcceptFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserAcceptFriendRequestNoContent, error)
-	UserCancelFriendRequestShort(params *UserCancelFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserCancelFriendRequestNoContent, error)
-	UserRejectFriendRequestShort(params *UserRejectFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserRejectFriendRequestNoContent, error)
-	UserGetFriendshipStatusShort(params *UserGetFriendshipStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UserGetFriendshipStatusOK, error)
-	UserUnfriendRequestShort(params *UserUnfriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserUnfriendRequestNoContent, error)
-	AddFriendsWithoutConfirmationShort(params *AddFriendsWithoutConfirmationParams, authInfo runtime.ClientAuthInfoWriter) (*AddFriendsWithoutConfirmationNoContent, error)
-	BulkDeleteFriendsShort(params *BulkDeleteFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDeleteFriendsOK, error)
-	SyncNativeFriendsShort(params *SyncNativeFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncNativeFriendsOK, error)
-	GetListOfFriendsShort(params *GetListOfFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListOfFriendsOK, error)
-	GetIncomingFriendRequestsShort(params *GetIncomingFriendRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIncomingFriendRequestsOK, error)
-	AdminListFriendsOfFriendsShort(params *AdminListFriendsOfFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListFriendsOfFriendsOK, error)
-	GetOutgoingFriendRequestsShort(params *GetOutgoingFriendRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*GetOutgoingFriendRequestsOK, error)
+	GetUserFriendsUpdatedShort(params *GetUserFriendsUpdatedParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserFriendsUpdatedResponse, error)
+	GetUserIncomingFriendsShort(params *GetUserIncomingFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserIncomingFriendsResponse, error)
+	GetUserIncomingFriendsWithTimeShort(params *GetUserIncomingFriendsWithTimeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserIncomingFriendsWithTimeResponse, error)
+	GetUserOutgoingFriendsShort(params *GetUserOutgoingFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOutgoingFriendsResponse, error)
+	GetUserOutgoingFriendsWithTimeShort(params *GetUserOutgoingFriendsWithTimeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOutgoingFriendsWithTimeResponse, error)
+	GetUserFriendsWithPlatformShort(params *GetUserFriendsWithPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserFriendsWithPlatformResponse, error)
+	UserRequestFriendShort(params *UserRequestFriendParams, authInfo runtime.ClientAuthInfoWriter) (*UserRequestFriendResponse, error)
+	UserAcceptFriendRequestShort(params *UserAcceptFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserAcceptFriendRequestResponse, error)
+	UserCancelFriendRequestShort(params *UserCancelFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserCancelFriendRequestResponse, error)
+	UserRejectFriendRequestShort(params *UserRejectFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserRejectFriendRequestResponse, error)
+	UserGetFriendshipStatusShort(params *UserGetFriendshipStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UserGetFriendshipStatusResponse, error)
+	UserUnfriendRequestShort(params *UserUnfriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserUnfriendRequestResponse, error)
+	AddFriendsWithoutConfirmationShort(params *AddFriendsWithoutConfirmationParams, authInfo runtime.ClientAuthInfoWriter) (*AddFriendsWithoutConfirmationResponse, error)
+	BulkDeleteFriendsShort(params *BulkDeleteFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDeleteFriendsResponse, error)
+	SyncNativeFriendsShort(params *SyncNativeFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncNativeFriendsResponse, error)
+	GetListOfFriendsShort(params *GetListOfFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListOfFriendsResponse, error)
+	GetIncomingFriendRequestsShort(params *GetIncomingFriendRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIncomingFriendRequestsResponse, error)
+	AdminListFriendsOfFriendsShort(params *AdminListFriendsOfFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListFriendsOfFriendsResponse, error)
+	GetOutgoingFriendRequestsShort(params *GetOutgoingFriendRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*GetOutgoingFriendRequestsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -57,7 +57,7 @@ type ClientService interface {
 GetUserFriendsUpdatedShort get list of friends
 Get list of friends in a namespace.
 */
-func (a *Client) GetUserFriendsUpdatedShort(params *GetUserFriendsUpdatedParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserFriendsUpdatedOK, error) {
+func (a *Client) GetUserFriendsUpdatedShort(params *GetUserFriendsUpdatedParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserFriendsUpdatedResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserFriendsUpdatedParams()
@@ -95,17 +95,47 @@ func (a *Client) GetUserFriendsUpdatedShort(params *GetUserFriendsUpdatedParams,
 	switch v := result.(type) {
 
 	case *GetUserFriendsUpdatedOK:
-		return v, nil
+		response := &GetUserFriendsUpdatedResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserFriendsUpdatedBadRequest:
-		return nil, v
+		response := &GetUserFriendsUpdatedResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserFriendsUpdatedUnauthorized:
-		return nil, v
+		response := &GetUserFriendsUpdatedResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserFriendsUpdatedForbidden:
-		return nil, v
+		response := &GetUserFriendsUpdatedResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserFriendsUpdatedNotFound:
-		return nil, v
+		response := &GetUserFriendsUpdatedResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserFriendsUpdatedInternalServerError:
-		return nil, v
+		response := &GetUserFriendsUpdatedResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -116,7 +146,7 @@ func (a *Client) GetUserFriendsUpdatedShort(params *GetUserFriendsUpdatedParams,
 GetUserIncomingFriendsShort get list of incoming friends
 Get list of incoming friends in a namespace.
 */
-func (a *Client) GetUserIncomingFriendsShort(params *GetUserIncomingFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserIncomingFriendsOK, error) {
+func (a *Client) GetUserIncomingFriendsShort(params *GetUserIncomingFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserIncomingFriendsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserIncomingFriendsParams()
@@ -154,17 +184,47 @@ func (a *Client) GetUserIncomingFriendsShort(params *GetUserIncomingFriendsParam
 	switch v := result.(type) {
 
 	case *GetUserIncomingFriendsOK:
-		return v, nil
+		response := &GetUserIncomingFriendsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserIncomingFriendsBadRequest:
-		return nil, v
+		response := &GetUserIncomingFriendsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserIncomingFriendsUnauthorized:
-		return nil, v
+		response := &GetUserIncomingFriendsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserIncomingFriendsForbidden:
-		return nil, v
+		response := &GetUserIncomingFriendsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserIncomingFriendsNotFound:
-		return nil, v
+		response := &GetUserIncomingFriendsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserIncomingFriendsInternalServerError:
-		return nil, v
+		response := &GetUserIncomingFriendsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -175,7 +235,7 @@ func (a *Client) GetUserIncomingFriendsShort(params *GetUserIncomingFriendsParam
 GetUserIncomingFriendsWithTimeShort get list of incoming friends with requested time info
 Get list of incoming friends with requested time info in a namespace.
 */
-func (a *Client) GetUserIncomingFriendsWithTimeShort(params *GetUserIncomingFriendsWithTimeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserIncomingFriendsWithTimeOK, error) {
+func (a *Client) GetUserIncomingFriendsWithTimeShort(params *GetUserIncomingFriendsWithTimeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserIncomingFriendsWithTimeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserIncomingFriendsWithTimeParams()
@@ -213,17 +273,47 @@ func (a *Client) GetUserIncomingFriendsWithTimeShort(params *GetUserIncomingFrie
 	switch v := result.(type) {
 
 	case *GetUserIncomingFriendsWithTimeOK:
-		return v, nil
+		response := &GetUserIncomingFriendsWithTimeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserIncomingFriendsWithTimeBadRequest:
-		return nil, v
+		response := &GetUserIncomingFriendsWithTimeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserIncomingFriendsWithTimeUnauthorized:
-		return nil, v
+		response := &GetUserIncomingFriendsWithTimeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserIncomingFriendsWithTimeForbidden:
-		return nil, v
+		response := &GetUserIncomingFriendsWithTimeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserIncomingFriendsWithTimeNotFound:
-		return nil, v
+		response := &GetUserIncomingFriendsWithTimeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserIncomingFriendsWithTimeInternalServerError:
-		return nil, v
+		response := &GetUserIncomingFriendsWithTimeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -234,7 +324,7 @@ func (a *Client) GetUserIncomingFriendsWithTimeShort(params *GetUserIncomingFrie
 GetUserOutgoingFriendsShort get list of outgoing friends
 Get list of outgoing friends in a namespace.
 */
-func (a *Client) GetUserOutgoingFriendsShort(params *GetUserOutgoingFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOutgoingFriendsOK, error) {
+func (a *Client) GetUserOutgoingFriendsShort(params *GetUserOutgoingFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOutgoingFriendsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserOutgoingFriendsParams()
@@ -272,17 +362,47 @@ func (a *Client) GetUserOutgoingFriendsShort(params *GetUserOutgoingFriendsParam
 	switch v := result.(type) {
 
 	case *GetUserOutgoingFriendsOK:
-		return v, nil
+		response := &GetUserOutgoingFriendsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserOutgoingFriendsBadRequest:
-		return nil, v
+		response := &GetUserOutgoingFriendsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserOutgoingFriendsUnauthorized:
-		return nil, v
+		response := &GetUserOutgoingFriendsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserOutgoingFriendsForbidden:
-		return nil, v
+		response := &GetUserOutgoingFriendsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserOutgoingFriendsNotFound:
-		return nil, v
+		response := &GetUserOutgoingFriendsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserOutgoingFriendsInternalServerError:
-		return nil, v
+		response := &GetUserOutgoingFriendsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -293,7 +413,7 @@ func (a *Client) GetUserOutgoingFriendsShort(params *GetUserOutgoingFriendsParam
 GetUserOutgoingFriendsWithTimeShort get list of outgoing friends with requested time info
 Get list of outgoing friends with requested time info in a namespace.
 */
-func (a *Client) GetUserOutgoingFriendsWithTimeShort(params *GetUserOutgoingFriendsWithTimeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOutgoingFriendsWithTimeOK, error) {
+func (a *Client) GetUserOutgoingFriendsWithTimeShort(params *GetUserOutgoingFriendsWithTimeParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserOutgoingFriendsWithTimeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserOutgoingFriendsWithTimeParams()
@@ -331,17 +451,47 @@ func (a *Client) GetUserOutgoingFriendsWithTimeShort(params *GetUserOutgoingFrie
 	switch v := result.(type) {
 
 	case *GetUserOutgoingFriendsWithTimeOK:
-		return v, nil
+		response := &GetUserOutgoingFriendsWithTimeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserOutgoingFriendsWithTimeBadRequest:
-		return nil, v
+		response := &GetUserOutgoingFriendsWithTimeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserOutgoingFriendsWithTimeUnauthorized:
-		return nil, v
+		response := &GetUserOutgoingFriendsWithTimeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserOutgoingFriendsWithTimeForbidden:
-		return nil, v
+		response := &GetUserOutgoingFriendsWithTimeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserOutgoingFriendsWithTimeNotFound:
-		return nil, v
+		response := &GetUserOutgoingFriendsWithTimeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserOutgoingFriendsWithTimeInternalServerError:
-		return nil, v
+		response := &GetUserOutgoingFriendsWithTimeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -352,7 +502,7 @@ func (a *Client) GetUserOutgoingFriendsWithTimeShort(params *GetUserOutgoingFrie
 GetUserFriendsWithPlatformShort get list of friends with platform data
 Get list of friends with platform data in a namespace.
 */
-func (a *Client) GetUserFriendsWithPlatformShort(params *GetUserFriendsWithPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserFriendsWithPlatformOK, error) {
+func (a *Client) GetUserFriendsWithPlatformShort(params *GetUserFriendsWithPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserFriendsWithPlatformResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserFriendsWithPlatformParams()
@@ -390,17 +540,47 @@ func (a *Client) GetUserFriendsWithPlatformShort(params *GetUserFriendsWithPlatf
 	switch v := result.(type) {
 
 	case *GetUserFriendsWithPlatformOK:
-		return v, nil
+		response := &GetUserFriendsWithPlatformResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserFriendsWithPlatformBadRequest:
-		return nil, v
+		response := &GetUserFriendsWithPlatformResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserFriendsWithPlatformUnauthorized:
-		return nil, v
+		response := &GetUserFriendsWithPlatformResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserFriendsWithPlatformForbidden:
-		return nil, v
+		response := &GetUserFriendsWithPlatformResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserFriendsWithPlatformNotFound:
-		return nil, v
+		response := &GetUserFriendsWithPlatformResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserFriendsWithPlatformInternalServerError:
-		return nil, v
+		response := &GetUserFriendsWithPlatformResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -413,7 +593,7 @@ Client should provide either friendID or friendPublicID. If both are provided, f
 This endpoint will only send a pending invite that can be either rejected/accepted.
 Metadata is optional parameter which will be sent over via friend request notification.
 */
-func (a *Client) UserRequestFriendShort(params *UserRequestFriendParams, authInfo runtime.ClientAuthInfoWriter) (*UserRequestFriendCreated, error) {
+func (a *Client) UserRequestFriendShort(params *UserRequestFriendParams, authInfo runtime.ClientAuthInfoWriter) (*UserRequestFriendResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUserRequestFriendParams()
@@ -451,19 +631,53 @@ func (a *Client) UserRequestFriendShort(params *UserRequestFriendParams, authInf
 	switch v := result.(type) {
 
 	case *UserRequestFriendCreated:
-		return v, nil
+		response := &UserRequestFriendResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UserRequestFriendBadRequest:
-		return nil, v
+		response := &UserRequestFriendResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRequestFriendUnauthorized:
-		return nil, v
+		response := &UserRequestFriendResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRequestFriendForbidden:
-		return nil, v
+		response := &UserRequestFriendResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRequestFriendNotFound:
-		return nil, v
+		response := &UserRequestFriendResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRequestFriendUnprocessableEntity:
-		return nil, v
+		response := &UserRequestFriendResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRequestFriendInternalServerError:
-		return nil, v
+		response := &UserRequestFriendResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -474,7 +688,7 @@ func (a *Client) UserRequestFriendShort(params *UserRequestFriendParams, authInf
 UserAcceptFriendRequestShort user accept friend
 User accept friend.
 */
-func (a *Client) UserAcceptFriendRequestShort(params *UserAcceptFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserAcceptFriendRequestNoContent, error) {
+func (a *Client) UserAcceptFriendRequestShort(params *UserAcceptFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserAcceptFriendRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUserAcceptFriendRequestParams()
@@ -512,17 +726,46 @@ func (a *Client) UserAcceptFriendRequestShort(params *UserAcceptFriendRequestPar
 	switch v := result.(type) {
 
 	case *UserAcceptFriendRequestNoContent:
-		return v, nil
+		response := &UserAcceptFriendRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UserAcceptFriendRequestBadRequest:
-		return nil, v
+		response := &UserAcceptFriendRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserAcceptFriendRequestUnauthorized:
-		return nil, v
+		response := &UserAcceptFriendRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserAcceptFriendRequestForbidden:
-		return nil, v
+		response := &UserAcceptFriendRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserAcceptFriendRequestNotFound:
-		return nil, v
+		response := &UserAcceptFriendRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserAcceptFriendRequestInternalServerError:
-		return nil, v
+		response := &UserAcceptFriendRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -533,7 +776,7 @@ func (a *Client) UserAcceptFriendRequestShort(params *UserAcceptFriendRequestPar
 UserCancelFriendRequestShort user cancel a friend request
 User cancel a friend request.
 */
-func (a *Client) UserCancelFriendRequestShort(params *UserCancelFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserCancelFriendRequestNoContent, error) {
+func (a *Client) UserCancelFriendRequestShort(params *UserCancelFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserCancelFriendRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUserCancelFriendRequestParams()
@@ -571,17 +814,46 @@ func (a *Client) UserCancelFriendRequestShort(params *UserCancelFriendRequestPar
 	switch v := result.(type) {
 
 	case *UserCancelFriendRequestNoContent:
-		return v, nil
+		response := &UserCancelFriendRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UserCancelFriendRequestBadRequest:
-		return nil, v
+		response := &UserCancelFriendRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserCancelFriendRequestUnauthorized:
-		return nil, v
+		response := &UserCancelFriendRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserCancelFriendRequestForbidden:
-		return nil, v
+		response := &UserCancelFriendRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserCancelFriendRequestNotFound:
-		return nil, v
+		response := &UserCancelFriendRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserCancelFriendRequestInternalServerError:
-		return nil, v
+		response := &UserCancelFriendRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -592,7 +864,7 @@ func (a *Client) UserCancelFriendRequestShort(params *UserCancelFriendRequestPar
 UserRejectFriendRequestShort user reject a friend request
 User reject a friend request.
 */
-func (a *Client) UserRejectFriendRequestShort(params *UserRejectFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserRejectFriendRequestNoContent, error) {
+func (a *Client) UserRejectFriendRequestShort(params *UserRejectFriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserRejectFriendRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUserRejectFriendRequestParams()
@@ -630,17 +902,46 @@ func (a *Client) UserRejectFriendRequestShort(params *UserRejectFriendRequestPar
 	switch v := result.(type) {
 
 	case *UserRejectFriendRequestNoContent:
-		return v, nil
+		response := &UserRejectFriendRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UserRejectFriendRequestBadRequest:
-		return nil, v
+		response := &UserRejectFriendRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRejectFriendRequestUnauthorized:
-		return nil, v
+		response := &UserRejectFriendRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRejectFriendRequestForbidden:
-		return nil, v
+		response := &UserRejectFriendRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRejectFriendRequestNotFound:
-		return nil, v
+		response := &UserRejectFriendRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserRejectFriendRequestInternalServerError:
-		return nil, v
+		response := &UserRejectFriendRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -655,7 +956,7 @@ Code: 1 - Message: "outgoing"
 Code: 2 - Message: "incoming"
 Code: 3 - Message: "friend"
 */
-func (a *Client) UserGetFriendshipStatusShort(params *UserGetFriendshipStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UserGetFriendshipStatusOK, error) {
+func (a *Client) UserGetFriendshipStatusShort(params *UserGetFriendshipStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UserGetFriendshipStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUserGetFriendshipStatusParams()
@@ -693,15 +994,40 @@ func (a *Client) UserGetFriendshipStatusShort(params *UserGetFriendshipStatusPar
 	switch v := result.(type) {
 
 	case *UserGetFriendshipStatusOK:
-		return v, nil
+		response := &UserGetFriendshipStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UserGetFriendshipStatusBadRequest:
-		return nil, v
+		response := &UserGetFriendshipStatusResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserGetFriendshipStatusUnauthorized:
-		return nil, v
+		response := &UserGetFriendshipStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserGetFriendshipStatusForbidden:
-		return nil, v
+		response := &UserGetFriendshipStatusResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserGetFriendshipStatusInternalServerError:
-		return nil, v
+		response := &UserGetFriendshipStatusResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -712,7 +1038,7 @@ func (a *Client) UserGetFriendshipStatusShort(params *UserGetFriendshipStatusPar
 UserUnfriendRequestShort user unfriend a friend
 User unfriend a friend.
 */
-func (a *Client) UserUnfriendRequestShort(params *UserUnfriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserUnfriendRequestNoContent, error) {
+func (a *Client) UserUnfriendRequestShort(params *UserUnfriendRequestParams, authInfo runtime.ClientAuthInfoWriter) (*UserUnfriendRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUserUnfriendRequestParams()
@@ -750,17 +1076,46 @@ func (a *Client) UserUnfriendRequestShort(params *UserUnfriendRequestParams, aut
 	switch v := result.(type) {
 
 	case *UserUnfriendRequestNoContent:
-		return v, nil
+		response := &UserUnfriendRequestResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UserUnfriendRequestBadRequest:
-		return nil, v
+		response := &UserUnfriendRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserUnfriendRequestUnauthorized:
-		return nil, v
+		response := &UserUnfriendRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserUnfriendRequestForbidden:
-		return nil, v
+		response := &UserUnfriendRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserUnfriendRequestNotFound:
-		return nil, v
+		response := &UserUnfriendRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UserUnfriendRequestInternalServerError:
-		return nil, v
+		response := &UserUnfriendRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -771,7 +1126,7 @@ func (a *Client) UserUnfriendRequestShort(params *UserUnfriendRequestParams, aut
 AddFriendsWithoutConfirmationShort add friends without confirmation
 Friends request in a namespace.
 */
-func (a *Client) AddFriendsWithoutConfirmationShort(params *AddFriendsWithoutConfirmationParams, authInfo runtime.ClientAuthInfoWriter) (*AddFriendsWithoutConfirmationNoContent, error) {
+func (a *Client) AddFriendsWithoutConfirmationShort(params *AddFriendsWithoutConfirmationParams, authInfo runtime.ClientAuthInfoWriter) (*AddFriendsWithoutConfirmationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddFriendsWithoutConfirmationParams()
@@ -809,15 +1164,39 @@ func (a *Client) AddFriendsWithoutConfirmationShort(params *AddFriendsWithoutCon
 	switch v := result.(type) {
 
 	case *AddFriendsWithoutConfirmationNoContent:
-		return v, nil
+		response := &AddFriendsWithoutConfirmationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddFriendsWithoutConfirmationBadRequest:
-		return nil, v
+		response := &AddFriendsWithoutConfirmationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddFriendsWithoutConfirmationUnauthorized:
-		return nil, v
+		response := &AddFriendsWithoutConfirmationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddFriendsWithoutConfirmationForbidden:
-		return nil, v
+		response := &AddFriendsWithoutConfirmationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddFriendsWithoutConfirmationInternalServerError:
-		return nil, v
+		response := &AddFriendsWithoutConfirmationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -828,7 +1207,7 @@ func (a *Client) AddFriendsWithoutConfirmationShort(params *AddFriendsWithoutCon
 BulkDeleteFriendsShort delete friends, and incoming/outgoing friend requests
 Friends request in a namespace.
 */
-func (a *Client) BulkDeleteFriendsShort(params *BulkDeleteFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDeleteFriendsOK, error) {
+func (a *Client) BulkDeleteFriendsShort(params *BulkDeleteFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDeleteFriendsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkDeleteFriendsParams()
@@ -866,15 +1245,40 @@ func (a *Client) BulkDeleteFriendsShort(params *BulkDeleteFriendsParams, authInf
 	switch v := result.(type) {
 
 	case *BulkDeleteFriendsOK:
-		return v, nil
+		response := &BulkDeleteFriendsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkDeleteFriendsBadRequest:
-		return nil, v
+		response := &BulkDeleteFriendsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkDeleteFriendsUnauthorized:
-		return nil, v
+		response := &BulkDeleteFriendsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkDeleteFriendsForbidden:
-		return nil, v
+		response := &BulkDeleteFriendsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkDeleteFriendsInternalServerError:
-		return nil, v
+		response := &BulkDeleteFriendsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -892,7 +1296,7 @@ ps4: The platform_tokenâs value is the authorization code returned by Sony 
 ps5: The platform_tokenâs value is the authorization code returned by Sony OAuth.
 pspc: The platform_tokenâs value is the authorization code returned by Sony OAuth.
 */
-func (a *Client) SyncNativeFriendsShort(params *SyncNativeFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncNativeFriendsOK, error) {
+func (a *Client) SyncNativeFriendsShort(params *SyncNativeFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncNativeFriendsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncNativeFriendsParams()
@@ -930,15 +1334,40 @@ func (a *Client) SyncNativeFriendsShort(params *SyncNativeFriendsParams, authInf
 	switch v := result.(type) {
 
 	case *SyncNativeFriendsOK:
-		return v, nil
+		response := &SyncNativeFriendsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncNativeFriendsBadRequest:
-		return nil, v
+		response := &SyncNativeFriendsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncNativeFriendsUnauthorized:
-		return nil, v
+		response := &SyncNativeFriendsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncNativeFriendsForbidden:
-		return nil, v
+		response := &SyncNativeFriendsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncNativeFriendsInternalServerError:
-		return nil, v
+		response := &SyncNativeFriendsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -949,7 +1378,7 @@ func (a *Client) SyncNativeFriendsShort(params *SyncNativeFriendsParams, authInf
 GetListOfFriendsShort get list of friends
 Get list of friends in a namespace.
 */
-func (a *Client) GetListOfFriendsShort(params *GetListOfFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListOfFriendsOK, error) {
+func (a *Client) GetListOfFriendsShort(params *GetListOfFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListOfFriendsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListOfFriendsParams()
@@ -987,15 +1416,40 @@ func (a *Client) GetListOfFriendsShort(params *GetListOfFriendsParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetListOfFriendsOK:
-		return v, nil
+		response := &GetListOfFriendsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListOfFriendsBadRequest:
-		return nil, v
+		response := &GetListOfFriendsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfFriendsUnauthorized:
-		return nil, v
+		response := &GetListOfFriendsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfFriendsForbidden:
-		return nil, v
+		response := &GetListOfFriendsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfFriendsInternalServerError:
-		return nil, v
+		response := &GetListOfFriendsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1006,7 +1460,7 @@ func (a *Client) GetListOfFriendsShort(params *GetListOfFriendsParams, authInfo 
 GetIncomingFriendRequestsShort get incoming friend requests
 Get list of incoming friend requests.
 */
-func (a *Client) GetIncomingFriendRequestsShort(params *GetIncomingFriendRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIncomingFriendRequestsOK, error) {
+func (a *Client) GetIncomingFriendRequestsShort(params *GetIncomingFriendRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIncomingFriendRequestsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIncomingFriendRequestsParams()
@@ -1044,15 +1498,40 @@ func (a *Client) GetIncomingFriendRequestsShort(params *GetIncomingFriendRequest
 	switch v := result.(type) {
 
 	case *GetIncomingFriendRequestsOK:
-		return v, nil
+		response := &GetIncomingFriendRequestsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetIncomingFriendRequestsBadRequest:
-		return nil, v
+		response := &GetIncomingFriendRequestsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetIncomingFriendRequestsUnauthorized:
-		return nil, v
+		response := &GetIncomingFriendRequestsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetIncomingFriendRequestsForbidden:
-		return nil, v
+		response := &GetIncomingFriendRequestsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetIncomingFriendRequestsInternalServerError:
-		return nil, v
+		response := &GetIncomingFriendRequestsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1063,7 +1542,7 @@ func (a *Client) GetIncomingFriendRequestsShort(params *GetIncomingFriendRequest
 AdminListFriendsOfFriendsShort load list friends of friends
 Load list friends and friends of friends in a namespace. Response subjectId will be different with requested userId if the user is not directly friend
 */
-func (a *Client) AdminListFriendsOfFriendsShort(params *AdminListFriendsOfFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListFriendsOfFriendsOK, error) {
+func (a *Client) AdminListFriendsOfFriendsShort(params *AdminListFriendsOfFriendsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListFriendsOfFriendsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListFriendsOfFriendsParams()
@@ -1101,15 +1580,40 @@ func (a *Client) AdminListFriendsOfFriendsShort(params *AdminListFriendsOfFriend
 	switch v := result.(type) {
 
 	case *AdminListFriendsOfFriendsOK:
-		return v, nil
+		response := &AdminListFriendsOfFriendsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListFriendsOfFriendsBadRequest:
-		return nil, v
+		response := &AdminListFriendsOfFriendsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListFriendsOfFriendsUnauthorized:
-		return nil, v
+		response := &AdminListFriendsOfFriendsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListFriendsOfFriendsForbidden:
-		return nil, v
+		response := &AdminListFriendsOfFriendsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListFriendsOfFriendsInternalServerError:
-		return nil, v
+		response := &AdminListFriendsOfFriendsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1120,7 +1624,7 @@ func (a *Client) AdminListFriendsOfFriendsShort(params *AdminListFriendsOfFriend
 GetOutgoingFriendRequestsShort get list of outgoing friend requests
 Get list of outgoing friend requests in a namespace.
 */
-func (a *Client) GetOutgoingFriendRequestsShort(params *GetOutgoingFriendRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*GetOutgoingFriendRequestsOK, error) {
+func (a *Client) GetOutgoingFriendRequestsShort(params *GetOutgoingFriendRequestsParams, authInfo runtime.ClientAuthInfoWriter) (*GetOutgoingFriendRequestsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetOutgoingFriendRequestsParams()
@@ -1158,15 +1662,40 @@ func (a *Client) GetOutgoingFriendRequestsShort(params *GetOutgoingFriendRequest
 	switch v := result.(type) {
 
 	case *GetOutgoingFriendRequestsOK:
-		return v, nil
+		response := &GetOutgoingFriendRequestsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetOutgoingFriendRequestsBadRequest:
-		return nil, v
+		response := &GetOutgoingFriendRequestsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOutgoingFriendRequestsUnauthorized:
-		return nil, v
+		response := &GetOutgoingFriendRequestsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOutgoingFriendRequestsForbidden:
-		return nil, v
+		response := &GetOutgoingFriendRequestsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOutgoingFriendRequestsInternalServerError:
-		return nil, v
+		response := &GetOutgoingFriendRequestsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

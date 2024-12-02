@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type AdminBulkGetUsersPlatformResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelListBulkUserPlatformsResponse
+
+	Error400 *iamclientmodels.RestErrorResponse
+	Error500 *iamclientmodels.RestErrorResponse
+}
+
+func (m *AdminBulkGetUsersPlatformResponse) Unpack() (*iamclientmodels.ModelListBulkUserPlatformsResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminBulkGetUsersPlatformReader is a Reader for the AdminBulkGetUsersPlatform structure.
 type AdminBulkGetUsersPlatformReader struct {
 	formats strfmt.Registry

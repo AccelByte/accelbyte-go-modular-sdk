@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type CreatePolicyVersion1Response struct {
+	legalclientmodels.ApiResponse
+	Data *legalclientmodels.CreatePolicyVersionResponse
+
+	Error400 *legalclientmodels.ErrorEntity
+}
+
+func (m *CreatePolicyVersion1Response) Unpack() (*legalclientmodels.CreatePolicyVersionResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // CreatePolicyVersion1Reader is a Reader for the CreatePolicyVersion1 structure.
 type CreatePolicyVersion1Reader struct {
 	formats strfmt.Registry

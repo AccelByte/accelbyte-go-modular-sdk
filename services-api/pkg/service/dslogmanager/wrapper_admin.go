@@ -9,7 +9,6 @@ package dslogmanager
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclient/admin"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AdminService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminService) GetServerLogsShort(input *admin.GetServerLogsParams) (*dslogmanagerclientmodels.ModelsServerLogs, error) {
+func (aaa *AdminService) GetServerLogsShort(input *admin.GetServerLogsParams) (*admin.GetServerLogsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,5 +65,5 @@ func (aaa *AdminService) GetServerLogsShort(input *admin.GetServerLogsParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

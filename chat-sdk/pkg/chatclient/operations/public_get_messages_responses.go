@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 )
 
+type PublicGetMessagesResponse struct {
+	chatclientmodels.ApiResponse
+	Data []*chatclientmodels.LogAppMessageDeclaration
+
+	Error500 *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (m *PublicGetMessagesResponse) Unpack() ([]*chatclientmodels.LogAppMessageDeclaration, *chatclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetMessagesReader is a Reader for the PublicGetMessages structure.
 type PublicGetMessagesReader struct {
 	formats strfmt.Registry

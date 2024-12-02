@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/player"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 type PlayerService struct {
@@ -37,7 +36,7 @@ func (aaa *PlayerService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PlayerService) AdminQueryPlayerAttributesShort(input *player.AdminQueryPlayerAttributesParams) ([]*sessionclientmodels.ApimodelsPlayerAttributesResponseBody, error) {
+func (aaa *PlayerService) AdminQueryPlayerAttributesShort(input *player.AdminQueryPlayerAttributesParams) (*player.AdminQueryPlayerAttributesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PlayerService) AdminQueryPlayerAttributesShort(input *player.AdminQue
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) AdminGetPlayerAttributesShort(input *player.AdminGetPlayerAttributesParams) (*sessionclientmodels.ApimodelsPlayerAttributesResponseBody, error) {
+func (aaa *PlayerService) AdminGetPlayerAttributesShort(input *player.AdminGetPlayerAttributesParams) (*player.AdminGetPlayerAttributesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PlayerService) AdminGetPlayerAttributesShort(input *player.AdminGetPl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) PublicGetBulkPlayerCurrentPlatformShort(input *player.PublicGetBulkPlayerCurrentPlatformParams) (*sessionclientmodels.ApimodelsPlayersCurrentPlatformResponse, error) {
+func (aaa *PlayerService) PublicGetBulkPlayerCurrentPlatformShort(input *player.PublicGetBulkPlayerCurrentPlatformParams) (*player.PublicGetBulkPlayerCurrentPlatformResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *PlayerService) PublicGetBulkPlayerCurrentPlatformShort(input *player.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) PublicGetPlayerAttributesShort(input *player.PublicGetPlayerAttributesParams) (*sessionclientmodels.ApimodelsPlayerAttributesResponseBody, error) {
+func (aaa *PlayerService) PublicGetPlayerAttributesShort(input *player.PublicGetPlayerAttributesParams) (*player.PublicGetPlayerAttributesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *PlayerService) PublicGetPlayerAttributesShort(input *player.PublicGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlayerService) PublicStorePlayerAttributesShort(input *player.PublicStorePlayerAttributesParams) (*sessionclientmodels.ApimodelsPlayerAttributesResponseBody, error) {
+func (aaa *PlayerService) PublicStorePlayerAttributesShort(input *player.PublicStorePlayerAttributesParams) (*player.PublicStorePlayerAttributesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,7 +183,7 @@ func (aaa *PlayerService) PublicStorePlayerAttributesShort(input *player.PublicS
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PlayerService) PublicDeletePlayerAttributesShort(input *player.PublicDeletePlayerAttributesParams) error {

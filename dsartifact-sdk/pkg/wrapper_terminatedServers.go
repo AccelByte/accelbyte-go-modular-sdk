@@ -9,7 +9,6 @@ package dsartifact
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclient/terminated_servers"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *TerminatedServersService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *TerminatedServersService) ListTerminatedServersWithNamespaceShort(input *terminated_servers.ListTerminatedServersWithNamespaceParams) (*dsartifactclientmodels.ModelsListTerminatedServersResponse, error) {
+func (aaa *TerminatedServersService) ListTerminatedServersWithNamespaceShort(input *terminated_servers.ListTerminatedServersWithNamespaceParams) (*terminated_servers.ListTerminatedServersWithNamespaceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *TerminatedServersService) ListTerminatedServersWithNamespaceShort(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

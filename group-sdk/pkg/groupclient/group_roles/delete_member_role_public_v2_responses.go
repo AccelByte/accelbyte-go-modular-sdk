@@ -19,6 +19,80 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 )
 
+type DeleteMemberRolePublicV2Response struct {
+	groupclientmodels.ApiResponse
+
+	Error400 *groupclientmodels.ResponseErrorResponse
+	Error401 *groupclientmodels.ResponseErrorResponse
+	Error403 *groupclientmodels.ResponseErrorResponse
+	Error404 *groupclientmodels.ResponseErrorResponse
+	Error422 *groupclientmodels.ResponseErrorResponse
+	Error500 *groupclientmodels.ResponseErrorResponse
+}
+
+func (m *DeleteMemberRolePublicV2Response) Unpack() *groupclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &groupclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteMemberRolePublicV2Reader is a Reader for the DeleteMemberRolePublicV2 structure.
 type DeleteMemberRolePublicV2Reader struct {
 	formats strfmt.Registry

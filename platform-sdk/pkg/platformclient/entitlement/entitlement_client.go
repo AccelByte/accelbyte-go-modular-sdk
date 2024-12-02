@@ -30,64 +30,64 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryEntitlements1Short(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1OK, error)
-	QueryEntitlementsShort(params *QueryEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlementsOK, error)
-	EnableEntitlementOriginFeatureShort(params *EnableEntitlementOriginFeatureParams, authInfo runtime.ClientAuthInfoWriter) (*EnableEntitlementOriginFeatureOK, error)
-	GetEntitlementConfigInfoShort(params *GetEntitlementConfigInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementConfigInfoOK, error)
-	GrantEntitlementsShort(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsOK, error)
-	RevokeEntitlementsShort(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsOK, error)
-	GetEntitlementShort(params *GetEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementOK, error)
-	GetPlatformEntitlementConfigShort(params *GetPlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformEntitlementConfigOK, error)
-	UpdatePlatformEntitlementConfigShort(params *UpdatePlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformEntitlementConfigOK, error)
-	QueryUserEntitlementsShort(params *QueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsOK, error)
-	GrantUserEntitlementShort(params *GrantUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserEntitlementCreated, error)
-	GetUserAppEntitlementByAppIDShort(params *GetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementByAppIDOK, error)
-	QueryUserEntitlementsByAppTypeShort(params *QueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsByAppTypeOK, error)
-	GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementsByIdsOK, error)
-	GetUserEntitlementByItemIDShort(params *GetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementByItemIDOK, error)
-	GetUserActiveEntitlementsByItemIdsShort(params *GetUserActiveEntitlementsByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserActiveEntitlementsByItemIdsOK, error)
-	GetUserEntitlementBySkuShort(params *GetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementBySkuOK, error)
-	ExistsAnyUserActiveEntitlementShort(params *ExistsAnyUserActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyUserActiveEntitlementOK, error)
-	ExistsAnyUserActiveEntitlementByItemIdsShort(params *ExistsAnyUserActiveEntitlementByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyUserActiveEntitlementByItemIdsOK, error)
-	GetUserAppEntitlementOwnershipByAppIDShort(params *GetUserAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementOwnershipByAppIDOK, error)
-	GetUserEntitlementOwnershipByItemIDShort(params *GetUserEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIDOK, error)
-	GetUserEntitlementOwnershipByItemIdsShort(params *GetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIdsOK, error)
-	GetUserEntitlementOwnershipBySkuShort(params *GetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipBySkuOK, error)
-	RevokeAllEntitlementsShort(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsOK, error)
-	RevokeUserEntitlementsShort(params *RevokeUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementsOK, error)
-	GetUserEntitlementShort(params *GetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOK, error)
-	UpdateUserEntitlementShort(params *UpdateUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserEntitlementOK, error)
-	ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementOK, error)
-	DisableUserEntitlementShort(params *DisableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserEntitlementOK, error)
-	EnableUserEntitlementShort(params *EnableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserEntitlementOK, error)
-	GetUserEntitlementHistoriesShort(params *GetUserEntitlementHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementHistoriesOK, error)
-	RevokeUserEntitlementShort(params *RevokeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementOK, error)
-	RevokeUserEntitlementByUseCountShort(params *RevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementByUseCountOK, error)
-	PreCheckRevokeUserEntitlementByUseCountShort(params *PreCheckRevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckRevokeUserEntitlementByUseCountOK, error)
-	RevokeUseCountShort(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountOK, error)
-	SellUserEntitlementShort(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementOK, error)
-	PublicExistsAnyMyActiveEntitlementShort(params *PublicExistsAnyMyActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyMyActiveEntitlementOK, error)
-	PublicGetMyAppEntitlementOwnershipByAppIDShort(params *PublicGetMyAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAppEntitlementOwnershipByAppIDOK, error)
-	PublicGetMyEntitlementOwnershipByItemIDShort(params *PublicGetMyEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipByItemIDOK, error)
-	PublicGetMyEntitlementOwnershipBySkuShort(params *PublicGetMyEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipBySkuOK, error)
-	PublicGetEntitlementOwnershipTokenShort(params *PublicGetEntitlementOwnershipTokenParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetEntitlementOwnershipTokenOK, error)
-	PublicQueryUserEntitlementsShort(params *PublicQueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsOK, error)
-	PublicGetUserAppEntitlementByAppIDShort(params *PublicGetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAppEntitlementByAppIDOK, error)
-	PublicQueryUserEntitlementsByAppTypeShort(params *PublicQueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsByAppTypeOK, error)
-	PublicGetUserEntitlementsByIdsShort(params *PublicGetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementsByIdsOK, error)
-	PublicGetUserEntitlementByItemIDShort(params *PublicGetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementByItemIDOK, error)
-	PublicGetUserEntitlementBySkuShort(params *PublicGetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementBySkuOK, error)
-	PublicUserEntitlementHistoryShort(params *PublicUserEntitlementHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUserEntitlementHistoryOK, error)
-	PublicExistsAnyUserActiveEntitlementShort(params *PublicExistsAnyUserActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyUserActiveEntitlementOK, error)
-	PublicGetUserAppEntitlementOwnershipByAppIDShort(params *PublicGetUserAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAppEntitlementOwnershipByAppIDOK, error)
-	PublicGetUserEntitlementOwnershipByItemIDShort(params *PublicGetUserEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipByItemIDOK, error)
-	PublicGetUserEntitlementOwnershipByItemIdsShort(params *PublicGetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipByItemIdsOK, error)
-	PublicGetUserEntitlementOwnershipBySkuShort(params *PublicGetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipBySkuOK, error)
-	PublicGetUserEntitlementShort(params *PublicGetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOK, error)
-	PublicConsumeUserEntitlementShort(params *PublicConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeUserEntitlementOK, error)
-	PublicSellUserEntitlementShort(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementOK, error)
-	PublicSplitUserEntitlementShort(params *PublicSplitUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSplitUserEntitlementOK, error)
-	PublicTransferUserEntitlementShort(params *PublicTransferUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTransferUserEntitlementOK, error)
+	QueryEntitlements1Short(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1Response, error)
+	QueryEntitlementsShort(params *QueryEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlementsResponse, error)
+	EnableEntitlementOriginFeatureShort(params *EnableEntitlementOriginFeatureParams, authInfo runtime.ClientAuthInfoWriter) (*EnableEntitlementOriginFeatureResponse, error)
+	GetEntitlementConfigInfoShort(params *GetEntitlementConfigInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementConfigInfoResponse, error)
+	GrantEntitlementsShort(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsResponse, error)
+	RevokeEntitlementsShort(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsResponse, error)
+	GetEntitlementShort(params *GetEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementResponse, error)
+	GetPlatformEntitlementConfigShort(params *GetPlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformEntitlementConfigResponse, error)
+	UpdatePlatformEntitlementConfigShort(params *UpdatePlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformEntitlementConfigResponse, error)
+	QueryUserEntitlementsShort(params *QueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsResponse, error)
+	GrantUserEntitlementShort(params *GrantUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserEntitlementResponse, error)
+	GetUserAppEntitlementByAppIDShort(params *GetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementByAppIDResponse, error)
+	QueryUserEntitlementsByAppTypeShort(params *QueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsByAppTypeResponse, error)
+	GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementsByIdsResponse, error)
+	GetUserEntitlementByItemIDShort(params *GetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementByItemIDResponse, error)
+	GetUserActiveEntitlementsByItemIdsShort(params *GetUserActiveEntitlementsByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserActiveEntitlementsByItemIdsResponse, error)
+	GetUserEntitlementBySkuShort(params *GetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementBySkuResponse, error)
+	ExistsAnyUserActiveEntitlementShort(params *ExistsAnyUserActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyUserActiveEntitlementResponse, error)
+	ExistsAnyUserActiveEntitlementByItemIdsShort(params *ExistsAnyUserActiveEntitlementByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyUserActiveEntitlementByItemIdsResponse, error)
+	GetUserAppEntitlementOwnershipByAppIDShort(params *GetUserAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementOwnershipByAppIDResponse, error)
+	GetUserEntitlementOwnershipByItemIDShort(params *GetUserEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIDResponse, error)
+	GetUserEntitlementOwnershipByItemIdsShort(params *GetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIdsResponse, error)
+	GetUserEntitlementOwnershipBySkuShort(params *GetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipBySkuResponse, error)
+	RevokeAllEntitlementsShort(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsResponse, error)
+	RevokeUserEntitlementsShort(params *RevokeUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementsResponse, error)
+	GetUserEntitlementShort(params *GetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementResponse, error)
+	UpdateUserEntitlementShort(params *UpdateUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserEntitlementResponse, error)
+	ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementResponse, error)
+	DisableUserEntitlementShort(params *DisableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserEntitlementResponse, error)
+	EnableUserEntitlementShort(params *EnableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserEntitlementResponse, error)
+	GetUserEntitlementHistoriesShort(params *GetUserEntitlementHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementHistoriesResponse, error)
+	RevokeUserEntitlementShort(params *RevokeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementResponse, error)
+	RevokeUserEntitlementByUseCountShort(params *RevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementByUseCountResponse, error)
+	PreCheckRevokeUserEntitlementByUseCountShort(params *PreCheckRevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckRevokeUserEntitlementByUseCountResponse, error)
+	RevokeUseCountShort(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountResponse, error)
+	SellUserEntitlementShort(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementResponse, error)
+	PublicExistsAnyMyActiveEntitlementShort(params *PublicExistsAnyMyActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyMyActiveEntitlementResponse, error)
+	PublicGetMyAppEntitlementOwnershipByAppIDShort(params *PublicGetMyAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAppEntitlementOwnershipByAppIDResponse, error)
+	PublicGetMyEntitlementOwnershipByItemIDShort(params *PublicGetMyEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipByItemIDResponse, error)
+	PublicGetMyEntitlementOwnershipBySkuShort(params *PublicGetMyEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipBySkuResponse, error)
+	PublicGetEntitlementOwnershipTokenShort(params *PublicGetEntitlementOwnershipTokenParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetEntitlementOwnershipTokenResponse, error)
+	PublicQueryUserEntitlementsShort(params *PublicQueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsResponse, error)
+	PublicGetUserAppEntitlementByAppIDShort(params *PublicGetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAppEntitlementByAppIDResponse, error)
+	PublicQueryUserEntitlementsByAppTypeShort(params *PublicQueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsByAppTypeResponse, error)
+	PublicGetUserEntitlementsByIdsShort(params *PublicGetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementsByIdsResponse, error)
+	PublicGetUserEntitlementByItemIDShort(params *PublicGetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementByItemIDResponse, error)
+	PublicGetUserEntitlementBySkuShort(params *PublicGetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementBySkuResponse, error)
+	PublicUserEntitlementHistoryShort(params *PublicUserEntitlementHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUserEntitlementHistoryResponse, error)
+	PublicExistsAnyUserActiveEntitlementShort(params *PublicExistsAnyUserActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyUserActiveEntitlementResponse, error)
+	PublicGetUserAppEntitlementOwnershipByAppIDShort(params *PublicGetUserAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAppEntitlementOwnershipByAppIDResponse, error)
+	PublicGetUserEntitlementOwnershipByItemIDShort(params *PublicGetUserEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipByItemIDResponse, error)
+	PublicGetUserEntitlementOwnershipByItemIdsShort(params *PublicGetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipByItemIdsResponse, error)
+	PublicGetUserEntitlementOwnershipBySkuShort(params *PublicGetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipBySkuResponse, error)
+	PublicGetUserEntitlementShort(params *PublicGetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementResponse, error)
+	PublicConsumeUserEntitlementShort(params *PublicConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeUserEntitlementResponse, error)
+	PublicSellUserEntitlementShort(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementResponse, error)
+	PublicSplitUserEntitlementShort(params *PublicSplitUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSplitUserEntitlementResponse, error)
+	PublicTransferUserEntitlementShort(params *PublicTransferUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTransferUserEntitlementResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -100,7 +100,7 @@ Other detail info:
 
   * Returns : entitlement list
 */
-func (a *Client) QueryEntitlements1Short(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1OK, error) {
+func (a *Client) QueryEntitlements1Short(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryEntitlements1Params()
@@ -138,7 +138,12 @@ func (a *Client) QueryEntitlements1Short(params *QueryEntitlements1Params, authI
 	switch v := result.(type) {
 
 	case *QueryEntitlements1OK:
-		return v, nil
+		response := &QueryEntitlements1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -153,7 +158,7 @@ Other detail info:
 
   * Returns : entitlement list
 */
-func (a *Client) QueryEntitlementsShort(params *QueryEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlementsOK, error) {
+func (a *Client) QueryEntitlementsShort(params *QueryEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryEntitlementsParams()
@@ -191,7 +196,12 @@ func (a *Client) QueryEntitlementsShort(params *QueryEntitlementsParams, authInf
 	switch v := result.(type) {
 
 	case *QueryEntitlementsOK:
-		return v, nil
+		response := &QueryEntitlementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -205,7 +215,7 @@ Other detail info:
 
   * Returns : entitlement info
 */
-func (a *Client) EnableEntitlementOriginFeatureShort(params *EnableEntitlementOriginFeatureParams, authInfo runtime.ClientAuthInfoWriter) (*EnableEntitlementOriginFeatureOK, error) {
+func (a *Client) EnableEntitlementOriginFeatureShort(params *EnableEntitlementOriginFeatureParams, authInfo runtime.ClientAuthInfoWriter) (*EnableEntitlementOriginFeatureResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEnableEntitlementOriginFeatureParams()
@@ -243,7 +253,12 @@ func (a *Client) EnableEntitlementOriginFeatureShort(params *EnableEntitlementOr
 	switch v := result.(type) {
 
 	case *EnableEntitlementOriginFeatureOK:
-		return v, nil
+		response := &EnableEntitlementOriginFeatureResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -257,7 +272,7 @@ Other detail info:
 
   * Returns : entitlement info
 */
-func (a *Client) GetEntitlementConfigInfoShort(params *GetEntitlementConfigInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementConfigInfoOK, error) {
+func (a *Client) GetEntitlementConfigInfoShort(params *GetEntitlementConfigInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementConfigInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetEntitlementConfigInfoParams()
@@ -295,7 +310,12 @@ func (a *Client) GetEntitlementConfigInfoShort(params *GetEntitlementConfigInfoP
 	switch v := result.(type) {
 
 	case *GetEntitlementConfigInfoOK:
-		return v, nil
+		response := &GetEntitlementConfigInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -321,7 +341,7 @@ Support Item Types:
 Other detail info:
   * Returns : bulk grant entitlements result
 */
-func (a *Client) GrantEntitlementsShort(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsOK, error) {
+func (a *Client) GrantEntitlementsShort(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGrantEntitlementsParams()
@@ -359,9 +379,19 @@ func (a *Client) GrantEntitlementsShort(params *GrantEntitlementsParams, authInf
 	switch v := result.(type) {
 
 	case *GrantEntitlementsOK:
-		return v, nil
+		response := &GrantEntitlementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GrantEntitlementsUnprocessableEntity:
-		return nil, v
+		response := &GrantEntitlementsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -375,7 +405,7 @@ Other detail info:
 
   * Returns : bulk revoke entitlements result
 */
-func (a *Client) RevokeEntitlementsShort(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsOK, error) {
+func (a *Client) RevokeEntitlementsShort(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeEntitlementsParams()
@@ -413,9 +443,19 @@ func (a *Client) RevokeEntitlementsShort(params *RevokeEntitlementsParams, authI
 	switch v := result.(type) {
 
 	case *RevokeEntitlementsOK:
-		return v, nil
+		response := &RevokeEntitlementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeEntitlementsUnprocessableEntity:
-		return nil, v
+		response := &RevokeEntitlementsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -430,7 +470,7 @@ Other detail info:
 
   * Returns : entitlement
 */
-func (a *Client) GetEntitlementShort(params *GetEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementOK, error) {
+func (a *Client) GetEntitlementShort(params *GetEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetEntitlementParams()
@@ -468,9 +508,19 @@ func (a *Client) GetEntitlementShort(params *GetEntitlementParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetEntitlementOK:
-		return v, nil
+		response := &GetEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetEntitlementNotFound:
-		return nil, v
+		response := &GetEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -484,7 +534,7 @@ Other detail info:
 
   * Returns : entitlement info
 */
-func (a *Client) GetPlatformEntitlementConfigShort(params *GetPlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformEntitlementConfigOK, error) {
+func (a *Client) GetPlatformEntitlementConfigShort(params *GetPlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformEntitlementConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlatformEntitlementConfigParams()
@@ -522,7 +572,12 @@ func (a *Client) GetPlatformEntitlementConfigShort(params *GetPlatformEntitlemen
 	switch v := result.(type) {
 
 	case *GetPlatformEntitlementConfigOK:
-		return v, nil
+		response := &GetPlatformEntitlementConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -536,7 +591,7 @@ Other detail info:
 
   * Returns : platform entitlement config
 */
-func (a *Client) UpdatePlatformEntitlementConfigShort(params *UpdatePlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformEntitlementConfigOK, error) {
+func (a *Client) UpdatePlatformEntitlementConfigShort(params *UpdatePlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformEntitlementConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePlatformEntitlementConfigParams()
@@ -574,9 +629,19 @@ func (a *Client) UpdatePlatformEntitlementConfigShort(params *UpdatePlatformEnti
 	switch v := result.(type) {
 
 	case *UpdatePlatformEntitlementConfigOK:
-		return v, nil
+		response := &UpdatePlatformEntitlementConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePlatformEntitlementConfigNotFound:
-		return nil, v
+		response := &UpdatePlatformEntitlementConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -591,7 +656,7 @@ Other detail info:
 
   * Returns : entitlement list
 */
-func (a *Client) QueryUserEntitlementsShort(params *QueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsOK, error) {
+func (a *Client) QueryUserEntitlementsShort(params *QueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserEntitlementsParams()
@@ -629,7 +694,12 @@ func (a *Client) QueryUserEntitlementsShort(params *QueryUserEntitlementsParams,
 	switch v := result.(type) {
 
 	case *QueryUserEntitlementsOK:
-		return v, nil
+		response := &QueryUserEntitlementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -657,7 +727,7 @@ Support Item Types:
 Other detail info:
   * Returns : granted entitlement
 */
-func (a *Client) GrantUserEntitlementShort(params *GrantUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserEntitlementCreated, error) {
+func (a *Client) GrantUserEntitlementShort(params *GrantUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGrantUserEntitlementParams()
@@ -695,11 +765,26 @@ func (a *Client) GrantUserEntitlementShort(params *GrantUserEntitlementParams, a
 	switch v := result.(type) {
 
 	case *GrantUserEntitlementCreated:
-		return v, nil
+		response := &GrantUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GrantUserEntitlementNotFound:
-		return nil, v
+		response := &GrantUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GrantUserEntitlementUnprocessableEntity:
-		return nil, v
+		response := &GrantUserEntitlementResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -710,7 +795,7 @@ func (a *Client) GrantUserEntitlementShort(params *GrantUserEntitlementParams, a
 GetUserAppEntitlementByAppIDShort get user app entitlement by appid
 Get user app entitlement by appId.
 */
-func (a *Client) GetUserAppEntitlementByAppIDShort(params *GetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementByAppIDOK, error) {
+func (a *Client) GetUserAppEntitlementByAppIDShort(params *GetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementByAppIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserAppEntitlementByAppIDParams()
@@ -748,9 +833,19 @@ func (a *Client) GetUserAppEntitlementByAppIDShort(params *GetUserAppEntitlement
 	switch v := result.(type) {
 
 	case *GetUserAppEntitlementByAppIDOK:
-		return v, nil
+		response := &GetUserAppEntitlementByAppIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserAppEntitlementByAppIDNotFound:
-		return nil, v
+		response := &GetUserAppEntitlementByAppIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -765,7 +860,7 @@ Other detail info:
 
   * Returns : app entitlement pagination
 */
-func (a *Client) QueryUserEntitlementsByAppTypeShort(params *QueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsByAppTypeOK, error) {
+func (a *Client) QueryUserEntitlementsByAppTypeShort(params *QueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsByAppTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserEntitlementsByAppTypeParams()
@@ -803,7 +898,12 @@ func (a *Client) QueryUserEntitlementsByAppTypeShort(params *QueryUserEntitlemen
 	switch v := result.(type) {
 
 	case *QueryUserEntitlementsByAppTypeOK:
-		return v, nil
+		response := &QueryUserEntitlementsByAppTypeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -818,7 +918,7 @@ Other detail info:
 
   * Returns : entitlement list
 */
-func (a *Client) GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementsByIdsOK, error) {
+func (a *Client) GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementsByIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserEntitlementsByIdsParams()
@@ -856,7 +956,12 @@ func (a *Client) GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsP
 	switch v := result.(type) {
 
 	case *GetUserEntitlementsByIdsOK:
-		return v, nil
+		response := &GetUserEntitlementsByIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -867,7 +972,7 @@ func (a *Client) GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsP
 GetUserEntitlementByItemIDShort get user entitlement by itemid
 Get user entitlement by itemId.
 */
-func (a *Client) GetUserEntitlementByItemIDShort(params *GetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementByItemIDOK, error) {
+func (a *Client) GetUserEntitlementByItemIDShort(params *GetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementByItemIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserEntitlementByItemIDParams()
@@ -905,9 +1010,19 @@ func (a *Client) GetUserEntitlementByItemIDShort(params *GetUserEntitlementByIte
 	switch v := result.(type) {
 
 	case *GetUserEntitlementByItemIDOK:
-		return v, nil
+		response := &GetUserEntitlementByItemIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserEntitlementByItemIDNotFound:
-		return nil, v
+		response := &GetUserEntitlementByItemIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -918,7 +1033,7 @@ func (a *Client) GetUserEntitlementByItemIDShort(params *GetUserEntitlementByIte
 GetUserActiveEntitlementsByItemIdsShort get user entitlements by itemids
 Get user entitlements by itemIds.
 */
-func (a *Client) GetUserActiveEntitlementsByItemIdsShort(params *GetUserActiveEntitlementsByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserActiveEntitlementsByItemIdsOK, error) {
+func (a *Client) GetUserActiveEntitlementsByItemIdsShort(params *GetUserActiveEntitlementsByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserActiveEntitlementsByItemIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserActiveEntitlementsByItemIdsParams()
@@ -956,7 +1071,12 @@ func (a *Client) GetUserActiveEntitlementsByItemIdsShort(params *GetUserActiveEn
 	switch v := result.(type) {
 
 	case *GetUserActiveEntitlementsByItemIdsOK:
-		return v, nil
+		response := &GetUserActiveEntitlementsByItemIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -967,7 +1087,7 @@ func (a *Client) GetUserActiveEntitlementsByItemIdsShort(params *GetUserActiveEn
 GetUserEntitlementBySkuShort get user entitlement by sku
 Get user entitlement by sku.
 */
-func (a *Client) GetUserEntitlementBySkuShort(params *GetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementBySkuOK, error) {
+func (a *Client) GetUserEntitlementBySkuShort(params *GetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserEntitlementBySkuParams()
@@ -1005,9 +1125,19 @@ func (a *Client) GetUserEntitlementBySkuShort(params *GetUserEntitlementBySkuPar
 	switch v := result.(type) {
 
 	case *GetUserEntitlementBySkuOK:
-		return v, nil
+		response := &GetUserEntitlementBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserEntitlementBySkuNotFound:
-		return nil, v
+		response := &GetUserEntitlementBySkuResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1018,7 +1148,7 @@ func (a *Client) GetUserEntitlementBySkuShort(params *GetUserEntitlementBySkuPar
 ExistsAnyUserActiveEntitlementShort exists any user active entitlement
 Exists any user active entitlement of specified itemIds, skus and appIds
 */
-func (a *Client) ExistsAnyUserActiveEntitlementShort(params *ExistsAnyUserActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyUserActiveEntitlementOK, error) {
+func (a *Client) ExistsAnyUserActiveEntitlementShort(params *ExistsAnyUserActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyUserActiveEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExistsAnyUserActiveEntitlementParams()
@@ -1056,7 +1186,12 @@ func (a *Client) ExistsAnyUserActiveEntitlementShort(params *ExistsAnyUserActive
 	switch v := result.(type) {
 
 	case *ExistsAnyUserActiveEntitlementOK:
-		return v, nil
+		response := &ExistsAnyUserActiveEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1067,7 +1202,7 @@ func (a *Client) ExistsAnyUserActiveEntitlementShort(params *ExistsAnyUserActive
 ExistsAnyUserActiveEntitlementByItemIdsShort exists any user active entitlement
 Exists any user active entitlement of specified items.
 */
-func (a *Client) ExistsAnyUserActiveEntitlementByItemIdsShort(params *ExistsAnyUserActiveEntitlementByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyUserActiveEntitlementByItemIdsOK, error) {
+func (a *Client) ExistsAnyUserActiveEntitlementByItemIdsShort(params *ExistsAnyUserActiveEntitlementByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyUserActiveEntitlementByItemIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExistsAnyUserActiveEntitlementByItemIdsParams()
@@ -1105,7 +1240,12 @@ func (a *Client) ExistsAnyUserActiveEntitlementByItemIdsShort(params *ExistsAnyU
 	switch v := result.(type) {
 
 	case *ExistsAnyUserActiveEntitlementByItemIdsOK:
-		return v, nil
+		response := &ExistsAnyUserActiveEntitlementByItemIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1116,7 +1256,7 @@ func (a *Client) ExistsAnyUserActiveEntitlementByItemIdsShort(params *ExistsAnyU
 GetUserAppEntitlementOwnershipByAppIDShort get user app entitlement ownership by appid
 Get user app entitlement ownership by appId.
 */
-func (a *Client) GetUserAppEntitlementOwnershipByAppIDShort(params *GetUserAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementOwnershipByAppIDOK, error) {
+func (a *Client) GetUserAppEntitlementOwnershipByAppIDShort(params *GetUserAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserAppEntitlementOwnershipByAppIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserAppEntitlementOwnershipByAppIDParams()
@@ -1154,7 +1294,12 @@ func (a *Client) GetUserAppEntitlementOwnershipByAppIDShort(params *GetUserAppEn
 	switch v := result.(type) {
 
 	case *GetUserAppEntitlementOwnershipByAppIDOK:
-		return v, nil
+		response := &GetUserAppEntitlementOwnershipByAppIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1165,7 +1310,7 @@ func (a *Client) GetUserAppEntitlementOwnershipByAppIDShort(params *GetUserAppEn
 GetUserEntitlementOwnershipByItemIDShort get user entitlement ownership by itemid
 Get user entitlement ownership by itemId.
 */
-func (a *Client) GetUserEntitlementOwnershipByItemIDShort(params *GetUserEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIDOK, error) {
+func (a *Client) GetUserEntitlementOwnershipByItemIDShort(params *GetUserEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserEntitlementOwnershipByItemIDParams()
@@ -1203,7 +1348,12 @@ func (a *Client) GetUserEntitlementOwnershipByItemIDShort(params *GetUserEntitle
 	switch v := result.(type) {
 
 	case *GetUserEntitlementOwnershipByItemIDOK:
-		return v, nil
+		response := &GetUserEntitlementOwnershipByItemIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1214,7 +1364,7 @@ func (a *Client) GetUserEntitlementOwnershipByItemIDShort(params *GetUserEntitle
 GetUserEntitlementOwnershipByItemIdsShort get user entitlement ownership by itemids
 Get user entitlement ownership by itemIds.
 */
-func (a *Client) GetUserEntitlementOwnershipByItemIdsShort(params *GetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIdsOK, error) {
+func (a *Client) GetUserEntitlementOwnershipByItemIdsShort(params *GetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipByItemIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserEntitlementOwnershipByItemIdsParams()
@@ -1252,7 +1402,12 @@ func (a *Client) GetUserEntitlementOwnershipByItemIdsShort(params *GetUserEntitl
 	switch v := result.(type) {
 
 	case *GetUserEntitlementOwnershipByItemIdsOK:
-		return v, nil
+		response := &GetUserEntitlementOwnershipByItemIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1263,7 +1418,7 @@ func (a *Client) GetUserEntitlementOwnershipByItemIdsShort(params *GetUserEntitl
 GetUserEntitlementOwnershipBySkuShort get user entitlement ownership by sku
 Get user entitlement ownership by sku.
 */
-func (a *Client) GetUserEntitlementOwnershipBySkuShort(params *GetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipBySkuOK, error) {
+func (a *Client) GetUserEntitlementOwnershipBySkuShort(params *GetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOwnershipBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserEntitlementOwnershipBySkuParams()
@@ -1301,7 +1456,12 @@ func (a *Client) GetUserEntitlementOwnershipBySkuShort(params *GetUserEntitlemen
 	switch v := result.(type) {
 
 	case *GetUserEntitlementOwnershipBySkuOK:
-		return v, nil
+		response := &GetUserEntitlementOwnershipBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1315,7 +1475,7 @@ Other detail info:
 
   * Returns : revoked entitlements count
 */
-func (a *Client) RevokeAllEntitlementsShort(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsOK, error) {
+func (a *Client) RevokeAllEntitlementsShort(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeAllEntitlementsParams()
@@ -1353,7 +1513,12 @@ func (a *Client) RevokeAllEntitlementsShort(params *RevokeAllEntitlementsParams,
 	switch v := result.(type) {
 
 	case *RevokeAllEntitlementsOK:
-		return v, nil
+		response := &RevokeAllEntitlementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1367,7 +1532,7 @@ Other detail info:
 
   * Returns : revoke entitlements count
 */
-func (a *Client) RevokeUserEntitlementsShort(params *RevokeUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementsOK, error) {
+func (a *Client) RevokeUserEntitlementsShort(params *RevokeUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeUserEntitlementsParams()
@@ -1405,7 +1570,12 @@ func (a *Client) RevokeUserEntitlementsShort(params *RevokeUserEntitlementsParam
 	switch v := result.(type) {
 
 	case *RevokeUserEntitlementsOK:
-		return v, nil
+		response := &RevokeUserEntitlementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1420,7 +1590,7 @@ Other detail info:
 
   * Returns : entitlement
 */
-func (a *Client) GetUserEntitlementShort(params *GetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementOK, error) {
+func (a *Client) GetUserEntitlementShort(params *GetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserEntitlementParams()
@@ -1458,9 +1628,19 @@ func (a *Client) GetUserEntitlementShort(params *GetUserEntitlementParams, authI
 	switch v := result.(type) {
 
 	case *GetUserEntitlementOK:
-		return v, nil
+		response := &GetUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserEntitlementNotFound:
-		return nil, v
+		response := &GetUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1474,7 +1654,7 @@ Other detail info:
 
   * Returns : updated entitlement
 */
-func (a *Client) UpdateUserEntitlementShort(params *UpdateUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserEntitlementOK, error) {
+func (a *Client) UpdateUserEntitlementShort(params *UpdateUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserEntitlementParams()
@@ -1512,13 +1692,33 @@ func (a *Client) UpdateUserEntitlementShort(params *UpdateUserEntitlementParams,
 	switch v := result.(type) {
 
 	case *UpdateUserEntitlementOK:
-		return v, nil
+		response := &UpdateUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateUserEntitlementNotFound:
-		return nil, v
+		response := &UpdateUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserEntitlementConflict:
-		return nil, v
+		response := &UpdateUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserEntitlementUnprocessableEntity:
-		return nil, v
+		response := &UpdateUserEntitlementResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1532,7 +1732,7 @@ Other detail info:
 
   * Returns : consumed entitlement
 */
-func (a *Client) ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementOK, error) {
+func (a *Client) ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewConsumeUserEntitlementParams()
@@ -1570,13 +1770,33 @@ func (a *Client) ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParam
 	switch v := result.(type) {
 
 	case *ConsumeUserEntitlementOK:
-		return v, nil
+		response := &ConsumeUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ConsumeUserEntitlementBadRequest:
-		return nil, v
+		response := &ConsumeUserEntitlementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ConsumeUserEntitlementNotFound:
-		return nil, v
+		response := &ConsumeUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ConsumeUserEntitlementConflict:
-		return nil, v
+		response := &ConsumeUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1591,7 +1811,7 @@ Other detail info:
 
   * Returns : disable entitlement
 */
-func (a *Client) DisableUserEntitlementShort(params *DisableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserEntitlementOK, error) {
+func (a *Client) DisableUserEntitlementShort(params *DisableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDisableUserEntitlementParams()
@@ -1629,11 +1849,26 @@ func (a *Client) DisableUserEntitlementShort(params *DisableUserEntitlementParam
 	switch v := result.(type) {
 
 	case *DisableUserEntitlementOK:
-		return v, nil
+		response := &DisableUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DisableUserEntitlementNotFound:
-		return nil, v
+		response := &DisableUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableUserEntitlementConflict:
-		return nil, v
+		response := &DisableUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1647,7 +1882,7 @@ Other detail info:
 
   * Returns : enable entitlement
 */
-func (a *Client) EnableUserEntitlementShort(params *EnableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserEntitlementOK, error) {
+func (a *Client) EnableUserEntitlementShort(params *EnableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEnableUserEntitlementParams()
@@ -1685,11 +1920,26 @@ func (a *Client) EnableUserEntitlementShort(params *EnableUserEntitlementParams,
 	switch v := result.(type) {
 
 	case *EnableUserEntitlementOK:
-		return v, nil
+		response := &EnableUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *EnableUserEntitlementNotFound:
-		return nil, v
+		response := &EnableUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableUserEntitlementConflict:
-		return nil, v
+		response := &EnableUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1704,7 +1954,7 @@ Other detail info:
 
   * Returns : list of entitlement history
 */
-func (a *Client) GetUserEntitlementHistoriesShort(params *GetUserEntitlementHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementHistoriesOK, error) {
+func (a *Client) GetUserEntitlementHistoriesShort(params *GetUserEntitlementHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserEntitlementHistoriesParams()
@@ -1742,7 +1992,12 @@ func (a *Client) GetUserEntitlementHistoriesShort(params *GetUserEntitlementHist
 	switch v := result.(type) {
 
 	case *GetUserEntitlementHistoriesOK:
-		return v, nil
+		response := &GetUserEntitlementHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1756,7 +2011,7 @@ Other detail info:
 
   * Returns : revoke entitlement
 */
-func (a *Client) RevokeUserEntitlementShort(params *RevokeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementOK, error) {
+func (a *Client) RevokeUserEntitlementShort(params *RevokeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeUserEntitlementParams()
@@ -1794,9 +2049,19 @@ func (a *Client) RevokeUserEntitlementShort(params *RevokeUserEntitlementParams,
 	switch v := result.(type) {
 
 	case *RevokeUserEntitlementOK:
-		return v, nil
+		response := &RevokeUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeUserEntitlementNotFound:
-		return nil, v
+		response := &RevokeUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1810,7 +2075,7 @@ Other detail info:
 
   * Returns : The revoked entitlement
 */
-func (a *Client) RevokeUserEntitlementByUseCountShort(params *RevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementByUseCountOK, error) {
+func (a *Client) RevokeUserEntitlementByUseCountShort(params *RevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementByUseCountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeUserEntitlementByUseCountParams()
@@ -1848,9 +2113,19 @@ func (a *Client) RevokeUserEntitlementByUseCountShort(params *RevokeUserEntitlem
 	switch v := result.(type) {
 
 	case *RevokeUserEntitlementByUseCountOK:
-		return v, nil
+		response := &RevokeUserEntitlementByUseCountResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeUserEntitlementByUseCountNotFound:
-		return nil, v
+		response := &RevokeUserEntitlementByUseCountResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1864,7 +2139,7 @@ Other detail info:
 
   * Returns : true if revokable, false otherwise
 */
-func (a *Client) PreCheckRevokeUserEntitlementByUseCountShort(params *PreCheckRevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckRevokeUserEntitlementByUseCountOK, error) {
+func (a *Client) PreCheckRevokeUserEntitlementByUseCountShort(params *PreCheckRevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckRevokeUserEntitlementByUseCountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPreCheckRevokeUserEntitlementByUseCountParams()
@@ -1902,9 +2177,19 @@ func (a *Client) PreCheckRevokeUserEntitlementByUseCountShort(params *PreCheckRe
 	switch v := result.(type) {
 
 	case *PreCheckRevokeUserEntitlementByUseCountOK:
-		return v, nil
+		response := &PreCheckRevokeUserEntitlementByUseCountResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PreCheckRevokeUserEntitlementByUseCountNotFound:
-		return nil, v
+		response := &PreCheckRevokeUserEntitlementByUseCountResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1918,7 +2203,7 @@ Other detail info:
 
   * Returns : revoke entitlement
 */
-func (a *Client) RevokeUseCountShort(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountOK, error) {
+func (a *Client) RevokeUseCountShort(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeUseCountParams()
@@ -1956,9 +2241,19 @@ func (a *Client) RevokeUseCountShort(params *RevokeUseCountParams, authInfo runt
 	switch v := result.(type) {
 
 	case *RevokeUseCountOK:
-		return v, nil
+		response := &RevokeUseCountResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeUseCountNotFound:
-		return nil, v
+		response := &RevokeUseCountResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1970,7 +2265,7 @@ SellUserEntitlementShort sell user entitlement
 Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info:
   * Returns : entitlement
 */
-func (a *Client) SellUserEntitlementShort(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementOK, error) {
+func (a *Client) SellUserEntitlementShort(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSellUserEntitlementParams()
@@ -2008,11 +2303,26 @@ func (a *Client) SellUserEntitlementShort(params *SellUserEntitlementParams, aut
 	switch v := result.(type) {
 
 	case *SellUserEntitlementOK:
-		return v, nil
+		response := &SellUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SellUserEntitlementNotFound:
-		return nil, v
+		response := &SellUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SellUserEntitlementConflict:
-		return nil, v
+		response := &SellUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2023,7 +2333,7 @@ func (a *Client) SellUserEntitlementShort(params *SellUserEntitlementParams, aut
 PublicExistsAnyMyActiveEntitlementShort exists any my active entitlement
 Exists any my active entitlement of specified itemIds, skus and appIds
 */
-func (a *Client) PublicExistsAnyMyActiveEntitlementShort(params *PublicExistsAnyMyActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyMyActiveEntitlementOK, error) {
+func (a *Client) PublicExistsAnyMyActiveEntitlementShort(params *PublicExistsAnyMyActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyMyActiveEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicExistsAnyMyActiveEntitlementParams()
@@ -2061,7 +2371,12 @@ func (a *Client) PublicExistsAnyMyActiveEntitlementShort(params *PublicExistsAny
 	switch v := result.(type) {
 
 	case *PublicExistsAnyMyActiveEntitlementOK:
-		return v, nil
+		response := &PublicExistsAnyMyActiveEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2077,7 +2392,7 @@ Other detail info:
   * Path's namespace :
     * can be filled with publisher namespace in order to get publisher namespace app entitlement ownership
 */
-func (a *Client) PublicGetMyAppEntitlementOwnershipByAppIDShort(params *PublicGetMyAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAppEntitlementOwnershipByAppIDOK, error) {
+func (a *Client) PublicGetMyAppEntitlementOwnershipByAppIDShort(params *PublicGetMyAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAppEntitlementOwnershipByAppIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyAppEntitlementOwnershipByAppIDParams()
@@ -2115,7 +2430,12 @@ func (a *Client) PublicGetMyAppEntitlementOwnershipByAppIDShort(params *PublicGe
 	switch v := result.(type) {
 
 	case *PublicGetMyAppEntitlementOwnershipByAppIDOK:
-		return v, nil
+		response := &PublicGetMyAppEntitlementOwnershipByAppIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2132,7 +2452,7 @@ Other detail info:
     * can be filled with publisher namespace in order to get publisher namespace entitlement ownership by sku
     * can be filled with game namespace in order to get game namespace entitlement ownership by sku
 */
-func (a *Client) PublicGetMyEntitlementOwnershipByItemIDShort(params *PublicGetMyEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipByItemIDOK, error) {
+func (a *Client) PublicGetMyEntitlementOwnershipByItemIDShort(params *PublicGetMyEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipByItemIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyEntitlementOwnershipByItemIDParams()
@@ -2170,7 +2490,12 @@ func (a *Client) PublicGetMyEntitlementOwnershipByItemIDShort(params *PublicGetM
 	switch v := result.(type) {
 
 	case *PublicGetMyEntitlementOwnershipByItemIDOK:
-		return v, nil
+		response := &PublicGetMyEntitlementOwnershipByItemIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2187,7 +2512,7 @@ Other detail info:
     * can be filled with publisher namespace in order to get publisher namespace entitlement ownership by sku
     * can be filled with game namespace in order to get game namespace entitlement ownership by sku
 */
-func (a *Client) PublicGetMyEntitlementOwnershipBySkuShort(params *PublicGetMyEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipBySkuOK, error) {
+func (a *Client) PublicGetMyEntitlementOwnershipBySkuShort(params *PublicGetMyEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyEntitlementOwnershipBySkuParams()
@@ -2225,7 +2550,12 @@ func (a *Client) PublicGetMyEntitlementOwnershipBySkuShort(params *PublicGetMyEn
 	switch v := result.(type) {
 
 	case *PublicGetMyEntitlementOwnershipBySkuOK:
-		return v, nil
+		response := &PublicGetMyEntitlementOwnershipBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2310,7 +2640,7 @@ The decoded ownership token payload like below:
 
 if there's no active entitlement for the specific params, the entitlements section will be omitted.
 */
-func (a *Client) PublicGetEntitlementOwnershipTokenShort(params *PublicGetEntitlementOwnershipTokenParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetEntitlementOwnershipTokenOK, error) {
+func (a *Client) PublicGetEntitlementOwnershipTokenShort(params *PublicGetEntitlementOwnershipTokenParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetEntitlementOwnershipTokenResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetEntitlementOwnershipTokenParams()
@@ -2348,7 +2678,12 @@ func (a *Client) PublicGetEntitlementOwnershipTokenShort(params *PublicGetEntitl
 	switch v := result.(type) {
 
 	case *PublicGetEntitlementOwnershipTokenOK:
-		return v, nil
+		response := &PublicGetEntitlementOwnershipTokenResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2363,7 +2698,7 @@ Other detail info:
 
   * Returns : entitlement list
 */
-func (a *Client) PublicQueryUserEntitlementsShort(params *PublicQueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsOK, error) {
+func (a *Client) PublicQueryUserEntitlementsShort(params *PublicQueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryUserEntitlementsParams()
@@ -2401,7 +2736,12 @@ func (a *Client) PublicQueryUserEntitlementsShort(params *PublicQueryUserEntitle
 	switch v := result.(type) {
 
 	case *PublicQueryUserEntitlementsOK:
-		return v, nil
+		response := &PublicQueryUserEntitlementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2412,7 +2752,7 @@ func (a *Client) PublicQueryUserEntitlementsShort(params *PublicQueryUserEntitle
 PublicGetUserAppEntitlementByAppIDShort get user app entitlement by appid
 Get user app entitlement by appId.
 */
-func (a *Client) PublicGetUserAppEntitlementByAppIDShort(params *PublicGetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAppEntitlementByAppIDOK, error) {
+func (a *Client) PublicGetUserAppEntitlementByAppIDShort(params *PublicGetUserAppEntitlementByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAppEntitlementByAppIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserAppEntitlementByAppIDParams()
@@ -2450,9 +2790,19 @@ func (a *Client) PublicGetUserAppEntitlementByAppIDShort(params *PublicGetUserAp
 	switch v := result.(type) {
 
 	case *PublicGetUserAppEntitlementByAppIDOK:
-		return v, nil
+		response := &PublicGetUserAppEntitlementByAppIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserAppEntitlementByAppIDNotFound:
-		return nil, v
+		response := &PublicGetUserAppEntitlementByAppIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2467,7 +2817,7 @@ Other detail info:
 
   * Returns : app entitlement pagination
 */
-func (a *Client) PublicQueryUserEntitlementsByAppTypeShort(params *PublicQueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsByAppTypeOK, error) {
+func (a *Client) PublicQueryUserEntitlementsByAppTypeShort(params *PublicQueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsByAppTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryUserEntitlementsByAppTypeParams()
@@ -2505,7 +2855,12 @@ func (a *Client) PublicQueryUserEntitlementsByAppTypeShort(params *PublicQueryUs
 	switch v := result.(type) {
 
 	case *PublicQueryUserEntitlementsByAppTypeOK:
-		return v, nil
+		response := &PublicQueryUserEntitlementsByAppTypeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2520,7 +2875,7 @@ Other detail info:
 
   * Returns : entitlement list
 */
-func (a *Client) PublicGetUserEntitlementsByIdsShort(params *PublicGetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementsByIdsOK, error) {
+func (a *Client) PublicGetUserEntitlementsByIdsShort(params *PublicGetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementsByIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserEntitlementsByIdsParams()
@@ -2558,7 +2913,12 @@ func (a *Client) PublicGetUserEntitlementsByIdsShort(params *PublicGetUserEntitl
 	switch v := result.(type) {
 
 	case *PublicGetUserEntitlementsByIdsOK:
-		return v, nil
+		response := &PublicGetUserEntitlementsByIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2569,7 +2929,7 @@ func (a *Client) PublicGetUserEntitlementsByIdsShort(params *PublicGetUserEntitl
 PublicGetUserEntitlementByItemIDShort get user entitlement by itemid
 Get user entitlement by itemId.
 */
-func (a *Client) PublicGetUserEntitlementByItemIDShort(params *PublicGetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementByItemIDOK, error) {
+func (a *Client) PublicGetUserEntitlementByItemIDShort(params *PublicGetUserEntitlementByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementByItemIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserEntitlementByItemIDParams()
@@ -2607,9 +2967,19 @@ func (a *Client) PublicGetUserEntitlementByItemIDShort(params *PublicGetUserEnti
 	switch v := result.(type) {
 
 	case *PublicGetUserEntitlementByItemIDOK:
-		return v, nil
+		response := &PublicGetUserEntitlementByItemIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserEntitlementByItemIDNotFound:
-		return nil, v
+		response := &PublicGetUserEntitlementByItemIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2620,7 +2990,7 @@ func (a *Client) PublicGetUserEntitlementByItemIDShort(params *PublicGetUserEnti
 PublicGetUserEntitlementBySkuShort get user entitlement by sku
 Get user entitlement by sku.
 */
-func (a *Client) PublicGetUserEntitlementBySkuShort(params *PublicGetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementBySkuOK, error) {
+func (a *Client) PublicGetUserEntitlementBySkuShort(params *PublicGetUserEntitlementBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserEntitlementBySkuParams()
@@ -2658,9 +3028,19 @@ func (a *Client) PublicGetUserEntitlementBySkuShort(params *PublicGetUserEntitle
 	switch v := result.(type) {
 
 	case *PublicGetUserEntitlementBySkuOK:
-		return v, nil
+		response := &PublicGetUserEntitlementBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserEntitlementBySkuNotFound:
-		return nil, v
+		response := &PublicGetUserEntitlementBySkuResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2675,7 +3055,7 @@ Other detail info:
 
   * Returns : user entitlement history list
 */
-func (a *Client) PublicUserEntitlementHistoryShort(params *PublicUserEntitlementHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUserEntitlementHistoryOK, error) {
+func (a *Client) PublicUserEntitlementHistoryShort(params *PublicUserEntitlementHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUserEntitlementHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUserEntitlementHistoryParams()
@@ -2713,7 +3093,12 @@ func (a *Client) PublicUserEntitlementHistoryShort(params *PublicUserEntitlement
 	switch v := result.(type) {
 
 	case *PublicUserEntitlementHistoryOK:
-		return v, nil
+		response := &PublicUserEntitlementHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2724,7 +3109,7 @@ func (a *Client) PublicUserEntitlementHistoryShort(params *PublicUserEntitlement
 PublicExistsAnyUserActiveEntitlementShort exists any user active entitlement
 Exists any user active entitlement of specified itemIds, skus and appIds
 */
-func (a *Client) PublicExistsAnyUserActiveEntitlementShort(params *PublicExistsAnyUserActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyUserActiveEntitlementOK, error) {
+func (a *Client) PublicExistsAnyUserActiveEntitlementShort(params *PublicExistsAnyUserActiveEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicExistsAnyUserActiveEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicExistsAnyUserActiveEntitlementParams()
@@ -2762,7 +3147,12 @@ func (a *Client) PublicExistsAnyUserActiveEntitlementShort(params *PublicExistsA
 	switch v := result.(type) {
 
 	case *PublicExistsAnyUserActiveEntitlementOK:
-		return v, nil
+		response := &PublicExistsAnyUserActiveEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2773,7 +3163,7 @@ func (a *Client) PublicExistsAnyUserActiveEntitlementShort(params *PublicExistsA
 PublicGetUserAppEntitlementOwnershipByAppIDShort get user app entitlement ownership by appid
 Get user app entitlement ownership by appId.
 */
-func (a *Client) PublicGetUserAppEntitlementOwnershipByAppIDShort(params *PublicGetUserAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAppEntitlementOwnershipByAppIDOK, error) {
+func (a *Client) PublicGetUserAppEntitlementOwnershipByAppIDShort(params *PublicGetUserAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserAppEntitlementOwnershipByAppIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserAppEntitlementOwnershipByAppIDParams()
@@ -2811,7 +3201,12 @@ func (a *Client) PublicGetUserAppEntitlementOwnershipByAppIDShort(params *Public
 	switch v := result.(type) {
 
 	case *PublicGetUserAppEntitlementOwnershipByAppIDOK:
-		return v, nil
+		response := &PublicGetUserAppEntitlementOwnershipByAppIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2822,7 +3217,7 @@ func (a *Client) PublicGetUserAppEntitlementOwnershipByAppIDShort(params *Public
 PublicGetUserEntitlementOwnershipByItemIDShort get user entitlement ownership by itemid
 Get user entitlement ownership by itemId.
 */
-func (a *Client) PublicGetUserEntitlementOwnershipByItemIDShort(params *PublicGetUserEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipByItemIDOK, error) {
+func (a *Client) PublicGetUserEntitlementOwnershipByItemIDShort(params *PublicGetUserEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipByItemIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserEntitlementOwnershipByItemIDParams()
@@ -2860,7 +3255,12 @@ func (a *Client) PublicGetUserEntitlementOwnershipByItemIDShort(params *PublicGe
 	switch v := result.(type) {
 
 	case *PublicGetUserEntitlementOwnershipByItemIDOK:
-		return v, nil
+		response := &PublicGetUserEntitlementOwnershipByItemIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2871,7 +3271,7 @@ func (a *Client) PublicGetUserEntitlementOwnershipByItemIDShort(params *PublicGe
 PublicGetUserEntitlementOwnershipByItemIdsShort get user entitlement ownership by itemids
 Get user entitlement ownership by itemIds.
 */
-func (a *Client) PublicGetUserEntitlementOwnershipByItemIdsShort(params *PublicGetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipByItemIdsOK, error) {
+func (a *Client) PublicGetUserEntitlementOwnershipByItemIdsShort(params *PublicGetUserEntitlementOwnershipByItemIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipByItemIdsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserEntitlementOwnershipByItemIdsParams()
@@ -2909,7 +3309,12 @@ func (a *Client) PublicGetUserEntitlementOwnershipByItemIdsShort(params *PublicG
 	switch v := result.(type) {
 
 	case *PublicGetUserEntitlementOwnershipByItemIdsOK:
-		return v, nil
+		response := &PublicGetUserEntitlementOwnershipByItemIdsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2920,7 +3325,7 @@ func (a *Client) PublicGetUserEntitlementOwnershipByItemIdsShort(params *PublicG
 PublicGetUserEntitlementOwnershipBySkuShort get user entitlement ownership by sku
 Get user entitlement ownership by sku.
 */
-func (a *Client) PublicGetUserEntitlementOwnershipBySkuShort(params *PublicGetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipBySkuOK, error) {
+func (a *Client) PublicGetUserEntitlementOwnershipBySkuShort(params *PublicGetUserEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOwnershipBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserEntitlementOwnershipBySkuParams()
@@ -2958,7 +3363,12 @@ func (a *Client) PublicGetUserEntitlementOwnershipBySkuShort(params *PublicGetUs
 	switch v := result.(type) {
 
 	case *PublicGetUserEntitlementOwnershipBySkuOK:
-		return v, nil
+		response := &PublicGetUserEntitlementOwnershipBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2973,7 +3383,7 @@ Other detail info:
 
   * Returns : entitlement
 */
-func (a *Client) PublicGetUserEntitlementShort(params *PublicGetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementOK, error) {
+func (a *Client) PublicGetUserEntitlementShort(params *PublicGetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserEntitlementParams()
@@ -3011,9 +3421,19 @@ func (a *Client) PublicGetUserEntitlementShort(params *PublicGetUserEntitlementP
 	switch v := result.(type) {
 
 	case *PublicGetUserEntitlementOK:
-		return v, nil
+		response := &PublicGetUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserEntitlementNotFound:
-		return nil, v
+		response := &PublicGetUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3027,7 +3447,7 @@ Other detail info:
 
   * Returns : consumed entitlement
 */
-func (a *Client) PublicConsumeUserEntitlementShort(params *PublicConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeUserEntitlementOK, error) {
+func (a *Client) PublicConsumeUserEntitlementShort(params *PublicConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicConsumeUserEntitlementParams()
@@ -3065,13 +3485,33 @@ func (a *Client) PublicConsumeUserEntitlementShort(params *PublicConsumeUserEnti
 	switch v := result.(type) {
 
 	case *PublicConsumeUserEntitlementOK:
-		return v, nil
+		response := &PublicConsumeUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicConsumeUserEntitlementBadRequest:
-		return nil, v
+		response := &PublicConsumeUserEntitlementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicConsumeUserEntitlementNotFound:
-		return nil, v
+		response := &PublicConsumeUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicConsumeUserEntitlementConflict:
-		return nil, v
+		response := &PublicConsumeUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3083,7 +3523,7 @@ PublicSellUserEntitlementShort sell user entitlement
 Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info:
   * Returns : entitlement
 */
-func (a *Client) PublicSellUserEntitlementShort(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementOK, error) {
+func (a *Client) PublicSellUserEntitlementShort(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSellUserEntitlementParams()
@@ -3121,11 +3561,26 @@ func (a *Client) PublicSellUserEntitlementShort(params *PublicSellUserEntitlemen
 	switch v := result.(type) {
 
 	case *PublicSellUserEntitlementOK:
-		return v, nil
+		response := &PublicSellUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSellUserEntitlementNotFound:
-		return nil, v
+		response := &PublicSellUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSellUserEntitlementConflict:
-		return nil, v
+		response := &PublicSellUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3137,7 +3592,7 @@ PublicSplitUserEntitlementShort split user entitlement
 Split a specified use count of entitlement and create a new entitlement with splitting use count.Other detail info:
   * Returns : entitlement
 */
-func (a *Client) PublicSplitUserEntitlementShort(params *PublicSplitUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSplitUserEntitlementOK, error) {
+func (a *Client) PublicSplitUserEntitlementShort(params *PublicSplitUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSplitUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSplitUserEntitlementParams()
@@ -3175,11 +3630,26 @@ func (a *Client) PublicSplitUserEntitlementShort(params *PublicSplitUserEntitlem
 	switch v := result.(type) {
 
 	case *PublicSplitUserEntitlementOK:
-		return v, nil
+		response := &PublicSplitUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSplitUserEntitlementNotFound:
-		return nil, v
+		response := &PublicSplitUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSplitUserEntitlementConflict:
-		return nil, v
+		response := &PublicSplitUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3191,7 +3661,7 @@ PublicTransferUserEntitlementShort transfer user entitlement
 Transfer a specified use count from entitlement A to B..Other detail info:
   * Returns : entitlement
 */
-func (a *Client) PublicTransferUserEntitlementShort(params *PublicTransferUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTransferUserEntitlementOK, error) {
+func (a *Client) PublicTransferUserEntitlementShort(params *PublicTransferUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTransferUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicTransferUserEntitlementParams()
@@ -3229,11 +3699,26 @@ func (a *Client) PublicTransferUserEntitlementShort(params *PublicTransferUserEn
 	switch v := result.(type) {
 
 	case *PublicTransferUserEntitlementOK:
-		return v, nil
+		response := &PublicTransferUserEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicTransferUserEntitlementNotFound:
-		return nil, v
+		response := &PublicTransferUserEntitlementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicTransferUserEntitlementConflict:
-		return nil, v
+		response := &PublicTransferUserEntitlementResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

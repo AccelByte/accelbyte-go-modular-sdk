@@ -19,6 +19,81 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 )
 
+type UpdateLeaderboardConfigurationAdminV1Response struct {
+	leaderboardclientmodels.ApiResponse
+	Data *leaderboardclientmodels.ModelsGetLeaderboardConfigResp
+
+	Error400 *leaderboardclientmodels.ResponseErrorResponse
+	Error401 *leaderboardclientmodels.ResponseErrorResponse
+	Error403 *leaderboardclientmodels.ResponseErrorResponse
+	Error404 *leaderboardclientmodels.ResponseErrorResponse
+	Error409 *leaderboardclientmodels.ResponseErrorResponse
+	Error500 *leaderboardclientmodels.ResponseErrorResponse
+}
+
+func (m *UpdateLeaderboardConfigurationAdminV1Response) Unpack() (*leaderboardclientmodels.ModelsGetLeaderboardConfigResp, *leaderboardclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &leaderboardclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateLeaderboardConfigurationAdminV1Reader is a Reader for the UpdateLeaderboardConfigurationAdminV1 structure.
 type UpdateLeaderboardConfigurationAdminV1Reader struct {
 	formats strfmt.Registry

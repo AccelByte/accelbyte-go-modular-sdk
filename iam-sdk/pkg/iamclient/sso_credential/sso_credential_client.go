@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RetrieveAllSSOLoginPlatformCredentialV3Short(params *RetrieveAllSSOLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllSSOLoginPlatformCredentialV3OK, error)
-	RetrieveSSOLoginPlatformCredentialShort(params *RetrieveSSOLoginPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSSOLoginPlatformCredentialOK, error)
-	AddSSOLoginPlatformCredentialShort(params *AddSSOLoginPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*AddSSOLoginPlatformCredentialCreated, error)
-	DeleteSSOLoginPlatformCredentialV3Short(params *DeleteSSOLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSSOLoginPlatformCredentialV3NoContent, error)
-	UpdateSSOPlatformCredentialShort(params *UpdateSSOPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSSOPlatformCredentialOK, error)
+	RetrieveAllSSOLoginPlatformCredentialV3Short(params *RetrieveAllSSOLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllSSOLoginPlatformCredentialV3Response, error)
+	RetrieveSSOLoginPlatformCredentialShort(params *RetrieveSSOLoginPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSSOLoginPlatformCredentialResponse, error)
+	AddSSOLoginPlatformCredentialShort(params *AddSSOLoginPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*AddSSOLoginPlatformCredentialResponse, error)
+	DeleteSSOLoginPlatformCredentialV3Short(params *DeleteSSOLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSSOLoginPlatformCredentialV3Response, error)
+	UpdateSSOPlatformCredentialShort(params *UpdateSSOPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSSOPlatformCredentialResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 RetrieveAllSSOLoginPlatformCredentialV3Short get all sso platform credential
 This is the API to Get All Active SSO Platform Credential.
 */
-func (a *Client) RetrieveAllSSOLoginPlatformCredentialV3Short(params *RetrieveAllSSOLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllSSOLoginPlatformCredentialV3OK, error) {
+func (a *Client) RetrieveAllSSOLoginPlatformCredentialV3Short(params *RetrieveAllSSOLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllSSOLoginPlatformCredentialV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAllSSOLoginPlatformCredentialV3Params()
@@ -81,15 +81,40 @@ func (a *Client) RetrieveAllSSOLoginPlatformCredentialV3Short(params *RetrieveAl
 	switch v := result.(type) {
 
 	case *RetrieveAllSSOLoginPlatformCredentialV3OK:
-		return v, nil
+		response := &RetrieveAllSSOLoginPlatformCredentialV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveAllSSOLoginPlatformCredentialV3Unauthorized:
-		return nil, v
+		response := &RetrieveAllSSOLoginPlatformCredentialV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllSSOLoginPlatformCredentialV3Forbidden:
-		return nil, v
+		response := &RetrieveAllSSOLoginPlatformCredentialV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllSSOLoginPlatformCredentialV3NotFound:
-		return nil, v
+		response := &RetrieveAllSSOLoginPlatformCredentialV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllSSOLoginPlatformCredentialV3InternalServerError:
-		return nil, v
+		response := &RetrieveAllSSOLoginPlatformCredentialV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +125,7 @@ func (a *Client) RetrieveAllSSOLoginPlatformCredentialV3Short(params *RetrieveAl
 RetrieveSSOLoginPlatformCredentialShort retrieve sso platform credential
 This is the API to Get SSO Platform Credential.
 */
-func (a *Client) RetrieveSSOLoginPlatformCredentialShort(params *RetrieveSSOLoginPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSSOLoginPlatformCredentialOK, error) {
+func (a *Client) RetrieveSSOLoginPlatformCredentialShort(params *RetrieveSSOLoginPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveSSOLoginPlatformCredentialResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveSSOLoginPlatformCredentialParams()
@@ -138,17 +163,47 @@ func (a *Client) RetrieveSSOLoginPlatformCredentialShort(params *RetrieveSSOLogi
 	switch v := result.(type) {
 
 	case *RetrieveSSOLoginPlatformCredentialOK:
-		return v, nil
+		response := &RetrieveSSOLoginPlatformCredentialResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveSSOLoginPlatformCredentialBadRequest:
-		return nil, v
+		response := &RetrieveSSOLoginPlatformCredentialResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveSSOLoginPlatformCredentialUnauthorized:
-		return nil, v
+		response := &RetrieveSSOLoginPlatformCredentialResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveSSOLoginPlatformCredentialForbidden:
-		return nil, v
+		response := &RetrieveSSOLoginPlatformCredentialResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveSSOLoginPlatformCredentialNotFound:
-		return nil, v
+		response := &RetrieveSSOLoginPlatformCredentialResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveSSOLoginPlatformCredentialInternalServerError:
-		return nil, v
+		response := &RetrieveSSOLoginPlatformCredentialResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +221,7 @@ the ssoUrl of the discourse is the discourse forum url. example: https://forum.e
 **acsUrl** is an endpoint on the service provider where the identity provider will redirect to with its authentication response. example: /iam/v3/sso/saml/azuresaml/authenticate
 **federationMetadataUrl** is an endpoint on the Identity Provider(IdP) to get IdP federation metadata for service provider to build trust relationship
 */
-func (a *Client) AddSSOLoginPlatformCredentialShort(params *AddSSOLoginPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*AddSSOLoginPlatformCredentialCreated, error) {
+func (a *Client) AddSSOLoginPlatformCredentialShort(params *AddSSOLoginPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*AddSSOLoginPlatformCredentialResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddSSOLoginPlatformCredentialParams()
@@ -204,15 +259,40 @@ func (a *Client) AddSSOLoginPlatformCredentialShort(params *AddSSOLoginPlatformC
 	switch v := result.(type) {
 
 	case *AddSSOLoginPlatformCredentialCreated:
-		return v, nil
+		response := &AddSSOLoginPlatformCredentialResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddSSOLoginPlatformCredentialBadRequest:
-		return nil, v
+		response := &AddSSOLoginPlatformCredentialResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddSSOLoginPlatformCredentialUnauthorized:
-		return nil, v
+		response := &AddSSOLoginPlatformCredentialResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddSSOLoginPlatformCredentialForbidden:
-		return nil, v
+		response := &AddSSOLoginPlatformCredentialResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddSSOLoginPlatformCredentialInternalServerError:
-		return nil, v
+		response := &AddSSOLoginPlatformCredentialResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -223,7 +303,7 @@ func (a *Client) AddSSOLoginPlatformCredentialShort(params *AddSSOLoginPlatformC
 DeleteSSOLoginPlatformCredentialV3Short delete sso platform credential
 This is the API to Delete SSO Platform Credential.
 */
-func (a *Client) DeleteSSOLoginPlatformCredentialV3Short(params *DeleteSSOLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSSOLoginPlatformCredentialV3NoContent, error) {
+func (a *Client) DeleteSSOLoginPlatformCredentialV3Short(params *DeleteSSOLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSSOLoginPlatformCredentialV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSSOLoginPlatformCredentialV3Params()
@@ -261,17 +341,46 @@ func (a *Client) DeleteSSOLoginPlatformCredentialV3Short(params *DeleteSSOLoginP
 	switch v := result.(type) {
 
 	case *DeleteSSOLoginPlatformCredentialV3NoContent:
-		return v, nil
+		response := &DeleteSSOLoginPlatformCredentialV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteSSOLoginPlatformCredentialV3BadRequest:
-		return nil, v
+		response := &DeleteSSOLoginPlatformCredentialV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSSOLoginPlatformCredentialV3Unauthorized:
-		return nil, v
+		response := &DeleteSSOLoginPlatformCredentialV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSSOLoginPlatformCredentialV3Forbidden:
-		return nil, v
+		response := &DeleteSSOLoginPlatformCredentialV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSSOLoginPlatformCredentialV3NotFound:
-		return nil, v
+		response := &DeleteSSOLoginPlatformCredentialV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSSOLoginPlatformCredentialV3InternalServerError:
-		return nil, v
+		response := &DeleteSSOLoginPlatformCredentialV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -282,7 +391,7 @@ func (a *Client) DeleteSSOLoginPlatformCredentialV3Short(params *DeleteSSOLoginP
 UpdateSSOPlatformCredentialShort update sso platform credential
 This is the API to Delete SSO Platform Credential.
 */
-func (a *Client) UpdateSSOPlatformCredentialShort(params *UpdateSSOPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSSOPlatformCredentialOK, error) {
+func (a *Client) UpdateSSOPlatformCredentialShort(params *UpdateSSOPlatformCredentialParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSSOPlatformCredentialResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSSOPlatformCredentialParams()
@@ -320,17 +429,47 @@ func (a *Client) UpdateSSOPlatformCredentialShort(params *UpdateSSOPlatformCrede
 	switch v := result.(type) {
 
 	case *UpdateSSOPlatformCredentialOK:
-		return v, nil
+		response := &UpdateSSOPlatformCredentialResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateSSOPlatformCredentialBadRequest:
-		return nil, v
+		response := &UpdateSSOPlatformCredentialResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSSOPlatformCredentialUnauthorized:
-		return nil, v
+		response := &UpdateSSOPlatformCredentialResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSSOPlatformCredentialForbidden:
-		return nil, v
+		response := &UpdateSSOPlatformCredentialResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSSOPlatformCredentialNotFound:
-		return nil, v
+		response := &UpdateSSOPlatformCredentialResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSSOPlatformCredentialInternalServerError:
-		return nil, v
+		response := &UpdateSSOPlatformCredentialResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

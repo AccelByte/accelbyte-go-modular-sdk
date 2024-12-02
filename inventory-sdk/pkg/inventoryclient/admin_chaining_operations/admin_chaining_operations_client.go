@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminCreateChainingOperationsShort(params *AdminCreateChainingOperationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChainingOperationsOK, error)
+	AdminCreateChainingOperationsShort(params *AdminCreateChainingOperationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChainingOperationsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -54,7 +54,7 @@ replayed : replayed, if true,the response is original successful response. This 
 
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
 */
-func (a *Client) AdminCreateChainingOperationsShort(params *AdminCreateChainingOperationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChainingOperationsOK, error) {
+func (a *Client) AdminCreateChainingOperationsShort(params *AdminCreateChainingOperationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChainingOperationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateChainingOperationsParams()
@@ -92,17 +92,47 @@ func (a *Client) AdminCreateChainingOperationsShort(params *AdminCreateChainingO
 	switch v := result.(type) {
 
 	case *AdminCreateChainingOperationsOK:
-		return v, nil
+		response := &AdminCreateChainingOperationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateChainingOperationsBadRequest:
-		return nil, v
+		response := &AdminCreateChainingOperationsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChainingOperationsUnauthorized:
-		return nil, v
+		response := &AdminCreateChainingOperationsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChainingOperationsForbidden:
-		return nil, v
+		response := &AdminCreateChainingOperationsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChainingOperationsNotFound:
-		return nil, v
+		response := &AdminCreateChainingOperationsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateChainingOperationsInternalServerError:
-		return nil, v
+		response := &AdminCreateChainingOperationsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

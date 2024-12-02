@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/fulfillment"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *FulfillmentService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *FulfillmentService) QueryFulfillmentHistoriesShort(input *fulfillment.QueryFulfillmentHistoriesParams) (*platformclientmodels.FulfillmentHistoryPagingSlicedResult, error) {
+func (aaa *FulfillmentService) QueryFulfillmentHistoriesShort(input *fulfillment.QueryFulfillmentHistoriesParams) (*fulfillment.QueryFulfillmentHistoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *FulfillmentService) QueryFulfillmentHistoriesShort(input *fulfillment
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FulfillmentService) FulfillItemShort(input *fulfillment.FulfillItemParams) (*platformclientmodels.FulfillmentResult, error) {
+func (aaa *FulfillmentService) FulfillItemShort(input *fulfillment.FulfillItemParams) (*fulfillment.FulfillItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *FulfillmentService) FulfillItemShort(input *fulfillment.FulfillItemPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FulfillmentService) RedeemCodeShort(input *fulfillment.RedeemCodeParams) (*platformclientmodels.FulfillmentResult, error) {
+func (aaa *FulfillmentService) RedeemCodeShort(input *fulfillment.RedeemCodeParams) (*fulfillment.RedeemCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *FulfillmentService) RedeemCodeShort(input *fulfillment.RedeemCodePara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FulfillmentService) PreCheckFulfillItemShort(input *fulfillment.PreCheckFulfillItemParams) ([]*platformclientmodels.FulfillmentItem, error) {
+func (aaa *FulfillmentService) PreCheckFulfillItemShort(input *fulfillment.PreCheckFulfillItemParams) (*fulfillment.PreCheckFulfillItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,7 +153,7 @@ func (aaa *FulfillmentService) PreCheckFulfillItemShort(input *fulfillment.PreCh
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *FulfillmentService) FulfillRewardsShort(input *fulfillment.FulfillRewardsParams) error {
@@ -187,7 +186,7 @@ func (aaa *FulfillmentService) FulfillRewardsShort(input *fulfillment.FulfillRew
 	return nil
 }
 
-func (aaa *FulfillmentService) PublicRedeemCodeShort(input *fulfillment.PublicRedeemCodeParams) (*platformclientmodels.FulfillmentResult, error) {
+func (aaa *FulfillmentService) PublicRedeemCodeShort(input *fulfillment.PublicRedeemCodeParams) (*fulfillment.PublicRedeemCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *FulfillmentService) PublicRedeemCodeShort(input *fulfillment.PublicRe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FulfillmentService) QueryFulfillmentsShort(input *fulfillment.QueryFulfillmentsParams) (*platformclientmodels.FulfillmentPagingSlicedResult, error) {
+func (aaa *FulfillmentService) QueryFulfillmentsShort(input *fulfillment.QueryFulfillmentsParams) (*fulfillment.QueryFulfillmentsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *FulfillmentService) QueryFulfillmentsShort(input *fulfillment.QueryFu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FulfillmentService) FulfillRewardsV2Short(input *fulfillment.FulfillRewardsV2Params) (*platformclientmodels.FulfillmentResult, error) {
+func (aaa *FulfillmentService) FulfillRewardsV2Short(input *fulfillment.FulfillRewardsV2Params) (*fulfillment.FulfillRewardsV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *FulfillmentService) FulfillRewardsV2Short(input *fulfillment.FulfillR
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FulfillmentService) FulfillItemsShort(input *fulfillment.FulfillItemsParams) (*platformclientmodels.FulfillmentV2Result, error) {
+func (aaa *FulfillmentService) FulfillItemsShort(input *fulfillment.FulfillItemsParams) (*fulfillment.FulfillItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *FulfillmentService) FulfillItemsShort(input *fulfillment.FulfillItems
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FulfillmentService) RetryFulfillItemsShort(input *fulfillment.RetryFulfillItemsParams) (*platformclientmodels.FulfillmentV2Result, error) {
+func (aaa *FulfillmentService) RetryFulfillItemsShort(input *fulfillment.RetryFulfillItemsParams) (*fulfillment.RetryFulfillItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *FulfillmentService) RetryFulfillItemsShort(input *fulfillment.RetryFu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FulfillmentService) RevokeItemsShort(input *fulfillment.RevokeItemsParams) (*platformclientmodels.RevokeFulfillmentV2Result, error) {
+func (aaa *FulfillmentService) RevokeItemsShort(input *fulfillment.RevokeItemsParams) (*fulfillment.RevokeItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,5 +363,5 @@ func (aaa *FulfillmentService) RevokeItemsShort(input *fulfillment.RevokeItemsPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

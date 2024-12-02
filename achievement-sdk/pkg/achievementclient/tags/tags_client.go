@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsOK, error)
-	PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsOK, error)
+	AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsResponse, error)
+	PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ AdminListTagsShort query tags
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsOK, error) {
+func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListTagsParams()
@@ -81,15 +81,40 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *AdminListTagsOK:
-		return v, nil
+		response := &AdminListTagsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListTagsBadRequest:
-		return nil, v
+		response := &AdminListTagsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListTagsUnauthorized:
-		return nil, v
+		response := &AdminListTagsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListTagsNotFound:
-		return nil, v
+		response := &AdminListTagsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListTagsInternalServerError:
-		return nil, v
+		response := &AdminListTagsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +128,7 @@ PublicListTagsShort query tags
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsOK, error) {
+func (a *Client) PublicListTagsShort(params *PublicListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListTagsParams()
@@ -141,15 +166,40 @@ func (a *Client) PublicListTagsShort(params *PublicListTagsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *PublicListTagsOK:
-		return v, nil
+		response := &PublicListTagsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListTagsBadRequest:
-		return nil, v
+		response := &PublicListTagsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListTagsUnauthorized:
-		return nil, v
+		response := &PublicListTagsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListTagsNotFound:
-		return nil, v
+		response := &PublicListTagsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListTagsInternalServerError:
-		return nil, v
+		response := &PublicListTagsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

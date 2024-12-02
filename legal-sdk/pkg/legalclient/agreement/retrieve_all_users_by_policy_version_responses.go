@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type RetrieveAllUsersByPolicyVersionResponse struct {
+	legalclientmodels.ApiResponse
+	Data *legalclientmodels.PagedRetrieveUserAcceptedAgreementResponse
+
+	Error404 *legalclientmodels.ErrorEntity
+}
+
+func (m *RetrieveAllUsersByPolicyVersionResponse) Unpack() (*legalclientmodels.PagedRetrieveUserAcceptedAgreementResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RetrieveAllUsersByPolicyVersionReader is a Reader for the RetrieveAllUsersByPolicyVersion structure.
 type RetrieveAllUsersByPolicyVersionReader struct {
 	formats strfmt.Registry

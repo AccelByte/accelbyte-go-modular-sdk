@@ -31,16 +31,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListAchievementsShort(params *AdminListAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListAchievementsOK, error)
-	AdminCreateNewAchievementShort(params *AdminCreateNewAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateNewAchievementCreated, error)
-	ExportAchievementsShort(params *ExportAchievementsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportAchievementsOK, error)
-	ImportAchievementsShort(params *ImportAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportAchievementsOK, error)
-	AdminGetAchievementShort(params *AdminGetAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAchievementOK, error)
-	AdminUpdateAchievementShort(params *AdminUpdateAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAchievementOK, error)
-	AdminDeleteAchievementShort(params *AdminDeleteAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAchievementNoContent, error)
-	AdminUpdateAchievementListOrderShort(params *AdminUpdateAchievementListOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAchievementListOrderNoContent, error)
-	PublicListAchievementsShort(params *PublicListAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListAchievementsOK, error)
-	PublicGetAchievementShort(params *PublicGetAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAchievementOK, error)
+	AdminListAchievementsShort(params *AdminListAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListAchievementsResponse, error)
+	AdminCreateNewAchievementShort(params *AdminCreateNewAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateNewAchievementResponse, error)
+	ExportAchievementsShort(params *ExportAchievementsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportAchievementsResponse, error)
+	ImportAchievementsShort(params *ImportAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportAchievementsResponse, error)
+	AdminGetAchievementShort(params *AdminGetAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAchievementResponse, error)
+	AdminUpdateAchievementShort(params *AdminUpdateAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAchievementResponse, error)
+	AdminDeleteAchievementShort(params *AdminDeleteAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAchievementResponse, error)
+	AdminUpdateAchievementListOrderShort(params *AdminUpdateAchievementListOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAchievementListOrderResponse, error)
+	PublicListAchievementsShort(params *PublicListAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListAchievementsResponse, error)
+	PublicGetAchievementShort(params *PublicGetAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAchievementResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,7 +50,7 @@ AdminListAchievementsShort query achievements
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) AdminListAchievementsShort(params *AdminListAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListAchievementsOK, error) {
+func (a *Client) AdminListAchievementsShort(params *AdminListAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListAchievementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListAchievementsParams()
@@ -88,15 +88,40 @@ func (a *Client) AdminListAchievementsShort(params *AdminListAchievementsParams,
 	switch v := result.(type) {
 
 	case *AdminListAchievementsOK:
-		return v, nil
+		response := &AdminListAchievementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListAchievementsBadRequest:
-		return nil, v
+		response := &AdminListAchievementsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAchievementsUnauthorized:
-		return nil, v
+		response := &AdminListAchievementsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAchievementsNotFound:
-		return nil, v
+		response := &AdminListAchievementsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAchievementsInternalServerError:
-		return nil, v
+		response := &AdminListAchievementsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -124,7 +149,7 @@ code to indentify the achievement. Must be lowercase and maximum length is 32
 - slug: specify the image they want to use, it can be file image name or something
 to define the achievement icon.
 */
-func (a *Client) AdminCreateNewAchievementShort(params *AdminCreateNewAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateNewAchievementCreated, error) {
+func (a *Client) AdminCreateNewAchievementShort(params *AdminCreateNewAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateNewAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateNewAchievementParams()
@@ -162,15 +187,40 @@ func (a *Client) AdminCreateNewAchievementShort(params *AdminCreateNewAchievemen
 	switch v := result.(type) {
 
 	case *AdminCreateNewAchievementCreated:
-		return v, nil
+		response := &AdminCreateNewAchievementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateNewAchievementBadRequest:
-		return nil, v
+		response := &AdminCreateNewAchievementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateNewAchievementUnauthorized:
-		return nil, v
+		response := &AdminCreateNewAchievementResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateNewAchievementTooManyRequests:
-		return nil, v
+		response := &AdminCreateNewAchievementResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateNewAchievementInternalServerError:
-		return nil, v
+		response := &AdminCreateNewAchievementResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -188,7 +238,7 @@ Required Scope: `social`
 
 Successful response header will contain: `content-disposition: attachment; filename=achievement__config.json`
 */
-func (a *Client) ExportAchievementsShort(params *ExportAchievementsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportAchievementsOK, error) {
+func (a *Client) ExportAchievementsShort(params *ExportAchievementsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportAchievementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportAchievementsParams()
@@ -226,13 +276,33 @@ func (a *Client) ExportAchievementsShort(params *ExportAchievementsParams, authI
 	switch v := result.(type) {
 
 	case *ExportAchievementsOK:
-		return v, nil
+		response := &ExportAchievementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportAchievementsUnauthorized:
-		return nil, v
+		response := &ExportAchievementsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportAchievementsForbidden:
-		return nil, v
+		response := &ExportAchievementsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportAchievementsInternalServerError:
-		return nil, v
+		response := &ExportAchievementsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -251,7 +321,7 @@ Available import strategy:
 - leaveOut: if achievement with same key exist, the existing will be used and imported one will be ignored (default)
 - replace: if achievement with same key exist, the imported achievement will be used and existing one will be removed
 */
-func (a *Client) ImportAchievementsShort(params *ImportAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportAchievementsOK, error) {
+func (a *Client) ImportAchievementsShort(params *ImportAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportAchievementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImportAchievementsParams()
@@ -289,15 +359,40 @@ func (a *Client) ImportAchievementsShort(params *ImportAchievementsParams, authI
 	switch v := result.(type) {
 
 	case *ImportAchievementsOK:
-		return v, nil
+		response := &ImportAchievementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImportAchievementsUnauthorized:
-		return nil, v
+		response := &ImportAchievementsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportAchievementsForbidden:
-		return nil, v
+		response := &ImportAchievementsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportAchievementsTooManyRequests:
-		return nil, v
+		response := &ImportAchievementsResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportAchievementsInternalServerError:
-		return nil, v
+		response := &ImportAchievementsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -311,7 +406,7 @@ AdminGetAchievementShort get an achievement
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) AdminGetAchievementShort(params *AdminGetAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAchievementOK, error) {
+func (a *Client) AdminGetAchievementShort(params *AdminGetAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAchievementParams()
@@ -349,15 +444,40 @@ func (a *Client) AdminGetAchievementShort(params *AdminGetAchievementParams, aut
 	switch v := result.(type) {
 
 	case *AdminGetAchievementOK:
-		return v, nil
+		response := &AdminGetAchievementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAchievementBadRequest:
-		return nil, v
+		response := &AdminGetAchievementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAchievementUnauthorized:
-		return nil, v
+		response := &AdminGetAchievementResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAchievementNotFound:
-		return nil, v
+		response := &AdminGetAchievementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAchievementInternalServerError:
-		return nil, v
+		response := &AdminGetAchievementResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -371,7 +491,7 @@ AdminUpdateAchievementShort update an achievement
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]` and scope `social`
 */
-func (a *Client) AdminUpdateAchievementShort(params *AdminUpdateAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAchievementOK, error) {
+func (a *Client) AdminUpdateAchievementShort(params *AdminUpdateAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateAchievementParams()
@@ -409,15 +529,40 @@ func (a *Client) AdminUpdateAchievementShort(params *AdminUpdateAchievementParam
 	switch v := result.(type) {
 
 	case *AdminUpdateAchievementOK:
-		return v, nil
+		response := &AdminUpdateAchievementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateAchievementBadRequest:
-		return nil, v
+		response := &AdminUpdateAchievementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAchievementUnauthorized:
-		return nil, v
+		response := &AdminUpdateAchievementResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAchievementNotFound:
-		return nil, v
+		response := &AdminUpdateAchievementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAchievementInternalServerError:
-		return nil, v
+		response := &AdminUpdateAchievementResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -431,7 +576,7 @@ AdminDeleteAchievementShort delete an achievement
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and scope `social`
 */
-func (a *Client) AdminDeleteAchievementShort(params *AdminDeleteAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAchievementNoContent, error) {
+func (a *Client) AdminDeleteAchievementShort(params *AdminDeleteAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteAchievementParams()
@@ -469,15 +614,39 @@ func (a *Client) AdminDeleteAchievementShort(params *AdminDeleteAchievementParam
 	switch v := result.(type) {
 
 	case *AdminDeleteAchievementNoContent:
-		return v, nil
+		response := &AdminDeleteAchievementResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteAchievementBadRequest:
-		return nil, v
+		response := &AdminDeleteAchievementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAchievementUnauthorized:
-		return nil, v
+		response := &AdminDeleteAchievementResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAchievementNotFound:
-		return nil, v
+		response := &AdminDeleteAchievementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAchievementInternalServerError:
-		return nil, v
+		response := &AdminDeleteAchievementResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -491,7 +660,7 @@ AdminUpdateAchievementListOrderShort update achievements listorder
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]` and scope `social`
 */
-func (a *Client) AdminUpdateAchievementListOrderShort(params *AdminUpdateAchievementListOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAchievementListOrderNoContent, error) {
+func (a *Client) AdminUpdateAchievementListOrderShort(params *AdminUpdateAchievementListOrderParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAchievementListOrderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateAchievementListOrderParams()
@@ -529,15 +698,39 @@ func (a *Client) AdminUpdateAchievementListOrderShort(params *AdminUpdateAchieve
 	switch v := result.(type) {
 
 	case *AdminUpdateAchievementListOrderNoContent:
-		return v, nil
+		response := &AdminUpdateAchievementListOrderResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateAchievementListOrderBadRequest:
-		return nil, v
+		response := &AdminUpdateAchievementListOrderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAchievementListOrderUnauthorized:
-		return nil, v
+		response := &AdminUpdateAchievementListOrderResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAchievementListOrderNotFound:
-		return nil, v
+		response := &AdminUpdateAchievementListOrderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAchievementListOrderInternalServerError:
-		return nil, v
+		response := &AdminUpdateAchievementListOrderResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -551,7 +744,7 @@ PublicListAchievementsShort query achievements
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) PublicListAchievementsShort(params *PublicListAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListAchievementsOK, error) {
+func (a *Client) PublicListAchievementsShort(params *PublicListAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListAchievementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListAchievementsParams()
@@ -589,15 +782,40 @@ func (a *Client) PublicListAchievementsShort(params *PublicListAchievementsParam
 	switch v := result.(type) {
 
 	case *PublicListAchievementsOK:
-		return v, nil
+		response := &PublicListAchievementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListAchievementsBadRequest:
-		return nil, v
+		response := &PublicListAchievementsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListAchievementsUnauthorized:
-		return nil, v
+		response := &PublicListAchievementsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListAchievementsNotFound:
-		return nil, v
+		response := &PublicListAchievementsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListAchievementsInternalServerError:
-		return nil, v
+		response := &PublicListAchievementsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -611,7 +829,7 @@ PublicGetAchievementShort get an achievement
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) PublicGetAchievementShort(params *PublicGetAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAchievementOK, error) {
+func (a *Client) PublicGetAchievementShort(params *PublicGetAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetAchievementParams()
@@ -649,15 +867,40 @@ func (a *Client) PublicGetAchievementShort(params *PublicGetAchievementParams, a
 	switch v := result.(type) {
 
 	case *PublicGetAchievementOK:
-		return v, nil
+		response := &PublicGetAchievementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetAchievementBadRequest:
-		return nil, v
+		response := &PublicGetAchievementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAchievementUnauthorized:
-		return nil, v
+		response := &PublicGetAchievementResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAchievementNotFound:
-		return nil, v
+		response := &PublicGetAchievementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetAchievementInternalServerError:
-		return nil, v
+		response := &PublicGetAchievementResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

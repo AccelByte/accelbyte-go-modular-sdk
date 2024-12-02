@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type PublicGetUsersPlatformInfosV3Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelUsersPlatformInfosResponse
+
+	Error400 *iamclientmodels.RestErrorResponse
+	Error401 *iamclientmodels.RestErrorResponse
+	Error500 *iamclientmodels.RestErrorResponse
+}
+
+func (m *PublicGetUsersPlatformInfosV3Response) Unpack() (*iamclientmodels.ModelUsersPlatformInfosResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetUsersPlatformInfosV3Reader is a Reader for the PublicGetUsersPlatformInfosV3 structure.
 type PublicGetUsersPlatformInfosV3Reader struct {
 	formats strfmt.Registry

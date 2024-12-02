@@ -19,6 +19,55 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type GenerateTokenByNewHeadlessAccountV4Response struct {
+	iamclientmodels.ApiResponse
+	Data    *iamclientmodels.OauthmodelTokenResponseV3
+	Data202 *iamclientmodels.OauthmodelLoginQueueTicketResponse
+
+	Error400 *iamclientmodels.RestErrorResponse
+	Error401 *iamclientmodels.RestErrorResponse
+	Error404 *iamclientmodels.RestErrorResponse
+}
+
+func (m *GenerateTokenByNewHeadlessAccountV4Response) Unpack() (*iamclientmodels.OauthmodelTokenResponseV3, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GenerateTokenByNewHeadlessAccountV4Reader is a Reader for the GenerateTokenByNewHeadlessAccountV4 structure.
 type GenerateTokenByNewHeadlessAccountV4Reader struct {
 	formats strfmt.Registry

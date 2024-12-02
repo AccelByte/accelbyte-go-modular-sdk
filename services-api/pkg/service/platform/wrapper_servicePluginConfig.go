@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/service_plugin_config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ServicePluginConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ServicePluginConfigService) GetLootBoxPluginConfigShort(input *service_plugin_config.GetLootBoxPluginConfigParams) (*platformclientmodels.LootBoxPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) GetLootBoxPluginConfigShort(input *service_plugin_config.GetLootBoxPluginConfigParams) (*service_plugin_config.GetLootBoxPluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ServicePluginConfigService) GetLootBoxPluginConfigShort(input *servic
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServicePluginConfigService) UpdateLootBoxPluginConfigShort(input *service_plugin_config.UpdateLootBoxPluginConfigParams) (*platformclientmodels.LootBoxPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) UpdateLootBoxPluginConfigShort(input *service_plugin_config.UpdateLootBoxPluginConfigParams) (*service_plugin_config.UpdateLootBoxPluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *ServicePluginConfigService) UpdateLootBoxPluginConfigShort(input *ser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ServicePluginConfigService) DeleteLootBoxPluginConfigShort(input *service_plugin_config.DeleteLootBoxPluginConfigParams) error {
@@ -129,7 +128,7 @@ func (aaa *ServicePluginConfigService) DeleteLootBoxPluginConfigShort(input *ser
 	return nil
 }
 
-func (aaa *ServicePluginConfigService) UplodLootBoxPluginConfigCertShort(input *service_plugin_config.UplodLootBoxPluginConfigCertParams) (*platformclientmodels.LootBoxPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) UplodLootBoxPluginConfigCertShort(input *service_plugin_config.UplodLootBoxPluginConfigCertParams) (*service_plugin_config.UplodLootBoxPluginConfigCertResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *ServicePluginConfigService) UplodLootBoxPluginConfigCertShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServicePluginConfigService) GetLootBoxGrpcInfoShort(input *service_plugin_config.GetLootBoxGrpcInfoParams) (*platformclientmodels.GrpcServerInfo, error) {
+func (aaa *ServicePluginConfigService) GetLootBoxGrpcInfoShort(input *service_plugin_config.GetLootBoxGrpcInfoParams) (*service_plugin_config.GetLootBoxGrpcInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *ServicePluginConfigService) GetLootBoxGrpcInfoShort(input *service_pl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServicePluginConfigService) GetSectionPluginConfigShort(input *service_plugin_config.GetSectionPluginConfigParams) (*platformclientmodels.SectionPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) GetSectionPluginConfigShort(input *service_plugin_config.GetSectionPluginConfigParams) (*service_plugin_config.GetSectionPluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *ServicePluginConfigService) GetSectionPluginConfigShort(input *servic
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServicePluginConfigService) UpdateSectionPluginConfigShort(input *service_plugin_config.UpdateSectionPluginConfigParams) (*platformclientmodels.SectionPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) UpdateSectionPluginConfigShort(input *service_plugin_config.UpdateSectionPluginConfigParams) (*service_plugin_config.UpdateSectionPluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,7 +245,7 @@ func (aaa *ServicePluginConfigService) UpdateSectionPluginConfigShort(input *ser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ServicePluginConfigService) DeleteSectionPluginConfigShort(input *service_plugin_config.DeleteSectionPluginConfigParams) error {
@@ -279,7 +278,7 @@ func (aaa *ServicePluginConfigService) DeleteSectionPluginConfigShort(input *ser
 	return nil
 }
 
-func (aaa *ServicePluginConfigService) UploadSectionPluginConfigCertShort(input *service_plugin_config.UploadSectionPluginConfigCertParams) (*platformclientmodels.SectionPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) UploadSectionPluginConfigCertShort(input *service_plugin_config.UploadSectionPluginConfigCertParams) (*service_plugin_config.UploadSectionPluginConfigCertResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *ServicePluginConfigService) UploadSectionPluginConfigCertShort(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServicePluginConfigService) GetServicePluginConfigShort(input *service_plugin_config.GetServicePluginConfigParams) (*platformclientmodels.ServicePluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) GetServicePluginConfigShort(input *service_plugin_config.GetServicePluginConfigParams) (*service_plugin_config.GetServicePluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,10 +335,10 @@ func (aaa *ServicePluginConfigService) GetServicePluginConfigShort(input *servic
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServicePluginConfigService) UpdateServicePluginConfigShort(input *service_plugin_config.UpdateServicePluginConfigParams) (*platformclientmodels.ServicePluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) UpdateServicePluginConfigShort(input *service_plugin_config.UpdateServicePluginConfigParams) (*service_plugin_config.UpdateServicePluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,7 +365,7 @@ func (aaa *ServicePluginConfigService) UpdateServicePluginConfigShort(input *ser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ServicePluginConfigService) DeleteServicePluginConfigShort(input *service_plugin_config.DeleteServicePluginConfigParams) error {
@@ -399,7 +398,7 @@ func (aaa *ServicePluginConfigService) DeleteServicePluginConfigShort(input *ser
 	return nil
 }
 
-func (aaa *ServicePluginConfigService) GetRevocationPluginConfigShort(input *service_plugin_config.GetRevocationPluginConfigParams) (*platformclientmodels.RevocationPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) GetRevocationPluginConfigShort(input *service_plugin_config.GetRevocationPluginConfigParams) (*service_plugin_config.GetRevocationPluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -426,10 +425,10 @@ func (aaa *ServicePluginConfigService) GetRevocationPluginConfigShort(input *ser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServicePluginConfigService) UpdateRevocationPluginConfigShort(input *service_plugin_config.UpdateRevocationPluginConfigParams) (*platformclientmodels.RevocationPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) UpdateRevocationPluginConfigShort(input *service_plugin_config.UpdateRevocationPluginConfigParams) (*service_plugin_config.UpdateRevocationPluginConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -456,7 +455,7 @@ func (aaa *ServicePluginConfigService) UpdateRevocationPluginConfigShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ServicePluginConfigService) DeleteRevocationPluginConfigShort(input *service_plugin_config.DeleteRevocationPluginConfigParams) error {
@@ -489,7 +488,7 @@ func (aaa *ServicePluginConfigService) DeleteRevocationPluginConfigShort(input *
 	return nil
 }
 
-func (aaa *ServicePluginConfigService) UploadRevocationPluginConfigCertShort(input *service_plugin_config.UploadRevocationPluginConfigCertParams) (*platformclientmodels.RevocationPluginConfigInfo, error) {
+func (aaa *ServicePluginConfigService) UploadRevocationPluginConfigCertShort(input *service_plugin_config.UploadRevocationPluginConfigCertParams) (*service_plugin_config.UploadRevocationPluginConfigCertResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -516,5 +515,5 @@ func (aaa *ServicePluginConfigService) UploadRevocationPluginConfigCertShort(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

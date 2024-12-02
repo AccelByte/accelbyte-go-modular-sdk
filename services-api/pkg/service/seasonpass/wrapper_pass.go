@@ -9,7 +9,6 @@ package seasonpass
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/pass"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *PassService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PassService) QueryPassesShort(input *pass.QueryPassesParams) ([]*seasonpassclientmodels.PassInfo, error) {
+func (aaa *PassService) QueryPassesShort(input *pass.QueryPassesParams) (*pass.QueryPassesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *PassService) QueryPassesShort(input *pass.QueryPassesParams) ([]*seas
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PassService) CreatePassShort(input *pass.CreatePassParams) (*seasonpassclientmodels.PassInfo, error) {
+func (aaa *PassService) CreatePassShort(input *pass.CreatePassParams) (*pass.CreatePassResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *PassService) CreatePassShort(input *pass.CreatePassParams) (*seasonpa
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PassService) GetPassShort(input *pass.GetPassParams) (*seasonpassclientmodels.PassInfo, error) {
+func (aaa *PassService) GetPassShort(input *pass.GetPassParams) (*pass.GetPassResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *PassService) GetPassShort(input *pass.GetPassParams) (*seasonpassclie
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PassService) DeletePassShort(input *pass.DeletePassParams) error {
@@ -159,7 +158,7 @@ func (aaa *PassService) DeletePassShort(input *pass.DeletePassParams) error {
 	return nil
 }
 
-func (aaa *PassService) UpdatePassShort(input *pass.UpdatePassParams) (*seasonpassclientmodels.PassInfo, error) {
+func (aaa *PassService) UpdatePassShort(input *pass.UpdatePassParams) (*pass.UpdatePassResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *PassService) UpdatePassShort(input *pass.UpdatePassParams) (*seasonpa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PassService) GrantUserPassShort(input *pass.GrantUserPassParams) (*seasonpassclientmodels.UserSeasonSummary, error) {
+func (aaa *PassService) GrantUserPassShort(input *pass.GrantUserPassParams) (*pass.GrantUserPassResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,5 +215,5 @@ func (aaa *PassService) GrantUserPassShort(input *pass.GrantUserPassParams) (*se
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

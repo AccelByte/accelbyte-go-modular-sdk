@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListItemTypesShort(params *AdminListItemTypesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListItemTypesOK, error)
-	AdminCreateItemTypeShort(params *AdminCreateItemTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateItemTypeCreated, error)
-	AdminDeleteItemTypeShort(params *AdminDeleteItemTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteItemTypeNoContent, error)
+	AdminListItemTypesShort(params *AdminListItemTypesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListItemTypesResponse, error)
+	AdminCreateItemTypeShort(params *AdminCreateItemTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateItemTypeResponse, error)
+	AdminDeleteItemTypeShort(params *AdminDeleteItemTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteItemTypeResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ The response body will be in the form of standard pagination.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:ITEMTYPE [READ]
 */
-func (a *Client) AdminListItemTypesShort(params *AdminListItemTypesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListItemTypesOK, error) {
+func (a *Client) AdminListItemTypesShort(params *AdminListItemTypesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListItemTypesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListItemTypesParams()
@@ -83,11 +83,26 @@ func (a *Client) AdminListItemTypesShort(params *AdminListItemTypesParams, authI
 	switch v := result.(type) {
 
 	case *AdminListItemTypesOK:
-		return v, nil
+		response := &AdminListItemTypesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListItemTypesBadRequest:
-		return nil, v
+		response := &AdminListItemTypesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListItemTypesInternalServerError:
-		return nil, v
+		response := &AdminListItemTypesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +118,7 @@ It is safe to call this endpoint even if the itemtype already exists.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:ITEMTYPE [CREATE]
 */
-func (a *Client) AdminCreateItemTypeShort(params *AdminCreateItemTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateItemTypeCreated, error) {
+func (a *Client) AdminCreateItemTypeShort(params *AdminCreateItemTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateItemTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateItemTypeParams()
@@ -141,13 +156,33 @@ func (a *Client) AdminCreateItemTypeShort(params *AdminCreateItemTypeParams, aut
 	switch v := result.(type) {
 
 	case *AdminCreateItemTypeCreated:
-		return v, nil
+		response := &AdminCreateItemTypeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateItemTypeBadRequest:
-		return nil, v
+		response := &AdminCreateItemTypeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateItemTypeConflict:
-		return nil, v
+		response := &AdminCreateItemTypeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateItemTypeInternalServerError:
-		return nil, v
+		response := &AdminCreateItemTypeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -162,7 +197,7 @@ If the itemtypeName doesn't exist in a namespace, it'll return not found.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:ITEMTYPE [DELETE]
 */
-func (a *Client) AdminDeleteItemTypeShort(params *AdminDeleteItemTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteItemTypeNoContent, error) {
+func (a *Client) AdminDeleteItemTypeShort(params *AdminDeleteItemTypeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteItemTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteItemTypeParams()
@@ -200,11 +235,25 @@ func (a *Client) AdminDeleteItemTypeShort(params *AdminDeleteItemTypeParams, aut
 	switch v := result.(type) {
 
 	case *AdminDeleteItemTypeNoContent:
-		return v, nil
+		response := &AdminDeleteItemTypeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteItemTypeNotFound:
-		return nil, v
+		response := &AdminDeleteItemTypeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteItemTypeInternalServerError:
-		return nil, v
+		response := &AdminDeleteItemTypeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

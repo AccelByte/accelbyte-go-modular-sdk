@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 )
 
+type AdminRandomizeChallengeResponse struct {
+	challengeclientmodels.ApiResponse
+	Data []*challengeclientmodels.ModelSchedule
+
+	Error400 *challengeclientmodels.IamErrorResponse
+	Error401 *challengeclientmodels.IamErrorResponse
+	Error403 *challengeclientmodels.IamErrorResponse
+	Error404 *challengeclientmodels.ResponseError
+	Error500 *challengeclientmodels.ResponseError
+}
+
+func (m *AdminRandomizeChallengeResponse) Unpack() ([]*challengeclientmodels.ModelSchedule, *challengeclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &challengeclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminRandomizeChallengeReader is a Reader for the AdminRandomizeChallenge structure.
 type AdminRandomizeChallengeReader struct {
 	formats strfmt.Registry

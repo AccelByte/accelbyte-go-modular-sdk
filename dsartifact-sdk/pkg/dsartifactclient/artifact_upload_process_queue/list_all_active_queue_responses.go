@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclientmodels"
 )
 
+type ListAllActiveQueueResponse struct {
+	dsartifactclientmodels.ApiResponse
+	Data *dsartifactclientmodels.ModelsListAllQueueResponse
+
+	Error400 *dsartifactclientmodels.ResponseError
+	Error404 *dsartifactclientmodels.ResponseError
+	Error500 *dsartifactclientmodels.ResponseError
+}
+
+func (m *ListAllActiveQueueResponse) Unpack() (*dsartifactclientmodels.ModelsListAllQueueResponse, *dsartifactclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dsartifactclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ListAllActiveQueueReader is a Reader for the ListAllActiveQueue structure.
 type ListAllActiveQueueReader struct {
 	formats strfmt.Registry

@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AnonymizeUserProfileShort(params *AnonymizeUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserProfileNoContent, error)
+	AnonymizeUserProfileShort(params *AnonymizeUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserProfileResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ Other detail info:
 
   * Action code : 11501
 */
-func (a *Client) AnonymizeUserProfileShort(params *AnonymizeUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserProfileNoContent, error) {
+func (a *Client) AnonymizeUserProfileShort(params *AnonymizeUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserProfileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeUserProfileParams()
@@ -80,13 +80,32 @@ func (a *Client) AnonymizeUserProfileShort(params *AnonymizeUserProfileParams, a
 	switch v := result.(type) {
 
 	case *AnonymizeUserProfileNoContent:
-		return v, nil
+		response := &AnonymizeUserProfileResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AnonymizeUserProfileBadRequest:
-		return nil, v
+		response := &AnonymizeUserProfileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AnonymizeUserProfileUnauthorized:
-		return nil, v
+		response := &AnonymizeUserProfileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AnonymizeUserProfileForbidden:
-		return nil, v
+		response := &AnonymizeUserProfileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

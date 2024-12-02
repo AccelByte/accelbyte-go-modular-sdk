@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/image_v2"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ImageV2Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ImageV2Service) GetAppImageListV2Short(input *image_v2.GetAppImageListV2Params) (*csmclientmodels.ApimodelGetAppImageListV2Response, error) {
+func (aaa *ImageV2Service) GetAppImageListV2Short(input *image_v2.GetAppImageListV2Params) (*image_v2.GetAppImageListV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *ImageV2Service) GetAppImageListV2Short(input *image_v2.GetAppImageLis
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ImageV2Service) DeleteAppImagesV2Short(input *image_v2.DeleteAppImagesV2Params) error {

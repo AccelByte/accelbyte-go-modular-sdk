@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AddDownloadCountShort(params *AddDownloadCountParams, authInfo runtime.ClientAuthInfoWriter) (*AddDownloadCountOK, error)
+	AddDownloadCountShort(params *AddDownloadCountParams, authInfo runtime.ClientAuthInfoWriter) (*AddDownloadCountResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 AddDownloadCountShort add unique download count to a content
 This endpoint can be used to count how many the ugc downloaded
 */
-func (a *Client) AddDownloadCountShort(params *AddDownloadCountParams, authInfo runtime.ClientAuthInfoWriter) (*AddDownloadCountOK, error) {
+func (a *Client) AddDownloadCountShort(params *AddDownloadCountParams, authInfo runtime.ClientAuthInfoWriter) (*AddDownloadCountResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddDownloadCountParams()
@@ -77,13 +77,33 @@ func (a *Client) AddDownloadCountShort(params *AddDownloadCountParams, authInfo 
 	switch v := result.(type) {
 
 	case *AddDownloadCountOK:
-		return v, nil
+		response := &AddDownloadCountResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddDownloadCountUnauthorized:
-		return nil, v
+		response := &AddDownloadCountResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddDownloadCountNotFound:
-		return nil, v
+		response := &AddDownloadCountResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddDownloadCountInternalServerError:
-		return nil, v
+		response := &AddDownloadCountResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

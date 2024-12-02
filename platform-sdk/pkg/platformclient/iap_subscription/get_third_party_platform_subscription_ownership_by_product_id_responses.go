@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetThirdPartyPlatformSubscriptionOwnershipByProductIDResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.ThirdPartySubscriptionOwnership
+}
+
+func (m *GetThirdPartyPlatformSubscriptionOwnershipByProductIDResponse) Unpack() (*platformclientmodels.ThirdPartySubscriptionOwnership, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetThirdPartyPlatformSubscriptionOwnershipByProductIDReader is a Reader for the GetThirdPartyPlatformSubscriptionOwnershipByProductID structure.
 type GetThirdPartyPlatformSubscriptionOwnershipByProductIDReader struct {
 	formats strfmt.Registry

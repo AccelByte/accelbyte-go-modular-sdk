@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 )
 
+type GetCurrentWeekLeaderboardRankingPublicV1Response struct {
+	leaderboardclientmodels.ApiResponse
+	Data *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
+
+	Error400 *leaderboardclientmodels.ResponseErrorResponse
+	Error404 *leaderboardclientmodels.ResponseErrorResponse
+	Error500 *leaderboardclientmodels.ResponseErrorResponse
+}
+
+func (m *GetCurrentWeekLeaderboardRankingPublicV1Response) Unpack() (*leaderboardclientmodels.ModelsGetLeaderboardRankingResp, *leaderboardclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &leaderboardclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetCurrentWeekLeaderboardRankingPublicV1Reader is a Reader for the GetCurrentWeekLeaderboardRankingPublicV1 structure.
 type GetCurrentWeekLeaderboardRankingPublicV1Reader struct {
 	formats strfmt.Registry

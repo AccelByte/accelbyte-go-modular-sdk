@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetGroupsShort(params *GetGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupsOK, error)
-	CreateGroupShort(params *CreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGroupCreated, error)
-	GetGroupShort(params *GetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupOK, error)
-	UpdateGroupShort(params *UpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupOK, error)
-	DeleteGroupShort(params *DeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupNoContent, error)
-	GetGroupContentShort(params *GetGroupContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupContentOK, error)
-	PublicGetGroupContentsV2Short(params *PublicGetGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetGroupContentsV2OK, error)
+	GetGroupsShort(params *GetGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupsResponse, error)
+	CreateGroupShort(params *CreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGroupResponse, error)
+	GetGroupShort(params *GetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupResponse, error)
+	UpdateGroupShort(params *UpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupResponse, error)
+	DeleteGroupShort(params *DeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupResponse, error)
+	GetGroupContentShort(params *GetGroupContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupContentResponse, error)
+	PublicGetGroupContentsV2Short(params *PublicGetGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetGroupContentsV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ type ClientService interface {
 GetGroupsShort get all user groups
 Get user groups paginated
 */
-func (a *Client) GetGroupsShort(params *GetGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupsOK, error) {
+func (a *Client) GetGroupsShort(params *GetGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupsParams()
@@ -83,13 +83,33 @@ func (a *Client) GetGroupsShort(params *GetGroupsParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetGroupsOK:
-		return v, nil
+		response := &GetGroupsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupsBadRequest:
-		return nil, v
+		response := &GetGroupsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupsUnauthorized:
-		return nil, v
+		response := &GetGroupsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupsInternalServerError:
-		return nil, v
+		response := &GetGroupsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +120,7 @@ func (a *Client) GetGroupsShort(params *GetGroupsParams, authInfo runtime.Client
 CreateGroupShort create groups
 Create group
 */
-func (a *Client) CreateGroupShort(params *CreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGroupCreated, error) {
+func (a *Client) CreateGroupShort(params *CreateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateGroupParams()
@@ -138,13 +158,33 @@ func (a *Client) CreateGroupShort(params *CreateGroupParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CreateGroupCreated:
-		return v, nil
+		response := &CreateGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateGroupBadRequest:
-		return nil, v
+		response := &CreateGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGroupUnauthorized:
-		return nil, v
+		response := &CreateGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGroupInternalServerError:
-		return nil, v
+		response := &CreateGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -155,7 +195,7 @@ func (a *Client) CreateGroupShort(params *CreateGroupParams, authInfo runtime.Cl
 GetGroupShort get user's groups
 Get user groups by group ID
 */
-func (a *Client) GetGroupShort(params *GetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupOK, error) {
+func (a *Client) GetGroupShort(params *GetGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupParams()
@@ -193,13 +233,33 @@ func (a *Client) GetGroupShort(params *GetGroupParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *GetGroupOK:
-		return v, nil
+		response := &GetGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupUnauthorized:
-		return nil, v
+		response := &GetGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupNotFound:
-		return nil, v
+		response := &GetGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupInternalServerError:
-		return nil, v
+		response := &GetGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -210,7 +270,7 @@ func (a *Client) GetGroupShort(params *GetGroupParams, authInfo runtime.ClientAu
 UpdateGroupShort update group
 Replace group name and contents with new ones
 */
-func (a *Client) UpdateGroupShort(params *UpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupOK, error) {
+func (a *Client) UpdateGroupShort(params *UpdateGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupParams()
@@ -248,15 +308,40 @@ func (a *Client) UpdateGroupShort(params *UpdateGroupParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *UpdateGroupOK:
-		return v, nil
+		response := &UpdateGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupBadRequest:
-		return nil, v
+		response := &UpdateGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupUnauthorized:
-		return nil, v
+		response := &UpdateGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupNotFound:
-		return nil, v
+		response := &UpdateGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupInternalServerError:
-		return nil, v
+		response := &UpdateGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -267,7 +352,7 @@ func (a *Client) UpdateGroupShort(params *UpdateGroupParams, authInfo runtime.Cl
 DeleteGroupShort delete group
 Delete user group by group ID
 */
-func (a *Client) DeleteGroupShort(params *DeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupNoContent, error) {
+func (a *Client) DeleteGroupShort(params *DeleteGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGroupParams()
@@ -305,13 +390,32 @@ func (a *Client) DeleteGroupShort(params *DeleteGroupParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DeleteGroupNoContent:
-		return v, nil
+		response := &DeleteGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGroupUnauthorized:
-		return nil, v
+		response := &DeleteGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupNotFound:
-		return nil, v
+		response := &DeleteGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupInternalServerError:
-		return nil, v
+		response := &DeleteGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -322,7 +426,7 @@ func (a *Client) DeleteGroupShort(params *DeleteGroupParams, authInfo runtime.Cl
 GetGroupContentShort (legacy) get contents belong to a group
 Get content that belong to a group
 */
-func (a *Client) GetGroupContentShort(params *GetGroupContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupContentOK, error) {
+func (a *Client) GetGroupContentShort(params *GetGroupContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetGroupContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupContentParams()
@@ -360,15 +464,40 @@ func (a *Client) GetGroupContentShort(params *GetGroupContentParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetGroupContentOK:
-		return v, nil
+		response := &GetGroupContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupContentBadRequest:
-		return nil, v
+		response := &GetGroupContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupContentUnauthorized:
-		return nil, v
+		response := &GetGroupContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupContentNotFound:
-		return nil, v
+		response := &GetGroupContentResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupContentInternalServerError:
-		return nil, v
+		response := &GetGroupContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -379,7 +508,7 @@ func (a *Client) GetGroupContentShort(params *GetGroupContentParams, authInfo ru
 PublicGetGroupContentsV2Short get contents belong to a group
 Get content belong to a group
 */
-func (a *Client) PublicGetGroupContentsV2Short(params *PublicGetGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetGroupContentsV2OK, error) {
+func (a *Client) PublicGetGroupContentsV2Short(params *PublicGetGroupContentsV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetGroupContentsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetGroupContentsV2Params()
@@ -417,15 +546,40 @@ func (a *Client) PublicGetGroupContentsV2Short(params *PublicGetGroupContentsV2P
 	switch v := result.(type) {
 
 	case *PublicGetGroupContentsV2OK:
-		return v, nil
+		response := &PublicGetGroupContentsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetGroupContentsV2BadRequest:
-		return nil, v
+		response := &PublicGetGroupContentsV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetGroupContentsV2Unauthorized:
-		return nil, v
+		response := &PublicGetGroupContentsV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetGroupContentsV2NotFound:
-		return nil, v
+		response := &PublicGetGroupContentsV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetGroupContentsV2InternalServerError:
-		return nil, v
+		response := &PublicGetGroupContentsV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

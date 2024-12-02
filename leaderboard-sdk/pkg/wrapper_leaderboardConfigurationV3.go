@@ -9,7 +9,6 @@ package leaderboard
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_configuration_v3"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *LeaderboardConfigurationV3Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationsAdminV3Short(input *leaderboard_configuration_v3.GetLeaderboardConfigurationsAdminV3Params) (*leaderboardclientmodels.ModelsGetAllLeaderboardConfigsRespV3, error) {
+func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationsAdminV3Short(input *leaderboard_configuration_v3.GetLeaderboardConfigurationsAdminV3Params) (*leaderboard_configuration_v3.GetLeaderboardConfigurationsAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationsAdminV
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LeaderboardConfigurationV3Service) CreateLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.CreateLeaderboardConfigurationAdminV3Params) (*leaderboardclientmodels.ModelsGetLeaderboardConfigRespV3, error) {
+func (aaa *LeaderboardConfigurationV3Service) CreateLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.CreateLeaderboardConfigurationAdminV3Params) (*leaderboard_configuration_v3.CreateLeaderboardConfigurationAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *LeaderboardConfigurationV3Service) CreateLeaderboardConfigurationAdmi
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *LeaderboardConfigurationV3Service) DeleteBulkLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.DeleteBulkLeaderboardConfigurationAdminV3Params) (*leaderboardclientmodels.ModelsDeleteBulkLeaderboardsResp, error) {
+func (aaa *LeaderboardConfigurationV3Service) DeleteBulkLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.DeleteBulkLeaderboardConfigurationAdminV3Params) (*leaderboard_configuration_v3.DeleteBulkLeaderboardConfigurationAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *LeaderboardConfigurationV3Service) DeleteBulkLeaderboardConfiguration
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.GetLeaderboardConfigurationAdminV3Params) (*leaderboardclientmodels.ModelsGetLeaderboardConfigRespV3, error) {
+func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.GetLeaderboardConfigurationAdminV3Params) (*leaderboard_configuration_v3.GetLeaderboardConfigurationAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationAdminV3
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LeaderboardConfigurationV3Service) UpdateLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.UpdateLeaderboardConfigurationAdminV3Params) (*leaderboardclientmodels.ModelsGetLeaderboardConfigRespV3, error) {
+func (aaa *LeaderboardConfigurationV3Service) UpdateLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.UpdateLeaderboardConfigurationAdminV3Params) (*leaderboard_configuration_v3.UpdateLeaderboardConfigurationAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,7 +183,7 @@ func (aaa *LeaderboardConfigurationV3Service) UpdateLeaderboardConfigurationAdmi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *LeaderboardConfigurationV3Service) DeleteLeaderboardConfigurationAdminV3Short(input *leaderboard_configuration_v3.DeleteLeaderboardConfigurationAdminV3Params) error {
@@ -247,7 +246,7 @@ func (aaa *LeaderboardConfigurationV3Service) HardDeleteLeaderboardAdminV3Short(
 	return nil
 }
 
-func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationsPublicV3Short(input *leaderboard_configuration_v3.GetLeaderboardConfigurationsPublicV3Params) (*leaderboardclientmodels.ModelsGetAllLeaderboardConfigsPublicRespV3, error) {
+func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationsPublicV3Short(input *leaderboard_configuration_v3.GetLeaderboardConfigurationsPublicV3Params) (*leaderboard_configuration_v3.GetLeaderboardConfigurationsPublicV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationsPublic
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationPublicV3Short(input *leaderboard_configuration_v3.GetLeaderboardConfigurationPublicV3Params) (*leaderboardclientmodels.ModelsGetLeaderboardConfigPublicRespV3, error) {
+func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationPublicV3Short(input *leaderboard_configuration_v3.GetLeaderboardConfigurationPublicV3Params) (*leaderboard_configuration_v3.GetLeaderboardConfigurationPublicV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,5 +303,5 @@ func (aaa *LeaderboardConfigurationV3Service) GetLeaderboardConfigurationPublicV
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

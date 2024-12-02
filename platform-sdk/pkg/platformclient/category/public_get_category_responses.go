@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type PublicGetCategoryResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.CategoryInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *PublicGetCategoryResponse) Unpack() (*platformclientmodels.CategoryInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetCategoryReader is a Reader for the PublicGetCategory structure.
 type PublicGetCategoryReader struct {
 	formats strfmt.Registry

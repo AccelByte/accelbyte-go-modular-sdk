@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListViewsShort(params *ListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*ListViewsOK, error)
-	CreateViewShort(params *CreateViewParams, authInfo runtime.ClientAuthInfoWriter) (*CreateViewCreated, error)
-	GetViewShort(params *GetViewParams, authInfo runtime.ClientAuthInfoWriter) (*GetViewOK, error)
-	UpdateViewShort(params *UpdateViewParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateViewOK, error)
-	DeleteViewShort(params *DeleteViewParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteViewNoContent, error)
-	PublicListViewsShort(params *PublicListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListViewsOK, error)
+	ListViewsShort(params *ListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*ListViewsResponse, error)
+	CreateViewShort(params *CreateViewParams, authInfo runtime.ClientAuthInfoWriter) (*CreateViewResponse, error)
+	GetViewShort(params *GetViewParams, authInfo runtime.ClientAuthInfoWriter) (*GetViewResponse, error)
+	UpdateViewShort(params *UpdateViewParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateViewResponse, error)
+	DeleteViewShort(params *DeleteViewParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteViewResponse, error)
+	PublicListViewsShort(params *PublicListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListViewsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ Other detail info:
 
   * Returns : the list of views
 */
-func (a *Client) ListViewsShort(params *ListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*ListViewsOK, error) {
+func (a *Client) ListViewsShort(params *ListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*ListViewsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListViewsParams()
@@ -86,11 +86,26 @@ func (a *Client) ListViewsShort(params *ListViewsParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *ListViewsOK:
-		return v, nil
+		response := &ListViewsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListViewsNotFound:
-		return nil, v
+		response := &ListViewsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListViewsUnprocessableEntity:
-		return nil, v
+		response := &ListViewsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -123,7 +138,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) CreateViewShort(params *CreateViewParams, authInfo runtime.ClientAuthInfoWriter) (*CreateViewCreated, error) {
+func (a *Client) CreateViewShort(params *CreateViewParams, authInfo runtime.ClientAuthInfoWriter) (*CreateViewResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateViewParams()
@@ -161,15 +176,40 @@ func (a *Client) CreateViewShort(params *CreateViewParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *CreateViewCreated:
-		return v, nil
+		response := &CreateViewResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateViewBadRequest:
-		return nil, v
+		response := &CreateViewResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateViewNotFound:
-		return nil, v
+		response := &CreateViewResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateViewConflict:
-		return nil, v
+		response := &CreateViewResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateViewUnprocessableEntity:
-		return nil, v
+		response := &CreateViewResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -184,7 +224,7 @@ Other detail info:
 
   * Returns : view data
 */
-func (a *Client) GetViewShort(params *GetViewParams, authInfo runtime.ClientAuthInfoWriter) (*GetViewOK, error) {
+func (a *Client) GetViewShort(params *GetViewParams, authInfo runtime.ClientAuthInfoWriter) (*GetViewResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetViewParams()
@@ -222,9 +262,19 @@ func (a *Client) GetViewShort(params *GetViewParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *GetViewOK:
-		return v, nil
+		response := &GetViewResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetViewNotFound:
-		return nil, v
+		response := &GetViewResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -257,7 +307,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) UpdateViewShort(params *UpdateViewParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateViewOK, error) {
+func (a *Client) UpdateViewShort(params *UpdateViewParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateViewResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateViewParams()
@@ -295,15 +345,40 @@ func (a *Client) UpdateViewShort(params *UpdateViewParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UpdateViewOK:
-		return v, nil
+		response := &UpdateViewResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateViewBadRequest:
-		return nil, v
+		response := &UpdateViewResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateViewNotFound:
-		return nil, v
+		response := &UpdateViewResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateViewConflict:
-		return nil, v
+		response := &UpdateViewResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateViewUnprocessableEntity:
-		return nil, v
+		response := &UpdateViewResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -314,7 +389,7 @@ func (a *Client) UpdateViewShort(params *UpdateViewParams, authInfo runtime.Clie
 DeleteViewShort delete a view
 This API is used to delete a view.It will also delete all the related sections
 */
-func (a *Client) DeleteViewShort(params *DeleteViewParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteViewNoContent, error) {
+func (a *Client) DeleteViewShort(params *DeleteViewParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteViewResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteViewParams()
@@ -352,11 +427,25 @@ func (a *Client) DeleteViewShort(params *DeleteViewParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *DeleteViewNoContent:
-		return v, nil
+		response := &DeleteViewResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteViewNotFound:
-		return nil, v
+		response := &DeleteViewResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteViewConflict:
-		return nil, v
+		response := &DeleteViewResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -373,7 +462,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store views)
   *  Returns : all views
 */
-func (a *Client) PublicListViewsShort(params *PublicListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListViewsOK, error) {
+func (a *Client) PublicListViewsShort(params *PublicListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListViewsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListViewsParams()
@@ -411,7 +500,12 @@ func (a *Client) PublicListViewsShort(params *PublicListViewsParams, authInfo ru
 	switch v := result.(type) {
 
 	case *PublicListViewsOK:
-		return v, nil
+		response := &PublicListViewsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

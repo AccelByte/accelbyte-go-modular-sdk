@@ -30,24 +30,24 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesOK, error)
-	AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkPartiesOK, error)
-	AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncNativeSessionOK, error)
-	PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinCodeOK, error)
-	PublicGetPartyShort(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyOK, error)
-	PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyOK, error)
-	PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPatchUpdatePartyOK, error)
-	PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePartyCodeOK, error)
-	PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokePartyCodeNoContent, error)
-	PublicPartyInviteShort(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteCreated, error)
-	PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromotePartyLeaderOK, error)
-	PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinOK, error)
-	PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyLeaveNoContent, error)
-	PublicPartyRejectShort(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectNoContent, error)
-	PublicPartyCancelShort(params *PublicPartyCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyCancelNoContent, error)
-	PublicPartyKickShort(params *PublicPartyKickParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyKickOK, error)
-	PublicCreatePartyShort(params *PublicCreatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreatePartyOK, error)
-	PublicQueryMyPartiesShort(params *PublicQueryMyPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyPartiesOK, error)
+	AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesResponse, error)
+	AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkPartiesResponse, error)
+	AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncNativeSessionResponse, error)
+	PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinCodeResponse, error)
+	PublicGetPartyShort(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyResponse, error)
+	PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyResponse, error)
+	PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPatchUpdatePartyResponse, error)
+	PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePartyCodeResponse, error)
+	PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokePartyCodeResponse, error)
+	PublicPartyInviteShort(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteResponse, error)
+	PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromotePartyLeaderResponse, error)
+	PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinResponse, error)
+	PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyLeaveResponse, error)
+	PublicPartyRejectShort(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectResponse, error)
+	PublicPartyCancelShort(params *PublicPartyCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyCancelResponse, error)
+	PublicPartyKickShort(params *PublicPartyKickParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyKickResponse, error)
+	PublicCreatePartyShort(params *PublicCreatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreatePartyResponse, error)
+	PublicQueryMyPartiesShort(params *PublicQueryMyPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyPartiesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -56,7 +56,7 @@ type ClientService interface {
 AdminQueryPartiesShort query parties.
 Query parties.
 */
-func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesOK, error) {
+func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryPartiesParams()
@@ -94,13 +94,33 @@ func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInf
 	switch v := result.(type) {
 
 	case *AdminQueryPartiesOK:
-		return v, nil
+		response := &AdminQueryPartiesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryPartiesBadRequest:
-		return nil, v
+		response := &AdminQueryPartiesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryPartiesUnauthorized:
-		return nil, v
+		response := &AdminQueryPartiesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryPartiesInternalServerError:
-		return nil, v
+		response := &AdminQueryPartiesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -111,7 +131,7 @@ func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInf
 AdminDeleteBulkPartiesShort delete bulk parties.
 Delete bulk parties.
 */
-func (a *Client) AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkPartiesOK, error) {
+func (a *Client) AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkPartiesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteBulkPartiesParams()
@@ -149,15 +169,40 @@ func (a *Client) AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParam
 	switch v := result.(type) {
 
 	case *AdminDeleteBulkPartiesOK:
-		return v, nil
+		response := &AdminDeleteBulkPartiesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteBulkPartiesBadRequest:
-		return nil, v
+		response := &AdminDeleteBulkPartiesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteBulkPartiesUnauthorized:
-		return nil, v
+		response := &AdminDeleteBulkPartiesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteBulkPartiesForbidden:
-		return nil, v
+		response := &AdminDeleteBulkPartiesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteBulkPartiesInternalServerError:
-		return nil, v
+		response := &AdminDeleteBulkPartiesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,7 +213,7 @@ func (a *Client) AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParam
 AdminSyncNativeSessionShort trigger user's active party session to native platform.
 Trigger user's active party session to native platform.
 */
-func (a *Client) AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncNativeSessionOK, error) {
+func (a *Client) AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncNativeSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSyncNativeSessionParams()
@@ -206,15 +251,39 @@ func (a *Client) AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParam
 	switch v := result.(type) {
 
 	case *AdminSyncNativeSessionOK:
-		return v, nil
+		response := &AdminSyncNativeSessionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSyncNativeSessionBadRequest:
-		return nil, v
+		response := &AdminSyncNativeSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncNativeSessionUnauthorized:
-		return nil, v
+		response := &AdminSyncNativeSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncNativeSessionForbidden:
-		return nil, v
+		response := &AdminSyncNativeSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncNativeSessionInternalServerError:
-		return nil, v
+		response := &AdminSyncNativeSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -225,7 +294,7 @@ func (a *Client) AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParam
 PublicPartyJoinCodeShort join a party by code.
 Join a party by code. The user can join a party as long as the code is valid
 */
-func (a *Client) PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinCodeOK, error) {
+func (a *Client) PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPartyJoinCodeParams()
@@ -263,17 +332,47 @@ func (a *Client) PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, aut
 	switch v := result.(type) {
 
 	case *PublicPartyJoinCodeOK:
-		return v, nil
+		response := &PublicPartyJoinCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartyJoinCodeBadRequest:
-		return nil, v
+		response := &PublicPartyJoinCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyJoinCodeUnauthorized:
-		return nil, v
+		response := &PublicPartyJoinCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyJoinCodeForbidden:
-		return nil, v
+		response := &PublicPartyJoinCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyJoinCodeNotFound:
-		return nil, v
+		response := &PublicPartyJoinCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyJoinCodeInternalServerError:
-		return nil, v
+		response := &PublicPartyJoinCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -284,7 +383,7 @@ func (a *Client) PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, aut
 PublicGetPartyShort get party details.
 Get party details.
 */
-func (a *Client) PublicGetPartyShort(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyOK, error) {
+func (a *Client) PublicGetPartyShort(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPartyParams()
@@ -322,13 +421,33 @@ func (a *Client) PublicGetPartyShort(params *PublicGetPartyParams, authInfo runt
 	switch v := result.(type) {
 
 	case *PublicGetPartyOK:
-		return v, nil
+		response := &PublicGetPartyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPartyUnauthorized:
-		return nil, v
+		response := &PublicGetPartyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPartyNotFound:
-		return nil, v
+		response := &PublicGetPartyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPartyInternalServerError:
-		return nil, v
+		response := &PublicGetPartyResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -349,7 +468,7 @@ Reserved attributes key:
 the session regardless the leader changes.
 2. NATIVESESSIONTITLE: used for session sync, to define name of session displayed on PlayStation system UI.
 */
-func (a *Client) PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyOK, error) {
+func (a *Client) PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdatePartyParams()
@@ -387,19 +506,54 @@ func (a *Client) PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInf
 	switch v := result.(type) {
 
 	case *PublicUpdatePartyOK:
-		return v, nil
+		response := &PublicUpdatePartyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdatePartyBadRequest:
-		return nil, v
+		response := &PublicUpdatePartyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyUnauthorized:
-		return nil, v
+		response := &PublicUpdatePartyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyForbidden:
-		return nil, v
+		response := &PublicUpdatePartyResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyNotFound:
-		return nil, v
+		response := &PublicUpdatePartyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyConflict:
-		return nil, v
+		response := &PublicUpdatePartyResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdatePartyInternalServerError:
-		return nil, v
+		response := &PublicUpdatePartyResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -415,7 +569,7 @@ Reserved attributes key:
 the session regardless the leader changes.
 2. NATIVESESSIONTITLE: used for session sync, to define name of session displayed on PlayStation system UI.
 */
-func (a *Client) PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPatchUpdatePartyOK, error) {
+func (a *Client) PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPatchUpdatePartyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPatchUpdatePartyParams()
@@ -453,19 +607,54 @@ func (a *Client) PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParam
 	switch v := result.(type) {
 
 	case *PublicPatchUpdatePartyOK:
-		return v, nil
+		response := &PublicPatchUpdatePartyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPatchUpdatePartyBadRequest:
-		return nil, v
+		response := &PublicPatchUpdatePartyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPatchUpdatePartyUnauthorized:
-		return nil, v
+		response := &PublicPatchUpdatePartyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPatchUpdatePartyForbidden:
-		return nil, v
+		response := &PublicPatchUpdatePartyResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPatchUpdatePartyNotFound:
-		return nil, v
+		response := &PublicPatchUpdatePartyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPatchUpdatePartyConflict:
-		return nil, v
+		response := &PublicPatchUpdatePartyResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPatchUpdatePartyInternalServerError:
-		return nil, v
+		response := &PublicPatchUpdatePartyResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -476,7 +665,7 @@ func (a *Client) PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParam
 PublicGeneratePartyCodeShort generate party code.
 Generate a new code for the party. Only leader can generate a code.
 */
-func (a *Client) PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePartyCodeOK, error) {
+func (a *Client) PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratePartyCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGeneratePartyCodeParams()
@@ -514,17 +703,47 @@ func (a *Client) PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodePar
 	switch v := result.(type) {
 
 	case *PublicGeneratePartyCodeOK:
-		return v, nil
+		response := &PublicGeneratePartyCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGeneratePartyCodeBadRequest:
-		return nil, v
+		response := &PublicGeneratePartyCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratePartyCodeUnauthorized:
-		return nil, v
+		response := &PublicGeneratePartyCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratePartyCodeForbidden:
-		return nil, v
+		response := &PublicGeneratePartyCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratePartyCodeNotFound:
-		return nil, v
+		response := &PublicGeneratePartyCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratePartyCodeInternalServerError:
-		return nil, v
+		response := &PublicGeneratePartyCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -535,7 +754,7 @@ func (a *Client) PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodePar
 PublicRevokePartyCodeShort revoke party code.
 Revoke code of the party. Only leader can revoke a code.
 */
-func (a *Client) PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokePartyCodeNoContent, error) {
+func (a *Client) PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokePartyCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicRevokePartyCodeParams()
@@ -573,17 +792,46 @@ func (a *Client) PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams,
 	switch v := result.(type) {
 
 	case *PublicRevokePartyCodeNoContent:
-		return v, nil
+		response := &PublicRevokePartyCodeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicRevokePartyCodeBadRequest:
-		return nil, v
+		response := &PublicRevokePartyCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRevokePartyCodeUnauthorized:
-		return nil, v
+		response := &PublicRevokePartyCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRevokePartyCodeForbidden:
-		return nil, v
+		response := &PublicRevokePartyCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRevokePartyCodeNotFound:
-		return nil, v
+		response := &PublicRevokePartyCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRevokePartyCodeInternalServerError:
-		return nil, v
+		response := &PublicRevokePartyCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -600,7 +848,7 @@ supported platforms:
 - PSN
 Metadata is optional parameter which will be sent over via invitation notification and is not permanently stored in the party storage.
 */
-func (a *Client) PublicPartyInviteShort(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteCreated, error) {
+func (a *Client) PublicPartyInviteShort(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPartyInviteParams()
@@ -638,17 +886,46 @@ func (a *Client) PublicPartyInviteShort(params *PublicPartyInviteParams, authInf
 	switch v := result.(type) {
 
 	case *PublicPartyInviteCreated:
-		return v, nil
+		response := &PublicPartyInviteResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartyInviteNoContent:
-		return nil, v
+		response := &PublicPartyInviteResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartyInviteBadRequest:
-		return nil, v
+		response := &PublicPartyInviteResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyInviteUnauthorized:
-		return nil, v
+		response := &PublicPartyInviteResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyInviteNotFound:
-		return nil, v
+		response := &PublicPartyInviteResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyInviteInternalServerError:
-		return nil, v
+		response := &PublicPartyInviteResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -659,7 +936,7 @@ func (a *Client) PublicPartyInviteShort(params *PublicPartyInviteParams, authInf
 PublicPromotePartyLeaderShort promote new party leader.
 Promotes a party member to be a party leader. Only leader can promote a new leader.
 */
-func (a *Client) PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromotePartyLeaderOK, error) {
+func (a *Client) PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromotePartyLeaderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPromotePartyLeaderParams()
@@ -697,17 +974,47 @@ func (a *Client) PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderP
 	switch v := result.(type) {
 
 	case *PublicPromotePartyLeaderOK:
-		return v, nil
+		response := &PublicPromotePartyLeaderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPromotePartyLeaderBadRequest:
-		return nil, v
+		response := &PublicPromotePartyLeaderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPromotePartyLeaderUnauthorized:
-		return nil, v
+		response := &PublicPromotePartyLeaderResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPromotePartyLeaderForbidden:
-		return nil, v
+		response := &PublicPromotePartyLeaderResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPromotePartyLeaderNotFound:
-		return nil, v
+		response := &PublicPromotePartyLeaderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPromotePartyLeaderInternalServerError:
-		return nil, v
+		response := &PublicPromotePartyLeaderResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -718,7 +1025,7 @@ func (a *Client) PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderP
 PublicPartyJoinShort join a party.
 Join a party. The user can either join a party they have been invited to, or any party with an "open" joinable setting.
 */
-func (a *Client) PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinOK, error) {
+func (a *Client) PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPartyJoinParams()
@@ -756,17 +1063,47 @@ func (a *Client) PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo ru
 	switch v := result.(type) {
 
 	case *PublicPartyJoinOK:
-		return v, nil
+		response := &PublicPartyJoinResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartyJoinBadRequest:
-		return nil, v
+		response := &PublicPartyJoinResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyJoinUnauthorized:
-		return nil, v
+		response := &PublicPartyJoinResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyJoinForbidden:
-		return nil, v
+		response := &PublicPartyJoinResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyJoinNotFound:
-		return nil, v
+		response := &PublicPartyJoinResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyJoinInternalServerError:
-		return nil, v
+		response := &PublicPartyJoinResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -777,7 +1114,7 @@ func (a *Client) PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo ru
 PublicPartyLeaveShort leave a party.
 Leave a party
 */
-func (a *Client) PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyLeaveNoContent, error) {
+func (a *Client) PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyLeaveResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPartyLeaveParams()
@@ -815,13 +1152,32 @@ func (a *Client) PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicPartyLeaveNoContent:
-		return v, nil
+		response := &PublicPartyLeaveResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartyLeaveUnauthorized:
-		return nil, v
+		response := &PublicPartyLeaveResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyLeaveNotFound:
-		return nil, v
+		response := &PublicPartyLeaveResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyLeaveInternalServerError:
-		return nil, v
+		response := &PublicPartyLeaveResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -832,7 +1188,7 @@ func (a *Client) PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo 
 PublicPartyRejectShort reject a party invitation.
 Reject a party invitation.
 */
-func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectNoContent, error) {
+func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPartyRejectParams()
@@ -870,17 +1226,46 @@ func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInf
 	switch v := result.(type) {
 
 	case *PublicPartyRejectNoContent:
-		return v, nil
+		response := &PublicPartyRejectResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartyRejectBadRequest:
-		return nil, v
+		response := &PublicPartyRejectResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyRejectUnauthorized:
-		return nil, v
+		response := &PublicPartyRejectResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyRejectForbidden:
-		return nil, v
+		response := &PublicPartyRejectResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyRejectNotFound:
-		return nil, v
+		response := &PublicPartyRejectResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyRejectInternalServerError:
-		return nil, v
+		response := &PublicPartyRejectResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -891,7 +1276,7 @@ func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInf
 PublicPartyCancelShort cancel a party invitation.
 Cancel a party invitation.
 */
-func (a *Client) PublicPartyCancelShort(params *PublicPartyCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyCancelNoContent, error) {
+func (a *Client) PublicPartyCancelShort(params *PublicPartyCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyCancelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPartyCancelParams()
@@ -929,17 +1314,46 @@ func (a *Client) PublicPartyCancelShort(params *PublicPartyCancelParams, authInf
 	switch v := result.(type) {
 
 	case *PublicPartyCancelNoContent:
-		return v, nil
+		response := &PublicPartyCancelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartyCancelBadRequest:
-		return nil, v
+		response := &PublicPartyCancelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyCancelUnauthorized:
-		return nil, v
+		response := &PublicPartyCancelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyCancelForbidden:
-		return nil, v
+		response := &PublicPartyCancelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyCancelNotFound:
-		return nil, v
+		response := &PublicPartyCancelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyCancelInternalServerError:
-		return nil, v
+		response := &PublicPartyCancelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -950,7 +1364,7 @@ func (a *Client) PublicPartyCancelShort(params *PublicPartyCancelParams, authInf
 PublicPartyKickShort kick a player from a party.
 Kick a player from a party. Requires invoker to be the party leader.
 */
-func (a *Client) PublicPartyKickShort(params *PublicPartyKickParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyKickOK, error) {
+func (a *Client) PublicPartyKickShort(params *PublicPartyKickParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyKickResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPartyKickParams()
@@ -988,17 +1402,47 @@ func (a *Client) PublicPartyKickShort(params *PublicPartyKickParams, authInfo ru
 	switch v := result.(type) {
 
 	case *PublicPartyKickOK:
-		return v, nil
+		response := &PublicPartyKickResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPartyKickBadRequest:
-		return nil, v
+		response := &PublicPartyKickResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyKickUnauthorized:
-		return nil, v
+		response := &PublicPartyKickResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyKickForbidden:
-		return nil, v
+		response := &PublicPartyKickResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyKickNotFound:
-		return nil, v
+		response := &PublicPartyKickResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPartyKickInternalServerError:
-		return nil, v
+		response := &PublicPartyKickResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1070,7 +1514,7 @@ Managing the relation between session and lobby websocket connection:
 - By default, we will update user's status to what it was before disconnect, when the user reconnects lobby websocket, unless "manualRejoin" sets to True in the session configuration. When "manualRejoin" is enabled, after lobby websocket reconnect, the game client will need to manually invoke join session again to rejoin the session.
 - If the user was on INVITED state before the disconnect happened, the user's status will return back to INVITED after they reconnect.
 */
-func (a *Client) PublicCreatePartyShort(params *PublicCreatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreatePartyOK, error) {
+func (a *Client) PublicCreatePartyShort(params *PublicCreatePartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreatePartyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreatePartyParams()
@@ -1108,13 +1552,33 @@ func (a *Client) PublicCreatePartyShort(params *PublicCreatePartyParams, authInf
 	switch v := result.(type) {
 
 	case *PublicCreatePartyOK:
-		return v, nil
+		response := &PublicCreatePartyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreatePartyBadRequest:
-		return nil, v
+		response := &PublicCreatePartyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreatePartyUnauthorized:
-		return nil, v
+		response := &PublicCreatePartyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreatePartyInternalServerError:
-		return nil, v
+		response := &PublicCreatePartyResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1125,7 +1589,7 @@ func (a *Client) PublicCreatePartyShort(params *PublicCreatePartyParams, authInf
 PublicQueryMyPartiesShort query my parties. require valid jwt.
 Query user's parties. By default, API will return a list of user's active parties.
 */
-func (a *Client) PublicQueryMyPartiesShort(params *PublicQueryMyPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyPartiesOK, error) {
+func (a *Client) PublicQueryMyPartiesShort(params *PublicQueryMyPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyPartiesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryMyPartiesParams()
@@ -1163,13 +1627,33 @@ func (a *Client) PublicQueryMyPartiesShort(params *PublicQueryMyPartiesParams, a
 	switch v := result.(type) {
 
 	case *PublicQueryMyPartiesOK:
-		return v, nil
+		response := &PublicQueryMyPartiesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicQueryMyPartiesBadRequest:
-		return nil, v
+		response := &PublicQueryMyPartiesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryMyPartiesUnauthorized:
-		return nil, v
+		response := &PublicQueryMyPartiesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryMyPartiesInternalServerError:
-		return nil, v
+		response := &PublicQueryMyPartiesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

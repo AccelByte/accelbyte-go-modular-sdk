@@ -30,29 +30,29 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetGroupListAdminV1Short(params *GetGroupListAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupListAdminV1OK, error)
-	GetSingleGroupAdminV1Short(params *GetSingleGroupAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleGroupAdminV1OK, error)
-	DeleteGroupAdminV1Short(params *DeleteGroupAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupAdminV1NoContent, error)
-	GetGroupListPublicV1Short(params *GetGroupListPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupListPublicV1OK, error)
-	CreateNewGroupPublicV1Short(params *CreateNewGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewGroupPublicV1Created, error)
-	GetSingleGroupPublicV1Short(params *GetSingleGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleGroupPublicV1OK, error)
-	UpdateSingleGroupV1Short(params *UpdateSingleGroupV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSingleGroupV1OK, error)
-	DeleteGroupPublicV1Short(params *DeleteGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPublicV1NoContent, error)
-	UpdatePatchSingleGroupPublicV1Short(params *UpdatePatchSingleGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePatchSingleGroupPublicV1OK, error)
-	UpdateGroupCustomAttributesPublicV1Short(params *UpdateGroupCustomAttributesPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomAttributesPublicV1OK, error)
-	UpdateGroupCustomRulePublicV1Short(params *UpdateGroupCustomRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomRulePublicV1OK, error)
-	UpdateGroupPredefinedRulePublicV1Short(params *UpdateGroupPredefinedRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupPredefinedRulePublicV1OK, error)
-	DeleteGroupPredefinedRulePublicV1Short(params *DeleteGroupPredefinedRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPredefinedRulePublicV1NoContent, error)
-	GetListGroupByIDsAdminV2Short(params *GetListGroupByIDsAdminV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetListGroupByIDsAdminV2OK, error)
-	CreateNewGroupPublicV2Short(params *CreateNewGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewGroupPublicV2Created, error)
-	GetListGroupByIDsV2Short(params *GetListGroupByIDsV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetListGroupByIDsV2OK, error)
-	UpdatePutSingleGroupPublicV2Short(params *UpdatePutSingleGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePutSingleGroupPublicV2OK, error)
-	DeleteGroupPublicV2Short(params *DeleteGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPublicV2NoContent, error)
-	UpdatePatchSingleGroupPublicV2Short(params *UpdatePatchSingleGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePatchSingleGroupPublicV2OK, error)
-	UpdateGroupCustomAttributesPublicV2Short(params *UpdateGroupCustomAttributesPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomAttributesPublicV2OK, error)
-	UpdateGroupCustomRulePublicV2Short(params *UpdateGroupCustomRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomRulePublicV2OK, error)
-	UpdateGroupPredefinedRulePublicV2Short(params *UpdateGroupPredefinedRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupPredefinedRulePublicV2OK, error)
-	DeleteGroupPredefinedRulePublicV2Short(params *DeleteGroupPredefinedRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPredefinedRulePublicV2NoContent, error)
+	GetGroupListAdminV1Short(params *GetGroupListAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupListAdminV1Response, error)
+	GetSingleGroupAdminV1Short(params *GetSingleGroupAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleGroupAdminV1Response, error)
+	DeleteGroupAdminV1Short(params *DeleteGroupAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupAdminV1Response, error)
+	GetGroupListPublicV1Short(params *GetGroupListPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupListPublicV1Response, error)
+	CreateNewGroupPublicV1Short(params *CreateNewGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewGroupPublicV1Response, error)
+	GetSingleGroupPublicV1Short(params *GetSingleGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleGroupPublicV1Response, error)
+	UpdateSingleGroupV1Short(params *UpdateSingleGroupV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSingleGroupV1Response, error)
+	DeleteGroupPublicV1Short(params *DeleteGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPublicV1Response, error)
+	UpdatePatchSingleGroupPublicV1Short(params *UpdatePatchSingleGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePatchSingleGroupPublicV1Response, error)
+	UpdateGroupCustomAttributesPublicV1Short(params *UpdateGroupCustomAttributesPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomAttributesPublicV1Response, error)
+	UpdateGroupCustomRulePublicV1Short(params *UpdateGroupCustomRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomRulePublicV1Response, error)
+	UpdateGroupPredefinedRulePublicV1Short(params *UpdateGroupPredefinedRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupPredefinedRulePublicV1Response, error)
+	DeleteGroupPredefinedRulePublicV1Short(params *DeleteGroupPredefinedRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPredefinedRulePublicV1Response, error)
+	GetListGroupByIDsAdminV2Short(params *GetListGroupByIDsAdminV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetListGroupByIDsAdminV2Response, error)
+	CreateNewGroupPublicV2Short(params *CreateNewGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewGroupPublicV2Response, error)
+	GetListGroupByIDsV2Short(params *GetListGroupByIDsV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetListGroupByIDsV2Response, error)
+	UpdatePutSingleGroupPublicV2Short(params *UpdatePutSingleGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePutSingleGroupPublicV2Response, error)
+	DeleteGroupPublicV2Short(params *DeleteGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPublicV2Response, error)
+	UpdatePatchSingleGroupPublicV2Short(params *UpdatePatchSingleGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePatchSingleGroupPublicV2Response, error)
+	UpdateGroupCustomAttributesPublicV2Short(params *UpdateGroupCustomAttributesPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomAttributesPublicV2Response, error)
+	UpdateGroupCustomRulePublicV2Short(params *UpdateGroupCustomRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomRulePublicV2Response, error)
+	UpdateGroupPredefinedRulePublicV2Short(params *UpdateGroupPredefinedRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupPredefinedRulePublicV2Response, error)
+	DeleteGroupPredefinedRulePublicV2Short(params *DeleteGroupPredefinedRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPredefinedRulePublicV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -63,7 +63,7 @@ Get list of groups. This endpoint will show any types of group
 
 Action Code: 73301
 */
-func (a *Client) GetGroupListAdminV1Short(params *GetGroupListAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupListAdminV1OK, error) {
+func (a *Client) GetGroupListAdminV1Short(params *GetGroupListAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupListAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupListAdminV1Params()
@@ -101,15 +101,40 @@ func (a *Client) GetGroupListAdminV1Short(params *GetGroupListAdminV1Params, aut
 	switch v := result.(type) {
 
 	case *GetGroupListAdminV1OK:
-		return v, nil
+		response := &GetGroupListAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupListAdminV1BadRequest:
-		return nil, v
+		response := &GetGroupListAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupListAdminV1Unauthorized:
-		return nil, v
+		response := &GetGroupListAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupListAdminV1Forbidden:
-		return nil, v
+		response := &GetGroupListAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupListAdminV1InternalServerError:
-		return nil, v
+		response := &GetGroupListAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -122,7 +147,7 @@ Get single group information. This endpoint will show the group information by t
 
 Action Code: 73306
 */
-func (a *Client) GetSingleGroupAdminV1Short(params *GetSingleGroupAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleGroupAdminV1OK, error) {
+func (a *Client) GetSingleGroupAdminV1Short(params *GetSingleGroupAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleGroupAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSingleGroupAdminV1Params()
@@ -160,17 +185,47 @@ func (a *Client) GetSingleGroupAdminV1Short(params *GetSingleGroupAdminV1Params,
 	switch v := result.(type) {
 
 	case *GetSingleGroupAdminV1OK:
-		return v, nil
+		response := &GetSingleGroupAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSingleGroupAdminV1BadRequest:
-		return nil, v
+		response := &GetSingleGroupAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleGroupAdminV1Unauthorized:
-		return nil, v
+		response := &GetSingleGroupAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleGroupAdminV1Forbidden:
-		return nil, v
+		response := &GetSingleGroupAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleGroupAdminV1NotFound:
-		return nil, v
+		response := &GetSingleGroupAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleGroupAdminV1InternalServerError:
-		return nil, v
+		response := &GetSingleGroupAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -183,7 +238,7 @@ Delete existing group. It will check whether the groupID is exist before doing t
 
 Action Code: 73302
 */
-func (a *Client) DeleteGroupAdminV1Short(params *DeleteGroupAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupAdminV1NoContent, error) {
+func (a *Client) DeleteGroupAdminV1Short(params *DeleteGroupAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGroupAdminV1Params()
@@ -221,17 +276,46 @@ func (a *Client) DeleteGroupAdminV1Short(params *DeleteGroupAdminV1Params, authI
 	switch v := result.(type) {
 
 	case *DeleteGroupAdminV1NoContent:
-		return v, nil
+		response := &DeleteGroupAdminV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGroupAdminV1BadRequest:
-		return nil, v
+		response := &DeleteGroupAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupAdminV1Unauthorized:
-		return nil, v
+		response := &DeleteGroupAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupAdminV1Forbidden:
-		return nil, v
+		response := &DeleteGroupAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupAdminV1NotFound:
-		return nil, v
+		response := &DeleteGroupAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupAdminV1InternalServerError:
-		return nil, v
+		response := &DeleteGroupAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -246,7 +330,7 @@ Get list of groups. This endpoint will only show OPEN and PUBLIC group type. Thi
 
 Action Code: 73303
 */
-func (a *Client) GetGroupListPublicV1Short(params *GetGroupListPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupListPublicV1OK, error) {
+func (a *Client) GetGroupListPublicV1Short(params *GetGroupListPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupListPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupListPublicV1Params()
@@ -284,15 +368,40 @@ func (a *Client) GetGroupListPublicV1Short(params *GetGroupListPublicV1Params, a
 	switch v := result.(type) {
 
 	case *GetGroupListPublicV1OK:
-		return v, nil
+		response := &GetGroupListPublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupListPublicV1BadRequest:
-		return nil, v
+		response := &GetGroupListPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupListPublicV1Unauthorized:
-		return nil, v
+		response := &GetGroupListPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupListPublicV1Forbidden:
-		return nil, v
+		response := &GetGroupListPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupListPublicV1InternalServerError:
-		return nil, v
+		response := &GetGroupListPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -320,7 +429,7 @@ There are some fields that needs to be fulfilled
 
 Action Code: 73304
 */
-func (a *Client) CreateNewGroupPublicV1Short(params *CreateNewGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewGroupPublicV1Created, error) {
+func (a *Client) CreateNewGroupPublicV1Short(params *CreateNewGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewGroupPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateNewGroupPublicV1Params()
@@ -358,17 +467,47 @@ func (a *Client) CreateNewGroupPublicV1Short(params *CreateNewGroupPublicV1Param
 	switch v := result.(type) {
 
 	case *CreateNewGroupPublicV1Created:
-		return v, nil
+		response := &CreateNewGroupPublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateNewGroupPublicV1BadRequest:
-		return nil, v
+		response := &CreateNewGroupPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNewGroupPublicV1Unauthorized:
-		return nil, v
+		response := &CreateNewGroupPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNewGroupPublicV1Forbidden:
-		return nil, v
+		response := &CreateNewGroupPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNewGroupPublicV1Conflict:
-		return nil, v
+		response := &CreateNewGroupPublicV1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNewGroupPublicV1InternalServerError:
-		return nil, v
+		response := &CreateNewGroupPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -383,7 +522,7 @@ Get single group information. This endpoint will show the group information by t
 
 Action Code: 73306
 */
-func (a *Client) GetSingleGroupPublicV1Short(params *GetSingleGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleGroupPublicV1OK, error) {
+func (a *Client) GetSingleGroupPublicV1Short(params *GetSingleGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleGroupPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSingleGroupPublicV1Params()
@@ -421,17 +560,47 @@ func (a *Client) GetSingleGroupPublicV1Short(params *GetSingleGroupPublicV1Param
 	switch v := result.(type) {
 
 	case *GetSingleGroupPublicV1OK:
-		return v, nil
+		response := &GetSingleGroupPublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSingleGroupPublicV1BadRequest:
-		return nil, v
+		response := &GetSingleGroupPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleGroupPublicV1Unauthorized:
-		return nil, v
+		response := &GetSingleGroupPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleGroupPublicV1Forbidden:
-		return nil, v
+		response := &GetSingleGroupPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleGroupPublicV1NotFound:
-		return nil, v
+		response := &GetSingleGroupPublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleGroupPublicV1InternalServerError:
-		return nil, v
+		response := &GetSingleGroupPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -448,7 +617,7 @@ Update existing group. This endpoint supports partial update. This endpoint will
 
 Action Code: 73307
 */
-func (a *Client) UpdateSingleGroupV1Short(params *UpdateSingleGroupV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSingleGroupV1OK, error) {
+func (a *Client) UpdateSingleGroupV1Short(params *UpdateSingleGroupV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSingleGroupV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSingleGroupV1Params()
@@ -486,17 +655,47 @@ func (a *Client) UpdateSingleGroupV1Short(params *UpdateSingleGroupV1Params, aut
 	switch v := result.(type) {
 
 	case *UpdateSingleGroupV1OK:
-		return v, nil
+		response := &UpdateSingleGroupV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateSingleGroupV1BadRequest:
-		return nil, v
+		response := &UpdateSingleGroupV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSingleGroupV1Unauthorized:
-		return nil, v
+		response := &UpdateSingleGroupV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSingleGroupV1Forbidden:
-		return nil, v
+		response := &UpdateSingleGroupV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSingleGroupV1NotFound:
-		return nil, v
+		response := &UpdateSingleGroupV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSingleGroupV1InternalServerError:
-		return nil, v
+		response := &UpdateSingleGroupV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -513,7 +712,7 @@ Delete existing group. This endpoint will check the group ID of the user based o
 
 Action Code: 73305
 */
-func (a *Client) DeleteGroupPublicV1Short(params *DeleteGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPublicV1NoContent, error) {
+func (a *Client) DeleteGroupPublicV1Short(params *DeleteGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGroupPublicV1Params()
@@ -551,17 +750,46 @@ func (a *Client) DeleteGroupPublicV1Short(params *DeleteGroupPublicV1Params, aut
 	switch v := result.(type) {
 
 	case *DeleteGroupPublicV1NoContent:
-		return v, nil
+		response := &DeleteGroupPublicV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGroupPublicV1BadRequest:
-		return nil, v
+		response := &DeleteGroupPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPublicV1Unauthorized:
-		return nil, v
+		response := &DeleteGroupPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPublicV1Forbidden:
-		return nil, v
+		response := &DeleteGroupPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPublicV1NotFound:
-		return nil, v
+		response := &DeleteGroupPublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPublicV1InternalServerError:
-		return nil, v
+		response := &DeleteGroupPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -578,7 +806,7 @@ Update existing group. This endpoint supports partial update. This endpoint will
 
 Action Code: 73307
 */
-func (a *Client) UpdatePatchSingleGroupPublicV1Short(params *UpdatePatchSingleGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePatchSingleGroupPublicV1OK, error) {
+func (a *Client) UpdatePatchSingleGroupPublicV1Short(params *UpdatePatchSingleGroupPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePatchSingleGroupPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePatchSingleGroupPublicV1Params()
@@ -616,17 +844,47 @@ func (a *Client) UpdatePatchSingleGroupPublicV1Short(params *UpdatePatchSingleGr
 	switch v := result.(type) {
 
 	case *UpdatePatchSingleGroupPublicV1OK:
-		return v, nil
+		response := &UpdatePatchSingleGroupPublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV1BadRequest:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV1Unauthorized:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV1Forbidden:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV1NotFound:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV1InternalServerError:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -643,7 +901,7 @@ This endpoint replaces current group custom attributes entirely. This endpoint w
 
 Action Code: 73311
 */
-func (a *Client) UpdateGroupCustomAttributesPublicV1Short(params *UpdateGroupCustomAttributesPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomAttributesPublicV1OK, error) {
+func (a *Client) UpdateGroupCustomAttributesPublicV1Short(params *UpdateGroupCustomAttributesPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomAttributesPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupCustomAttributesPublicV1Params()
@@ -681,17 +939,47 @@ func (a *Client) UpdateGroupCustomAttributesPublicV1Short(params *UpdateGroupCus
 	switch v := result.(type) {
 
 	case *UpdateGroupCustomAttributesPublicV1OK:
-		return v, nil
+		response := &UpdateGroupCustomAttributesPublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV1BadRequest:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV1Unauthorized:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV1Forbidden:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV1NotFound:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV1InternalServerError:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -706,7 +994,7 @@ Update group custom rule. This endpoint will check the group ID of the user base
 
 Action Code: 73308
 */
-func (a *Client) UpdateGroupCustomRulePublicV1Short(params *UpdateGroupCustomRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomRulePublicV1OK, error) {
+func (a *Client) UpdateGroupCustomRulePublicV1Short(params *UpdateGroupCustomRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomRulePublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupCustomRulePublicV1Params()
@@ -744,17 +1032,47 @@ func (a *Client) UpdateGroupCustomRulePublicV1Short(params *UpdateGroupCustomRul
 	switch v := result.(type) {
 
 	case *UpdateGroupCustomRulePublicV1OK:
-		return v, nil
+		response := &UpdateGroupCustomRulePublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV1BadRequest:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV1Unauthorized:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV1Forbidden:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV1NotFound:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV1InternalServerError:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -773,7 +1091,7 @@ If the rule action is not defined in the group, it will be added immediately to 
 
 Action Code: 73310
 */
-func (a *Client) UpdateGroupPredefinedRulePublicV1Short(params *UpdateGroupPredefinedRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupPredefinedRulePublicV1OK, error) {
+func (a *Client) UpdateGroupPredefinedRulePublicV1Short(params *UpdateGroupPredefinedRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupPredefinedRulePublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupPredefinedRulePublicV1Params()
@@ -811,17 +1129,47 @@ func (a *Client) UpdateGroupPredefinedRulePublicV1Short(params *UpdateGroupPrede
 	switch v := result.(type) {
 
 	case *UpdateGroupPredefinedRulePublicV1OK:
-		return v, nil
+		response := &UpdateGroupPredefinedRulePublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV1BadRequest:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV1Unauthorized:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV1Forbidden:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV1NotFound:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV1InternalServerError:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -838,7 +1186,7 @@ Delete group predefined rule based on the allowed action. This endpoint will che
 
 Action Code: 73309
 */
-func (a *Client) DeleteGroupPredefinedRulePublicV1Short(params *DeleteGroupPredefinedRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPredefinedRulePublicV1NoContent, error) {
+func (a *Client) DeleteGroupPredefinedRulePublicV1Short(params *DeleteGroupPredefinedRulePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPredefinedRulePublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGroupPredefinedRulePublicV1Params()
@@ -876,17 +1224,46 @@ func (a *Client) DeleteGroupPredefinedRulePublicV1Short(params *DeleteGroupPrede
 	switch v := result.(type) {
 
 	case *DeleteGroupPredefinedRulePublicV1NoContent:
-		return v, nil
+		response := &DeleteGroupPredefinedRulePublicV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV1BadRequest:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV1Unauthorized:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV1Forbidden:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV1NotFound:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV1InternalServerError:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -901,7 +1278,7 @@ Get list of groups by group Ids.
 
 Action Code: 73303
 */
-func (a *Client) GetListGroupByIDsAdminV2Short(params *GetListGroupByIDsAdminV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetListGroupByIDsAdminV2OK, error) {
+func (a *Client) GetListGroupByIDsAdminV2Short(params *GetListGroupByIDsAdminV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetListGroupByIDsAdminV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListGroupByIDsAdminV2Params()
@@ -939,15 +1316,40 @@ func (a *Client) GetListGroupByIDsAdminV2Short(params *GetListGroupByIDsAdminV2P
 	switch v := result.(type) {
 
 	case *GetListGroupByIDsAdminV2OK:
-		return v, nil
+		response := &GetListGroupByIDsAdminV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListGroupByIDsAdminV2BadRequest:
-		return nil, v
+		response := &GetListGroupByIDsAdminV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListGroupByIDsAdminV2Unauthorized:
-		return nil, v
+		response := &GetListGroupByIDsAdminV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListGroupByIDsAdminV2Forbidden:
-		return nil, v
+		response := &GetListGroupByIDsAdminV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListGroupByIDsAdminV2InternalServerError:
-		return nil, v
+		response := &GetListGroupByIDsAdminV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -975,7 +1377,7 @@ There are some fields that needs to be fulfilled
 
 Action Code: 73304
 */
-func (a *Client) CreateNewGroupPublicV2Short(params *CreateNewGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewGroupPublicV2Created, error) {
+func (a *Client) CreateNewGroupPublicV2Short(params *CreateNewGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewGroupPublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateNewGroupPublicV2Params()
@@ -1013,17 +1415,47 @@ func (a *Client) CreateNewGroupPublicV2Short(params *CreateNewGroupPublicV2Param
 	switch v := result.(type) {
 
 	case *CreateNewGroupPublicV2Created:
-		return v, nil
+		response := &CreateNewGroupPublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateNewGroupPublicV2BadRequest:
-		return nil, v
+		response := &CreateNewGroupPublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNewGroupPublicV2Unauthorized:
-		return nil, v
+		response := &CreateNewGroupPublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNewGroupPublicV2Forbidden:
-		return nil, v
+		response := &CreateNewGroupPublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNewGroupPublicV2Conflict:
-		return nil, v
+		response := &CreateNewGroupPublicV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateNewGroupPublicV2InternalServerError:
-		return nil, v
+		response := &CreateNewGroupPublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1038,7 +1470,7 @@ Get list of groups by group Ids.
 
 Action Code: 73303
 */
-func (a *Client) GetListGroupByIDsV2Short(params *GetListGroupByIDsV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetListGroupByIDsV2OK, error) {
+func (a *Client) GetListGroupByIDsV2Short(params *GetListGroupByIDsV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetListGroupByIDsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListGroupByIDsV2Params()
@@ -1076,15 +1508,40 @@ func (a *Client) GetListGroupByIDsV2Short(params *GetListGroupByIDsV2Params, aut
 	switch v := result.(type) {
 
 	case *GetListGroupByIDsV2OK:
-		return v, nil
+		response := &GetListGroupByIDsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListGroupByIDsV2BadRequest:
-		return nil, v
+		response := &GetListGroupByIDsV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListGroupByIDsV2Unauthorized:
-		return nil, v
+		response := &GetListGroupByIDsV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListGroupByIDsV2Forbidden:
-		return nil, v
+		response := &GetListGroupByIDsV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListGroupByIDsV2InternalServerError:
-		return nil, v
+		response := &GetListGroupByIDsV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1101,7 +1558,7 @@ Update existing group. This endpoint supports partial update. This endpoint will
 
 Action Code: 73307
 */
-func (a *Client) UpdatePutSingleGroupPublicV2Short(params *UpdatePutSingleGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePutSingleGroupPublicV2OK, error) {
+func (a *Client) UpdatePutSingleGroupPublicV2Short(params *UpdatePutSingleGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePutSingleGroupPublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePutSingleGroupPublicV2Params()
@@ -1139,17 +1596,47 @@ func (a *Client) UpdatePutSingleGroupPublicV2Short(params *UpdatePutSingleGroupP
 	switch v := result.(type) {
 
 	case *UpdatePutSingleGroupPublicV2OK:
-		return v, nil
+		response := &UpdatePutSingleGroupPublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePutSingleGroupPublicV2BadRequest:
-		return nil, v
+		response := &UpdatePutSingleGroupPublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePutSingleGroupPublicV2Unauthorized:
-		return nil, v
+		response := &UpdatePutSingleGroupPublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePutSingleGroupPublicV2Forbidden:
-		return nil, v
+		response := &UpdatePutSingleGroupPublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePutSingleGroupPublicV2NotFound:
-		return nil, v
+		response := &UpdatePutSingleGroupPublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePutSingleGroupPublicV2InternalServerError:
-		return nil, v
+		response := &UpdatePutSingleGroupPublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1166,7 +1653,7 @@ Delete existing group. This endpoint will check the group ID of the user based o
 
 Action Code: 73305
 */
-func (a *Client) DeleteGroupPublicV2Short(params *DeleteGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPublicV2NoContent, error) {
+func (a *Client) DeleteGroupPublicV2Short(params *DeleteGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGroupPublicV2Params()
@@ -1204,17 +1691,46 @@ func (a *Client) DeleteGroupPublicV2Short(params *DeleteGroupPublicV2Params, aut
 	switch v := result.(type) {
 
 	case *DeleteGroupPublicV2NoContent:
-		return v, nil
+		response := &DeleteGroupPublicV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGroupPublicV2BadRequest:
-		return nil, v
+		response := &DeleteGroupPublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPublicV2Unauthorized:
-		return nil, v
+		response := &DeleteGroupPublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPublicV2Forbidden:
-		return nil, v
+		response := &DeleteGroupPublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPublicV2NotFound:
-		return nil, v
+		response := &DeleteGroupPublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPublicV2InternalServerError:
-		return nil, v
+		response := &DeleteGroupPublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1231,7 +1747,7 @@ Update existing group. This endpoint supports partial update. This endpoint will
 
 Action Code: 73307
 */
-func (a *Client) UpdatePatchSingleGroupPublicV2Short(params *UpdatePatchSingleGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePatchSingleGroupPublicV2OK, error) {
+func (a *Client) UpdatePatchSingleGroupPublicV2Short(params *UpdatePatchSingleGroupPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePatchSingleGroupPublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePatchSingleGroupPublicV2Params()
@@ -1269,17 +1785,47 @@ func (a *Client) UpdatePatchSingleGroupPublicV2Short(params *UpdatePatchSingleGr
 	switch v := result.(type) {
 
 	case *UpdatePatchSingleGroupPublicV2OK:
-		return v, nil
+		response := &UpdatePatchSingleGroupPublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV2BadRequest:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV2Unauthorized:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV2Forbidden:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV2NotFound:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePatchSingleGroupPublicV2InternalServerError:
-		return nil, v
+		response := &UpdatePatchSingleGroupPublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1296,7 +1842,7 @@ This endpoint replaces current group custom attributes entirely. This endpoint w
 
 Action Code: 73311
 */
-func (a *Client) UpdateGroupCustomAttributesPublicV2Short(params *UpdateGroupCustomAttributesPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomAttributesPublicV2OK, error) {
+func (a *Client) UpdateGroupCustomAttributesPublicV2Short(params *UpdateGroupCustomAttributesPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomAttributesPublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupCustomAttributesPublicV2Params()
@@ -1334,17 +1880,47 @@ func (a *Client) UpdateGroupCustomAttributesPublicV2Short(params *UpdateGroupCus
 	switch v := result.(type) {
 
 	case *UpdateGroupCustomAttributesPublicV2OK:
-		return v, nil
+		response := &UpdateGroupCustomAttributesPublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV2BadRequest:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV2Unauthorized:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV2Forbidden:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV2NotFound:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomAttributesPublicV2InternalServerError:
-		return nil, v
+		response := &UpdateGroupCustomAttributesPublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1359,7 +1935,7 @@ Update group custom rule. This endpoint will check the group ID of the user base
 
 Action Code: 73308
 */
-func (a *Client) UpdateGroupCustomRulePublicV2Short(params *UpdateGroupCustomRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomRulePublicV2OK, error) {
+func (a *Client) UpdateGroupCustomRulePublicV2Short(params *UpdateGroupCustomRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupCustomRulePublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupCustomRulePublicV2Params()
@@ -1397,17 +1973,47 @@ func (a *Client) UpdateGroupCustomRulePublicV2Short(params *UpdateGroupCustomRul
 	switch v := result.(type) {
 
 	case *UpdateGroupCustomRulePublicV2OK:
-		return v, nil
+		response := &UpdateGroupCustomRulePublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV2BadRequest:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV2Unauthorized:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV2Forbidden:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV2NotFound:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupCustomRulePublicV2InternalServerError:
-		return nil, v
+		response := &UpdateGroupCustomRulePublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1426,7 +2032,7 @@ If the rule action is not defined in the group, it will be added immediately to 
 
 Action Code: 73310
 */
-func (a *Client) UpdateGroupPredefinedRulePublicV2Short(params *UpdateGroupPredefinedRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupPredefinedRulePublicV2OK, error) {
+func (a *Client) UpdateGroupPredefinedRulePublicV2Short(params *UpdateGroupPredefinedRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateGroupPredefinedRulePublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGroupPredefinedRulePublicV2Params()
@@ -1464,17 +2070,47 @@ func (a *Client) UpdateGroupPredefinedRulePublicV2Short(params *UpdateGroupPrede
 	switch v := result.(type) {
 
 	case *UpdateGroupPredefinedRulePublicV2OK:
-		return v, nil
+		response := &UpdateGroupPredefinedRulePublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV2BadRequest:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV2Unauthorized:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV2Forbidden:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV2NotFound:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGroupPredefinedRulePublicV2InternalServerError:
-		return nil, v
+		response := &UpdateGroupPredefinedRulePublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1491,7 +2127,7 @@ Delete group predefined rule based on the allowed action. This endpoint will che
 
 Action Code: 73309
 */
-func (a *Client) DeleteGroupPredefinedRulePublicV2Short(params *DeleteGroupPredefinedRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPredefinedRulePublicV2NoContent, error) {
+func (a *Client) DeleteGroupPredefinedRulePublicV2Short(params *DeleteGroupPredefinedRulePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGroupPredefinedRulePublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGroupPredefinedRulePublicV2Params()
@@ -1529,17 +2165,46 @@ func (a *Client) DeleteGroupPredefinedRulePublicV2Short(params *DeleteGroupPrede
 	switch v := result.(type) {
 
 	case *DeleteGroupPredefinedRulePublicV2NoContent:
-		return v, nil
+		response := &DeleteGroupPredefinedRulePublicV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV2BadRequest:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV2Unauthorized:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV2Forbidden:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV2NotFound:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGroupPredefinedRulePublicV2InternalServerError:
-		return nil, v
+		response := &DeleteGroupPredefinedRulePublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

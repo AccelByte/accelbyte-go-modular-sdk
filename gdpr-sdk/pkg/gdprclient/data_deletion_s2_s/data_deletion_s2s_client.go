@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	S2SGetListFinishedAccountDeletionRequestShort(params *S2SGetListFinishedAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetListFinishedAccountDeletionRequestOK, error)
-	S2SSubmitUserAccountDeletionRequestShort(params *S2SSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SSubmitUserAccountDeletionRequestCreated, error)
+	S2SGetListFinishedAccountDeletionRequestShort(params *S2SGetListFinishedAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetListFinishedAccountDeletionRequestResponse, error)
+	S2SSubmitUserAccountDeletionRequestShort(params *S2SSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SSubmitUserAccountDeletionRequestResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,7 +50,7 @@ This measure is implemented to ensure compliance with GDPR regulations. Please m
 ---
 ## This API for S2S integration purpose only
 */
-func (a *Client) S2SGetListFinishedAccountDeletionRequestShort(params *S2SGetListFinishedAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetListFinishedAccountDeletionRequestOK, error) {
+func (a *Client) S2SGetListFinishedAccountDeletionRequestShort(params *S2SGetListFinishedAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetListFinishedAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewS2SGetListFinishedAccountDeletionRequestParams()
@@ -88,15 +88,40 @@ func (a *Client) S2SGetListFinishedAccountDeletionRequestShort(params *S2SGetLis
 	switch v := result.(type) {
 
 	case *S2SGetListFinishedAccountDeletionRequestOK:
-		return v, nil
+		response := &S2SGetListFinishedAccountDeletionRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *S2SGetListFinishedAccountDeletionRequestBadRequest:
-		return nil, v
+		response := &S2SGetListFinishedAccountDeletionRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGetListFinishedAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &S2SGetListFinishedAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGetListFinishedAccountDeletionRequestForbidden:
-		return nil, v
+		response := &S2SGetListFinishedAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGetListFinishedAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &S2SGetListFinishedAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -119,7 +144,7 @@ Submit user's account deletion request.
 1. This API will **not send GDPR email notification** both for player and admin notification.
 2. This API will **perform account deletion immediately** without GDPR grace period (i.e. 28 days grace period).
 */
-func (a *Client) S2SSubmitUserAccountDeletionRequestShort(params *S2SSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SSubmitUserAccountDeletionRequestCreated, error) {
+func (a *Client) S2SSubmitUserAccountDeletionRequestShort(params *S2SSubmitUserAccountDeletionRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SSubmitUserAccountDeletionRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewS2SSubmitUserAccountDeletionRequestParams()
@@ -157,17 +182,47 @@ func (a *Client) S2SSubmitUserAccountDeletionRequestShort(params *S2SSubmitUserA
 	switch v := result.(type) {
 
 	case *S2SSubmitUserAccountDeletionRequestCreated:
-		return v, nil
+		response := &S2SSubmitUserAccountDeletionRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *S2SSubmitUserAccountDeletionRequestUnauthorized:
-		return nil, v
+		response := &S2SSubmitUserAccountDeletionRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SSubmitUserAccountDeletionRequestForbidden:
-		return nil, v
+		response := &S2SSubmitUserAccountDeletionRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SSubmitUserAccountDeletionRequestNotFound:
-		return nil, v
+		response := &S2SSubmitUserAccountDeletionRequestResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SSubmitUserAccountDeletionRequestConflict:
-		return nil, v
+		response := &S2SSubmitUserAccountDeletionRequestResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SSubmitUserAccountDeletionRequestInternalServerError:
-		return nil, v
+		response := &S2SSubmitUserAccountDeletionRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

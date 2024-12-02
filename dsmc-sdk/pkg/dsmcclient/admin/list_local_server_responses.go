@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 )
 
+type ListLocalServerResponse struct {
+	dsmcclientmodels.ApiResponse
+	Data *dsmcclientmodels.ModelsListServerResponse
+
+	Error401 *dsmcclientmodels.ResponseError
+	Error500 *dsmcclientmodels.ResponseError
+}
+
+func (m *ListLocalServerResponse) Unpack() (*dsmcclientmodels.ModelsListServerResponse, *dsmcclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dsmcclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ListLocalServerReader is a Reader for the ListLocalServer structure.
 type ListLocalServerReader struct {
 	formats strfmt.Registry

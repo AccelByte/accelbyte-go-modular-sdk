@@ -9,7 +9,6 @@ package leaderboard
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/user_data_v3"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *UserDataV3Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *UserDataV3Service) GetUserLeaderboardRankingsAdminV3Short(input *user_data_v3.GetUserLeaderboardRankingsAdminV3Params) (*leaderboardclientmodels.ModelsGetAllUserLeaderboardsRespV3, error) {
+func (aaa *UserDataV3Service) GetUserLeaderboardRankingsAdminV3Short(input *user_data_v3.GetUserLeaderboardRankingsAdminV3Params) (*user_data_v3.GetUserLeaderboardRankingsAdminV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *UserDataV3Service) GetUserLeaderboardRankingsAdminV3Short(input *user
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

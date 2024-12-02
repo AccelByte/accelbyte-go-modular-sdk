@@ -19,6 +19,48 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type DisableUserBanResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelUserBanResponse
+
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 string
+	Error404 string
+	Error500 string
+}
+
+func (m *DisableUserBanResponse) Unpack() (*iamclientmodels.ModelUserBanResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			return nil, &iamclientmodels.ApiError{Code: "403", Message: m.Error403}
+
+		case 404:
+			return nil, &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		case 500:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: m.Error500}
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // DisableUserBanReader is a Reader for the DisableUserBan structure.
 type DisableUserBanReader struct {
 	formats strfmt.Registry

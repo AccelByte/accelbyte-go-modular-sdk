@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetGameRecordsBulkShort(params *GetGameRecordsBulkParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameRecordsBulkOK, error)
-	GetGameRecordHandlerV1Short(params *GetGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGameRecordHandlerV1OK, error)
-	PutGameRecordHandlerV1Short(params *PutGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutGameRecordHandlerV1OK, error)
-	PostGameRecordHandlerV1Short(params *PostGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostGameRecordHandlerV1Created, error)
-	DeleteGameRecordHandlerV1Short(params *DeleteGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameRecordHandlerV1NoContent, error)
+	GetGameRecordsBulkShort(params *GetGameRecordsBulkParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameRecordsBulkResponse, error)
+	GetGameRecordHandlerV1Short(params *GetGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGameRecordHandlerV1Response, error)
+	PutGameRecordHandlerV1Short(params *PutGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutGameRecordHandlerV1Response, error)
+	PostGameRecordHandlerV1Short(params *PostGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostGameRecordHandlerV1Response, error)
+	DeleteGameRecordHandlerV1Short(params *DeleteGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameRecordHandlerV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 GetGameRecordsBulkShort bulk get game records
 Bulk get game records. Maximum key per request 20.
 */
-func (a *Client) GetGameRecordsBulkShort(params *GetGameRecordsBulkParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameRecordsBulkOK, error) {
+func (a *Client) GetGameRecordsBulkShort(params *GetGameRecordsBulkParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameRecordsBulkResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGameRecordsBulkParams()
@@ -81,17 +81,47 @@ func (a *Client) GetGameRecordsBulkShort(params *GetGameRecordsBulkParams, authI
 	switch v := result.(type) {
 
 	case *GetGameRecordsBulkOK:
-		return v, nil
+		response := &GetGameRecordsBulkResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGameRecordsBulkBadRequest:
-		return nil, v
+		response := &GetGameRecordsBulkResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameRecordsBulkUnauthorized:
-		return nil, v
+		response := &GetGameRecordsBulkResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameRecordsBulkForbidden:
-		return nil, v
+		response := &GetGameRecordsBulkResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameRecordsBulkNotFound:
-		return nil, v
+		response := &GetGameRecordsBulkResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameRecordsBulkInternalServerError:
-		return nil, v
+		response := &GetGameRecordsBulkResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -102,7 +132,7 @@ func (a *Client) GetGameRecordsBulkShort(params *GetGameRecordsBulkParams, authI
 GetGameRecordHandlerV1Short get game record
 Get game record by its key.
 */
-func (a *Client) GetGameRecordHandlerV1Short(params *GetGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGameRecordHandlerV1OK, error) {
+func (a *Client) GetGameRecordHandlerV1Short(params *GetGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGameRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGameRecordHandlerV1Params()
@@ -140,17 +170,47 @@ func (a *Client) GetGameRecordHandlerV1Short(params *GetGameRecordHandlerV1Param
 	switch v := result.(type) {
 
 	case *GetGameRecordHandlerV1OK:
-		return v, nil
+		response := &GetGameRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGameRecordHandlerV1BadRequest:
-		return nil, v
+		response := &GetGameRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &GetGameRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameRecordHandlerV1Forbidden:
-		return nil, v
+		response := &GetGameRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameRecordHandlerV1NotFound:
-		return nil, v
+		response := &GetGameRecordHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &GetGameRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -196,7 +256,7 @@ Reserved Word List: **__META**
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
 */
-func (a *Client) PutGameRecordHandlerV1Short(params *PutGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutGameRecordHandlerV1OK, error) {
+func (a *Client) PutGameRecordHandlerV1Short(params *PutGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutGameRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPutGameRecordHandlerV1Params()
@@ -234,15 +294,40 @@ func (a *Client) PutGameRecordHandlerV1Short(params *PutGameRecordHandlerV1Param
 	switch v := result.(type) {
 
 	case *PutGameRecordHandlerV1OK:
-		return v, nil
+		response := &PutGameRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PutGameRecordHandlerV1BadRequest:
-		return nil, v
+		response := &PutGameRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutGameRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &PutGameRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutGameRecordHandlerV1Forbidden:
-		return nil, v
+		response := &PutGameRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutGameRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &PutGameRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -300,7 +385,7 @@ Reserved Word List: **__META**
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
 */
-func (a *Client) PostGameRecordHandlerV1Short(params *PostGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostGameRecordHandlerV1Created, error) {
+func (a *Client) PostGameRecordHandlerV1Short(params *PostGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostGameRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostGameRecordHandlerV1Params()
@@ -338,15 +423,40 @@ func (a *Client) PostGameRecordHandlerV1Short(params *PostGameRecordHandlerV1Par
 	switch v := result.(type) {
 
 	case *PostGameRecordHandlerV1Created:
-		return v, nil
+		response := &PostGameRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PostGameRecordHandlerV1BadRequest:
-		return nil, v
+		response := &PostGameRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostGameRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &PostGameRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostGameRecordHandlerV1Forbidden:
-		return nil, v
+		response := &PostGameRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostGameRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &PostGameRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -357,7 +467,7 @@ func (a *Client) PostGameRecordHandlerV1Short(params *PostGameRecordHandlerV1Par
 DeleteGameRecordHandlerV1Short delete game record
 Delete records by its key
 */
-func (a *Client) DeleteGameRecordHandlerV1Short(params *DeleteGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameRecordHandlerV1NoContent, error) {
+func (a *Client) DeleteGameRecordHandlerV1Short(params *DeleteGameRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGameRecordHandlerV1Params()
@@ -395,15 +505,39 @@ func (a *Client) DeleteGameRecordHandlerV1Short(params *DeleteGameRecordHandlerV
 	switch v := result.(type) {
 
 	case *DeleteGameRecordHandlerV1NoContent:
-		return v, nil
+		response := &DeleteGameRecordHandlerV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGameRecordHandlerV1BadRequest:
-		return nil, v
+		response := &DeleteGameRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGameRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &DeleteGameRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGameRecordHandlerV1Forbidden:
-		return nil, v
+		response := &DeleteGameRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGameRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &DeleteGameRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

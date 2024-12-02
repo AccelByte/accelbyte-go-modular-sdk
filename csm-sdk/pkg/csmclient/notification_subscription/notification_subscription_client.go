@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetNotificationSubscriberListV2Short(params *GetNotificationSubscriberListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationSubscriberListV2OK, error)
-	BulkSaveSubscriptionAppNotificationV2Short(params *BulkSaveSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkSaveSubscriptionAppNotificationV2OK, error)
-	SubscribeAppNotificationV2Short(params *SubscribeAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*SubscribeAppNotificationV2OK, error)
-	GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionV2HandlerOK, error)
-	SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*SubscribeV2HandlerNoContent, error)
-	UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerNoContent, error)
-	DeleteSubscriptionAppNotificationByUserIDV2Short(params *DeleteSubscriptionAppNotificationByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationByUserIDV2OK, error)
-	DeleteSubscriptionAppNotificationV2Short(params *DeleteSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationV2OK, error)
+	GetNotificationSubscriberListV2Short(params *GetNotificationSubscriberListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationSubscriberListV2Response, error)
+	BulkSaveSubscriptionAppNotificationV2Short(params *BulkSaveSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkSaveSubscriptionAppNotificationV2Response, error)
+	SubscribeAppNotificationV2Short(params *SubscribeAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*SubscribeAppNotificationV2Response, error)
+	GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionV2HandlerResponse, error)
+	SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*SubscribeV2HandlerResponse, error)
+	UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerResponse, error)
+	DeleteSubscriptionAppNotificationByUserIDV2Short(params *DeleteSubscriptionAppNotificationByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationByUserIDV2Response, error)
+	DeleteSubscriptionAppNotificationV2Short(params *DeleteSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -55,7 +55,7 @@ Request param:
 
 Get a list of the app notification subscriber
 */
-func (a *Client) GetNotificationSubscriberListV2Short(params *GetNotificationSubscriberListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationSubscriberListV2OK, error) {
+func (a *Client) GetNotificationSubscriberListV2Short(params *GetNotificationSubscriberListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationSubscriberListV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetNotificationSubscriberListV2Params()
@@ -93,15 +93,40 @@ func (a *Client) GetNotificationSubscriberListV2Short(params *GetNotificationSub
 	switch v := result.(type) {
 
 	case *GetNotificationSubscriberListV2OK:
-		return v, nil
+		response := &GetNotificationSubscriberListV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetNotificationSubscriberListV2Unauthorized:
-		return nil, v
+		response := &GetNotificationSubscriberListV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNotificationSubscriberListV2Forbidden:
-		return nil, v
+		response := &GetNotificationSubscriberListV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNotificationSubscriberListV2NotFound:
-		return nil, v
+		response := &GetNotificationSubscriberListV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetNotificationSubscriberListV2InternalServerError:
-		return nil, v
+		response := &GetNotificationSubscriberListV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -122,7 +147,7 @@ Request body:
 - "critical-vulnerability"
 - subscribers : user(s) notification subscription to be updated - Required.
 */
-func (a *Client) BulkSaveSubscriptionAppNotificationV2Short(params *BulkSaveSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkSaveSubscriptionAppNotificationV2OK, error) {
+func (a *Client) BulkSaveSubscriptionAppNotificationV2Short(params *BulkSaveSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkSaveSubscriptionAppNotificationV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkSaveSubscriptionAppNotificationV2Params()
@@ -160,15 +185,40 @@ func (a *Client) BulkSaveSubscriptionAppNotificationV2Short(params *BulkSaveSubs
 	switch v := result.(type) {
 
 	case *BulkSaveSubscriptionAppNotificationV2OK:
-		return v, nil
+		response := &BulkSaveSubscriptionAppNotificationV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkSaveSubscriptionAppNotificationV2Unauthorized:
-		return nil, v
+		response := &BulkSaveSubscriptionAppNotificationV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkSaveSubscriptionAppNotificationV2Forbidden:
-		return nil, v
+		response := &BulkSaveSubscriptionAppNotificationV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkSaveSubscriptionAppNotificationV2NotFound:
-		return nil, v
+		response := &BulkSaveSubscriptionAppNotificationV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkSaveSubscriptionAppNotificationV2InternalServerError:
-		return nil, v
+		response := &BulkSaveSubscriptionAppNotificationV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -189,7 +239,7 @@ Request body:
 - "critical-vulnerability"
 - subscribers : user(s) to subscribe the app notification - Required.
 */
-func (a *Client) SubscribeAppNotificationV2Short(params *SubscribeAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*SubscribeAppNotificationV2OK, error) {
+func (a *Client) SubscribeAppNotificationV2Short(params *SubscribeAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*SubscribeAppNotificationV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSubscribeAppNotificationV2Params()
@@ -227,15 +277,40 @@ func (a *Client) SubscribeAppNotificationV2Short(params *SubscribeAppNotificatio
 	switch v := result.(type) {
 
 	case *SubscribeAppNotificationV2OK:
-		return v, nil
+		response := &SubscribeAppNotificationV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SubscribeAppNotificationV2Unauthorized:
-		return nil, v
+		response := &SubscribeAppNotificationV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubscribeAppNotificationV2Forbidden:
-		return nil, v
+		response := &SubscribeAppNotificationV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubscribeAppNotificationV2NotFound:
-		return nil, v
+		response := &SubscribeAppNotificationV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubscribeAppNotificationV2InternalServerError:
-		return nil, v
+		response := &SubscribeAppNotificationV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -248,7 +323,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRI
 
 Get Subscription status of a user
 */
-func (a *Client) GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionV2HandlerOK, error) {
+func (a *Client) GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionV2HandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSubscriptionV2HandlerParams()
@@ -286,15 +361,40 @@ func (a *Client) GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerP
 	switch v := result.(type) {
 
 	case *GetSubscriptionV2HandlerOK:
-		return v, nil
+		response := &GetSubscriptionV2HandlerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSubscriptionV2HandlerUnauthorized:
-		return nil, v
+		response := &GetSubscriptionV2HandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSubscriptionV2HandlerForbidden:
-		return nil, v
+		response := &GetSubscriptionV2HandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSubscriptionV2HandlerNotFound:
-		return nil, v
+		response := &GetSubscriptionV2HandlerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSubscriptionV2HandlerInternalServerError:
-		return nil, v
+		response := &GetSubscriptionV2HandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -313,7 +413,7 @@ Request body:
 - "app-down"
 - "critical-vulnerability"
 */
-func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*SubscribeV2HandlerNoContent, error) {
+func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*SubscribeV2HandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSubscribeV2HandlerParams()
@@ -351,15 +451,39 @@ func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authI
 	switch v := result.(type) {
 
 	case *SubscribeV2HandlerNoContent:
-		return v, nil
+		response := &SubscribeV2HandlerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SubscribeV2HandlerUnauthorized:
-		return nil, v
+		response := &SubscribeV2HandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubscribeV2HandlerForbidden:
-		return nil, v
+		response := &SubscribeV2HandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubscribeV2HandlerNotFound:
-		return nil, v
+		response := &SubscribeV2HandlerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubscribeV2HandlerInternalServerError:
-		return nil, v
+		response := &SubscribeV2HandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -372,7 +496,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRI
 
 Unsubscribe to app down notification
 */
-func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerNoContent, error) {
+func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUnsubscribeV2HandlerParams()
@@ -410,15 +534,39 @@ func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, a
 	switch v := result.(type) {
 
 	case *UnsubscribeV2HandlerNoContent:
-		return v, nil
+		response := &UnsubscribeV2HandlerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UnsubscribeV2HandlerUnauthorized:
-		return nil, v
+		response := &UnsubscribeV2HandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UnsubscribeV2HandlerForbidden:
-		return nil, v
+		response := &UnsubscribeV2HandlerResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UnsubscribeV2HandlerNotFound:
-		return nil, v
+		response := &UnsubscribeV2HandlerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UnsubscribeV2HandlerInternalServerError:
-		return nil, v
+		response := &UnsubscribeV2HandlerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -431,7 +579,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION
 
 Remove a user from the notification subscription by user ID.
 */
-func (a *Client) DeleteSubscriptionAppNotificationByUserIDV2Short(params *DeleteSubscriptionAppNotificationByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationByUserIDV2OK, error) {
+func (a *Client) DeleteSubscriptionAppNotificationByUserIDV2Short(params *DeleteSubscriptionAppNotificationByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationByUserIDV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSubscriptionAppNotificationByUserIDV2Params()
@@ -469,15 +617,39 @@ func (a *Client) DeleteSubscriptionAppNotificationByUserIDV2Short(params *Delete
 	switch v := result.(type) {
 
 	case *DeleteSubscriptionAppNotificationByUserIDV2OK:
-		return v, nil
+		response := &DeleteSubscriptionAppNotificationByUserIDV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteSubscriptionAppNotificationByUserIDV2Unauthorized:
-		return nil, v
+		response := &DeleteSubscriptionAppNotificationByUserIDV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSubscriptionAppNotificationByUserIDV2Forbidden:
-		return nil, v
+		response := &DeleteSubscriptionAppNotificationByUserIDV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSubscriptionAppNotificationByUserIDV2NotFound:
-		return nil, v
+		response := &DeleteSubscriptionAppNotificationByUserIDV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSubscriptionAppNotificationByUserIDV2InternalServerError:
-		return nil, v
+		response := &DeleteSubscriptionAppNotificationByUserIDV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -490,7 +662,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION
 
 Remove a user from the notification subscription.
 */
-func (a *Client) DeleteSubscriptionAppNotificationV2Short(params *DeleteSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationV2OK, error) {
+func (a *Client) DeleteSubscriptionAppNotificationV2Short(params *DeleteSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSubscriptionAppNotificationV2Params()
@@ -528,15 +700,39 @@ func (a *Client) DeleteSubscriptionAppNotificationV2Short(params *DeleteSubscrip
 	switch v := result.(type) {
 
 	case *DeleteSubscriptionAppNotificationV2OK:
-		return v, nil
+		response := &DeleteSubscriptionAppNotificationV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteSubscriptionAppNotificationV2Unauthorized:
-		return nil, v
+		response := &DeleteSubscriptionAppNotificationV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSubscriptionAppNotificationV2Forbidden:
-		return nil, v
+		response := &DeleteSubscriptionAppNotificationV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSubscriptionAppNotificationV2NotFound:
-		return nil, v
+		response := &DeleteSubscriptionAppNotificationV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSubscriptionAppNotificationV2InternalServerError:
-		return nil, v
+		response := &DeleteSubscriptionAppNotificationV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

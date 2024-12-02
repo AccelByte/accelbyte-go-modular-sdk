@@ -9,7 +9,6 @@ package reporting
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/public_reasons"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PublicReasonsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicReasonsService) PublicListReasonGroupsShort(input *public_reasons.PublicListReasonGroupsParams) (*reportingclientmodels.RestapiReasonGroupListResponse, error) {
+func (aaa *PublicReasonsService) PublicListReasonGroupsShort(input *public_reasons.PublicListReasonGroupsParams) (*public_reasons.PublicListReasonGroupsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicReasonsService) PublicListReasonGroupsShort(input *public_reaso
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicReasonsService) PublicGetReasonsShort(input *public_reasons.PublicGetReasonsParams) (*reportingclientmodels.RestapiPublicReasonListResponse, error) {
+func (aaa *PublicReasonsService) PublicGetReasonsShort(input *public_reasons.PublicGetReasonsParams) (*public_reasons.PublicGetReasonsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,5 +93,5 @@ func (aaa *PublicReasonsService) PublicGetReasonsShort(input *public_reasons.Pub
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

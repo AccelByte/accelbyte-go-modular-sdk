@@ -30,17 +30,17 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetConfigurationAlertV1Short(params *AdminGetConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationAlertV1OK, error)
-	AdminUpdateConfigurationAlertV1Short(params *AdminUpdateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationAlertV1OK, error)
-	AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationAlertV1Created, error)
-	AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1NoContent, error)
-	AdminCreateConfigurationTemplateV1Short(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Created, error)
-	AdminGetAllConfigurationTemplatesV1Short(params *AdminGetAllConfigurationTemplatesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigurationTemplatesV1OK, error)
-	AdminGetConfigurationTemplateV1Short(params *AdminGetConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationTemplateV1OK, error)
-	AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1OK, error)
-	AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationTemplateV1NoContent, error)
-	AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationOK, error)
-	AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationOK, error)
+	AdminGetConfigurationAlertV1Short(params *AdminGetConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationAlertV1Response, error)
+	AdminUpdateConfigurationAlertV1Short(params *AdminUpdateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationAlertV1Response, error)
+	AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationAlertV1Response, error)
+	AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1Response, error)
+	AdminCreateConfigurationTemplateV1Short(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Response, error)
+	AdminGetAllConfigurationTemplatesV1Short(params *AdminGetAllConfigurationTemplatesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigurationTemplatesV1Response, error)
+	AdminGetConfigurationTemplateV1Short(params *AdminGetConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationTemplateV1Response, error)
+	AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1Response, error)
+	AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationTemplateV1Response, error)
+	AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationResponse, error)
+	AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ type ClientService interface {
 AdminGetConfigurationAlertV1Short get configuration alert.
 Get a configuration alert.
 */
-func (a *Client) AdminGetConfigurationAlertV1Short(params *AdminGetConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationAlertV1OK, error) {
+func (a *Client) AdminGetConfigurationAlertV1Short(params *AdminGetConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationAlertV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetConfigurationAlertV1Params()
@@ -87,17 +87,47 @@ func (a *Client) AdminGetConfigurationAlertV1Short(params *AdminGetConfiguration
 	switch v := result.(type) {
 
 	case *AdminGetConfigurationAlertV1OK:
-		return v, nil
+		response := &AdminGetConfigurationAlertV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetConfigurationAlertV1BadRequest:
-		return nil, v
+		response := &AdminGetConfigurationAlertV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigurationAlertV1Unauthorized:
-		return nil, v
+		response := &AdminGetConfigurationAlertV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigurationAlertV1Forbidden:
-		return nil, v
+		response := &AdminGetConfigurationAlertV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigurationAlertV1NotFound:
-		return nil, v
+		response := &AdminGetConfigurationAlertV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigurationAlertV1InternalServerError:
-		return nil, v
+		response := &AdminGetConfigurationAlertV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -111,7 +141,7 @@ configuration alert mandatory :
 - namespace
 - durationDays must be greater than 0
 */
-func (a *Client) AdminUpdateConfigurationAlertV1Short(params *AdminUpdateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationAlertV1OK, error) {
+func (a *Client) AdminUpdateConfigurationAlertV1Short(params *AdminUpdateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationAlertV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateConfigurationAlertV1Params()
@@ -149,17 +179,47 @@ func (a *Client) AdminUpdateConfigurationAlertV1Short(params *AdminUpdateConfigu
 	switch v := result.(type) {
 
 	case *AdminUpdateConfigurationAlertV1OK:
-		return v, nil
+		response := &AdminUpdateConfigurationAlertV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateConfigurationAlertV1BadRequest:
-		return nil, v
+		response := &AdminUpdateConfigurationAlertV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigurationAlertV1Unauthorized:
-		return nil, v
+		response := &AdminUpdateConfigurationAlertV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigurationAlertV1Forbidden:
-		return nil, v
+		response := &AdminUpdateConfigurationAlertV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigurationAlertV1NotFound:
-		return nil, v
+		response := &AdminUpdateConfigurationAlertV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigurationAlertV1InternalServerError:
-		return nil, v
+		response := &AdminUpdateConfigurationAlertV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -173,7 +233,7 @@ configuration alert mandatory :
 - namespace
 - durationDays must be greater than 0
 */
-func (a *Client) AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationAlertV1Created, error) {
+func (a *Client) AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationAlertV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateConfigurationAlertV1Params()
@@ -211,19 +271,54 @@ func (a *Client) AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigu
 	switch v := result.(type) {
 
 	case *AdminCreateConfigurationAlertV1Created:
-		return v, nil
+		response := &AdminCreateConfigurationAlertV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateConfigurationAlertV1BadRequest:
-		return nil, v
+		response := &AdminCreateConfigurationAlertV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationAlertV1Unauthorized:
-		return nil, v
+		response := &AdminCreateConfigurationAlertV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationAlertV1Forbidden:
-		return nil, v
+		response := &AdminCreateConfigurationAlertV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationAlertV1NotFound:
-		return nil, v
+		response := &AdminCreateConfigurationAlertV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationAlertV1Conflict:
-		return nil, v
+		response := &AdminCreateConfigurationAlertV1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationAlertV1InternalServerError:
-		return nil, v
+		response := &AdminCreateConfigurationAlertV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -234,7 +329,7 @@ func (a *Client) AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigu
 AdminDeleteConfigurationAlertV1Short delete configuration alert.
 Delete configuration alert.
 */
-func (a *Client) AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1NoContent, error) {
+func (a *Client) AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteConfigurationAlertV1Params()
@@ -272,15 +367,39 @@ func (a *Client) AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigu
 	switch v := result.(type) {
 
 	case *AdminDeleteConfigurationAlertV1NoContent:
-		return v, nil
+		response := &AdminDeleteConfigurationAlertV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteConfigurationAlertV1BadRequest:
-		return nil, v
+		response := &AdminDeleteConfigurationAlertV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteConfigurationAlertV1Unauthorized:
-		return nil, v
+		response := &AdminDeleteConfigurationAlertV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteConfigurationAlertV1Forbidden:
-		return nil, v
+		response := &AdminDeleteConfigurationAlertV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteConfigurationAlertV1InternalServerError:
-		return nil, v
+		response := &AdminDeleteConfigurationAlertV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -349,7 +468,7 @@ Example:
 - value 3: enable for created and updated
 - value 7: enable for created, updated, and deleted, etc
 */
-func (a *Client) AdminCreateConfigurationTemplateV1Short(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Created, error) {
+func (a *Client) AdminCreateConfigurationTemplateV1Short(params *AdminCreateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateConfigurationTemplateV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateConfigurationTemplateV1Params()
@@ -387,17 +506,47 @@ func (a *Client) AdminCreateConfigurationTemplateV1Short(params *AdminCreateConf
 	switch v := result.(type) {
 
 	case *AdminCreateConfigurationTemplateV1Created:
-		return v, nil
+		response := &AdminCreateConfigurationTemplateV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateConfigurationTemplateV1BadRequest:
-		return nil, v
+		response := &AdminCreateConfigurationTemplateV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationTemplateV1Unauthorized:
-		return nil, v
+		response := &AdminCreateConfigurationTemplateV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationTemplateV1Forbidden:
-		return nil, v
+		response := &AdminCreateConfigurationTemplateV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationTemplateV1Conflict:
-		return nil, v
+		response := &AdminCreateConfigurationTemplateV1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateConfigurationTemplateV1InternalServerError:
-		return nil, v
+		response := &AdminCreateConfigurationTemplateV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -408,7 +557,7 @@ func (a *Client) AdminCreateConfigurationTemplateV1Short(params *AdminCreateConf
 AdminGetAllConfigurationTemplatesV1Short get configuration templates.
 Get all template configurations in specified namespace.
 */
-func (a *Client) AdminGetAllConfigurationTemplatesV1Short(params *AdminGetAllConfigurationTemplatesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigurationTemplatesV1OK, error) {
+func (a *Client) AdminGetAllConfigurationTemplatesV1Short(params *AdminGetAllConfigurationTemplatesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigurationTemplatesV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAllConfigurationTemplatesV1Params()
@@ -446,15 +595,40 @@ func (a *Client) AdminGetAllConfigurationTemplatesV1Short(params *AdminGetAllCon
 	switch v := result.(type) {
 
 	case *AdminGetAllConfigurationTemplatesV1OK:
-		return v, nil
+		response := &AdminGetAllConfigurationTemplatesV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAllConfigurationTemplatesV1BadRequest:
-		return nil, v
+		response := &AdminGetAllConfigurationTemplatesV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigurationTemplatesV1Unauthorized:
-		return nil, v
+		response := &AdminGetAllConfigurationTemplatesV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigurationTemplatesV1Forbidden:
-		return nil, v
+		response := &AdminGetAllConfigurationTemplatesV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigurationTemplatesV1InternalServerError:
-		return nil, v
+		response := &AdminGetAllConfigurationTemplatesV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -465,7 +639,7 @@ func (a *Client) AdminGetAllConfigurationTemplatesV1Short(params *AdminGetAllCon
 AdminGetConfigurationTemplateV1Short get configuration template.
 Get a template configuration.
 */
-func (a *Client) AdminGetConfigurationTemplateV1Short(params *AdminGetConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationTemplateV1OK, error) {
+func (a *Client) AdminGetConfigurationTemplateV1Short(params *AdminGetConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigurationTemplateV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetConfigurationTemplateV1Params()
@@ -503,17 +677,47 @@ func (a *Client) AdminGetConfigurationTemplateV1Short(params *AdminGetConfigurat
 	switch v := result.(type) {
 
 	case *AdminGetConfigurationTemplateV1OK:
-		return v, nil
+		response := &AdminGetConfigurationTemplateV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetConfigurationTemplateV1BadRequest:
-		return nil, v
+		response := &AdminGetConfigurationTemplateV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigurationTemplateV1Unauthorized:
-		return nil, v
+		response := &AdminGetConfigurationTemplateV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigurationTemplateV1Forbidden:
-		return nil, v
+		response := &AdminGetConfigurationTemplateV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigurationTemplateV1NotFound:
-		return nil, v
+		response := &AdminGetConfigurationTemplateV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigurationTemplateV1InternalServerError:
-		return nil, v
+		response := &AdminGetConfigurationTemplateV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -581,7 +785,7 @@ Example:
 - value 3: enable for created and updated
 - value 7: enable for created, updated, and deleted, etc
 */
-func (a *Client) AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1OK, error) {
+func (a *Client) AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigurationTemplateV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateConfigurationTemplateV1Params()
@@ -619,17 +823,47 @@ func (a *Client) AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConf
 	switch v := result.(type) {
 
 	case *AdminUpdateConfigurationTemplateV1OK:
-		return v, nil
+		response := &AdminUpdateConfigurationTemplateV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateConfigurationTemplateV1BadRequest:
-		return nil, v
+		response := &AdminUpdateConfigurationTemplateV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigurationTemplateV1Unauthorized:
-		return nil, v
+		response := &AdminUpdateConfigurationTemplateV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigurationTemplateV1Forbidden:
-		return nil, v
+		response := &AdminUpdateConfigurationTemplateV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigurationTemplateV1NotFound:
-		return nil, v
+		response := &AdminUpdateConfigurationTemplateV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigurationTemplateV1InternalServerError:
-		return nil, v
+		response := &AdminUpdateConfigurationTemplateV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -640,7 +874,7 @@ func (a *Client) AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConf
 AdminDeleteConfigurationTemplateV1Short delete configuration template.
 Delete a template configuration.
 */
-func (a *Client) AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationTemplateV1NoContent, error) {
+func (a *Client) AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConfigurationTemplateV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationTemplateV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteConfigurationTemplateV1Params()
@@ -678,15 +912,39 @@ func (a *Client) AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConf
 	switch v := result.(type) {
 
 	case *AdminDeleteConfigurationTemplateV1NoContent:
-		return v, nil
+		response := &AdminDeleteConfigurationTemplateV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteConfigurationTemplateV1BadRequest:
-		return nil, v
+		response := &AdminDeleteConfigurationTemplateV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteConfigurationTemplateV1Unauthorized:
-		return nil, v
+		response := &AdminDeleteConfigurationTemplateV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteConfigurationTemplateV1Forbidden:
-		return nil, v
+		response := &AdminDeleteConfigurationTemplateV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteConfigurationTemplateV1InternalServerError:
-		return nil, v
+		response := &AdminDeleteConfigurationTemplateV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -697,7 +955,7 @@ func (a *Client) AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConf
 AdminGetDSMCConfigurationShort get dsmc configuration .
 Get a dsmc configuration.
 */
-func (a *Client) AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationOK, error) {
+func (a *Client) AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetDSMCConfigurationParams()
@@ -735,17 +993,47 @@ func (a *Client) AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfiguratio
 	switch v := result.(type) {
 
 	case *AdminGetDSMCConfigurationOK:
-		return v, nil
+		response := &AdminGetDSMCConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetDSMCConfigurationBadRequest:
-		return nil, v
+		response := &AdminGetDSMCConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetDSMCConfigurationUnauthorized:
-		return nil, v
+		response := &AdminGetDSMCConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetDSMCConfigurationForbidden:
-		return nil, v
+		response := &AdminGetDSMCConfigurationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetDSMCConfigurationNotFound:
-		return nil, v
+		response := &AdminGetDSMCConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetDSMCConfigurationInternalServerError:
-		return nil, v
+		response := &AdminGetDSMCConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -756,7 +1044,7 @@ func (a *Client) AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfiguratio
 AdminSyncDSMCConfigurationShort sync dsmc configuration.
 sync dsmc configuration.
 */
-func (a *Client) AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationOK, error) {
+func (a *Client) AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSyncDSMCConfigurationParams()
@@ -794,17 +1082,47 @@ func (a *Client) AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurat
 	switch v := result.(type) {
 
 	case *AdminSyncDSMCConfigurationOK:
-		return v, nil
+		response := &AdminSyncDSMCConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSyncDSMCConfigurationBadRequest:
-		return nil, v
+		response := &AdminSyncDSMCConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncDSMCConfigurationUnauthorized:
-		return nil, v
+		response := &AdminSyncDSMCConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncDSMCConfigurationForbidden:
-		return nil, v
+		response := &AdminSyncDSMCConfigurationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncDSMCConfigurationNotFound:
-		return nil, v
+		response := &AdminSyncDSMCConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncDSMCConfigurationInternalServerError:
-		return nil, v
+		response := &AdminSyncDSMCConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,18 +30,18 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BulkGetPlayerPublicBinaryRecordsV1Short(params *BulkGetPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerPublicBinaryRecordsV1OK, error)
-	ListMyBinaryRecordsV1Short(params *ListMyBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListMyBinaryRecordsV1OK, error)
-	BulkGetMyBinaryRecordV1Short(params *BulkGetMyBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetMyBinaryRecordV1OK, error)
-	PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryRecordV1Created, error)
-	ListOtherPlayerPublicBinaryRecordsV1Short(params *ListOtherPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListOtherPlayerPublicBinaryRecordsV1OK, error)
-	BulkGetOtherPlayerPublicBinaryRecordsV1Short(params *BulkGetOtherPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetOtherPlayerPublicBinaryRecordsV1OK, error)
-	GetPlayerBinaryRecordV1Short(params *GetPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerBinaryRecordV1OK, error)
-	PutPlayerBinaryRecordV1Short(params *PutPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerBinaryRecordV1OK, error)
-	DeletePlayerBinaryRecordV1Short(params *DeletePlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeletePlayerBinaryRecordV1NoContent, error)
-	PutPlayerBinaryRecorMetadataV1Short(params *PutPlayerBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerBinaryRecorMetadataV1OK, error)
-	PostPlayerBinaryPresignedURLV1Short(params *PostPlayerBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryPresignedURLV1Created, error)
-	GetPlayerPublicBinaryRecordsV1Short(params *GetPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerPublicBinaryRecordsV1OK, error)
+	BulkGetPlayerPublicBinaryRecordsV1Short(params *BulkGetPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerPublicBinaryRecordsV1Response, error)
+	ListMyBinaryRecordsV1Short(params *ListMyBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListMyBinaryRecordsV1Response, error)
+	BulkGetMyBinaryRecordV1Short(params *BulkGetMyBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetMyBinaryRecordV1Response, error)
+	PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryRecordV1Response, error)
+	ListOtherPlayerPublicBinaryRecordsV1Short(params *ListOtherPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListOtherPlayerPublicBinaryRecordsV1Response, error)
+	BulkGetOtherPlayerPublicBinaryRecordsV1Short(params *BulkGetOtherPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetOtherPlayerPublicBinaryRecordsV1Response, error)
+	GetPlayerBinaryRecordV1Short(params *GetPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerBinaryRecordV1Response, error)
+	PutPlayerBinaryRecordV1Short(params *PutPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerBinaryRecordV1Response, error)
+	DeletePlayerBinaryRecordV1Short(params *DeletePlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeletePlayerBinaryRecordV1Response, error)
+	PutPlayerBinaryRecorMetadataV1Short(params *PutPlayerBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerBinaryRecorMetadataV1Response, error)
+	PostPlayerBinaryPresignedURLV1Short(params *PostPlayerBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryPresignedURLV1Response, error)
+	GetPlayerPublicBinaryRecordsV1Short(params *GetPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerPublicBinaryRecordsV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ BulkGetPlayerPublicBinaryRecordsV1Short bulk get player public records
 Bulk get other player's public binary record by userIds, max allowed 20 at a time. Only record with `isPublic=true` can be
 retrieved using this endpoint.
 */
-func (a *Client) BulkGetPlayerPublicBinaryRecordsV1Short(params *BulkGetPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerPublicBinaryRecordsV1OK, error) {
+func (a *Client) BulkGetPlayerPublicBinaryRecordsV1Short(params *BulkGetPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerPublicBinaryRecordsV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetPlayerPublicBinaryRecordsV1Params()
@@ -89,15 +89,40 @@ func (a *Client) BulkGetPlayerPublicBinaryRecordsV1Short(params *BulkGetPlayerPu
 	switch v := result.(type) {
 
 	case *BulkGetPlayerPublicBinaryRecordsV1OK:
-		return v, nil
+		response := &BulkGetPlayerPublicBinaryRecordsV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetPlayerPublicBinaryRecordsV1BadRequest:
-		return nil, v
+		response := &BulkGetPlayerPublicBinaryRecordsV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerPublicBinaryRecordsV1Unauthorized:
-		return nil, v
+		response := &BulkGetPlayerPublicBinaryRecordsV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerPublicBinaryRecordsV1Forbidden:
-		return nil, v
+		response := &BulkGetPlayerPublicBinaryRecordsV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerPublicBinaryRecordsV1InternalServerError:
-		return nil, v
+		response := &BulkGetPlayerPublicBinaryRecordsV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -108,7 +133,7 @@ func (a *Client) BulkGetPlayerPublicBinaryRecordsV1Short(params *BulkGetPlayerPu
 ListMyBinaryRecordsV1Short query my binary records
 Retrieve list of my binary records by namespace.
 */
-func (a *Client) ListMyBinaryRecordsV1Short(params *ListMyBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListMyBinaryRecordsV1OK, error) {
+func (a *Client) ListMyBinaryRecordsV1Short(params *ListMyBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListMyBinaryRecordsV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListMyBinaryRecordsV1Params()
@@ -146,15 +171,40 @@ func (a *Client) ListMyBinaryRecordsV1Short(params *ListMyBinaryRecordsV1Params,
 	switch v := result.(type) {
 
 	case *ListMyBinaryRecordsV1OK:
-		return v, nil
+		response := &ListMyBinaryRecordsV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListMyBinaryRecordsV1BadRequest:
-		return nil, v
+		response := &ListMyBinaryRecordsV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListMyBinaryRecordsV1Unauthorized:
-		return nil, v
+		response := &ListMyBinaryRecordsV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListMyBinaryRecordsV1Forbidden:
-		return nil, v
+		response := &ListMyBinaryRecordsV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListMyBinaryRecordsV1InternalServerError:
-		return nil, v
+		response := &ListMyBinaryRecordsV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +216,7 @@ BulkGetMyBinaryRecordV1Short get player records bulk
 Retrieve player record key and payload in bulk under given namespace.
 Maximum bulk key limit per request 20
 */
-func (a *Client) BulkGetMyBinaryRecordV1Short(params *BulkGetMyBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetMyBinaryRecordV1OK, error) {
+func (a *Client) BulkGetMyBinaryRecordV1Short(params *BulkGetMyBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetMyBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetMyBinaryRecordV1Params()
@@ -204,15 +254,40 @@ func (a *Client) BulkGetMyBinaryRecordV1Short(params *BulkGetMyBinaryRecordV1Par
 	switch v := result.(type) {
 
 	case *BulkGetMyBinaryRecordV1OK:
-		return v, nil
+		response := &BulkGetMyBinaryRecordV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetMyBinaryRecordV1BadRequest:
-		return nil, v
+		response := &BulkGetMyBinaryRecordV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetMyBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &BulkGetMyBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetMyBinaryRecordV1Forbidden:
-		return nil, v
+		response := &BulkGetMyBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetMyBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &BulkGetMyBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -234,7 +309,7 @@ Other detail info:
 
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
-func (a *Client) PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryRecordV1Created, error) {
+func (a *Client) PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostPlayerBinaryRecordV1Params()
@@ -272,17 +347,47 @@ func (a *Client) PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1P
 	switch v := result.(type) {
 
 	case *PostPlayerBinaryRecordV1Created:
-		return v, nil
+		response := &PostPlayerBinaryRecordV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PostPlayerBinaryRecordV1BadRequest:
-		return nil, v
+		response := &PostPlayerBinaryRecordV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &PostPlayerBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerBinaryRecordV1Forbidden:
-		return nil, v
+		response := &PostPlayerBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerBinaryRecordV1Conflict:
-		return nil, v
+		response := &PostPlayerBinaryRecordV1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &PostPlayerBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -293,7 +398,7 @@ func (a *Client) PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1P
 ListOtherPlayerPublicBinaryRecordsV1Short query other player public binary record
 Retrieve list of other player public binary records under given namespace.
 */
-func (a *Client) ListOtherPlayerPublicBinaryRecordsV1Short(params *ListOtherPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListOtherPlayerPublicBinaryRecordsV1OK, error) {
+func (a *Client) ListOtherPlayerPublicBinaryRecordsV1Short(params *ListOtherPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*ListOtherPlayerPublicBinaryRecordsV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListOtherPlayerPublicBinaryRecordsV1Params()
@@ -331,15 +436,40 @@ func (a *Client) ListOtherPlayerPublicBinaryRecordsV1Short(params *ListOtherPlay
 	switch v := result.(type) {
 
 	case *ListOtherPlayerPublicBinaryRecordsV1OK:
-		return v, nil
+		response := &ListOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListOtherPlayerPublicBinaryRecordsV1BadRequest:
-		return nil, v
+		response := &ListOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListOtherPlayerPublicBinaryRecordsV1Unauthorized:
-		return nil, v
+		response := &ListOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListOtherPlayerPublicBinaryRecordsV1Forbidden:
-		return nil, v
+		response := &ListOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListOtherPlayerPublicBinaryRecordsV1InternalServerError:
-		return nil, v
+		response := &ListOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -351,7 +481,7 @@ BulkGetOtherPlayerPublicBinaryRecordsV1Short bulk get other player public binary
 Retrieve other player public binary record in bulk under given namespace.
 Maximum bulk key limit per request 20
 */
-func (a *Client) BulkGetOtherPlayerPublicBinaryRecordsV1Short(params *BulkGetOtherPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetOtherPlayerPublicBinaryRecordsV1OK, error) {
+func (a *Client) BulkGetOtherPlayerPublicBinaryRecordsV1Short(params *BulkGetOtherPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetOtherPlayerPublicBinaryRecordsV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetOtherPlayerPublicBinaryRecordsV1Params()
@@ -389,15 +519,40 @@ func (a *Client) BulkGetOtherPlayerPublicBinaryRecordsV1Short(params *BulkGetOth
 	switch v := result.(type) {
 
 	case *BulkGetOtherPlayerPublicBinaryRecordsV1OK:
-		return v, nil
+		response := &BulkGetOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetOtherPlayerPublicBinaryRecordsV1BadRequest:
-		return nil, v
+		response := &BulkGetOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetOtherPlayerPublicBinaryRecordsV1Unauthorized:
-		return nil, v
+		response := &BulkGetOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetOtherPlayerPublicBinaryRecordsV1Forbidden:
-		return nil, v
+		response := &BulkGetOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetOtherPlayerPublicBinaryRecordsV1InternalServerError:
-		return nil, v
+		response := &BulkGetOtherPlayerPublicBinaryRecordsV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -409,7 +564,7 @@ GetPlayerBinaryRecordV1Short get player binary record
 Get a player binary record by its key.
 **Private Record**: Only user who own the record could retrieve it.
 */
-func (a *Client) GetPlayerBinaryRecordV1Short(params *GetPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerBinaryRecordV1OK, error) {
+func (a *Client) GetPlayerBinaryRecordV1Short(params *GetPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlayerBinaryRecordV1Params()
@@ -447,15 +602,40 @@ func (a *Client) GetPlayerBinaryRecordV1Short(params *GetPlayerBinaryRecordV1Par
 	switch v := result.(type) {
 
 	case *GetPlayerBinaryRecordV1OK:
-		return v, nil
+		response := &GetPlayerBinaryRecordV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPlayerBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &GetPlayerBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerBinaryRecordV1Forbidden:
-		return nil, v
+		response := &GetPlayerBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerBinaryRecordV1NotFound:
-		return nil, v
+		response := &GetPlayerBinaryRecordV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &GetPlayerBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -466,7 +646,7 @@ func (a *Client) GetPlayerBinaryRecordV1Short(params *GetPlayerBinaryRecordV1Par
 PutPlayerBinaryRecordV1Short update player binary record file
 Update a player binary record file by its key
 */
-func (a *Client) PutPlayerBinaryRecordV1Short(params *PutPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerBinaryRecordV1OK, error) {
+func (a *Client) PutPlayerBinaryRecordV1Short(params *PutPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPutPlayerBinaryRecordV1Params()
@@ -504,17 +684,47 @@ func (a *Client) PutPlayerBinaryRecordV1Short(params *PutPlayerBinaryRecordV1Par
 	switch v := result.(type) {
 
 	case *PutPlayerBinaryRecordV1OK:
-		return v, nil
+		response := &PutPlayerBinaryRecordV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PutPlayerBinaryRecordV1BadRequest:
-		return nil, v
+		response := &PutPlayerBinaryRecordV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &PutPlayerBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerBinaryRecordV1Forbidden:
-		return nil, v
+		response := &PutPlayerBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerBinaryRecordV1NotFound:
-		return nil, v
+		response := &PutPlayerBinaryRecordV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &PutPlayerBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -525,7 +735,7 @@ func (a *Client) PutPlayerBinaryRecordV1Short(params *PutPlayerBinaryRecordV1Par
 DeletePlayerBinaryRecordV1Short delete player binary record
 Delete a player binary record. Only player who own the record can delete it
 */
-func (a *Client) DeletePlayerBinaryRecordV1Short(params *DeletePlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeletePlayerBinaryRecordV1NoContent, error) {
+func (a *Client) DeletePlayerBinaryRecordV1Short(params *DeletePlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeletePlayerBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePlayerBinaryRecordV1Params()
@@ -563,17 +773,46 @@ func (a *Client) DeletePlayerBinaryRecordV1Short(params *DeletePlayerBinaryRecor
 	switch v := result.(type) {
 
 	case *DeletePlayerBinaryRecordV1NoContent:
-		return v, nil
+		response := &DeletePlayerBinaryRecordV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePlayerBinaryRecordV1BadRequest:
-		return nil, v
+		response := &DeletePlayerBinaryRecordV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePlayerBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &DeletePlayerBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePlayerBinaryRecordV1Forbidden:
-		return nil, v
+		response := &DeletePlayerBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePlayerBinaryRecordV1NotFound:
-		return nil, v
+		response := &DeletePlayerBinaryRecordV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePlayerBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &DeletePlayerBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -584,7 +823,7 @@ func (a *Client) DeletePlayerBinaryRecordV1Short(params *DeletePlayerBinaryRecor
 PutPlayerBinaryRecorMetadataV1Short update player binary record metadata
 Update a player binary record metadata by its key
 */
-func (a *Client) PutPlayerBinaryRecorMetadataV1Short(params *PutPlayerBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerBinaryRecorMetadataV1OK, error) {
+func (a *Client) PutPlayerBinaryRecorMetadataV1Short(params *PutPlayerBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerBinaryRecorMetadataV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPutPlayerBinaryRecorMetadataV1Params()
@@ -622,17 +861,47 @@ func (a *Client) PutPlayerBinaryRecorMetadataV1Short(params *PutPlayerBinaryReco
 	switch v := result.(type) {
 
 	case *PutPlayerBinaryRecorMetadataV1OK:
-		return v, nil
+		response := &PutPlayerBinaryRecorMetadataV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PutPlayerBinaryRecorMetadataV1BadRequest:
-		return nil, v
+		response := &PutPlayerBinaryRecorMetadataV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerBinaryRecorMetadataV1Unauthorized:
-		return nil, v
+		response := &PutPlayerBinaryRecorMetadataV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerBinaryRecorMetadataV1Forbidden:
-		return nil, v
+		response := &PutPlayerBinaryRecorMetadataV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerBinaryRecorMetadataV1NotFound:
-		return nil, v
+		response := &PutPlayerBinaryRecorMetadataV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerBinaryRecorMetadataV1InternalServerError:
-		return nil, v
+		response := &PutPlayerBinaryRecorMetadataV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -647,7 +916,7 @@ Other detail info:
 
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
-func (a *Client) PostPlayerBinaryPresignedURLV1Short(params *PostPlayerBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryPresignedURLV1Created, error) {
+func (a *Client) PostPlayerBinaryPresignedURLV1Short(params *PostPlayerBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerBinaryPresignedURLV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostPlayerBinaryPresignedURLV1Params()
@@ -685,17 +954,47 @@ func (a *Client) PostPlayerBinaryPresignedURLV1Short(params *PostPlayerBinaryPre
 	switch v := result.(type) {
 
 	case *PostPlayerBinaryPresignedURLV1Created:
-		return v, nil
+		response := &PostPlayerBinaryPresignedURLV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PostPlayerBinaryPresignedURLV1BadRequest:
-		return nil, v
+		response := &PostPlayerBinaryPresignedURLV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerBinaryPresignedURLV1Unauthorized:
-		return nil, v
+		response := &PostPlayerBinaryPresignedURLV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerBinaryPresignedURLV1Forbidden:
-		return nil, v
+		response := &PostPlayerBinaryPresignedURLV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerBinaryPresignedURLV1NotFound:
-		return nil, v
+		response := &PostPlayerBinaryPresignedURLV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerBinaryPresignedURLV1InternalServerError:
-		return nil, v
+		response := &PostPlayerBinaryPresignedURLV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -707,7 +1006,7 @@ GetPlayerPublicBinaryRecordsV1Short get player public binary record
 Get other player's public binary record. Only record with `isPublic=true` can be
 retrieved using this endpoint.
 */
-func (a *Client) GetPlayerPublicBinaryRecordsV1Short(params *GetPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerPublicBinaryRecordsV1OK, error) {
+func (a *Client) GetPlayerPublicBinaryRecordsV1Short(params *GetPlayerPublicBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerPublicBinaryRecordsV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlayerPublicBinaryRecordsV1Params()
@@ -745,15 +1044,40 @@ func (a *Client) GetPlayerPublicBinaryRecordsV1Short(params *GetPlayerPublicBina
 	switch v := result.(type) {
 
 	case *GetPlayerPublicBinaryRecordsV1OK:
-		return v, nil
+		response := &GetPlayerPublicBinaryRecordsV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPlayerPublicBinaryRecordsV1Unauthorized:
-		return nil, v
+		response := &GetPlayerPublicBinaryRecordsV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerPublicBinaryRecordsV1Forbidden:
-		return nil, v
+		response := &GetPlayerPublicBinaryRecordsV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerPublicBinaryRecordsV1NotFound:
-		return nil, v
+		response := &GetPlayerPublicBinaryRecordsV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerPublicBinaryRecordsV1InternalServerError:
-		return nil, v
+		response := &GetPlayerPublicBinaryRecordsV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

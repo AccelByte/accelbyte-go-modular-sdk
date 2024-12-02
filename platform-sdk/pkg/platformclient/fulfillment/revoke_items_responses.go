@@ -19,6 +19,41 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type RevokeItemsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.RevokeFulfillmentV2Result
+
+	Error404 *platformclientmodels.ErrorEntity
+	Error409 *platformclientmodels.RevokeFulfillmentV2Result
+}
+
+func (m *RevokeItemsResponse) Unpack() (*platformclientmodels.RevokeFulfillmentV2Result, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+
+			return m.Error409, nil
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RevokeItemsReader is a Reader for the RevokeItems structure.
 type RevokeItemsReader struct {
 	formats strfmt.Registry

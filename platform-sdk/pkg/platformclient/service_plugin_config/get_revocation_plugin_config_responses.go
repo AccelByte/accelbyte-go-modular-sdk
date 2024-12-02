@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetRevocationPluginConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.RevocationPluginConfigInfo
+}
+
+func (m *GetRevocationPluginConfigResponse) Unpack() (*platformclientmodels.RevocationPluginConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetRevocationPluginConfigReader is a Reader for the GetRevocationPluginConfig structure.
 type GetRevocationPluginConfigReader struct {
 	formats strfmt.Registry

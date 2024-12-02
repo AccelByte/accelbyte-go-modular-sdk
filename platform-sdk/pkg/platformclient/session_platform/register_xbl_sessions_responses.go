@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type RegisterXblSessionsResponse struct {
+	platformclientmodels.ApiResponse
+	Data map[string]interface{}
+
+	Error400 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *RegisterXblSessionsResponse) Unpack() (map[string]interface{}, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RegisterXblSessionsReader is a Reader for the RegisterXblSessions structure.
 type RegisterXblSessionsReader struct {
 	formats strfmt.Registry

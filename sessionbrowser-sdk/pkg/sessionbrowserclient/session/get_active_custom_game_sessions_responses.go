@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 )
 
+type GetActiveCustomGameSessionsResponse struct {
+	sessionbrowserclientmodels.ApiResponse
+	Data *sessionbrowserclientmodels.ModelsActiveCustomGameResponse
+
+	Error400 *sessionbrowserclientmodels.RestapiErrorResponseV2
+	Error500 *sessionbrowserclientmodels.RestapiErrorResponseV2
+}
+
+func (m *GetActiveCustomGameSessionsResponse) Unpack() (*sessionbrowserclientmodels.ModelsActiveCustomGameResponse, *sessionbrowserclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionbrowserclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetActiveCustomGameSessionsReader is a Reader for the GetActiveCustomGameSessions structure.
 type GetActiveCustomGameSessionsReader struct {
 	formats strfmt.Registry

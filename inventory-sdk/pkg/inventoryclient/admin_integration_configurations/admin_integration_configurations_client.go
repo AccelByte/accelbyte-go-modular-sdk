@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListIntegrationConfigurationsShort(params *AdminListIntegrationConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListIntegrationConfigurationsOK, error)
-	AdminCreateIntegrationConfigurationShort(params *AdminCreateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateIntegrationConfigurationCreated, error)
-	AdminUpdateIntegrationConfigurationShort(params *AdminUpdateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateIntegrationConfigurationOK, error)
-	AdminUpdateStatusIntegrationConfigurationShort(params *AdminUpdateStatusIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateStatusIntegrationConfigurationOK, error)
+	AdminListIntegrationConfigurationsShort(params *AdminListIntegrationConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListIntegrationConfigurationsResponse, error)
+	AdminCreateIntegrationConfigurationShort(params *AdminCreateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateIntegrationConfigurationResponse, error)
+	AdminUpdateIntegrationConfigurationShort(params *AdminUpdateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateIntegrationConfigurationResponse, error)
+	AdminUpdateStatusIntegrationConfigurationShort(params *AdminUpdateStatusIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateStatusIntegrationConfigurationResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ The response body will be in the form of standard pagination.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:INTEGRATIONCONFIGURATION [READ]
 */
-func (a *Client) AdminListIntegrationConfigurationsShort(params *AdminListIntegrationConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListIntegrationConfigurationsOK, error) {
+func (a *Client) AdminListIntegrationConfigurationsShort(params *AdminListIntegrationConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListIntegrationConfigurationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListIntegrationConfigurationsParams()
@@ -84,11 +84,26 @@ func (a *Client) AdminListIntegrationConfigurationsShort(params *AdminListIntegr
 	switch v := result.(type) {
 
 	case *AdminListIntegrationConfigurationsOK:
-		return v, nil
+		response := &AdminListIntegrationConfigurationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListIntegrationConfigurationsBadRequest:
-		return nil, v
+		response := &AdminListIntegrationConfigurationsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListIntegrationConfigurationsInternalServerError:
-		return nil, v
+		response := &AdminListIntegrationConfigurationsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +118,7 @@ There cannot be one duplicate serviceName per namespace.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:INTEGRATIONCONFIGURATION [CREATE]
 */
-func (a *Client) AdminCreateIntegrationConfigurationShort(params *AdminCreateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateIntegrationConfigurationCreated, error) {
+func (a *Client) AdminCreateIntegrationConfigurationShort(params *AdminCreateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateIntegrationConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateIntegrationConfigurationParams()
@@ -141,13 +156,33 @@ func (a *Client) AdminCreateIntegrationConfigurationShort(params *AdminCreateInt
 	switch v := result.(type) {
 
 	case *AdminCreateIntegrationConfigurationCreated:
-		return v, nil
+		response := &AdminCreateIntegrationConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateIntegrationConfigurationBadRequest:
-		return nil, v
+		response := &AdminCreateIntegrationConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateIntegrationConfigurationConflict:
-		return nil, v
+		response := &AdminCreateIntegrationConfigurationResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateIntegrationConfigurationInternalServerError:
-		return nil, v
+		response := &AdminCreateIntegrationConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -162,7 +197,7 @@ There cannot be duplicate serviceName per namespace.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:INTEGRATIONCONFIGURATION [UPDATE]
 */
-func (a *Client) AdminUpdateIntegrationConfigurationShort(params *AdminUpdateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateIntegrationConfigurationOK, error) {
+func (a *Client) AdminUpdateIntegrationConfigurationShort(params *AdminUpdateIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateIntegrationConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateIntegrationConfigurationParams()
@@ -200,15 +235,40 @@ func (a *Client) AdminUpdateIntegrationConfigurationShort(params *AdminUpdateInt
 	switch v := result.(type) {
 
 	case *AdminUpdateIntegrationConfigurationOK:
-		return v, nil
+		response := &AdminUpdateIntegrationConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateIntegrationConfigurationBadRequest:
-		return nil, v
+		response := &AdminUpdateIntegrationConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateIntegrationConfigurationNotFound:
-		return nil, v
+		response := &AdminUpdateIntegrationConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateIntegrationConfigurationConflict:
-		return nil, v
+		response := &AdminUpdateIntegrationConfigurationResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateIntegrationConfigurationInternalServerError:
-		return nil, v
+		response := &AdminUpdateIntegrationConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -223,7 +283,7 @@ There cannot be duplicate serviceName per namespace.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:INTEGRATIONCONFIGURATION [UPDATE]
 */
-func (a *Client) AdminUpdateStatusIntegrationConfigurationShort(params *AdminUpdateStatusIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateStatusIntegrationConfigurationOK, error) {
+func (a *Client) AdminUpdateStatusIntegrationConfigurationShort(params *AdminUpdateStatusIntegrationConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateStatusIntegrationConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateStatusIntegrationConfigurationParams()
@@ -261,15 +321,40 @@ func (a *Client) AdminUpdateStatusIntegrationConfigurationShort(params *AdminUpd
 	switch v := result.(type) {
 
 	case *AdminUpdateStatusIntegrationConfigurationOK:
-		return v, nil
+		response := &AdminUpdateStatusIntegrationConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateStatusIntegrationConfigurationBadRequest:
-		return nil, v
+		response := &AdminUpdateStatusIntegrationConfigurationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateStatusIntegrationConfigurationNotFound:
-		return nil, v
+		response := &AdminUpdateStatusIntegrationConfigurationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateStatusIntegrationConfigurationConflict:
-		return nil, v
+		response := &AdminUpdateStatusIntegrationConfigurationResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateStatusIntegrationConfigurationInternalServerError:
-		return nil, v
+		response := &AdminUpdateStatusIntegrationConfigurationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetHiddenUsersV2Short(params *GetHiddenUsersV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetHiddenUsersV2OK, error)
-	GetUserVisibilityStatusV2Short(params *GetUserVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserVisibilityStatusV2OK, error)
-	SetUserLeaderboardVisibilityStatusV2Short(params *SetUserLeaderboardVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*SetUserLeaderboardVisibilityStatusV2OK, error)
-	SetUserVisibilityStatusV2Short(params *SetUserVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*SetUserVisibilityStatusV2OK, error)
+	GetHiddenUsersV2Short(params *GetHiddenUsersV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetHiddenUsersV2Response, error)
+	GetUserVisibilityStatusV2Short(params *GetUserVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserVisibilityStatusV2Response, error)
+	SetUserLeaderboardVisibilityStatusV2Short(params *SetUserLeaderboardVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*SetUserLeaderboardVisibilityStatusV2Response, error)
+	SetUserVisibilityStatusV2Short(params *SetUserVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*SetUserVisibilityStatusV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 GetHiddenUsersV2Short get hidden users on a leaderboard
 Return hidden users on a leaderboard
 */
-func (a *Client) GetHiddenUsersV2Short(params *GetHiddenUsersV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetHiddenUsersV2OK, error) {
+func (a *Client) GetHiddenUsersV2Short(params *GetHiddenUsersV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetHiddenUsersV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetHiddenUsersV2Params()
@@ -80,15 +80,40 @@ func (a *Client) GetHiddenUsersV2Short(params *GetHiddenUsersV2Params, authInfo 
 	switch v := result.(type) {
 
 	case *GetHiddenUsersV2OK:
-		return v, nil
+		response := &GetHiddenUsersV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetHiddenUsersV2BadRequest:
-		return nil, v
+		response := &GetHiddenUsersV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetHiddenUsersV2Unauthorized:
-		return nil, v
+		response := &GetHiddenUsersV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetHiddenUsersV2Forbidden:
-		return nil, v
+		response := &GetHiddenUsersV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetHiddenUsersV2InternalServerError:
-		return nil, v
+		response := &GetHiddenUsersV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -99,7 +124,7 @@ func (a *Client) GetHiddenUsersV2Short(params *GetHiddenUsersV2Params, authInfo 
 GetUserVisibilityStatusV2Short get user visibility status
 User with false visibility status will have hidden attribute set to true on it's leaderboard entry
 */
-func (a *Client) GetUserVisibilityStatusV2Short(params *GetUserVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserVisibilityStatusV2OK, error) {
+func (a *Client) GetUserVisibilityStatusV2Short(params *GetUserVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserVisibilityStatusV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserVisibilityStatusV2Params()
@@ -137,15 +162,40 @@ func (a *Client) GetUserVisibilityStatusV2Short(params *GetUserVisibilityStatusV
 	switch v := result.(type) {
 
 	case *GetUserVisibilityStatusV2OK:
-		return v, nil
+		response := &GetUserVisibilityStatusV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserVisibilityStatusV2BadRequest:
-		return nil, v
+		response := &GetUserVisibilityStatusV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserVisibilityStatusV2Unauthorized:
-		return nil, v
+		response := &GetUserVisibilityStatusV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserVisibilityStatusV2Forbidden:
-		return nil, v
+		response := &GetUserVisibilityStatusV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserVisibilityStatusV2InternalServerError:
-		return nil, v
+		response := &GetUserVisibilityStatusV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +206,7 @@ func (a *Client) GetUserVisibilityStatusV2Short(params *GetUserVisibilityStatusV
 SetUserLeaderboardVisibilityStatusV2Short set user visibility status on a specific leaderboard code
 User with false visibility status will have hidden attribute set to true on it's leaderboard entry
 */
-func (a *Client) SetUserLeaderboardVisibilityStatusV2Short(params *SetUserLeaderboardVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*SetUserLeaderboardVisibilityStatusV2OK, error) {
+func (a *Client) SetUserLeaderboardVisibilityStatusV2Short(params *SetUserLeaderboardVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*SetUserLeaderboardVisibilityStatusV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetUserLeaderboardVisibilityStatusV2Params()
@@ -194,15 +244,40 @@ func (a *Client) SetUserLeaderboardVisibilityStatusV2Short(params *SetUserLeader
 	switch v := result.(type) {
 
 	case *SetUserLeaderboardVisibilityStatusV2OK:
-		return v, nil
+		response := &SetUserLeaderboardVisibilityStatusV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SetUserLeaderboardVisibilityStatusV2BadRequest:
-		return nil, v
+		response := &SetUserLeaderboardVisibilityStatusV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetUserLeaderboardVisibilityStatusV2Unauthorized:
-		return nil, v
+		response := &SetUserLeaderboardVisibilityStatusV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetUserLeaderboardVisibilityStatusV2Forbidden:
-		return nil, v
+		response := &SetUserLeaderboardVisibilityStatusV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetUserLeaderboardVisibilityStatusV2InternalServerError:
-		return nil, v
+		response := &SetUserLeaderboardVisibilityStatusV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -213,7 +288,7 @@ func (a *Client) SetUserLeaderboardVisibilityStatusV2Short(params *SetUserLeader
 SetUserVisibilityStatusV2Short set user visibility status on a all current leaderboard
 User with false visibility status will have hidden attribute set to true on it's leaderboard entry
 */
-func (a *Client) SetUserVisibilityStatusV2Short(params *SetUserVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*SetUserVisibilityStatusV2OK, error) {
+func (a *Client) SetUserVisibilityStatusV2Short(params *SetUserVisibilityStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*SetUserVisibilityStatusV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetUserVisibilityStatusV2Params()
@@ -251,15 +326,40 @@ func (a *Client) SetUserVisibilityStatusV2Short(params *SetUserVisibilityStatusV
 	switch v := result.(type) {
 
 	case *SetUserVisibilityStatusV2OK:
-		return v, nil
+		response := &SetUserVisibilityStatusV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SetUserVisibilityStatusV2BadRequest:
-		return nil, v
+		response := &SetUserVisibilityStatusV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetUserVisibilityStatusV2Unauthorized:
-		return nil, v
+		response := &SetUserVisibilityStatusV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetUserVisibilityStatusV2Forbidden:
-		return nil, v
+		response := &SetUserVisibilityStatusV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetUserVisibilityStatusV2InternalServerError:
-		return nil, v
+		response := &SetUserVisibilityStatusV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RegisterXblSessionsShort(params *RegisterXblSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterXblSessionsOK, error)
+	RegisterXblSessionsShort(params *RegisterXblSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterXblSessionsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 RegisterXblSessionsShort register/update a session
 This API is used to register/update a session on xbox.
 */
-func (a *Client) RegisterXblSessionsShort(params *RegisterXblSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterXblSessionsOK, error) {
+func (a *Client) RegisterXblSessionsShort(params *RegisterXblSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterXblSessionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRegisterXblSessionsParams()
@@ -77,9 +77,19 @@ func (a *Client) RegisterXblSessionsShort(params *RegisterXblSessionsParams, aut
 	switch v := result.(type) {
 
 	case *RegisterXblSessionsOK:
-		return v, nil
+		response := &RegisterXblSessionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RegisterXblSessionsBadRequest:
-		return nil, v
+		response := &RegisterXblSessionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

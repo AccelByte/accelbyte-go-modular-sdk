@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 )
 
+type AdminCreateChainingOperationsResponse struct {
+	inventoryclientmodels.ApiResponse
+	Data *inventoryclientmodels.ApimodelsChainingOperationResp
+
+	Error400 *inventoryclientmodels.ApimodelsChainingOperationResp
+	Error401 *inventoryclientmodels.ApimodelsChainingOperationResp
+	Error403 *inventoryclientmodels.ApimodelsChainingOperationResp
+	Error404 *inventoryclientmodels.ApimodelsChainingOperationResp
+	Error500 *inventoryclientmodels.ApimodelsChainingOperationResp
+}
+
+func (m *AdminCreateChainingOperationsResponse) Unpack() (*inventoryclientmodels.ApimodelsChainingOperationResp, *inventoryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &inventoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminCreateChainingOperationsReader is a Reader for the AdminCreateChainingOperations structure.
 type AdminCreateChainingOperationsReader struct {
 	formats strfmt.Registry

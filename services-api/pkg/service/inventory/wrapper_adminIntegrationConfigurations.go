@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_integration_configurations"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AdminIntegrationConfigurationsService) GetAuthSession() auth.Session 
 	}
 }
 
-func (aaa *AdminIntegrationConfigurationsService) AdminListIntegrationConfigurationsShort(input *admin_integration_configurations.AdminListIntegrationConfigurationsParams) (*inventoryclientmodels.ApimodelsListIntegrationConfigurationsResp, error) {
+func (aaa *AdminIntegrationConfigurationsService) AdminListIntegrationConfigurationsShort(input *admin_integration_configurations.AdminListIntegrationConfigurationsParams) (*admin_integration_configurations.AdminListIntegrationConfigurationsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AdminIntegrationConfigurationsService) AdminListIntegrationConfigurat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminIntegrationConfigurationsService) AdminCreateIntegrationConfigurationShort(input *admin_integration_configurations.AdminCreateIntegrationConfigurationParams) (*inventoryclientmodels.ApimodelsIntegrationConfigurationResp, error) {
+func (aaa *AdminIntegrationConfigurationsService) AdminCreateIntegrationConfigurationShort(input *admin_integration_configurations.AdminCreateIntegrationConfigurationParams) (*admin_integration_configurations.AdminCreateIntegrationConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AdminIntegrationConfigurationsService) AdminCreateIntegrationConfigur
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminIntegrationConfigurationsService) AdminUpdateIntegrationConfigurationShort(input *admin_integration_configurations.AdminUpdateIntegrationConfigurationParams) (*inventoryclientmodels.ApimodelsIntegrationConfigurationResp, error) {
+func (aaa *AdminIntegrationConfigurationsService) AdminUpdateIntegrationConfigurationShort(input *admin_integration_configurations.AdminUpdateIntegrationConfigurationParams) (*admin_integration_configurations.AdminUpdateIntegrationConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *AdminIntegrationConfigurationsService) AdminUpdateIntegrationConfigur
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminIntegrationConfigurationsService) AdminUpdateStatusIntegrationConfigurationShort(input *admin_integration_configurations.AdminUpdateStatusIntegrationConfigurationParams) (*inventoryclientmodels.ApimodelsIntegrationConfigurationResp, error) {
+func (aaa *AdminIntegrationConfigurationsService) AdminUpdateStatusIntegrationConfigurationShort(input *admin_integration_configurations.AdminUpdateStatusIntegrationConfigurationParams) (*admin_integration_configurations.AdminUpdateStatusIntegrationConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,5 +155,5 @@ func (aaa *AdminIntegrationConfigurationsService) AdminUpdateStatusIntegrationCo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

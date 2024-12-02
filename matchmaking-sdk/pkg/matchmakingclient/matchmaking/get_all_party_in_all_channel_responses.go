@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclientmodels"
 )
 
+type GetAllPartyInAllChannelResponse struct {
+	matchmakingclientmodels.ApiResponse
+	Data map[string][]matchmakingclientmodels.ModelsMatchingParty
+
+	Error400 *matchmakingclientmodels.ResponseErrorV1
+	Error401 *matchmakingclientmodels.ResponseErrorV1
+	Error403 *matchmakingclientmodels.ResponseErrorV1
+	Error404 *matchmakingclientmodels.ResponseErrorV1
+	Error500 *matchmakingclientmodels.ResponseErrorV1
+}
+
+func (m *GetAllPartyInAllChannelResponse) Unpack() (map[string][]matchmakingclientmodels.ModelsMatchingParty, *matchmakingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &matchmakingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetAllPartyInAllChannelReader is a Reader for the GetAllPartyInAllChannel structure.
 type GetAllPartyInAllChannelReader struct {
 	formats strfmt.Registry

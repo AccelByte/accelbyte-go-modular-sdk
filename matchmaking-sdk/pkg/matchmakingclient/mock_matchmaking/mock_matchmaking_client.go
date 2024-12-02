@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CleanAllMocksShort(params *CleanAllMocksParams, authInfo runtime.ClientAuthInfoWriter) (*CleanAllMocksNoContent, error)
-	GetAllMockMatchesShort(params *GetAllMockMatchesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllMockMatchesOK, error)
-	GetMockMatchesByTimestampShort(params *GetMockMatchesByTimestampParams, authInfo runtime.ClientAuthInfoWriter) (*GetMockMatchesByTimestampOK, error)
-	GetAllMockTicketsShort(params *GetAllMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllMockTicketsOK, error)
-	CreateMockTicketsShort(params *CreateMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMockTicketsCreated, error)
-	BulkCreateMockTicketsShort(params *BulkCreateMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreateMockTicketsCreated, error)
-	GetMockTicketsByTimestampShort(params *GetMockTicketsByTimestampParams, authInfo runtime.ClientAuthInfoWriter) (*GetMockTicketsByTimestampOK, error)
+	CleanAllMocksShort(params *CleanAllMocksParams, authInfo runtime.ClientAuthInfoWriter) (*CleanAllMocksResponse, error)
+	GetAllMockMatchesShort(params *GetAllMockMatchesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllMockMatchesResponse, error)
+	GetMockMatchesByTimestampShort(params *GetMockMatchesByTimestampParams, authInfo runtime.ClientAuthInfoWriter) (*GetMockMatchesByTimestampResponse, error)
+	GetAllMockTicketsShort(params *GetAllMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllMockTicketsResponse, error)
+	CreateMockTicketsShort(params *CreateMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMockTicketsResponse, error)
+	BulkCreateMockTicketsShort(params *BulkCreateMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreateMockTicketsResponse, error)
+	GetMockTicketsByTimestampShort(params *GetMockTicketsByTimestampParams, authInfo runtime.ClientAuthInfoWriter) (*GetMockTicketsByTimestampResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ CleanAllMocksShort delete all mock tickets and matches
 Delete all mock tickets and matches in a channel.
 '
 */
-func (a *Client) CleanAllMocksShort(params *CleanAllMocksParams, authInfo runtime.ClientAuthInfoWriter) (*CleanAllMocksNoContent, error) {
+func (a *Client) CleanAllMocksShort(params *CleanAllMocksParams, authInfo runtime.ClientAuthInfoWriter) (*CleanAllMocksResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCleanAllMocksParams()
@@ -84,17 +84,46 @@ func (a *Client) CleanAllMocksShort(params *CleanAllMocksParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *CleanAllMocksNoContent:
-		return v, nil
+		response := &CleanAllMocksResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CleanAllMocksBadRequest:
-		return nil, v
+		response := &CleanAllMocksResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CleanAllMocksUnauthorized:
-		return nil, v
+		response := &CleanAllMocksResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CleanAllMocksForbidden:
-		return nil, v
+		response := &CleanAllMocksResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CleanAllMocksNotFound:
-		return nil, v
+		response := &CleanAllMocksResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CleanAllMocksInternalServerError:
-		return nil, v
+		response := &CleanAllMocksResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -106,7 +135,7 @@ GetAllMockMatchesShort get all mock matches
 Read all mock matches in a channel resulted from matching mock tickets.
 '
 */
-func (a *Client) GetAllMockMatchesShort(params *GetAllMockMatchesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllMockMatchesOK, error) {
+func (a *Client) GetAllMockMatchesShort(params *GetAllMockMatchesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllMockMatchesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllMockMatchesParams()
@@ -144,17 +173,47 @@ func (a *Client) GetAllMockMatchesShort(params *GetAllMockMatchesParams, authInf
 	switch v := result.(type) {
 
 	case *GetAllMockMatchesOK:
-		return v, nil
+		response := &GetAllMockMatchesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllMockMatchesBadRequest:
-		return nil, v
+		response := &GetAllMockMatchesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllMockMatchesUnauthorized:
-		return nil, v
+		response := &GetAllMockMatchesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllMockMatchesForbidden:
-		return nil, v
+		response := &GetAllMockMatchesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllMockMatchesNotFound:
-		return nil, v
+		response := &GetAllMockMatchesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllMockMatchesInternalServerError:
-		return nil, v
+		response := &GetAllMockMatchesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +225,7 @@ GetMockMatchesByTimestampShort get mock matches after timestamp
 Read mock matches that has timestamp older than specified timestamp in a channel resulted from matching mock tickets.
 '
 */
-func (a *Client) GetMockMatchesByTimestampShort(params *GetMockMatchesByTimestampParams, authInfo runtime.ClientAuthInfoWriter) (*GetMockMatchesByTimestampOK, error) {
+func (a *Client) GetMockMatchesByTimestampShort(params *GetMockMatchesByTimestampParams, authInfo runtime.ClientAuthInfoWriter) (*GetMockMatchesByTimestampResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMockMatchesByTimestampParams()
@@ -204,17 +263,47 @@ func (a *Client) GetMockMatchesByTimestampShort(params *GetMockMatchesByTimestam
 	switch v := result.(type) {
 
 	case *GetMockMatchesByTimestampOK:
-		return v, nil
+		response := &GetMockMatchesByTimestampResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMockMatchesByTimestampBadRequest:
-		return nil, v
+		response := &GetMockMatchesByTimestampResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMockMatchesByTimestampUnauthorized:
-		return nil, v
+		response := &GetMockMatchesByTimestampResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMockMatchesByTimestampForbidden:
-		return nil, v
+		response := &GetMockMatchesByTimestampResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMockMatchesByTimestampNotFound:
-		return nil, v
+		response := &GetMockMatchesByTimestampResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMockMatchesByTimestampInternalServerError:
-		return nil, v
+		response := &GetMockMatchesByTimestampResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -226,7 +315,7 @@ GetAllMockTicketsShort get all mock tickets
 Read all mock tickets in a channel.
 '
 */
-func (a *Client) GetAllMockTicketsShort(params *GetAllMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllMockTicketsOK, error) {
+func (a *Client) GetAllMockTicketsShort(params *GetAllMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllMockTicketsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAllMockTicketsParams()
@@ -264,17 +353,47 @@ func (a *Client) GetAllMockTicketsShort(params *GetAllMockTicketsParams, authInf
 	switch v := result.(type) {
 
 	case *GetAllMockTicketsOK:
-		return v, nil
+		response := &GetAllMockTicketsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAllMockTicketsBadRequest:
-		return nil, v
+		response := &GetAllMockTicketsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllMockTicketsUnauthorized:
-		return nil, v
+		response := &GetAllMockTicketsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllMockTicketsForbidden:
-		return nil, v
+		response := &GetAllMockTicketsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllMockTicketsNotFound:
-		return nil, v
+		response := &GetAllMockTicketsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAllMockTicketsInternalServerError:
-		return nil, v
+		response := &GetAllMockTicketsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,7 +407,7 @@ Ticket's MMRs will be randomized using Normal distribution according to the inpu
 All mock tickets and matches will be cleaned up automatically after 1 day.
 '
 */
-func (a *Client) CreateMockTicketsShort(params *CreateMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMockTicketsCreated, error) {
+func (a *Client) CreateMockTicketsShort(params *CreateMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMockTicketsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMockTicketsParams()
@@ -326,17 +445,47 @@ func (a *Client) CreateMockTicketsShort(params *CreateMockTicketsParams, authInf
 	switch v := result.(type) {
 
 	case *CreateMockTicketsCreated:
-		return v, nil
+		response := &CreateMockTicketsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateMockTicketsBadRequest:
-		return nil, v
+		response := &CreateMockTicketsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMockTicketsUnauthorized:
-		return nil, v
+		response := &CreateMockTicketsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMockTicketsForbidden:
-		return nil, v
+		response := &CreateMockTicketsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMockTicketsNotFound:
-		return nil, v
+		response := &CreateMockTicketsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMockTicketsInternalServerError:
-		return nil, v
+		response := &CreateMockTicketsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -349,7 +498,7 @@ Create and queue mock tickets into specified game mode's pool.
 The tickets input will be used as is.
 '
 */
-func (a *Client) BulkCreateMockTicketsShort(params *BulkCreateMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreateMockTicketsCreated, error) {
+func (a *Client) BulkCreateMockTicketsShort(params *BulkCreateMockTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreateMockTicketsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkCreateMockTicketsParams()
@@ -387,17 +536,46 @@ func (a *Client) BulkCreateMockTicketsShort(params *BulkCreateMockTicketsParams,
 	switch v := result.(type) {
 
 	case *BulkCreateMockTicketsCreated:
-		return v, nil
+		response := &BulkCreateMockTicketsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkCreateMockTicketsBadRequest:
-		return nil, v
+		response := &BulkCreateMockTicketsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkCreateMockTicketsUnauthorized:
-		return nil, v
+		response := &BulkCreateMockTicketsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkCreateMockTicketsForbidden:
-		return nil, v
+		response := &BulkCreateMockTicketsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkCreateMockTicketsNotFound:
-		return nil, v
+		response := &BulkCreateMockTicketsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkCreateMockTicketsInternalServerError:
-		return nil, v
+		response := &BulkCreateMockTicketsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -409,7 +587,7 @@ GetMockTicketsByTimestampShort get mock tickets after timestamp
 Read mock tickets after the specified timestamp in a channel.
 '
 */
-func (a *Client) GetMockTicketsByTimestampShort(params *GetMockTicketsByTimestampParams, authInfo runtime.ClientAuthInfoWriter) (*GetMockTicketsByTimestampOK, error) {
+func (a *Client) GetMockTicketsByTimestampShort(params *GetMockTicketsByTimestampParams, authInfo runtime.ClientAuthInfoWriter) (*GetMockTicketsByTimestampResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMockTicketsByTimestampParams()
@@ -447,17 +625,47 @@ func (a *Client) GetMockTicketsByTimestampShort(params *GetMockTicketsByTimestam
 	switch v := result.(type) {
 
 	case *GetMockTicketsByTimestampOK:
-		return v, nil
+		response := &GetMockTicketsByTimestampResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMockTicketsByTimestampBadRequest:
-		return nil, v
+		response := &GetMockTicketsByTimestampResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMockTicketsByTimestampUnauthorized:
-		return nil, v
+		response := &GetMockTicketsByTimestampResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMockTicketsByTimestampForbidden:
-		return nil, v
+		response := &GetMockTicketsByTimestampResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMockTicketsByTimestampNotFound:
-		return nil, v
+		response := &GetMockTicketsByTimestampResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMockTicketsByTimestampInternalServerError:
-		return nil, v
+		response := &GetMockTicketsByTimestampResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

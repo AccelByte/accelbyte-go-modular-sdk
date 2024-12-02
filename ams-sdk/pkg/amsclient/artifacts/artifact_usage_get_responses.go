@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 )
 
+type ArtifactUsageGetResponse struct {
+	amsclientmodels.ApiResponse
+	Data *amsclientmodels.APIArtifactUsageResponse
+
+	Error401 *amsclientmodels.ResponseErrorResponse
+	Error403 *amsclientmodels.ResponseErrorResponse
+	Error500 *amsclientmodels.ResponseErrorResponse
+}
+
+func (m *ArtifactUsageGetResponse) Unpack() (*amsclientmodels.APIArtifactUsageResponse, *amsclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &amsclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ArtifactUsageGetReader is a Reader for the ArtifactUsageGet structure.
 type ArtifactUsageGetReader struct {
 	formats strfmt.Registry

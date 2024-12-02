@@ -13,7 +13,28 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 )
+
+type BasicHealthCheckResponse struct {
+	amsclientmodels.ApiResponse
+}
+
+func (m *BasicHealthCheckResponse) Unpack() *amsclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &amsclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // BasicHealthCheckReader is a Reader for the BasicHealthCheck structure.
 type BasicHealthCheckReader struct {

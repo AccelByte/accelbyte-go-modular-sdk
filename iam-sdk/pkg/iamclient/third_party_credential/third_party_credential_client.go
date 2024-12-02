@@ -30,17 +30,17 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RetrieveAllThirdPartyLoginPlatformCredentialV3Short(params *RetrieveAllThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllThirdPartyLoginPlatformCredentialV3OK, error)
-	RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialV3OK, error)
-	RetrieveThirdPartyLoginPlatformCredentialV3Short(params *RetrieveThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveThirdPartyLoginPlatformCredentialV3OK, error)
-	AddThirdPartyLoginPlatformCredentialV3Short(params *AddThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*AddThirdPartyLoginPlatformCredentialV3Created, error)
-	DeleteThirdPartyLoginPlatformCredentialV3Short(params *DeleteThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformCredentialV3NoContent, error)
-	UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformCredentialV3OK, error)
-	UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformDomainV3OK, error)
-	DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformDomainV3NoContent, error)
-	AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(params *AdminCheckThirdPartyLoginPlatformAvailabilityV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCheckThirdPartyLoginPlatformAvailabilityV3OK, error)
-	RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3OK, error)
-	RetrieveActiveOIDCClientsPublicV3Short(params *RetrieveActiveOIDCClientsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveActiveOIDCClientsPublicV3OK, error)
+	RetrieveAllThirdPartyLoginPlatformCredentialV3Short(params *RetrieveAllThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllThirdPartyLoginPlatformCredentialV3Response, error)
+	RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response, error)
+	RetrieveThirdPartyLoginPlatformCredentialV3Short(params *RetrieveThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveThirdPartyLoginPlatformCredentialV3Response, error)
+	AddThirdPartyLoginPlatformCredentialV3Short(params *AddThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*AddThirdPartyLoginPlatformCredentialV3Response, error)
+	DeleteThirdPartyLoginPlatformCredentialV3Short(params *DeleteThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformCredentialV3Response, error)
+	UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformCredentialV3Response, error)
+	UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformDomainV3Response, error)
+	DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformDomainV3Response, error)
+	AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(params *AdminCheckThirdPartyLoginPlatformAvailabilityV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCheckThirdPartyLoginPlatformAvailabilityV3Response, error)
+	RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response, error)
+	RetrieveActiveOIDCClientsPublicV3Short(params *RetrieveActiveOIDCClientsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveActiveOIDCClientsPublicV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ type ClientService interface {
 RetrieveAllThirdPartyLoginPlatformCredentialV3Short get all third party platform credential
 This is the API to Get All Active 3rd Platform Credential.
 */
-func (a *Client) RetrieveAllThirdPartyLoginPlatformCredentialV3Short(params *RetrieveAllThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllThirdPartyLoginPlatformCredentialV3OK, error) {
+func (a *Client) RetrieveAllThirdPartyLoginPlatformCredentialV3Short(params *RetrieveAllThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllThirdPartyLoginPlatformCredentialV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAllThirdPartyLoginPlatformCredentialV3Params()
@@ -87,15 +87,40 @@ func (a *Client) RetrieveAllThirdPartyLoginPlatformCredentialV3Short(params *Ret
 	switch v := result.(type) {
 
 	case *RetrieveAllThirdPartyLoginPlatformCredentialV3OK:
-		return v, nil
+		response := &RetrieveAllThirdPartyLoginPlatformCredentialV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveAllThirdPartyLoginPlatformCredentialV3Unauthorized:
-		return nil, v
+		response := &RetrieveAllThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllThirdPartyLoginPlatformCredentialV3Forbidden:
-		return nil, v
+		response := &RetrieveAllThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllThirdPartyLoginPlatformCredentialV3NotFound:
-		return nil, v
+		response := &RetrieveAllThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllThirdPartyLoginPlatformCredentialV3InternalServerError:
-		return nil, v
+		response := &RetrieveAllThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -106,7 +131,7 @@ func (a *Client) RetrieveAllThirdPartyLoginPlatformCredentialV3Short(params *Ret
 RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short get all active third party platform active credential
 This is the API to Get All Active 3rd Platform Credential.
 */
-func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialV3OK, error) {
+func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAllActiveThirdPartyLoginPlatformCredentialV3Params()
@@ -144,15 +169,40 @@ func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short(param
 	switch v := result.(type) {
 
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3OK:
-		return v, nil
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Unauthorized:
-		return nil, v
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Forbidden:
-		return nil, v
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3NotFound:
-		return nil, v
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3InternalServerError:
-		return nil, v
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -163,7 +213,7 @@ func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short(param
 RetrieveThirdPartyLoginPlatformCredentialV3Short retrieve third party platform credential
 This is the API to Get 3rd Platform Credential.
 */
-func (a *Client) RetrieveThirdPartyLoginPlatformCredentialV3Short(params *RetrieveThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveThirdPartyLoginPlatformCredentialV3OK, error) {
+func (a *Client) RetrieveThirdPartyLoginPlatformCredentialV3Short(params *RetrieveThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveThirdPartyLoginPlatformCredentialV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveThirdPartyLoginPlatformCredentialV3Params()
@@ -201,15 +251,40 @@ func (a *Client) RetrieveThirdPartyLoginPlatformCredentialV3Short(params *Retrie
 	switch v := result.(type) {
 
 	case *RetrieveThirdPartyLoginPlatformCredentialV3OK:
-		return v, nil
+		response := &RetrieveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveThirdPartyLoginPlatformCredentialV3Unauthorized:
-		return nil, v
+		response := &RetrieveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveThirdPartyLoginPlatformCredentialV3Forbidden:
-		return nil, v
+		response := &RetrieveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveThirdPartyLoginPlatformCredentialV3NotFound:
-		return nil, v
+		response := &RetrieveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveThirdPartyLoginPlatformCredentialV3InternalServerError:
-		return nil, v
+		response := &RetrieveThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -241,7 +316,7 @@ If generic oauth flow is set to true:
 Its a JSON format with key should be `name`, `email` and `avatarUrl`
 since IAM will look up for these key when extracting user info. **default claims keys : userIdentity/sub, name, email and avatarUrl/picture**
 */
-func (a *Client) AddThirdPartyLoginPlatformCredentialV3Short(params *AddThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*AddThirdPartyLoginPlatformCredentialV3Created, error) {
+func (a *Client) AddThirdPartyLoginPlatformCredentialV3Short(params *AddThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*AddThirdPartyLoginPlatformCredentialV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddThirdPartyLoginPlatformCredentialV3Params()
@@ -279,15 +354,40 @@ func (a *Client) AddThirdPartyLoginPlatformCredentialV3Short(params *AddThirdPar
 	switch v := result.(type) {
 
 	case *AddThirdPartyLoginPlatformCredentialV3Created:
-		return v, nil
+		response := &AddThirdPartyLoginPlatformCredentialV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddThirdPartyLoginPlatformCredentialV3BadRequest:
-		return nil, v
+		response := &AddThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddThirdPartyLoginPlatformCredentialV3Unauthorized:
-		return nil, v
+		response := &AddThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddThirdPartyLoginPlatformCredentialV3Forbidden:
-		return nil, v
+		response := &AddThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddThirdPartyLoginPlatformCredentialV3InternalServerError:
-		return nil, v
+		response := &AddThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -298,7 +398,7 @@ func (a *Client) AddThirdPartyLoginPlatformCredentialV3Short(params *AddThirdPar
 DeleteThirdPartyLoginPlatformCredentialV3Short delete third party platform credential
 This is the API to Delete 3rd Platform Credential.
 */
-func (a *Client) DeleteThirdPartyLoginPlatformCredentialV3Short(params *DeleteThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformCredentialV3NoContent, error) {
+func (a *Client) DeleteThirdPartyLoginPlatformCredentialV3Short(params *DeleteThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformCredentialV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteThirdPartyLoginPlatformCredentialV3Params()
@@ -336,15 +436,39 @@ func (a *Client) DeleteThirdPartyLoginPlatformCredentialV3Short(params *DeleteTh
 	switch v := result.(type) {
 
 	case *DeleteThirdPartyLoginPlatformCredentialV3NoContent:
-		return v, nil
+		response := &DeleteThirdPartyLoginPlatformCredentialV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformCredentialV3Unauthorized:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformCredentialV3Forbidden:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformCredentialV3NotFound:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformCredentialV3InternalServerError:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -376,7 +500,7 @@ If generic oauth flow is set to true:
 Its a JSON format with key should be `name`, `email` and `avatarUrl`
 since IAM will look up for these key when extracting user info.**default claims keys : userIdentity/sub, name, email and avatarUrl/picture**
 */
-func (a *Client) UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformCredentialV3OK, error) {
+func (a *Client) UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformCredentialV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateThirdPartyLoginPlatformCredentialV3Params()
@@ -414,17 +538,47 @@ func (a *Client) UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateTh
 	switch v := result.(type) {
 
 	case *UpdateThirdPartyLoginPlatformCredentialV3OK:
-		return v, nil
+		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformCredentialV3BadRequest:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformCredentialV3Unauthorized:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformCredentialV3Forbidden:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformCredentialV3NotFound:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformCredentialV3InternalServerError:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -435,7 +589,7 @@ func (a *Client) UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateTh
 UpdateThirdPartyLoginPlatformDomainV3Short set third party platform credential's domain
 This is the API to set 3rd Platform domain.
 */
-func (a *Client) UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformDomainV3OK, error) {
+func (a *Client) UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformDomainV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateThirdPartyLoginPlatformDomainV3Params()
@@ -473,17 +627,47 @@ func (a *Client) UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdP
 	switch v := result.(type) {
 
 	case *UpdateThirdPartyLoginPlatformDomainV3OK:
-		return v, nil
+		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformDomainV3BadRequest:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformDomainV3Unauthorized:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformDomainV3Forbidden:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformDomainV3NotFound:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateThirdPartyLoginPlatformDomainV3InternalServerError:
-		return nil, v
+		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -494,7 +678,7 @@ func (a *Client) UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdP
 DeleteThirdPartyLoginPlatformDomainV3Short unregister third party platform credential's domain
 This is the API to unregister 3rd Platform domain.
 */
-func (a *Client) DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformDomainV3NoContent, error) {
+func (a *Client) DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformDomainV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteThirdPartyLoginPlatformDomainV3Params()
@@ -532,17 +716,46 @@ func (a *Client) DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdP
 	switch v := result.(type) {
 
 	case *DeleteThirdPartyLoginPlatformDomainV3NoContent:
-		return v, nil
+		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformDomainV3BadRequest:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformDomainV3Unauthorized:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformDomainV3Forbidden:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformDomainV3NotFound:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteThirdPartyLoginPlatformDomainV3InternalServerError:
-		return nil, v
+		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -559,7 +772,7 @@ Supported third party platform and platform group:
 - ps4
 - ps5
 */
-func (a *Client) AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(params *AdminCheckThirdPartyLoginPlatformAvailabilityV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCheckThirdPartyLoginPlatformAvailabilityV3OK, error) {
+func (a *Client) AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(params *AdminCheckThirdPartyLoginPlatformAvailabilityV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCheckThirdPartyLoginPlatformAvailabilityV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCheckThirdPartyLoginPlatformAvailabilityV3Params()
@@ -597,13 +810,33 @@ func (a *Client) AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(params *Ad
 	switch v := result.(type) {
 
 	case *AdminCheckThirdPartyLoginPlatformAvailabilityV3OK:
-		return v, nil
+		response := &AdminCheckThirdPartyLoginPlatformAvailabilityV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCheckThirdPartyLoginPlatformAvailabilityV3BadRequest:
-		return nil, v
+		response := &AdminCheckThirdPartyLoginPlatformAvailabilityV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCheckThirdPartyLoginPlatformAvailabilityV3Unauthorized:
-		return nil, v
+		response := &AdminCheckThirdPartyLoginPlatformAvailabilityV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCheckThirdPartyLoginPlatformAvailabilityV3Forbidden:
-		return nil, v
+		response := &AdminCheckThirdPartyLoginPlatformAvailabilityV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -614,7 +847,7 @@ func (a *Client) AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(params *Ad
 RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short get all active third party platform active credential for public usage
 This is the Public API to Get All Active 3rd Platform Credential.
 */
-func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3OK, error) {
+func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Params()
@@ -652,15 +885,40 @@ func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short
 	switch v := result.(type) {
 
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3OK:
-		return v, nil
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Unauthorized:
-		return nil, v
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Forbidden:
-		return nil, v
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3NotFound:
-		return nil, v
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3InternalServerError:
-		return nil, v
+		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -671,7 +929,7 @@ func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short
 RetrieveActiveOIDCClientsPublicV3Short get active oidc platform credential by client id
 This is the Public API to Get All Active OIDC Platform Credential By Client ID
 */
-func (a *Client) RetrieveActiveOIDCClientsPublicV3Short(params *RetrieveActiveOIDCClientsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveActiveOIDCClientsPublicV3OK, error) {
+func (a *Client) RetrieveActiveOIDCClientsPublicV3Short(params *RetrieveActiveOIDCClientsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveActiveOIDCClientsPublicV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveActiveOIDCClientsPublicV3Params()
@@ -709,11 +967,26 @@ func (a *Client) RetrieveActiveOIDCClientsPublicV3Short(params *RetrieveActiveOI
 	switch v := result.(type) {
 
 	case *RetrieveActiveOIDCClientsPublicV3OK:
-		return v, nil
+		response := &RetrieveActiveOIDCClientsPublicV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveActiveOIDCClientsPublicV3NotFound:
-		return nil, v
+		response := &RetrieveActiveOIDCClientsPublicV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrieveActiveOIDCClientsPublicV3InternalServerError:
-		return nil, v
+		response := &RetrieveActiveOIDCClientsPublicV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

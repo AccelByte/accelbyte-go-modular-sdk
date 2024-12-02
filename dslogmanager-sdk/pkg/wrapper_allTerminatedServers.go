@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclient/all_terminated_servers"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AllTerminatedServersService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AllTerminatedServersService) BatchDownloadServerLogsShort(input *all_terminated_servers.BatchDownloadServerLogsParams, writer io.Writer) (io.Writer, error) {
+func (aaa *AllTerminatedServersService) BatchDownloadServerLogsShort(input *all_terminated_servers.BatchDownloadServerLogsParams, writer io.Writer) (*all_terminated_servers.BatchDownloadServerLogsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AllTerminatedServersService) BatchDownloadServerLogsShort(input *all_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AllTerminatedServersService) ListMetadataServersShort(input *all_terminated_servers.ListMetadataServersParams) (*dslogmanagerclientmodels.ModelsListTerminatedServersResponse, error) {
+func (aaa *AllTerminatedServersService) ListMetadataServersShort(input *all_terminated_servers.ListMetadataServersParams) (*all_terminated_servers.ListMetadataServersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AllTerminatedServersService) ListMetadataServersShort(input *all_term
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AllTerminatedServersService) ListAllTerminatedServersShort(input *all_terminated_servers.ListAllTerminatedServersParams) (*dslogmanagerclientmodels.ModelsListTerminatedServersResponse, error) {
+func (aaa *AllTerminatedServersService) ListAllTerminatedServersShort(input *all_terminated_servers.ListAllTerminatedServersParams) (*all_terminated_servers.ListAllTerminatedServersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,5 +125,5 @@ func (aaa *AllTerminatedServersService) ListAllTerminatedServersShort(input *all
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

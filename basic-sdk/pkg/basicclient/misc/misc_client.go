@@ -30,17 +30,17 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetCountriesShort(params *GetCountriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountriesOK, error)
-	GetCountryGroupsShort(params *GetCountryGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountryGroupsOK, error)
-	AddCountryGroupShort(params *AddCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddCountryGroupCreated, error)
-	UpdateCountryGroupShort(params *UpdateCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryGroupOK, error)
-	DeleteCountryGroupShort(params *DeleteCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCountryGroupOK, error)
-	GetLanguagesShort(params *GetLanguagesParams, authInfo runtime.ClientAuthInfoWriter) (*GetLanguagesOK, error)
-	GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.ClientAuthInfoWriter) (*GetTimeZonesOK, error)
-	PublicGetTimeShort(params *PublicGetTimeParams) (*PublicGetTimeOK, error)
-	PublicGetCountriesShort(params *PublicGetCountriesParams) (*PublicGetCountriesOK, error)
-	PublicGetLanguagesShort(params *PublicGetLanguagesParams) (*PublicGetLanguagesOK, error)
-	PublicGetTimeZonesShort(params *PublicGetTimeZonesParams) (*PublicGetTimeZonesOK, error)
+	GetCountriesShort(params *GetCountriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountriesResponse, error)
+	GetCountryGroupsShort(params *GetCountryGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountryGroupsResponse, error)
+	AddCountryGroupShort(params *AddCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddCountryGroupResponse, error)
+	UpdateCountryGroupShort(params *UpdateCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryGroupResponse, error)
+	DeleteCountryGroupShort(params *DeleteCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCountryGroupResponse, error)
+	GetLanguagesShort(params *GetLanguagesParams, authInfo runtime.ClientAuthInfoWriter) (*GetLanguagesResponse, error)
+	GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.ClientAuthInfoWriter) (*GetTimeZonesResponse, error)
+	PublicGetTimeShort(params *PublicGetTimeParams) (*PublicGetTimeResponse, error)
+	PublicGetCountriesShort(params *PublicGetCountriesParams) (*PublicGetCountriesResponse, error)
+	PublicGetLanguagesShort(params *PublicGetLanguagesParams) (*PublicGetLanguagesResponse, error)
+	PublicGetTimeZonesShort(params *PublicGetTimeZonesParams) (*PublicGetTimeZonesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,7 +53,7 @@ Other detail info:
   * Action code : 11204
   *  Returns : country code list
 */
-func (a *Client) GetCountriesShort(params *GetCountriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountriesOK, error) {
+func (a *Client) GetCountriesShort(params *GetCountriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCountriesParams()
@@ -91,11 +91,26 @@ func (a *Client) GetCountriesShort(params *GetCountriesParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetCountriesOK:
-		return v, nil
+		response := &GetCountriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCountriesBadRequest:
-		return nil, v
+		response := &GetCountriesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCountriesUnauthorized:
-		return nil, v
+		response := &GetCountriesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -110,7 +125,7 @@ Other detail info:
   * Action code : 11203
   *  Returns : list of country groups
 */
-func (a *Client) GetCountryGroupsShort(params *GetCountryGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountryGroupsOK, error) {
+func (a *Client) GetCountryGroupsShort(params *GetCountryGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountryGroupsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCountryGroupsParams()
@@ -148,15 +163,40 @@ func (a *Client) GetCountryGroupsShort(params *GetCountryGroupsParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetCountryGroupsOK:
-		return v, nil
+		response := &GetCountryGroupsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCountryGroupsBadRequest:
-		return nil, v
+		response := &GetCountryGroupsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCountryGroupsUnauthorized:
-		return nil, v
+		response := &GetCountryGroupsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCountryGroupsForbidden:
-		return nil, v
+		response := &GetCountryGroupsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCountryGroupsNotFound:
-		return nil, v
+		response := &GetCountryGroupsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -172,7 +212,7 @@ Other detail info:
   * Action code : 11201
   *  Returns : newly created country group
 */
-func (a *Client) AddCountryGroupShort(params *AddCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddCountryGroupCreated, error) {
+func (a *Client) AddCountryGroupShort(params *AddCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddCountryGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddCountryGroupParams()
@@ -210,15 +250,40 @@ func (a *Client) AddCountryGroupShort(params *AddCountryGroupParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AddCountryGroupCreated:
-		return v, nil
+		response := &AddCountryGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddCountryGroupBadRequest:
-		return nil, v
+		response := &AddCountryGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddCountryGroupUnauthorized:
-		return nil, v
+		response := &AddCountryGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddCountryGroupForbidden:
-		return nil, v
+		response := &AddCountryGroupResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddCountryGroupConflict:
-		return nil, v
+		response := &AddCountryGroupResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -236,7 +301,7 @@ Other detail info:
   * Action code : 11202
   *  Returns : updated country group
 */
-func (a *Client) UpdateCountryGroupShort(params *UpdateCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryGroupOK, error) {
+func (a *Client) UpdateCountryGroupShort(params *UpdateCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCountryGroupParams()
@@ -274,15 +339,40 @@ func (a *Client) UpdateCountryGroupShort(params *UpdateCountryGroupParams, authI
 	switch v := result.(type) {
 
 	case *UpdateCountryGroupOK:
-		return v, nil
+		response := &UpdateCountryGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateCountryGroupBadRequest:
-		return nil, v
+		response := &UpdateCountryGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCountryGroupUnauthorized:
-		return nil, v
+		response := &UpdateCountryGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCountryGroupForbidden:
-		return nil, v
+		response := &UpdateCountryGroupResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCountryGroupNotFound:
-		return nil, v
+		response := &UpdateCountryGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -293,7 +383,7 @@ func (a *Client) UpdateCountryGroupShort(params *UpdateCountryGroupParams, authI
 DeleteCountryGroupShort delete a country group
 Delete a country groups by its country group code. This endpoint usually used for testing purpose to cleanup test data.
 */
-func (a *Client) DeleteCountryGroupShort(params *DeleteCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCountryGroupOK, error) {
+func (a *Client) DeleteCountryGroupShort(params *DeleteCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCountryGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteCountryGroupParams()
@@ -331,15 +421,39 @@ func (a *Client) DeleteCountryGroupShort(params *DeleteCountryGroupParams, authI
 	switch v := result.(type) {
 
 	case *DeleteCountryGroupOK:
-		return v, nil
+		response := &DeleteCountryGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteCountryGroupBadRequest:
-		return nil, v
+		response := &DeleteCountryGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteCountryGroupUnauthorized:
-		return nil, v
+		response := &DeleteCountryGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteCountryGroupForbidden:
-		return nil, v
+		response := &DeleteCountryGroupResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteCountryGroupNotFound:
-		return nil, v
+		response := &DeleteCountryGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -354,7 +468,7 @@ Other detail info:
   * Action code : 11206
   *  Returns : language list
 */
-func (a *Client) GetLanguagesShort(params *GetLanguagesParams, authInfo runtime.ClientAuthInfoWriter) (*GetLanguagesOK, error) {
+func (a *Client) GetLanguagesShort(params *GetLanguagesParams, authInfo runtime.ClientAuthInfoWriter) (*GetLanguagesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLanguagesParams()
@@ -392,11 +506,26 @@ func (a *Client) GetLanguagesShort(params *GetLanguagesParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetLanguagesOK:
-		return v, nil
+		response := &GetLanguagesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLanguagesBadRequest:
-		return nil, v
+		response := &GetLanguagesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetLanguagesUnauthorized:
-		return nil, v
+		response := &GetLanguagesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -411,7 +540,7 @@ Other detail info:
   * Action code : 11205
   *  Returns : time zones
 */
-func (a *Client) GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.ClientAuthInfoWriter) (*GetTimeZonesOK, error) {
+func (a *Client) GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.ClientAuthInfoWriter) (*GetTimeZonesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTimeZonesParams()
@@ -449,11 +578,26 @@ func (a *Client) GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetTimeZonesOK:
-		return v, nil
+		response := &GetTimeZonesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTimeZonesBadRequest:
-		return nil, v
+		response := &GetTimeZonesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetTimeZonesUnauthorized:
-		return nil, v
+		response := &GetTimeZonesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -464,7 +608,7 @@ func (a *Client) GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.
 PublicGetTimeShort get server time
 Get server time
 */
-func (a *Client) PublicGetTimeShort(params *PublicGetTimeParams) (*PublicGetTimeOK, error) {
+func (a *Client) PublicGetTimeShort(params *PublicGetTimeParams) (*PublicGetTimeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetTimeParams()
@@ -501,7 +645,12 @@ func (a *Client) PublicGetTimeShort(params *PublicGetTimeParams) (*PublicGetTime
 	switch v := result.(type) {
 
 	case *PublicGetTimeOK:
-		return v, nil
+		response := &PublicGetTimeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -515,7 +664,7 @@ Other detail info:
 
   * Returns : country code list
 */
-func (a *Client) PublicGetCountriesShort(params *PublicGetCountriesParams) (*PublicGetCountriesOK, error) {
+func (a *Client) PublicGetCountriesShort(params *PublicGetCountriesParams) (*PublicGetCountriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCountriesParams()
@@ -552,9 +701,19 @@ func (a *Client) PublicGetCountriesShort(params *PublicGetCountriesParams) (*Pub
 	switch v := result.(type) {
 
 	case *PublicGetCountriesOK:
-		return v, nil
+		response := &PublicGetCountriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCountriesBadRequest:
-		return nil, v
+		response := &PublicGetCountriesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -568,7 +727,7 @@ Other detail info:
 
   * Returns : language list
 */
-func (a *Client) PublicGetLanguagesShort(params *PublicGetLanguagesParams) (*PublicGetLanguagesOK, error) {
+func (a *Client) PublicGetLanguagesShort(params *PublicGetLanguagesParams) (*PublicGetLanguagesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetLanguagesParams()
@@ -605,9 +764,19 @@ func (a *Client) PublicGetLanguagesShort(params *PublicGetLanguagesParams) (*Pub
 	switch v := result.(type) {
 
 	case *PublicGetLanguagesOK:
-		return v, nil
+		response := &PublicGetLanguagesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetLanguagesBadRequest:
-		return nil, v
+		response := &PublicGetLanguagesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -621,7 +790,7 @@ Other detail info:
 
   * Returns : time zones
 */
-func (a *Client) PublicGetTimeZonesShort(params *PublicGetTimeZonesParams) (*PublicGetTimeZonesOK, error) {
+func (a *Client) PublicGetTimeZonesShort(params *PublicGetTimeZonesParams) (*PublicGetTimeZonesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetTimeZonesParams()
@@ -658,9 +827,19 @@ func (a *Client) PublicGetTimeZonesShort(params *PublicGetTimeZonesParams) (*Pub
 	switch v := result.(type) {
 
 	case *PublicGetTimeZonesOK:
-		return v, nil
+		response := &PublicGetTimeZonesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetTimeZonesBadRequest:
-		return nil, v
+		response := &PublicGetTimeZonesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

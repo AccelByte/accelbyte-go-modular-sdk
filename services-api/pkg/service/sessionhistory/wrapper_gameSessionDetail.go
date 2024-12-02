@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/game_session_detail"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclientmodels"
 )
 
 // GameSessionDetailService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *GameSessionDetailService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *GameSessionDetailService) AdminQueryGameSessionDetailShort(input *game_session_detail.AdminQueryGameSessionDetailParams) (*sessionhistoryclientmodels.ApimodelsGameSessionDetailQueryResponse, error) {
+func (aaa *GameSessionDetailService) AdminQueryGameSessionDetailShort(input *game_session_detail.AdminQueryGameSessionDetailParams) (*game_session_detail.AdminQueryGameSessionDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *GameSessionDetailService) AdminQueryGameSessionDetailShort(input *gam
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) GetGameSessionDetailShort(input *game_session_detail.GetGameSessionDetailParams) (*sessionhistoryclientmodels.ApimodelsGameSessionDetail, error) {
+func (aaa *GameSessionDetailService) GetGameSessionDetailShort(input *game_session_detail.GetGameSessionDetailParams) (*game_session_detail.GetGameSessionDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *GameSessionDetailService) GetGameSessionDetailShort(input *game_sessi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) AdminQueryMatchmakingDetailShort(input *game_session_detail.AdminQueryMatchmakingDetailParams) (*sessionhistoryclientmodels.ApimodelsMatchmakingDetailQueryResponse, error) {
+func (aaa *GameSessionDetailService) AdminQueryMatchmakingDetailShort(input *game_session_detail.AdminQueryMatchmakingDetailParams) (*game_session_detail.AdminQueryMatchmakingDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *GameSessionDetailService) AdminQueryMatchmakingDetailShort(input *gam
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) AdminGetMatchmakingDetailBySessionIDShort(input *game_session_detail.AdminGetMatchmakingDetailBySessionIDParams) (*sessionhistoryclientmodels.ApimodelsMatchmakingDetail, error) {
+func (aaa *GameSessionDetailService) AdminGetMatchmakingDetailBySessionIDShort(input *game_session_detail.AdminGetMatchmakingDetailBySessionIDParams) (*game_session_detail.AdminGetMatchmakingDetailBySessionIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *GameSessionDetailService) AdminGetMatchmakingDetailBySessionIDShort(i
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) AdminGetMatchmakingDetailByTicketIDShort(input *game_session_detail.AdminGetMatchmakingDetailByTicketIDParams) (*sessionhistoryclientmodels.ApimodelsMatchmakingDetail, error) {
+func (aaa *GameSessionDetailService) AdminGetMatchmakingDetailByTicketIDShort(input *game_session_detail.AdminGetMatchmakingDetailByTicketIDParams) (*game_session_detail.AdminGetMatchmakingDetailByTicketIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *GameSessionDetailService) AdminGetMatchmakingDetailByTicketIDShort(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) AdminQueryPartyDetailShort(input *game_session_detail.AdminQueryPartyDetailParams) (*sessionhistoryclientmodels.ApimodelsPartyDetailQueryResponse, error) {
+func (aaa *GameSessionDetailService) AdminQueryPartyDetailShort(input *game_session_detail.AdminQueryPartyDetailParams) (*game_session_detail.AdminQueryPartyDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *GameSessionDetailService) AdminQueryPartyDetailShort(input *game_sess
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) GetPartyDetailShort(input *game_session_detail.GetPartyDetailParams) (*sessionhistoryclientmodels.ApimodelsPartyDetail, error) {
+func (aaa *GameSessionDetailService) GetPartyDetailShort(input *game_session_detail.GetPartyDetailParams) (*game_session_detail.GetPartyDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *GameSessionDetailService) GetPartyDetailShort(input *game_session_det
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) AdminQueryTicketDetailShort(input *game_session_detail.AdminQueryTicketDetailParams) (*sessionhistoryclientmodels.ApimodelsTicketDetailQueryResponse, error) {
+func (aaa *GameSessionDetailService) AdminQueryTicketDetailShort(input *game_session_detail.AdminQueryTicketDetailParams) (*game_session_detail.AdminQueryTicketDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *GameSessionDetailService) AdminQueryTicketDetailShort(input *game_ses
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) AdminTicketDetailGetByTicketIDShort(input *game_session_detail.AdminTicketDetailGetByTicketIDParams) (*sessionhistoryclientmodels.ApimodelsTicketObservabilityDetail, error) {
+func (aaa *GameSessionDetailService) AdminTicketDetailGetByTicketIDShort(input *game_session_detail.AdminTicketDetailGetByTicketIDParams) (*game_session_detail.AdminTicketDetailGetByTicketIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *GameSessionDetailService) AdminTicketDetailGetByTicketIDShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionDetailService) PublicQueryGameSessionMeShort(input *game_session_detail.PublicQueryGameSessionMeParams) (*sessionhistoryclientmodels.ApimodelsGameSessionDetailQueryResponse, error) {
+func (aaa *GameSessionDetailService) PublicQueryGameSessionMeShort(input *game_session_detail.PublicQueryGameSessionMeParams) (*game_session_detail.PublicQueryGameSessionMeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,5 +335,5 @@ func (aaa *GameSessionDetailService) PublicQueryGameSessionMeShort(input *game_s
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

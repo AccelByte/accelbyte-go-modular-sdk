@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 )
 
+type AdminRemoveTopicMemberResponse struct {
+	chatclientmodels.ApiResponse
+	Data *chatclientmodels.MessageActionAddUserToTopicResult
+}
+
+func (m *AdminRemoveTopicMemberResponse) Unpack() (*chatclientmodels.MessageActionAddUserToTopicResult, *chatclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminRemoveTopicMemberReader is a Reader for the AdminRemoveTopicMember structure.
 type AdminRemoveTopicMemberReader struct {
 	formats strfmt.Registry

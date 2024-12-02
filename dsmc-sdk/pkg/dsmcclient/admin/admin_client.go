@@ -30,22 +30,22 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetWorkerConfigShort(params *GetWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetWorkerConfigOK, error)
-	UpdateWorkerConfigShort(params *UpdateWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWorkerConfigNoContent, error)
-	CreateWorkerConfigShort(params *CreateWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateWorkerConfigCreated, error)
-	AddBufferShort(params *AddBufferParams, authInfo runtime.ClientAuthInfoWriter) (*AddBufferOK, error)
-	ListServerShort(params *ListServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerOK, error)
-	CountServerShort(params *CountServerParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerOK, error)
-	CountServerDetailedShort(params *CountServerDetailedParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerDetailedOK, error)
-	ListLocalServerShort(params *ListLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListLocalServerOK, error)
-	DeleteLocalServerShort(params *DeleteLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalServerNoContent, error)
-	GetServerShort(params *GetServerParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerOK, error)
-	DeleteServerShort(params *DeleteServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServerNoContent, error)
-	ListSessionShort(params *ListSessionParams, authInfo runtime.ClientAuthInfoWriter) (*ListSessionOK, error)
-	CountSessionShort(params *CountSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CountSessionOK, error)
-	DeleteSessionShort(params *DeleteSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSessionNoContent, error)
-	RunGhostCleanerRequestHandlerShort(params *RunGhostCleanerRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*RunGhostCleanerRequestHandlerNoContent, error)
-	RunZombieCleanerRequestHandlerShort(params *RunZombieCleanerRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*RunZombieCleanerRequestHandlerNoContent, error)
+	GetWorkerConfigShort(params *GetWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetWorkerConfigResponse, error)
+	UpdateWorkerConfigShort(params *UpdateWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWorkerConfigResponse, error)
+	CreateWorkerConfigShort(params *CreateWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateWorkerConfigResponse, error)
+	AddBufferShort(params *AddBufferParams, authInfo runtime.ClientAuthInfoWriter) (*AddBufferResponse, error)
+	ListServerShort(params *ListServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerResponse, error)
+	CountServerShort(params *CountServerParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerResponse, error)
+	CountServerDetailedShort(params *CountServerDetailedParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerDetailedResponse, error)
+	ListLocalServerShort(params *ListLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListLocalServerResponse, error)
+	DeleteLocalServerShort(params *DeleteLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalServerResponse, error)
+	GetServerShort(params *GetServerParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerResponse, error)
+	DeleteServerShort(params *DeleteServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServerResponse, error)
+	ListSessionShort(params *ListSessionParams, authInfo runtime.ClientAuthInfoWriter) (*ListSessionResponse, error)
+	CountSessionShort(params *CountSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CountSessionResponse, error)
+	DeleteSessionShort(params *DeleteSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSessionResponse, error)
+	RunGhostCleanerRequestHandlerShort(params *RunGhostCleanerRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*RunGhostCleanerRequestHandlerResponse, error)
+	RunZombieCleanerRequestHandlerShort(params *RunZombieCleanerRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*RunZombieCleanerRequestHandlerResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -58,7 +58,7 @@ Required scope: social
 
 This endpoint retrieves a worker configuration to control the worker in the DSMC.
 */
-func (a *Client) GetWorkerConfigShort(params *GetWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetWorkerConfigOK, error) {
+func (a *Client) GetWorkerConfigShort(params *GetWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetWorkerConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetWorkerConfigParams()
@@ -96,15 +96,40 @@ func (a *Client) GetWorkerConfigShort(params *GetWorkerConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetWorkerConfigOK:
-		return v, nil
+		response := &GetWorkerConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetWorkerConfigBadRequest:
-		return nil, v
+		response := &GetWorkerConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetWorkerConfigUnauthorized:
-		return nil, v
+		response := &GetWorkerConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetWorkerConfigNotFound:
-		return nil, v
+		response := &GetWorkerConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetWorkerConfigInternalServerError:
-		return nil, v
+		response := &GetWorkerConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -119,7 +144,7 @@ Required scope: social
 
 This endpoint updates a worker configuration to control the worker in the DSMC.
 */
-func (a *Client) UpdateWorkerConfigShort(params *UpdateWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWorkerConfigNoContent, error) {
+func (a *Client) UpdateWorkerConfigShort(params *UpdateWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWorkerConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateWorkerConfigParams()
@@ -157,15 +182,39 @@ func (a *Client) UpdateWorkerConfigShort(params *UpdateWorkerConfigParams, authI
 	switch v := result.(type) {
 
 	case *UpdateWorkerConfigNoContent:
-		return v, nil
+		response := &UpdateWorkerConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateWorkerConfigBadRequest:
-		return nil, v
+		response := &UpdateWorkerConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateWorkerConfigUnauthorized:
-		return nil, v
+		response := &UpdateWorkerConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateWorkerConfigNotFound:
-		return nil, v
+		response := &UpdateWorkerConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateWorkerConfigInternalServerError:
-		return nil, v
+		response := &UpdateWorkerConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -180,7 +229,7 @@ Required scope: social
 
 This endpoint creates a worker configuration to control the worker in the DSMC.
 */
-func (a *Client) CreateWorkerConfigShort(params *CreateWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateWorkerConfigCreated, error) {
+func (a *Client) CreateWorkerConfigShort(params *CreateWorkerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateWorkerConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateWorkerConfigParams()
@@ -218,13 +267,33 @@ func (a *Client) CreateWorkerConfigShort(params *CreateWorkerConfigParams, authI
 	switch v := result.(type) {
 
 	case *CreateWorkerConfigCreated:
-		return v, nil
+		response := &CreateWorkerConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateWorkerConfigBadRequest:
-		return nil, v
+		response := &CreateWorkerConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateWorkerConfigUnauthorized:
-		return nil, v
+		response := &CreateWorkerConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateWorkerConfigInternalServerError:
-		return nil, v
+		response := &CreateWorkerConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -249,7 +318,7 @@ OverrideVersion will be used as override version for the new allocations.
 If OverrideVersion is empty, will use version in the deployment.
 ```
 */
-func (a *Client) AddBufferShort(params *AddBufferParams, authInfo runtime.ClientAuthInfoWriter) (*AddBufferOK, error) {
+func (a *Client) AddBufferShort(params *AddBufferParams, authInfo runtime.ClientAuthInfoWriter) (*AddBufferResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddBufferParams()
@@ -287,15 +356,40 @@ func (a *Client) AddBufferShort(params *AddBufferParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *AddBufferOK:
-		return v, nil
+		response := &AddBufferResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddBufferBadRequest:
-		return nil, v
+		response := &AddBufferResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddBufferUnauthorized:
-		return nil, v
+		response := &AddBufferResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddBufferConflict:
-		return nil, v
+		response := &AddBufferResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddBufferInternalServerError:
-		return nil, v
+		response := &AddBufferResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -312,7 +406,7 @@ This endpoint lists all of dedicated servers in a namespace managed by this serv
 
 Parameter Offset and Count is Required
 */
-func (a *Client) ListServerShort(params *ListServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerOK, error) {
+func (a *Client) ListServerShort(params *ListServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListServerParams()
@@ -350,11 +444,26 @@ func (a *Client) ListServerShort(params *ListServerParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *ListServerOK:
-		return v, nil
+		response := &ListServerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListServerUnauthorized:
-		return nil, v
+		response := &ListServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListServerInternalServerError:
-		return nil, v
+		response := &ListServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -369,7 +478,7 @@ Required scope: social
 
 This endpoint counts all of dedicated servers in a namespace managed by this service.
 */
-func (a *Client) CountServerShort(params *CountServerParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerOK, error) {
+func (a *Client) CountServerShort(params *CountServerParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCountServerParams()
@@ -407,11 +516,26 @@ func (a *Client) CountServerShort(params *CountServerParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CountServerOK:
-		return v, nil
+		response := &CountServerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CountServerUnauthorized:
-		return nil, v
+		response := &CountServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CountServerInternalServerError:
-		return nil, v
+		response := &CountServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -426,7 +550,7 @@ Required scope: social
 
 This endpoint counts all of dedicated servers in a region managed by this service.
 */
-func (a *Client) CountServerDetailedShort(params *CountServerDetailedParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerDetailedOK, error) {
+func (a *Client) CountServerDetailedShort(params *CountServerDetailedParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerDetailedResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCountServerDetailedParams()
@@ -464,11 +588,26 @@ func (a *Client) CountServerDetailedShort(params *CountServerDetailedParams, aut
 	switch v := result.(type) {
 
 	case *CountServerDetailedOK:
-		return v, nil
+		response := &CountServerDetailedResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CountServerDetailedUnauthorized:
-		return nil, v
+		response := &CountServerDetailedResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CountServerDetailedInternalServerError:
-		return nil, v
+		response := &CountServerDetailedResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -483,7 +622,7 @@ Required scope: social
 
 This endpoint lists all of local dedicated servers in a namespace managed by this service.
 */
-func (a *Client) ListLocalServerShort(params *ListLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListLocalServerOK, error) {
+func (a *Client) ListLocalServerShort(params *ListLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*ListLocalServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListLocalServerParams()
@@ -521,11 +660,26 @@ func (a *Client) ListLocalServerShort(params *ListLocalServerParams, authInfo ru
 	switch v := result.(type) {
 
 	case *ListLocalServerOK:
-		return v, nil
+		response := &ListLocalServerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListLocalServerUnauthorized:
-		return nil, v
+		response := &ListLocalServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListLocalServerInternalServerError:
-		return nil, v
+		response := &ListLocalServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -541,7 +695,7 @@ Required scope: social
 This endpoint deletes a specified local dedicated server from DB.
 Note that DSM has no ability to shutdown local DS.
 */
-func (a *Client) DeleteLocalServerShort(params *DeleteLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalServerNoContent, error) {
+func (a *Client) DeleteLocalServerShort(params *DeleteLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteLocalServerParams()
@@ -579,11 +733,25 @@ func (a *Client) DeleteLocalServerShort(params *DeleteLocalServerParams, authInf
 	switch v := result.(type) {
 
 	case *DeleteLocalServerNoContent:
-		return v, nil
+		response := &DeleteLocalServerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteLocalServerUnauthorized:
-		return nil, v
+		response := &DeleteLocalServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteLocalServerInternalServerError:
-		return nil, v
+		response := &DeleteLocalServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -598,7 +766,7 @@ Required scope: social
 
 This endpoint queries a specified dedicated server from DB.
 */
-func (a *Client) GetServerShort(params *GetServerParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerOK, error) {
+func (a *Client) GetServerShort(params *GetServerParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetServerParams()
@@ -636,13 +804,33 @@ func (a *Client) GetServerShort(params *GetServerParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetServerOK:
-		return v, nil
+		response := &GetServerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetServerUnauthorized:
-		return nil, v
+		response := &GetServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerNotFound:
-		return nil, v
+		response := &GetServerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerInternalServerError:
-		return nil, v
+		response := &GetServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -657,7 +845,7 @@ Required scope: social
 
 This endpoint deletes a specified dedicated server from DB and terminates the DS pod.
 */
-func (a *Client) DeleteServerShort(params *DeleteServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServerNoContent, error) {
+func (a *Client) DeleteServerShort(params *DeleteServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteServerParams()
@@ -695,13 +883,32 @@ func (a *Client) DeleteServerShort(params *DeleteServerParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteServerNoContent:
-		return v, nil
+		response := &DeleteServerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteServerUnauthorized:
-		return nil, v
+		response := &DeleteServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteServerNotFound:
-		return nil, v
+		response := &DeleteServerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteServerInternalServerError:
-		return nil, v
+		response := &DeleteServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -718,7 +925,7 @@ This endpoint lists all of sessions in a namespace managed by this service.
 
 Parameter Offset and Count is Required
 */
-func (a *Client) ListSessionShort(params *ListSessionParams, authInfo runtime.ClientAuthInfoWriter) (*ListSessionOK, error) {
+func (a *Client) ListSessionShort(params *ListSessionParams, authInfo runtime.ClientAuthInfoWriter) (*ListSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListSessionParams()
@@ -756,11 +963,26 @@ func (a *Client) ListSessionShort(params *ListSessionParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ListSessionOK:
-		return v, nil
+		response := &ListSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListSessionUnauthorized:
-		return nil, v
+		response := &ListSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListSessionInternalServerError:
-		return nil, v
+		response := &ListSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -775,7 +997,7 @@ Required scope: social
 
 This endpoint count all of sessions in a namespace managed by this service.
 */
-func (a *Client) CountSessionShort(params *CountSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CountSessionOK, error) {
+func (a *Client) CountSessionShort(params *CountSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CountSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCountSessionParams()
@@ -813,11 +1035,26 @@ func (a *Client) CountSessionShort(params *CountSessionParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *CountSessionOK:
-		return v, nil
+		response := &CountSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CountSessionUnauthorized:
-		return nil, v
+		response := &CountSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CountSessionInternalServerError:
-		return nil, v
+		response := &CountSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -832,7 +1069,7 @@ Required scope: social
 
 This endpoint deletes a specified session and its corresponding match result from DB.
 */
-func (a *Client) DeleteSessionShort(params *DeleteSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSessionNoContent, error) {
+func (a *Client) DeleteSessionShort(params *DeleteSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSessionParams()
@@ -870,11 +1107,25 @@ func (a *Client) DeleteSessionShort(params *DeleteSessionParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *DeleteSessionNoContent:
-		return v, nil
+		response := &DeleteSessionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteSessionUnauthorized:
-		return nil, v
+		response := &DeleteSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSessionInternalServerError:
-		return nil, v
+		response := &DeleteSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -889,7 +1140,7 @@ Required scope: social
 
 This endpoint run ghost cleaner once.
 */
-func (a *Client) RunGhostCleanerRequestHandlerShort(params *RunGhostCleanerRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*RunGhostCleanerRequestHandlerNoContent, error) {
+func (a *Client) RunGhostCleanerRequestHandlerShort(params *RunGhostCleanerRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*RunGhostCleanerRequestHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRunGhostCleanerRequestHandlerParams()
@@ -927,9 +1178,18 @@ func (a *Client) RunGhostCleanerRequestHandlerShort(params *RunGhostCleanerReque
 	switch v := result.(type) {
 
 	case *RunGhostCleanerRequestHandlerNoContent:
-		return v, nil
+		response := &RunGhostCleanerRequestHandlerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RunGhostCleanerRequestHandlerUnauthorized:
-		return nil, v
+		response := &RunGhostCleanerRequestHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -947,7 +1207,7 @@ This endpoint run zombie cleaner once
 use * as region name to target all regions
 ```
 */
-func (a *Client) RunZombieCleanerRequestHandlerShort(params *RunZombieCleanerRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*RunZombieCleanerRequestHandlerNoContent, error) {
+func (a *Client) RunZombieCleanerRequestHandlerShort(params *RunZombieCleanerRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*RunZombieCleanerRequestHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRunZombieCleanerRequestHandlerParams()
@@ -985,9 +1245,18 @@ func (a *Client) RunZombieCleanerRequestHandlerShort(params *RunZombieCleanerReq
 	switch v := result.(type) {
 
 	case *RunZombieCleanerRequestHandlerNoContent:
-		return v, nil
+		response := &RunZombieCleanerRequestHandlerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RunZombieCleanerRequestHandlerUnauthorized:
-		return nil, v
+		response := &RunZombieCleanerRequestHandlerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

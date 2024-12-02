@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentOrderByDedicatedCreated, error)
-	RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*RefundPaymentOrderByDedicatedOK, error)
-	SyncPaymentOrdersShort(params *SyncPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncPaymentOrdersOK, error)
+	CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentOrderByDedicatedResponse, error)
+	RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*RefundPaymentOrderByDedicatedResponse, error)
+	SyncPaymentOrdersShort(params *SyncPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncPaymentOrdersResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -208,7 +208,7 @@ Concat payload json string and private key and then do sha1Hex.
   *  cross namespace allowed
   *  Returns : created payment order info
 */
-func (a *Client) CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentOrderByDedicatedCreated, error) {
+func (a *Client) CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentOrderByDedicatedResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreatePaymentOrderByDedicatedParams()
@@ -246,17 +246,47 @@ func (a *Client) CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderBy
 	switch v := result.(type) {
 
 	case *CreatePaymentOrderByDedicatedCreated:
-		return v, nil
+		response := &CreatePaymentOrderByDedicatedResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreatePaymentOrderByDedicatedBadRequest:
-		return nil, v
+		response := &CreatePaymentOrderByDedicatedResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePaymentOrderByDedicatedForbidden:
-		return nil, v
+		response := &CreatePaymentOrderByDedicatedResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePaymentOrderByDedicatedNotFound:
-		return nil, v
+		response := &CreatePaymentOrderByDedicatedResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePaymentOrderByDedicatedConflict:
-		return nil, v
+		response := &CreatePaymentOrderByDedicatedResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreatePaymentOrderByDedicatedUnprocessableEntity:
-		return nil, v
+		response := &CreatePaymentOrderByDedicatedResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -410,7 +440,7 @@ Concat payload json string and private key and then do sha1Hex.
   * Token type : client token
   *  cross namespace allowed
 */
-func (a *Client) RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*RefundPaymentOrderByDedicatedOK, error) {
+func (a *Client) RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderByDedicatedParams, authInfo runtime.ClientAuthInfoWriter) (*RefundPaymentOrderByDedicatedResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRefundPaymentOrderByDedicatedParams()
@@ -448,15 +478,39 @@ func (a *Client) RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderBy
 	switch v := result.(type) {
 
 	case *RefundPaymentOrderByDedicatedOK:
-		return v, nil
+		response := &RefundPaymentOrderByDedicatedResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RefundPaymentOrderByDedicatedNoContent:
-		return nil, v
+		response := &RefundPaymentOrderByDedicatedResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RefundPaymentOrderByDedicatedNotFound:
-		return nil, v
+		response := &RefundPaymentOrderByDedicatedResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RefundPaymentOrderByDedicatedConflict:
-		return nil, v
+		response := &RefundPaymentOrderByDedicatedResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RefundPaymentOrderByDedicatedUnprocessableEntity:
-		return nil, v
+		response := &RefundPaymentOrderByDedicatedResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -470,7 +524,7 @@ Other detail info:
 
   * Returns : sync payment orders
 */
-func (a *Client) SyncPaymentOrdersShort(params *SyncPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncPaymentOrdersOK, error) {
+func (a *Client) SyncPaymentOrdersShort(params *SyncPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncPaymentOrdersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncPaymentOrdersParams()
@@ -508,7 +562,12 @@ func (a *Client) SyncPaymentOrdersShort(params *SyncPaymentOrdersParams, authInf
 	switch v := result.(type) {
 
 	case *SyncPaymentOrdersOK:
-		return v, nil
+		response := &SyncPaymentOrdersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

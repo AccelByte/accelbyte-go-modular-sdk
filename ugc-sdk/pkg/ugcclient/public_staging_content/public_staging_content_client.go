@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListUserStagingContentsShort(params *ListUserStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserStagingContentsOK, error)
-	GetUserStagingContentByIDShort(params *GetUserStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStagingContentByIDOK, error)
-	UpdateStagingContentShort(params *UpdateStagingContentParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStagingContentOK, error)
-	DeleteUserStagingContentByIDShort(params *DeleteUserStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStagingContentByIDNoContent, error)
+	ListUserStagingContentsShort(params *ListUserStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserStagingContentsResponse, error)
+	GetUserStagingContentByIDShort(params *GetUserStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStagingContentByIDResponse, error)
+	UpdateStagingContentShort(params *UpdateStagingContentParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStagingContentResponse, error)
+	DeleteUserStagingContentByIDShort(params *DeleteUserStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStagingContentByIDResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 ListUserStagingContentsShort list user staging contents
 List user staging contents
 */
-func (a *Client) ListUserStagingContentsShort(params *ListUserStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserStagingContentsOK, error) {
+func (a *Client) ListUserStagingContentsShort(params *ListUserStagingContentsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserStagingContentsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListUserStagingContentsParams()
@@ -80,15 +80,40 @@ func (a *Client) ListUserStagingContentsShort(params *ListUserStagingContentsPar
 	switch v := result.(type) {
 
 	case *ListUserStagingContentsOK:
-		return v, nil
+		response := &ListUserStagingContentsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListUserStagingContentsBadRequest:
-		return nil, v
+		response := &ListUserStagingContentsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListUserStagingContentsUnauthorized:
-		return nil, v
+		response := &ListUserStagingContentsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListUserStagingContentsForbidden:
-		return nil, v
+		response := &ListUserStagingContentsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListUserStagingContentsInternalServerError:
-		return nil, v
+		response := &ListUserStagingContentsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -99,7 +124,7 @@ func (a *Client) ListUserStagingContentsShort(params *ListUserStagingContentsPar
 GetUserStagingContentByIDShort get user staging content by id
 Get user staging content by ID
 */
-func (a *Client) GetUserStagingContentByIDShort(params *GetUserStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStagingContentByIDOK, error) {
+func (a *Client) GetUserStagingContentByIDShort(params *GetUserStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStagingContentByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserStagingContentByIDParams()
@@ -137,15 +162,40 @@ func (a *Client) GetUserStagingContentByIDShort(params *GetUserStagingContentByI
 	switch v := result.(type) {
 
 	case *GetUserStagingContentByIDOK:
-		return v, nil
+		response := &GetUserStagingContentByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserStagingContentByIDUnauthorized:
-		return nil, v
+		response := &GetUserStagingContentByIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStagingContentByIDForbidden:
-		return nil, v
+		response := &GetUserStagingContentByIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStagingContentByIDNotFound:
-		return nil, v
+		response := &GetUserStagingContentByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserStagingContentByIDInternalServerError:
-		return nil, v
+		response := &GetUserStagingContentByIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +206,7 @@ func (a *Client) GetUserStagingContentByIDShort(params *GetUserStagingContentByI
 UpdateStagingContentShort update staging content
 Update staging content
 */
-func (a *Client) UpdateStagingContentShort(params *UpdateStagingContentParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStagingContentOK, error) {
+func (a *Client) UpdateStagingContentShort(params *UpdateStagingContentParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStagingContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateStagingContentParams()
@@ -194,17 +244,47 @@ func (a *Client) UpdateStagingContentShort(params *UpdateStagingContentParams, a
 	switch v := result.(type) {
 
 	case *UpdateStagingContentOK:
-		return v, nil
+		response := &UpdateStagingContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateStagingContentBadRequest:
-		return nil, v
+		response := &UpdateStagingContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStagingContentUnauthorized:
-		return nil, v
+		response := &UpdateStagingContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStagingContentForbidden:
-		return nil, v
+		response := &UpdateStagingContentResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStagingContentNotFound:
-		return nil, v
+		response := &UpdateStagingContentResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStagingContentInternalServerError:
-		return nil, v
+		response := &UpdateStagingContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -215,7 +295,7 @@ func (a *Client) UpdateStagingContentShort(params *UpdateStagingContentParams, a
 DeleteUserStagingContentByIDShort delete user staging content by id
 Delete user staging content by ID
 */
-func (a *Client) DeleteUserStagingContentByIDShort(params *DeleteUserStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStagingContentByIDNoContent, error) {
+func (a *Client) DeleteUserStagingContentByIDShort(params *DeleteUserStagingContentByIDParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStagingContentByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteUserStagingContentByIDParams()
@@ -253,15 +333,39 @@ func (a *Client) DeleteUserStagingContentByIDShort(params *DeleteUserStagingCont
 	switch v := result.(type) {
 
 	case *DeleteUserStagingContentByIDNoContent:
-		return v, nil
+		response := &DeleteUserStagingContentByIDResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteUserStagingContentByIDUnauthorized:
-		return nil, v
+		response := &DeleteUserStagingContentByIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserStagingContentByIDForbidden:
-		return nil, v
+		response := &DeleteUserStagingContentByIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserStagingContentByIDNotFound:
-		return nil, v
+		response := &DeleteUserStagingContentByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteUserStagingContentByIDInternalServerError:
-		return nil, v
+		response := &DeleteUserStagingContentByIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

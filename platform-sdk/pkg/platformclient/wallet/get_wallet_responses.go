@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetWalletResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.WalletInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *GetWalletResponse) Unpack() (*platformclientmodels.WalletInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetWalletReader is a Reader for the GetWallet structure.
 type GetWalletReader struct {
 	formats strfmt.Registry

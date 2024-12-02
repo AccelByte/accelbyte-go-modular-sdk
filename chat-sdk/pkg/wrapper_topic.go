@@ -9,7 +9,6 @@ package chat
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *TopicService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *TopicService) AdminFilterChatMessageShort(input *topic.AdminFilterChatMessageParams) (*chatclientmodels.ModelsMessageResultWithAttributes, error) {
+func (aaa *TopicService) AdminFilterChatMessageShort(input *topic.AdminFilterChatMessageParams) (*topic.AdminFilterChatMessageResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *TopicService) AdminFilterChatMessageShort(input *topic.AdminFilterCha
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminChatHistoryShort(input *topic.AdminChatHistoryParams) (*chatclientmodels.ModelsChatMessageWithPaginationResponse, error) {
+func (aaa *TopicService) AdminChatHistoryShort(input *topic.AdminChatHistoryParams) (*topic.AdminChatHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *TopicService) AdminChatHistoryShort(input *topic.AdminChatHistoryPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminCreateNamespaceTopicShort(input *topic.AdminCreateNamespaceTopicParams) (*chatclientmodels.APICreateTopicResponse, error) {
+func (aaa *TopicService) AdminCreateNamespaceTopicShort(input *topic.AdminCreateNamespaceTopicParams) (*topic.AdminCreateNamespaceTopicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *TopicService) AdminCreateNamespaceTopicShort(input *topic.AdminCreate
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminTopicListShort(input *topic.AdminTopicListParams) ([]*chatclientmodels.ModelsTopicResponse, error) {
+func (aaa *TopicService) AdminTopicListShort(input *topic.AdminTopicListParams) (*topic.AdminTopicListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *TopicService) AdminTopicListShort(input *topic.AdminTopicListParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminCreateTopicShort(input *topic.AdminCreateTopicParams) (*chatclientmodels.APICreateTopicResponse, error) {
+func (aaa *TopicService) AdminCreateTopicShort(input *topic.AdminCreateTopicParams) (*topic.AdminCreateTopicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *TopicService) AdminCreateTopicShort(input *topic.AdminCreateTopicPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminChannelTopicListShort(input *topic.AdminChannelTopicListParams) (*chatclientmodels.ModelsChannelTopicWithPaginationResponse, error) {
+func (aaa *TopicService) AdminChannelTopicListShort(input *topic.AdminChannelTopicListParams) (*topic.AdminChannelTopicListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *TopicService) AdminChannelTopicListShort(input *topic.AdminChannelTop
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminChannelTopicSummaryShort(input *topic.AdminChannelTopicSummaryParams) (*chatclientmodels.ModelsChannelTopicSummaryResponse, error) {
+func (aaa *TopicService) AdminChannelTopicSummaryShort(input *topic.AdminChannelTopicSummaryParams) (*topic.AdminChannelTopicSummaryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *TopicService) AdminChannelTopicSummaryShort(input *topic.AdminChannel
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminQueryTopicLogShort(input *topic.AdminQueryTopicLogParams) (*chatclientmodels.ModelsTopicLogWithPaginationResponse, error) {
+func (aaa *TopicService) AdminQueryTopicLogShort(input *topic.AdminQueryTopicLogParams) (*topic.AdminQueryTopicLogResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *TopicService) AdminQueryTopicLogShort(input *topic.AdminQueryTopicLog
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminUpdateTopicShort(input *topic.AdminUpdateTopicParams) (*chatclientmodels.APICreateTopicResponse, error) {
+func (aaa *TopicService) AdminUpdateTopicShort(input *topic.AdminUpdateTopicParams) (*topic.AdminUpdateTopicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *TopicService) AdminUpdateTopicShort(input *topic.AdminUpdateTopicPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminDeleteTopicShort(input *topic.AdminDeleteTopicParams) (*chatclientmodels.MessageActionDeleteTopicResult, error) {
+func (aaa *TopicService) AdminDeleteTopicShort(input *topic.AdminDeleteTopicParams) (*topic.AdminDeleteTopicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *TopicService) AdminDeleteTopicShort(input *topic.AdminDeleteTopicPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminBanTopicMembersShort(input *topic.AdminBanTopicMembersParams) (*chatclientmodels.ModelsBanTopicMemberResult, error) {
+func (aaa *TopicService) AdminBanTopicMembersShort(input *topic.AdminBanTopicMembersParams) (*topic.AdminBanTopicMembersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *TopicService) AdminBanTopicMembersShort(input *topic.AdminBanTopicMem
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminChannelTopicInfoShort(input *topic.AdminChannelTopicInfoParams) (*chatclientmodels.ModelsChannelTopicResponse, error) {
+func (aaa *TopicService) AdminChannelTopicInfoShort(input *topic.AdminChannelTopicInfoParams) (*topic.AdminChannelTopicInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *TopicService) AdminChannelTopicInfoShort(input *topic.AdminChannelTop
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminTopicChatHistoryShort(input *topic.AdminTopicChatHistoryParams) (*chatclientmodels.ModelsChatMessageWithPaginationResponse, error) {
+func (aaa *TopicService) AdminTopicChatHistoryShort(input *topic.AdminTopicChatHistoryParams) (*topic.AdminTopicChatHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,10 +423,10 @@ func (aaa *TopicService) AdminTopicChatHistoryShort(input *topic.AdminTopicChatH
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminSendChatShort(input *topic.AdminSendChatParams) ([]*chatclientmodels.ModelsChatMessageResponse, error) {
+func (aaa *TopicService) AdminSendChatShort(input *topic.AdminSendChatParams) (*topic.AdminSendChatResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,7 +453,7 @@ func (aaa *TopicService) AdminSendChatShort(input *topic.AdminSendChatParams) ([
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *TopicService) AdminDeleteChatShort(input *topic.AdminDeleteChatParams) error {
@@ -487,7 +486,7 @@ func (aaa *TopicService) AdminDeleteChatShort(input *topic.AdminDeleteChatParams
 	return nil
 }
 
-func (aaa *TopicService) AdminTopicMembersShort(input *topic.AdminTopicMembersParams) (*chatclientmodels.ModelsTopicMemberWithPaginationResponse, error) {
+func (aaa *TopicService) AdminTopicMembersShort(input *topic.AdminTopicMembersParams) (*topic.AdminTopicMembersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,10 +513,10 @@ func (aaa *TopicService) AdminTopicMembersShort(input *topic.AdminTopicMembersPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminTopicShardsShort(input *topic.AdminTopicShardsParams) ([]string, error) {
+func (aaa *TopicService) AdminTopicShardsShort(input *topic.AdminTopicShardsParams) (*topic.AdminTopicShardsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -544,10 +543,10 @@ func (aaa *TopicService) AdminTopicShardsShort(input *topic.AdminTopicShardsPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminUnbanTopicMembersShort(input *topic.AdminUnbanTopicMembersParams) (*chatclientmodels.ModelsUnbanTopicMemberResult, error) {
+func (aaa *TopicService) AdminUnbanTopicMembersShort(input *topic.AdminUnbanTopicMembersParams) (*topic.AdminUnbanTopicMembersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -574,10 +573,10 @@ func (aaa *TopicService) AdminUnbanTopicMembersShort(input *topic.AdminUnbanTopi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminAddTopicMemberShort(input *topic.AdminAddTopicMemberParams) (*chatclientmodels.MessageActionAddUserToTopicResult, error) {
+func (aaa *TopicService) AdminAddTopicMemberShort(input *topic.AdminAddTopicMemberParams) (*topic.AdminAddTopicMemberResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -604,10 +603,10 @@ func (aaa *TopicService) AdminAddTopicMemberShort(input *topic.AdminAddTopicMemb
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminRemoveTopicMemberShort(input *topic.AdminRemoveTopicMemberParams) (*chatclientmodels.MessageActionAddUserToTopicResult, error) {
+func (aaa *TopicService) AdminRemoveTopicMemberShort(input *topic.AdminRemoveTopicMemberParams) (*topic.AdminRemoveTopicMemberResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -634,10 +633,10 @@ func (aaa *TopicService) AdminRemoveTopicMemberShort(input *topic.AdminRemoveTop
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminQueryTopicShort(input *topic.AdminQueryTopicParams) ([]*chatclientmodels.ModelsTopicInfo, error) {
+func (aaa *TopicService) AdminQueryTopicShort(input *topic.AdminQueryTopicParams) (*topic.AdminQueryTopicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -664,10 +663,10 @@ func (aaa *TopicService) AdminQueryTopicShort(input *topic.AdminQueryTopicParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) AdminQueryUsersTopicShort(input *topic.AdminQueryUsersTopicParams) (*chatclientmodels.ModelsTopicLogWithPaginationResponse, error) {
+func (aaa *TopicService) AdminQueryUsersTopicShort(input *topic.AdminQueryUsersTopicParams) (*topic.AdminQueryUsersTopicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -694,10 +693,10 @@ func (aaa *TopicService) AdminQueryUsersTopicShort(input *topic.AdminQueryUsersT
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) PublicGetMutedTopicsShort(input *topic.PublicGetMutedTopicsParams) ([]*chatclientmodels.APIMutedTopicResponse, error) {
+func (aaa *TopicService) PublicGetMutedTopicsShort(input *topic.PublicGetMutedTopicsParams) (*topic.PublicGetMutedTopicsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -724,10 +723,10 @@ func (aaa *TopicService) PublicGetMutedTopicsShort(input *topic.PublicGetMutedTo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) PublicTopicListShort(input *topic.PublicTopicListParams) ([]*chatclientmodels.ModelsChatMessageResponse, error) {
+func (aaa *TopicService) PublicTopicListShort(input *topic.PublicTopicListParams) (*topic.PublicTopicListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -754,10 +753,10 @@ func (aaa *TopicService) PublicTopicListShort(input *topic.PublicTopicListParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) PublicBanTopicMembersShort(input *topic.PublicBanTopicMembersParams) (*chatclientmodels.ModelsPublicBanTopicMembersResponse, error) {
+func (aaa *TopicService) PublicBanTopicMembersShort(input *topic.PublicBanTopicMembersParams) (*topic.PublicBanTopicMembersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -784,10 +783,10 @@ func (aaa *TopicService) PublicBanTopicMembersShort(input *topic.PublicBanTopicM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TopicService) PublicChatHistoryShort(input *topic.PublicChatHistoryParams) ([]*chatclientmodels.ModelsChatMessageResponse, error) {
+func (aaa *TopicService) PublicChatHistoryShort(input *topic.PublicChatHistoryParams) (*topic.PublicChatHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -814,7 +813,7 @@ func (aaa *TopicService) PublicChatHistoryShort(input *topic.PublicChatHistoryPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *TopicService) PublicDeleteChatShort(input *topic.PublicDeleteChatParams) error {
@@ -877,7 +876,7 @@ func (aaa *TopicService) PublicMuteUserShort(input *topic.PublicMuteUserParams) 
 	return nil
 }
 
-func (aaa *TopicService) PublicUnbanTopicMembersShort(input *topic.PublicUnbanTopicMembersParams) (*chatclientmodels.ModelsPublicUnbanTopicMembersResponse, error) {
+func (aaa *TopicService) PublicUnbanTopicMembersShort(input *topic.PublicUnbanTopicMembersParams) (*topic.PublicUnbanTopicMembersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -904,7 +903,7 @@ func (aaa *TopicService) PublicUnbanTopicMembersShort(input *topic.PublicUnbanTo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *TopicService) PublicUnmuteUserShort(input *topic.PublicUnmuteUserParams) error {

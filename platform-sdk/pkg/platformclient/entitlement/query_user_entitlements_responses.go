@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryUserEntitlementsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.EntitlementPagingSlicedResult
+}
+
+func (m *QueryUserEntitlementsResponse) Unpack() (*platformclientmodels.EntitlementPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryUserEntitlementsReader is a Reader for the QueryUserEntitlements structure.
 type QueryUserEntitlementsReader struct {
 	formats strfmt.Registry

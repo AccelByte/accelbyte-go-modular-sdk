@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/order"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *OrderService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *OrderService) QueryOrdersShort(input *order.QueryOrdersParams) (*platformclientmodels.OrderPagingResult, error) {
+func (aaa *OrderService) QueryOrdersShort(input *order.QueryOrdersParams) (*order.QueryOrdersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *OrderService) QueryOrdersShort(input *order.QueryOrdersParams) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) GetOrderStatisticsShort(input *order.GetOrderStatisticsParams) (*platformclientmodels.OrderStatistics, error) {
+func (aaa *OrderService) GetOrderStatisticsShort(input *order.GetOrderStatisticsParams) (*order.GetOrderStatisticsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *OrderService) GetOrderStatisticsShort(input *order.GetOrderStatistics
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) GetOrderShort(input *order.GetOrderParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) GetOrderShort(input *order.GetOrderParams) (*order.GetOrderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *OrderService) GetOrderShort(input *order.GetOrderParams) (*platformcl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) RefundOrderShort(input *order.RefundOrderParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) RefundOrderShort(input *order.RefundOrderParams) (*order.RefundOrderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *OrderService) RefundOrderShort(input *order.RefundOrderParams) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) QueryUserOrdersShort(input *order.QueryUserOrdersParams) (*platformclientmodels.OrderPagingSlicedResult, error) {
+func (aaa *OrderService) QueryUserOrdersShort(input *order.QueryUserOrdersParams) (*order.QueryUserOrdersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *OrderService) QueryUserOrdersShort(input *order.QueryUserOrdersParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) AdminCreateUserOrderShort(input *order.AdminCreateUserOrderParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) AdminCreateUserOrderShort(input *order.AdminCreateUserOrderParams) (*order.AdminCreateUserOrderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *OrderService) AdminCreateUserOrderShort(input *order.AdminCreateUserO
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *OrderService) CountOfPurchasedItemShort(input *order.CountOfPurchasedItemParams) (*platformclientmodels.PurchasedItemCount, error) {
+func (aaa *OrderService) CountOfPurchasedItemShort(input *order.CountOfPurchasedItemParams) (*order.CountOfPurchasedItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *OrderService) CountOfPurchasedItemShort(input *order.CountOfPurchased
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) GetUserOrderShort(input *order.GetUserOrderParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) GetUserOrderShort(input *order.GetUserOrderParams) (*order.GetUserOrderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *OrderService) GetUserOrderShort(input *order.GetUserOrderParams) (*pl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) UpdateUserOrderStatusShort(input *order.UpdateUserOrderStatusParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) UpdateUserOrderStatusShort(input *order.UpdateUserOrderStatusParams) (*order.UpdateUserOrderStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *OrderService) UpdateUserOrderStatusShort(input *order.UpdateUserOrder
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) FulfillUserOrderShort(input *order.FulfillUserOrderParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) FulfillUserOrderShort(input *order.FulfillUserOrderParams) (*order.FulfillUserOrderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,10 +335,10 @@ func (aaa *OrderService) FulfillUserOrderShort(input *order.FulfillUserOrderPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) GetUserOrderGrantShort(input *order.GetUserOrderGrantParams) (*platformclientmodels.OrderGrantInfo, error) {
+func (aaa *OrderService) GetUserOrderGrantShort(input *order.GetUserOrderGrantParams) (*order.GetUserOrderGrantResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,10 +365,10 @@ func (aaa *OrderService) GetUserOrderGrantShort(input *order.GetUserOrderGrantPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) GetUserOrderHistoriesShort(input *order.GetUserOrderHistoriesParams) ([]*platformclientmodels.OrderHistoryInfo, error) {
+func (aaa *OrderService) GetUserOrderHistoriesShort(input *order.GetUserOrderHistoriesParams) (*order.GetUserOrderHistoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,7 +395,7 @@ func (aaa *OrderService) GetUserOrderHistoriesShort(input *order.GetUserOrderHis
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OrderService) ProcessUserOrderNotificationShort(input *order.ProcessUserOrderNotificationParams) error {
@@ -429,7 +428,7 @@ func (aaa *OrderService) ProcessUserOrderNotificationShort(input *order.ProcessU
 	return nil
 }
 
-func (aaa *OrderService) DownloadUserOrderReceiptShort(input *order.DownloadUserOrderReceiptParams, writer io.Writer) (io.Writer, error) {
+func (aaa *OrderService) DownloadUserOrderReceiptShort(input *order.DownloadUserOrderReceiptParams, writer io.Writer) (*order.DownloadUserOrderReceiptResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -456,10 +455,10 @@ func (aaa *OrderService) DownloadUserOrderReceiptShort(input *order.DownloadUser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) PublicQueryUserOrdersShort(input *order.PublicQueryUserOrdersParams) (*platformclientmodels.OrderPagingSlicedResult, error) {
+func (aaa *OrderService) PublicQueryUserOrdersShort(input *order.PublicQueryUserOrdersParams) (*order.PublicQueryUserOrdersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -486,10 +485,10 @@ func (aaa *OrderService) PublicQueryUserOrdersShort(input *order.PublicQueryUser
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) PublicCreateUserOrderShort(input *order.PublicCreateUserOrderParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) PublicCreateUserOrderShort(input *order.PublicCreateUserOrderParams) (*order.PublicCreateUserOrderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -516,10 +515,10 @@ func (aaa *OrderService) PublicCreateUserOrderShort(input *order.PublicCreateUse
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *OrderService) PublicPreviewOrderPriceShort(input *order.PublicPreviewOrderPriceParams) (*platformclientmodels.OrderDiscountPreviewResponse, error) {
+func (aaa *OrderService) PublicPreviewOrderPriceShort(input *order.PublicPreviewOrderPriceParams) (*order.PublicPreviewOrderPriceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -546,10 +545,10 @@ func (aaa *OrderService) PublicPreviewOrderPriceShort(input *order.PublicPreview
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) PublicGetUserOrderShort(input *order.PublicGetUserOrderParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) PublicGetUserOrderShort(input *order.PublicGetUserOrderParams) (*order.PublicGetUserOrderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -576,10 +575,10 @@ func (aaa *OrderService) PublicGetUserOrderShort(input *order.PublicGetUserOrder
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) PublicCancelUserOrderShort(input *order.PublicCancelUserOrderParams) (*platformclientmodels.OrderInfo, error) {
+func (aaa *OrderService) PublicCancelUserOrderShort(input *order.PublicCancelUserOrderParams) (*order.PublicCancelUserOrderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -606,10 +605,10 @@ func (aaa *OrderService) PublicCancelUserOrderShort(input *order.PublicCancelUse
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) PublicGetUserOrderHistoriesShort(input *order.PublicGetUserOrderHistoriesParams) ([]*platformclientmodels.OrderHistoryInfo, error) {
+func (aaa *OrderService) PublicGetUserOrderHistoriesShort(input *order.PublicGetUserOrderHistoriesParams) (*order.PublicGetUserOrderHistoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -636,10 +635,10 @@ func (aaa *OrderService) PublicGetUserOrderHistoriesShort(input *order.PublicGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OrderService) PublicDownloadUserOrderReceiptShort(input *order.PublicDownloadUserOrderReceiptParams, writer io.Writer) (io.Writer, error) {
+func (aaa *OrderService) PublicDownloadUserOrderReceiptShort(input *order.PublicDownloadUserOrderReceiptParams, writer io.Writer) (*order.PublicDownloadUserOrderReceiptResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -666,5 +665,5 @@ func (aaa *OrderService) PublicDownloadUserOrderReceiptShort(input *order.Public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

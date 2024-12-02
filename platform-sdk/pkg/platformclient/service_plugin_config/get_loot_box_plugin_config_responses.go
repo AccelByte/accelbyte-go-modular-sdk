@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetLootBoxPluginConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.LootBoxPluginConfigInfo
+}
+
+func (m *GetLootBoxPluginConfigResponse) Unpack() (*platformclientmodels.LootBoxPluginConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetLootBoxPluginConfigReader is a Reader for the GetLootBoxPluginConfig structure.
 type GetLootBoxPluginConfigReader struct {
 	formats strfmt.Registry

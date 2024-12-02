@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/store"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -41,7 +40,7 @@ func (aaa *StoreService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *StoreService) GetCatalogConfigShort(input *store.GetCatalogConfigParams) (*platformclientmodels.CatalogConfigInfo, error) {
+func (aaa *StoreService) GetCatalogConfigShort(input *store.GetCatalogConfigParams) (*store.GetCatalogConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -68,10 +67,10 @@ func (aaa *StoreService) GetCatalogConfigShort(input *store.GetCatalogConfigPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) UpdateCatalogConfigShort(input *store.UpdateCatalogConfigParams) (*platformclientmodels.CatalogConfigInfo, error) {
+func (aaa *StoreService) UpdateCatalogConfigShort(input *store.UpdateCatalogConfigParams) (*store.UpdateCatalogConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -98,10 +97,10 @@ func (aaa *StoreService) UpdateCatalogConfigShort(input *store.UpdateCatalogConf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) ListStoresShort(input *store.ListStoresParams) ([]*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) ListStoresShort(input *store.ListStoresParams) (*store.ListStoresResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -128,10 +127,10 @@ func (aaa *StoreService) ListStoresShort(input *store.ListStoresParams) ([]*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) CreateStoreShort(input *store.CreateStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) CreateStoreShort(input *store.CreateStoreParams) (*store.CreateStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -158,10 +157,10 @@ func (aaa *StoreService) CreateStoreShort(input *store.CreateStoreParams) (*plat
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *StoreService) GetCatalogDefinitionShort(input *store.GetCatalogDefinitionParams) ([]*platformclientmodels.CatalogDefinitionInfo, error) {
+func (aaa *StoreService) GetCatalogDefinitionShort(input *store.GetCatalogDefinitionParams) (*store.GetCatalogDefinitionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -188,10 +187,10 @@ func (aaa *StoreService) GetCatalogDefinitionShort(input *store.GetCatalogDefini
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) DownloadCSVTemplatesShort(input *store.DownloadCSVTemplatesParams, writer io.Writer) (io.Writer, error) {
+func (aaa *StoreService) DownloadCSVTemplatesShort(input *store.DownloadCSVTemplatesParams, writer io.Writer) (*store.DownloadCSVTemplatesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -218,10 +217,10 @@ func (aaa *StoreService) DownloadCSVTemplatesShort(input *store.DownloadCSVTempl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) ExportStoreByCSVShort(input *store.ExportStoreByCSVParams, writer io.Writer) (io.Writer, error) {
+func (aaa *StoreService) ExportStoreByCSVShort(input *store.ExportStoreByCSVParams, writer io.Writer) (*store.ExportStoreByCSVResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -248,10 +247,10 @@ func (aaa *StoreService) ExportStoreByCSVShort(input *store.ExportStoreByCSVPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) ImportStoreShort(input *store.ImportStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) ImportStoreShort(input *store.ImportStoreParams) (*store.ImportStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -278,10 +277,10 @@ func (aaa *StoreService) ImportStoreShort(input *store.ImportStoreParams) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) GetPublishedStoreShort(input *store.GetPublishedStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) GetPublishedStoreShort(input *store.GetPublishedStoreParams) (*store.GetPublishedStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -308,10 +307,10 @@ func (aaa *StoreService) GetPublishedStoreShort(input *store.GetPublishedStorePa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) DeletePublishedStoreShort(input *store.DeletePublishedStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) DeletePublishedStoreShort(input *store.DeletePublishedStoreParams) (*store.DeletePublishedStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -338,10 +337,10 @@ func (aaa *StoreService) DeletePublishedStoreShort(input *store.DeletePublishedS
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) GetPublishedStoreBackupShort(input *store.GetPublishedStoreBackupParams) (*platformclientmodels.StoreBackupInfo, error) {
+func (aaa *StoreService) GetPublishedStoreBackupShort(input *store.GetPublishedStoreBackupParams) (*store.GetPublishedStoreBackupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -368,10 +367,10 @@ func (aaa *StoreService) GetPublishedStoreBackupShort(input *store.GetPublishedS
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) RollbackPublishedStoreShort(input *store.RollbackPublishedStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) RollbackPublishedStoreShort(input *store.RollbackPublishedStoreParams) (*store.RollbackPublishedStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -398,10 +397,10 @@ func (aaa *StoreService) RollbackPublishedStoreShort(input *store.RollbackPublis
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) GetStoreShort(input *store.GetStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) GetStoreShort(input *store.GetStoreParams) (*store.GetStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -428,10 +427,10 @@ func (aaa *StoreService) GetStoreShort(input *store.GetStoreParams) (*platformcl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) UpdateStoreShort(input *store.UpdateStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) UpdateStoreShort(input *store.UpdateStoreParams) (*store.UpdateStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -458,10 +457,10 @@ func (aaa *StoreService) UpdateStoreShort(input *store.UpdateStoreParams) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) DeleteStoreShort(input *store.DeleteStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) DeleteStoreShort(input *store.DeleteStoreParams) (*store.DeleteStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -488,10 +487,10 @@ func (aaa *StoreService) DeleteStoreShort(input *store.DeleteStoreParams) (*plat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) CloneStoreShort(input *store.CloneStoreParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) CloneStoreShort(input *store.CloneStoreParams) (*store.CloneStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -518,10 +517,10 @@ func (aaa *StoreService) CloneStoreShort(input *store.CloneStoreParams) (*platfo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) ExportStoreShort(input *store.ExportStoreParams, writer io.Writer) (io.Writer, error) {
+func (aaa *StoreService) ExportStoreShort(input *store.ExportStoreParams, writer io.Writer) (*store.ExportStoreResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -548,10 +547,10 @@ func (aaa *StoreService) ExportStoreShort(input *store.ExportStoreParams, writer
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) QueryImportHistoryShort(input *store.QueryImportHistoryParams) (*platformclientmodels.ImportStoreHistoryPagingResult, error) {
+func (aaa *StoreService) QueryImportHistoryShort(input *store.QueryImportHistoryParams) (*store.QueryImportHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -578,10 +577,10 @@ func (aaa *StoreService) QueryImportHistoryShort(input *store.QueryImportHistory
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) ImportStoreByCSVShort(input *store.ImportStoreByCSVParams) (*platformclientmodels.ImportStoreResult, error) {
+func (aaa *StoreService) ImportStoreByCSVShort(input *store.ImportStoreByCSVParams) (*store.ImportStoreByCSVResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -608,10 +607,10 @@ func (aaa *StoreService) ImportStoreByCSVShort(input *store.ImportStoreByCSVPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) PublicListStoresShort(input *store.PublicListStoresParams) ([]*platformclientmodels.StoreInfo, error) {
+func (aaa *StoreService) PublicListStoresShort(input *store.PublicListStoresParams) (*store.PublicListStoresResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -631,10 +630,10 @@ func (aaa *StoreService) PublicListStoresShort(input *store.PublicListStoresPara
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) ImportStore1Short(input *store.ImportStore1Params) (*platformclientmodels.ImportStoreResult, error) {
+func (aaa *StoreService) ImportStore1Short(input *store.ImportStore1Params) (*store.ImportStore1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -661,10 +660,10 @@ func (aaa *StoreService) ImportStore1Short(input *store.ImportStore1Params) (*pl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StoreService) ExportStore1Short(input *store.ExportStore1Params, writer io.Writer) (io.Writer, error) {
+func (aaa *StoreService) ExportStore1Short(input *store.ExportStore1Params, writer io.Writer) (*store.ExportStore1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -691,5 +690,5 @@ func (aaa *StoreService) ExportStore1Short(input *store.ExportStore1Params, writ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

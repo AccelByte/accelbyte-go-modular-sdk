@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 )
 
+type AdminGetGameBinaryRecordV1Response struct {
+	cloudsaveclientmodels.ApiResponse
+	Data *cloudsaveclientmodels.ModelsGameBinaryRecordAdminResponse
+
+	Error401 *cloudsaveclientmodels.ModelsResponseError
+	Error403 *cloudsaveclientmodels.ModelsResponseError
+	Error404 *cloudsaveclientmodels.ModelsResponseError
+	Error500 *cloudsaveclientmodels.ModelsResponseError
+}
+
+func (m *AdminGetGameBinaryRecordV1Response) Unpack() (*cloudsaveclientmodels.ModelsGameBinaryRecordAdminResponse, *cloudsaveclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &cloudsaveclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetGameBinaryRecordV1Reader is a Reader for the AdminGetGameBinaryRecordV1 structure.
 type AdminGetGameBinaryRecordV1Reader struct {
 	formats strfmt.Registry

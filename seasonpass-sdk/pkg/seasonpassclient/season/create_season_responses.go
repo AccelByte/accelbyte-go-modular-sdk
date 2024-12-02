@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 )
 
+type CreateSeasonResponse struct {
+	seasonpassclientmodels.ApiResponse
+	Data *seasonpassclientmodels.SeasonInfo
+
+	Error400 *seasonpassclientmodels.ErrorEntity
+	Error404 *seasonpassclientmodels.ErrorEntity
+	Error422 *seasonpassclientmodels.ValidationErrorEntity
+}
+
+func (m *CreateSeasonResponse) Unpack() (*seasonpassclientmodels.SeasonInfo, *seasonpassclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &seasonpassclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // CreateSeasonReader is a Reader for the CreateSeason structure.
 type CreateSeasonReader struct {
 	formats strfmt.Registry

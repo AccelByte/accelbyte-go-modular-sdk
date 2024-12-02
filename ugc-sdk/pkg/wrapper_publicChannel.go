@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_channel"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type PublicChannelService struct {
@@ -37,7 +36,7 @@ func (aaa *PublicChannelService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicChannelService) GetChannelsShort(input *public_channel.GetChannelsParams) (*ugcclientmodels.ModelsPaginatedGetChannelResponse, error) {
+func (aaa *PublicChannelService) GetChannelsShort(input *public_channel.GetChannelsParams) (*public_channel.GetChannelsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicChannelService) GetChannelsShort(input *public_channel.GetChann
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicChannelService) PublicCreateChannelShort(input *public_channel.PublicCreateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
+func (aaa *PublicChannelService) PublicCreateChannelShort(input *public_channel.PublicCreateChannelParams) (*public_channel.PublicCreateChannelResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PublicChannelService) PublicCreateChannelShort(input *public_channel.
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PublicChannelService) UpdateChannelShort(input *public_channel.UpdateChannelParams) (*ugcclientmodels.ModelsChannelResponse, error) {
+func (aaa *PublicChannelService) UpdateChannelShort(input *public_channel.UpdateChannelParams) (*public_channel.UpdateChannelResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *PublicChannelService) UpdateChannelShort(input *public_channel.Update
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PublicChannelService) DeleteChannelShort(input *public_channel.DeleteChannelParams) error {

@@ -30,33 +30,33 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminQueryGameSessionsShort(params *AdminQueryGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsOK, error)
-	AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsByAttributesOK, error)
-	AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkGameSessionsOK, error)
-	AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetDSReadyNoContent, error)
-	AdminKickGameSessionMemberShort(params *AdminKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminKickGameSessionMemberNoContent, error)
-	AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGameSessionMemberOK, error)
-	CreateGameSessionShort(params *CreateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGameSessionCreated, error)
-	PublicQueryGameSessionsByAttributesShort(params *PublicQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionsByAttributesOK, error)
-	PublicSessionJoinCodeShort(params *PublicSessionJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSessionJoinCodeOK, error)
-	GetGameSessionByPodNameShort(params *GetGameSessionByPodNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionByPodNameOK, error)
-	GetGameSessionShort(params *GetGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionOK, error)
-	UpdateGameSessionShort(params *UpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionOK, error)
-	DeleteGameSessionShort(params *DeleteGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameSessionNoContent, error)
-	PatchUpdateGameSessionShort(params *PatchUpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*PatchUpdateGameSessionOK, error)
-	UpdateGameSessionBackfillTicketIDShort(params *UpdateGameSessionBackfillTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionBackfillTicketIDOK, error)
-	GameSessionGenerateCodeShort(params *GameSessionGenerateCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GameSessionGenerateCodeOK, error)
-	PublicRevokeGameSessionCodeShort(params *PublicRevokeGameSessionCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokeGameSessionCodeNoContent, error)
-	PublicGameSessionInviteShort(params *PublicGameSessionInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionInviteCreated, error)
-	JoinGameSessionShort(params *JoinGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*JoinGameSessionOK, error)
-	PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderOK, error)
-	LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionNoContent, error)
-	PublicKickGameSessionMemberShort(params *PublicKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*PublicKickGameSessionMemberNoContent, error)
-	PublicGameSessionRejectShort(params *PublicGameSessionRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionRejectNoContent, error)
-	GetSessionServerSecretShort(params *GetSessionServerSecretParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionServerSecretOK, error)
-	AppendTeamGameSessionShort(params *AppendTeamGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AppendTeamGameSessionOK, error)
-	PublicGameSessionCancelShort(params *PublicGameSessionCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionCancelNoContent, error)
-	PublicQueryMyGameSessionsShort(params *PublicQueryMyGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyGameSessionsOK, error)
+	AdminQueryGameSessionsShort(params *AdminQueryGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsResponse, error)
+	AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsByAttributesResponse, error)
+	AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkGameSessionsResponse, error)
+	AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetDSReadyResponse, error)
+	AdminKickGameSessionMemberShort(params *AdminKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminKickGameSessionMemberResponse, error)
+	AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGameSessionMemberResponse, error)
+	CreateGameSessionShort(params *CreateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGameSessionResponse, error)
+	PublicQueryGameSessionsByAttributesShort(params *PublicQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionsByAttributesResponse, error)
+	PublicSessionJoinCodeShort(params *PublicSessionJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSessionJoinCodeResponse, error)
+	GetGameSessionByPodNameShort(params *GetGameSessionByPodNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionByPodNameResponse, error)
+	GetGameSessionShort(params *GetGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionResponse, error)
+	UpdateGameSessionShort(params *UpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionResponse, error)
+	DeleteGameSessionShort(params *DeleteGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameSessionResponse, error)
+	PatchUpdateGameSessionShort(params *PatchUpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*PatchUpdateGameSessionResponse, error)
+	UpdateGameSessionBackfillTicketIDShort(params *UpdateGameSessionBackfillTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionBackfillTicketIDResponse, error)
+	GameSessionGenerateCodeShort(params *GameSessionGenerateCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GameSessionGenerateCodeResponse, error)
+	PublicRevokeGameSessionCodeShort(params *PublicRevokeGameSessionCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokeGameSessionCodeResponse, error)
+	PublicGameSessionInviteShort(params *PublicGameSessionInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionInviteResponse, error)
+	JoinGameSessionShort(params *JoinGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*JoinGameSessionResponse, error)
+	PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderResponse, error)
+	LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionResponse, error)
+	PublicKickGameSessionMemberShort(params *PublicKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*PublicKickGameSessionMemberResponse, error)
+	PublicGameSessionRejectShort(params *PublicGameSessionRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionRejectResponse, error)
+	GetSessionServerSecretShort(params *GetSessionServerSecretParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionServerSecretResponse, error)
+	AppendTeamGameSessionShort(params *AppendTeamGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AppendTeamGameSessionResponse, error)
+	PublicGameSessionCancelShort(params *PublicGameSessionCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionCancelResponse, error)
+	PublicQueryMyGameSessionsShort(params *PublicQueryMyGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyGameSessionsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -65,7 +65,7 @@ type ClientService interface {
 AdminQueryGameSessionsShort get all game sessions.
 Get all game sessions.
 */
-func (a *Client) AdminQueryGameSessionsShort(params *AdminQueryGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsOK, error) {
+func (a *Client) AdminQueryGameSessionsShort(params *AdminQueryGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryGameSessionsParams()
@@ -103,15 +103,40 @@ func (a *Client) AdminQueryGameSessionsShort(params *AdminQueryGameSessionsParam
 	switch v := result.(type) {
 
 	case *AdminQueryGameSessionsOK:
-		return v, nil
+		response := &AdminQueryGameSessionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryGameSessionsBadRequest:
-		return nil, v
+		response := &AdminQueryGameSessionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionsUnauthorized:
-		return nil, v
+		response := &AdminQueryGameSessionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionsForbidden:
-		return nil, v
+		response := &AdminQueryGameSessionsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionsInternalServerError:
-		return nil, v
+		response := &AdminQueryGameSessionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -141,7 +166,7 @@ all: return all sessions regardless it's full
 full: only return active sessions
 default behavior (unset or else): return only available sessions (not full)
 */
-func (a *Client) AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsByAttributesOK, error) {
+func (a *Client) AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsByAttributesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryGameSessionsByAttributesParams()
@@ -179,15 +204,40 @@ func (a *Client) AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameS
 	switch v := result.(type) {
 
 	case *AdminQueryGameSessionsByAttributesOK:
-		return v, nil
+		response := &AdminQueryGameSessionsByAttributesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryGameSessionsByAttributesBadRequest:
-		return nil, v
+		response := &AdminQueryGameSessionsByAttributesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionsByAttributesUnauthorized:
-		return nil, v
+		response := &AdminQueryGameSessionsByAttributesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionsByAttributesForbidden:
-		return nil, v
+		response := &AdminQueryGameSessionsByAttributesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryGameSessionsByAttributesInternalServerError:
-		return nil, v
+		response := &AdminQueryGameSessionsByAttributesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -198,7 +248,7 @@ func (a *Client) AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameS
 AdminDeleteBulkGameSessionsShort delete bulk game sessions.
 Delete bulk game sessions.
 */
-func (a *Client) AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkGameSessionsOK, error) {
+func (a *Client) AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkGameSessionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteBulkGameSessionsParams()
@@ -236,15 +286,40 @@ func (a *Client) AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSes
 	switch v := result.(type) {
 
 	case *AdminDeleteBulkGameSessionsOK:
-		return v, nil
+		response := &AdminDeleteBulkGameSessionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteBulkGameSessionsBadRequest:
-		return nil, v
+		response := &AdminDeleteBulkGameSessionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteBulkGameSessionsUnauthorized:
-		return nil, v
+		response := &AdminDeleteBulkGameSessionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteBulkGameSessionsForbidden:
-		return nil, v
+		response := &AdminDeleteBulkGameSessionsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteBulkGameSessionsInternalServerError:
-		return nil, v
+		response := &AdminDeleteBulkGameSessionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -255,7 +330,7 @@ func (a *Client) AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSes
 AdminSetDSReadyShort admin set the ds ready to accept connection
 When the session template has ds_manual_set_ready as true. Then the DS need to calls this end point in order to notify game client if the DS is ready to accept any game client connection.
 */
-func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetDSReadyNoContent, error) {
+func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetDSReadyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSetDSReadyParams()
@@ -293,15 +368,39 @@ func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminSetDSReadyNoContent:
-		return v, nil
+		response := &AdminSetDSReadyResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSetDSReadyBadRequest:
-		return nil, v
+		response := &AdminSetDSReadyResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSetDSReadyUnauthorized:
-		return nil, v
+		response := &AdminSetDSReadyResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSetDSReadyForbidden:
-		return nil, v
+		response := &AdminSetDSReadyResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSetDSReadyInternalServerError:
-		return nil, v
+		response := &AdminSetDSReadyResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -312,7 +411,7 @@ func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo ru
 AdminKickGameSessionMemberShort kick member from a game session.
 Kick member from a game session.
 */
-func (a *Client) AdminKickGameSessionMemberShort(params *AdminKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminKickGameSessionMemberNoContent, error) {
+func (a *Client) AdminKickGameSessionMemberShort(params *AdminKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminKickGameSessionMemberResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminKickGameSessionMemberParams()
@@ -350,17 +449,46 @@ func (a *Client) AdminKickGameSessionMemberShort(params *AdminKickGameSessionMem
 	switch v := result.(type) {
 
 	case *AdminKickGameSessionMemberNoContent:
-		return v, nil
+		response := &AdminKickGameSessionMemberResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminKickGameSessionMemberBadRequest:
-		return nil, v
+		response := &AdminKickGameSessionMemberResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminKickGameSessionMemberUnauthorized:
-		return nil, v
+		response := &AdminKickGameSessionMemberResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminKickGameSessionMemberForbidden:
-		return nil, v
+		response := &AdminKickGameSessionMemberResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminKickGameSessionMemberNotFound:
-		return nil, v
+		response := &AdminKickGameSessionMemberResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminKickGameSessionMemberInternalServerError:
-		return nil, v
+		response := &AdminKickGameSessionMemberResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -371,7 +499,7 @@ func (a *Client) AdminKickGameSessionMemberShort(params *AdminKickGameSessionMem
 AdminUpdateGameSessionMemberShort update status of a game session member.
 Update a game session member status.
 */
-func (a *Client) AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGameSessionMemberOK, error) {
+func (a *Client) AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGameSessionMemberResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateGameSessionMemberParams()
@@ -409,17 +537,47 @@ func (a *Client) AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessio
 	switch v := result.(type) {
 
 	case *AdminUpdateGameSessionMemberOK:
-		return v, nil
+		response := &AdminUpdateGameSessionMemberResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateGameSessionMemberBadRequest:
-		return nil, v
+		response := &AdminUpdateGameSessionMemberResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGameSessionMemberUnauthorized:
-		return nil, v
+		response := &AdminUpdateGameSessionMemberResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGameSessionMemberForbidden:
-		return nil, v
+		response := &AdminUpdateGameSessionMemberResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGameSessionMemberNotFound:
-		return nil, v
+		response := &AdminUpdateGameSessionMemberResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGameSessionMemberInternalServerError:
-		return nil, v
+		response := &AdminUpdateGameSessionMemberResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -501,7 +659,7 @@ By default, DS requests are sent to DSMC, but if dsSource is set to "AMS":
 [preferredClaimKeys.., clientVersion, fallbackClaimKeys...]
 for session override can follow guideline in here https://docs.accelbyte.io/gaming-services/services/extend/override-ags-feature/getting-started-with-session-customization/
 */
-func (a *Client) CreateGameSessionShort(params *CreateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGameSessionCreated, error) {
+func (a *Client) CreateGameSessionShort(params *CreateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGameSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateGameSessionParams()
@@ -539,15 +697,40 @@ func (a *Client) CreateGameSessionShort(params *CreateGameSessionParams, authInf
 	switch v := result.(type) {
 
 	case *CreateGameSessionCreated:
-		return v, nil
+		response := &CreateGameSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateGameSessionBadRequest:
-		return nil, v
+		response := &CreateGameSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGameSessionUnauthorized:
-		return nil, v
+		response := &CreateGameSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGameSessionForbidden:
-		return nil, v
+		response := &CreateGameSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateGameSessionInternalServerError:
-		return nil, v
+		response := &CreateGameSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -577,7 +760,7 @@ all: return all sessions regardless it's full
 full: only return active sessions
 default behavior (unset or else): return only available sessions (not full)
 */
-func (a *Client) PublicQueryGameSessionsByAttributesShort(params *PublicQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionsByAttributesOK, error) {
+func (a *Client) PublicQueryGameSessionsByAttributesShort(params *PublicQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryGameSessionsByAttributesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryGameSessionsByAttributesParams()
@@ -615,15 +798,40 @@ func (a *Client) PublicQueryGameSessionsByAttributesShort(params *PublicQueryGam
 	switch v := result.(type) {
 
 	case *PublicQueryGameSessionsByAttributesOK:
-		return v, nil
+		response := &PublicQueryGameSessionsByAttributesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicQueryGameSessionsByAttributesBadRequest:
-		return nil, v
+		response := &PublicQueryGameSessionsByAttributesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryGameSessionsByAttributesUnauthorized:
-		return nil, v
+		response := &PublicQueryGameSessionsByAttributesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryGameSessionsByAttributesForbidden:
-		return nil, v
+		response := &PublicQueryGameSessionsByAttributesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryGameSessionsByAttributesInternalServerError:
-		return nil, v
+		response := &PublicQueryGameSessionsByAttributesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -634,7 +842,7 @@ func (a *Client) PublicQueryGameSessionsByAttributesShort(params *PublicQueryGam
 PublicSessionJoinCodeShort join a session by code.
 Join a session by code. The user can join a session as long as the code is valid
 */
-func (a *Client) PublicSessionJoinCodeShort(params *PublicSessionJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSessionJoinCodeOK, error) {
+func (a *Client) PublicSessionJoinCodeShort(params *PublicSessionJoinCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSessionJoinCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSessionJoinCodeParams()
@@ -672,17 +880,47 @@ func (a *Client) PublicSessionJoinCodeShort(params *PublicSessionJoinCodeParams,
 	switch v := result.(type) {
 
 	case *PublicSessionJoinCodeOK:
-		return v, nil
+		response := &PublicSessionJoinCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSessionJoinCodeBadRequest:
-		return nil, v
+		response := &PublicSessionJoinCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSessionJoinCodeUnauthorized:
-		return nil, v
+		response := &PublicSessionJoinCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSessionJoinCodeForbidden:
-		return nil, v
+		response := &PublicSessionJoinCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSessionJoinCodeNotFound:
-		return nil, v
+		response := &PublicSessionJoinCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSessionJoinCodeInternalServerError:
-		return nil, v
+		response := &PublicSessionJoinCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -705,7 +943,7 @@ Session service has several DSInformation status to track DS request to DS provi
 DSInformation has 2 fields for DS status: "status" and "statusV2". The "status" is there for backward-compatibility, therefore we encourage to just rely on "statusV2" for the more updated statuses.
 DS Source can be DSMC, AMS or custom. In DSMC, a DS request will be put in queue if they dont have available buffers, and DSMC will let the service knows when they finished spinning it up. While AMS doesn't have a concept of queue. Therefore some "DSInformation.statusV2" only applicable for DSMC.
 */
-func (a *Client) GetGameSessionByPodNameShort(params *GetGameSessionByPodNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionByPodNameOK, error) {
+func (a *Client) GetGameSessionByPodNameShort(params *GetGameSessionByPodNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionByPodNameResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGameSessionByPodNameParams()
@@ -743,17 +981,47 @@ func (a *Client) GetGameSessionByPodNameShort(params *GetGameSessionByPodNamePar
 	switch v := result.(type) {
 
 	case *GetGameSessionByPodNameOK:
-		return v, nil
+		response := &GetGameSessionByPodNameResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGameSessionByPodNameBadRequest:
-		return nil, v
+		response := &GetGameSessionByPodNameResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionByPodNameUnauthorized:
-		return nil, v
+		response := &GetGameSessionByPodNameResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionByPodNameForbidden:
-		return nil, v
+		response := &GetGameSessionByPodNameResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionByPodNameNotFound:
-		return nil, v
+		response := &GetGameSessionByPodNameResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionByPodNameInternalServerError:
-		return nil, v
+		response := &GetGameSessionByPodNameResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -777,7 +1045,7 @@ Session service has several DSInformation status to track DS request to DS provi
 DSInformation has 2 fields for DS status: "status" and "statusV2". The "status" is there for backward-compatibility, therefore we encourage to just rely on "statusV2" for the more updated statuses.
 DS Source can be DSMC, AMS or custom. In DSMC, a DS request will be put in queue if they dont have available buffers, and DSMC will let the service knows when they finished spinning it up. While AMS doesn't have a concept of queue. Therefore some "DSInformation.statusV2" only applicable for DSMC.
 */
-func (a *Client) GetGameSessionShort(params *GetGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionOK, error) {
+func (a *Client) GetGameSessionShort(params *GetGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGameSessionParams()
@@ -815,17 +1083,47 @@ func (a *Client) GetGameSessionShort(params *GetGameSessionParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetGameSessionOK:
-		return v, nil
+		response := &GetGameSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGameSessionBadRequest:
-		return nil, v
+		response := &GetGameSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionUnauthorized:
-		return nil, v
+		response := &GetGameSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionForbidden:
-		return nil, v
+		response := &GetGameSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionNotFound:
-		return nil, v
+		response := &GetGameSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGameSessionInternalServerError:
-		return nil, v
+		response := &GetGameSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -841,7 +1139,7 @@ API : /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
 
 To update DS attributes (clientVersion, deployment, requestedRegions) it will only be applied only as long as no DS has been requested, otherwise ignored.
 */
-func (a *Client) UpdateGameSessionShort(params *UpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionOK, error) {
+func (a *Client) UpdateGameSessionShort(params *UpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGameSessionParams()
@@ -879,19 +1177,54 @@ func (a *Client) UpdateGameSessionShort(params *UpdateGameSessionParams, authInf
 	switch v := result.(type) {
 
 	case *UpdateGameSessionOK:
-		return v, nil
+		response := &UpdateGameSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGameSessionBadRequest:
-		return nil, v
+		response := &UpdateGameSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGameSessionUnauthorized:
-		return nil, v
+		response := &UpdateGameSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGameSessionForbidden:
-		return nil, v
+		response := &UpdateGameSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGameSessionNotFound:
-		return nil, v
+		response := &UpdateGameSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGameSessionConflict:
-		return nil, v
+		response := &UpdateGameSessionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGameSessionInternalServerError:
-		return nil, v
+		response := &UpdateGameSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -902,7 +1235,7 @@ func (a *Client) UpdateGameSessionShort(params *UpdateGameSessionParams, authInf
 DeleteGameSessionShort delete a game session.
 Delete a game session.
 */
-func (a *Client) DeleteGameSessionShort(params *DeleteGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameSessionNoContent, error) {
+func (a *Client) DeleteGameSessionShort(params *DeleteGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGameSessionParams()
@@ -940,13 +1273,32 @@ func (a *Client) DeleteGameSessionShort(params *DeleteGameSessionParams, authInf
 	switch v := result.(type) {
 
 	case *DeleteGameSessionNoContent:
-		return v, nil
+		response := &DeleteGameSessionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteGameSessionUnauthorized:
-		return nil, v
+		response := &DeleteGameSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGameSessionForbidden:
-		return nil, v
+		response := &DeleteGameSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteGameSessionInternalServerError:
-		return nil, v
+		response := &DeleteGameSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -957,7 +1309,7 @@ func (a *Client) DeleteGameSessionShort(params *DeleteGameSessionParams, authInf
 PatchUpdateGameSessionShort patch update a game session.
 Update specified fields from game session data.
 */
-func (a *Client) PatchUpdateGameSessionShort(params *PatchUpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*PatchUpdateGameSessionOK, error) {
+func (a *Client) PatchUpdateGameSessionShort(params *PatchUpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*PatchUpdateGameSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPatchUpdateGameSessionParams()
@@ -995,19 +1347,54 @@ func (a *Client) PatchUpdateGameSessionShort(params *PatchUpdateGameSessionParam
 	switch v := result.(type) {
 
 	case *PatchUpdateGameSessionOK:
-		return v, nil
+		response := &PatchUpdateGameSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PatchUpdateGameSessionBadRequest:
-		return nil, v
+		response := &PatchUpdateGameSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PatchUpdateGameSessionUnauthorized:
-		return nil, v
+		response := &PatchUpdateGameSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PatchUpdateGameSessionForbidden:
-		return nil, v
+		response := &PatchUpdateGameSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PatchUpdateGameSessionNotFound:
-		return nil, v
+		response := &PatchUpdateGameSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PatchUpdateGameSessionConflict:
-		return nil, v
+		response := &PatchUpdateGameSessionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PatchUpdateGameSessionInternalServerError:
-		return nil, v
+		response := &PatchUpdateGameSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1018,7 +1405,7 @@ func (a *Client) PatchUpdateGameSessionShort(params *PatchUpdateGameSessionParam
 UpdateGameSessionBackfillTicketIDShort update game session backfill ticket id .
 Update game session backfill ticket id. Will override game session backfill ticket based on given request parameter
 */
-func (a *Client) UpdateGameSessionBackfillTicketIDShort(params *UpdateGameSessionBackfillTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionBackfillTicketIDOK, error) {
+func (a *Client) UpdateGameSessionBackfillTicketIDShort(params *UpdateGameSessionBackfillTicketIDParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionBackfillTicketIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGameSessionBackfillTicketIDParams()
@@ -1056,15 +1443,40 @@ func (a *Client) UpdateGameSessionBackfillTicketIDShort(params *UpdateGameSessio
 	switch v := result.(type) {
 
 	case *UpdateGameSessionBackfillTicketIDOK:
-		return v, nil
+		response := &UpdateGameSessionBackfillTicketIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateGameSessionBackfillTicketIDUnauthorized:
-		return nil, v
+		response := &UpdateGameSessionBackfillTicketIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGameSessionBackfillTicketIDForbidden:
-		return nil, v
+		response := &UpdateGameSessionBackfillTicketIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGameSessionBackfillTicketIDNotFound:
-		return nil, v
+		response := &UpdateGameSessionBackfillTicketIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateGameSessionBackfillTicketIDInternalServerError:
-		return nil, v
+		response := &UpdateGameSessionBackfillTicketIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1075,7 +1487,7 @@ func (a *Client) UpdateGameSessionBackfillTicketIDShort(params *UpdateGameSessio
 GameSessionGenerateCodeShort generate a game session code.
 Generate a new code for the game session. Only leader can generate a code.
 */
-func (a *Client) GameSessionGenerateCodeShort(params *GameSessionGenerateCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GameSessionGenerateCodeOK, error) {
+func (a *Client) GameSessionGenerateCodeShort(params *GameSessionGenerateCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GameSessionGenerateCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGameSessionGenerateCodeParams()
@@ -1113,17 +1525,47 @@ func (a *Client) GameSessionGenerateCodeShort(params *GameSessionGenerateCodePar
 	switch v := result.(type) {
 
 	case *GameSessionGenerateCodeOK:
-		return v, nil
+		response := &GameSessionGenerateCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GameSessionGenerateCodeBadRequest:
-		return nil, v
+		response := &GameSessionGenerateCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GameSessionGenerateCodeUnauthorized:
-		return nil, v
+		response := &GameSessionGenerateCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GameSessionGenerateCodeForbidden:
-		return nil, v
+		response := &GameSessionGenerateCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GameSessionGenerateCodeNotFound:
-		return nil, v
+		response := &GameSessionGenerateCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GameSessionGenerateCodeInternalServerError:
-		return nil, v
+		response := &GameSessionGenerateCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1134,7 +1576,7 @@ func (a *Client) GameSessionGenerateCodeShort(params *GameSessionGenerateCodePar
 PublicRevokeGameSessionCodeShort revoke game session code.
 Revoke code of the game session. Only leader can revoke a code.
 */
-func (a *Client) PublicRevokeGameSessionCodeShort(params *PublicRevokeGameSessionCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokeGameSessionCodeNoContent, error) {
+func (a *Client) PublicRevokeGameSessionCodeShort(params *PublicRevokeGameSessionCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokeGameSessionCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicRevokeGameSessionCodeParams()
@@ -1172,17 +1614,46 @@ func (a *Client) PublicRevokeGameSessionCodeShort(params *PublicRevokeGameSessio
 	switch v := result.(type) {
 
 	case *PublicRevokeGameSessionCodeNoContent:
-		return v, nil
+		response := &PublicRevokeGameSessionCodeResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicRevokeGameSessionCodeBadRequest:
-		return nil, v
+		response := &PublicRevokeGameSessionCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRevokeGameSessionCodeUnauthorized:
-		return nil, v
+		response := &PublicRevokeGameSessionCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRevokeGameSessionCodeForbidden:
-		return nil, v
+		response := &PublicRevokeGameSessionCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRevokeGameSessionCodeNotFound:
-		return nil, v
+		response := &PublicRevokeGameSessionCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRevokeGameSessionCodeInternalServerError:
-		return nil, v
+		response := &PublicRevokeGameSessionCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1199,7 +1670,7 @@ supported platforms:
 - PSN
 Metadata is optional parameter which will be sent over via invitation notification and is not permanently stored in the game session storage.
 */
-func (a *Client) PublicGameSessionInviteShort(params *PublicGameSessionInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionInviteCreated, error) {
+func (a *Client) PublicGameSessionInviteShort(params *PublicGameSessionInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionInviteResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGameSessionInviteParams()
@@ -1237,17 +1708,45 @@ func (a *Client) PublicGameSessionInviteShort(params *PublicGameSessionInvitePar
 	switch v := result.(type) {
 
 	case *PublicGameSessionInviteCreated:
-		return v, nil
+		response := &PublicGameSessionInviteResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGameSessionInviteNoContent:
-		return nil, v
+		response := &PublicGameSessionInviteResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGameSessionInviteBadRequest:
-		return nil, v
+		response := &PublicGameSessionInviteResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionInviteUnauthorized:
-		return nil, v
+		response := &PublicGameSessionInviteResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionInviteNotFound:
-		return nil, v
+		response := &PublicGameSessionInviteResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionInviteInternalServerError:
-		return nil, v
+		response := &PublicGameSessionInviteResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1258,7 +1757,7 @@ func (a *Client) PublicGameSessionInviteShort(params *PublicGameSessionInvitePar
 JoinGameSessionShort join a game session.
 Join a game session.
 */
-func (a *Client) JoinGameSessionShort(params *JoinGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*JoinGameSessionOK, error) {
+func (a *Client) JoinGameSessionShort(params *JoinGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*JoinGameSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewJoinGameSessionParams()
@@ -1296,17 +1795,47 @@ func (a *Client) JoinGameSessionShort(params *JoinGameSessionParams, authInfo ru
 	switch v := result.(type) {
 
 	case *JoinGameSessionOK:
-		return v, nil
+		response := &JoinGameSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *JoinGameSessionBadRequest:
-		return nil, v
+		response := &JoinGameSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *JoinGameSessionUnauthorized:
-		return nil, v
+		response := &JoinGameSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *JoinGameSessionForbidden:
-		return nil, v
+		response := &JoinGameSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *JoinGameSessionNotFound:
-		return nil, v
+		response := &JoinGameSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *JoinGameSessionInternalServerError:
-		return nil, v
+		response := &JoinGameSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1329,7 +1858,7 @@ This API will promote game session leader candidate with the following criteria:
 - Leader candidate has a "CONNECTED" or "JOINED" status
 - If the leader candidate is the current leader, then no promotion process is carried out
 */
-func (a *Client) PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderOK, error) {
+func (a *Client) PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicPromoteGameSessionLeaderParams()
@@ -1367,17 +1896,47 @@ func (a *Client) PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSe
 	switch v := result.(type) {
 
 	case *PublicPromoteGameSessionLeaderOK:
-		return v, nil
+		response := &PublicPromoteGameSessionLeaderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicPromoteGameSessionLeaderBadRequest:
-		return nil, v
+		response := &PublicPromoteGameSessionLeaderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPromoteGameSessionLeaderUnauthorized:
-		return nil, v
+		response := &PublicPromoteGameSessionLeaderResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPromoteGameSessionLeaderForbidden:
-		return nil, v
+		response := &PublicPromoteGameSessionLeaderResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPromoteGameSessionLeaderNotFound:
-		return nil, v
+		response := &PublicPromoteGameSessionLeaderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicPromoteGameSessionLeaderInternalServerError:
-		return nil, v
+		response := &PublicPromoteGameSessionLeaderResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1388,7 +1947,7 @@ func (a *Client) PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSe
 LeaveGameSessionShort leave a game session.
 Leave a game session.
 */
-func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionNoContent, error) {
+func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewLeaveGameSessionParams()
@@ -1426,17 +1985,46 @@ func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo 
 	switch v := result.(type) {
 
 	case *LeaveGameSessionNoContent:
-		return v, nil
+		response := &LeaveGameSessionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *LeaveGameSessionBadRequest:
-		return nil, v
+		response := &LeaveGameSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LeaveGameSessionUnauthorized:
-		return nil, v
+		response := &LeaveGameSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LeaveGameSessionForbidden:
-		return nil, v
+		response := &LeaveGameSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LeaveGameSessionNotFound:
-		return nil, v
+		response := &LeaveGameSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LeaveGameSessionInternalServerError:
-		return nil, v
+		response := &LeaveGameSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1447,7 +2035,7 @@ func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo 
 PublicKickGameSessionMemberShort kick member from a game session, only leader can kick member.
 Kick member from a game session, only leader can kick member.
 */
-func (a *Client) PublicKickGameSessionMemberShort(params *PublicKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*PublicKickGameSessionMemberNoContent, error) {
+func (a *Client) PublicKickGameSessionMemberShort(params *PublicKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*PublicKickGameSessionMemberResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicKickGameSessionMemberParams()
@@ -1485,17 +2073,46 @@ func (a *Client) PublicKickGameSessionMemberShort(params *PublicKickGameSessionM
 	switch v := result.(type) {
 
 	case *PublicKickGameSessionMemberNoContent:
-		return v, nil
+		response := &PublicKickGameSessionMemberResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicKickGameSessionMemberBadRequest:
-		return nil, v
+		response := &PublicKickGameSessionMemberResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicKickGameSessionMemberUnauthorized:
-		return nil, v
+		response := &PublicKickGameSessionMemberResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicKickGameSessionMemberForbidden:
-		return nil, v
+		response := &PublicKickGameSessionMemberResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicKickGameSessionMemberNotFound:
-		return nil, v
+		response := &PublicKickGameSessionMemberResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicKickGameSessionMemberInternalServerError:
-		return nil, v
+		response := &PublicKickGameSessionMemberResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1506,7 +2123,7 @@ func (a *Client) PublicKickGameSessionMemberShort(params *PublicKickGameSessionM
 PublicGameSessionRejectShort reject a game session invitation.
 Reject a game session invitation.
 */
-func (a *Client) PublicGameSessionRejectShort(params *PublicGameSessionRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionRejectNoContent, error) {
+func (a *Client) PublicGameSessionRejectShort(params *PublicGameSessionRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionRejectResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGameSessionRejectParams()
@@ -1544,17 +2161,46 @@ func (a *Client) PublicGameSessionRejectShort(params *PublicGameSessionRejectPar
 	switch v := result.(type) {
 
 	case *PublicGameSessionRejectNoContent:
-		return v, nil
+		response := &PublicGameSessionRejectResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGameSessionRejectBadRequest:
-		return nil, v
+		response := &PublicGameSessionRejectResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionRejectUnauthorized:
-		return nil, v
+		response := &PublicGameSessionRejectResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionRejectForbidden:
-		return nil, v
+		response := &PublicGameSessionRejectResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionRejectNotFound:
-		return nil, v
+		response := &PublicGameSessionRejectResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionRejectInternalServerError:
-		return nil, v
+		response := &PublicGameSessionRejectResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1585,7 +2231,7 @@ If there is error:
 - 404 StatusNotFound
 - 500 Internal server error
 */
-func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionServerSecretOK, error) {
+func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionServerSecretResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSessionServerSecretParams()
@@ -1623,15 +2269,40 @@ func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParam
 	switch v := result.(type) {
 
 	case *GetSessionServerSecretOK:
-		return v, nil
+		response := &GetSessionServerSecretResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSessionServerSecretBadRequest:
-		return nil, v
+		response := &GetSessionServerSecretResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionServerSecretUnauthorized:
-		return nil, v
+		response := &GetSessionServerSecretResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionServerSecretNotFound:
-		return nil, v
+		response := &GetSessionServerSecretResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionServerSecretInternalServerError:
-		return nil, v
+		response := &GetSessionServerSecretResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1642,7 +2313,7 @@ func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParam
 AppendTeamGameSessionShort append new member or team to session.
 Append new member or team to session
 */
-func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AppendTeamGameSessionOK, error) {
+func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AppendTeamGameSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAppendTeamGameSessionParams()
@@ -1680,15 +2351,40 @@ func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams,
 	switch v := result.(type) {
 
 	case *AppendTeamGameSessionOK:
-		return v, nil
+		response := &AppendTeamGameSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AppendTeamGameSessionUnauthorized:
-		return nil, v
+		response := &AppendTeamGameSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AppendTeamGameSessionForbidden:
-		return nil, v
+		response := &AppendTeamGameSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AppendTeamGameSessionNotFound:
-		return nil, v
+		response := &AppendTeamGameSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AppendTeamGameSessionInternalServerError:
-		return nil, v
+		response := &AppendTeamGameSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1699,7 +2395,7 @@ func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams,
 PublicGameSessionCancelShort cancel a game session invitation.
 cancel a game session invitation.
 */
-func (a *Client) PublicGameSessionCancelShort(params *PublicGameSessionCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionCancelNoContent, error) {
+func (a *Client) PublicGameSessionCancelShort(params *PublicGameSessionCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionCancelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGameSessionCancelParams()
@@ -1737,17 +2433,46 @@ func (a *Client) PublicGameSessionCancelShort(params *PublicGameSessionCancelPar
 	switch v := result.(type) {
 
 	case *PublicGameSessionCancelNoContent:
-		return v, nil
+		response := &PublicGameSessionCancelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGameSessionCancelBadRequest:
-		return nil, v
+		response := &PublicGameSessionCancelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionCancelUnauthorized:
-		return nil, v
+		response := &PublicGameSessionCancelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionCancelForbidden:
-		return nil, v
+		response := &PublicGameSessionCancelResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionCancelNotFound:
-		return nil, v
+		response := &PublicGameSessionCancelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGameSessionCancelInternalServerError:
-		return nil, v
+		response := &PublicGameSessionCancelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1772,7 +2497,7 @@ Session service has several DSInformation status to track DS request to DS provi
 DSInformation has 2 fields for DS status: "status" and "statusV2". The "status" is there for backward-compatibility, therefore we encourage to just rely on "statusV2" for the more updated statuses.
 DS Source can be DSMC, AMS or custom. In DSMC, a DS request will be put in queue if they dont have available buffers, and DSMC will let the service knows when they finished spinning it up. While AMS doesn't have a concept of queue. Therefore some "DSInformation.statusV2" only applicable for DSMC.
 */
-func (a *Client) PublicQueryMyGameSessionsShort(params *PublicQueryMyGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyGameSessionsOK, error) {
+func (a *Client) PublicQueryMyGameSessionsShort(params *PublicQueryMyGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryMyGameSessionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryMyGameSessionsParams()
@@ -1810,13 +2535,33 @@ func (a *Client) PublicQueryMyGameSessionsShort(params *PublicQueryMyGameSession
 	switch v := result.(type) {
 
 	case *PublicQueryMyGameSessionsOK:
-		return v, nil
+		response := &PublicQueryMyGameSessionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicQueryMyGameSessionsBadRequest:
-		return nil, v
+		response := &PublicQueryMyGameSessionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryMyGameSessionsUnauthorized:
-		return nil, v
+		response := &PublicQueryMyGameSessionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryMyGameSessionsInternalServerError:
-		return nil, v
+		response := &PublicQueryMyGameSessionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

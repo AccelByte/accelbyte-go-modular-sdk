@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryTiersShort(params *QueryTiersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTiersOK, error)
-	CreateTierShort(params *CreateTierParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTierCreated, error)
-	UpdateTierShort(params *UpdateTierParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTierOK, error)
-	DeleteTierShort(params *DeleteTierParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTierNoContent, error)
-	ReorderTierShort(params *ReorderTierParams, authInfo runtime.ClientAuthInfoWriter) (*ReorderTierOK, error)
-	GrantUserExpShort(params *GrantUserExpParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserExpOK, error)
-	GrantUserTierShort(params *GrantUserTierParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserTierOK, error)
+	QueryTiersShort(params *QueryTiersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTiersResponse, error)
+	CreateTierShort(params *CreateTierParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTierResponse, error)
+	UpdateTierShort(params *UpdateTierParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTierResponse, error)
+	DeleteTierShort(params *DeleteTierParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTierResponse, error)
+	ReorderTierShort(params *ReorderTierParams, authInfo runtime.ClientAuthInfoWriter) (*ReorderTierResponse, error)
+	GrantUserExpShort(params *GrantUserExpParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserExpResponse, error)
+	GrantUserTierShort(params *GrantUserTierParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserTierResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ Other detail info:
 
   * Returns : the list of passes
 */
-func (a *Client) QueryTiersShort(params *QueryTiersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTiersOK, error) {
+func (a *Client) QueryTiersShort(params *QueryTiersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTiersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryTiersParams()
@@ -87,11 +87,26 @@ func (a *Client) QueryTiersShort(params *QueryTiersParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *QueryTiersOK:
-		return v, nil
+		response := &QueryTiersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryTiersBadRequest:
-		return nil, v
+		response := &QueryTiersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryTiersNotFound:
-		return nil, v
+		response := &QueryTiersResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -102,7 +117,7 @@ func (a *Client) QueryTiersShort(params *QueryTiersParams, authInfo runtime.Clie
 CreateTierShort create tier
 This API is used to create tier for a draft season, can create multiple tiers at same time.
 */
-func (a *Client) CreateTierShort(params *CreateTierParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTierCreated, error) {
+func (a *Client) CreateTierShort(params *CreateTierParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTierResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateTierParams()
@@ -140,15 +155,40 @@ func (a *Client) CreateTierShort(params *CreateTierParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *CreateTierCreated:
-		return v, nil
+		response := &CreateTierResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateTierBadRequest:
-		return nil, v
+		response := &CreateTierResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTierNotFound:
-		return nil, v
+		response := &CreateTierResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTierConflict:
-		return nil, v
+		response := &CreateTierResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateTierUnprocessableEntity:
-		return nil, v
+		response := &CreateTierResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,7 +199,7 @@ func (a *Client) CreateTierShort(params *CreateTierParams, authInfo runtime.Clie
 UpdateTierShort update a tier
 This API is used to update a tier. Only draft season pass can be updated.
 */
-func (a *Client) UpdateTierShort(params *UpdateTierParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTierOK, error) {
+func (a *Client) UpdateTierShort(params *UpdateTierParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTierResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateTierParams()
@@ -197,15 +237,40 @@ func (a *Client) UpdateTierShort(params *UpdateTierParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UpdateTierOK:
-		return v, nil
+		response := &UpdateTierResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateTierBadRequest:
-		return nil, v
+		response := &UpdateTierResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTierNotFound:
-		return nil, v
+		response := &UpdateTierResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTierConflict:
-		return nil, v
+		response := &UpdateTierResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateTierUnprocessableEntity:
-		return nil, v
+		response := &UpdateTierResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,7 +281,7 @@ func (a *Client) UpdateTierShort(params *UpdateTierParams, authInfo runtime.Clie
 DeleteTierShort delete a tier
 This API is used to delete a tier permanently, only draft season pass can be deleted.
 */
-func (a *Client) DeleteTierShort(params *DeleteTierParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTierNoContent, error) {
+func (a *Client) DeleteTierShort(params *DeleteTierParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTierResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTierParams()
@@ -254,13 +319,32 @@ func (a *Client) DeleteTierShort(params *DeleteTierParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *DeleteTierNoContent:
-		return v, nil
+		response := &DeleteTierResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteTierBadRequest:
-		return nil, v
+		response := &DeleteTierResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTierNotFound:
-		return nil, v
+		response := &DeleteTierResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTierConflict:
-		return nil, v
+		response := &DeleteTierResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -271,7 +355,7 @@ func (a *Client) DeleteTierShort(params *DeleteTierParams, authInfo runtime.Clie
 ReorderTierShort reorder a tier
 This API is used to reorder a tier. Only draft season pass can be updated.
 */
-func (a *Client) ReorderTierShort(params *ReorderTierParams, authInfo runtime.ClientAuthInfoWriter) (*ReorderTierOK, error) {
+func (a *Client) ReorderTierShort(params *ReorderTierParams, authInfo runtime.ClientAuthInfoWriter) (*ReorderTierResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewReorderTierParams()
@@ -309,15 +393,40 @@ func (a *Client) ReorderTierShort(params *ReorderTierParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ReorderTierOK:
-		return v, nil
+		response := &ReorderTierResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ReorderTierBadRequest:
-		return nil, v
+		response := &ReorderTierResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ReorderTierNotFound:
-		return nil, v
+		response := &ReorderTierResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ReorderTierConflict:
-		return nil, v
+		response := &ReorderTierResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ReorderTierUnprocessableEntity:
-		return nil, v
+		response := &ReorderTierResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -332,7 +441,7 @@ Other detail info:
 
   * Returns : user season data
 */
-func (a *Client) GrantUserExpShort(params *GrantUserExpParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserExpOK, error) {
+func (a *Client) GrantUserExpShort(params *GrantUserExpParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserExpResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGrantUserExpParams()
@@ -370,9 +479,19 @@ func (a *Client) GrantUserExpShort(params *GrantUserExpParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GrantUserExpOK:
-		return v, nil
+		response := &GrantUserExpResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GrantUserExpBadRequest:
-		return nil, v
+		response := &GrantUserExpResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -387,7 +506,7 @@ Other detail info:
 
   * Returns : user season data
 */
-func (a *Client) GrantUserTierShort(params *GrantUserTierParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserTierOK, error) {
+func (a *Client) GrantUserTierShort(params *GrantUserTierParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserTierResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGrantUserTierParams()
@@ -425,11 +544,26 @@ func (a *Client) GrantUserTierShort(params *GrantUserTierParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GrantUserTierOK:
-		return v, nil
+		response := &GrantUserTierResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GrantUserTierBadRequest:
-		return nil, v
+		response := &GrantUserTierResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GrantUserTierNotFound:
-		return nil, v
+		response := &GrantUserTierResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,31 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type GetRevocationListResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.OauthapiRevocationList
+
+	Error401 string
+}
+
+func (m *GetRevocationListResponse) Unpack() (*iamclientmodels.OauthapiRevocationList, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			return nil, &iamclientmodels.ApiError{Code: "401", Message: m.Error401}
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetRevocationListReader is a Reader for the GetRevocationList structure.
 type GetRevocationListReader struct {
 	formats strfmt.Registry

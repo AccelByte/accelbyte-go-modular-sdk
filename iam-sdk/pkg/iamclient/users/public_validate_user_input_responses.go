@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type PublicValidateUserInputResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelUserInputValidationResponse
+
+	Error500 *iamclientmodels.RestErrorResponse
+}
+
+func (m *PublicValidateUserInputResponse) Unpack() (*iamclientmodels.ModelUserInputValidationResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicValidateUserInputReader is a Reader for the PublicValidateUserInput structure.
 type PublicValidateUserInputReader struct {
 	formats strfmt.Registry

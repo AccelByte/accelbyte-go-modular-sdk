@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 )
 
+type AdminDeleteGameRecordHandlerV1Response struct {
+	cloudsaveclientmodels.ApiResponse
+
+	Error400 *cloudsaveclientmodels.ModelsResponseError
+	Error401 *cloudsaveclientmodels.ModelsResponseError
+	Error403 *cloudsaveclientmodels.ModelsResponseError
+	Error500 *cloudsaveclientmodels.ModelsResponseError
+}
+
+func (m *AdminDeleteGameRecordHandlerV1Response) Unpack() *cloudsaveclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &cloudsaveclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminDeleteGameRecordHandlerV1Reader is a Reader for the AdminDeleteGameRecordHandlerV1 structure.
 type AdminDeleteGameRecordHandlerV1Reader struct {
 	formats strfmt.Registry

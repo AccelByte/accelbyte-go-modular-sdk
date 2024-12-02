@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type PublicCheckUserSubscriptionSubscribableByItemIDResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.Subscribable
+}
+
+func (m *PublicCheckUserSubscriptionSubscribableByItemIDResponse) Unpack() (*platformclientmodels.Subscribable, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicCheckUserSubscriptionSubscribableByItemIDReader is a Reader for the PublicCheckUserSubscriptionSubscribableByItemID structure.
 type PublicCheckUserSubscriptionSubscribableByItemIDReader struct {
 	formats strfmt.Registry

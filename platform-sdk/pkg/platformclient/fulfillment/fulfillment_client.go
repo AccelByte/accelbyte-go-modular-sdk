@@ -30,17 +30,17 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesOK, error)
-	FulfillItemShort(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemOK, error)
-	RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeOK, error)
-	PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemOK, error)
-	FulfillRewardsShort(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsNoContent, error)
-	PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeOK, error)
-	QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsOK, error)
-	FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2OK, error)
-	FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsOK, error)
-	RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsOK, error)
-	RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsOK, error)
+	QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesResponse, error)
+	FulfillItemShort(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemResponse, error)
+	RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeResponse, error)
+	PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemResponse, error)
+	FulfillRewardsShort(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsResponse, error)
+	PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeResponse, error)
+	QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsResponse, error)
+	FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2Response, error)
+	FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsResponse, error)
+	RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsResponse, error)
+	RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ Other detail info:
 
   * Returns : query fulfillment history
 */
-func (a *Client) QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesOK, error) {
+func (a *Client) QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryFulfillmentHistoriesParams()
@@ -90,7 +90,12 @@ func (a *Client) QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistorie
 	switch v := result.(type) {
 
 	case *QueryFulfillmentHistoriesOK:
-		return v, nil
+		response := &QueryFulfillmentHistoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +109,7 @@ Other detail info:
 
   * Returns : fulfillment result
 */
-func (a *Client) FulfillItemShort(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemOK, error) {
+func (a *Client) FulfillItemShort(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFulfillItemParams()
@@ -142,13 +147,33 @@ func (a *Client) FulfillItemShort(params *FulfillItemParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *FulfillItemOK:
-		return v, nil
+		response := &FulfillItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FulfillItemBadRequest:
-		return nil, v
+		response := &FulfillItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillItemNotFound:
-		return nil, v
+		response := &FulfillItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillItemConflict:
-		return nil, v
+		response := &FulfillItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -162,7 +187,7 @@ Other detail info:
 
   * Returns : fulfillment result
 */
-func (a *Client) RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeOK, error) {
+func (a *Client) RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRedeemCodeParams()
@@ -200,13 +225,33 @@ func (a *Client) RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *RedeemCodeOK:
-		return v, nil
+		response := &RedeemCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RedeemCodeBadRequest:
-		return nil, v
+		response := &RedeemCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RedeemCodeNotFound:
-		return nil, v
+		response := &RedeemCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RedeemCodeConflict:
-		return nil, v
+		response := &RedeemCodeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -220,7 +265,7 @@ Other detail info:
 
   * Returns : list of fulfillment items
 */
-func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemOK, error) {
+func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPreCheckFulfillItemParams()
@@ -258,11 +303,26 @@ func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, aut
 	switch v := result.(type) {
 
 	case *PreCheckFulfillItemOK:
-		return v, nil
+		response := &PreCheckFulfillItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PreCheckFulfillItemBadRequest:
-		return nil, v
+		response := &PreCheckFulfillItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PreCheckFulfillItemNotFound:
-		return nil, v
+		response := &PreCheckFulfillItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -276,7 +336,7 @@ Other detail info:
 
   * Returns : fulfillment result
 */
-func (a *Client) FulfillRewardsShort(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsNoContent, error) {
+func (a *Client) FulfillRewardsShort(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFulfillRewardsParams()
@@ -314,13 +374,32 @@ func (a *Client) FulfillRewardsShort(params *FulfillRewardsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *FulfillRewardsNoContent:
-		return v, nil
+		response := &FulfillRewardsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FulfillRewardsBadRequest:
-		return nil, v
+		response := &FulfillRewardsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillRewardsNotFound:
-		return nil, v
+		response := &FulfillRewardsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillRewardsConflict:
-		return nil, v
+		response := &FulfillRewardsResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -334,7 +413,7 @@ Other detail info:
 
   * Returns : fulfillment result
 */
-func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeOK, error) {
+func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicRedeemCodeParams()
@@ -372,15 +451,40 @@ func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicRedeemCodeOK:
-		return v, nil
+		response := &PublicRedeemCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicRedeemCodeBadRequest:
-		return nil, v
+		response := &PublicRedeemCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRedeemCodeNotFound:
-		return nil, v
+		response := &PublicRedeemCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRedeemCodeConflict:
-		return nil, v
+		response := &PublicRedeemCodeResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRedeemCodeTooManyRequests:
-		return nil, v
+		response := &PublicRedeemCodeResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -396,7 +500,7 @@ Other detail info:
     * storeId in items can be ignored
     * error in successList will always be null
 */
-func (a *Client) QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsOK, error) {
+func (a *Client) QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryFulfillmentsParams()
@@ -434,7 +538,12 @@ func (a *Client) QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInf
 	switch v := result.(type) {
 
 	case *QueryFulfillmentsOK:
-		return v, nil
+		response := &QueryFulfillmentsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -449,7 +558,7 @@ Other detail info:
   * Returns : fulfillment result
   *  rewards Item unsupported Type : SUBSCRIPTION
 */
-func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2OK, error) {
+func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFulfillRewardsV2Params()
@@ -487,13 +596,33 @@ func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo 
 	switch v := result.(type) {
 
 	case *FulfillRewardsV2OK:
-		return v, nil
+		response := &FulfillRewardsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FulfillRewardsV2BadRequest:
-		return nil, v
+		response := &FulfillRewardsV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillRewardsV2NotFound:
-		return nil, v
+		response := &FulfillRewardsV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillRewardsV2Conflict:
-		return nil, v
+		response := &FulfillRewardsV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -508,7 +637,7 @@ Other detail info:
   * Request body : storeId, region, language, and entitlementCollectionId can be ignored.
   *  Returns : fulfillment v2 result, storeId field can be ignored.
 */
-func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsOK, error) {
+func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFulfillItemsParams()
@@ -546,13 +675,33 @@ func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *FulfillItemsOK:
-		return v, nil
+		response := &FulfillItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FulfillItemsBadRequest:
-		return nil, v
+		response := &FulfillItemsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillItemsNotFound:
-		return nil, v
+		response := &FulfillItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FulfillItemsConflict:
-		return nil, v
+		response := &FulfillItemsResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -566,7 +715,7 @@ Other detail info:
 
   * Returns : fulfillment v2 result, storeId field can be ignored.
 */
-func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsOK, error) {
+func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetryFulfillItemsParams()
@@ -604,11 +753,26 @@ func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInf
 	switch v := result.(type) {
 
 	case *RetryFulfillItemsOK:
-		return v, nil
+		response := &RetryFulfillItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetryFulfillItemsNotFound:
-		return nil, v
+		response := &RetryFulfillItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetryFulfillItemsConflict:
-		return nil, v
+		response := &RetryFulfillItemsResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -622,7 +786,7 @@ Other detail info:
 
   * Returns : revoke fulfillment v2 result, storeId field can be ignored.
 */
-func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsOK, error) {
+func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRevokeItemsParams()
@@ -660,11 +824,26 @@ func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *RevokeItemsOK:
-		return v, nil
+		response := &RevokeItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RevokeItemsNotFound:
-		return nil, v
+		response := &RevokeItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RevokeItemsConflict:
-		return nil, v
+		response := &RevokeItemsResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

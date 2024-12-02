@@ -9,7 +9,6 @@ package dsmc
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient/server"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ServerService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ServerService) ListServerClientShort(input *server.ListServerClientParams) (*dsmcclientmodels.ModelsListServerResponse, error) {
+func (aaa *ServerService) ListServerClientShort(input *server.ListServerClientParams) (*server.ListServerClientResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ServerService) ListServerClientShort(input *server.ListServerClientPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServerService) CountServerDetailedClientShort(input *server.CountServerDetailedClientParams) (*dsmcclientmodels.ModelsDetailedCountServerResponse, error) {
+func (aaa *ServerService) CountServerDetailedClientShort(input *server.CountServerDetailedClientParams) (*server.CountServerDetailedClientResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *ServerService) CountServerDetailedClientShort(input *server.CountServ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ServerService) ServerHeartbeatShort(input *server.ServerHeartbeatParams) error {
@@ -159,7 +158,7 @@ func (aaa *ServerService) DeregisterLocalServerShort(input *server.DeregisterLoc
 	return nil
 }
 
-func (aaa *ServerService) RegisterLocalServerShort(input *server.RegisterLocalServerParams) (*dsmcclientmodels.ModelsServer, error) {
+func (aaa *ServerService) RegisterLocalServerShort(input *server.RegisterLocalServerParams) (*server.RegisterLocalServerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *ServerService) RegisterLocalServerShort(input *server.RegisterLocalSe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServerService) RegisterServerShort(input *server.RegisterServerParams) (*dsmcclientmodels.ModelsServer, error) {
+func (aaa *ServerService) RegisterServerShort(input *server.RegisterServerParams) (*server.RegisterServerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *ServerService) RegisterServerShort(input *server.RegisterServerParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ServerService) ShutdownServerShort(input *server.ShutdownServerParams) error {
@@ -249,7 +248,7 @@ func (aaa *ServerService) ShutdownServerShort(input *server.ShutdownServerParams
 	return nil
 }
 
-func (aaa *ServerService) GetServerSessionTimeoutShort(input *server.GetServerSessionTimeoutParams) (*dsmcclientmodels.ModelsServerDeploymentConfigSessionTimeoutResponse, error) {
+func (aaa *ServerService) GetServerSessionTimeoutShort(input *server.GetServerSessionTimeoutParams) (*server.GetServerSessionTimeoutResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *ServerService) GetServerSessionTimeoutShort(input *server.GetServerSe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServerService) GetServerSessionShort(input *server.GetServerSessionParams) (*dsmcclientmodels.ModelsServerSessionResponse, error) {
+func (aaa *ServerService) GetServerSessionShort(input *server.GetServerSessionParams) (*server.GetServerSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,5 +305,5 @@ func (aaa *ServerService) GetServerSessionShort(input *server.GetServerSessionPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

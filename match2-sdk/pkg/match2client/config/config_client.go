@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigOK, error)
-	AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigOK, error)
-	AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1OK, error)
-	AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1OK, error)
-	AdminPatchConfigV1Short(params *AdminPatchConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchConfigV1OK, error)
+	AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigResponse, error)
+	AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigResponse, error)
+	AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1Response, error)
+	AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1Response, error)
+	AdminPatchConfigV1Short(params *AdminPatchConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchConfigV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 AdminGetLogConfigShort get log configuration
 Get Log Configuration.
 */
-func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigOK, error) {
+func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetLogConfigParams()
@@ -81,7 +81,12 @@ func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInf
 	switch v := result.(type) {
 
 	case *AdminGetLogConfigOK:
-		return v, nil
+		response := &AdminGetLogConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -92,7 +97,7 @@ func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInf
 AdminPatchUpdateLogConfigShort patch update log configuration
 Update Log Configuration.
 */
-func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigOK, error) {
+func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPatchUpdateLogConfigParams()
@@ -130,7 +135,12 @@ func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfi
 	switch v := result.(type) {
 
 	case *AdminPatchUpdateLogConfigOK:
-		return v, nil
+		response := &AdminPatchUpdateLogConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -141,7 +151,7 @@ func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfi
 AdminGetAllConfigV1Short admin get all namespaces config
 Get matchmaking config of all namespaces. Will only return namespace configs than have been updated.
 */
-func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1OK, error) {
+func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAllConfigV1Params()
@@ -179,13 +189,33 @@ func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, aut
 	switch v := result.(type) {
 
 	case *AdminGetAllConfigV1OK:
-		return v, nil
+		response := &AdminGetAllConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAllConfigV1Unauthorized:
-		return nil, v
+		response := &AdminGetAllConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigV1Forbidden:
-		return nil, v
+		response := &AdminGetAllConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigV1InternalServerError:
-		return nil, v
+		response := &AdminGetAllConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -196,7 +226,7 @@ func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, aut
 AdminGetConfigV1Short admin get namespace config
 Get matchmaking config of a namespaces.
 */
-func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1OK, error) {
+func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetConfigV1Params()
@@ -234,13 +264,33 @@ func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo 
 	switch v := result.(type) {
 
 	case *AdminGetConfigV1OK:
-		return v, nil
+		response := &AdminGetConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetConfigV1Unauthorized:
-		return nil, v
+		response := &AdminGetConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigV1Forbidden:
-		return nil, v
+		response := &AdminGetConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigV1InternalServerError:
-		return nil, v
+		response := &AdminGetConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -251,7 +301,7 @@ func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo 
 AdminPatchConfigV1Short admin patch update namespace config
 Patch update matchmaking config of a namespaces. Partially update matchmaking config, will only update value that defined on the request.
 */
-func (a *Client) AdminPatchConfigV1Short(params *AdminPatchConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchConfigV1OK, error) {
+func (a *Client) AdminPatchConfigV1Short(params *AdminPatchConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPatchConfigV1Params()
@@ -289,13 +339,33 @@ func (a *Client) AdminPatchConfigV1Short(params *AdminPatchConfigV1Params, authI
 	switch v := result.(type) {
 
 	case *AdminPatchConfigV1OK:
-		return v, nil
+		response := &AdminPatchConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPatchConfigV1Unauthorized:
-		return nil, v
+		response := &AdminPatchConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPatchConfigV1Forbidden:
-		return nil, v
+		response := &AdminPatchConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPatchConfigV1InternalServerError:
-		return nil, v
+		response := &AdminPatchConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

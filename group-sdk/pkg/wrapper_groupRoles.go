@@ -9,7 +9,6 @@ package group
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_roles"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *GroupRolesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *GroupRolesService) GetMemberRolesListAdminV1Short(input *group_roles.GetMemberRolesListAdminV1Params) (*groupclientmodels.ModelsGetMemberRolesListResponseV1, error) {
+func (aaa *GroupRolesService) GetMemberRolesListAdminV1Short(input *group_roles.GetMemberRolesListAdminV1Params) (*group_roles.GetMemberRolesListAdminV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *GroupRolesService) GetMemberRolesListAdminV1Short(input *group_roles.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupRolesService) CreateMemberRoleAdminV1Short(input *group_roles.CreateMemberRoleAdminV1Params) (*groupclientmodels.ModelsMemberRoleResponseV1, error) {
+func (aaa *GroupRolesService) CreateMemberRoleAdminV1Short(input *group_roles.CreateMemberRoleAdminV1Params) (*group_roles.CreateMemberRoleAdminV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *GroupRolesService) CreateMemberRoleAdminV1Short(input *group_roles.Cr
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *GroupRolesService) GetSingleMemberRoleAdminV1Short(input *group_roles.GetSingleMemberRoleAdminV1Params) (*groupclientmodels.ModelsMemberRoleResponseV1, error) {
+func (aaa *GroupRolesService) GetSingleMemberRoleAdminV1Short(input *group_roles.GetSingleMemberRoleAdminV1Params) (*group_roles.GetSingleMemberRoleAdminV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *GroupRolesService) GetSingleMemberRoleAdminV1Short(input *group_roles
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GroupRolesService) DeleteMemberRoleAdminV1Short(input *group_roles.DeleteMemberRoleAdminV1Params) error {
@@ -157,7 +156,7 @@ func (aaa *GroupRolesService) DeleteMemberRoleAdminV1Short(input *group_roles.De
 	return nil
 }
 
-func (aaa *GroupRolesService) UpdateMemberRoleAdminV1Short(input *group_roles.UpdateMemberRoleAdminV1Params) (*groupclientmodels.ModelsMemberRoleResponseV1, error) {
+func (aaa *GroupRolesService) UpdateMemberRoleAdminV1Short(input *group_roles.UpdateMemberRoleAdminV1Params) (*group_roles.UpdateMemberRoleAdminV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *GroupRolesService) UpdateMemberRoleAdminV1Short(input *group_roles.Up
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupRolesService) UpdateMemberRolePermissionAdminV1Short(input *group_roles.UpdateMemberRolePermissionAdminV1Params) (*groupclientmodels.ModelsMemberRoleResponseV1, error) {
+func (aaa *GroupRolesService) UpdateMemberRolePermissionAdminV1Short(input *group_roles.UpdateMemberRolePermissionAdminV1Params) (*group_roles.UpdateMemberRolePermissionAdminV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *GroupRolesService) UpdateMemberRolePermissionAdminV1Short(input *grou
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupRolesService) GetMemberRolesListPublicV1Short(input *group_roles.GetMemberRolesListPublicV1Params) (*groupclientmodels.ModelsGetMemberRolesListResponseV1, error) {
+func (aaa *GroupRolesService) GetMemberRolesListPublicV1Short(input *group_roles.GetMemberRolesListPublicV1Params) (*group_roles.GetMemberRolesListPublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *GroupRolesService) GetMemberRolesListPublicV1Short(input *group_roles
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupRolesService) UpdateMemberRolePublicV1Short(input *group_roles.UpdateMemberRolePublicV1Params) (*groupclientmodels.ModelsGetUserGroupInformationResponseV1, error) {
+func (aaa *GroupRolesService) UpdateMemberRolePublicV1Short(input *group_roles.UpdateMemberRolePublicV1Params) (*group_roles.UpdateMemberRolePublicV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,7 +273,7 @@ func (aaa *GroupRolesService) UpdateMemberRolePublicV1Short(input *group_roles.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GroupRolesService) DeleteMemberRolePublicV1Short(input *group_roles.DeleteMemberRolePublicV1Params) error {
@@ -307,7 +306,7 @@ func (aaa *GroupRolesService) DeleteMemberRolePublicV1Short(input *group_roles.D
 	return nil
 }
 
-func (aaa *GroupRolesService) GetMemberRolesListPublicV2Short(input *group_roles.GetMemberRolesListPublicV2Params) (*groupclientmodels.ModelsGetMemberRolesListResponseV1, error) {
+func (aaa *GroupRolesService) GetMemberRolesListPublicV2Short(input *group_roles.GetMemberRolesListPublicV2Params) (*group_roles.GetMemberRolesListPublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *GroupRolesService) GetMemberRolesListPublicV2Short(input *group_roles
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GroupRolesService) UpdateMemberRolePublicV2Short(input *group_roles.UpdateMemberRolePublicV2Params) (*groupclientmodels.ModelsGetUserGroupInformationResponseV1, error) {
+func (aaa *GroupRolesService) UpdateMemberRolePublicV2Short(input *group_roles.UpdateMemberRolePublicV2Params) (*group_roles.UpdateMemberRolePublicV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,7 +363,7 @@ func (aaa *GroupRolesService) UpdateMemberRolePublicV2Short(input *group_roles.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GroupRolesService) DeleteMemberRolePublicV2Short(input *group_roles.DeleteMemberRolePublicV2Params) error {

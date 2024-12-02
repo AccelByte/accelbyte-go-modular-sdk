@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SyncOrdersShort(params *SyncOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOrdersOK, error)
+	SyncOrdersShort(params *SyncOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOrdersResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ Other detail info:
 
   * Returns : sync orders
 */
-func (a *Client) SyncOrdersShort(params *SyncOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOrdersOK, error) {
+func (a *Client) SyncOrdersShort(params *SyncOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOrdersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncOrdersParams()
@@ -80,7 +80,12 @@ func (a *Client) SyncOrdersShort(params *SyncOrdersParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *SyncOrdersOK:
-		return v, nil
+		response := &SyncOrdersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

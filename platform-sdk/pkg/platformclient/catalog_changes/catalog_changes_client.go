@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryChangesShort(params *QueryChangesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryChangesOK, error)
-	PublishAllShort(params *PublishAllParams, authInfo runtime.ClientAuthInfoWriter) (*PublishAllOK, error)
-	PublishSelectedShort(params *PublishSelectedParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSelectedOK, error)
-	SelectAllRecordsShort(params *SelectAllRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*SelectAllRecordsNoContent, error)
-	SelectAllRecordsByCriteriaShort(params *SelectAllRecordsByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*SelectAllRecordsByCriteriaNoContent, error)
-	GetStatisticShort(params *GetStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatisticOK, error)
-	UnselectAllRecordsShort(params *UnselectAllRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*UnselectAllRecordsNoContent, error)
-	SelectRecordShort(params *SelectRecordParams, authInfo runtime.ClientAuthInfoWriter) (*SelectRecordNoContent, error)
-	UnselectRecordShort(params *UnselectRecordParams, authInfo runtime.ClientAuthInfoWriter) (*UnselectRecordNoContent, error)
+	QueryChangesShort(params *QueryChangesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryChangesResponse, error)
+	PublishAllShort(params *PublishAllParams, authInfo runtime.ClientAuthInfoWriter) (*PublishAllResponse, error)
+	PublishSelectedShort(params *PublishSelectedParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSelectedResponse, error)
+	SelectAllRecordsShort(params *SelectAllRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*SelectAllRecordsResponse, error)
+	SelectAllRecordsByCriteriaShort(params *SelectAllRecordsByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*SelectAllRecordsByCriteriaResponse, error)
+	GetStatisticShort(params *GetStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatisticResponse, error)
+	UnselectAllRecordsShort(params *UnselectAllRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*UnselectAllRecordsResponse, error)
+	SelectRecordShort(params *SelectRecordParams, authInfo runtime.ClientAuthInfoWriter) (*SelectRecordResponse, error)
+	UnselectRecordShort(params *UnselectRecordParams, authInfo runtime.ClientAuthInfoWriter) (*UnselectRecordResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ Other detail info:
 
   * Returns : the pagination of changes
 */
-func (a *Client) QueryChangesShort(params *QueryChangesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryChangesOK, error) {
+func (a *Client) QueryChangesShort(params *QueryChangesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryChangesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryChangesParams()
@@ -89,7 +89,12 @@ func (a *Client) QueryChangesShort(params *QueryChangesParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *QueryChangesOK:
-		return v, nil
+		response := &QueryChangesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +109,7 @@ Other detail info:
 
   * Returns : no content
 */
-func (a *Client) PublishAllShort(params *PublishAllParams, authInfo runtime.ClientAuthInfoWriter) (*PublishAllOK, error) {
+func (a *Client) PublishAllShort(params *PublishAllParams, authInfo runtime.ClientAuthInfoWriter) (*PublishAllResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublishAllParams()
@@ -142,11 +147,26 @@ func (a *Client) PublishAllShort(params *PublishAllParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *PublishAllOK:
-		return v, nil
+		response := &PublishAllResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublishAllBadRequest:
-		return nil, v
+		response := &PublishAllResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishAllNotFound:
-		return nil, v
+		response := &PublishAllResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -161,7 +181,7 @@ Other detail info:
 
   * Returns : no content
 */
-func (a *Client) PublishSelectedShort(params *PublishSelectedParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSelectedOK, error) {
+func (a *Client) PublishSelectedShort(params *PublishSelectedParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSelectedResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublishSelectedParams()
@@ -199,13 +219,33 @@ func (a *Client) PublishSelectedShort(params *PublishSelectedParams, authInfo ru
 	switch v := result.(type) {
 
 	case *PublishSelectedOK:
-		return v, nil
+		response := &PublishSelectedResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublishSelectedBadRequest:
-		return nil, v
+		response := &PublishSelectedResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishSelectedNotFound:
-		return nil, v
+		response := &PublishSelectedResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishSelectedConflict:
-		return nil, v
+		response := &PublishSelectedResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,7 +256,7 @@ func (a *Client) PublishSelectedShort(params *PublishSelectedParams, authInfo ru
 SelectAllRecordsShort select all changes
 Select all changes.
 */
-func (a *Client) SelectAllRecordsShort(params *SelectAllRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*SelectAllRecordsNoContent, error) {
+func (a *Client) SelectAllRecordsShort(params *SelectAllRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*SelectAllRecordsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSelectAllRecordsParams()
@@ -254,9 +294,18 @@ func (a *Client) SelectAllRecordsShort(params *SelectAllRecordsParams, authInfo 
 	switch v := result.(type) {
 
 	case *SelectAllRecordsNoContent:
-		return v, nil
+		response := &SelectAllRecordsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SelectAllRecordsNotFound:
-		return nil, v
+		response := &SelectAllRecordsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -267,7 +316,7 @@ func (a *Client) SelectAllRecordsShort(params *SelectAllRecordsParams, authInfo 
 SelectAllRecordsByCriteriaShort select all changes by criteria
 Select all changes by criteria
 */
-func (a *Client) SelectAllRecordsByCriteriaShort(params *SelectAllRecordsByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*SelectAllRecordsByCriteriaNoContent, error) {
+func (a *Client) SelectAllRecordsByCriteriaShort(params *SelectAllRecordsByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*SelectAllRecordsByCriteriaResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSelectAllRecordsByCriteriaParams()
@@ -305,9 +354,18 @@ func (a *Client) SelectAllRecordsByCriteriaShort(params *SelectAllRecordsByCrite
 	switch v := result.(type) {
 
 	case *SelectAllRecordsByCriteriaNoContent:
-		return v, nil
+		response := &SelectAllRecordsByCriteriaResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SelectAllRecordsByCriteriaNotFound:
-		return nil, v
+		response := &SelectAllRecordsByCriteriaResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -322,7 +380,7 @@ Other detail info:
 
   * Returns : catalog changes statistics changes
 */
-func (a *Client) GetStatisticShort(params *GetStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatisticOK, error) {
+func (a *Client) GetStatisticShort(params *GetStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatisticResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStatisticParams()
@@ -360,7 +418,12 @@ func (a *Client) GetStatisticShort(params *GetStatisticParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetStatisticOK:
-		return v, nil
+		response := &GetStatisticResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -371,7 +434,7 @@ func (a *Client) GetStatisticShort(params *GetStatisticParams, authInfo runtime.
 UnselectAllRecordsShort unselect all changes
 Unselect all change.
 */
-func (a *Client) UnselectAllRecordsShort(params *UnselectAllRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*UnselectAllRecordsNoContent, error) {
+func (a *Client) UnselectAllRecordsShort(params *UnselectAllRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*UnselectAllRecordsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUnselectAllRecordsParams()
@@ -409,9 +472,18 @@ func (a *Client) UnselectAllRecordsShort(params *UnselectAllRecordsParams, authI
 	switch v := result.(type) {
 
 	case *UnselectAllRecordsNoContent:
-		return v, nil
+		response := &UnselectAllRecordsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UnselectAllRecordsNotFound:
-		return nil, v
+		response := &UnselectAllRecordsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -422,7 +494,7 @@ func (a *Client) UnselectAllRecordsShort(params *UnselectAllRecordsParams, authI
 SelectRecordShort select a change
 Select a change, it will be included when partial publish.
 */
-func (a *Client) SelectRecordShort(params *SelectRecordParams, authInfo runtime.ClientAuthInfoWriter) (*SelectRecordNoContent, error) {
+func (a *Client) SelectRecordShort(params *SelectRecordParams, authInfo runtime.ClientAuthInfoWriter) (*SelectRecordResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSelectRecordParams()
@@ -460,9 +532,18 @@ func (a *Client) SelectRecordShort(params *SelectRecordParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *SelectRecordNoContent:
-		return v, nil
+		response := &SelectRecordResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SelectRecordNotFound:
-		return nil, v
+		response := &SelectRecordResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -473,7 +554,7 @@ func (a *Client) SelectRecordShort(params *SelectRecordParams, authInfo runtime.
 UnselectRecordShort unselect a change
 Unselect a change, it will not be included when partial publish.
 */
-func (a *Client) UnselectRecordShort(params *UnselectRecordParams, authInfo runtime.ClientAuthInfoWriter) (*UnselectRecordNoContent, error) {
+func (a *Client) UnselectRecordShort(params *UnselectRecordParams, authInfo runtime.ClientAuthInfoWriter) (*UnselectRecordResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUnselectRecordParams()
@@ -511,11 +592,25 @@ func (a *Client) UnselectRecordShort(params *UnselectRecordParams, authInfo runt
 	switch v := result.(type) {
 
 	case *UnselectRecordNoContent:
-		return v, nil
+		response := &UnselectRecordResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UnselectRecordNotFound:
-		return nil, v
+		response := &UnselectRecordResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UnselectRecordConflict:
-		return nil, v
+		response := &UnselectRecordResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

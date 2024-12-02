@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type InitiateExportAgreementsToCSVResponse struct {
+	legalclientmodels.ApiResponse
+	Data *legalclientmodels.InitiateExportAgreementsToCSVResponse
+
+	Error400 *legalclientmodels.ErrorEntity
+	Error404 *legalclientmodels.ErrorEntity
+	Error409 *legalclientmodels.ErrorEntity
+}
+
+func (m *InitiateExportAgreementsToCSVResponse) Unpack() (*legalclientmodels.InitiateExportAgreementsToCSVResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // InitiateExportAgreementsToCSVReader is a Reader for the InitiateExportAgreementsToCSV structure.
 type InitiateExportAgreementsToCSVReader struct {
 	formats strfmt.Registry

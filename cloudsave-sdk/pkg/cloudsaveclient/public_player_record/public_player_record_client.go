@@ -30,19 +30,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BulkGetPlayerPublicRecordHandlerV1Short(params *BulkGetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerPublicRecordHandlerV1OK, error)
-	RetrievePlayerRecordsShort(params *RetrievePlayerRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePlayerRecordsOK, error)
-	GetPlayerRecordsBulkHandlerV1Short(params *GetPlayerRecordsBulkHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordsBulkHandlerV1OK, error)
-	PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerPublicRecordHandlerV1NoContent, error)
-	GetOtherPlayerPublicRecordKeyHandlerV1Short(params *GetOtherPlayerPublicRecordKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordKeyHandlerV1OK, error)
-	GetOtherPlayerPublicRecordHandlerV1Short(params *GetOtherPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordHandlerV1OK, error)
-	GetPlayerRecordHandlerV1Short(params *GetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordHandlerV1OK, error)
-	PutPlayerRecordHandlerV1Short(params *PutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerRecordHandlerV1OK, error)
-	PostPlayerRecordHandlerV1Short(params *PostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerRecordHandlerV1Created, error)
-	DeletePlayerRecordHandlerV1Short(params *DeletePlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeletePlayerRecordHandlerV1NoContent, error)
-	GetPlayerPublicRecordHandlerV1Short(params *GetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerPublicRecordHandlerV1OK, error)
-	PutPlayerPublicRecordHandlerV1Short(params *PutPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerPublicRecordHandlerV1OK, error)
-	PostPlayerPublicRecordHandlerV1Short(params *PostPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerPublicRecordHandlerV1Created, error)
+	BulkGetPlayerPublicRecordHandlerV1Short(params *BulkGetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerPublicRecordHandlerV1Response, error)
+	RetrievePlayerRecordsShort(params *RetrievePlayerRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePlayerRecordsResponse, error)
+	GetPlayerRecordsBulkHandlerV1Short(params *GetPlayerRecordsBulkHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordsBulkHandlerV1Response, error)
+	PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerPublicRecordHandlerV1Response, error)
+	GetOtherPlayerPublicRecordKeyHandlerV1Short(params *GetOtherPlayerPublicRecordKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordKeyHandlerV1Response, error)
+	GetOtherPlayerPublicRecordHandlerV1Short(params *GetOtherPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordHandlerV1Response, error)
+	GetPlayerRecordHandlerV1Short(params *GetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordHandlerV1Response, error)
+	PutPlayerRecordHandlerV1Short(params *PutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerRecordHandlerV1Response, error)
+	PostPlayerRecordHandlerV1Short(params *PostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerRecordHandlerV1Response, error)
+	DeletePlayerRecordHandlerV1Short(params *DeletePlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeletePlayerRecordHandlerV1Response, error)
+	GetPlayerPublicRecordHandlerV1Short(params *GetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerPublicRecordHandlerV1Response, error)
+	PutPlayerPublicRecordHandlerV1Short(params *PutPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerPublicRecordHandlerV1Response, error)
+	PostPlayerPublicRecordHandlerV1Short(params *PostPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerPublicRecordHandlerV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ BulkGetPlayerPublicRecordHandlerV1Short bulk get player public records
 Bulk get other player's record that is public by userIds, max allowed 20 at a time. Only record with `isPublic=true` that can be
 retrieved using this endpoint.
 */
-func (a *Client) BulkGetPlayerPublicRecordHandlerV1Short(params *BulkGetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerPublicRecordHandlerV1OK, error) {
+func (a *Client) BulkGetPlayerPublicRecordHandlerV1Short(params *BulkGetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetPlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetPlayerPublicRecordHandlerV1Params()
@@ -90,15 +90,40 @@ func (a *Client) BulkGetPlayerPublicRecordHandlerV1Short(params *BulkGetPlayerPu
 	switch v := result.(type) {
 
 	case *BulkGetPlayerPublicRecordHandlerV1OK:
-		return v, nil
+		response := &BulkGetPlayerPublicRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetPlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &BulkGetPlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &BulkGetPlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &BulkGetPlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetPlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &BulkGetPlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -109,7 +134,7 @@ func (a *Client) BulkGetPlayerPublicRecordHandlerV1Short(params *BulkGetPlayerPu
 RetrievePlayerRecordsShort query player records key
 Retrieve list of player records key under given namespace.
 */
-func (a *Client) RetrievePlayerRecordsShort(params *RetrievePlayerRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePlayerRecordsOK, error) {
+func (a *Client) RetrievePlayerRecordsShort(params *RetrievePlayerRecordsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePlayerRecordsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrievePlayerRecordsParams()
@@ -147,15 +172,40 @@ func (a *Client) RetrievePlayerRecordsShort(params *RetrievePlayerRecordsParams,
 	switch v := result.(type) {
 
 	case *RetrievePlayerRecordsOK:
-		return v, nil
+		response := &RetrievePlayerRecordsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrievePlayerRecordsBadRequest:
-		return nil, v
+		response := &RetrievePlayerRecordsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrievePlayerRecordsUnauthorized:
-		return nil, v
+		response := &RetrievePlayerRecordsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrievePlayerRecordsForbidden:
-		return nil, v
+		response := &RetrievePlayerRecordsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetrievePlayerRecordsInternalServerError:
-		return nil, v
+		response := &RetrievePlayerRecordsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,7 +218,7 @@ Retrieve player record key and payload in bulk under given namespace.
 
 Maximum bulk key limit per request 20
 */
-func (a *Client) GetPlayerRecordsBulkHandlerV1Short(params *GetPlayerRecordsBulkHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordsBulkHandlerV1OK, error) {
+func (a *Client) GetPlayerRecordsBulkHandlerV1Short(params *GetPlayerRecordsBulkHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordsBulkHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlayerRecordsBulkHandlerV1Params()
@@ -206,15 +256,40 @@ func (a *Client) GetPlayerRecordsBulkHandlerV1Short(params *GetPlayerRecordsBulk
 	switch v := result.(type) {
 
 	case *GetPlayerRecordsBulkHandlerV1OK:
-		return v, nil
+		response := &GetPlayerRecordsBulkHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPlayerRecordsBulkHandlerV1BadRequest:
-		return nil, v
+		response := &GetPlayerRecordsBulkHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerRecordsBulkHandlerV1Unauthorized:
-		return nil, v
+		response := &GetPlayerRecordsBulkHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerRecordsBulkHandlerV1Forbidden:
-		return nil, v
+		response := &GetPlayerRecordsBulkHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerRecordsBulkHandlerV1InternalServerError:
-		return nil, v
+		response := &GetPlayerRecordsBulkHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -235,7 +310,7 @@ For alternative, please use these endpoints:
 - **PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}** and utilizing **__META** functionality
 - **DELETE /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}**
 */
-func (a *Client) PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerPublicRecordHandlerV1NoContent, error) {
+func (a *Client) PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDeletePlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDeletePlayerPublicRecordHandlerV1Params()
@@ -273,17 +348,46 @@ func (a *Client) PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDele
 	switch v := result.(type) {
 
 	case *PublicDeletePlayerPublicRecordHandlerV1NoContent:
-		return v, nil
+		response := &PublicDeletePlayerPublicRecordHandlerV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDeletePlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &PublicDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &PublicDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &PublicDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlayerPublicRecordHandlerV1NotFound:
-		return nil, v
+		response := &PublicDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &PublicDeletePlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -294,7 +398,7 @@ func (a *Client) PublicDeletePlayerPublicRecordHandlerV1Short(params *PublicDele
 GetOtherPlayerPublicRecordKeyHandlerV1Short query other player public record key
 Retrieve list of other public player records key under given namespace.
 */
-func (a *Client) GetOtherPlayerPublicRecordKeyHandlerV1Short(params *GetOtherPlayerPublicRecordKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordKeyHandlerV1OK, error) {
+func (a *Client) GetOtherPlayerPublicRecordKeyHandlerV1Short(params *GetOtherPlayerPublicRecordKeyHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordKeyHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetOtherPlayerPublicRecordKeyHandlerV1Params()
@@ -332,15 +436,40 @@ func (a *Client) GetOtherPlayerPublicRecordKeyHandlerV1Short(params *GetOtherPla
 	switch v := result.(type) {
 
 	case *GetOtherPlayerPublicRecordKeyHandlerV1OK:
-		return v, nil
+		response := &GetOtherPlayerPublicRecordKeyHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetOtherPlayerPublicRecordKeyHandlerV1BadRequest:
-		return nil, v
+		response := &GetOtherPlayerPublicRecordKeyHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized:
-		return nil, v
+		response := &GetOtherPlayerPublicRecordKeyHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOtherPlayerPublicRecordKeyHandlerV1Forbidden:
-		return nil, v
+		response := &GetOtherPlayerPublicRecordKeyHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError:
-		return nil, v
+		response := &GetOtherPlayerPublicRecordKeyHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -353,7 +482,7 @@ Retrieve other player public record key and payload in bulk under given namespac
 
 Maximum bulk key limit per request 20
 */
-func (a *Client) GetOtherPlayerPublicRecordHandlerV1Short(params *GetOtherPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordHandlerV1OK, error) {
+func (a *Client) GetOtherPlayerPublicRecordHandlerV1Short(params *GetOtherPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetOtherPlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetOtherPlayerPublicRecordHandlerV1Params()
@@ -391,15 +520,40 @@ func (a *Client) GetOtherPlayerPublicRecordHandlerV1Short(params *GetOtherPlayer
 	switch v := result.(type) {
 
 	case *GetOtherPlayerPublicRecordHandlerV1OK:
-		return v, nil
+		response := &GetOtherPlayerPublicRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetOtherPlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &GetOtherPlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOtherPlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &GetOtherPlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOtherPlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &GetOtherPlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetOtherPlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &GetOtherPlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -411,7 +565,7 @@ GetPlayerRecordHandlerV1Short get player record
 Get player record by its key.
 **Private Record**: Only user that own the player record could retrieve it.
 */
-func (a *Client) GetPlayerRecordHandlerV1Short(params *GetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordHandlerV1OK, error) {
+func (a *Client) GetPlayerRecordHandlerV1Short(params *GetPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlayerRecordHandlerV1Params()
@@ -449,17 +603,47 @@ func (a *Client) GetPlayerRecordHandlerV1Short(params *GetPlayerRecordHandlerV1P
 	switch v := result.(type) {
 
 	case *GetPlayerRecordHandlerV1OK:
-		return v, nil
+		response := &GetPlayerRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPlayerRecordHandlerV1BadRequest:
-		return nil, v
+		response := &GetPlayerRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &GetPlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &GetPlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerRecordHandlerV1NotFound:
-		return nil, v
+		response := &GetPlayerRecordHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &GetPlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -520,7 +704,7 @@ Indicate whether the player record is a public record or not.
 }
 ```
 */
-func (a *Client) PutPlayerRecordHandlerV1Short(params *PutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerRecordHandlerV1OK, error) {
+func (a *Client) PutPlayerRecordHandlerV1Short(params *PutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPutPlayerRecordHandlerV1Params()
@@ -558,15 +742,40 @@ func (a *Client) PutPlayerRecordHandlerV1Short(params *PutPlayerRecordHandlerV1P
 	switch v := result.(type) {
 
 	case *PutPlayerRecordHandlerV1OK:
-		return v, nil
+		response := &PutPlayerRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PutPlayerRecordHandlerV1BadRequest:
-		return nil, v
+		response := &PutPlayerRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &PutPlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &PutPlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &PutPlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -639,7 +848,7 @@ Indicate whether the player record is a public record or not.
 }
 ```
 */
-func (a *Client) PostPlayerRecordHandlerV1Short(params *PostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerRecordHandlerV1Created, error) {
+func (a *Client) PostPlayerRecordHandlerV1Short(params *PostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostPlayerRecordHandlerV1Params()
@@ -677,15 +886,40 @@ func (a *Client) PostPlayerRecordHandlerV1Short(params *PostPlayerRecordHandlerV
 	switch v := result.(type) {
 
 	case *PostPlayerRecordHandlerV1Created:
-		return v, nil
+		response := &PostPlayerRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PostPlayerRecordHandlerV1BadRequest:
-		return nil, v
+		response := &PostPlayerRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &PostPlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &PostPlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &PostPlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -697,7 +931,7 @@ DeletePlayerRecordHandlerV1Short delete player record
 Delete player record by its key.
 Only user that own the player record could delete it.
 */
-func (a *Client) DeletePlayerRecordHandlerV1Short(params *DeletePlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeletePlayerRecordHandlerV1NoContent, error) {
+func (a *Client) DeletePlayerRecordHandlerV1Short(params *DeletePlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeletePlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePlayerRecordHandlerV1Params()
@@ -735,15 +969,39 @@ func (a *Client) DeletePlayerRecordHandlerV1Short(params *DeletePlayerRecordHand
 	switch v := result.(type) {
 
 	case *DeletePlayerRecordHandlerV1NoContent:
-		return v, nil
+		response := &DeletePlayerRecordHandlerV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeletePlayerRecordHandlerV1BadRequest:
-		return nil, v
+		response := &DeletePlayerRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePlayerRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &DeletePlayerRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePlayerRecordHandlerV1Forbidden:
-		return nil, v
+		response := &DeletePlayerRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeletePlayerRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &DeletePlayerRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -755,7 +1013,7 @@ GetPlayerPublicRecordHandlerV1Short get player public record
 Get other player's record that is public. Only record with `isPublic=true` that can be
 retrieved using this endpoint.
 */
-func (a *Client) GetPlayerPublicRecordHandlerV1Short(params *GetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerPublicRecordHandlerV1OK, error) {
+func (a *Client) GetPlayerPublicRecordHandlerV1Short(params *GetPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlayerPublicRecordHandlerV1Params()
@@ -793,17 +1051,47 @@ func (a *Client) GetPlayerPublicRecordHandlerV1Short(params *GetPlayerPublicReco
 	switch v := result.(type) {
 
 	case *GetPlayerPublicRecordHandlerV1OK:
-		return v, nil
+		response := &GetPlayerPublicRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &GetPlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &GetPlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &GetPlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerPublicRecordHandlerV1NotFound:
-		return nil, v
+		response := &GetPlayerPublicRecordHandlerV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &GetPlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -859,7 +1147,7 @@ For alternative, please use these endpoints:
 - **PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}** and utilizing **__META** functionality
 - **DELETE /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}**
 */
-func (a *Client) PutPlayerPublicRecordHandlerV1Short(params *PutPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerPublicRecordHandlerV1OK, error) {
+func (a *Client) PutPlayerPublicRecordHandlerV1Short(params *PutPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPutPlayerPublicRecordHandlerV1Params()
@@ -897,15 +1185,40 @@ func (a *Client) PutPlayerPublicRecordHandlerV1Short(params *PutPlayerPublicReco
 	switch v := result.(type) {
 
 	case *PutPlayerPublicRecordHandlerV1OK:
-		return v, nil
+		response := &PutPlayerPublicRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PutPlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &PutPlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &PutPlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &PutPlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PutPlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &PutPlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -973,7 +1286,7 @@ For alternative, please use these endpoints:
 - **PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}** and utilizing **__META** functionality
 - **DELETE /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}**
 */
-func (a *Client) PostPlayerPublicRecordHandlerV1Short(params *PostPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerPublicRecordHandlerV1Created, error) {
+func (a *Client) PostPlayerPublicRecordHandlerV1Short(params *PostPlayerPublicRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerPublicRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPostPlayerPublicRecordHandlerV1Params()
@@ -1011,15 +1324,40 @@ func (a *Client) PostPlayerPublicRecordHandlerV1Short(params *PostPlayerPublicRe
 	switch v := result.(type) {
 
 	case *PostPlayerPublicRecordHandlerV1Created:
-		return v, nil
+		response := &PostPlayerPublicRecordHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PostPlayerPublicRecordHandlerV1BadRequest:
-		return nil, v
+		response := &PostPlayerPublicRecordHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerPublicRecordHandlerV1Unauthorized:
-		return nil, v
+		response := &PostPlayerPublicRecordHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerPublicRecordHandlerV1Forbidden:
-		return nil, v
+		response := &PostPlayerPublicRecordHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PostPlayerPublicRecordHandlerV1InternalServerError:
-		return nil, v
+		response := &PostPlayerPublicRecordHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -9,7 +9,6 @@ package chat
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/profanity"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *ProfanityService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ProfanityService) AdminProfanityQueryShort(input *profanity.AdminProfanityQueryParams) (*chatclientmodels.ModelsDictionaryQueryResult, error) {
+func (aaa *ProfanityService) AdminProfanityQueryShort(input *profanity.AdminProfanityQueryParams) (*profanity.AdminProfanityQueryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *ProfanityService) AdminProfanityQueryShort(input *profanity.AdminProf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfanityService) AdminProfanityCreateShort(input *profanity.AdminProfanityCreateParams) (*chatclientmodels.ModelsDictionary, error) {
+func (aaa *ProfanityService) AdminProfanityCreateShort(input *profanity.AdminProfanityCreateParams) (*profanity.AdminProfanityCreateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *ProfanityService) AdminProfanityCreateShort(input *profanity.AdminPro
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfanityService) AdminProfanityCreateBulkShort(input *profanity.AdminProfanityCreateBulkParams) (*chatclientmodels.ModelsDictionary, error) {
+func (aaa *ProfanityService) AdminProfanityCreateBulkShort(input *profanity.AdminProfanityCreateBulkParams) (*profanity.AdminProfanityCreateBulkResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *ProfanityService) AdminProfanityCreateBulkShort(input *profanity.Admi
 		return nil, err
 	}
 
-	return noContent.GetPayload(), nil
+	return noContent, nil
 }
 
-func (aaa *ProfanityService) AdminProfanityExportShort(input *profanity.AdminProfanityExportParams) (*chatclientmodels.ModelsDictionaryExport, error) {
+func (aaa *ProfanityService) AdminProfanityExportShort(input *profanity.AdminProfanityExportParams) (*profanity.AdminProfanityExportResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *ProfanityService) AdminProfanityExportShort(input *profanity.AdminPro
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfanityService) AdminProfanityGroupShort(input *profanity.AdminProfanityGroupParams) ([]*chatclientmodels.ModelsDictionaryGroup, error) {
+func (aaa *ProfanityService) AdminProfanityGroupShort(input *profanity.AdminProfanityGroupParams) (*profanity.AdminProfanityGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *ProfanityService) AdminProfanityGroupShort(input *profanity.AdminProf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfanityService) AdminProfanityImportShort(input *profanity.AdminProfanityImportParams) (*chatclientmodels.ModelsDictionaryImportResult, error) {
+func (aaa *ProfanityService) AdminProfanityImportShort(input *profanity.AdminProfanityImportParams) (*profanity.AdminProfanityImportResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *ProfanityService) AdminProfanityImportShort(input *profanity.AdminPro
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ProfanityService) AdminProfanityUpdateShort(input *profanity.AdminProfanityUpdateParams) (*chatclientmodels.ModelsDictionary, error) {
+func (aaa *ProfanityService) AdminProfanityUpdateShort(input *profanity.AdminProfanityUpdateParams) (*profanity.AdminProfanityUpdateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,7 +243,7 @@ func (aaa *ProfanityService) AdminProfanityUpdateShort(input *profanity.AdminPro
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ProfanityService) AdminProfanityDeleteShort(input *profanity.AdminProfanityDeleteParams) error {

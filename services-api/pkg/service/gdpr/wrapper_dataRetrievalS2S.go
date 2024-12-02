@@ -9,7 +9,6 @@ package gdpr
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_retrieval_s2_s"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *DataRetrievalS2SService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *DataRetrievalS2SService) S2SGetListFinishedPersonalDataRequestShort(input *data_retrieval_s2_s.S2SGetListFinishedPersonalDataRequestParams) (*gdprclientmodels.DTOListFinishedDataRequests, error) {
+func (aaa *DataRetrievalS2SService) S2SGetListFinishedPersonalDataRequestShort(input *data_retrieval_s2_s.S2SGetListFinishedPersonalDataRequestParams) (*data_retrieval_s2_s.S2SGetListFinishedPersonalDataRequestResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *DataRetrievalS2SService) S2SGetListFinishedPersonalDataRequestShort(i
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DataRetrievalS2SService) S2SGetDataRequestByRequestIDShort(input *data_retrieval_s2_s.S2SGetDataRequestByRequestIDParams) (*gdprclientmodels.DTOS2SDataRequestSummary, error) {
+func (aaa *DataRetrievalS2SService) S2SGetDataRequestByRequestIDShort(input *data_retrieval_s2_s.S2SGetDataRequestByRequestIDParams) (*data_retrieval_s2_s.S2SGetDataRequestByRequestIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *DataRetrievalS2SService) S2SGetDataRequestByRequestIDShort(input *dat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DataRetrievalS2SService) S2SRequestDataRetrievalShort(input *data_retrieval_s2_s.S2SRequestDataRetrievalParams) (*gdprclientmodels.ModelsS2SDataRetrievalResponse, error) {
+func (aaa *DataRetrievalS2SService) S2SRequestDataRetrievalShort(input *data_retrieval_s2_s.S2SRequestDataRetrievalParams) (*data_retrieval_s2_s.S2SRequestDataRetrievalResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *DataRetrievalS2SService) S2SRequestDataRetrievalShort(input *data_ret
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *DataRetrievalS2SService) S2SGeneratePersonalDataURLShort(input *data_retrieval_s2_s.S2SGeneratePersonalDataURLParams) (*gdprclientmodels.ModelsS2SUserDataURL, error) {
+func (aaa *DataRetrievalS2SService) S2SGeneratePersonalDataURLShort(input *data_retrieval_s2_s.S2SGeneratePersonalDataURLParams) (*data_retrieval_s2_s.S2SGeneratePersonalDataURLResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,5 +155,5 @@ func (aaa *DataRetrievalS2SService) S2SGeneratePersonalDataURLShort(input *data_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

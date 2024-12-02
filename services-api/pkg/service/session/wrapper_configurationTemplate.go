@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/configuration_template"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 // ConfigurationTemplateService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *ConfigurationTemplateService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigurationTemplateService) AdminGetConfigurationAlertV1Short(input *configuration_template.AdminGetConfigurationAlertV1Params) (*sessionclientmodels.ApimodelsConfigAlertResponse, error) {
+func (aaa *ConfigurationTemplateService) AdminGetConfigurationAlertV1Short(input *configuration_template.AdminGetConfigurationAlertV1Params) (*configuration_template.AdminGetConfigurationAlertV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ConfigurationTemplateService) AdminGetConfigurationAlertV1Short(input
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationTemplateService) AdminUpdateConfigurationAlertV1Short(input *configuration_template.AdminUpdateConfigurationAlertV1Params) (*sessionclientmodels.ApimodelsConfigAlertResponse, error) {
+func (aaa *ConfigurationTemplateService) AdminUpdateConfigurationAlertV1Short(input *configuration_template.AdminUpdateConfigurationAlertV1Params) (*configuration_template.AdminUpdateConfigurationAlertV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *ConfigurationTemplateService) AdminUpdateConfigurationAlertV1Short(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationTemplateService) AdminCreateConfigurationAlertV1Short(input *configuration_template.AdminCreateConfigurationAlertV1Params) (*sessionclientmodels.ApimodelsConfigAlertResponse, error) {
+func (aaa *ConfigurationTemplateService) AdminCreateConfigurationAlertV1Short(input *configuration_template.AdminCreateConfigurationAlertV1Params) (*configuration_template.AdminCreateConfigurationAlertV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *ConfigurationTemplateService) AdminCreateConfigurationAlertV1Short(in
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *ConfigurationTemplateService) AdminDeleteConfigurationAlertV1Short(input *configuration_template.AdminDeleteConfigurationAlertV1Params) error {
@@ -159,7 +158,7 @@ func (aaa *ConfigurationTemplateService) AdminDeleteConfigurationAlertV1Short(in
 	return nil
 }
 
-func (aaa *ConfigurationTemplateService) AdminCreateConfigurationTemplateV1Short(input *configuration_template.AdminCreateConfigurationTemplateV1Params) (*sessionclientmodels.ApimodelsConfigurationTemplateResponse, error) {
+func (aaa *ConfigurationTemplateService) AdminCreateConfigurationTemplateV1Short(input *configuration_template.AdminCreateConfigurationTemplateV1Params) (*configuration_template.AdminCreateConfigurationTemplateV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *ConfigurationTemplateService) AdminCreateConfigurationTemplateV1Short
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *ConfigurationTemplateService) AdminGetAllConfigurationTemplatesV1Short(input *configuration_template.AdminGetAllConfigurationTemplatesV1Params) (*sessionclientmodels.ApimodelsConfigurationTemplatesResponse, error) {
+func (aaa *ConfigurationTemplateService) AdminGetAllConfigurationTemplatesV1Short(input *configuration_template.AdminGetAllConfigurationTemplatesV1Params) (*configuration_template.AdminGetAllConfigurationTemplatesV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *ConfigurationTemplateService) AdminGetAllConfigurationTemplatesV1Shor
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationTemplateService) AdminGetConfigurationTemplateV1Short(input *configuration_template.AdminGetConfigurationTemplateV1Params) (*sessionclientmodels.ApimodelsConfigurationTemplateResponse, error) {
+func (aaa *ConfigurationTemplateService) AdminGetConfigurationTemplateV1Short(input *configuration_template.AdminGetConfigurationTemplateV1Params) (*configuration_template.AdminGetConfigurationTemplateV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *ConfigurationTemplateService) AdminGetConfigurationTemplateV1Short(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationTemplateService) AdminUpdateConfigurationTemplateV1Short(input *configuration_template.AdminUpdateConfigurationTemplateV1Params) (*sessionclientmodels.ApimodelsConfigurationTemplateResponse, error) {
+func (aaa *ConfigurationTemplateService) AdminUpdateConfigurationTemplateV1Short(input *configuration_template.AdminUpdateConfigurationTemplateV1Params) (*configuration_template.AdminUpdateConfigurationTemplateV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,7 +275,7 @@ func (aaa *ConfigurationTemplateService) AdminUpdateConfigurationTemplateV1Short
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigurationTemplateService) AdminDeleteConfigurationTemplateV1Short(input *configuration_template.AdminDeleteConfigurationTemplateV1Params) error {
@@ -309,7 +308,7 @@ func (aaa *ConfigurationTemplateService) AdminDeleteConfigurationTemplateV1Short
 	return nil
 }
 
-func (aaa *ConfigurationTemplateService) AdminGetDSMCConfigurationShort(input *configuration_template.AdminGetDSMCConfigurationParams) (*sessionclientmodels.ModelsDSMConfigRecord, error) {
+func (aaa *ConfigurationTemplateService) AdminGetDSMCConfigurationShort(input *configuration_template.AdminGetDSMCConfigurationParams) (*configuration_template.AdminGetDSMCConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,10 +335,10 @@ func (aaa *ConfigurationTemplateService) AdminGetDSMCConfigurationShort(input *c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationTemplateService) AdminSyncDSMCConfigurationShort(input *configuration_template.AdminSyncDSMCConfigurationParams) (*sessionclientmodels.ModelsDSMConfigRecord, error) {
+func (aaa *ConfigurationTemplateService) AdminSyncDSMCConfigurationShort(input *configuration_template.AdminSyncDSMCConfigurationParams) (*configuration_template.AdminSyncDSMCConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,5 +365,5 @@ func (aaa *ConfigurationTemplateService) AdminSyncDSMCConfigurationShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -15,7 +15,29 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
+
+type DownloadCSVTemplatesResponse struct {
+	platformclientmodels.ApiResponse
+	Data io.Writer
+}
+
+func (m *DownloadCSVTemplatesResponse) Unpack() (io.Writer, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
 
 // DownloadCSVTemplatesReader is a Reader for the DownloadCSVTemplates structure.
 type DownloadCSVTemplatesReader struct {

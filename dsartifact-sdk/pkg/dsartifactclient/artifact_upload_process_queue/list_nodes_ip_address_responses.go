@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclientmodels"
 )
 
+type ListNodesIPAddressResponse struct {
+	dsartifactclientmodels.ApiResponse
+	Data *dsartifactclientmodels.ModelsListNodesIPAddress
+
+	Error400 *dsartifactclientmodels.ResponseError
+	Error500 *dsartifactclientmodels.ResponseError
+}
+
+func (m *ListNodesIPAddressResponse) Unpack() (*dsartifactclientmodels.ModelsListNodesIPAddress, *dsartifactclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dsartifactclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ListNodesIPAddressReader is a Reader for the ListNodesIPAddress structure.
 type ListNodesIPAddressReader struct {
 	formats strfmt.Registry

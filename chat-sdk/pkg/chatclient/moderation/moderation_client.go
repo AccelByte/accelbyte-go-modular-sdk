@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetChatSnapshotShort(params *AdminGetChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChatSnapshotOK, error)
-	AdminDeleteChatSnapshotShort(params *AdminDeleteChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChatSnapshotNoContent, error)
-	PublicGetChatSnapshotShort(params *PublicGetChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetChatSnapshotOK, error)
+	AdminGetChatSnapshotShort(params *AdminGetChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChatSnapshotResponse, error)
+	AdminDeleteChatSnapshotShort(params *AdminDeleteChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChatSnapshotResponse, error)
+	PublicGetChatSnapshotShort(params *PublicGetChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetChatSnapshotResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 AdminGetChatSnapshotShort admin get chat snapshot
 Get the chat snapshot
 */
-func (a *Client) AdminGetChatSnapshotShort(params *AdminGetChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChatSnapshotOK, error) {
+func (a *Client) AdminGetChatSnapshotShort(params *AdminGetChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChatSnapshotResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetChatSnapshotParams()
@@ -79,17 +79,47 @@ func (a *Client) AdminGetChatSnapshotShort(params *AdminGetChatSnapshotParams, a
 	switch v := result.(type) {
 
 	case *AdminGetChatSnapshotOK:
-		return v, nil
+		response := &AdminGetChatSnapshotResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetChatSnapshotBadRequest:
-		return nil, v
+		response := &AdminGetChatSnapshotResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChatSnapshotUnauthorized:
-		return nil, v
+		response := &AdminGetChatSnapshotResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChatSnapshotForbidden:
-		return nil, v
+		response := &AdminGetChatSnapshotResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChatSnapshotNotFound:
-		return nil, v
+		response := &AdminGetChatSnapshotResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetChatSnapshotInternalServerError:
-		return nil, v
+		response := &AdminGetChatSnapshotResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +130,7 @@ func (a *Client) AdminGetChatSnapshotShort(params *AdminGetChatSnapshotParams, a
 AdminDeleteChatSnapshotShort admin delete chat snapshot
 Delete the chat snapshot
 */
-func (a *Client) AdminDeleteChatSnapshotShort(params *AdminDeleteChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChatSnapshotNoContent, error) {
+func (a *Client) AdminDeleteChatSnapshotShort(params *AdminDeleteChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteChatSnapshotResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteChatSnapshotParams()
@@ -138,17 +168,46 @@ func (a *Client) AdminDeleteChatSnapshotShort(params *AdminDeleteChatSnapshotPar
 	switch v := result.(type) {
 
 	case *AdminDeleteChatSnapshotNoContent:
-		return v, nil
+		response := &AdminDeleteChatSnapshotResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteChatSnapshotBadRequest:
-		return nil, v
+		response := &AdminDeleteChatSnapshotResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChatSnapshotUnauthorized:
-		return nil, v
+		response := &AdminDeleteChatSnapshotResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChatSnapshotForbidden:
-		return nil, v
+		response := &AdminDeleteChatSnapshotResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChatSnapshotNotFound:
-		return nil, v
+		response := &AdminDeleteChatSnapshotResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteChatSnapshotInternalServerError:
-		return nil, v
+		response := &AdminDeleteChatSnapshotResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,7 +218,7 @@ func (a *Client) AdminDeleteChatSnapshotShort(params *AdminDeleteChatSnapshotPar
 PublicGetChatSnapshotShort public get chat snapshot
 Get the chat snapshot
 */
-func (a *Client) PublicGetChatSnapshotShort(params *PublicGetChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetChatSnapshotOK, error) {
+func (a *Client) PublicGetChatSnapshotShort(params *PublicGetChatSnapshotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetChatSnapshotResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetChatSnapshotParams()
@@ -197,17 +256,47 @@ func (a *Client) PublicGetChatSnapshotShort(params *PublicGetChatSnapshotParams,
 	switch v := result.(type) {
 
 	case *PublicGetChatSnapshotOK:
-		return v, nil
+		response := &PublicGetChatSnapshotResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetChatSnapshotBadRequest:
-		return nil, v
+		response := &PublicGetChatSnapshotResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetChatSnapshotUnauthorized:
-		return nil, v
+		response := &PublicGetChatSnapshotResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetChatSnapshotForbidden:
-		return nil, v
+		response := &PublicGetChatSnapshotResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetChatSnapshotNotFound:
-		return nil, v
+		response := &PublicGetChatSnapshotResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetChatSnapshotInternalServerError:
-		return nil, v
+		response := &PublicGetChatSnapshotResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

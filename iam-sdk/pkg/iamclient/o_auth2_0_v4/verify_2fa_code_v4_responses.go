@@ -19,6 +19,37 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type Verify2FACodeV4Response struct {
+	iamclientmodels.ApiResponse
+	Data    *iamclientmodels.OauthmodelTokenResponseV3
+	Data202 *iamclientmodels.OauthmodelLoginQueueTicketResponse
+
+	Error401 *iamclientmodels.OauthmodelErrorResponse
+}
+
+func (m *Verify2FACodeV4Response) Unpack() (*iamclientmodels.OauthmodelTokenResponseV3, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // Verify2FACodeV4Reader is a Reader for the Verify2FACodeV4 structure.
 type Verify2FACodeV4Reader struct {
 	formats strfmt.Registry

@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type ExportStore1Response struct {
+	platformclientmodels.ApiResponse
+	Data io.Writer
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *ExportStore1Response) Unpack() (io.Writer, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ExportStore1Reader is a Reader for the ExportStore1 structure.
 type ExportStore1Reader struct {
 	formats strfmt.Registry

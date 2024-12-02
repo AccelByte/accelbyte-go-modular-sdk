@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListGlobalConfigurationShort(params *AdminListGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalConfigurationOK, error)
-	AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigurationOK, error)
-	AdminDeleteGlobalConfigurationShort(params *AdminDeleteGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigurationNoContent, error)
+	AdminListGlobalConfigurationShort(params *AdminListGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalConfigurationResponse, error)
+	AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigurationResponse, error)
+	AdminDeleteGlobalConfigurationShort(params *AdminDeleteGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigurationResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 AdminListGlobalConfigurationShort record of global configuration data.
 Record of global configuration data.
 */
-func (a *Client) AdminListGlobalConfigurationShort(params *AdminListGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalConfigurationOK, error) {
+func (a *Client) AdminListGlobalConfigurationShort(params *AdminListGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListGlobalConfigurationParams()
@@ -79,11 +79,26 @@ func (a *Client) AdminListGlobalConfigurationShort(params *AdminListGlobalConfig
 	switch v := result.(type) {
 
 	case *AdminListGlobalConfigurationOK:
-		return v, nil
+		response := &AdminListGlobalConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListGlobalConfigurationUnauthorized:
-		return nil, v
+		response := &AdminListGlobalConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListGlobalConfigurationForbidden:
-		return nil, v
+		response := &AdminListGlobalConfigurationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -94,7 +109,7 @@ func (a *Client) AdminListGlobalConfigurationShort(params *AdminListGlobalConfig
 AdminUpdateGlobalConfigurationShort upsert global configuration data.
 Upsert global configuration data.
 */
-func (a *Client) AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigurationOK, error) {
+func (a *Client) AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateGlobalConfigurationParams()
@@ -132,11 +147,26 @@ func (a *Client) AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalCo
 	switch v := result.(type) {
 
 	case *AdminUpdateGlobalConfigurationOK:
-		return v, nil
+		response := &AdminUpdateGlobalConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateGlobalConfigurationUnauthorized:
-		return nil, v
+		response := &AdminUpdateGlobalConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGlobalConfigurationForbidden:
-		return nil, v
+		response := &AdminUpdateGlobalConfigurationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -147,7 +177,7 @@ func (a *Client) AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalCo
 AdminDeleteGlobalConfigurationShort delete of global configuration data.
 Delete of global configuration data.
 */
-func (a *Client) AdminDeleteGlobalConfigurationShort(params *AdminDeleteGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigurationNoContent, error) {
+func (a *Client) AdminDeleteGlobalConfigurationShort(params *AdminDeleteGlobalConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigurationResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteGlobalConfigurationParams()
@@ -185,11 +215,26 @@ func (a *Client) AdminDeleteGlobalConfigurationShort(params *AdminDeleteGlobalCo
 	switch v := result.(type) {
 
 	case *AdminDeleteGlobalConfigurationNoContent:
-		return v, nil
+		response := &AdminDeleteGlobalConfigurationResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteGlobalConfigurationUnauthorized:
-		return nil, v
+		response := &AdminDeleteGlobalConfigurationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGlobalConfigurationForbidden:
-		return nil, v
+		response := &AdminDeleteGlobalConfigurationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

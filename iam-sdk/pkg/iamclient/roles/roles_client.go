@@ -30,54 +30,54 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetRolesShort(params *GetRolesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRolesOK, error)
-	CreateRoleShort(params *CreateRoleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRoleCreated, error)
-	GetRoleShort(params *GetRoleParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleOK, error)
-	UpdateRoleShort(params *UpdateRoleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRoleOK, error)
-	DeleteRoleShort(params *DeleteRoleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRoleNoContent, error)
-	GetRoleAdminStatusShort(params *GetRoleAdminStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleAdminStatusOK, error)
-	SetRoleAsAdminShort(params *SetRoleAsAdminParams, authInfo runtime.ClientAuthInfoWriter) (*SetRoleAsAdminNoContent, error)
-	RemoveRoleAdminShort(params *RemoveRoleAdminParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleAdminNoContent, error)
-	GetRoleManagersShort(params *GetRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleManagersOK, error)
-	AddRoleManagersShort(params *AddRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*AddRoleManagersNoContent, error)
-	RemoveRoleManagersShort(params *RemoveRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleManagersNoContent, error)
-	GetRoleMembersShort(params *GetRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleMembersOK, error)
-	AddRoleMembersShort(params *AddRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AddRoleMembersNoContent, error)
-	RemoveRoleMembersShort(params *RemoveRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleMembersNoContent, error)
-	UpdateRolePermissionsShort(params *UpdateRolePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRolePermissionsNoContent, error)
-	AddRolePermissionShort(params *AddRolePermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddRolePermissionNoContent, error)
-	DeleteRolePermissionShort(params *DeleteRolePermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRolePermissionNoContent, error)
-	AdminGetRolesV3Short(params *AdminGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV3OK, error)
-	AdminCreateRoleV3Short(params *AdminCreateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV3Created, error)
-	AdminGetRoleV3Short(params *AdminGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV3OK, error)
-	AdminDeleteRoleV3Short(params *AdminDeleteRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV3NoContent, error)
-	AdminUpdateRoleV3Short(params *AdminUpdateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV3OK, error)
-	AdminGetRoleAdminStatusV3Short(params *AdminGetRoleAdminStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleAdminStatusV3OK, error)
-	AdminUpdateAdminRoleStatusV3Short(params *AdminUpdateAdminRoleStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAdminRoleStatusV3NoContent, error)
-	AdminRemoveRoleAdminV3Short(params *AdminRemoveRoleAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleAdminV3NoContent, error)
-	AdminGetRoleManagersV3Short(params *AdminGetRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleManagersV3OK, error)
-	AdminAddRoleManagersV3Short(params *AdminAddRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleManagersV3NoContent, error)
-	AdminRemoveRoleManagersV3Short(params *AdminRemoveRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleManagersV3NoContent, error)
-	AdminGetRoleMembersV3Short(params *AdminGetRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleMembersV3OK, error)
-	AdminAddRoleMembersV3Short(params *AdminAddRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleMembersV3NoContent, error)
-	AdminRemoveRoleMembersV3Short(params *AdminRemoveRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleMembersV3NoContent, error)
-	AdminUpdateRolePermissionsV3Short(params *AdminUpdateRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRolePermissionsV3NoContent, error)
-	AdminAddRolePermissionsV3Short(params *AdminAddRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRolePermissionsV3NoContent, error)
-	AdminDeleteRolePermissionsV3Short(params *AdminDeleteRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV3NoContent, error)
-	AdminDeleteRolePermissionV3Short(params *AdminDeleteRolePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionV3NoContent, error)
-	PublicGetRolesV3Short(params *PublicGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRolesV3OK, error)
-	PublicGetRoleV3Short(params *PublicGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRoleV3OK, error)
-	AdminGetRolesV4Short(params *AdminGetRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV4OK, error)
-	AdminCreateRoleV4Short(params *AdminCreateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV4Created, error)
-	AdminGetRoleV4Short(params *AdminGetRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV4OK, error)
-	AdminDeleteRoleV4Short(params *AdminDeleteRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV4NoContent, error)
-	AdminUpdateRoleV4Short(params *AdminUpdateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV4OK, error)
-	AdminUpdateRolePermissionsV4Short(params *AdminUpdateRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRolePermissionsV4OK, error)
-	AdminAddRolePermissionsV4Short(params *AdminAddRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRolePermissionsV4OK, error)
-	AdminDeleteRolePermissionsV4Short(params *AdminDeleteRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV4NoContent, error)
-	AdminListAssignedUsersV4Short(params *AdminListAssignedUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAssignedUsersV4OK, error)
-	AdminAssignUserToRoleV4Short(params *AdminAssignUserToRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAssignUserToRoleV4Created, error)
-	AdminRevokeUserFromRoleV4Short(params *AdminRevokeUserFromRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRevokeUserFromRoleV4NoContent, error)
+	GetRolesShort(params *GetRolesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRolesResponse, error)
+	CreateRoleShort(params *CreateRoleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRoleResponse, error)
+	GetRoleShort(params *GetRoleParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleResponse, error)
+	UpdateRoleShort(params *UpdateRoleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRoleResponse, error)
+	DeleteRoleShort(params *DeleteRoleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRoleResponse, error)
+	GetRoleAdminStatusShort(params *GetRoleAdminStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleAdminStatusResponse, error)
+	SetRoleAsAdminShort(params *SetRoleAsAdminParams, authInfo runtime.ClientAuthInfoWriter) (*SetRoleAsAdminResponse, error)
+	RemoveRoleAdminShort(params *RemoveRoleAdminParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleAdminResponse, error)
+	GetRoleManagersShort(params *GetRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleManagersResponse, error)
+	AddRoleManagersShort(params *AddRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*AddRoleManagersResponse, error)
+	RemoveRoleManagersShort(params *RemoveRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleManagersResponse, error)
+	GetRoleMembersShort(params *GetRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleMembersResponse, error)
+	AddRoleMembersShort(params *AddRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AddRoleMembersResponse, error)
+	RemoveRoleMembersShort(params *RemoveRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleMembersResponse, error)
+	UpdateRolePermissionsShort(params *UpdateRolePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRolePermissionsResponse, error)
+	AddRolePermissionShort(params *AddRolePermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddRolePermissionResponse, error)
+	DeleteRolePermissionShort(params *DeleteRolePermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRolePermissionResponse, error)
+	AdminGetRolesV3Short(params *AdminGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV3Response, error)
+	AdminCreateRoleV3Short(params *AdminCreateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV3Response, error)
+	AdminGetRoleV3Short(params *AdminGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV3Response, error)
+	AdminDeleteRoleV3Short(params *AdminDeleteRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV3Response, error)
+	AdminUpdateRoleV3Short(params *AdminUpdateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV3Response, error)
+	AdminGetRoleAdminStatusV3Short(params *AdminGetRoleAdminStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleAdminStatusV3Response, error)
+	AdminUpdateAdminRoleStatusV3Short(params *AdminUpdateAdminRoleStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAdminRoleStatusV3Response, error)
+	AdminRemoveRoleAdminV3Short(params *AdminRemoveRoleAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleAdminV3Response, error)
+	AdminGetRoleManagersV3Short(params *AdminGetRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleManagersV3Response, error)
+	AdminAddRoleManagersV3Short(params *AdminAddRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleManagersV3Response, error)
+	AdminRemoveRoleManagersV3Short(params *AdminRemoveRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleManagersV3Response, error)
+	AdminGetRoleMembersV3Short(params *AdminGetRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleMembersV3Response, error)
+	AdminAddRoleMembersV3Short(params *AdminAddRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleMembersV3Response, error)
+	AdminRemoveRoleMembersV3Short(params *AdminRemoveRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleMembersV3Response, error)
+	AdminUpdateRolePermissionsV3Short(params *AdminUpdateRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRolePermissionsV3Response, error)
+	AdminAddRolePermissionsV3Short(params *AdminAddRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRolePermissionsV3Response, error)
+	AdminDeleteRolePermissionsV3Short(params *AdminDeleteRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV3Response, error)
+	AdminDeleteRolePermissionV3Short(params *AdminDeleteRolePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionV3Response, error)
+	PublicGetRolesV3Short(params *PublicGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRolesV3Response, error)
+	PublicGetRoleV3Short(params *PublicGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRoleV3Response, error)
+	AdminGetRolesV4Short(params *AdminGetRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV4Response, error)
+	AdminCreateRoleV4Short(params *AdminCreateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV4Response, error)
+	AdminGetRoleV4Short(params *AdminGetRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV4Response, error)
+	AdminDeleteRoleV4Short(params *AdminDeleteRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV4Response, error)
+	AdminUpdateRoleV4Short(params *AdminUpdateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV4Response, error)
+	AdminUpdateRolePermissionsV4Short(params *AdminUpdateRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRolePermissionsV4Response, error)
+	AdminAddRolePermissionsV4Short(params *AdminAddRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRolePermissionsV4Response, error)
+	AdminDeleteRolePermissionsV4Short(params *AdminDeleteRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV4Response, error)
+	AdminListAssignedUsersV4Short(params *AdminListAssignedUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAssignedUsersV4Response, error)
+	AdminAssignUserToRoleV4Short(params *AdminAssignUserToRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAssignUserToRoleV4Response, error)
+	AdminRevokeUserFromRoleV4Short(params *AdminRevokeUserFromRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRevokeUserFromRoleV4Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -88,7 +88,7 @@ GetRolesShort get roles
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles [GET]_**
 */
-func (a *Client) GetRolesShort(params *GetRolesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRolesOK, error) {
+func (a *Client) GetRolesShort(params *GetRolesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRolesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRolesParams()
@@ -126,11 +126,26 @@ func (a *Client) GetRolesShort(params *GetRolesParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *GetRolesOK:
-		return v, nil
+		response := &GetRolesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRolesUnauthorized:
-		return nil, v
+		response := &GetRolesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRolesForbidden:
-		return nil, v
+		response := &GetRolesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -148,7 +163,7 @@ Administrator role can be created only when at least 1 manager is specified.
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles [POST]_**
 */
-func (a *Client) CreateRoleShort(params *CreateRoleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRoleCreated, error) {
+func (a *Client) CreateRoleShort(params *CreateRoleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRoleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRoleParams()
@@ -186,13 +201,33 @@ func (a *Client) CreateRoleShort(params *CreateRoleParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *CreateRoleCreated:
-		return v, nil
+		response := &CreateRoleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateRoleBadRequest:
-		return nil, v
+		response := &CreateRoleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRoleUnauthorized:
-		return nil, v
+		response := &CreateRoleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRoleForbidden:
-		return nil, v
+		response := &CreateRoleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -205,7 +240,7 @@ GetRoleShort get role
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId} [GET]_**
 */
-func (a *Client) GetRoleShort(params *GetRoleParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleOK, error) {
+func (a *Client) GetRoleShort(params *GetRoleParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRoleParams()
@@ -243,13 +278,32 @@ func (a *Client) GetRoleShort(params *GetRoleParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *GetRoleOK:
-		return v, nil
+		response := &GetRoleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRoleUnauthorized:
-		return nil, v
+		response := &GetRoleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleForbidden:
-		return nil, v
+		response := &GetRoleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleNotFound:
-		return nil, v
+		response := &GetRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -262,7 +316,7 @@ UpdateRoleShort update role
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId} [PATCH]_**
 */
-func (a *Client) UpdateRoleShort(params *UpdateRoleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRoleOK, error) {
+func (a *Client) UpdateRoleShort(params *UpdateRoleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRoleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRoleParams()
@@ -300,15 +354,39 @@ func (a *Client) UpdateRoleShort(params *UpdateRoleParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UpdateRoleOK:
-		return v, nil
+		response := &UpdateRoleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateRoleBadRequest:
-		return nil, v
+		response := &UpdateRoleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRoleUnauthorized:
-		return nil, v
+		response := &UpdateRoleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRoleForbidden:
-		return nil, v
+		response := &UpdateRoleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRoleNotFound:
-		return nil, v
+		response := &UpdateRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -321,7 +399,7 @@ DeleteRoleShort delete role
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId} [DELETE]_**
 */
-func (a *Client) DeleteRoleShort(params *DeleteRoleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRoleNoContent, error) {
+func (a *Client) DeleteRoleShort(params *DeleteRoleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRoleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRoleParams()
@@ -359,13 +437,31 @@ func (a *Client) DeleteRoleShort(params *DeleteRoleParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *DeleteRoleNoContent:
-		return v, nil
+		response := &DeleteRoleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteRoleUnauthorized:
-		return nil, v
+		response := &DeleteRoleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRoleForbidden:
-		return nil, v
+		response := &DeleteRoleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRoleNotFound:
-		return nil, v
+		response := &DeleteRoleResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -380,7 +476,7 @@ Admin roles has its members listed in the role.
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/admin [GET]_**
 */
-func (a *Client) GetRoleAdminStatusShort(params *GetRoleAdminStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleAdminStatusOK, error) {
+func (a *Client) GetRoleAdminStatusShort(params *GetRoleAdminStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleAdminStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRoleAdminStatusParams()
@@ -418,15 +514,39 @@ func (a *Client) GetRoleAdminStatusShort(params *GetRoleAdminStatusParams, authI
 	switch v := result.(type) {
 
 	case *GetRoleAdminStatusOK:
-		return v, nil
+		response := &GetRoleAdminStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRoleAdminStatusBadRequest:
-		return nil, v
+		response := &GetRoleAdminStatusResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleAdminStatusUnauthorized:
-		return nil, v
+		response := &GetRoleAdminStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleAdminStatusForbidden:
-		return nil, v
+		response := &GetRoleAdminStatusResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleAdminStatusNotFound:
-		return nil, v
+		response := &GetRoleAdminStatusResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -443,7 +563,7 @@ Role can be set as admin role only when it has at least 1 manager.
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/admin [POST]_**
 */
-func (a *Client) SetRoleAsAdminShort(params *SetRoleAsAdminParams, authInfo runtime.ClientAuthInfoWriter) (*SetRoleAsAdminNoContent, error) {
+func (a *Client) SetRoleAsAdminShort(params *SetRoleAsAdminParams, authInfo runtime.ClientAuthInfoWriter) (*SetRoleAsAdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetRoleAsAdminParams()
@@ -481,15 +601,38 @@ func (a *Client) SetRoleAsAdminShort(params *SetRoleAsAdminParams, authInfo runt
 	switch v := result.(type) {
 
 	case *SetRoleAsAdminNoContent:
-		return v, nil
+		response := &SetRoleAsAdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SetRoleAsAdminBadRequest:
-		return nil, v
+		response := &SetRoleAsAdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetRoleAsAdminUnauthorized:
-		return nil, v
+		response := &SetRoleAsAdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetRoleAsAdminForbidden:
-		return nil, v
+		response := &SetRoleAsAdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetRoleAsAdminNotFound:
-		return nil, v
+		response := &SetRoleAsAdminResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -502,7 +645,7 @@ RemoveRoleAdminShort remove role admin status
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/admin [DELETE]_**
 */
-func (a *Client) RemoveRoleAdminShort(params *RemoveRoleAdminParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleAdminNoContent, error) {
+func (a *Client) RemoveRoleAdminShort(params *RemoveRoleAdminParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleAdminResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRemoveRoleAdminParams()
@@ -540,15 +683,38 @@ func (a *Client) RemoveRoleAdminShort(params *RemoveRoleAdminParams, authInfo ru
 	switch v := result.(type) {
 
 	case *RemoveRoleAdminNoContent:
-		return v, nil
+		response := &RemoveRoleAdminResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RemoveRoleAdminBadRequest:
-		return nil, v
+		response := &RemoveRoleAdminResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleAdminUnauthorized:
-		return nil, v
+		response := &RemoveRoleAdminResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleAdminForbidden:
-		return nil, v
+		response := &RemoveRoleAdminResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleAdminNotFound:
-		return nil, v
+		response := &RemoveRoleAdminResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -563,7 +729,7 @@ Role can only be assigned to other users by the role's manager.
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/managers [GET]_**
 */
-func (a *Client) GetRoleManagersShort(params *GetRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleManagersOK, error) {
+func (a *Client) GetRoleManagersShort(params *GetRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleManagersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRoleManagersParams()
@@ -601,15 +767,39 @@ func (a *Client) GetRoleManagersShort(params *GetRoleManagersParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetRoleManagersOK:
-		return v, nil
+		response := &GetRoleManagersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRoleManagersBadRequest:
-		return nil, v
+		response := &GetRoleManagersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleManagersUnauthorized:
-		return nil, v
+		response := &GetRoleManagersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleManagersForbidden:
-		return nil, v
+		response := &GetRoleManagersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleManagersNotFound:
-		return nil, v
+		response := &GetRoleManagersResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -624,7 +814,7 @@ Role can only be assigned to other users by the role's manager.
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/managers [POST]_**
 */
-func (a *Client) AddRoleManagersShort(params *AddRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*AddRoleManagersNoContent, error) {
+func (a *Client) AddRoleManagersShort(params *AddRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*AddRoleManagersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddRoleManagersParams()
@@ -662,15 +852,38 @@ func (a *Client) AddRoleManagersShort(params *AddRoleManagersParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AddRoleManagersNoContent:
-		return v, nil
+		response := &AddRoleManagersResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddRoleManagersBadRequest:
-		return nil, v
+		response := &AddRoleManagersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRoleManagersUnauthorized:
-		return nil, v
+		response := &AddRoleManagersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRoleManagersForbidden:
-		return nil, v
+		response := &AddRoleManagersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRoleManagersNotFound:
-		return nil, v
+		response := &AddRoleManagersResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -683,7 +896,7 @@ RemoveRoleManagersShort remove role managers
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/managers [DELETE]_**
 */
-func (a *Client) RemoveRoleManagersShort(params *RemoveRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleManagersNoContent, error) {
+func (a *Client) RemoveRoleManagersShort(params *RemoveRoleManagersParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleManagersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRemoveRoleManagersParams()
@@ -721,15 +934,38 @@ func (a *Client) RemoveRoleManagersShort(params *RemoveRoleManagersParams, authI
 	switch v := result.(type) {
 
 	case *RemoveRoleManagersNoContent:
-		return v, nil
+		response := &RemoveRoleManagersResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RemoveRoleManagersBadRequest:
-		return nil, v
+		response := &RemoveRoleManagersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleManagersUnauthorized:
-		return nil, v
+		response := &RemoveRoleManagersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleManagersForbidden:
-		return nil, v
+		response := &RemoveRoleManagersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleManagersNotFound:
-		return nil, v
+		response := &RemoveRoleManagersResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -742,7 +978,7 @@ GetRoleMembersShort get role members
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/members [GET]_**
 */
-func (a *Client) GetRoleMembersShort(params *GetRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleMembersOK, error) {
+func (a *Client) GetRoleMembersShort(params *GetRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*GetRoleMembersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRoleMembersParams()
@@ -780,15 +1016,39 @@ func (a *Client) GetRoleMembersShort(params *GetRoleMembersParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetRoleMembersOK:
-		return v, nil
+		response := &GetRoleMembersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetRoleMembersBadRequest:
-		return nil, v
+		response := &GetRoleMembersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleMembersUnauthorized:
-		return nil, v
+		response := &GetRoleMembersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleMembersForbidden:
-		return nil, v
+		response := &GetRoleMembersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetRoleMembersNotFound:
-		return nil, v
+		response := &GetRoleMembersResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -805,7 +1065,7 @@ Role can only be assigned to other users by the role's manager.
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/members [POST]_**
 */
-func (a *Client) AddRoleMembersShort(params *AddRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AddRoleMembersNoContent, error) {
+func (a *Client) AddRoleMembersShort(params *AddRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*AddRoleMembersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddRoleMembersParams()
@@ -843,15 +1103,38 @@ func (a *Client) AddRoleMembersShort(params *AddRoleMembersParams, authInfo runt
 	switch v := result.(type) {
 
 	case *AddRoleMembersNoContent:
-		return v, nil
+		response := &AddRoleMembersResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddRoleMembersBadRequest:
-		return nil, v
+		response := &AddRoleMembersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRoleMembersUnauthorized:
-		return nil, v
+		response := &AddRoleMembersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRoleMembersForbidden:
-		return nil, v
+		response := &AddRoleMembersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRoleMembersNotFound:
-		return nil, v
+		response := &AddRoleMembersResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -864,7 +1147,7 @@ RemoveRoleMembersShort remove role members
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/members [DELETE]_**
 */
-func (a *Client) RemoveRoleMembersShort(params *RemoveRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleMembersNoContent, error) {
+func (a *Client) RemoveRoleMembersShort(params *RemoveRoleMembersParams, authInfo runtime.ClientAuthInfoWriter) (*RemoveRoleMembersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRemoveRoleMembersParams()
@@ -902,15 +1185,38 @@ func (a *Client) RemoveRoleMembersShort(params *RemoveRoleMembersParams, authInf
 	switch v := result.(type) {
 
 	case *RemoveRoleMembersNoContent:
-		return v, nil
+		response := &RemoveRoleMembersResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RemoveRoleMembersBadRequest:
-		return nil, v
+		response := &RemoveRoleMembersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleMembersUnauthorized:
-		return nil, v
+		response := &RemoveRoleMembersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleMembersForbidden:
-		return nil, v
+		response := &RemoveRoleMembersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RemoveRoleMembersNotFound:
-		return nil, v
+		response := &RemoveRoleMembersResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -949,7 +1255,7 @@ Special characters:
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/permissions [POST]_**
 */
-func (a *Client) UpdateRolePermissionsShort(params *UpdateRolePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRolePermissionsNoContent, error) {
+func (a *Client) UpdateRolePermissionsShort(params *UpdateRolePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRolePermissionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRolePermissionsParams()
@@ -987,15 +1293,38 @@ func (a *Client) UpdateRolePermissionsShort(params *UpdateRolePermissionsParams,
 	switch v := result.(type) {
 
 	case *UpdateRolePermissionsNoContent:
-		return v, nil
+		response := &UpdateRolePermissionsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateRolePermissionsBadRequest:
-		return nil, v
+		response := &UpdateRolePermissionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRolePermissionsUnauthorized:
-		return nil, v
+		response := &UpdateRolePermissionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRolePermissionsForbidden:
-		return nil, v
+		response := &UpdateRolePermissionsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRolePermissionsNotFound:
-		return nil, v
+		response := &UpdateRolePermissionsResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1035,7 +1364,7 @@ Special characters:
 - **Substitute endpoint(update): _/iam/v3/admin/roles/{roleId}/permissions [PUT]_**
 - **Substitute endpoint(create): _/iam/v3/admin/roles/{roleId}/permissions [POST]_**
 */
-func (a *Client) AddRolePermissionShort(params *AddRolePermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddRolePermissionNoContent, error) {
+func (a *Client) AddRolePermissionShort(params *AddRolePermissionParams, authInfo runtime.ClientAuthInfoWriter) (*AddRolePermissionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAddRolePermissionParams()
@@ -1073,15 +1402,38 @@ func (a *Client) AddRolePermissionShort(params *AddRolePermissionParams, authInf
 	switch v := result.(type) {
 
 	case *AddRolePermissionNoContent:
-		return v, nil
+		response := &AddRolePermissionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AddRolePermissionBadRequest:
-		return nil, v
+		response := &AddRolePermissionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRolePermissionUnauthorized:
-		return nil, v
+		response := &AddRolePermissionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRolePermissionForbidden:
-		return nil, v
+		response := &AddRolePermissionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AddRolePermissionNotFound:
-		return nil, v
+		response := &AddRolePermissionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1095,7 +1447,7 @@ DeleteRolePermissionShort delete role permission
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/permissions/{resource}/{action} [DELETE]_**
 - **Substitute endpoint: _/iam/v4/admin/roles/{roleId}/permissions [DELETE]_**
 */
-func (a *Client) DeleteRolePermissionShort(params *DeleteRolePermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRolePermissionNoContent, error) {
+func (a *Client) DeleteRolePermissionShort(params *DeleteRolePermissionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRolePermissionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRolePermissionParams()
@@ -1133,15 +1485,38 @@ func (a *Client) DeleteRolePermissionShort(params *DeleteRolePermissionParams, a
 	switch v := result.(type) {
 
 	case *DeleteRolePermissionNoContent:
-		return v, nil
+		response := &DeleteRolePermissionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteRolePermissionBadRequest:
-		return nil, v
+		response := &DeleteRolePermissionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRolePermissionUnauthorized:
-		return nil, v
+		response := &DeleteRolePermissionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRolePermissionForbidden:
-		return nil, v
+		response := &DeleteRolePermissionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRolePermissionNotFound:
-		return nil, v
+		response := &DeleteRolePermissionResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1152,7 +1527,7 @@ func (a *Client) DeleteRolePermissionShort(params *DeleteRolePermissionParams, a
 AdminGetRolesV3Short get roles
 action code: 10414
 */
-func (a *Client) AdminGetRolesV3Short(params *AdminGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV3OK, error) {
+func (a *Client) AdminGetRolesV3Short(params *AdminGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRolesV3Params()
@@ -1190,15 +1565,40 @@ func (a *Client) AdminGetRolesV3Short(params *AdminGetRolesV3Params, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminGetRolesV3OK:
-		return v, nil
+		response := &AdminGetRolesV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRolesV3BadRequest:
-		return nil, v
+		response := &AdminGetRolesV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRolesV3Unauthorized:
-		return nil, v
+		response := &AdminGetRolesV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRolesV3Forbidden:
-		return nil, v
+		response := &AdminGetRolesV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRolesV3InternalServerError:
-		return nil, v
+		response := &AdminGetRolesV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1218,7 +1618,7 @@ Create role request body:
 
 action code: 10401
 */
-func (a *Client) AdminCreateRoleV3Short(params *AdminCreateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV3Created, error) {
+func (a *Client) AdminCreateRoleV3Short(params *AdminCreateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateRoleV3Params()
@@ -1256,15 +1656,40 @@ func (a *Client) AdminCreateRoleV3Short(params *AdminCreateRoleV3Params, authInf
 	switch v := result.(type) {
 
 	case *AdminCreateRoleV3Created:
-		return v, nil
+		response := &AdminCreateRoleV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateRoleV3BadRequest:
-		return nil, v
+		response := &AdminCreateRoleV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateRoleV3Unauthorized:
-		return nil, v
+		response := &AdminCreateRoleV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateRoleV3Forbidden:
-		return nil, v
+		response := &AdminCreateRoleV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateRoleV3InternalServerError:
-		return nil, v
+		response := &AdminCreateRoleV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1275,7 +1700,7 @@ func (a *Client) AdminCreateRoleV3Short(params *AdminCreateRoleV3Params, authInf
 AdminGetRoleV3Short get role
 action code: 10419
 */
-func (a *Client) AdminGetRoleV3Short(params *AdminGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV3OK, error) {
+func (a *Client) AdminGetRoleV3Short(params *AdminGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRoleV3Params()
@@ -1313,17 +1738,47 @@ func (a *Client) AdminGetRoleV3Short(params *AdminGetRoleV3Params, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminGetRoleV3OK:
-		return v, nil
+		response := &AdminGetRoleV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRoleV3BadRequest:
-		return nil, v
+		response := &AdminGetRoleV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleV3Unauthorized:
-		return nil, v
+		response := &AdminGetRoleV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleV3Forbidden:
-		return nil, v
+		response := &AdminGetRoleV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleV3NotFound:
-		return nil, v
+		response := &AdminGetRoleV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleV3InternalServerError:
-		return nil, v
+		response := &AdminGetRoleV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1334,7 +1789,7 @@ func (a *Client) AdminGetRoleV3Short(params *AdminGetRoleV3Params, authInfo runt
 AdminDeleteRoleV3Short delete role
 action code: 10403
 */
-func (a *Client) AdminDeleteRoleV3Short(params *AdminDeleteRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV3NoContent, error) {
+func (a *Client) AdminDeleteRoleV3Short(params *AdminDeleteRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteRoleV3Params()
@@ -1372,19 +1827,53 @@ func (a *Client) AdminDeleteRoleV3Short(params *AdminDeleteRoleV3Params, authInf
 	switch v := result.(type) {
 
 	case *AdminDeleteRoleV3NoContent:
-		return v, nil
+		response := &AdminDeleteRoleV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteRoleV3BadRequest:
-		return nil, v
+		response := &AdminDeleteRoleV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteRoleV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV3Forbidden:
-		return nil, v
+		response := &AdminDeleteRoleV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV3NotFound:
-		return nil, v
+		response := &AdminDeleteRoleV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV3Conflict:
-		return nil, v
+		response := &AdminDeleteRoleV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV3InternalServerError:
-		return nil, v
+		response := &AdminDeleteRoleV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1400,7 +1889,7 @@ Update role request body:
 
 action code: 10402
 */
-func (a *Client) AdminUpdateRoleV3Short(params *AdminUpdateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV3OK, error) {
+func (a *Client) AdminUpdateRoleV3Short(params *AdminUpdateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateRoleV3Params()
@@ -1438,17 +1927,47 @@ func (a *Client) AdminUpdateRoleV3Short(params *AdminUpdateRoleV3Params, authInf
 	switch v := result.(type) {
 
 	case *AdminUpdateRoleV3OK:
-		return v, nil
+		response := &AdminUpdateRoleV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateRoleV3BadRequest:
-		return nil, v
+		response := &AdminUpdateRoleV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateRoleV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleV3Forbidden:
-		return nil, v
+		response := &AdminUpdateRoleV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleV3NotFound:
-		return nil, v
+		response := &AdminUpdateRoleV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateRoleV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1460,7 +1979,7 @@ AdminGetRoleAdminStatusV3Short get role admin status
 Admin roles has its members listed in the role.
 action code: 10420
 */
-func (a *Client) AdminGetRoleAdminStatusV3Short(params *AdminGetRoleAdminStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleAdminStatusV3OK, error) {
+func (a *Client) AdminGetRoleAdminStatusV3Short(params *AdminGetRoleAdminStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleAdminStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRoleAdminStatusV3Params()
@@ -1498,17 +2017,47 @@ func (a *Client) AdminGetRoleAdminStatusV3Short(params *AdminGetRoleAdminStatusV
 	switch v := result.(type) {
 
 	case *AdminGetRoleAdminStatusV3OK:
-		return v, nil
+		response := &AdminGetRoleAdminStatusV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRoleAdminStatusV3BadRequest:
-		return nil, v
+		response := &AdminGetRoleAdminStatusV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleAdminStatusV3Unauthorized:
-		return nil, v
+		response := &AdminGetRoleAdminStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleAdminStatusV3Forbidden:
-		return nil, v
+		response := &AdminGetRoleAdminStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleAdminStatusV3NotFound:
-		return nil, v
+		response := &AdminGetRoleAdminStatusV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleAdminStatusV3InternalServerError:
-		return nil, v
+		response := &AdminGetRoleAdminStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1521,7 +2070,7 @@ Admin roles has its members listed in the role.
 Role can be set as admin role only when it has at least 1 manager.
 action code: 10412
 */
-func (a *Client) AdminUpdateAdminRoleStatusV3Short(params *AdminUpdateAdminRoleStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAdminRoleStatusV3NoContent, error) {
+func (a *Client) AdminUpdateAdminRoleStatusV3Short(params *AdminUpdateAdminRoleStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAdminRoleStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateAdminRoleStatusV3Params()
@@ -1559,17 +2108,46 @@ func (a *Client) AdminUpdateAdminRoleStatusV3Short(params *AdminUpdateAdminRoleS
 	switch v := result.(type) {
 
 	case *AdminUpdateAdminRoleStatusV3NoContent:
-		return v, nil
+		response := &AdminUpdateAdminRoleStatusV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateAdminRoleStatusV3BadRequest:
-		return nil, v
+		response := &AdminUpdateAdminRoleStatusV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAdminRoleStatusV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateAdminRoleStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAdminRoleStatusV3Forbidden:
-		return nil, v
+		response := &AdminUpdateAdminRoleStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAdminRoleStatusV3NotFound:
-		return nil, v
+		response := &AdminUpdateAdminRoleStatusV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAdminRoleStatusV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateAdminRoleStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1580,7 +2158,7 @@ func (a *Client) AdminUpdateAdminRoleStatusV3Short(params *AdminUpdateAdminRoleS
 AdminRemoveRoleAdminV3Short remove role admin status
 code: 10413
 */
-func (a *Client) AdminRemoveRoleAdminV3Short(params *AdminRemoveRoleAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleAdminV3NoContent, error) {
+func (a *Client) AdminRemoveRoleAdminV3Short(params *AdminRemoveRoleAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleAdminV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRemoveRoleAdminV3Params()
@@ -1618,17 +2196,46 @@ func (a *Client) AdminRemoveRoleAdminV3Short(params *AdminRemoveRoleAdminV3Param
 	switch v := result.(type) {
 
 	case *AdminRemoveRoleAdminV3NoContent:
-		return v, nil
+		response := &AdminRemoveRoleAdminV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRemoveRoleAdminV3BadRequest:
-		return nil, v
+		response := &AdminRemoveRoleAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleAdminV3Unauthorized:
-		return nil, v
+		response := &AdminRemoveRoleAdminV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleAdminV3Forbidden:
-		return nil, v
+		response := &AdminRemoveRoleAdminV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleAdminV3NotFound:
-		return nil, v
+		response := &AdminRemoveRoleAdminV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleAdminV3InternalServerError:
-		return nil, v
+		response := &AdminRemoveRoleAdminV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1640,7 +2247,7 @@ AdminGetRoleManagersV3Short get role managers
 Role can only be assigned to other users by the role's manager.
 action code: 10415
 */
-func (a *Client) AdminGetRoleManagersV3Short(params *AdminGetRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleManagersV3OK, error) {
+func (a *Client) AdminGetRoleManagersV3Short(params *AdminGetRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleManagersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRoleManagersV3Params()
@@ -1678,17 +2285,47 @@ func (a *Client) AdminGetRoleManagersV3Short(params *AdminGetRoleManagersV3Param
 	switch v := result.(type) {
 
 	case *AdminGetRoleManagersV3OK:
-		return v, nil
+		response := &AdminGetRoleManagersV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRoleManagersV3BadRequest:
-		return nil, v
+		response := &AdminGetRoleManagersV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleManagersV3Unauthorized:
-		return nil, v
+		response := &AdminGetRoleManagersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleManagersV3Forbidden:
-		return nil, v
+		response := &AdminGetRoleManagersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleManagersV3NotFound:
-		return nil, v
+		response := &AdminGetRoleManagersV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleManagersV3InternalServerError:
-		return nil, v
+		response := &AdminGetRoleManagersV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1700,7 +2337,7 @@ AdminAddRoleManagersV3Short add role managers
 Role can only be assigned to other users by the role's manager.
 action code: 10408
 */
-func (a *Client) AdminAddRoleManagersV3Short(params *AdminAddRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleManagersV3NoContent, error) {
+func (a *Client) AdminAddRoleManagersV3Short(params *AdminAddRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleManagersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddRoleManagersV3Params()
@@ -1738,17 +2375,46 @@ func (a *Client) AdminAddRoleManagersV3Short(params *AdminAddRoleManagersV3Param
 	switch v := result.(type) {
 
 	case *AdminAddRoleManagersV3NoContent:
-		return v, nil
+		response := &AdminAddRoleManagersV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddRoleManagersV3BadRequest:
-		return nil, v
+		response := &AdminAddRoleManagersV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleManagersV3Unauthorized:
-		return nil, v
+		response := &AdminAddRoleManagersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleManagersV3Forbidden:
-		return nil, v
+		response := &AdminAddRoleManagersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleManagersV3NotFound:
-		return nil, v
+		response := &AdminAddRoleManagersV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleManagersV3Conflict:
-		return nil, v
+		response := &AdminAddRoleManagersV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1760,7 +2426,7 @@ AdminRemoveRoleManagersV3Short remove role managers
 Role can only be assigned to other users by the role's manager.
 action code: 10409
 */
-func (a *Client) AdminRemoveRoleManagersV3Short(params *AdminRemoveRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleManagersV3NoContent, error) {
+func (a *Client) AdminRemoveRoleManagersV3Short(params *AdminRemoveRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleManagersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRemoveRoleManagersV3Params()
@@ -1798,17 +2464,46 @@ func (a *Client) AdminRemoveRoleManagersV3Short(params *AdminRemoveRoleManagersV
 	switch v := result.(type) {
 
 	case *AdminRemoveRoleManagersV3NoContent:
-		return v, nil
+		response := &AdminRemoveRoleManagersV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRemoveRoleManagersV3BadRequest:
-		return nil, v
+		response := &AdminRemoveRoleManagersV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleManagersV3Unauthorized:
-		return nil, v
+		response := &AdminRemoveRoleManagersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleManagersV3Forbidden:
-		return nil, v
+		response := &AdminRemoveRoleManagersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleManagersV3NotFound:
-		return nil, v
+		response := &AdminRemoveRoleManagersV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleManagersV3InternalServerError:
-		return nil, v
+		response := &AdminRemoveRoleManagersV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1820,7 +2515,7 @@ AdminGetRoleMembersV3Short get role members
 Admin roles has its members listed in the role.
 action code: 10416
 */
-func (a *Client) AdminGetRoleMembersV3Short(params *AdminGetRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleMembersV3OK, error) {
+func (a *Client) AdminGetRoleMembersV3Short(params *AdminGetRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleMembersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRoleMembersV3Params()
@@ -1858,17 +2553,47 @@ func (a *Client) AdminGetRoleMembersV3Short(params *AdminGetRoleMembersV3Params,
 	switch v := result.(type) {
 
 	case *AdminGetRoleMembersV3OK:
-		return v, nil
+		response := &AdminGetRoleMembersV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRoleMembersV3BadRequest:
-		return nil, v
+		response := &AdminGetRoleMembersV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleMembersV3Unauthorized:
-		return nil, v
+		response := &AdminGetRoleMembersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleMembersV3Forbidden:
-		return nil, v
+		response := &AdminGetRoleMembersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleMembersV3NotFound:
-		return nil, v
+		response := &AdminGetRoleMembersV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleMembersV3InternalServerError:
-		return nil, v
+		response := &AdminGetRoleMembersV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1881,7 +2606,7 @@ Admin roles has its members listed in the role.
 Role can only be assigned to other users by the role's manager.
 action code: 10410
 */
-func (a *Client) AdminAddRoleMembersV3Short(params *AdminAddRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleMembersV3NoContent, error) {
+func (a *Client) AdminAddRoleMembersV3Short(params *AdminAddRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleMembersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddRoleMembersV3Params()
@@ -1919,19 +2644,53 @@ func (a *Client) AdminAddRoleMembersV3Short(params *AdminAddRoleMembersV3Params,
 	switch v := result.(type) {
 
 	case *AdminAddRoleMembersV3NoContent:
-		return v, nil
+		response := &AdminAddRoleMembersV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddRoleMembersV3BadRequest:
-		return nil, v
+		response := &AdminAddRoleMembersV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleMembersV3Unauthorized:
-		return nil, v
+		response := &AdminAddRoleMembersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleMembersV3Forbidden:
-		return nil, v
+		response := &AdminAddRoleMembersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleMembersV3NotFound:
-		return nil, v
+		response := &AdminAddRoleMembersV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleMembersV3Conflict:
-		return nil, v
+		response := &AdminAddRoleMembersV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRoleMembersV3InternalServerError:
-		return nil, v
+		response := &AdminAddRoleMembersV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1945,7 +2704,7 @@ Role can only be assigned to other users by the role's manager.
 action code: 10411
 Deprecate: Suggest to use this: AdminRevokeUserFromRoleV4
 */
-func (a *Client) AdminRemoveRoleMembersV3Short(params *AdminRemoveRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleMembersV3NoContent, error) {
+func (a *Client) AdminRemoveRoleMembersV3Short(params *AdminRemoveRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleMembersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRemoveRoleMembersV3Params()
@@ -1983,17 +2742,46 @@ func (a *Client) AdminRemoveRoleMembersV3Short(params *AdminRemoveRoleMembersV3P
 	switch v := result.(type) {
 
 	case *AdminRemoveRoleMembersV3NoContent:
-		return v, nil
+		response := &AdminRemoveRoleMembersV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRemoveRoleMembersV3BadRequest:
-		return nil, v
+		response := &AdminRemoveRoleMembersV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleMembersV3Unauthorized:
-		return nil, v
+		response := &AdminRemoveRoleMembersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleMembersV3Forbidden:
-		return nil, v
+		response := &AdminRemoveRoleMembersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleMembersV3NotFound:
-		return nil, v
+		response := &AdminRemoveRoleMembersV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveRoleMembersV3InternalServerError:
-		return nil, v
+		response := &AdminRemoveRoleMembersV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2027,7 +2815,7 @@ Special characters:
 1. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
 1. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
 */
-func (a *Client) AdminUpdateRolePermissionsV3Short(params *AdminUpdateRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRolePermissionsV3NoContent, error) {
+func (a *Client) AdminUpdateRolePermissionsV3Short(params *AdminUpdateRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRolePermissionsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateRolePermissionsV3Params()
@@ -2065,17 +2853,46 @@ func (a *Client) AdminUpdateRolePermissionsV3Short(params *AdminUpdateRolePermis
 	switch v := result.(type) {
 
 	case *AdminUpdateRolePermissionsV3NoContent:
-		return v, nil
+		response := &AdminUpdateRolePermissionsV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV3BadRequest:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV3Forbidden:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV3NotFound:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2109,7 +2926,7 @@ Special characters:
 1. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
 1. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
 */
-func (a *Client) AdminAddRolePermissionsV3Short(params *AdminAddRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRolePermissionsV3NoContent, error) {
+func (a *Client) AdminAddRolePermissionsV3Short(params *AdminAddRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRolePermissionsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddRolePermissionsV3Params()
@@ -2147,17 +2964,46 @@ func (a *Client) AdminAddRolePermissionsV3Short(params *AdminAddRolePermissionsV
 	switch v := result.(type) {
 
 	case *AdminAddRolePermissionsV3NoContent:
-		return v, nil
+		response := &AdminAddRolePermissionsV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddRolePermissionsV3BadRequest:
-		return nil, v
+		response := &AdminAddRolePermissionsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRolePermissionsV3Unauthorized:
-		return nil, v
+		response := &AdminAddRolePermissionsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRolePermissionsV3Forbidden:
-		return nil, v
+		response := &AdminAddRolePermissionsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRolePermissionsV3NotFound:
-		return nil, v
+		response := &AdminAddRolePermissionsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRolePermissionsV3InternalServerError:
-		return nil, v
+		response := &AdminAddRolePermissionsV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2167,7 +3013,7 @@ func (a *Client) AdminAddRolePermissionsV3Short(params *AdminAddRolePermissionsV
 /*
 AdminDeleteRolePermissionsV3Short delete role
 */
-func (a *Client) AdminDeleteRolePermissionsV3Short(params *AdminDeleteRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV3NoContent, error) {
+func (a *Client) AdminDeleteRolePermissionsV3Short(params *AdminDeleteRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteRolePermissionsV3Params()
@@ -2205,13 +3051,31 @@ func (a *Client) AdminDeleteRolePermissionsV3Short(params *AdminDeleteRolePermis
 	switch v := result.(type) {
 
 	case *AdminDeleteRolePermissionsV3NoContent:
-		return v, nil
+		response := &AdminDeleteRolePermissionsV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteRolePermissionsV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteRolePermissionsV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRolePermissionsV3Forbidden:
-		return nil, v
+		response := &AdminDeleteRolePermissionsV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRolePermissionsV3NotFound:
-		return nil, v
+		response := &AdminDeleteRolePermissionsV3Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2222,7 +3086,7 @@ func (a *Client) AdminDeleteRolePermissionsV3Short(params *AdminDeleteRolePermis
 AdminDeleteRolePermissionV3Short delete role permission
 action code: 10406
 */
-func (a *Client) AdminDeleteRolePermissionV3Short(params *AdminDeleteRolePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionV3NoContent, error) {
+func (a *Client) AdminDeleteRolePermissionV3Short(params *AdminDeleteRolePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteRolePermissionV3Params()
@@ -2260,17 +3124,46 @@ func (a *Client) AdminDeleteRolePermissionV3Short(params *AdminDeleteRolePermiss
 	switch v := result.(type) {
 
 	case *AdminDeleteRolePermissionV3NoContent:
-		return v, nil
+		response := &AdminDeleteRolePermissionV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteRolePermissionV3BadRequest:
-		return nil, v
+		response := &AdminDeleteRolePermissionV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRolePermissionV3Unauthorized:
-		return nil, v
+		response := &AdminDeleteRolePermissionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRolePermissionV3Forbidden:
-		return nil, v
+		response := &AdminDeleteRolePermissionV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRolePermissionV3NotFound:
-		return nil, v
+		response := &AdminDeleteRolePermissionV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRolePermissionV3InternalServerError:
-		return nil, v
+		response := &AdminDeleteRolePermissionV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2282,7 +3175,7 @@ PublicGetRolesV3Short get roles
 This endpoint is used to get all non-admin role.
 action code: 10418
 */
-func (a *Client) PublicGetRolesV3Short(params *PublicGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRolesV3OK, error) {
+func (a *Client) PublicGetRolesV3Short(params *PublicGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRolesV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetRolesV3Params()
@@ -2320,9 +3213,19 @@ func (a *Client) PublicGetRolesV3Short(params *PublicGetRolesV3Params, authInfo 
 	switch v := result.(type) {
 
 	case *PublicGetRolesV3OK:
-		return v, nil
+		response := &PublicGetRolesV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetRolesV3BadRequest:
-		return nil, v
+		response := &PublicGetRolesV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2334,7 +3237,7 @@ PublicGetRoleV3Short get public role
 This endpoint is used to get non-admin role based on specify roleId.
 action code : 10417
 */
-func (a *Client) PublicGetRoleV3Short(params *PublicGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRoleV3OK, error) {
+func (a *Client) PublicGetRoleV3Short(params *PublicGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRoleV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetRoleV3Params()
@@ -2372,11 +3275,26 @@ func (a *Client) PublicGetRoleV3Short(params *PublicGetRoleV3Params, authInfo ru
 	switch v := result.(type) {
 
 	case *PublicGetRoleV3OK:
-		return v, nil
+		response := &PublicGetRoleV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetRoleV3BadRequest:
-		return nil, v
+		response := &PublicGetRoleV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetRoleV3NotFound:
-		return nil, v
+		response := &PublicGetRoleV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2387,7 +3305,7 @@ func (a *Client) PublicGetRoleV3Short(params *PublicGetRoleV3Params, authInfo ru
 AdminGetRolesV4Short get roles
 action code: 10414
 */
-func (a *Client) AdminGetRolesV4Short(params *AdminGetRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV4OK, error) {
+func (a *Client) AdminGetRolesV4Short(params *AdminGetRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRolesV4Params()
@@ -2425,15 +3343,40 @@ func (a *Client) AdminGetRolesV4Short(params *AdminGetRolesV4Params, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminGetRolesV4OK:
-		return v, nil
+		response := &AdminGetRolesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRolesV4BadRequest:
-		return nil, v
+		response := &AdminGetRolesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRolesV4Unauthorized:
-		return nil, v
+		response := &AdminGetRolesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRolesV4Forbidden:
-		return nil, v
+		response := &AdminGetRolesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRolesV4InternalServerError:
-		return nil, v
+		response := &AdminGetRolesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2450,7 +3393,7 @@ Create role request body:
 
 action code: 10401
 */
-func (a *Client) AdminCreateRoleV4Short(params *AdminCreateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV4Created, error) {
+func (a *Client) AdminCreateRoleV4Short(params *AdminCreateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateRoleV4Params()
@@ -2488,15 +3431,40 @@ func (a *Client) AdminCreateRoleV4Short(params *AdminCreateRoleV4Params, authInf
 	switch v := result.(type) {
 
 	case *AdminCreateRoleV4Created:
-		return v, nil
+		response := &AdminCreateRoleV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateRoleV4BadRequest:
-		return nil, v
+		response := &AdminCreateRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateRoleV4Unauthorized:
-		return nil, v
+		response := &AdminCreateRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateRoleV4Forbidden:
-		return nil, v
+		response := &AdminCreateRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateRoleV4InternalServerError:
-		return nil, v
+		response := &AdminCreateRoleV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2507,7 +3475,7 @@ func (a *Client) AdminCreateRoleV4Short(params *AdminCreateRoleV4Params, authInf
 AdminGetRoleV4Short get role
 action code: 10419
 */
-func (a *Client) AdminGetRoleV4Short(params *AdminGetRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV4OK, error) {
+func (a *Client) AdminGetRoleV4Short(params *AdminGetRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRoleV4Params()
@@ -2545,17 +3513,47 @@ func (a *Client) AdminGetRoleV4Short(params *AdminGetRoleV4Params, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminGetRoleV4OK:
-		return v, nil
+		response := &AdminGetRoleV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRoleV4BadRequest:
-		return nil, v
+		response := &AdminGetRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleV4Unauthorized:
-		return nil, v
+		response := &AdminGetRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleV4Forbidden:
-		return nil, v
+		response := &AdminGetRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleV4NotFound:
-		return nil, v
+		response := &AdminGetRoleV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleV4InternalServerError:
-		return nil, v
+		response := &AdminGetRoleV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2567,7 +3565,7 @@ AdminDeleteRoleV4Short delete role
 Removes role ID from user's Roles and NamespaceRoles before deleting the role.
 action code: 10403
 */
-func (a *Client) AdminDeleteRoleV4Short(params *AdminDeleteRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV4NoContent, error) {
+func (a *Client) AdminDeleteRoleV4Short(params *AdminDeleteRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteRoleV4Params()
@@ -2605,17 +3603,46 @@ func (a *Client) AdminDeleteRoleV4Short(params *AdminDeleteRoleV4Params, authInf
 	switch v := result.(type) {
 
 	case *AdminDeleteRoleV4NoContent:
-		return v, nil
+		response := &AdminDeleteRoleV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteRoleV4BadRequest:
-		return nil, v
+		response := &AdminDeleteRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV4Unauthorized:
-		return nil, v
+		response := &AdminDeleteRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV4Forbidden:
-		return nil, v
+		response := &AdminDeleteRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV4NotFound:
-		return nil, v
+		response := &AdminDeleteRoleV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRoleV4InternalServerError:
-		return nil, v
+		response := &AdminDeleteRoleV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2632,7 +3659,7 @@ Update role request body:
 
 action code: 10402
 */
-func (a *Client) AdminUpdateRoleV4Short(params *AdminUpdateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV4OK, error) {
+func (a *Client) AdminUpdateRoleV4Short(params *AdminUpdateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateRoleV4Params()
@@ -2670,15 +3697,40 @@ func (a *Client) AdminUpdateRoleV4Short(params *AdminUpdateRoleV4Params, authInf
 	switch v := result.(type) {
 
 	case *AdminUpdateRoleV4OK:
-		return v, nil
+		response := &AdminUpdateRoleV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateRoleV4BadRequest:
-		return nil, v
+		response := &AdminUpdateRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleV4Unauthorized:
-		return nil, v
+		response := &AdminUpdateRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleV4Forbidden:
-		return nil, v
+		response := &AdminUpdateRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleV4NotFound:
-		return nil, v
+		response := &AdminUpdateRoleV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2712,7 +3764,7 @@ Special characters:
 6. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
 7. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
 */
-func (a *Client) AdminUpdateRolePermissionsV4Short(params *AdminUpdateRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRolePermissionsV4OK, error) {
+func (a *Client) AdminUpdateRolePermissionsV4Short(params *AdminUpdateRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRolePermissionsV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateRolePermissionsV4Params()
@@ -2750,15 +3802,40 @@ func (a *Client) AdminUpdateRolePermissionsV4Short(params *AdminUpdateRolePermis
 	switch v := result.(type) {
 
 	case *AdminUpdateRolePermissionsV4OK:
-		return v, nil
+		response := &AdminUpdateRolePermissionsV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV4BadRequest:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV4Unauthorized:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV4Forbidden:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRolePermissionsV4NotFound:
-		return nil, v
+		response := &AdminUpdateRolePermissionsV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2793,7 +3870,7 @@ Special characters:
 6. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
 7. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
 */
-func (a *Client) AdminAddRolePermissionsV4Short(params *AdminAddRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRolePermissionsV4OK, error) {
+func (a *Client) AdminAddRolePermissionsV4Short(params *AdminAddRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRolePermissionsV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddRolePermissionsV4Params()
@@ -2831,15 +3908,40 @@ func (a *Client) AdminAddRolePermissionsV4Short(params *AdminAddRolePermissionsV
 	switch v := result.(type) {
 
 	case *AdminAddRolePermissionsV4OK:
-		return v, nil
+		response := &AdminAddRolePermissionsV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddRolePermissionsV4BadRequest:
-		return nil, v
+		response := &AdminAddRolePermissionsV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRolePermissionsV4Unauthorized:
-		return nil, v
+		response := &AdminAddRolePermissionsV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRolePermissionsV4Forbidden:
-		return nil, v
+		response := &AdminAddRolePermissionsV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddRolePermissionsV4NotFound:
-		return nil, v
+		response := &AdminAddRolePermissionsV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2849,7 +3951,7 @@ func (a *Client) AdminAddRolePermissionsV4Short(params *AdminAddRolePermissionsV
 /*
 AdminDeleteRolePermissionsV4Short delete role permission v4
 */
-func (a *Client) AdminDeleteRolePermissionsV4Short(params *AdminDeleteRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV4NoContent, error) {
+func (a *Client) AdminDeleteRolePermissionsV4Short(params *AdminDeleteRolePermissionsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteRolePermissionsV4Params()
@@ -2887,13 +3989,31 @@ func (a *Client) AdminDeleteRolePermissionsV4Short(params *AdminDeleteRolePermis
 	switch v := result.(type) {
 
 	case *AdminDeleteRolePermissionsV4NoContent:
-		return v, nil
+		response := &AdminDeleteRolePermissionsV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteRolePermissionsV4Unauthorized:
-		return nil, v
+		response := &AdminDeleteRolePermissionsV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRolePermissionsV4Forbidden:
-		return nil, v
+		response := &AdminDeleteRolePermissionsV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteRolePermissionsV4NotFound:
-		return nil, v
+		response := &AdminDeleteRolePermissionsV4Response{}
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2905,7 +4025,7 @@ AdminListAssignedUsersV4Short get role's assigned users
 Query all users that has the specified role.
 action code: 10416
 */
-func (a *Client) AdminListAssignedUsersV4Short(params *AdminListAssignedUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAssignedUsersV4OK, error) {
+func (a *Client) AdminListAssignedUsersV4Short(params *AdminListAssignedUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAssignedUsersV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListAssignedUsersV4Params()
@@ -2943,15 +4063,40 @@ func (a *Client) AdminListAssignedUsersV4Short(params *AdminListAssignedUsersV4P
 	switch v := result.(type) {
 
 	case *AdminListAssignedUsersV4OK:
-		return v, nil
+		response := &AdminListAssignedUsersV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListAssignedUsersV4BadRequest:
-		return nil, v
+		response := &AdminListAssignedUsersV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAssignedUsersV4Unauthorized:
-		return nil, v
+		response := &AdminListAssignedUsersV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAssignedUsersV4Forbidden:
-		return nil, v
+		response := &AdminListAssignedUsersV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListAssignedUsersV4NotFound:
-		return nil, v
+		response := &AdminListAssignedUsersV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2967,7 +4112,7 @@ Parameters:
 
 action code: 10410
 */
-func (a *Client) AdminAssignUserToRoleV4Short(params *AdminAssignUserToRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAssignUserToRoleV4Created, error) {
+func (a *Client) AdminAssignUserToRoleV4Short(params *AdminAssignUserToRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAssignUserToRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAssignUserToRoleV4Params()
@@ -3005,19 +4150,54 @@ func (a *Client) AdminAssignUserToRoleV4Short(params *AdminAssignUserToRoleV4Par
 	switch v := result.(type) {
 
 	case *AdminAssignUserToRoleV4Created:
-		return v, nil
+		response := &AdminAssignUserToRoleV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAssignUserToRoleV4BadRequest:
-		return nil, v
+		response := &AdminAssignUserToRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAssignUserToRoleV4Unauthorized:
-		return nil, v
+		response := &AdminAssignUserToRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAssignUserToRoleV4Forbidden:
-		return nil, v
+		response := &AdminAssignUserToRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAssignUserToRoleV4NotFound:
-		return nil, v
+		response := &AdminAssignUserToRoleV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAssignUserToRoleV4Conflict:
-		return nil, v
+		response := &AdminAssignUserToRoleV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAssignUserToRoleV4UnprocessableEntity:
-		return nil, v
+		response := &AdminAssignUserToRoleV4Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3034,7 +4214,7 @@ Parameters:
 
 action code: 10411
 */
-func (a *Client) AdminRevokeUserFromRoleV4Short(params *AdminRevokeUserFromRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRevokeUserFromRoleV4NoContent, error) {
+func (a *Client) AdminRevokeUserFromRoleV4Short(params *AdminRevokeUserFromRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRevokeUserFromRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRevokeUserFromRoleV4Params()
@@ -3072,15 +4252,39 @@ func (a *Client) AdminRevokeUserFromRoleV4Short(params *AdminRevokeUserFromRoleV
 	switch v := result.(type) {
 
 	case *AdminRevokeUserFromRoleV4NoContent:
-		return v, nil
+		response := &AdminRevokeUserFromRoleV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRevokeUserFromRoleV4BadRequest:
-		return nil, v
+		response := &AdminRevokeUserFromRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRevokeUserFromRoleV4Unauthorized:
-		return nil, v
+		response := &AdminRevokeUserFromRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRevokeUserFromRoleV4Forbidden:
-		return nil, v
+		response := &AdminRevokeUserFromRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRevokeUserFromRoleV4NotFound:
-		return nil, v
+		response := &AdminRevokeUserFromRoleV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

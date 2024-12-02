@@ -9,7 +9,6 @@ package challenge
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_configuration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ChallengeConfigurationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ChallengeConfigurationService) AdminGetChallengesShort(input *challenge_configuration.AdminGetChallengesParams) (*challengeclientmodels.ModelListChallengeResponse, error) {
+func (aaa *ChallengeConfigurationService) AdminGetChallengesShort(input *challenge_configuration.AdminGetChallengesParams) (*challenge_configuration.AdminGetChallengesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ChallengeConfigurationService) AdminGetChallengesShort(input *challen
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ChallengeConfigurationService) AdminCreateChallengeShort(input *challenge_configuration.AdminCreateChallengeParams) (*challengeclientmodels.ModelChallengeResponse, error) {
+func (aaa *ChallengeConfigurationService) AdminCreateChallengeShort(input *challenge_configuration.AdminCreateChallengeParams) (*challenge_configuration.AdminCreateChallengeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *ChallengeConfigurationService) AdminCreateChallengeShort(input *chall
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *ChallengeConfigurationService) AdminGetActiveChallengesShort(input *challenge_configuration.AdminGetActiveChallengesParams) (*challengeclientmodels.ModelListChallengeResponse, error) {
+func (aaa *ChallengeConfigurationService) AdminGetActiveChallengesShort(input *challenge_configuration.AdminGetActiveChallengesParams) (*challenge_configuration.AdminGetActiveChallengesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *ChallengeConfigurationService) AdminGetActiveChallengesShort(input *c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ChallengeConfigurationService) AdminGetChallengeShort(input *challenge_configuration.AdminGetChallengeParams) (*challengeclientmodels.ModelChallengeResponse, error) {
+func (aaa *ChallengeConfigurationService) AdminGetChallengeShort(input *challenge_configuration.AdminGetChallengeParams) (*challenge_configuration.AdminGetChallengeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *ChallengeConfigurationService) AdminGetChallengeShort(input *challeng
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ChallengeConfigurationService) AdminUpdateChallengeShort(input *challenge_configuration.AdminUpdateChallengeParams) (*challengeclientmodels.ModelChallengeResponse, error) {
+func (aaa *ChallengeConfigurationService) AdminUpdateChallengeShort(input *challenge_configuration.AdminUpdateChallengeParams) (*challenge_configuration.AdminUpdateChallengeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *ChallengeConfigurationService) AdminUpdateChallengeShort(input *chall
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ChallengeConfigurationService) AdminDeleteChallengeShort(input *challenge_configuration.AdminDeleteChallengeParams) error {
@@ -219,7 +218,7 @@ func (aaa *ChallengeConfigurationService) AdminDeleteChallengeShort(input *chall
 	return nil
 }
 
-func (aaa *ChallengeConfigurationService) AdminGetPeriodsShort(input *challenge_configuration.AdminGetPeriodsParams) (*challengeclientmodels.ModelListPeriodsResponse, error) {
+func (aaa *ChallengeConfigurationService) AdminGetPeriodsShort(input *challenge_configuration.AdminGetPeriodsParams) (*challenge_configuration.AdminGetPeriodsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *ChallengeConfigurationService) AdminGetPeriodsShort(input *challenge_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ChallengeConfigurationService) AdminRandomizeChallengeShort(input *challenge_configuration.AdminRandomizeChallengeParams) ([]*challengeclientmodels.ModelSchedule, error) {
+func (aaa *ChallengeConfigurationService) AdminRandomizeChallengeShort(input *challenge_configuration.AdminRandomizeChallengeParams) (*challenge_configuration.AdminRandomizeChallengeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,7 +275,7 @@ func (aaa *ChallengeConfigurationService) AdminRandomizeChallengeShort(input *ch
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ChallengeConfigurationService) AdminDeleteTiedChallengeShort(input *challenge_configuration.AdminDeleteTiedChallengeParams) error {
@@ -309,7 +308,7 @@ func (aaa *ChallengeConfigurationService) AdminDeleteTiedChallengeShort(input *c
 	return nil
 }
 
-func (aaa *ChallengeConfigurationService) AdminUpdateTiedChallengeScheduleShort(input *challenge_configuration.AdminUpdateTiedChallengeScheduleParams) (*challengeclientmodels.ModelChallengeResponse, error) {
+func (aaa *ChallengeConfigurationService) AdminUpdateTiedChallengeScheduleShort(input *challenge_configuration.AdminUpdateTiedChallengeScheduleParams) (*challenge_configuration.AdminUpdateTiedChallengeScheduleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,5 +335,5 @@ func (aaa *ChallengeConfigurationService) AdminUpdateTiedChallengeScheduleShort(
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type RequestTokenExchangeCodeV3Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.OauthmodelTargetTokenCodeResponse
+}
+
+func (m *RequestTokenExchangeCodeV3Response) Unpack() (*iamclientmodels.OauthmodelTargetTokenCodeResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RequestTokenExchangeCodeV3Reader is a Reader for the RequestTokenExchangeCodeV3 structure.
 type RequestTokenExchangeCodeV3Reader struct {
 	formats strfmt.Registry

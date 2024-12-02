@@ -9,7 +9,6 @@ package reporting
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_reasons"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminReasonsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminReasonsService) AdminListReasonGroupsShort(input *admin_reasons.AdminListReasonGroupsParams) (*reportingclientmodels.RestapiReasonGroupListResponse, error) {
+func (aaa *AdminReasonsService) AdminListReasonGroupsShort(input *admin_reasons.AdminListReasonGroupsParams) (*admin_reasons.AdminListReasonGroupsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminReasonsService) AdminListReasonGroupsShort(input *admin_reasons.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminReasonsService) CreateReasonGroupShort(input *admin_reasons.CreateReasonGroupParams) (*reportingclientmodels.RestapiReasonGroupResponse, error) {
+func (aaa *AdminReasonsService) CreateReasonGroupShort(input *admin_reasons.CreateReasonGroupParams) (*admin_reasons.CreateReasonGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminReasonsService) CreateReasonGroupShort(input *admin_reasons.Crea
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminReasonsService) GetReasonGroupShort(input *admin_reasons.GetReasonGroupParams) (*reportingclientmodels.RestapiReasonGroupResponse, error) {
+func (aaa *AdminReasonsService) GetReasonGroupShort(input *admin_reasons.GetReasonGroupParams) (*admin_reasons.GetReasonGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *AdminReasonsService) GetReasonGroupShort(input *admin_reasons.GetReas
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminReasonsService) DeleteReasonGroupShort(input *admin_reasons.DeleteReasonGroupParams) error {
@@ -157,7 +156,7 @@ func (aaa *AdminReasonsService) DeleteReasonGroupShort(input *admin_reasons.Dele
 	return nil
 }
 
-func (aaa *AdminReasonsService) UpdateReasonGroupShort(input *admin_reasons.UpdateReasonGroupParams) (*reportingclientmodels.RestapiReasonGroupResponse, error) {
+func (aaa *AdminReasonsService) UpdateReasonGroupShort(input *admin_reasons.UpdateReasonGroupParams) (*admin_reasons.UpdateReasonGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *AdminReasonsService) UpdateReasonGroupShort(input *admin_reasons.Upda
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminReasonsService) AdminGetReasonsShort(input *admin_reasons.AdminGetReasonsParams) (*reportingclientmodels.RestapiAdminReasonListResponse, error) {
+func (aaa *AdminReasonsService) AdminGetReasonsShort(input *admin_reasons.AdminGetReasonsParams) (*admin_reasons.AdminGetReasonsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *AdminReasonsService) AdminGetReasonsShort(input *admin_reasons.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminReasonsService) CreateReasonShort(input *admin_reasons.CreateReasonParams) (*reportingclientmodels.RestapiAdminReasonResponse, error) {
+func (aaa *AdminReasonsService) CreateReasonShort(input *admin_reasons.CreateReasonParams) (*admin_reasons.CreateReasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *AdminReasonsService) CreateReasonShort(input *admin_reasons.CreateRea
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminReasonsService) AdminGetAllReasonsShort(input *admin_reasons.AdminGetAllReasonsParams) (*reportingclientmodels.RestapiAdminAllReasonsResponse, error) {
+func (aaa *AdminReasonsService) AdminGetAllReasonsShort(input *admin_reasons.AdminGetAllReasonsParams) (*admin_reasons.AdminGetAllReasonsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *AdminReasonsService) AdminGetAllReasonsShort(input *admin_reasons.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminReasonsService) AdminGetUnusedReasonsShort(input *admin_reasons.AdminGetUnusedReasonsParams) (*reportingclientmodels.RestapiUnusedReasonListResponse, error) {
+func (aaa *AdminReasonsService) AdminGetUnusedReasonsShort(input *admin_reasons.AdminGetUnusedReasonsParams) (*admin_reasons.AdminGetUnusedReasonsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *AdminReasonsService) AdminGetUnusedReasonsShort(input *admin_reasons.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminReasonsService) AdminGetReasonShort(input *admin_reasons.AdminGetReasonParams) (*reportingclientmodels.RestapiAdminReasonResponse, error) {
+func (aaa *AdminReasonsService) AdminGetReasonShort(input *admin_reasons.AdminGetReasonParams) (*admin_reasons.AdminGetReasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,7 +333,7 @@ func (aaa *AdminReasonsService) AdminGetReasonShort(input *admin_reasons.AdminGe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminReasonsService) DeleteReasonShort(input *admin_reasons.DeleteReasonParams) error {
@@ -367,7 +366,7 @@ func (aaa *AdminReasonsService) DeleteReasonShort(input *admin_reasons.DeleteRea
 	return nil
 }
 
-func (aaa *AdminReasonsService) UpdateReasonShort(input *admin_reasons.UpdateReasonParams) (*reportingclientmodels.RestapiAdminReasonResponse, error) {
+func (aaa *AdminReasonsService) UpdateReasonShort(input *admin_reasons.UpdateReasonParams) (*admin_reasons.UpdateReasonResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,5 +393,5 @@ func (aaa *AdminReasonsService) UpdateReasonShort(input *admin_reasons.UpdateRea
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

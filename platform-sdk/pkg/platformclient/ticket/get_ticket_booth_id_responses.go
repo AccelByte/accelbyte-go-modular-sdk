@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetTicketBoothIDResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.TicketBoothID
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *GetTicketBoothIDResponse) Unpack() (*platformclientmodels.TicketBoothID, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetTicketBoothIDReader is a Reader for the GetTicketBoothID structure.
 type GetTicketBoothIDReader struct {
 	formats strfmt.Registry

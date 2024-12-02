@@ -19,6 +19,44 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclientmodels"
 )
 
+type DownloadServerArtifactsResponse struct {
+	dsartifactclientmodels.ApiResponse
+
+	Error404 *dsartifactclientmodels.ResponseError
+	Error500 *dsartifactclientmodels.ResponseError
+}
+
+func (m *DownloadServerArtifactsResponse) Unpack() *dsartifactclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &dsartifactclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DownloadServerArtifactsReader is a Reader for the DownloadServerArtifacts structure.
 type DownloadServerArtifactsReader struct {
 	formats strfmt.Registry

@@ -30,18 +30,18 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	UserAuthenticationV3Short(params *UserAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*UserAuthenticationV3Found, error)
-	AuthenticationWithPlatformLinkV3Short(params *AuthenticationWithPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV3OK, error)
-	GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenByNewHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV3OK, error)
-	RequestOneTimeLinkingCodeV3Short(params *RequestOneTimeLinkingCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestOneTimeLinkingCodeV3OK, error)
-	ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkingCodeV3Params) (*ValidateOneTimeLinkingCodeV3OK, error)
-	RequestTokenByOneTimeLinkCodeResponseV3Short(params *RequestTokenByOneTimeLinkCodeResponseV3Params) (*RequestTokenByOneTimeLinkCodeResponseV3OK, error)
-	GetCountryLocationV3Short(params *GetCountryLocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCountryLocationV3OK, error)
-	LogoutShort(params *LogoutParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutNoContent, error)
-	RequestTokenExchangeCodeV3Short(params *RequestTokenExchangeCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTokenExchangeCodeV3OK, error)
-	PlatformAuthenticationV3Short(params *PlatformAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticationV3Found, error)
-	PlatformTokenRefreshV3Short(params *PlatformTokenRefreshV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRefreshV3OK, error)
-	RequestTargetTokenResponseV3Short(params *RequestTargetTokenResponseV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV3OK, error)
+	UserAuthenticationV3Short(params *UserAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*UserAuthenticationV3Response, error)
+	AuthenticationWithPlatformLinkV3Short(params *AuthenticationWithPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV3Response, error)
+	GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenByNewHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV3Response, error)
+	RequestOneTimeLinkingCodeV3Short(params *RequestOneTimeLinkingCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestOneTimeLinkingCodeV3Response, error)
+	ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkingCodeV3Params) (*ValidateOneTimeLinkingCodeV3Response, error)
+	RequestTokenByOneTimeLinkCodeResponseV3Short(params *RequestTokenByOneTimeLinkCodeResponseV3Params) (*RequestTokenByOneTimeLinkCodeResponseV3Response, error)
+	GetCountryLocationV3Short(params *GetCountryLocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCountryLocationV3Response, error)
+	LogoutShort(params *LogoutParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutResponse, error)
+	RequestTokenExchangeCodeV3Short(params *RequestTokenExchangeCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTokenExchangeCodeV3Response, error)
+	PlatformAuthenticationV3Short(params *PlatformAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticationV3Response, error)
+	PlatformTokenRefreshV3Short(params *PlatformTokenRefreshV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRefreshV3Response, error)
+	RequestTargetTokenResponseV3Short(params *RequestTargetTokenResponseV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -60,7 +60,7 @@ This endpoint will read device cookie from cookie **auth-trust-id**. If device c
 
 Action code: 10801
 */
-func (a *Client) UserAuthenticationV3Short(params *UserAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*UserAuthenticationV3Found, error) {
+func (a *Client) UserAuthenticationV3Short(params *UserAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*UserAuthenticationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUserAuthenticationV3Params()
@@ -98,7 +98,12 @@ func (a *Client) UserAuthenticationV3Short(params *UserAuthenticationV3Params, a
 	switch v := result.(type) {
 
 	case *UserAuthenticationV3Found:
-		return v, nil
+		response := &UserAuthenticationV3Response{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -116,7 +121,7 @@ If user already enable 2FA, then invoke _/mfa/verify_ using **mfa_token** from t
 Device Cookie is used to protect the user account from brute force login attack, [more detail from OWASP](https://owasp.org/www-community/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies).
 This endpoint will read device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and set it into cookie when successfully authenticate.
 */
-func (a *Client) AuthenticationWithPlatformLinkV3Short(params *AuthenticationWithPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV3OK, error) {
+func (a *Client) AuthenticationWithPlatformLinkV3Short(params *AuthenticationWithPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthenticationWithPlatformLinkV3Params()
@@ -154,15 +159,40 @@ func (a *Client) AuthenticationWithPlatformLinkV3Short(params *AuthenticationWit
 	switch v := result.(type) {
 
 	case *AuthenticationWithPlatformLinkV3OK:
-		return v, nil
+		response := &AuthenticationWithPlatformLinkV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV3BadRequest:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV3Unauthorized:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV3Forbidden:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV3Conflict:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV3Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -175,7 +205,7 @@ This endpoint is being used to create headless account after 3rd platform authen
 The 'linkingToken' in request body is received from "/platforms/{platformId}/token"
 when 3rd platform account is not linked to justice account yet.
 */
-func (a *Client) GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenByNewHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV3OK, error) {
+func (a *Client) GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenByNewHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGenerateTokenByNewHeadlessAccountV3Params()
@@ -213,13 +243,33 @@ func (a *Client) GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenB
 	switch v := result.(type) {
 
 	case *GenerateTokenByNewHeadlessAccountV3OK:
-		return v, nil
+		response := &GenerateTokenByNewHeadlessAccountV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GenerateTokenByNewHeadlessAccountV3BadRequest:
-		return nil, v
+		response := &GenerateTokenByNewHeadlessAccountV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GenerateTokenByNewHeadlessAccountV3Unauthorized:
-		return nil, v
+		response := &GenerateTokenByNewHeadlessAccountV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GenerateTokenByNewHeadlessAccountV3NotFound:
-		return nil, v
+		response := &GenerateTokenByNewHeadlessAccountV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -255,7 +305,7 @@ Current user should be a headless account.
 - **netflix**
 - **snapchat**
 */
-func (a *Client) RequestOneTimeLinkingCodeV3Short(params *RequestOneTimeLinkingCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestOneTimeLinkingCodeV3OK, error) {
+func (a *Client) RequestOneTimeLinkingCodeV3Short(params *RequestOneTimeLinkingCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestOneTimeLinkingCodeV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRequestOneTimeLinkingCodeV3Params()
@@ -293,7 +343,12 @@ func (a *Client) RequestOneTimeLinkingCodeV3Short(params *RequestOneTimeLinkingC
 	switch v := result.(type) {
 
 	case *RequestOneTimeLinkingCodeV3OK:
-		return v, nil
+		response := &RequestOneTimeLinkingCodeV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -304,7 +359,7 @@ func (a *Client) RequestOneTimeLinkingCodeV3Short(params *RequestOneTimeLinkingC
 ValidateOneTimeLinkingCodeV3Short validate one time linking code
 This endpoint is being used to validate one time link code.
 */
-func (a *Client) ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkingCodeV3Params) (*ValidateOneTimeLinkingCodeV3OK, error) {
+func (a *Client) ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkingCodeV3Params) (*ValidateOneTimeLinkingCodeV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewValidateOneTimeLinkingCodeV3Params()
@@ -341,7 +396,12 @@ func (a *Client) ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkin
 	switch v := result.(type) {
 
 	case *ValidateOneTimeLinkingCodeV3OK:
-		return v, nil
+		response := &ValidateOneTimeLinkingCodeV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -358,7 +418,7 @@ This endpoint support creating transient token by utilizing **isTransient** para
 **isTransient=true** will generate a transient token with a short Time Expiration and without a refresh token
 **isTransient=false** will consume the one-time code and generate the access token with a refresh token.
 */
-func (a *Client) RequestTokenByOneTimeLinkCodeResponseV3Short(params *RequestTokenByOneTimeLinkCodeResponseV3Params) (*RequestTokenByOneTimeLinkCodeResponseV3OK, error) {
+func (a *Client) RequestTokenByOneTimeLinkCodeResponseV3Short(params *RequestTokenByOneTimeLinkCodeResponseV3Params) (*RequestTokenByOneTimeLinkCodeResponseV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRequestTokenByOneTimeLinkCodeResponseV3Params()
@@ -395,7 +455,12 @@ func (a *Client) RequestTokenByOneTimeLinkCodeResponseV3Short(params *RequestTok
 	switch v := result.(type) {
 
 	case *RequestTokenByOneTimeLinkCodeResponseV3OK:
-		return v, nil
+		response := &RequestTokenByOneTimeLinkCodeResponseV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -406,7 +471,7 @@ func (a *Client) RequestTokenByOneTimeLinkCodeResponseV3Short(params *RequestTok
 GetCountryLocationV3Short get country location
 This endpoint get country location based on the request.
 */
-func (a *Client) GetCountryLocationV3Short(params *GetCountryLocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCountryLocationV3OK, error) {
+func (a *Client) GetCountryLocationV3Short(params *GetCountryLocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCountryLocationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCountryLocationV3Params()
@@ -444,7 +509,12 @@ func (a *Client) GetCountryLocationV3Short(params *GetCountryLocationV3Params, a
 	switch v := result.(type) {
 
 	case *GetCountryLocationV3OK:
-		return v, nil
+		response := &GetCountryLocationV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -455,7 +525,7 @@ func (a *Client) GetCountryLocationV3Short(params *GetCountryLocationV3Params, a
 LogoutShort logout
 This endpoint is used to remove **access_token**, **refresh_token** from cookie.
 */
-func (a *Client) LogoutShort(params *LogoutParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutNoContent, error) {
+func (a *Client) LogoutShort(params *LogoutParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewLogoutParams()
@@ -493,7 +563,11 @@ func (a *Client) LogoutShort(params *LogoutParams, authInfo runtime.ClientAuthIn
 	switch v := result.(type) {
 
 	case *LogoutNoContent:
-		return v, nil
+		response := &LogoutResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -509,7 +583,7 @@ Client ID should match the target namespace.
 
 The code in response can be consumed by `/iam/v3/token/exchange`
 */
-func (a *Client) RequestTokenExchangeCodeV3Short(params *RequestTokenExchangeCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTokenExchangeCodeV3OK, error) {
+func (a *Client) RequestTokenExchangeCodeV3Short(params *RequestTokenExchangeCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTokenExchangeCodeV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRequestTokenExchangeCodeV3Params()
@@ -547,7 +621,12 @@ func (a *Client) RequestTokenExchangeCodeV3Short(params *RequestTokenExchangeCod
 	switch v := result.(type) {
 
 	case *RequestTokenExchangeCodeV3OK:
-		return v, nil
+		response := &RequestTokenExchangeCodeV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -583,7 +662,7 @@ as previously defined on authorize request parameter `redirect_uri`
 as previously defined on authorize request parameter `redirect_uri`
 action code : 10709
 */
-func (a *Client) PlatformAuthenticationV3Short(params *PlatformAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticationV3Found, error) {
+func (a *Client) PlatformAuthenticationV3Short(params *PlatformAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticationV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformAuthenticationV3Params()
@@ -621,7 +700,12 @@ func (a *Client) PlatformAuthenticationV3Short(params *PlatformAuthenticationV3P
 	switch v := result.(type) {
 
 	case *PlatformAuthenticationV3Found:
-		return v, nil
+		response := &PlatformAuthenticationV3Response{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -645,7 +729,7 @@ platform token not found from IAP/DLC.
 - **snapchat**: The platform_tokenâs value is the authorization code returned by Snapchat OAuth.
 - **for specific generic oauth (OIDC)**: The platform_tokenâs value should be the same type as created OIDC auth type whether it is auth code, idToken or bearerToken.
 */
-func (a *Client) PlatformTokenRefreshV3Short(params *PlatformTokenRefreshV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRefreshV3OK, error) {
+func (a *Client) PlatformTokenRefreshV3Short(params *PlatformTokenRefreshV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRefreshV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformTokenRefreshV3Params()
@@ -683,15 +767,40 @@ func (a *Client) PlatformTokenRefreshV3Short(params *PlatformTokenRefreshV3Param
 	switch v := result.(type) {
 
 	case *PlatformTokenRefreshV3OK:
-		return v, nil
+		response := &PlatformTokenRefreshV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformTokenRefreshV3BadRequest:
-		return nil, v
+		response := &PlatformTokenRefreshV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenRefreshV3Unauthorized:
-		return nil, v
+		response := &PlatformTokenRefreshV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenRefreshV3Forbidden:
-		return nil, v
+		response := &PlatformTokenRefreshV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenRefreshV3ServiceUnavailable:
-		return nil, v
+		response := &PlatformTokenRefreshV3Response{}
+		response.Error503 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -704,7 +813,7 @@ This endpoint is being used to generate target token.
 It requires basic header with ClientID and Secret, it should match the ClientID when call `/iam/v3/namespace/{namespace}/token/request`
 The code should be generated from `/iam/v3/namespace/{namespace}/token/request`.
 */
-func (a *Client) RequestTargetTokenResponseV3Short(params *RequestTargetTokenResponseV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV3OK, error) {
+func (a *Client) RequestTargetTokenResponseV3Short(params *RequestTargetTokenResponseV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRequestTargetTokenResponseV3Params()
@@ -742,7 +851,12 @@ func (a *Client) RequestTargetTokenResponseV3Short(params *RequestTargetTokenRes
 	switch v := result.(type) {
 
 	case *RequestTargetTokenResponseV3OK:
-		return v, nil
+		response := &RequestTargetTokenResponseV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

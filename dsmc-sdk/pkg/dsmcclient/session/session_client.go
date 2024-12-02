@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateSessionShort(params *CreateSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSessionOK, error)
-	ClaimServerShort(params *ClaimServerParams, authInfo runtime.ClientAuthInfoWriter) (*ClaimServerNoContent, error)
-	GetSessionShort(params *GetSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionOK, error)
-	CancelSessionShort(params *CancelSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSessionNoContent, error)
+	CreateSessionShort(params *CreateSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSessionResponse, error)
+	ClaimServerShort(params *ClaimServerParams, authInfo runtime.ClientAuthInfoWriter) (*ClaimServerResponse, error)
+	GetSessionShort(params *GetSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionResponse, error)
+	CancelSessionShort(params *CancelSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSessionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ Otherwise it will trigger new dedicated server creation and respond with a serve
 
 Specify pod_name with name of local DS in the request to create a session using the registered local DS
 */
-func (a *Client) CreateSessionShort(params *CreateSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSessionOK, error) {
+func (a *Client) CreateSessionShort(params *CreateSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSessionParams()
@@ -90,19 +90,54 @@ func (a *Client) CreateSessionShort(params *CreateSessionParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *CreateSessionOK:
-		return v, nil
+		response := &CreateSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateSessionBadRequest:
-		return nil, v
+		response := &CreateSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSessionUnauthorized:
-		return nil, v
+		response := &CreateSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSessionNotFound:
-		return nil, v
+		response := &CreateSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSessionConflict:
-		return nil, v
+		response := &CreateSessionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSessionInternalServerError:
-		return nil, v
+		response := &CreateSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSessionServiceUnavailable:
-		return nil, v
+		response := &CreateSessionResponse{}
+		response.Error503 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -117,7 +152,7 @@ Required scope: social
 
 This endpoint is intended to be called by game session manager (matchmaker, lobby, etc.) to claim a dedicated server. The dedicated server cannot be claimed unless the status is READY
 */
-func (a *Client) ClaimServerShort(params *ClaimServerParams, authInfo runtime.ClientAuthInfoWriter) (*ClaimServerNoContent, error) {
+func (a *Client) ClaimServerShort(params *ClaimServerParams, authInfo runtime.ClientAuthInfoWriter) (*ClaimServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClaimServerParams()
@@ -155,19 +190,53 @@ func (a *Client) ClaimServerShort(params *ClaimServerParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ClaimServerNoContent:
-		return v, nil
+		response := &ClaimServerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ClaimServerUnauthorized:
-		return nil, v
+		response := &ClaimServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ClaimServerNotFound:
-		return nil, v
+		response := &ClaimServerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ClaimServerConflict:
-		return nil, v
+		response := &ClaimServerResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ClaimServerTooEarly:
-		return nil, v
+		response := &ClaimServerResponse{}
+		response.Error425 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ClaimServerInternalServerError:
-		return nil, v
+		response := &ClaimServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ClaimServerServiceUnavailable:
-		return nil, v
+		response := &ClaimServerResponse{}
+		response.Error503 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -184,7 +253,7 @@ This endpoint is intended to be called by game session manager (matchmaker, lobb
 
 The server is ready to use when the status is READY. At which point, the game session manager can claim the server using the GET /namespaces/{namespace}/sessions/{sessionID}/claim endpoint
 */
-func (a *Client) GetSessionShort(params *GetSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionOK, error) {
+func (a *Client) GetSessionShort(params *GetSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSessionParams()
@@ -222,13 +291,33 @@ func (a *Client) GetSessionShort(params *GetSessionParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *GetSessionOK:
-		return v, nil
+		response := &GetSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSessionUnauthorized:
-		return nil, v
+		response := &GetSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionNotFound:
-		return nil, v
+		response := &GetSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSessionInternalServerError:
-		return nil, v
+		response := &GetSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -243,7 +332,7 @@ Required scope: social
 
 This endpoint is intended to be called by game session manager (matchmaker, lobby, etc.) to cancel a temporary dedicated server. The dedicated server cannot be canceled unless the status is CREATING
 */
-func (a *Client) CancelSessionShort(params *CancelSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSessionNoContent, error) {
+func (a *Client) CancelSessionShort(params *CancelSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCancelSessionParams()
@@ -281,15 +370,39 @@ func (a *Client) CancelSessionShort(params *CancelSessionParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *CancelSessionNoContent:
-		return v, nil
+		response := &CancelSessionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CancelSessionUnauthorized:
-		return nil, v
+		response := &CancelSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CancelSessionNotFound:
-		return nil, v
+		response := &CancelSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CancelSessionUnprocessableEntity:
-		return nil, v
+		response := &CancelSessionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CancelSessionInternalServerError:
-		return nil, v
+		response := &CancelSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

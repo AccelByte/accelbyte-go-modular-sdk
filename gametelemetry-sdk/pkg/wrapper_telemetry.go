@@ -9,7 +9,6 @@ package gametelemetry
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient/telemetry"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/constant"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
@@ -38,7 +37,7 @@ func (aaa *TelemetryService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *TelemetryService) GetNamespacesGameTelemetryV1AdminNamespacesGetShort(input *telemetry.GetNamespacesGameTelemetryV1AdminNamespacesGetParams) (*gametelemetryclientmodels.ListBaseResponseStr, error) {
+func (aaa *TelemetryService) GetNamespacesGameTelemetryV1AdminNamespacesGetShort(input *telemetry.GetNamespacesGameTelemetryV1AdminNamespacesGetParams) (*telemetry.GetNamespacesGameTelemetryV1AdminNamespacesGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *TelemetryService) GetNamespacesGameTelemetryV1AdminNamespacesGetShort
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TelemetryService) GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetShort(input *telemetry.GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParams) (*gametelemetryclientmodels.PagedResponseGetNamespaceEventResponse, error) {
+func (aaa *TelemetryService) GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetShort(input *telemetry.GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParams) (*telemetry.GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -97,5 +96,5 @@ func (aaa *TelemetryService) GetEventsGameTelemetryV1AdminNamespacesNamespaceEve
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	MatchFunctionListShort(params *MatchFunctionListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionListOK, error)
-	CreateMatchFunctionShort(params *CreateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchFunctionCreated, error)
-	UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchFunctionOK, error)
-	DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchFunctionOK, error)
+	MatchFunctionListShort(params *MatchFunctionListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionListResponse, error)
+	CreateMatchFunctionShort(params *CreateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchFunctionResponse, error)
+	UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchFunctionResponse, error)
+	DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchFunctionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 MatchFunctionListShort list existing match functions
 List existing match functions.
 */
-func (a *Client) MatchFunctionListShort(params *MatchFunctionListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionListOK, error) {
+func (a *Client) MatchFunctionListShort(params *MatchFunctionListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewMatchFunctionListParams()
@@ -80,13 +80,33 @@ func (a *Client) MatchFunctionListShort(params *MatchFunctionListParams, authInf
 	switch v := result.(type) {
 
 	case *MatchFunctionListOK:
-		return v, nil
+		response := &MatchFunctionListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *MatchFunctionListUnauthorized:
-		return nil, v
+		response := &MatchFunctionListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchFunctionListForbidden:
-		return nil, v
+		response := &MatchFunctionListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchFunctionListInternalServerError:
-		return nil, v
+		response := &MatchFunctionListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +117,7 @@ func (a *Client) MatchFunctionListShort(params *MatchFunctionListParams, authInf
 CreateMatchFunctionShort create a match function
 Creates a new matchmaking function.
 */
-func (a *Client) CreateMatchFunctionShort(params *CreateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchFunctionCreated, error) {
+func (a *Client) CreateMatchFunctionShort(params *CreateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchFunctionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMatchFunctionParams()
@@ -135,17 +155,46 @@ func (a *Client) CreateMatchFunctionShort(params *CreateMatchFunctionParams, aut
 	switch v := result.(type) {
 
 	case *CreateMatchFunctionCreated:
-		return v, nil
+		response := &CreateMatchFunctionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateMatchFunctionBadRequest:
-		return nil, v
+		response := &CreateMatchFunctionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchFunctionUnauthorized:
-		return nil, v
+		response := &CreateMatchFunctionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchFunctionForbidden:
-		return nil, v
+		response := &CreateMatchFunctionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchFunctionConflict:
-		return nil, v
+		response := &CreateMatchFunctionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchFunctionInternalServerError:
-		return nil, v
+		response := &CreateMatchFunctionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +205,7 @@ func (a *Client) CreateMatchFunctionShort(params *CreateMatchFunctionParams, aut
 UpdateMatchFunctionShort update a match function
 Update existing matchmaking function.
 */
-func (a *Client) UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchFunctionOK, error) {
+func (a *Client) UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchFunctionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMatchFunctionParams()
@@ -194,17 +243,47 @@ func (a *Client) UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, aut
 	switch v := result.(type) {
 
 	case *UpdateMatchFunctionOK:
-		return v, nil
+		response := &UpdateMatchFunctionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMatchFunctionBadRequest:
-		return nil, v
+		response := &UpdateMatchFunctionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchFunctionUnauthorized:
-		return nil, v
+		response := &UpdateMatchFunctionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchFunctionNotFound:
-		return nil, v
+		response := &UpdateMatchFunctionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchFunctionConflict:
-		return nil, v
+		response := &UpdateMatchFunctionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchFunctionInternalServerError:
-		return nil, v
+		response := &UpdateMatchFunctionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -215,7 +294,7 @@ func (a *Client) UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, aut
 DeleteMatchFunctionShort delete a match function
 Deletes an existing match function.
 */
-func (a *Client) DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchFunctionOK, error) {
+func (a *Client) DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchFunctionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteMatchFunctionParams()
@@ -253,15 +332,39 @@ func (a *Client) DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, aut
 	switch v := result.(type) {
 
 	case *DeleteMatchFunctionOK:
-		return v, nil
+		response := &DeleteMatchFunctionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteMatchFunctionUnauthorized:
-		return nil, v
+		response := &DeleteMatchFunctionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchFunctionForbidden:
-		return nil, v
+		response := &DeleteMatchFunctionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchFunctionNotFound:
-		return nil, v
+		response := &DeleteMatchFunctionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchFunctionInternalServerError:
-		return nil, v
+		response := &DeleteMatchFunctionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

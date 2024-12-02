@@ -30,29 +30,29 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QuerySeasonsShort(params *QuerySeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySeasonsOK, error)
-	CreateSeasonShort(params *CreateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSeasonCreated, error)
-	GetCurrentSeasonShort(params *GetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonOK, error)
-	BulkGetUserSeasonProgressionShort(params *BulkGetUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUserSeasonProgressionOK, error)
-	GetSeasonShort(params *GetSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetSeasonOK, error)
-	DeleteSeasonShort(params *DeleteSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSeasonNoContent, error)
-	UpdateSeasonShort(params *UpdateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSeasonOK, error)
-	CloneSeasonShort(params *CloneSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CloneSeasonOK, error)
-	GetFullSeasonShort(params *GetFullSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetFullSeasonOK, error)
-	PublishSeasonShort(params *PublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSeasonOK, error)
-	RetireSeasonShort(params *RetireSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*RetireSeasonOK, error)
-	UnpublishSeasonShort(params *UnpublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishSeasonOK, error)
-	GetUserParticipatedSeasonsShort(params *GetUserParticipatedSeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserParticipatedSeasonsOK, error)
-	ExistsAnyPassByPassCodesShort(params *ExistsAnyPassByPassCodesParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyPassByPassCodesOK, error)
-	GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentUserSeasonProgressionOK, error)
-	CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParams, authInfo runtime.ClientAuthInfoWriter) (*CheckSeasonPurchasableNoContent, error)
-	ResetUserSeasonShort(params *ResetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*ResetUserSeasonNoContent, error)
-	QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryOK, error)
-	QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHistoryTagParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryTagOK, error)
-	GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSeasonOK, error)
-	PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams) (*PublicGetCurrentSeasonOK, error)
-	PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentUserSeasonOK, error)
-	PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSeasonOK, error)
+	QuerySeasonsShort(params *QuerySeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySeasonsResponse, error)
+	CreateSeasonShort(params *CreateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSeasonResponse, error)
+	GetCurrentSeasonShort(params *GetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonResponse, error)
+	BulkGetUserSeasonProgressionShort(params *BulkGetUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUserSeasonProgressionResponse, error)
+	GetSeasonShort(params *GetSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetSeasonResponse, error)
+	DeleteSeasonShort(params *DeleteSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSeasonResponse, error)
+	UpdateSeasonShort(params *UpdateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSeasonResponse, error)
+	CloneSeasonShort(params *CloneSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CloneSeasonResponse, error)
+	GetFullSeasonShort(params *GetFullSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetFullSeasonResponse, error)
+	PublishSeasonShort(params *PublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSeasonResponse, error)
+	RetireSeasonShort(params *RetireSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*RetireSeasonResponse, error)
+	UnpublishSeasonShort(params *UnpublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishSeasonResponse, error)
+	GetUserParticipatedSeasonsShort(params *GetUserParticipatedSeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserParticipatedSeasonsResponse, error)
+	ExistsAnyPassByPassCodesShort(params *ExistsAnyPassByPassCodesParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyPassByPassCodesResponse, error)
+	GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentUserSeasonProgressionResponse, error)
+	CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParams, authInfo runtime.ClientAuthInfoWriter) (*CheckSeasonPurchasableResponse, error)
+	ResetUserSeasonShort(params *ResetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*ResetUserSeasonResponse, error)
+	QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryResponse, error)
+	QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHistoryTagParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryTagResponse, error)
+	GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSeasonResponse, error)
+	PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams) (*PublicGetCurrentSeasonResponse, error)
+	PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentUserSeasonResponse, error)
+	PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSeasonResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -65,7 +65,7 @@ Other detail info:
 
   * Returns : the list of season basic info
 */
-func (a *Client) QuerySeasonsShort(params *QuerySeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySeasonsOK, error) {
+func (a *Client) QuerySeasonsShort(params *QuerySeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySeasonsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySeasonsParams()
@@ -103,9 +103,19 @@ func (a *Client) QuerySeasonsShort(params *QuerySeasonsParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *QuerySeasonsOK:
-		return v, nil
+		response := &QuerySeasonsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QuerySeasonsBadRequest:
-		return nil, v
+		response := &QuerySeasonsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -120,7 +130,7 @@ Other detail info:
 
   * Returns : created season
 */
-func (a *Client) CreateSeasonShort(params *CreateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSeasonCreated, error) {
+func (a *Client) CreateSeasonShort(params *CreateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSeasonParams()
@@ -158,13 +168,33 @@ func (a *Client) CreateSeasonShort(params *CreateSeasonParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *CreateSeasonCreated:
-		return v, nil
+		response := &CreateSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateSeasonBadRequest:
-		return nil, v
+		response := &CreateSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSeasonNotFound:
-		return nil, v
+		response := &CreateSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSeasonUnprocessableEntity:
-		return nil, v
+		response := &CreateSeasonResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -179,7 +209,7 @@ Other detail info:
 
   * Returns : season summary data
 */
-func (a *Client) GetCurrentSeasonShort(params *GetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonOK, error) {
+func (a *Client) GetCurrentSeasonShort(params *GetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCurrentSeasonParams()
@@ -217,11 +247,26 @@ func (a *Client) GetCurrentSeasonShort(params *GetCurrentSeasonParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetCurrentSeasonOK:
-		return v, nil
+		response := &GetCurrentSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCurrentSeasonBadRequest:
-		return nil, v
+		response := &GetCurrentSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCurrentSeasonNotFound:
-		return nil, v
+		response := &GetCurrentSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -236,7 +281,7 @@ Other detail info:
 
   * Returns : user season progression
 */
-func (a *Client) BulkGetUserSeasonProgressionShort(params *BulkGetUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUserSeasonProgressionOK, error) {
+func (a *Client) BulkGetUserSeasonProgressionShort(params *BulkGetUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUserSeasonProgressionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetUserSeasonProgressionParams()
@@ -274,11 +319,26 @@ func (a *Client) BulkGetUserSeasonProgressionShort(params *BulkGetUserSeasonProg
 	switch v := result.(type) {
 
 	case *BulkGetUserSeasonProgressionOK:
-		return v, nil
+		response := &BulkGetUserSeasonProgressionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetUserSeasonProgressionBadRequest:
-		return nil, v
+		response := &BulkGetUserSeasonProgressionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkGetUserSeasonProgressionNotFound:
-		return nil, v
+		response := &BulkGetUserSeasonProgressionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -293,7 +353,7 @@ Other detail info:
 
   * Returns : season data
 */
-func (a *Client) GetSeasonShort(params *GetSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetSeasonOK, error) {
+func (a *Client) GetSeasonShort(params *GetSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSeasonParams()
@@ -331,11 +391,26 @@ func (a *Client) GetSeasonShort(params *GetSeasonParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetSeasonOK:
-		return v, nil
+		response := &GetSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSeasonBadRequest:
-		return nil, v
+		response := &GetSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSeasonNotFound:
-		return nil, v
+		response := &GetSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -346,7 +421,7 @@ func (a *Client) GetSeasonShort(params *GetSeasonParams, authInfo runtime.Client
 DeleteSeasonShort delete a season
 This API is used to delete a season permanently, only draft season can be deleted.
 */
-func (a *Client) DeleteSeasonShort(params *DeleteSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSeasonNoContent, error) {
+func (a *Client) DeleteSeasonShort(params *DeleteSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSeasonParams()
@@ -384,13 +459,32 @@ func (a *Client) DeleteSeasonShort(params *DeleteSeasonParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteSeasonNoContent:
-		return v, nil
+		response := &DeleteSeasonResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteSeasonBadRequest:
-		return nil, v
+		response := &DeleteSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSeasonNotFound:
-		return nil, v
+		response := &DeleteSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSeasonConflict:
-		return nil, v
+		response := &DeleteSeasonResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -405,7 +499,7 @@ Other detail info:
 
   * Returns : updated season
 */
-func (a *Client) UpdateSeasonShort(params *UpdateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSeasonOK, error) {
+func (a *Client) UpdateSeasonShort(params *UpdateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSeasonParams()
@@ -443,15 +537,40 @@ func (a *Client) UpdateSeasonShort(params *UpdateSeasonParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UpdateSeasonOK:
-		return v, nil
+		response := &UpdateSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateSeasonBadRequest:
-		return nil, v
+		response := &UpdateSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSeasonNotFound:
-		return nil, v
+		response := &UpdateSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSeasonConflict:
-		return nil, v
+		response := &UpdateSeasonResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSeasonUnprocessableEntity:
-		return nil, v
+		response := &UpdateSeasonResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -466,7 +585,7 @@ Other detail info:
 
   * Returns : cloned season info
 */
-func (a *Client) CloneSeasonShort(params *CloneSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CloneSeasonOK, error) {
+func (a *Client) CloneSeasonShort(params *CloneSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CloneSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCloneSeasonParams()
@@ -504,13 +623,33 @@ func (a *Client) CloneSeasonShort(params *CloneSeasonParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CloneSeasonOK:
-		return v, nil
+		response := &CloneSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CloneSeasonBadRequest:
-		return nil, v
+		response := &CloneSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CloneSeasonNotFound:
-		return nil, v
+		response := &CloneSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CloneSeasonUnprocessableEntity:
-		return nil, v
+		response := &CloneSeasonResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -525,7 +664,7 @@ Other detail info:
 
   * Returns : season data
 */
-func (a *Client) GetFullSeasonShort(params *GetFullSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetFullSeasonOK, error) {
+func (a *Client) GetFullSeasonShort(params *GetFullSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetFullSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetFullSeasonParams()
@@ -563,11 +702,26 @@ func (a *Client) GetFullSeasonShort(params *GetFullSeasonParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetFullSeasonOK:
-		return v, nil
+		response := &GetFullSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetFullSeasonBadRequest:
-		return nil, v
+		response := &GetFullSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetFullSeasonNotFound:
-		return nil, v
+		response := &GetFullSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -582,7 +736,7 @@ Other detail info:
 
   * Returns : published season
 */
-func (a *Client) PublishSeasonShort(params *PublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSeasonOK, error) {
+func (a *Client) PublishSeasonShort(params *PublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublishSeasonParams()
@@ -620,13 +774,33 @@ func (a *Client) PublishSeasonShort(params *PublishSeasonParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *PublishSeasonOK:
-		return v, nil
+		response := &PublishSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublishSeasonBadRequest:
-		return nil, v
+		response := &PublishSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishSeasonNotFound:
-		return nil, v
+		response := &PublishSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublishSeasonConflict:
-		return nil, v
+		response := &PublishSeasonResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -641,7 +815,7 @@ Other detail info:
 
   * Returns : season info
 */
-func (a *Client) RetireSeasonShort(params *RetireSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*RetireSeasonOK, error) {
+func (a *Client) RetireSeasonShort(params *RetireSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*RetireSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetireSeasonParams()
@@ -679,13 +853,33 @@ func (a *Client) RetireSeasonShort(params *RetireSeasonParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *RetireSeasonOK:
-		return v, nil
+		response := &RetireSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetireSeasonBadRequest:
-		return nil, v
+		response := &RetireSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetireSeasonNotFound:
-		return nil, v
+		response := &RetireSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RetireSeasonConflict:
-		return nil, v
+		response := &RetireSeasonResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -700,7 +894,7 @@ Other detail info:
 
   * Returns : season info
 */
-func (a *Client) UnpublishSeasonShort(params *UnpublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishSeasonOK, error) {
+func (a *Client) UnpublishSeasonShort(params *UnpublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUnpublishSeasonParams()
@@ -738,13 +932,33 @@ func (a *Client) UnpublishSeasonShort(params *UnpublishSeasonParams, authInfo ru
 	switch v := result.(type) {
 
 	case *UnpublishSeasonOK:
-		return v, nil
+		response := &UnpublishSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UnpublishSeasonBadRequest:
-		return nil, v
+		response := &UnpublishSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UnpublishSeasonNotFound:
-		return nil, v
+		response := &UnpublishSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UnpublishSeasonConflict:
-		return nil, v
+		response := &UnpublishSeasonResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -759,7 +973,7 @@ Other detail info:
 
   * Returns : user participated season data
 */
-func (a *Client) GetUserParticipatedSeasonsShort(params *GetUserParticipatedSeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserParticipatedSeasonsOK, error) {
+func (a *Client) GetUserParticipatedSeasonsShort(params *GetUserParticipatedSeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserParticipatedSeasonsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserParticipatedSeasonsParams()
@@ -797,9 +1011,19 @@ func (a *Client) GetUserParticipatedSeasonsShort(params *GetUserParticipatedSeas
 	switch v := result.(type) {
 
 	case *GetUserParticipatedSeasonsOK:
-		return v, nil
+		response := &GetUserParticipatedSeasonsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserParticipatedSeasonsBadRequest:
-		return nil, v
+		response := &GetUserParticipatedSeasonsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -814,7 +1038,7 @@ Other detail info:
 
   * Returns : ownership
 */
-func (a *Client) ExistsAnyPassByPassCodesShort(params *ExistsAnyPassByPassCodesParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyPassByPassCodesOK, error) {
+func (a *Client) ExistsAnyPassByPassCodesShort(params *ExistsAnyPassByPassCodesParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyPassByPassCodesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExistsAnyPassByPassCodesParams()
@@ -852,9 +1076,19 @@ func (a *Client) ExistsAnyPassByPassCodesShort(params *ExistsAnyPassByPassCodesP
 	switch v := result.(type) {
 
 	case *ExistsAnyPassByPassCodesOK:
-		return v, nil
+		response := &ExistsAnyPassByPassCodesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExistsAnyPassByPassCodesBadRequest:
-		return nil, v
+		response := &ExistsAnyPassByPassCodesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -869,7 +1103,7 @@ Other detail info:
 
   * Returns : user season progression
 */
-func (a *Client) GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentUserSeasonProgressionOK, error) {
+func (a *Client) GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentUserSeasonProgressionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCurrentUserSeasonProgressionParams()
@@ -907,11 +1141,26 @@ func (a *Client) GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeas
 	switch v := result.(type) {
 
 	case *GetCurrentUserSeasonProgressionOK:
-		return v, nil
+		response := &GetCurrentUserSeasonProgressionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCurrentUserSeasonProgressionBadRequest:
-		return nil, v
+		response := &GetCurrentUserSeasonProgressionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetCurrentUserSeasonProgressionNotFound:
-		return nil, v
+		response := &GetCurrentUserSeasonProgressionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -922,7 +1171,7 @@ func (a *Client) GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeas
 CheckSeasonPurchasableShort check pass or tier purchasable
 This API is used to check pass or tier purchasable, season only located in non-publisher namespace.
 */
-func (a *Client) CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParams, authInfo runtime.ClientAuthInfoWriter) (*CheckSeasonPurchasableNoContent, error) {
+func (a *Client) CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParams, authInfo runtime.ClientAuthInfoWriter) (*CheckSeasonPurchasableResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCheckSeasonPurchasableParams()
@@ -960,13 +1209,32 @@ func (a *Client) CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParam
 	switch v := result.(type) {
 
 	case *CheckSeasonPurchasableNoContent:
-		return v, nil
+		response := &CheckSeasonPurchasableResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CheckSeasonPurchasableBadRequest:
-		return nil, v
+		response := &CheckSeasonPurchasableResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CheckSeasonPurchasableNotFound:
-		return nil, v
+		response := &CheckSeasonPurchasableResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CheckSeasonPurchasableConflict:
-		return nil, v
+		response := &CheckSeasonPurchasableResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -977,7 +1245,7 @@ func (a *Client) CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParam
 ResetUserSeasonShort reset user data in current season
  [TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in current season, it will not revoke the rewarded entitlements.
 */
-func (a *Client) ResetUserSeasonShort(params *ResetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*ResetUserSeasonNoContent, error) {
+func (a *Client) ResetUserSeasonShort(params *ResetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*ResetUserSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewResetUserSeasonParams()
@@ -1015,9 +1283,18 @@ func (a *Client) ResetUserSeasonShort(params *ResetUserSeasonParams, authInfo ru
 	switch v := result.(type) {
 
 	case *ResetUserSeasonNoContent:
-		return v, nil
+		response := &ResetUserSeasonResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ResetUserSeasonBadRequest:
-		return nil, v
+		response := &ResetUserSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1033,7 +1310,7 @@ Other detail info:
   * default will query from current active season
   *  Returns : paginated grant history
 */
-func (a *Client) QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryOK, error) {
+func (a *Client) QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserExpGrantHistoryParams()
@@ -1071,9 +1348,19 @@ func (a *Client) QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryP
 	switch v := result.(type) {
 
 	case *QueryUserExpGrantHistoryOK:
-		return v, nil
+		response := &QueryUserExpGrantHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryUserExpGrantHistoryBadRequest:
-		return nil, v
+		response := &QueryUserExpGrantHistoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1089,7 +1376,7 @@ Other detail info:
   * default will query from current active season
   *  Returns : exp grant history tags list
 */
-func (a *Client) QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHistoryTagParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryTagOK, error) {
+func (a *Client) QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHistoryTagParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryTagResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserExpGrantHistoryTagParams()
@@ -1127,9 +1414,19 @@ func (a *Client) QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHisto
 	switch v := result.(type) {
 
 	case *QueryUserExpGrantHistoryTagOK:
-		return v, nil
+		response := &QueryUserExpGrantHistoryTagResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryUserExpGrantHistoryTagBadRequest:
-		return nil, v
+		response := &QueryUserExpGrantHistoryTagResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1144,7 +1441,7 @@ Other detail info:
 
   * Returns : user season data
 */
-func (a *Client) GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSeasonOK, error) {
+func (a *Client) GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserSeasonParams()
@@ -1182,11 +1479,26 @@ func (a *Client) GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetUserSeasonOK:
-		return v, nil
+		response := &GetUserSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserSeasonBadRequest:
-		return nil, v
+		response := &GetUserSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserSeasonNotFound:
-		return nil, v
+		response := &GetUserSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1201,7 +1513,7 @@ Other detail info:
 
   * Returns : localized season data
 */
-func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams) (*PublicGetCurrentSeasonOK, error) {
+func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams) (*PublicGetCurrentSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCurrentSeasonParams()
@@ -1238,11 +1550,26 @@ func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParam
 	switch v := result.(type) {
 
 	case *PublicGetCurrentSeasonOK:
-		return v, nil
+		response := &PublicGetCurrentSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCurrentSeasonBadRequest:
-		return nil, v
+		response := &PublicGetCurrentSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetCurrentSeasonNotFound:
-		return nil, v
+		response := &PublicGetCurrentSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1257,7 +1584,7 @@ Other detail info:
 
   * Returns : user season data
 */
-func (a *Client) PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentUserSeasonOK, error) {
+func (a *Client) PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentUserSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCurrentUserSeasonParams()
@@ -1295,11 +1622,26 @@ func (a *Client) PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSea
 	switch v := result.(type) {
 
 	case *PublicGetCurrentUserSeasonOK:
-		return v, nil
+		response := &PublicGetCurrentUserSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCurrentUserSeasonBadRequest:
-		return nil, v
+		response := &PublicGetCurrentUserSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetCurrentUserSeasonNotFound:
-		return nil, v
+		response := &PublicGetCurrentUserSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1314,7 +1656,7 @@ Other detail info:
 
   * Returns : user season data
 */
-func (a *Client) PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSeasonOK, error) {
+func (a *Client) PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserSeasonParams()
@@ -1352,11 +1694,26 @@ func (a *Client) PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, aut
 	switch v := result.(type) {
 
 	case *PublicGetUserSeasonOK:
-		return v, nil
+		response := &PublicGetUserSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserSeasonBadRequest:
-		return nil, v
+		response := &PublicGetUserSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserSeasonNotFound:
-		return nil, v
+		response := &PublicGetUserSeasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

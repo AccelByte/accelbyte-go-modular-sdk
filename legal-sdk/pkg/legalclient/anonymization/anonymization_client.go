@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AnonymizeUserAgreementShort(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementNoContent, error)
+	AnonymizeUserAgreementShort(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 AnonymizeUserAgreementShort anonymize user's agreement record
 This API will anonymize agreement record for specified user.
 */
-func (a *Client) AnonymizeUserAgreementShort(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementNoContent, error) {
+func (a *Client) AnonymizeUserAgreementShort(params *AnonymizeUserAgreementParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserAgreementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAnonymizeUserAgreementParams()
@@ -77,9 +77,18 @@ func (a *Client) AnonymizeUserAgreementShort(params *AnonymizeUserAgreementParam
 	switch v := result.(type) {
 
 	case *AnonymizeUserAgreementNoContent:
-		return v, nil
+		response := &AnonymizeUserAgreementResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AnonymizeUserAgreementNotFound:
-		return nil, v
+		response := &AnonymizeUserAgreementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

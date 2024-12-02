@@ -9,7 +9,6 @@ package dsartifact
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclient/artifact_upload_process_queue"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk/pkg/dsartifactclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ArtifactUploadProcessQueueService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ArtifactUploadProcessQueueService) ListNodesIPAddressShort(input *artifact_upload_process_queue.ListNodesIPAddressParams) (*dsartifactclientmodels.ModelsListNodesIPAddress, error) {
+func (aaa *ArtifactUploadProcessQueueService) ListNodesIPAddressShort(input *artifact_upload_process_queue.ListNodesIPAddressParams) (*artifact_upload_process_queue.ListNodesIPAddressResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *ArtifactUploadProcessQueueService) ListNodesIPAddressShort(input *art
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ArtifactUploadProcessQueueService) DeleteNodeByIDShort(input *artifact_upload_process_queue.DeleteNodeByIDParams) error {
@@ -99,7 +98,7 @@ func (aaa *ArtifactUploadProcessQueueService) DeleteNodeByIDShort(input *artifac
 	return nil
 }
 
-func (aaa *ArtifactUploadProcessQueueService) ListQueueShort(input *artifact_upload_process_queue.ListQueueParams) (*dsartifactclientmodels.ModelsListQueueResponse, error) {
+func (aaa *ArtifactUploadProcessQueueService) ListQueueShort(input *artifact_upload_process_queue.ListQueueParams) (*artifact_upload_process_queue.ListQueueResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *ArtifactUploadProcessQueueService) ListQueueShort(input *artifact_upl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ArtifactUploadProcessQueueService) GetActiveQueueShort(input *artifact_upload_process_queue.GetActiveQueueParams) (*dsartifactclientmodels.ModelsQueue, error) {
+func (aaa *ArtifactUploadProcessQueueService) GetActiveQueueShort(input *artifact_upload_process_queue.GetActiveQueueParams) (*artifact_upload_process_queue.GetActiveQueueResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *ArtifactUploadProcessQueueService) GetActiveQueueShort(input *artifac
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ArtifactUploadProcessQueueService) SetActiveQueueShort(input *artifact_upload_process_queue.SetActiveQueueParams) error {
@@ -279,7 +278,7 @@ func (aaa *ArtifactUploadProcessQueueService) DeleteQueueShort(input *artifact_u
 	return nil
 }
 
-func (aaa *ArtifactUploadProcessQueueService) ListAllActiveQueueShort(input *artifact_upload_process_queue.ListAllActiveQueueParams) (*dsartifactclientmodels.ModelsListAllQueueResponse, error) {
+func (aaa *ArtifactUploadProcessQueueService) ListAllActiveQueueShort(input *artifact_upload_process_queue.ListAllActiveQueueParams) (*artifact_upload_process_queue.ListAllActiveQueueResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *ArtifactUploadProcessQueueService) ListAllActiveQueueShort(input *art
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ArtifactUploadProcessQueueService) ListAllQueueShort(input *artifact_upload_process_queue.ListAllQueueParams) (*dsartifactclientmodels.ModelsListAllQueueResponse, error) {
+func (aaa *ArtifactUploadProcessQueueService) ListAllQueueShort(input *artifact_upload_process_queue.ListAllQueueParams) (*artifact_upload_process_queue.ListAllQueueResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,5 +335,5 @@ func (aaa *ArtifactUploadProcessQueueService) ListAllQueueShort(input *artifact_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

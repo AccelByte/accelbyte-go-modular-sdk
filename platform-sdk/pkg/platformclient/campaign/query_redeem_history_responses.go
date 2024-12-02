@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryRedeemHistoryResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.RedeemHistoryPagingSlicedResult
+}
+
+func (m *QueryRedeemHistoryResponse) Unpack() (*platformclientmodels.RedeemHistoryPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryRedeemHistoryReader is a Reader for the QueryRedeemHistory structure.
 type QueryRedeemHistoryReader struct {
 	formats strfmt.Registry

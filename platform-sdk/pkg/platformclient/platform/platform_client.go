@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetPsnEntitlementOwnershipShort(params *GetPsnEntitlementOwnershipParams, authInfo runtime.ClientAuthInfoWriter) (*GetPsnEntitlementOwnershipOK, error)
-	GetXboxEntitlementOwnershipShort(params *GetXboxEntitlementOwnershipParams, authInfo runtime.ClientAuthInfoWriter) (*GetXboxEntitlementOwnershipOK, error)
+	GetPsnEntitlementOwnershipShort(params *GetPsnEntitlementOwnershipParams, authInfo runtime.ClientAuthInfoWriter) (*GetPsnEntitlementOwnershipResponse, error)
+	GetXboxEntitlementOwnershipShort(params *GetXboxEntitlementOwnershipParams, authInfo runtime.ClientAuthInfoWriter) (*GetXboxEntitlementOwnershipResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 GetPsnEntitlementOwnershipShort get user psn entitlement ownership by entitlement label
 Get user psn entitlement ownership by entitlement label.
 */
-func (a *Client) GetPsnEntitlementOwnershipShort(params *GetPsnEntitlementOwnershipParams, authInfo runtime.ClientAuthInfoWriter) (*GetPsnEntitlementOwnershipOK, error) {
+func (a *Client) GetPsnEntitlementOwnershipShort(params *GetPsnEntitlementOwnershipParams, authInfo runtime.ClientAuthInfoWriter) (*GetPsnEntitlementOwnershipResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPsnEntitlementOwnershipParams()
@@ -78,7 +78,12 @@ func (a *Client) GetPsnEntitlementOwnershipShort(params *GetPsnEntitlementOwners
 	switch v := result.(type) {
 
 	case *GetPsnEntitlementOwnershipOK:
-		return v, nil
+		response := &GetPsnEntitlementOwnershipResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -89,7 +94,7 @@ func (a *Client) GetPsnEntitlementOwnershipShort(params *GetPsnEntitlementOwners
 GetXboxEntitlementOwnershipShort get xbox entitlement ownership by product sku.
 Get Xbox entitlement ownership by product sku.
 */
-func (a *Client) GetXboxEntitlementOwnershipShort(params *GetXboxEntitlementOwnershipParams, authInfo runtime.ClientAuthInfoWriter) (*GetXboxEntitlementOwnershipOK, error) {
+func (a *Client) GetXboxEntitlementOwnershipShort(params *GetXboxEntitlementOwnershipParams, authInfo runtime.ClientAuthInfoWriter) (*GetXboxEntitlementOwnershipResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetXboxEntitlementOwnershipParams()
@@ -127,7 +132,12 @@ func (a *Client) GetXboxEntitlementOwnershipShort(params *GetXboxEntitlementOwne
 	switch v := result.(type) {
 
 	case *GetXboxEntitlementOwnershipOK:
-		return v, nil
+		response := &GetXboxEntitlementOwnershipResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

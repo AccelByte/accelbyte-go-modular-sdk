@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_group"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 // PublicGroupService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *PublicGroupService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicGroupService) GetGroupsShort(input *public_group.GetGroupsParams) (*ugcclientmodels.ModelsPaginatedGroupResponse, error) {
+func (aaa *PublicGroupService) GetGroupsShort(input *public_group.GetGroupsParams) (*public_group.GetGroupsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *PublicGroupService) GetGroupsShort(input *public_group.GetGroupsParam
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicGroupService) CreateGroupShort(input *public_group.CreateGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
+func (aaa *PublicGroupService) CreateGroupShort(input *public_group.CreateGroupParams) (*public_group.CreateGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *PublicGroupService) CreateGroupShort(input *public_group.CreateGroupP
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PublicGroupService) GetGroupShort(input *public_group.GetGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
+func (aaa *PublicGroupService) GetGroupShort(input *public_group.GetGroupParams) (*public_group.GetGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *PublicGroupService) GetGroupShort(input *public_group.GetGroupParams)
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicGroupService) UpdateGroupShort(input *public_group.UpdateGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
+func (aaa *PublicGroupService) UpdateGroupShort(input *public_group.UpdateGroupParams) (*public_group.UpdateGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *PublicGroupService) UpdateGroupShort(input *public_group.UpdateGroupP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PublicGroupService) DeleteGroupShort(input *public_group.DeleteGroupParams) error {
@@ -189,7 +188,7 @@ func (aaa *PublicGroupService) DeleteGroupShort(input *public_group.DeleteGroupP
 	return nil
 }
 
-func (aaa *PublicGroupService) GetGroupContentShort(input *public_group.GetGroupContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *PublicGroupService) GetGroupContentShort(input *public_group.GetGroupContentParams) (*public_group.GetGroupContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *PublicGroupService) GetGroupContentShort(input *public_group.GetGroup
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicGroupService) PublicGetGroupContentsV2Short(input *public_group.PublicGetGroupContentsV2Params) (*ugcclientmodels.ModelsPaginatedContentDownloadResponseV2, error) {
+func (aaa *PublicGroupService) PublicGetGroupContentsV2Short(input *public_group.PublicGetGroupContentsV2Params) (*public_group.PublicGetGroupContentsV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,5 +245,5 @@ func (aaa *PublicGroupService) PublicGetGroupContentsV2Short(input *public_group
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

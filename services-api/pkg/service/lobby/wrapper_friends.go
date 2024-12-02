@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/friends"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *FriendsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *FriendsService) GetUserFriendsUpdatedShort(input *friends.GetUserFriendsUpdatedParams) ([]*lobbyclientmodels.ModelGetUserFriendsResponse, error) {
+func (aaa *FriendsService) GetUserFriendsUpdatedShort(input *friends.GetUserFriendsUpdatedParams) (*friends.GetUserFriendsUpdatedResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *FriendsService) GetUserFriendsUpdatedShort(input *friends.GetUserFrie
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) GetUserIncomingFriendsShort(input *friends.GetUserIncomingFriendsParams) ([]*lobbyclientmodels.ModelGetUserIncomingFriendsResponse, error) {
+func (aaa *FriendsService) GetUserIncomingFriendsShort(input *friends.GetUserIncomingFriendsParams) (*friends.GetUserIncomingFriendsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *FriendsService) GetUserIncomingFriendsShort(input *friends.GetUserInc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) GetUserIncomingFriendsWithTimeShort(input *friends.GetUserIncomingFriendsWithTimeParams) ([]*lobbyclientmodels.ModelLoadIncomingFriendsWithTimeResponse, error) {
+func (aaa *FriendsService) GetUserIncomingFriendsWithTimeShort(input *friends.GetUserIncomingFriendsWithTimeParams) (*friends.GetUserIncomingFriendsWithTimeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *FriendsService) GetUserIncomingFriendsWithTimeShort(input *friends.Ge
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) GetUserOutgoingFriendsShort(input *friends.GetUserOutgoingFriendsParams) ([]*lobbyclientmodels.ModelGetUserOutgoingFriendsResponse, error) {
+func (aaa *FriendsService) GetUserOutgoingFriendsShort(input *friends.GetUserOutgoingFriendsParams) (*friends.GetUserOutgoingFriendsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *FriendsService) GetUserOutgoingFriendsShort(input *friends.GetUserOut
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) GetUserOutgoingFriendsWithTimeShort(input *friends.GetUserOutgoingFriendsWithTimeParams) ([]*lobbyclientmodels.ModelLoadOutgoingFriendsWithTimeResponse, error) {
+func (aaa *FriendsService) GetUserOutgoingFriendsWithTimeShort(input *friends.GetUserOutgoingFriendsWithTimeParams) (*friends.GetUserOutgoingFriendsWithTimeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *FriendsService) GetUserOutgoingFriendsWithTimeShort(input *friends.Ge
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) GetUserFriendsWithPlatformShort(input *friends.GetUserFriendsWithPlatformParams) (*lobbyclientmodels.ModelListBulkUserPlatformsResponse, error) {
+func (aaa *FriendsService) GetUserFriendsWithPlatformShort(input *friends.GetUserFriendsWithPlatformParams) (*friends.GetUserFriendsWithPlatformResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *FriendsService) GetUserFriendsWithPlatformShort(input *friends.GetUse
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *FriendsService) UserRequestFriendShort(input *friends.UserRequestFriendParams) error {
@@ -339,7 +338,7 @@ func (aaa *FriendsService) UserRejectFriendRequestShort(input *friends.UserRejec
 	return nil
 }
 
-func (aaa *FriendsService) UserGetFriendshipStatusShort(input *friends.UserGetFriendshipStatusParams) (*lobbyclientmodels.ModelUserGetFriendshipStatusResponse, error) {
+func (aaa *FriendsService) UserGetFriendshipStatusShort(input *friends.UserGetFriendshipStatusParams) (*friends.UserGetFriendshipStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,7 +365,7 @@ func (aaa *FriendsService) UserGetFriendshipStatusShort(input *friends.UserGetFr
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *FriendsService) UserUnfriendRequestShort(input *friends.UserUnfriendRequestParams) error {
@@ -429,7 +428,7 @@ func (aaa *FriendsService) AddFriendsWithoutConfirmationShort(input *friends.Add
 	return nil
 }
 
-func (aaa *FriendsService) BulkDeleteFriendsShort(input *friends.BulkDeleteFriendsParams) (*lobbyclientmodels.ModelBulkFriendsResponse, error) {
+func (aaa *FriendsService) BulkDeleteFriendsShort(input *friends.BulkDeleteFriendsParams) (*friends.BulkDeleteFriendsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -456,10 +455,10 @@ func (aaa *FriendsService) BulkDeleteFriendsShort(input *friends.BulkDeleteFrien
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) SyncNativeFriendsShort(input *friends.SyncNativeFriendsParams) ([]*lobbyclientmodels.ModelNativeFriendSyncResponse, error) {
+func (aaa *FriendsService) SyncNativeFriendsShort(input *friends.SyncNativeFriendsParams) (*friends.SyncNativeFriendsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -486,10 +485,10 @@ func (aaa *FriendsService) SyncNativeFriendsShort(input *friends.SyncNativeFrien
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) GetListOfFriendsShort(input *friends.GetListOfFriendsParams) (*lobbyclientmodels.ModelGetFriendsResponse, error) {
+func (aaa *FriendsService) GetListOfFriendsShort(input *friends.GetListOfFriendsParams) (*friends.GetListOfFriendsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -516,10 +515,10 @@ func (aaa *FriendsService) GetListOfFriendsShort(input *friends.GetListOfFriends
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) GetIncomingFriendRequestsShort(input *friends.GetIncomingFriendRequestsParams) (*lobbyclientmodels.ModelLoadIncomingFriendsWithTimeResponse, error) {
+func (aaa *FriendsService) GetIncomingFriendRequestsShort(input *friends.GetIncomingFriendRequestsParams) (*friends.GetIncomingFriendRequestsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -546,10 +545,10 @@ func (aaa *FriendsService) GetIncomingFriendRequestsShort(input *friends.GetInco
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) AdminListFriendsOfFriendsShort(input *friends.AdminListFriendsOfFriendsParams) (*lobbyclientmodels.ModelFriendshipConnectionResponse, error) {
+func (aaa *FriendsService) AdminListFriendsOfFriendsShort(input *friends.AdminListFriendsOfFriendsParams) (*friends.AdminListFriendsOfFriendsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -576,10 +575,10 @@ func (aaa *FriendsService) AdminListFriendsOfFriendsShort(input *friends.AdminLi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *FriendsService) GetOutgoingFriendRequestsShort(input *friends.GetOutgoingFriendRequestsParams) (*lobbyclientmodels.ModelLoadOutgoingFriendsWithTimeResponse, error) {
+func (aaa *FriendsService) GetOutgoingFriendRequestsShort(input *friends.GetOutgoingFriendRequestsParams) (*friends.GetOutgoingFriendRequestsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -606,5 +605,5 @@ func (aaa *FriendsService) GetOutgoingFriendRequestsShort(input *friends.GetOutg
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

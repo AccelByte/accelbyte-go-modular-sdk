@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclientmodels"
 )
 
+type GetNamespacesGameTelemetryV1AdminNamespacesGetResponse struct {
+	gametelemetryclientmodels.ApiResponse
+	Data *gametelemetryclientmodels.ListBaseResponseStr
+
+	Error500 *gametelemetryclientmodels.BaseErrorResponse
+}
+
+func (m *GetNamespacesGameTelemetryV1AdminNamespacesGetResponse) Unpack() (*gametelemetryclientmodels.ListBaseResponseStr, *gametelemetryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &gametelemetryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetNamespacesGameTelemetryV1AdminNamespacesGetReader is a Reader for the GetNamespacesGameTelemetryV1AdminNamespacesGet structure.
 type GetNamespacesGameTelemetryV1AdminNamespacesGetReader struct {
 	formats strfmt.Registry

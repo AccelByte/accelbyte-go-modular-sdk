@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/platform"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *PlatformService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PlatformService) GetPsnEntitlementOwnershipShort(input *platform.GetPsnEntitlementOwnershipParams) (*platformclientmodels.Ownership, error) {
+func (aaa *PlatformService) GetPsnEntitlementOwnershipShort(input *platform.GetPsnEntitlementOwnershipParams) (*platform.GetPsnEntitlementOwnershipResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *PlatformService) GetPsnEntitlementOwnershipShort(input *platform.GetP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlatformService) GetXboxEntitlementOwnershipShort(input *platform.GetXboxEntitlementOwnershipParams) (*platformclientmodels.PlatformOwnership, error) {
+func (aaa *PlatformService) GetXboxEntitlementOwnershipShort(input *platform.GetXboxEntitlementOwnershipParams) (*platform.GetXboxEntitlementOwnershipResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *PlatformService) GetXboxEntitlementOwnershipShort(input *platform.Get
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetRoleOverrideConfigV3Short(params *AdminGetRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleOverrideConfigV3OK, error)
-	AdminUpdateRoleOverrideConfigV3Short(params *AdminUpdateRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleOverrideConfigV3OK, error)
-	AdminGetRoleSourceV3Short(params *AdminGetRoleSourceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleSourceV3OK, error)
-	AdminChangeRoleOverrideConfigStatusV3Short(params *AdminChangeRoleOverrideConfigStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChangeRoleOverrideConfigStatusV3OK, error)
-	AdminGetRoleNamespacePermissionV3Short(params *AdminGetRoleNamespacePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleNamespacePermissionV3OK, error)
+	AdminGetRoleOverrideConfigV3Short(params *AdminGetRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleOverrideConfigV3Response, error)
+	AdminUpdateRoleOverrideConfigV3Short(params *AdminUpdateRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleOverrideConfigV3Response, error)
+	AdminGetRoleSourceV3Short(params *AdminGetRoleSourceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleSourceV3Response, error)
+	AdminChangeRoleOverrideConfigStatusV3Short(params *AdminChangeRoleOverrideConfigStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChangeRoleOverrideConfigStatusV3Response, error)
+	AdminGetRoleNamespacePermissionV3Short(params *AdminGetRoleNamespacePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleNamespacePermissionV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ AdminGetRoleOverrideConfigV3Short get role override config
 Get role override config.
 This API has upsert behavior, if there is no config yet, it will create a new one with inactive status.
 */
-func (a *Client) AdminGetRoleOverrideConfigV3Short(params *AdminGetRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleOverrideConfigV3OK, error) {
+func (a *Client) AdminGetRoleOverrideConfigV3Short(params *AdminGetRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleOverrideConfigV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRoleOverrideConfigV3Params()
@@ -82,15 +82,40 @@ func (a *Client) AdminGetRoleOverrideConfigV3Short(params *AdminGetRoleOverrideC
 	switch v := result.(type) {
 
 	case *AdminGetRoleOverrideConfigV3OK:
-		return v, nil
+		response := &AdminGetRoleOverrideConfigV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRoleOverrideConfigV3BadRequest:
-		return nil, v
+		response := &AdminGetRoleOverrideConfigV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleOverrideConfigV3Unauthorized:
-		return nil, v
+		response := &AdminGetRoleOverrideConfigV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleOverrideConfigV3Forbidden:
-		return nil, v
+		response := &AdminGetRoleOverrideConfigV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleOverrideConfigV3InternalServerError:
-		return nil, v
+		response := &AdminGetRoleOverrideConfigV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +128,7 @@ This API is for updating role override config.
 Note:
 This API has upsert behavior, if there is no config yet, it will create a new one first.
 */
-func (a *Client) AdminUpdateRoleOverrideConfigV3Short(params *AdminUpdateRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleOverrideConfigV3OK, error) {
+func (a *Client) AdminUpdateRoleOverrideConfigV3Short(params *AdminUpdateRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleOverrideConfigV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateRoleOverrideConfigV3Params()
@@ -141,15 +166,40 @@ func (a *Client) AdminUpdateRoleOverrideConfigV3Short(params *AdminUpdateRoleOve
 	switch v := result.(type) {
 
 	case *AdminUpdateRoleOverrideConfigV3OK:
-		return v, nil
+		response := &AdminUpdateRoleOverrideConfigV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateRoleOverrideConfigV3BadRequest:
-		return nil, v
+		response := &AdminUpdateRoleOverrideConfigV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleOverrideConfigV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateRoleOverrideConfigV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleOverrideConfigV3Forbidden:
-		return nil, v
+		response := &AdminUpdateRoleOverrideConfigV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateRoleOverrideConfigV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateRoleOverrideConfigV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -160,7 +210,7 @@ func (a *Client) AdminUpdateRoleOverrideConfigV3Short(params *AdminUpdateRoleOve
 AdminGetRoleSourceV3Short get role source permission set
 Get role source permission set.
 */
-func (a *Client) AdminGetRoleSourceV3Short(params *AdminGetRoleSourceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleSourceV3OK, error) {
+func (a *Client) AdminGetRoleSourceV3Short(params *AdminGetRoleSourceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleSourceV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRoleSourceV3Params()
@@ -198,17 +248,47 @@ func (a *Client) AdminGetRoleSourceV3Short(params *AdminGetRoleSourceV3Params, a
 	switch v := result.(type) {
 
 	case *AdminGetRoleSourceV3OK:
-		return v, nil
+		response := &AdminGetRoleSourceV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRoleSourceV3BadRequest:
-		return nil, v
+		response := &AdminGetRoleSourceV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleSourceV3Unauthorized:
-		return nil, v
+		response := &AdminGetRoleSourceV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleSourceV3Forbidden:
-		return nil, v
+		response := &AdminGetRoleSourceV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleSourceV3NotFound:
-		return nil, v
+		response := &AdminGetRoleSourceV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleSourceV3InternalServerError:
-		return nil, v
+		response := &AdminGetRoleSourceV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -221,7 +301,7 @@ Enable or disable the target role override feature in path namespace.
 Note:
 This API has upsert behavior, if there is no config yet, it will create a new one first.
 */
-func (a *Client) AdminChangeRoleOverrideConfigStatusV3Short(params *AdminChangeRoleOverrideConfigStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChangeRoleOverrideConfigStatusV3OK, error) {
+func (a *Client) AdminChangeRoleOverrideConfigStatusV3Short(params *AdminChangeRoleOverrideConfigStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChangeRoleOverrideConfigStatusV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminChangeRoleOverrideConfigStatusV3Params()
@@ -259,13 +339,33 @@ func (a *Client) AdminChangeRoleOverrideConfigStatusV3Short(params *AdminChangeR
 	switch v := result.(type) {
 
 	case *AdminChangeRoleOverrideConfigStatusV3OK:
-		return v, nil
+		response := &AdminChangeRoleOverrideConfigStatusV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminChangeRoleOverrideConfigStatusV3Unauthorized:
-		return nil, v
+		response := &AdminChangeRoleOverrideConfigStatusV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChangeRoleOverrideConfigStatusV3Forbidden:
-		return nil, v
+		response := &AdminChangeRoleOverrideConfigStatusV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChangeRoleOverrideConfigStatusV3InternalServerError:
-		return nil, v
+		response := &AdminChangeRoleOverrideConfigStatusV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -276,7 +376,7 @@ func (a *Client) AdminChangeRoleOverrideConfigStatusV3Short(params *AdminChangeR
 AdminGetRoleNamespacePermissionV3Short get role namespace permission
 Get role namespace permission set.
 */
-func (a *Client) AdminGetRoleNamespacePermissionV3Short(params *AdminGetRoleNamespacePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleNamespacePermissionV3OK, error) {
+func (a *Client) AdminGetRoleNamespacePermissionV3Short(params *AdminGetRoleNamespacePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleNamespacePermissionV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRoleNamespacePermissionV3Params()
@@ -314,15 +414,40 @@ func (a *Client) AdminGetRoleNamespacePermissionV3Short(params *AdminGetRoleName
 	switch v := result.(type) {
 
 	case *AdminGetRoleNamespacePermissionV3OK:
-		return v, nil
+		response := &AdminGetRoleNamespacePermissionV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRoleNamespacePermissionV3Unauthorized:
-		return nil, v
+		response := &AdminGetRoleNamespacePermissionV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleNamespacePermissionV3Forbidden:
-		return nil, v
+		response := &AdminGetRoleNamespacePermissionV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleNamespacePermissionV3NotFound:
-		return nil, v
+		response := &AdminGetRoleNamespacePermissionV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRoleNamespacePermissionV3InternalServerError:
-		return nil, v
+		response := &AdminGetRoleNamespacePermissionV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

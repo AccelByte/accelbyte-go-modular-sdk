@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type PublicListReasonGroupsResponse struct {
+	reportingclientmodels.ApiResponse
+	Data *reportingclientmodels.RestapiReasonGroupListResponse
+
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *PublicListReasonGroupsResponse) Unpack() (*reportingclientmodels.RestapiReasonGroupListResponse, *reportingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicListReasonGroupsReader is a Reader for the PublicListReasonGroups structure.
 type PublicListReasonGroupsReader struct {
 	formats strfmt.Registry

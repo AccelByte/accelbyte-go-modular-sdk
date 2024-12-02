@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	S2SGetListFinishedPersonalDataRequestShort(params *S2SGetListFinishedPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetListFinishedPersonalDataRequestOK, error)
-	S2SGetDataRequestByRequestIDShort(params *S2SGetDataRequestByRequestIDParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetDataRequestByRequestIDOK, error)
-	S2SRequestDataRetrievalShort(params *S2SRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*S2SRequestDataRetrievalCreated, error)
-	S2SGeneratePersonalDataURLShort(params *S2SGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGeneratePersonalDataURLOK, error)
+	S2SGetListFinishedPersonalDataRequestShort(params *S2SGetListFinishedPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetListFinishedPersonalDataRequestResponse, error)
+	S2SGetDataRequestByRequestIDShort(params *S2SGetDataRequestByRequestIDParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetDataRequestByRequestIDResponse, error)
+	S2SRequestDataRetrievalShort(params *S2SRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*S2SRequestDataRetrievalResponse, error)
+	S2SGeneratePersonalDataURLShort(params *S2SGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGeneratePersonalDataURLResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ This measure is implemented to ensure compliance with GDPR regulations. Please m
 ---
 ## This API for S2S integration purpose only
 */
-func (a *Client) S2SGetListFinishedPersonalDataRequestShort(params *S2SGetListFinishedPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetListFinishedPersonalDataRequestOK, error) {
+func (a *Client) S2SGetListFinishedPersonalDataRequestShort(params *S2SGetListFinishedPersonalDataRequestParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetListFinishedPersonalDataRequestResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewS2SGetListFinishedPersonalDataRequestParams()
@@ -90,15 +90,40 @@ func (a *Client) S2SGetListFinishedPersonalDataRequestShort(params *S2SGetListFi
 	switch v := result.(type) {
 
 	case *S2SGetListFinishedPersonalDataRequestOK:
-		return v, nil
+		response := &S2SGetListFinishedPersonalDataRequestResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *S2SGetListFinishedPersonalDataRequestBadRequest:
-		return nil, v
+		response := &S2SGetListFinishedPersonalDataRequestResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGetListFinishedPersonalDataRequestUnauthorized:
-		return nil, v
+		response := &S2SGetListFinishedPersonalDataRequestResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGetListFinishedPersonalDataRequestForbidden:
-		return nil, v
+		response := &S2SGetListFinishedPersonalDataRequestResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGetListFinishedPersonalDataRequestInternalServerError:
-		return nil, v
+		response := &S2SGetListFinishedPersonalDataRequestResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -115,7 +140,7 @@ If the request has been completed, it will return a download url for the data pa
 ---
 ## This API for S2S integration purpose only
 */
-func (a *Client) S2SGetDataRequestByRequestIDShort(params *S2SGetDataRequestByRequestIDParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetDataRequestByRequestIDOK, error) {
+func (a *Client) S2SGetDataRequestByRequestIDShort(params *S2SGetDataRequestByRequestIDParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGetDataRequestByRequestIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewS2SGetDataRequestByRequestIDParams()
@@ -153,13 +178,33 @@ func (a *Client) S2SGetDataRequestByRequestIDShort(params *S2SGetDataRequestByRe
 	switch v := result.(type) {
 
 	case *S2SGetDataRequestByRequestIDOK:
-		return v, nil
+		response := &S2SGetDataRequestByRequestIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *S2SGetDataRequestByRequestIDUnauthorized:
-		return nil, v
+		response := &S2SGetDataRequestByRequestIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGetDataRequestByRequestIDNotFound:
-		return nil, v
+		response := &S2SGetDataRequestByRequestIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGetDataRequestByRequestIDInternalServerError:
-		return nil, v
+		response := &S2SGetDataRequestByRequestIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,7 +226,7 @@ Submit user personal data retrieval request.
 
 1. This API will **not send GDPR email notification** both for player and admin notification.
 */
-func (a *Client) S2SRequestDataRetrievalShort(params *S2SRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*S2SRequestDataRetrievalCreated, error) {
+func (a *Client) S2SRequestDataRetrievalShort(params *S2SRequestDataRetrievalParams, authInfo runtime.ClientAuthInfoWriter) (*S2SRequestDataRetrievalResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewS2SRequestDataRetrievalParams()
@@ -219,15 +264,40 @@ func (a *Client) S2SRequestDataRetrievalShort(params *S2SRequestDataRetrievalPar
 	switch v := result.(type) {
 
 	case *S2SRequestDataRetrievalCreated:
-		return v, nil
+		response := &S2SRequestDataRetrievalResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *S2SRequestDataRetrievalBadRequest:
-		return nil, v
+		response := &S2SRequestDataRetrievalResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SRequestDataRetrievalUnauthorized:
-		return nil, v
+		response := &S2SRequestDataRetrievalResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SRequestDataRetrievalNotFound:
-		return nil, v
+		response := &S2SRequestDataRetrievalResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SRequestDataRetrievalInternalServerError:
-		return nil, v
+		response := &S2SRequestDataRetrievalResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -245,7 +315,7 @@ Generate personal data download url.
 ---
 ## This API for S2S integration purpose only
 */
-func (a *Client) S2SGeneratePersonalDataURLShort(params *S2SGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGeneratePersonalDataURLOK, error) {
+func (a *Client) S2SGeneratePersonalDataURLShort(params *S2SGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*S2SGeneratePersonalDataURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewS2SGeneratePersonalDataURLParams()
@@ -283,15 +353,40 @@ func (a *Client) S2SGeneratePersonalDataURLShort(params *S2SGeneratePersonalData
 	switch v := result.(type) {
 
 	case *S2SGeneratePersonalDataURLOK:
-		return v, nil
+		response := &S2SGeneratePersonalDataURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *S2SGeneratePersonalDataURLBadRequest:
-		return nil, v
+		response := &S2SGeneratePersonalDataURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGeneratePersonalDataURLUnauthorized:
-		return nil, v
+		response := &S2SGeneratePersonalDataURLResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGeneratePersonalDataURLNotFound:
-		return nil, v
+		response := &S2SGeneratePersonalDataURLResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *S2SGeneratePersonalDataURLInternalServerError:
-		return nil, v
+		response := &S2SGeneratePersonalDataURLResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

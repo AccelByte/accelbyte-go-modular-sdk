@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	EnvironmentVariableListShort(params *EnvironmentVariableListParams, authInfo runtime.ClientAuthInfoWriter) (*EnvironmentVariableListOK, error)
+	EnvironmentVariableListShort(params *EnvironmentVariableListParams, authInfo runtime.ClientAuthInfoWriter) (*EnvironmentVariableListResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 EnvironmentVariableListShort list environment variables
 List environment variables.
 */
-func (a *Client) EnvironmentVariableListShort(params *EnvironmentVariableListParams, authInfo runtime.ClientAuthInfoWriter) (*EnvironmentVariableListOK, error) {
+func (a *Client) EnvironmentVariableListShort(params *EnvironmentVariableListParams, authInfo runtime.ClientAuthInfoWriter) (*EnvironmentVariableListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEnvironmentVariableListParams()
@@ -77,11 +77,26 @@ func (a *Client) EnvironmentVariableListShort(params *EnvironmentVariableListPar
 	switch v := result.(type) {
 
 	case *EnvironmentVariableListOK:
-		return v, nil
+		response := &EnvironmentVariableListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *EnvironmentVariableListUnauthorized:
-		return nil, v
+		response := &EnvironmentVariableListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnvironmentVariableListForbidden:
-		return nil, v
+		response := &EnvironmentVariableListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

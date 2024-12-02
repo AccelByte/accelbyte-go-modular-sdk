@@ -9,7 +9,6 @@ package match2
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/environment_variables"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *EnvironmentVariablesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *EnvironmentVariablesService) EnvironmentVariableListShort(input *environment_variables.EnvironmentVariableListParams) (*match2clientmodels.APIListEnvironmentVariablesResponse, error) {
+func (aaa *EnvironmentVariablesService) EnvironmentVariableListShort(input *environment_variables.EnvironmentVariableListParams) (*environment_variables.EnvironmentVariableListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *EnvironmentVariablesService) EnvironmentVariableListShort(input *envi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

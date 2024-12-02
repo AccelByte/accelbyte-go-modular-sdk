@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/key_group"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *KeyGroupService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *KeyGroupService) QueryKeyGroupsShort(input *key_group.QueryKeyGroupsParams) (*platformclientmodels.KeyGroupPagingSlicedResult, error) {
+func (aaa *KeyGroupService) QueryKeyGroupsShort(input *key_group.QueryKeyGroupsParams) (*key_group.QueryKeyGroupsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *KeyGroupService) QueryKeyGroupsShort(input *key_group.QueryKeyGroupsP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *KeyGroupService) CreateKeyGroupShort(input *key_group.CreateKeyGroupParams) (*platformclientmodels.KeyGroupInfo, error) {
+func (aaa *KeyGroupService) CreateKeyGroupShort(input *key_group.CreateKeyGroupParams) (*key_group.CreateKeyGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *KeyGroupService) CreateKeyGroupShort(input *key_group.CreateKeyGroupP
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *KeyGroupService) GetKeyGroupByBoothNameShort(input *key_group.GetKeyGroupByBoothNameParams) (*platformclientmodels.KeyGroupInfo, error) {
+func (aaa *KeyGroupService) GetKeyGroupByBoothNameShort(input *key_group.GetKeyGroupByBoothNameParams) (*key_group.GetKeyGroupByBoothNameResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *KeyGroupService) GetKeyGroupByBoothNameShort(input *key_group.GetKeyG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *KeyGroupService) GetKeyGroupShort(input *key_group.GetKeyGroupParams) (*platformclientmodels.KeyGroupInfo, error) {
+func (aaa *KeyGroupService) GetKeyGroupShort(input *key_group.GetKeyGroupParams) (*key_group.GetKeyGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *KeyGroupService) GetKeyGroupShort(input *key_group.GetKeyGroupParams)
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *KeyGroupService) UpdateKeyGroupShort(input *key_group.UpdateKeyGroupParams) (*platformclientmodels.KeyGroupInfo, error) {
+func (aaa *KeyGroupService) UpdateKeyGroupShort(input *key_group.UpdateKeyGroupParams) (*key_group.UpdateKeyGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *KeyGroupService) UpdateKeyGroupShort(input *key_group.UpdateKeyGroupP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *KeyGroupService) GetKeyGroupDynamicShort(input *key_group.GetKeyGroupDynamicParams) (*platformclientmodels.KeyGroupDynamicInfo, error) {
+func (aaa *KeyGroupService) GetKeyGroupDynamicShort(input *key_group.GetKeyGroupDynamicParams) (*key_group.GetKeyGroupDynamicResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *KeyGroupService) GetKeyGroupDynamicShort(input *key_group.GetKeyGroup
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *KeyGroupService) ListKeysShort(input *key_group.ListKeysParams) (*platformclientmodels.KeyPagingSliceResult, error) {
+func (aaa *KeyGroupService) ListKeysShort(input *key_group.ListKeysParams) (*key_group.ListKeysResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *KeyGroupService) ListKeysShort(input *key_group.ListKeysParams) (*pla
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *KeyGroupService) UploadKeysShort(input *key_group.UploadKeysParams) (*platformclientmodels.BulkOperationResult, error) {
+func (aaa *KeyGroupService) UploadKeysShort(input *key_group.UploadKeysParams) (*key_group.UploadKeysResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,5 +273,5 @@ func (aaa *KeyGroupService) UploadKeysShort(input *key_group.UploadKeysParams) (
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

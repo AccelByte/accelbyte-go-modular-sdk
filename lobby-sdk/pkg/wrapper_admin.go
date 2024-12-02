@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminService) AdminGetGlobalConfigShort(input *admin.AdminGetGlobalConfigParams) (*lobbyclientmodels.ModelGlobalConfiguration, error) {
+func (aaa *AdminService) AdminGetGlobalConfigShort(input *admin.AdminGetGlobalConfigParams) (*admin.AdminGetGlobalConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminService) AdminGetGlobalConfigShort(input *admin.AdminGetGlobalCo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminService) AdminUpdateGlobalConfigShort(input *admin.AdminUpdateGlobalConfigParams) (*lobbyclientmodels.ModelGlobalConfiguration, error) {
+func (aaa *AdminService) AdminUpdateGlobalConfigShort(input *admin.AdminUpdateGlobalConfigParams) (*admin.AdminUpdateGlobalConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminService) AdminUpdateGlobalConfigShort(input *admin.AdminUpdateGl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminService) AdminDeleteGlobalConfigShort(input *admin.AdminDeleteGlobalConfigParams) (string, error) {
+func (aaa *AdminService) AdminDeleteGlobalConfigShort(input *admin.AdminDeleteGlobalConfigParams) (*admin.AdminDeleteGlobalConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -121,10 +120,10 @@ func (aaa *AdminService) AdminDeleteGlobalConfigShort(input *admin.AdminDeleteGl
 
 	noContent, err := aaa.Client.Admin.AdminDeleteGlobalConfigShort(input, authInfoWriter)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	return noContent.GetPayload(), nil
+	return noContent, nil
 }
 
 func (aaa *AdminService) FreeFormNotificationShort(input *admin.FreeFormNotificationParams) error {
@@ -187,7 +186,7 @@ func (aaa *AdminService) NotificationWithTemplateShort(input *admin.Notification
 	return nil
 }
 
-func (aaa *AdminService) GetGameTemplateShort(input *admin.GetGameTemplateParams) ([]*lobbyclientmodels.ModelTemplateResponse, error) {
+func (aaa *AdminService) GetGameTemplateShort(input *admin.GetGameTemplateParams) (*admin.GetGameTemplateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,7 +213,7 @@ func (aaa *AdminService) GetGameTemplateShort(input *admin.GetGameTemplateParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminService) CreateTemplateShort(input *admin.CreateTemplateParams) error {
@@ -247,7 +246,7 @@ func (aaa *AdminService) CreateTemplateShort(input *admin.CreateTemplateParams) 
 	return nil
 }
 
-func (aaa *AdminService) GetSlugTemplateShort(input *admin.GetSlugTemplateParams) (*lobbyclientmodels.ModelTemplateLocalizationResponse, error) {
+func (aaa *AdminService) GetSlugTemplateShort(input *admin.GetSlugTemplateParams) (*admin.GetSlugTemplateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,7 +273,7 @@ func (aaa *AdminService) GetSlugTemplateShort(input *admin.GetSlugTemplateParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminService) DeleteTemplateSlugShort(input *admin.DeleteTemplateSlugParams) error {
@@ -307,7 +306,7 @@ func (aaa *AdminService) DeleteTemplateSlugShort(input *admin.DeleteTemplateSlug
 	return nil
 }
 
-func (aaa *AdminService) GetLocalizationTemplateShort(input *admin.GetLocalizationTemplateParams) (*lobbyclientmodels.ModelTemplateLocalization, error) {
+func (aaa *AdminService) GetLocalizationTemplateShort(input *admin.GetLocalizationTemplateParams) (*admin.GetLocalizationTemplateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,7 +333,7 @@ func (aaa *AdminService) GetLocalizationTemplateShort(input *admin.GetLocalizati
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminService) UpdateLocalizationTemplateShort(input *admin.UpdateLocalizationTemplateParams) error {

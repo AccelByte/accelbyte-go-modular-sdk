@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type RefundUserPaymentOrderResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PaymentOrderInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+	Error409 *platformclientmodels.ErrorEntity
+	Error422 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *RefundUserPaymentOrderResponse) Unpack() (*platformclientmodels.PaymentOrderInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RefundUserPaymentOrderReader is a Reader for the RefundUserPaymentOrder structure.
 type RefundUserPaymentOrderReader struct {
 	formats strfmt.Registry

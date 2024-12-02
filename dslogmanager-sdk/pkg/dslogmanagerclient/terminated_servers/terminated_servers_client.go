@@ -31,9 +31,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersOK, error)
-	DownloadServerLogsShort(params *DownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadServerLogsOK, error)
-	CheckServerLogsShort(params *CheckServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerLogsOK, error)
+	ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersResponse, error)
+	DownloadServerLogsShort(params *DownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadServerLogsResponse, error)
+	CheckServerLogsShort(params *CheckServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerLogsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ This endpoint used to retrieve terminated servers in a namespace
 The namespace filter is will give result exact namespace response
 ```
 */
-func (a *Client) ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersOK, error) {
+func (a *Client) ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListTerminatedServersParams()
@@ -86,13 +86,33 @@ func (a *Client) ListTerminatedServersShort(params *ListTerminatedServersParams,
 	switch v := result.(type) {
 
 	case *ListTerminatedServersOK:
-		return v, nil
+		response := &ListTerminatedServersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListTerminatedServersBadRequest:
-		return nil, v
+		response := &ListTerminatedServersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListTerminatedServersUnauthorized:
-		return nil, v
+		response := &ListTerminatedServersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListTerminatedServersInternalServerError:
-		return nil, v
+		response := &ListTerminatedServersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -107,7 +127,7 @@ Required scope: social
 
 This endpoint will download dedicated server's log file (.log).
 */
-func (a *Client) DownloadServerLogsShort(params *DownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadServerLogsOK, error) {
+func (a *Client) DownloadServerLogsShort(params *DownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadServerLogsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadServerLogsParams()
@@ -145,11 +165,26 @@ func (a *Client) DownloadServerLogsShort(params *DownloadServerLogsParams, authI
 	switch v := result.(type) {
 
 	case *DownloadServerLogsOK:
-		return v, nil
+		response := &DownloadServerLogsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DownloadServerLogsNotFound:
-		return nil, v
+		response := &DownloadServerLogsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DownloadServerLogsInternalServerError:
-		return nil, v
+		response := &DownloadServerLogsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,7 +199,7 @@ Required scope: social
 
 This endpoint will check log file existence before download file.
 */
-func (a *Client) CheckServerLogsShort(params *CheckServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerLogsOK, error) {
+func (a *Client) CheckServerLogsShort(params *CheckServerLogsParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerLogsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCheckServerLogsParams()
@@ -202,11 +237,26 @@ func (a *Client) CheckServerLogsShort(params *CheckServerLogsParams, authInfo ru
 	switch v := result.(type) {
 
 	case *CheckServerLogsOK:
-		return v, nil
+		response := &CheckServerLogsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CheckServerLogsNotFound:
-		return nil, v
+		response := &CheckServerLogsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CheckServerLogsInternalServerError:
-		return nil, v
+		response := &CheckServerLogsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

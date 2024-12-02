@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type CountOfPurchasedItemResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PurchasedItemCount
+}
+
+func (m *CountOfPurchasedItemResponse) Unpack() (*platformclientmodels.PurchasedItemCount, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // CountOfPurchasedItemReader is a Reader for the CountOfPurchasedItem structure.
 type CountOfPurchasedItemReader struct {
 	formats strfmt.Registry

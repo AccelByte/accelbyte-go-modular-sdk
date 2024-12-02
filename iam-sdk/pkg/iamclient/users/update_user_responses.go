@@ -19,6 +19,52 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type UpdateUserResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelUserResponse
+
+	Error400 string
+	Error401 *iamclientmodels.RestErrorResponse
+	Error404 string
+	Error409 string
+	Error500 string
+}
+
+func (m *UpdateUserResponse) Unpack() (*iamclientmodels.ModelUserResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			return nil, &iamclientmodels.ApiError{Code: "400", Message: m.Error400}
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			return nil, &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		case 409:
+			return nil, &iamclientmodels.ApiError{Code: "409", Message: m.Error409}
+
+		case 500:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: m.Error500}
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateUserReader is a Reader for the UpdateUser structure.
 type UpdateUserReader struct {
 	formats strfmt.Registry

@@ -9,7 +9,6 @@ package reporting
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_reports"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminReportsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminReportsService) ListReportsShort(input *admin_reports.ListReportsParams) (*reportingclientmodels.RestapiReportListResponse, error) {
+func (aaa *AdminReportsService) ListReportsShort(input *admin_reports.ListReportsParams) (*admin_reports.ListReportsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminReportsService) ListReportsShort(input *admin_reports.ListReport
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminReportsService) AdminSubmitReportShort(input *admin_reports.AdminSubmitReportParams) (*reportingclientmodels.RestapiSubmitReportResponse, error) {
+func (aaa *AdminReportsService) AdminSubmitReportShort(input *admin_reports.AdminSubmitReportParams) (*admin_reports.AdminSubmitReportResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,5 +93,5 @@ func (aaa *AdminReportsService) AdminSubmitReportShort(input *admin_reports.Admi
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }

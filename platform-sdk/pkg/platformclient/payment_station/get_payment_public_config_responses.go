@@ -15,7 +15,29 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
+
+type GetPaymentPublicConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data map[string]interface{}
+}
+
+func (m *GetPaymentPublicConfigResponse) Unpack() (map[string]interface{}, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
 
 // GetPaymentPublicConfigReader is a Reader for the GetPaymentPublicConfig structure.
 type GetPaymentPublicConfigReader struct {

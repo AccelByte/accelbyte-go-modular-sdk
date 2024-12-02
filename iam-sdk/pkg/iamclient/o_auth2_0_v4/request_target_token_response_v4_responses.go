@@ -19,6 +19,27 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type RequestTargetTokenResponseV4Response struct {
+	iamclientmodels.ApiResponse
+	Data    *iamclientmodels.OauthmodelTokenResponseV3
+	Data202 *iamclientmodels.OauthmodelLoginQueueTicketResponse
+}
+
+func (m *RequestTargetTokenResponseV4Response) Unpack() (*iamclientmodels.OauthmodelTokenResponseV3, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RequestTargetTokenResponseV4Reader is a Reader for the RequestTargetTokenResponseV4 structure.
 type RequestTargetTokenResponseV4Reader struct {
 	formats strfmt.Registry

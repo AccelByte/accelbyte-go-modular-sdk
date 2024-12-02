@@ -19,6 +19,40 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type PublicGetInputValidationByFieldResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelInputValidationConfigVersion
+
+	Error404 string
+	Error500 *iamclientmodels.RestErrorResponse
+}
+
+func (m *PublicGetInputValidationByFieldResponse) Unpack() (*iamclientmodels.ModelInputValidationConfigVersion, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			return nil, &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetInputValidationByFieldReader is a Reader for the PublicGetInputValidationByField structure.
 type PublicGetInputValidationByFieldReader struct {
 	formats strfmt.Registry

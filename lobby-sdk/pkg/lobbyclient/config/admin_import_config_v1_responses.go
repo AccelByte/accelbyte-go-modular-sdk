@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type AdminImportConfigV1Response struct {
+	lobbyclientmodels.ApiResponse
+	Data *lobbyclientmodels.ModelsImportConfigResponse
+
+	Error401 *lobbyclientmodels.ResponseError
+	Error403 *lobbyclientmodels.ResponseError
+	Error500 *lobbyclientmodels.ResponseError
+}
+
+func (m *AdminImportConfigV1Response) Unpack() (*lobbyclientmodels.ModelsImportConfigResponse, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminImportConfigV1Reader is a Reader for the AdminImportConfigV1 structure.
 type AdminImportConfigV1Reader struct {
 	formats strfmt.Registry

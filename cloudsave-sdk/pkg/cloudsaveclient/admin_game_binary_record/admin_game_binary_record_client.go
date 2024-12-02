@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListGameBinaryRecordsV1Short(params *AdminListGameBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListGameBinaryRecordsV1OK, error)
-	AdminPostGameBinaryRecordV1Short(params *AdminPostGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameBinaryRecordV1Created, error)
-	AdminGetGameBinaryRecordV1Short(params *AdminGetGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGameBinaryRecordV1OK, error)
-	AdminPutGameBinaryRecordV1Short(params *AdminPutGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameBinaryRecordV1OK, error)
-	AdminDeleteGameBinaryRecordV1Short(params *AdminDeleteGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGameBinaryRecordV1NoContent, error)
-	AdminPutGameBinaryRecorMetadataV1Short(params *AdminPutGameBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameBinaryRecorMetadataV1OK, error)
-	AdminPostGameBinaryPresignedURLV1Short(params *AdminPostGameBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameBinaryPresignedURLV1Created, error)
+	AdminListGameBinaryRecordsV1Short(params *AdminListGameBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListGameBinaryRecordsV1Response, error)
+	AdminPostGameBinaryRecordV1Short(params *AdminPostGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameBinaryRecordV1Response, error)
+	AdminGetGameBinaryRecordV1Short(params *AdminGetGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGameBinaryRecordV1Response, error)
+	AdminPutGameBinaryRecordV1Short(params *AdminPutGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameBinaryRecordV1Response, error)
+	AdminDeleteGameBinaryRecordV1Short(params *AdminDeleteGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGameBinaryRecordV1Response, error)
+	AdminPutGameBinaryRecorMetadataV1Short(params *AdminPutGameBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameBinaryRecorMetadataV1Response, error)
+	AdminPostGameBinaryPresignedURLV1Short(params *AdminPostGameBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameBinaryPresignedURLV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ type ClientService interface {
 AdminListGameBinaryRecordsV1Short query game binary records
 Retrieve list of binary records by namespace.
 */
-func (a *Client) AdminListGameBinaryRecordsV1Short(params *AdminListGameBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListGameBinaryRecordsV1OK, error) {
+func (a *Client) AdminListGameBinaryRecordsV1Short(params *AdminListGameBinaryRecordsV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListGameBinaryRecordsV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListGameBinaryRecordsV1Params()
@@ -83,15 +83,40 @@ func (a *Client) AdminListGameBinaryRecordsV1Short(params *AdminListGameBinaryRe
 	switch v := result.(type) {
 
 	case *AdminListGameBinaryRecordsV1OK:
-		return v, nil
+		response := &AdminListGameBinaryRecordsV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListGameBinaryRecordsV1BadRequest:
-		return nil, v
+		response := &AdminListGameBinaryRecordsV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListGameBinaryRecordsV1Unauthorized:
-		return nil, v
+		response := &AdminListGameBinaryRecordsV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListGameBinaryRecordsV1Forbidden:
-		return nil, v
+		response := &AdminListGameBinaryRecordsV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListGameBinaryRecordsV1InternalServerError:
-		return nil, v
+		response := &AdminListGameBinaryRecordsV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -113,7 +138,7 @@ Other detail info:
 
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
-func (a *Client) AdminPostGameBinaryRecordV1Short(params *AdminPostGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameBinaryRecordV1Created, error) {
+func (a *Client) AdminPostGameBinaryRecordV1Short(params *AdminPostGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPostGameBinaryRecordV1Params()
@@ -151,17 +176,47 @@ func (a *Client) AdminPostGameBinaryRecordV1Short(params *AdminPostGameBinaryRec
 	switch v := result.(type) {
 
 	case *AdminPostGameBinaryRecordV1Created:
-		return v, nil
+		response := &AdminPostGameBinaryRecordV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPostGameBinaryRecordV1BadRequest:
-		return nil, v
+		response := &AdminPostGameBinaryRecordV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &AdminPostGameBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameBinaryRecordV1Forbidden:
-		return nil, v
+		response := &AdminPostGameBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameBinaryRecordV1Conflict:
-		return nil, v
+		response := &AdminPostGameBinaryRecordV1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &AdminPostGameBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -172,7 +227,7 @@ func (a *Client) AdminPostGameBinaryRecordV1Short(params *AdminPostGameBinaryRec
 AdminGetGameBinaryRecordV1Short get game binary record
 Get a game binary record by its key.
 */
-func (a *Client) AdminGetGameBinaryRecordV1Short(params *AdminGetGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGameBinaryRecordV1OK, error) {
+func (a *Client) AdminGetGameBinaryRecordV1Short(params *AdminGetGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGameBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetGameBinaryRecordV1Params()
@@ -210,15 +265,40 @@ func (a *Client) AdminGetGameBinaryRecordV1Short(params *AdminGetGameBinaryRecor
 	switch v := result.(type) {
 
 	case *AdminGetGameBinaryRecordV1OK:
-		return v, nil
+		response := &AdminGetGameBinaryRecordV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetGameBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &AdminGetGameBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGameBinaryRecordV1Forbidden:
-		return nil, v
+		response := &AdminGetGameBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGameBinaryRecordV1NotFound:
-		return nil, v
+		response := &AdminGetGameBinaryRecordV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGameBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &AdminGetGameBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -229,7 +309,7 @@ func (a *Client) AdminGetGameBinaryRecordV1Short(params *AdminGetGameBinaryRecor
 AdminPutGameBinaryRecordV1Short update game binary record file
 Update a game binary record file by its key
 */
-func (a *Client) AdminPutGameBinaryRecordV1Short(params *AdminPutGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameBinaryRecordV1OK, error) {
+func (a *Client) AdminPutGameBinaryRecordV1Short(params *AdminPutGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPutGameBinaryRecordV1Params()
@@ -267,17 +347,47 @@ func (a *Client) AdminPutGameBinaryRecordV1Short(params *AdminPutGameBinaryRecor
 	switch v := result.(type) {
 
 	case *AdminPutGameBinaryRecordV1OK:
-		return v, nil
+		response := &AdminPutGameBinaryRecordV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPutGameBinaryRecordV1BadRequest:
-		return nil, v
+		response := &AdminPutGameBinaryRecordV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &AdminPutGameBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameBinaryRecordV1Forbidden:
-		return nil, v
+		response := &AdminPutGameBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameBinaryRecordV1NotFound:
-		return nil, v
+		response := &AdminPutGameBinaryRecordV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &AdminPutGameBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,7 +398,7 @@ func (a *Client) AdminPutGameBinaryRecordV1Short(params *AdminPutGameBinaryRecor
 AdminDeleteGameBinaryRecordV1Short delete game binary record
 Delete a game binary record.
 */
-func (a *Client) AdminDeleteGameBinaryRecordV1Short(params *AdminDeleteGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGameBinaryRecordV1NoContent, error) {
+func (a *Client) AdminDeleteGameBinaryRecordV1Short(params *AdminDeleteGameBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGameBinaryRecordV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteGameBinaryRecordV1Params()
@@ -326,17 +436,46 @@ func (a *Client) AdminDeleteGameBinaryRecordV1Short(params *AdminDeleteGameBinar
 	switch v := result.(type) {
 
 	case *AdminDeleteGameBinaryRecordV1NoContent:
-		return v, nil
+		response := &AdminDeleteGameBinaryRecordV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteGameBinaryRecordV1BadRequest:
-		return nil, v
+		response := &AdminDeleteGameBinaryRecordV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGameBinaryRecordV1Unauthorized:
-		return nil, v
+		response := &AdminDeleteGameBinaryRecordV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGameBinaryRecordV1Forbidden:
-		return nil, v
+		response := &AdminDeleteGameBinaryRecordV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGameBinaryRecordV1NotFound:
-		return nil, v
+		response := &AdminDeleteGameBinaryRecordV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGameBinaryRecordV1InternalServerError:
-		return nil, v
+		response := &AdminDeleteGameBinaryRecordV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -347,7 +486,7 @@ func (a *Client) AdminDeleteGameBinaryRecordV1Short(params *AdminDeleteGameBinar
 AdminPutGameBinaryRecorMetadataV1Short update game binary record metadata
 Update a game binary record metadata by its key
 */
-func (a *Client) AdminPutGameBinaryRecorMetadataV1Short(params *AdminPutGameBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameBinaryRecorMetadataV1OK, error) {
+func (a *Client) AdminPutGameBinaryRecorMetadataV1Short(params *AdminPutGameBinaryRecorMetadataV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPutGameBinaryRecorMetadataV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPutGameBinaryRecorMetadataV1Params()
@@ -385,17 +524,47 @@ func (a *Client) AdminPutGameBinaryRecorMetadataV1Short(params *AdminPutGameBina
 	switch v := result.(type) {
 
 	case *AdminPutGameBinaryRecorMetadataV1OK:
-		return v, nil
+		response := &AdminPutGameBinaryRecorMetadataV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPutGameBinaryRecorMetadataV1BadRequest:
-		return nil, v
+		response := &AdminPutGameBinaryRecorMetadataV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameBinaryRecorMetadataV1Unauthorized:
-		return nil, v
+		response := &AdminPutGameBinaryRecorMetadataV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameBinaryRecorMetadataV1Forbidden:
-		return nil, v
+		response := &AdminPutGameBinaryRecorMetadataV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameBinaryRecorMetadataV1NotFound:
-		return nil, v
+		response := &AdminPutGameBinaryRecorMetadataV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPutGameBinaryRecorMetadataV1InternalServerError:
-		return nil, v
+		response := &AdminPutGameBinaryRecorMetadataV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -410,7 +579,7 @@ Other detail info:
 
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
-func (a *Client) AdminPostGameBinaryPresignedURLV1Short(params *AdminPostGameBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameBinaryPresignedURLV1Created, error) {
+func (a *Client) AdminPostGameBinaryPresignedURLV1Short(params *AdminPostGameBinaryPresignedURLV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostGameBinaryPresignedURLV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPostGameBinaryPresignedURLV1Params()
@@ -448,17 +617,47 @@ func (a *Client) AdminPostGameBinaryPresignedURLV1Short(params *AdminPostGameBin
 	switch v := result.(type) {
 
 	case *AdminPostGameBinaryPresignedURLV1Created:
-		return v, nil
+		response := &AdminPostGameBinaryPresignedURLV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminPostGameBinaryPresignedURLV1BadRequest:
-		return nil, v
+		response := &AdminPostGameBinaryPresignedURLV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameBinaryPresignedURLV1Unauthorized:
-		return nil, v
+		response := &AdminPostGameBinaryPresignedURLV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameBinaryPresignedURLV1Forbidden:
-		return nil, v
+		response := &AdminPostGameBinaryPresignedURLV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameBinaryPresignedURLV1NotFound:
-		return nil, v
+		response := &AdminPostGameBinaryPresignedURLV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminPostGameBinaryPresignedURLV1InternalServerError:
-		return nil, v
+		response := &AdminPostGameBinaryPresignedURLV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

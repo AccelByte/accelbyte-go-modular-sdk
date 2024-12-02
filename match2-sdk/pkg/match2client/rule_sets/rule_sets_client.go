@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RuleSetListShort(params *RuleSetListParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetListOK, error)
-	CreateRuleSetShort(params *CreateRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleSetCreated, error)
-	RuleSetDetailsShort(params *RuleSetDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetDetailsOK, error)
-	UpdateRuleSetShort(params *UpdateRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRuleSetOK, error)
-	DeleteRuleSetShort(params *DeleteRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRuleSetNoContent, error)
+	RuleSetListShort(params *RuleSetListParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetListResponse, error)
+	CreateRuleSetShort(params *CreateRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleSetResponse, error)
+	RuleSetDetailsShort(params *RuleSetDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetDetailsResponse, error)
+	UpdateRuleSetShort(params *UpdateRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRuleSetResponse, error)
+	DeleteRuleSetShort(params *DeleteRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRuleSetResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 RuleSetListShort list existing rule sets
 List rule sets.
 */
-func (a *Client) RuleSetListShort(params *RuleSetListParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetListOK, error) {
+func (a *Client) RuleSetListShort(params *RuleSetListParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRuleSetListParams()
@@ -81,13 +81,33 @@ func (a *Client) RuleSetListShort(params *RuleSetListParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *RuleSetListOK:
-		return v, nil
+		response := &RuleSetListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RuleSetListUnauthorized:
-		return nil, v
+		response := &RuleSetListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RuleSetListForbidden:
-		return nil, v
+		response := &RuleSetListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RuleSetListInternalServerError:
-		return nil, v
+		response := &RuleSetListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +125,7 @@ To use custom rules set please set enable_custom_match_function=true. Default (f
 
 When custom enable_custom_match_function=true, the ruleset will only validate if the rule is valid json.
 */
-func (a *Client) CreateRuleSetShort(params *CreateRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleSetCreated, error) {
+func (a *Client) CreateRuleSetShort(params *CreateRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRuleSetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateRuleSetParams()
@@ -143,17 +163,46 @@ func (a *Client) CreateRuleSetShort(params *CreateRuleSetParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *CreateRuleSetCreated:
-		return v, nil
+		response := &CreateRuleSetResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateRuleSetBadRequest:
-		return nil, v
+		response := &CreateRuleSetResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRuleSetUnauthorized:
-		return nil, v
+		response := &CreateRuleSetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRuleSetForbidden:
-		return nil, v
+		response := &CreateRuleSetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRuleSetConflict:
-		return nil, v
+		response := &CreateRuleSetResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateRuleSetInternalServerError:
-		return nil, v
+		response := &CreateRuleSetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,7 +213,7 @@ func (a *Client) CreateRuleSetShort(params *CreateRuleSetParams, authInfo runtim
 RuleSetDetailsShort get details for a specific rule set
 Get details for a specific rule set
 */
-func (a *Client) RuleSetDetailsShort(params *RuleSetDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetDetailsOK, error) {
+func (a *Client) RuleSetDetailsShort(params *RuleSetDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetDetailsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRuleSetDetailsParams()
@@ -202,13 +251,33 @@ func (a *Client) RuleSetDetailsShort(params *RuleSetDetailsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *RuleSetDetailsOK:
-		return v, nil
+		response := &RuleSetDetailsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RuleSetDetailsUnauthorized:
-		return nil, v
+		response := &RuleSetDetailsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RuleSetDetailsForbidden:
-		return nil, v
+		response := &RuleSetDetailsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RuleSetDetailsInternalServerError:
-		return nil, v
+		response := &RuleSetDetailsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -223,7 +292,7 @@ To use custom rules set please set enable_custom_match_function=true. Default (f
 
 When custom enable_custom_match_function=true, the ruleset will only validate if the rule is valid json.
 */
-func (a *Client) UpdateRuleSetShort(params *UpdateRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRuleSetOK, error) {
+func (a *Client) UpdateRuleSetShort(params *UpdateRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRuleSetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRuleSetParams()
@@ -261,17 +330,47 @@ func (a *Client) UpdateRuleSetShort(params *UpdateRuleSetParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *UpdateRuleSetOK:
-		return v, nil
+		response := &UpdateRuleSetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateRuleSetBadRequest:
-		return nil, v
+		response := &UpdateRuleSetResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRuleSetUnauthorized:
-		return nil, v
+		response := &UpdateRuleSetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRuleSetForbidden:
-		return nil, v
+		response := &UpdateRuleSetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRuleSetNotFound:
-		return nil, v
+		response := &UpdateRuleSetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateRuleSetInternalServerError:
-		return nil, v
+		response := &UpdateRuleSetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -282,7 +381,7 @@ func (a *Client) UpdateRuleSetShort(params *UpdateRuleSetParams, authInfo runtim
 DeleteRuleSetShort delete a rule set
 Deletes an existing rule set.
 */
-func (a *Client) DeleteRuleSetShort(params *DeleteRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRuleSetNoContent, error) {
+func (a *Client) DeleteRuleSetShort(params *DeleteRuleSetParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRuleSetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRuleSetParams()
@@ -320,15 +419,39 @@ func (a *Client) DeleteRuleSetShort(params *DeleteRuleSetParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *DeleteRuleSetNoContent:
-		return v, nil
+		response := &DeleteRuleSetResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteRuleSetUnauthorized:
-		return nil, v
+		response := &DeleteRuleSetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRuleSetForbidden:
-		return nil, v
+		response := &DeleteRuleSetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRuleSetNotFound:
-		return nil, v
+		response := &DeleteRuleSetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteRuleSetInternalServerError:
-		return nil, v
+		response := &DeleteRuleSetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

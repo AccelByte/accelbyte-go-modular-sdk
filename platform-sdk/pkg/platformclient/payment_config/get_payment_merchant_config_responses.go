@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetPaymentMerchantConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PaymentDomainWhitelistConfigInfo
+}
+
+func (m *GetPaymentMerchantConfigResponse) Unpack() (*platformclientmodels.PaymentDomainWhitelistConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetPaymentMerchantConfigReader is a Reader for the GetPaymentMerchantConfig structure.
 type GetPaymentMerchantConfigReader struct {
 	formats strfmt.Registry

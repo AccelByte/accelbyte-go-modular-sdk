@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type UpdateIAPItemConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.IAPItemConfigInfo
+
+	Error400 *platformclientmodels.ErrorEntity
+	Error409 *platformclientmodels.ValidationErrorEntity
+	Error422 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *UpdateIAPItemConfigResponse) Unpack() (*platformclientmodels.IAPItemConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateIAPItemConfigReader is a Reader for the UpdateIAPItemConfig structure.
 type UpdateIAPItemConfigReader struct {
 	formats strfmt.Registry

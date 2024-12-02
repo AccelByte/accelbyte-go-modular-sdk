@@ -19,6 +19,53 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk/pkg/qosmclientmodels"
 )
 
+type SetServerAliasResponse struct {
+	qosmclientmodels.ApiResponse
+
+	Error400 *qosmclientmodels.ResponseError
+	Error404 *qosmclientmodels.ResponseError
+	Error500 *qosmclientmodels.ResponseError
+}
+
+func (m *SetServerAliasResponse) Unpack() *qosmclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &qosmclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // SetServerAliasReader is a Reader for the SetServerAlias structure.
 type SetServerAliasReader struct {
 	formats strfmt.Registry

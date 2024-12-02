@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type GetUserNamespaceSlotsResponse struct {
+	socialclientmodels.ApiResponse
+	Data []*socialclientmodels.SlotInfo
+}
+
+func (m *GetUserNamespaceSlotsResponse) Unpack() ([]*socialclientmodels.SlotInfo, *socialclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserNamespaceSlotsReader is a Reader for the GetUserNamespaceSlots structure.
 type GetUserNamespaceSlotsReader struct {
 	formats strfmt.Registry

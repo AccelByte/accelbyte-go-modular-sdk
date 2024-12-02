@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 )
 
+type PublicListTagsResponse struct {
+	inventoryclientmodels.ApiResponse
+	Data *inventoryclientmodels.ApimodelsListTagsResp
+
+	Error400 *inventoryclientmodels.ApimodelsErrorResponse
+	Error500 *inventoryclientmodels.ApimodelsErrorResponse
+}
+
+func (m *PublicListTagsResponse) Unpack() (*inventoryclientmodels.ApimodelsListTagsResp, *inventoryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &inventoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicListTagsReader is a Reader for the PublicListTags structure.
 type PublicListTagsReader struct {
 	formats strfmt.Registry

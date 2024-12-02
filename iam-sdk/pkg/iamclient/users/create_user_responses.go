@@ -19,6 +19,53 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type CreateUserResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelUserCreateResponse
+
+	Error400 string
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 *iamclientmodels.RestErrorResponse
+	Error409 string
+}
+
+func (m *CreateUserResponse) Unpack() (*iamclientmodels.ModelUserCreateResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			return nil, &iamclientmodels.ApiError{Code: "400", Message: m.Error400}
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			return nil, &iamclientmodels.ApiError{Code: "409", Message: m.Error409}
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // CreateUserReader is a Reader for the CreateUser structure.
 type CreateUserReader struct {
 	formats strfmt.Registry

@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAppListV1Short(params *GetAppListV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV1OK, error)
-	GetAppV1Short(params *GetAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV1OK, error)
-	CreateAppV1Short(params *CreateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV1OK, error)
-	DeleteAppV1Short(params *DeleteAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV1NoContent, error)
-	UpdateAppV1Short(params *UpdateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV1OK, error)
-	GetAppReleaseV1Short(params *GetAppReleaseV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppReleaseV1OK, error)
-	StartAppV1Short(params *StartAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV1OK, error)
-	StopAppV1Short(params *StopAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV1OK, error)
+	GetAppListV1Short(params *GetAppListV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV1Response, error)
+	GetAppV1Short(params *GetAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV1Response, error)
+	CreateAppV1Short(params *CreateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV1Response, error)
+	DeleteAppV1Short(params *DeleteAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV1Response, error)
+	UpdateAppV1Short(params *UpdateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV1Response, error)
+	GetAppReleaseV1Short(params *GetAppReleaseV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppReleaseV1Response, error)
+	StartAppV1Short(params *StartAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV1Response, error)
+	StopAppV1Short(params *StopAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,7 +53,7 @@ Available scenario:
 - scenario 2: `service-extension`
 - scenario 3: `event-handler`
 */
-func (a *Client) GetAppListV1Short(params *GetAppListV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV1OK, error) {
+func (a *Client) GetAppListV1Short(params *GetAppListV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppListV1Params()
@@ -91,17 +91,47 @@ func (a *Client) GetAppListV1Short(params *GetAppListV1Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetAppListV1OK:
-		return v, nil
+		response := &GetAppListV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAppListV1BadRequest:
-		return nil, v
+		response := &GetAppListV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppListV1Unauthorized:
-		return nil, v
+		response := &GetAppListV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppListV1Forbidden:
-		return nil, v
+		response := &GetAppListV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppListV1NotFound:
-		return nil, v
+		response := &GetAppListV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppListV1InternalServerError:
-		return nil, v
+		response := &GetAppListV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -114,7 +144,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
 
 Gets the App By Name
 */
-func (a *Client) GetAppV1Short(params *GetAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV1OK, error) {
+func (a *Client) GetAppV1Short(params *GetAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppV1Params()
@@ -152,15 +182,40 @@ func (a *Client) GetAppV1Short(params *GetAppV1Params, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *GetAppV1OK:
-		return v, nil
+		response := &GetAppV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAppV1Unauthorized:
-		return nil, v
+		response := &GetAppV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppV1Forbidden:
-		return nil, v
+		response := &GetAppV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppV1NotFound:
-		return nil, v
+		response := &GetAppV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppV1InternalServerError:
-		return nil, v
+		response := &GetAppV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -180,7 +235,7 @@ Available scenario:
 
 Default: `function-override`
 */
-func (a *Client) CreateAppV1Short(params *CreateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV1OK, error) {
+func (a *Client) CreateAppV1Short(params *CreateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateAppV1Params()
@@ -218,19 +273,54 @@ func (a *Client) CreateAppV1Short(params *CreateAppV1Params, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CreateAppV1OK:
-		return v, nil
+		response := &CreateAppV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateAppV1BadRequest:
-		return nil, v
+		response := &CreateAppV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV1Unauthorized:
-		return nil, v
+		response := &CreateAppV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV1Forbidden:
-		return nil, v
+		response := &CreateAppV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV1NotFound:
-		return nil, v
+		response := &CreateAppV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV1Conflict:
-		return nil, v
+		response := &CreateAppV1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV1InternalServerError:
-		return nil, v
+		response := &CreateAppV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -248,7 +338,7 @@ and update the deleted_at in DB by given App Name.
 
 Required: Valid Access Token
 */
-func (a *Client) DeleteAppV1Short(params *DeleteAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV1NoContent, error) {
+func (a *Client) DeleteAppV1Short(params *DeleteAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAppV1Params()
@@ -286,17 +376,46 @@ func (a *Client) DeleteAppV1Short(params *DeleteAppV1Params, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DeleteAppV1NoContent:
-		return v, nil
+		response := &DeleteAppV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAppV1BadRequest:
-		return nil, v
+		response := &DeleteAppV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppV1Unauthorized:
-		return nil, v
+		response := &DeleteAppV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppV1Forbidden:
-		return nil, v
+		response := &DeleteAppV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppV1NotFound:
-		return nil, v
+		response := &DeleteAppV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppV1InternalServerError:
-		return nil, v
+		response := &DeleteAppV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -309,7 +428,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
 
 Update App Partially
 */
-func (a *Client) UpdateAppV1Short(params *UpdateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV1OK, error) {
+func (a *Client) UpdateAppV1Short(params *UpdateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAppV1Params()
@@ -347,17 +466,47 @@ func (a *Client) UpdateAppV1Short(params *UpdateAppV1Params, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *UpdateAppV1OK:
-		return v, nil
+		response := &UpdateAppV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateAppV1BadRequest:
-		return nil, v
+		response := &UpdateAppV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppV1Unauthorized:
-		return nil, v
+		response := &UpdateAppV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppV1Forbidden:
-		return nil, v
+		response := &UpdateAppV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppV1NotFound:
-		return nil, v
+		response := &UpdateAppV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppV1InternalServerError:
-		return nil, v
+		response := &UpdateAppV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -370,7 +519,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
 
 Gets the Latest Release Version info of this App
 */
-func (a *Client) GetAppReleaseV1Short(params *GetAppReleaseV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppReleaseV1OK, error) {
+func (a *Client) GetAppReleaseV1Short(params *GetAppReleaseV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppReleaseV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppReleaseV1Params()
@@ -408,15 +557,40 @@ func (a *Client) GetAppReleaseV1Short(params *GetAppReleaseV1Params, authInfo ru
 	switch v := result.(type) {
 
 	case *GetAppReleaseV1OK:
-		return v, nil
+		response := &GetAppReleaseV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAppReleaseV1Unauthorized:
-		return nil, v
+		response := &GetAppReleaseV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppReleaseV1Forbidden:
-		return nil, v
+		response := &GetAppReleaseV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppReleaseV1NotFound:
-		return nil, v
+		response := &GetAppReleaseV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppReleaseV1InternalServerError:
-		return nil, v
+		response := &GetAppReleaseV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -429,7 +603,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
 
 Starts the Application
 */
-func (a *Client) StartAppV1Short(params *StartAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV1OK, error) {
+func (a *Client) StartAppV1Short(params *StartAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewStartAppV1Params()
@@ -467,17 +641,47 @@ func (a *Client) StartAppV1Short(params *StartAppV1Params, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *StartAppV1OK:
-		return v, nil
+		response := &StartAppV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *StartAppV1BadRequest:
-		return nil, v
+		response := &StartAppV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StartAppV1Unauthorized:
-		return nil, v
+		response := &StartAppV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StartAppV1Forbidden:
-		return nil, v
+		response := &StartAppV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StartAppV1NotFound:
-		return nil, v
+		response := &StartAppV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StartAppV1InternalServerError:
-		return nil, v
+		response := &StartAppV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -490,7 +694,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
 
 Stops the Application
 */
-func (a *Client) StopAppV1Short(params *StopAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV1OK, error) {
+func (a *Client) StopAppV1Short(params *StopAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewStopAppV1Params()
@@ -528,17 +732,47 @@ func (a *Client) StopAppV1Short(params *StopAppV1Params, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *StopAppV1OK:
-		return v, nil
+		response := &StopAppV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *StopAppV1BadRequest:
-		return nil, v
+		response := &StopAppV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopAppV1Unauthorized:
-		return nil, v
+		response := &StopAppV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopAppV1Forbidden:
-		return nil, v
+		response := &StopAppV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopAppV1NotFound:
-		return nil, v
+		response := &StopAppV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopAppV1InternalServerError:
-		return nil, v
+		response := &StopAppV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

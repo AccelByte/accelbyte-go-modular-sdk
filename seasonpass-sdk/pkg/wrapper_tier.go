@@ -9,7 +9,6 @@ package seasonpass
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/tier"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *TierService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *TierService) QueryTiersShort(input *tier.QueryTiersParams) (*seasonpassclientmodels.TierPagingSlicedResult, error) {
+func (aaa *TierService) QueryTiersShort(input *tier.QueryTiersParams) (*tier.QueryTiersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *TierService) QueryTiersShort(input *tier.QueryTiersParams) (*seasonpa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TierService) CreateTierShort(input *tier.CreateTierParams) ([]*seasonpassclientmodels.Tier, error) {
+func (aaa *TierService) CreateTierShort(input *tier.CreateTierParams) (*tier.CreateTierResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *TierService) CreateTierShort(input *tier.CreateTierParams) ([]*season
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *TierService) UpdateTierShort(input *tier.UpdateTierParams) (*seasonpassclientmodels.Tier, error) {
+func (aaa *TierService) UpdateTierShort(input *tier.UpdateTierParams) (*tier.UpdateTierResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *TierService) UpdateTierShort(input *tier.UpdateTierParams) (*seasonpa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *TierService) DeleteTierShort(input *tier.DeleteTierParams) error {
@@ -157,7 +156,7 @@ func (aaa *TierService) DeleteTierShort(input *tier.DeleteTierParams) error {
 	return nil
 }
 
-func (aaa *TierService) ReorderTierShort(input *tier.ReorderTierParams) (*seasonpassclientmodels.Tier, error) {
+func (aaa *TierService) ReorderTierShort(input *tier.ReorderTierParams) (*tier.ReorderTierResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *TierService) ReorderTierShort(input *tier.ReorderTierParams) (*season
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TierService) GrantUserExpShort(input *tier.GrantUserExpParams) (*seasonpassclientmodels.UserSeasonSummary, error) {
+func (aaa *TierService) GrantUserExpShort(input *tier.GrantUserExpParams) (*tier.GrantUserExpResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *TierService) GrantUserExpShort(input *tier.GrantUserExpParams) (*seas
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TierService) GrantUserTierShort(input *tier.GrantUserTierParams) (*seasonpassclientmodels.UserSeasonSummary, error) {
+func (aaa *TierService) GrantUserTierShort(input *tier.GrantUserTierParams) (*tier.GrantUserTierResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,5 +243,5 @@ func (aaa *TierService) GrantUserTierShort(input *tier.GrantUserTierParams) (*se
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

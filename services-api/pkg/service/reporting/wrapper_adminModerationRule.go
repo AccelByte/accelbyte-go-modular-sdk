@@ -9,7 +9,6 @@ package reporting
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_moderation_rule"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -69,7 +68,7 @@ func (aaa *AdminModerationRuleService) CreateModerationRuleShort(input *admin_mo
 	return nil
 }
 
-func (aaa *AdminModerationRuleService) UpdateModerationRuleShort(input *admin_moderation_rule.UpdateModerationRuleParams) (*reportingclientmodels.RestapiModerationRuleResponse, error) {
+func (aaa *AdminModerationRuleService) UpdateModerationRuleShort(input *admin_moderation_rule.UpdateModerationRuleParams) (*admin_moderation_rule.UpdateModerationRuleResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *AdminModerationRuleService) UpdateModerationRuleShort(input *admin_mo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminModerationRuleService) DeleteModerationRuleShort(input *admin_moderation_rule.DeleteModerationRuleParams) error {
@@ -159,7 +158,7 @@ func (aaa *AdminModerationRuleService) UpdateModerationRuleStatusShort(input *ad
 	return nil
 }
 
-func (aaa *AdminModerationRuleService) GetModerationRulesShort(input *admin_moderation_rule.GetModerationRulesParams) (*reportingclientmodels.RestapiModerationRulesList, error) {
+func (aaa *AdminModerationRuleService) GetModerationRulesShort(input *admin_moderation_rule.GetModerationRulesParams) (*admin_moderation_rule.GetModerationRulesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *AdminModerationRuleService) GetModerationRulesShort(input *admin_mode
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminModerationRuleService) GetModerationRuleDetailsShort(input *admin_moderation_rule.GetModerationRuleDetailsParams) (*reportingclientmodels.RestapiModerationRuleResponse, error) {
+func (aaa *AdminModerationRuleService) GetModerationRuleDetailsShort(input *admin_moderation_rule.GetModerationRuleDetailsParams) (*admin_moderation_rule.GetModerationRuleDetailsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,5 +215,5 @@ func (aaa *AdminModerationRuleService) GetModerationRuleDetailsShort(input *admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

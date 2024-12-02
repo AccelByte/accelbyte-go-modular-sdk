@@ -9,7 +9,6 @@ package dsmc
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient/image_config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -127,7 +126,7 @@ func (aaa *ImageConfigService) CreateImagePatchShort(input *image_config.CreateI
 	return nil
 }
 
-func (aaa *ImageConfigService) ListImagesShort(input *image_config.ListImagesParams) (*dsmcclientmodels.ModelsListImageResponse, error) {
+func (aaa *ImageConfigService) ListImagesShort(input *image_config.ListImagesParams) (*image_config.ListImagesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,7 +153,7 @@ func (aaa *ImageConfigService) ListImagesShort(input *image_config.ListImagesPar
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ImageConfigService) DeleteImageShort(input *image_config.DeleteImageParams) error {
@@ -187,7 +186,7 @@ func (aaa *ImageConfigService) DeleteImageShort(input *image_config.DeleteImageP
 	return nil
 }
 
-func (aaa *ImageConfigService) GetImageLimitShort(input *image_config.GetImageLimitParams) (*dsmcclientmodels.ModelsGetImageLimitResponse, error) {
+func (aaa *ImageConfigService) GetImageLimitShort(input *image_config.GetImageLimitParams) (*image_config.GetImageLimitResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,7 +213,7 @@ func (aaa *ImageConfigService) GetImageLimitShort(input *image_config.GetImageLi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ImageConfigService) DeleteImagePatchShort(input *image_config.DeleteImagePatchParams) error {
@@ -247,7 +246,7 @@ func (aaa *ImageConfigService) DeleteImagePatchShort(input *image_config.DeleteI
 	return nil
 }
 
-func (aaa *ImageConfigService) GetImageDetailShort(input *image_config.GetImageDetailParams) (*dsmcclientmodels.ModelsGetImageDetailResponse, error) {
+func (aaa *ImageConfigService) GetImageDetailShort(input *image_config.GetImageDetailParams) (*image_config.GetImageDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *ImageConfigService) GetImageDetailShort(input *image_config.GetImageD
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ImageConfigService) GetImagePatchesShort(input *image_config.GetImagePatchesParams) (*dsmcclientmodels.ModelsListImagePatchesResponse, error) {
+func (aaa *ImageConfigService) GetImagePatchesShort(input *image_config.GetImagePatchesParams) (*image_config.GetImagePatchesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *ImageConfigService) GetImagePatchesShort(input *image_config.GetImage
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ImageConfigService) GetImagePatchDetailShort(input *image_config.GetImagePatchDetailParams) (*dsmcclientmodels.ModelsGetImagePatchDetailResponse, error) {
+func (aaa *ImageConfigService) GetImagePatchDetailShort(input *image_config.GetImagePatchDetailParams) (*image_config.GetImagePatchDetailResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *ImageConfigService) GetImagePatchDetailShort(input *image_config.GetI
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ImageConfigService) GetRepositoryShort(input *image_config.GetRepositoryParams) (*dsmcclientmodels.ModelsRepositoryRecord, error) {
+func (aaa *ImageConfigService) GetRepositoryShort(input *image_config.GetRepositoryParams) (*image_config.GetRepositoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,7 +363,7 @@ func (aaa *ImageConfigService) GetRepositoryShort(input *image_config.GetReposit
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ImageConfigService) CreateRepositoryShort(input *image_config.CreateRepositoryParams) error {
@@ -397,7 +396,7 @@ func (aaa *ImageConfigService) CreateRepositoryShort(input *image_config.CreateR
 	return nil
 }
 
-func (aaa *ImageConfigService) ListImagesClientShort(input *image_config.ListImagesClientParams) (*dsmcclientmodels.ModelsListImageResponse, error) {
+func (aaa *ImageConfigService) ListImagesClientShort(input *image_config.ListImagesClientParams) (*image_config.ListImagesClientResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,10 +423,10 @@ func (aaa *ImageConfigService) ListImagesClientShort(input *image_config.ListIma
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ImageConfigService) ImageLimitClientShort(input *image_config.ImageLimitClientParams) (*dsmcclientmodels.ModelsGetImageLimitResponse, error) {
+func (aaa *ImageConfigService) ImageLimitClientShort(input *image_config.ImageLimitClientParams) (*image_config.ImageLimitClientResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *ImageConfigService) ImageLimitClientShort(input *image_config.ImageLi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ImageConfigService) ImageDetailClientShort(input *image_config.ImageDetailClientParams) (*dsmcclientmodels.ModelsGetImageDetailResponse, error) {
+func (aaa *ImageConfigService) ImageDetailClientShort(input *image_config.ImageDetailClientParams) (*image_config.ImageDetailClientResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,5 +483,5 @@ func (aaa *ImageConfigService) ImageDetailClientShort(input *image_config.ImageD
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

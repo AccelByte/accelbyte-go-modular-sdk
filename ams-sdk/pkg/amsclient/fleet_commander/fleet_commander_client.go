@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PortalHealthCheckShort(params *PortalHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*PortalHealthCheckOK, error)
-	Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfoWriter) (*Func1OK, error)
-	BasicHealthCheckShort(params *BasicHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*BasicHealthCheckOK, error)
+	PortalHealthCheckShort(params *PortalHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*PortalHealthCheckResponse, error)
+	Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfoWriter) (*Func1Response, error)
+	BasicHealthCheckShort(params *BasicHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*BasicHealthCheckResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 /*
 PortalHealthCheckShort health check
 */
-func (a *Client) PortalHealthCheckShort(params *PortalHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*PortalHealthCheckOK, error) {
+func (a *Client) PortalHealthCheckShort(params *PortalHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*PortalHealthCheckResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPortalHealthCheckParams()
@@ -78,7 +78,11 @@ func (a *Client) PortalHealthCheckShort(params *PortalHealthCheckParams, authInf
 	switch v := result.(type) {
 
 	case *PortalHealthCheckOK:
-		return v, nil
+		response := &PortalHealthCheckResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -88,7 +92,7 @@ func (a *Client) PortalHealthCheckShort(params *PortalHealthCheckParams, authInf
 /*
 Func1Short version info
 */
-func (a *Client) Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfoWriter) (*Func1OK, error) {
+func (a *Client) Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfoWriter) (*Func1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunc1Params()
@@ -126,7 +130,11 @@ func (a *Client) Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfo
 	switch v := result.(type) {
 
 	case *Func1OK:
-		return v, nil
+		response := &Func1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -136,7 +144,7 @@ func (a *Client) Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfo
 /*
 BasicHealthCheckShort health check
 */
-func (a *Client) BasicHealthCheckShort(params *BasicHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*BasicHealthCheckOK, error) {
+func (a *Client) BasicHealthCheckShort(params *BasicHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*BasicHealthCheckResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBasicHealthCheckParams()
@@ -174,7 +182,11 @@ func (a *Client) BasicHealthCheckShort(params *BasicHealthCheckParams, authInfo 
 	switch v := result.(type) {
 
 	case *BasicHealthCheckOK:
-		return v, nil
+		response := &BasicHealthCheckResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

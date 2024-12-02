@@ -31,73 +31,73 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListInvitationHistoriesV4Short(params *AdminListInvitationHistoriesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListInvitationHistoriesV4OK, error)
-	AdminGetNamespaceInvitationHistoryV4Short(params *AdminGetNamespaceInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceInvitationHistoryV4OK, error)
-	AdminGetNamespaceUserInvitationHistoryV4Short(params *AdminGetNamespaceUserInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceUserInvitationHistoryV4OK, error)
-	AdminCreateTestUsersV4Short(params *AdminCreateTestUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTestUsersV4Created, error)
-	AdminCreateUserV4Short(params *AdminCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserV4Created, error)
-	AdminBulkUpdateUserAccountTypeV4Short(params *AdminBulkUpdateUserAccountTypeV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateUserAccountTypeV4NoContent, error)
-	AdminBulkCheckValidUserIDV4Short(params *AdminBulkCheckValidUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkCheckValidUserIDV4OK, error)
-	AdminUpdateUserV4Short(params *AdminUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV4OK, error)
-	AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserEmailAddressV4NoContent, error)
-	AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserMFAV4NoContent, error)
-	AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMFAStatusV4OK, error)
-	AdminListUserRolesV4Short(params *AdminListUserRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserRolesV4OK, error)
-	AdminUpdateUserRoleV4Short(params *AdminUpdateUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserRoleV4OK, error)
-	AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV4OK, error)
-	AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveUserRoleV4NoContent, error)
-	AdminInviteUserNewV4Short(params *AdminInviteUserNewV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserNewV4Created, error)
-	AdminUpdateMyUserV4Short(params *AdminUpdateMyUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateMyUserV4OK, error)
-	AdminDisableMyAuthenticatorV4Short(params *AdminDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyAuthenticatorV4NoContent, error)
-	AdminEnableMyAuthenticatorV4Short(params *AdminEnableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyAuthenticatorV4NoContent, error)
-	AdminGenerateMyAuthenticatorKeyV4Short(params *AdminGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyAuthenticatorKeyV4OK, error)
-	AdminGetMyBackupCodesV4Short(params *AdminGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyBackupCodesV4OK, error)
-	AdminGenerateMyBackupCodesV4Short(params *AdminGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyBackupCodesV4OK, error)
-	AdminDisableMyBackupCodesV4Short(params *AdminDisableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyBackupCodesV4NoContent, error)
-	AdminDownloadMyBackupCodesV4Short(params *AdminDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminDownloadMyBackupCodesV4OK, error)
-	AdminEnableMyBackupCodesV4Short(params *AdminEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyBackupCodesV4OK, error)
-	AdminGetBackupCodesV4Short(params *AdminGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBackupCodesV4NoContent, error)
-	AdminGenerateBackupCodesV4Short(params *AdminGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateBackupCodesV4OK, error)
-	AdminEnableBackupCodesV4Short(params *AdminEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableBackupCodesV4OK, error)
-	AdminChallengeMyMFAV4Short(params *AdminChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChallengeMyMFAV4OK, error)
-	AdminSendMyMFAEmailCodeV4Short(params *AdminSendMyMFAEmailCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendMyMFAEmailCodeV4NoContent, error)
-	AdminDisableMyEmailV4Short(params *AdminDisableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyEmailV4NoContent, error)
-	AdminEnableMyEmailV4Short(params *AdminEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyEmailV4NoContent, error)
-	AdminGetMyEnabledFactorsV4Short(params *AdminGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyEnabledFactorsV4OK, error)
-	AdminMakeFactorMyDefaultV4Short(params *AdminMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminMakeFactorMyDefaultV4NoContent, error)
-	AdminGetMyOwnMFAStatusV4Short(params *AdminGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyOwnMFAStatusV4OK, error)
-	AdminGetMyMFAStatusV4Short(params *AdminGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyMFAStatusV4OK, error)
-	AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV4Created, error)
-	PublicListUserIDByPlatformUserIDsV4Short(params *PublicListUserIDByPlatformUserIDsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV4OK, error)
-	PublicCreateTestUserV4Short(params *PublicCreateTestUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateTestUserV4Created, error)
-	PublicCreateUserV4Short(params *PublicCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV4Created, error)
-	CreateUserFromInvitationV4Short(params *CreateUserFromInvitationV4Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV4Created, error)
-	PublicUpdateUserV4Short(params *PublicUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV4OK, error)
-	PublicUpdateUserEmailAddressV4Short(params *PublicUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserEmailAddressV4NoContent, error)
-	PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(params *PublicUpgradeHeadlessAccountWithVerificationCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountWithVerificationCodeV4OK, error)
-	PublicUpgradeHeadlessAccountV4Short(params *PublicUpgradeHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV4OK, error)
-	PublicDisableMyAuthenticatorV4Short(params *PublicDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyAuthenticatorV4NoContent, error)
-	PublicEnableMyAuthenticatorV4Short(params *PublicEnableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyAuthenticatorV4NoContent, error)
-	PublicGenerateMyAuthenticatorKeyV4Short(params *PublicGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyAuthenticatorKeyV4OK, error)
-	PublicGetMyBackupCodesV4Short(params *PublicGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyBackupCodesV4OK, error)
-	PublicGenerateMyBackupCodesV4Short(params *PublicGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyBackupCodesV4OK, error)
-	PublicDisableMyBackupCodesV4Short(params *PublicDisableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyBackupCodesV4NoContent, error)
-	PublicDownloadMyBackupCodesV4Short(params *PublicDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadMyBackupCodesV4OK, error)
-	PublicEnableMyBackupCodesV4Short(params *PublicEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyBackupCodesV4OK, error)
-	PublicGetBackupCodesV4Short(params *PublicGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBackupCodesV4NoContent, error)
-	PublicGenerateBackupCodesV4Short(params *PublicGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateBackupCodesV4NoContent, error)
-	PublicEnableBackupCodesV4Short(params *PublicEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableBackupCodesV4NoContent, error)
-	PublicChallengeMyMFAV4Short(params *PublicChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicChallengeMyMFAV4OK, error)
-	PublicRemoveTrustedDeviceV4Short(params *PublicRemoveTrustedDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicRemoveTrustedDeviceV4NoContent, error)
-	PublicSendMyMFAEmailCodeV4Short(params *PublicSendMyMFAEmailCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendMyMFAEmailCodeV4NoContent, error)
-	PublicDisableMyEmailV4Short(params *PublicDisableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyEmailV4NoContent, error)
-	PublicEnableMyEmailV4Short(params *PublicEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyEmailV4NoContent, error)
-	PublicGetMyEnabledFactorsV4Short(params *PublicGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEnabledFactorsV4OK, error)
-	PublicMakeFactorMyDefaultV4Short(params *PublicMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicMakeFactorMyDefaultV4NoContent, error)
-	PublicGetMyOwnMFAStatusV4Short(params *PublicGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyOwnMFAStatusV4OK, error)
-	PublicGetMyMFAStatusV4Short(params *PublicGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyMFAStatusV4OK, error)
-	PublicGetUserPublicInfoByUserIDV4Short(params *PublicGetUserPublicInfoByUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPublicInfoByUserIDV4OK, error)
-	PublicInviteUserV4Short(params *PublicInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicInviteUserV4Created, error)
+	AdminListInvitationHistoriesV4Short(params *AdminListInvitationHistoriesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListInvitationHistoriesV4Response, error)
+	AdminGetNamespaceInvitationHistoryV4Short(params *AdminGetNamespaceInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceInvitationHistoryV4Response, error)
+	AdminGetNamespaceUserInvitationHistoryV4Short(params *AdminGetNamespaceUserInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceUserInvitationHistoryV4Response, error)
+	AdminCreateTestUsersV4Short(params *AdminCreateTestUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTestUsersV4Response, error)
+	AdminCreateUserV4Short(params *AdminCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserV4Response, error)
+	AdminBulkUpdateUserAccountTypeV4Short(params *AdminBulkUpdateUserAccountTypeV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateUserAccountTypeV4Response, error)
+	AdminBulkCheckValidUserIDV4Short(params *AdminBulkCheckValidUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkCheckValidUserIDV4Response, error)
+	AdminUpdateUserV4Short(params *AdminUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV4Response, error)
+	AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserEmailAddressV4Response, error)
+	AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserMFAV4Response, error)
+	AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMFAStatusV4Response, error)
+	AdminListUserRolesV4Short(params *AdminListUserRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserRolesV4Response, error)
+	AdminUpdateUserRoleV4Short(params *AdminUpdateUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserRoleV4Response, error)
+	AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV4Response, error)
+	AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveUserRoleV4Response, error)
+	AdminInviteUserNewV4Short(params *AdminInviteUserNewV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserNewV4Response, error)
+	AdminUpdateMyUserV4Short(params *AdminUpdateMyUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateMyUserV4Response, error)
+	AdminDisableMyAuthenticatorV4Short(params *AdminDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyAuthenticatorV4Response, error)
+	AdminEnableMyAuthenticatorV4Short(params *AdminEnableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyAuthenticatorV4Response, error)
+	AdminGenerateMyAuthenticatorKeyV4Short(params *AdminGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyAuthenticatorKeyV4Response, error)
+	AdminGetMyBackupCodesV4Short(params *AdminGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyBackupCodesV4Response, error)
+	AdminGenerateMyBackupCodesV4Short(params *AdminGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyBackupCodesV4Response, error)
+	AdminDisableMyBackupCodesV4Short(params *AdminDisableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyBackupCodesV4Response, error)
+	AdminDownloadMyBackupCodesV4Short(params *AdminDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminDownloadMyBackupCodesV4Response, error)
+	AdminEnableMyBackupCodesV4Short(params *AdminEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyBackupCodesV4Response, error)
+	AdminGetBackupCodesV4Short(params *AdminGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBackupCodesV4Response, error)
+	AdminGenerateBackupCodesV4Short(params *AdminGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateBackupCodesV4Response, error)
+	AdminEnableBackupCodesV4Short(params *AdminEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableBackupCodesV4Response, error)
+	AdminChallengeMyMFAV4Short(params *AdminChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChallengeMyMFAV4Response, error)
+	AdminSendMyMFAEmailCodeV4Short(params *AdminSendMyMFAEmailCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendMyMFAEmailCodeV4Response, error)
+	AdminDisableMyEmailV4Short(params *AdminDisableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyEmailV4Response, error)
+	AdminEnableMyEmailV4Short(params *AdminEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyEmailV4Response, error)
+	AdminGetMyEnabledFactorsV4Short(params *AdminGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyEnabledFactorsV4Response, error)
+	AdminMakeFactorMyDefaultV4Short(params *AdminMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminMakeFactorMyDefaultV4Response, error)
+	AdminGetMyOwnMFAStatusV4Short(params *AdminGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyOwnMFAStatusV4Response, error)
+	AdminGetMyMFAStatusV4Short(params *AdminGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyMFAStatusV4Response, error)
+	AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV4Response, error)
+	PublicListUserIDByPlatformUserIDsV4Short(params *PublicListUserIDByPlatformUserIDsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV4Response, error)
+	PublicCreateTestUserV4Short(params *PublicCreateTestUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateTestUserV4Response, error)
+	PublicCreateUserV4Short(params *PublicCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV4Response, error)
+	CreateUserFromInvitationV4Short(params *CreateUserFromInvitationV4Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV4Response, error)
+	PublicUpdateUserV4Short(params *PublicUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV4Response, error)
+	PublicUpdateUserEmailAddressV4Short(params *PublicUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserEmailAddressV4Response, error)
+	PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(params *PublicUpgradeHeadlessAccountWithVerificationCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountWithVerificationCodeV4Response, error)
+	PublicUpgradeHeadlessAccountV4Short(params *PublicUpgradeHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV4Response, error)
+	PublicDisableMyAuthenticatorV4Short(params *PublicDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyAuthenticatorV4Response, error)
+	PublicEnableMyAuthenticatorV4Short(params *PublicEnableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyAuthenticatorV4Response, error)
+	PublicGenerateMyAuthenticatorKeyV4Short(params *PublicGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyAuthenticatorKeyV4Response, error)
+	PublicGetMyBackupCodesV4Short(params *PublicGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyBackupCodesV4Response, error)
+	PublicGenerateMyBackupCodesV4Short(params *PublicGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyBackupCodesV4Response, error)
+	PublicDisableMyBackupCodesV4Short(params *PublicDisableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyBackupCodesV4Response, error)
+	PublicDownloadMyBackupCodesV4Short(params *PublicDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadMyBackupCodesV4Response, error)
+	PublicEnableMyBackupCodesV4Short(params *PublicEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyBackupCodesV4Response, error)
+	PublicGetBackupCodesV4Short(params *PublicGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBackupCodesV4Response, error)
+	PublicGenerateBackupCodesV4Short(params *PublicGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateBackupCodesV4Response, error)
+	PublicEnableBackupCodesV4Short(params *PublicEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableBackupCodesV4Response, error)
+	PublicChallengeMyMFAV4Short(params *PublicChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicChallengeMyMFAV4Response, error)
+	PublicRemoveTrustedDeviceV4Short(params *PublicRemoveTrustedDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicRemoveTrustedDeviceV4Response, error)
+	PublicSendMyMFAEmailCodeV4Short(params *PublicSendMyMFAEmailCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendMyMFAEmailCodeV4Response, error)
+	PublicDisableMyEmailV4Short(params *PublicDisableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyEmailV4Response, error)
+	PublicEnableMyEmailV4Short(params *PublicEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyEmailV4Response, error)
+	PublicGetMyEnabledFactorsV4Short(params *PublicGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEnabledFactorsV4Response, error)
+	PublicMakeFactorMyDefaultV4Short(params *PublicMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicMakeFactorMyDefaultV4Response, error)
+	PublicGetMyOwnMFAStatusV4Short(params *PublicGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyOwnMFAStatusV4Response, error)
+	PublicGetMyMFAStatusV4Short(params *PublicGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyMFAStatusV4Response, error)
+	PublicGetUserPublicInfoByUserIDV4Short(params *PublicGetUserPublicInfoByUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPublicInfoByUserIDV4Response, error)
+	PublicInviteUserV4Short(params *PublicInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicInviteUserV4Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -111,7 +111,7 @@ Accepted Query:
 - offset
 - limit
 */
-func (a *Client) AdminListInvitationHistoriesV4Short(params *AdminListInvitationHistoriesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListInvitationHistoriesV4OK, error) {
+func (a *Client) AdminListInvitationHistoriesV4Short(params *AdminListInvitationHistoriesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListInvitationHistoriesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListInvitationHistoriesV4Params()
@@ -149,17 +149,47 @@ func (a *Client) AdminListInvitationHistoriesV4Short(params *AdminListInvitation
 	switch v := result.(type) {
 
 	case *AdminListInvitationHistoriesV4OK:
-		return v, nil
+		response := &AdminListInvitationHistoriesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListInvitationHistoriesV4BadRequest:
-		return nil, v
+		response := &AdminListInvitationHistoriesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListInvitationHistoriesV4Unauthorized:
-		return nil, v
+		response := &AdminListInvitationHistoriesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListInvitationHistoriesV4Forbidden:
-		return nil, v
+		response := &AdminListInvitationHistoriesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListInvitationHistoriesV4InternalServerError:
-		return nil, v
+		response := &AdminListInvitationHistoriesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListInvitationHistoriesV4NotImplemented:
-		return nil, v
+		response := &AdminListInvitationHistoriesV4Response{}
+		response.Error501 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -171,7 +201,7 @@ AdminGetNamespaceInvitationHistoryV4Short admin get invitation history for speci
 This endpoint is to Invitation Historiy for specific new studio namespace in multi tenant mode.
 It will return error if the service multi tenant mode is set to false.
 */
-func (a *Client) AdminGetNamespaceInvitationHistoryV4Short(params *AdminGetNamespaceInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceInvitationHistoryV4OK, error) {
+func (a *Client) AdminGetNamespaceInvitationHistoryV4Short(params *AdminGetNamespaceInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceInvitationHistoryV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetNamespaceInvitationHistoryV4Params()
@@ -209,17 +239,47 @@ func (a *Client) AdminGetNamespaceInvitationHistoryV4Short(params *AdminGetNames
 	switch v := result.(type) {
 
 	case *AdminGetNamespaceInvitationHistoryV4OK:
-		return v, nil
+		response := &AdminGetNamespaceInvitationHistoryV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetNamespaceInvitationHistoryV4Unauthorized:
-		return nil, v
+		response := &AdminGetNamespaceInvitationHistoryV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetNamespaceInvitationHistoryV4Forbidden:
-		return nil, v
+		response := &AdminGetNamespaceInvitationHistoryV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetNamespaceInvitationHistoryV4NotFound:
-		return nil, v
+		response := &AdminGetNamespaceInvitationHistoryV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetNamespaceInvitationHistoryV4InternalServerError:
-		return nil, v
+		response := &AdminGetNamespaceInvitationHistoryV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetNamespaceInvitationHistoryV4NotImplemented:
-		return nil, v
+		response := &AdminGetNamespaceInvitationHistoryV4Response{}
+		response.Error501 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -234,7 +294,7 @@ Accepted Query:
 - offset
 - limit
 */
-func (a *Client) AdminGetNamespaceUserInvitationHistoryV4Short(params *AdminGetNamespaceUserInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceUserInvitationHistoryV4OK, error) {
+func (a *Client) AdminGetNamespaceUserInvitationHistoryV4Short(params *AdminGetNamespaceUserInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceUserInvitationHistoryV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetNamespaceUserInvitationHistoryV4Params()
@@ -272,17 +332,47 @@ func (a *Client) AdminGetNamespaceUserInvitationHistoryV4Short(params *AdminGetN
 	switch v := result.(type) {
 
 	case *AdminGetNamespaceUserInvitationHistoryV4OK:
-		return v, nil
+		response := &AdminGetNamespaceUserInvitationHistoryV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetNamespaceUserInvitationHistoryV4BadRequest:
-		return nil, v
+		response := &AdminGetNamespaceUserInvitationHistoryV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetNamespaceUserInvitationHistoryV4Unauthorized:
-		return nil, v
+		response := &AdminGetNamespaceUserInvitationHistoryV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetNamespaceUserInvitationHistoryV4Forbidden:
-		return nil, v
+		response := &AdminGetNamespaceUserInvitationHistoryV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetNamespaceUserInvitationHistoryV4InternalServerError:
-		return nil, v
+		response := &AdminGetNamespaceUserInvitationHistoryV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetNamespaceUserInvitationHistoryV4NotImplemented:
-		return nil, v
+		response := &AdminGetNamespaceUserInvitationHistoryV4Response{}
+		response.Error501 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -297,7 +387,7 @@ Note:
 - userInfo(optional) :
 - country: you can specify country for the test user. Country use ISO3166-1 alpha-2 two letter, e.g. US
 */
-func (a *Client) AdminCreateTestUsersV4Short(params *AdminCreateTestUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTestUsersV4Created, error) {
+func (a *Client) AdminCreateTestUsersV4Short(params *AdminCreateTestUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTestUsersV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateTestUsersV4Params()
@@ -335,13 +425,33 @@ func (a *Client) AdminCreateTestUsersV4Short(params *AdminCreateTestUsersV4Param
 	switch v := result.(type) {
 
 	case *AdminCreateTestUsersV4Created:
-		return v, nil
+		response := &AdminCreateTestUsersV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateTestUsersV4BadRequest:
-		return nil, v
+		response := &AdminCreateTestUsersV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateTestUsersV4InternalServerError:
-		return nil, v
+		response := &AdminCreateTestUsersV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateTestUsersV4NotImplemented:
-		return nil, v
+		response := &AdminCreateTestUsersV4Response{}
+		response.Error501 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -364,7 +474,7 @@ Create a new user with unique email address and username.
 - displayName: Please refer to the rule from /v3/public/inputValidations API.
 This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
 */
-func (a *Client) AdminCreateUserV4Short(params *AdminCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserV4Created, error) {
+func (a *Client) AdminCreateUserV4Short(params *AdminCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateUserV4Params()
@@ -402,19 +512,54 @@ func (a *Client) AdminCreateUserV4Short(params *AdminCreateUserV4Params, authInf
 	switch v := result.(type) {
 
 	case *AdminCreateUserV4Created:
-		return v, nil
+		response := &AdminCreateUserV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateUserV4BadRequest:
-		return nil, v
+		response := &AdminCreateUserV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserV4Unauthorized:
-		return nil, v
+		response := &AdminCreateUserV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserV4Forbidden:
-		return nil, v
+		response := &AdminCreateUserV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserV4NotFound:
-		return nil, v
+		response := &AdminCreateUserV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserV4Conflict:
-		return nil, v
+		response := &AdminCreateUserV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateUserV4InternalServerError:
-		return nil, v
+		response := &AdminCreateUserV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -427,7 +572,7 @@ This endpoint is used to change users account type
 - set **testAccount** to `true` to mark user as test account type
 - set **testAccount** to `false` to mark user as default account type
 */
-func (a *Client) AdminBulkUpdateUserAccountTypeV4Short(params *AdminBulkUpdateUserAccountTypeV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateUserAccountTypeV4NoContent, error) {
+func (a *Client) AdminBulkUpdateUserAccountTypeV4Short(params *AdminBulkUpdateUserAccountTypeV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateUserAccountTypeV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkUpdateUserAccountTypeV4Params()
@@ -465,17 +610,46 @@ func (a *Client) AdminBulkUpdateUserAccountTypeV4Short(params *AdminBulkUpdateUs
 	switch v := result.(type) {
 
 	case *AdminBulkUpdateUserAccountTypeV4NoContent:
-		return v, nil
+		response := &AdminBulkUpdateUserAccountTypeV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkUpdateUserAccountTypeV4BadRequest:
-		return nil, v
+		response := &AdminBulkUpdateUserAccountTypeV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateUserAccountTypeV4Unauthorized:
-		return nil, v
+		response := &AdminBulkUpdateUserAccountTypeV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateUserAccountTypeV4Forbidden:
-		return nil, v
+		response := &AdminBulkUpdateUserAccountTypeV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateUserAccountTypeV4NotFound:
-		return nil, v
+		response := &AdminBulkUpdateUserAccountTypeV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateUserAccountTypeV4InternalServerError:
-		return nil, v
+		response := &AdminBulkUpdateUserAccountTypeV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -487,7 +661,7 @@ AdminBulkCheckValidUserIDV4Short admin check valid user id
 Use this endpoint to check if userID exists or not
 Maximum number of userID to be checked is 50
 */
-func (a *Client) AdminBulkCheckValidUserIDV4Short(params *AdminBulkCheckValidUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkCheckValidUserIDV4OK, error) {
+func (a *Client) AdminBulkCheckValidUserIDV4Short(params *AdminBulkCheckValidUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkCheckValidUserIDV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkCheckValidUserIDV4Params()
@@ -525,15 +699,40 @@ func (a *Client) AdminBulkCheckValidUserIDV4Short(params *AdminBulkCheckValidUse
 	switch v := result.(type) {
 
 	case *AdminBulkCheckValidUserIDV4OK:
-		return v, nil
+		response := &AdminBulkCheckValidUserIDV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkCheckValidUserIDV4BadRequest:
-		return nil, v
+		response := &AdminBulkCheckValidUserIDV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkCheckValidUserIDV4Unauthorized:
-		return nil, v
+		response := &AdminBulkCheckValidUserIDV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkCheckValidUserIDV4Forbidden:
-		return nil, v
+		response := &AdminBulkCheckValidUserIDV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkCheckValidUserIDV4InternalServerError:
-		return nil, v
+		response := &AdminBulkCheckValidUserIDV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -554,7 +753,7 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 
 action code : 10103
 */
-func (a *Client) AdminUpdateUserV4Short(params *AdminUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV4OK, error) {
+func (a *Client) AdminUpdateUserV4Short(params *AdminUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserV4Params()
@@ -592,19 +791,54 @@ func (a *Client) AdminUpdateUserV4Short(params *AdminUpdateUserV4Params, authInf
 	switch v := result.(type) {
 
 	case *AdminUpdateUserV4OK:
-		return v, nil
+		response := &AdminUpdateUserV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserV4BadRequest:
-		return nil, v
+		response := &AdminUpdateUserV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV4Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV4Forbidden:
-		return nil, v
+		response := &AdminUpdateUserV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV4NotFound:
-		return nil, v
+		response := &AdminUpdateUserV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV4Conflict:
-		return nil, v
+		response := &AdminUpdateUserV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserV4InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -616,7 +850,7 @@ AdminUpdateUserEmailAddressV4Short update a user email address
 This is the endpoint for an admin to update a user email address.
 This endpoint need a valid user token from an admin to verify its identity (email) before updating a user.
 */
-func (a *Client) AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserEmailAddressV4NoContent, error) {
+func (a *Client) AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserEmailAddressV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserEmailAddressV4Params()
@@ -654,17 +888,46 @@ func (a *Client) AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmail
 	switch v := result.(type) {
 
 	case *AdminUpdateUserEmailAddressV4NoContent:
-		return v, nil
+		response := &AdminUpdateUserEmailAddressV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserEmailAddressV4BadRequest:
-		return nil, v
+		response := &AdminUpdateUserEmailAddressV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserEmailAddressV4Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserEmailAddressV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserEmailAddressV4NotFound:
-		return nil, v
+		response := &AdminUpdateUserEmailAddressV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserEmailAddressV4Conflict:
-		return nil, v
+		response := &AdminUpdateUserEmailAddressV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserEmailAddressV4InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserEmailAddressV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -677,7 +940,7 @@ This endpoint is used to disable user 2FA.
 -----------
 **Note**: if the factor is not specified, will disable all 2FA methods.
 */
-func (a *Client) AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserMFAV4NoContent, error) {
+func (a *Client) AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableUserMFAV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDisableUserMFAV4Params()
@@ -715,17 +978,46 @@ func (a *Client) AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params,
 	switch v := result.(type) {
 
 	case *AdminDisableUserMFAV4NoContent:
-		return v, nil
+		response := &AdminDisableUserMFAV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDisableUserMFAV4BadRequest:
-		return nil, v
+		response := &AdminDisableUserMFAV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableUserMFAV4Unauthorized:
-		return nil, v
+		response := &AdminDisableUserMFAV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableUserMFAV4Forbidden:
-		return nil, v
+		response := &AdminDisableUserMFAV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableUserMFAV4NotFound:
-		return nil, v
+		response := &AdminDisableUserMFAV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableUserMFAV4InternalServerError:
-		return nil, v
+		response := &AdminDisableUserMFAV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -736,7 +1028,7 @@ func (a *Client) AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params,
 AdminGetUserMFAStatusV4Short get user 2fa status
 **This endpoint is used to get user's 2FA status.**
 */
-func (a *Client) AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMFAStatusV4OK, error) {
+func (a *Client) AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMFAStatusV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserMFAStatusV4Params()
@@ -774,15 +1066,40 @@ func (a *Client) AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Par
 	switch v := result.(type) {
 
 	case *AdminGetUserMFAStatusV4OK:
-		return v, nil
+		response := &AdminGetUserMFAStatusV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserMFAStatusV4Unauthorized:
-		return nil, v
+		response := &AdminGetUserMFAStatusV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserMFAStatusV4Forbidden:
-		return nil, v
+		response := &AdminGetUserMFAStatusV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserMFAStatusV4NotFound:
-		return nil, v
+		response := &AdminGetUserMFAStatusV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserMFAStatusV4InternalServerError:
-		return nil, v
+		response := &AdminGetUserMFAStatusV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -793,7 +1110,7 @@ func (a *Client) AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Par
 AdminListUserRolesV4Short admin list user's roles v4
 List roles assigned to a user
 */
-func (a *Client) AdminListUserRolesV4Short(params *AdminListUserRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserRolesV4OK, error) {
+func (a *Client) AdminListUserRolesV4Short(params *AdminListUserRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserRolesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListUserRolesV4Params()
@@ -831,15 +1148,40 @@ func (a *Client) AdminListUserRolesV4Short(params *AdminListUserRolesV4Params, a
 	switch v := result.(type) {
 
 	case *AdminListUserRolesV4OK:
-		return v, nil
+		response := &AdminListUserRolesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListUserRolesV4Unauthorized:
-		return nil, v
+		response := &AdminListUserRolesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserRolesV4Forbidden:
-		return nil, v
+		response := &AdminListUserRolesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserRolesV4NotFound:
-		return nil, v
+		response := &AdminListUserRolesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserRolesV4InternalServerError:
-		return nil, v
+		response := &AdminListUserRolesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -851,7 +1193,7 @@ AdminUpdateUserRoleV4Short admin update user's role v4
 User's roles will be replaced with roles from request body.
 An admin user can only assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of this endpoint.
 */
-func (a *Client) AdminUpdateUserRoleV4Short(params *AdminUpdateUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserRoleV4OK, error) {
+func (a *Client) AdminUpdateUserRoleV4Short(params *AdminUpdateUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateUserRoleV4Params()
@@ -889,19 +1231,54 @@ func (a *Client) AdminUpdateUserRoleV4Short(params *AdminUpdateUserRoleV4Params,
 	switch v := result.(type) {
 
 	case *AdminUpdateUserRoleV4OK:
-		return v, nil
+		response := &AdminUpdateUserRoleV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateUserRoleV4BadRequest:
-		return nil, v
+		response := &AdminUpdateUserRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserRoleV4Unauthorized:
-		return nil, v
+		response := &AdminUpdateUserRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserRoleV4Forbidden:
-		return nil, v
+		response := &AdminUpdateUserRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserRoleV4NotFound:
-		return nil, v
+		response := &AdminUpdateUserRoleV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserRoleV4UnprocessableEntity:
-		return nil, v
+		response := &AdminUpdateUserRoleV4Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateUserRoleV4InternalServerError:
-		return nil, v
+		response := &AdminUpdateUserRoleV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -913,7 +1290,7 @@ AdminAddUserRoleV4Short admin add user's role v4
 New role will be appended to user's current roles.
 An admin user can only assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of this endpoint.
 */
-func (a *Client) AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV4OK, error) {
+func (a *Client) AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddUserRoleV4Params()
@@ -951,19 +1328,54 @@ func (a *Client) AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authI
 	switch v := result.(type) {
 
 	case *AdminAddUserRoleV4OK:
-		return v, nil
+		response := &AdminAddUserRoleV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddUserRoleV4BadRequest:
-		return nil, v
+		response := &AdminAddUserRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV4Unauthorized:
-		return nil, v
+		response := &AdminAddUserRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV4Forbidden:
-		return nil, v
+		response := &AdminAddUserRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV4NotFound:
-		return nil, v
+		response := &AdminAddUserRoleV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV4UnprocessableEntity:
-		return nil, v
+		response := &AdminAddUserRoleV4Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddUserRoleV4InternalServerError:
-		return nil, v
+		response := &AdminAddUserRoleV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -974,7 +1386,7 @@ func (a *Client) AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authI
 AdminRemoveUserRoleV4Short admin remove user role v4
 Remove a role from user's roles.
 */
-func (a *Client) AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveUserRoleV4NoContent, error) {
+func (a *Client) AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveUserRoleV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminRemoveUserRoleV4Params()
@@ -1012,19 +1424,53 @@ func (a *Client) AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params,
 	switch v := result.(type) {
 
 	case *AdminRemoveUserRoleV4NoContent:
-		return v, nil
+		response := &AdminRemoveUserRoleV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminRemoveUserRoleV4BadRequest:
-		return nil, v
+		response := &AdminRemoveUserRoleV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveUserRoleV4Unauthorized:
-		return nil, v
+		response := &AdminRemoveUserRoleV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveUserRoleV4Forbidden:
-		return nil, v
+		response := &AdminRemoveUserRoleV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveUserRoleV4NotFound:
-		return nil, v
+		response := &AdminRemoveUserRoleV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveUserRoleV4UnprocessableEntity:
-		return nil, v
+		response := &AdminRemoveUserRoleV4Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminRemoveUserRoleV4InternalServerError:
-		return nil, v
+		response := &AdminRemoveUserRoleV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1047,7 +1493,7 @@ if specified, it will become that studio/publisher where user is invited to.
 
 The invited admin will also assigned with "User" role by default.
 */
-func (a *Client) AdminInviteUserNewV4Short(params *AdminInviteUserNewV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserNewV4Created, error) {
+func (a *Client) AdminInviteUserNewV4Short(params *AdminInviteUserNewV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserNewV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminInviteUserNewV4Params()
@@ -1085,21 +1531,61 @@ func (a *Client) AdminInviteUserNewV4Short(params *AdminInviteUserNewV4Params, a
 	switch v := result.(type) {
 
 	case *AdminInviteUserNewV4Created:
-		return v, nil
+		response := &AdminInviteUserNewV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminInviteUserNewV4BadRequest:
-		return nil, v
+		response := &AdminInviteUserNewV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserNewV4Unauthorized:
-		return nil, v
+		response := &AdminInviteUserNewV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserNewV4Forbidden:
-		return nil, v
+		response := &AdminInviteUserNewV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserNewV4NotFound:
-		return nil, v
+		response := &AdminInviteUserNewV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserNewV4Conflict:
-		return nil, v
+		response := &AdminInviteUserNewV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserNewV4UnprocessableEntity:
-		return nil, v
+		response := &AdminInviteUserNewV4Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserNewV4InternalServerError:
-		return nil, v
+		response := &AdminInviteUserNewV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1115,7 +1601,7 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 
 action code : 10103
 */
-func (a *Client) AdminUpdateMyUserV4Short(params *AdminUpdateMyUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateMyUserV4OK, error) {
+func (a *Client) AdminUpdateMyUserV4Short(params *AdminUpdateMyUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateMyUserV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateMyUserV4Params()
@@ -1153,15 +1639,40 @@ func (a *Client) AdminUpdateMyUserV4Short(params *AdminUpdateMyUserV4Params, aut
 	switch v := result.(type) {
 
 	case *AdminUpdateMyUserV4OK:
-		return v, nil
+		response := &AdminUpdateMyUserV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateMyUserV4BadRequest:
-		return nil, v
+		response := &AdminUpdateMyUserV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateMyUserV4Unauthorized:
-		return nil, v
+		response := &AdminUpdateMyUserV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateMyUserV4Conflict:
-		return nil, v
+		response := &AdminUpdateMyUserV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateMyUserV4InternalServerError:
-		return nil, v
+		response := &AdminUpdateMyUserV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1177,7 +1688,7 @@ This endpoint is used to disable 2FA authenticator.
 - The **Two-Factor Authentication** is enabled in the IAM client where user logs in
 - Users already enabled the MFA
 */
-func (a *Client) AdminDisableMyAuthenticatorV4Short(params *AdminDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyAuthenticatorV4NoContent, error) {
+func (a *Client) AdminDisableMyAuthenticatorV4Short(params *AdminDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyAuthenticatorV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDisableMyAuthenticatorV4Params()
@@ -1215,17 +1726,46 @@ func (a *Client) AdminDisableMyAuthenticatorV4Short(params *AdminDisableMyAuthen
 	switch v := result.(type) {
 
 	case *AdminDisableMyAuthenticatorV4NoContent:
-		return v, nil
+		response := &AdminDisableMyAuthenticatorV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDisableMyAuthenticatorV4BadRequest:
-		return nil, v
+		response := &AdminDisableMyAuthenticatorV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyAuthenticatorV4Unauthorized:
-		return nil, v
+		response := &AdminDisableMyAuthenticatorV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyAuthenticatorV4Forbidden:
-		return nil, v
+		response := &AdminDisableMyAuthenticatorV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyAuthenticatorV4NotFound:
-		return nil, v
+		response := &AdminDisableMyAuthenticatorV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyAuthenticatorV4InternalServerError:
-		return nil, v
+		response := &AdminDisableMyAuthenticatorV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1241,7 +1781,7 @@ Prerequisites:
 - Consume the secret key/QR code by an authenticator app
 - Get the code from the authenticator app
 */
-func (a *Client) AdminEnableMyAuthenticatorV4Short(params *AdminEnableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyAuthenticatorV4NoContent, error) {
+func (a *Client) AdminEnableMyAuthenticatorV4Short(params *AdminEnableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyAuthenticatorV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminEnableMyAuthenticatorV4Params()
@@ -1279,19 +1819,53 @@ func (a *Client) AdminEnableMyAuthenticatorV4Short(params *AdminEnableMyAuthenti
 	switch v := result.(type) {
 
 	case *AdminEnableMyAuthenticatorV4NoContent:
-		return v, nil
+		response := &AdminEnableMyAuthenticatorV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminEnableMyAuthenticatorV4BadRequest:
-		return nil, v
+		response := &AdminEnableMyAuthenticatorV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyAuthenticatorV4Unauthorized:
-		return nil, v
+		response := &AdminEnableMyAuthenticatorV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyAuthenticatorV4Forbidden:
-		return nil, v
+		response := &AdminEnableMyAuthenticatorV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyAuthenticatorV4NotFound:
-		return nil, v
+		response := &AdminEnableMyAuthenticatorV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyAuthenticatorV4Conflict:
-		return nil, v
+		response := &AdminEnableMyAuthenticatorV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyAuthenticatorV4InternalServerError:
-		return nil, v
+		response := &AdminEnableMyAuthenticatorV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1303,7 +1877,7 @@ AdminGenerateMyAuthenticatorKeyV4Short generate secret key for 3rd-party authent
 This endpoint is used to generate a secret key for 3rd-party authenticator app.
 A QR code URI is also returned so that frontend can generate QR code image.
 */
-func (a *Client) AdminGenerateMyAuthenticatorKeyV4Short(params *AdminGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyAuthenticatorKeyV4OK, error) {
+func (a *Client) AdminGenerateMyAuthenticatorKeyV4Short(params *AdminGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyAuthenticatorKeyV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGenerateMyAuthenticatorKeyV4Params()
@@ -1341,17 +1915,47 @@ func (a *Client) AdminGenerateMyAuthenticatorKeyV4Short(params *AdminGenerateMyA
 	switch v := result.(type) {
 
 	case *AdminGenerateMyAuthenticatorKeyV4OK:
-		return v, nil
+		response := &AdminGenerateMyAuthenticatorKeyV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGenerateMyAuthenticatorKeyV4BadRequest:
-		return nil, v
+		response := &AdminGenerateMyAuthenticatorKeyV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateMyAuthenticatorKeyV4Unauthorized:
-		return nil, v
+		response := &AdminGenerateMyAuthenticatorKeyV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateMyAuthenticatorKeyV4Forbidden:
-		return nil, v
+		response := &AdminGenerateMyAuthenticatorKeyV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateMyAuthenticatorKeyV4NotFound:
-		return nil, v
+		response := &AdminGenerateMyAuthenticatorKeyV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateMyAuthenticatorKeyV4InternalServerError:
-		return nil, v
+		response := &AdminGenerateMyAuthenticatorKeyV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1363,7 +1967,7 @@ AdminGetMyBackupCodesV4Short get backup codes
 This endpoint is used to get 8-digits backup codes.
 Each code is a one-time code and will be deleted once used.
 */
-func (a *Client) AdminGetMyBackupCodesV4Short(params *AdminGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyBackupCodesV4OK, error) {
+func (a *Client) AdminGetMyBackupCodesV4Short(params *AdminGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMyBackupCodesV4Params()
@@ -1401,17 +2005,47 @@ func (a *Client) AdminGetMyBackupCodesV4Short(params *AdminGetMyBackupCodesV4Par
 	switch v := result.(type) {
 
 	case *AdminGetMyBackupCodesV4OK:
-		return v, nil
+		response := &AdminGetMyBackupCodesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &AdminGetMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &AdminGetMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &AdminGetMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyBackupCodesV4NotFound:
-		return nil, v
+		response := &AdminGetMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &AdminGetMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1423,7 +2057,7 @@ AdminGenerateMyBackupCodesV4Short generate backup codes
 This endpoint is used to generate 8-digits backup codes.
 Each code is a one-time code and will be deleted once used.
 */
-func (a *Client) AdminGenerateMyBackupCodesV4Short(params *AdminGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyBackupCodesV4OK, error) {
+func (a *Client) AdminGenerateMyBackupCodesV4Short(params *AdminGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGenerateMyBackupCodesV4Params()
@@ -1461,17 +2095,47 @@ func (a *Client) AdminGenerateMyBackupCodesV4Short(params *AdminGenerateMyBackup
 	switch v := result.(type) {
 
 	case *AdminGenerateMyBackupCodesV4OK:
-		return v, nil
+		response := &AdminGenerateMyBackupCodesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGenerateMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &AdminGenerateMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &AdminGenerateMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &AdminGenerateMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateMyBackupCodesV4NotFound:
-		return nil, v
+		response := &AdminGenerateMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &AdminGenerateMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1487,7 +2151,7 @@ This endpoint is used to disable 2FA backup codes.
 - The **Two-Factor Authentication** is enabled in the IAM client where user logs in
 - Users already enabled the MFA
 */
-func (a *Client) AdminDisableMyBackupCodesV4Short(params *AdminDisableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyBackupCodesV4NoContent, error) {
+func (a *Client) AdminDisableMyBackupCodesV4Short(params *AdminDisableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDisableMyBackupCodesV4Params()
@@ -1525,17 +2189,46 @@ func (a *Client) AdminDisableMyBackupCodesV4Short(params *AdminDisableMyBackupCo
 	switch v := result.(type) {
 
 	case *AdminDisableMyBackupCodesV4NoContent:
-		return v, nil
+		response := &AdminDisableMyBackupCodesV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDisableMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &AdminDisableMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &AdminDisableMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &AdminDisableMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyBackupCodesV4NotFound:
-		return nil, v
+		response := &AdminDisableMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &AdminDisableMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1546,7 +2239,7 @@ func (a *Client) AdminDisableMyBackupCodesV4Short(params *AdminDisableMyBackupCo
 AdminDownloadMyBackupCodesV4Short download user backup codes
 This endpoint is used to download backup codes.
 */
-func (a *Client) AdminDownloadMyBackupCodesV4Short(params *AdminDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminDownloadMyBackupCodesV4OK, error) {
+func (a *Client) AdminDownloadMyBackupCodesV4Short(params *AdminDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminDownloadMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDownloadMyBackupCodesV4Params()
@@ -1584,17 +2277,47 @@ func (a *Client) AdminDownloadMyBackupCodesV4Short(params *AdminDownloadMyBackup
 	switch v := result.(type) {
 
 	case *AdminDownloadMyBackupCodesV4OK:
-		return v, nil
+		response := &AdminDownloadMyBackupCodesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDownloadMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &AdminDownloadMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDownloadMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &AdminDownloadMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDownloadMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &AdminDownloadMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDownloadMyBackupCodesV4NotFound:
-		return nil, v
+		response := &AdminDownloadMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDownloadMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &AdminDownloadMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1605,7 +2328,7 @@ func (a *Client) AdminDownloadMyBackupCodesV4Short(params *AdminDownloadMyBackup
 AdminEnableMyBackupCodesV4Short enable 2fa backup codes
 This endpoint is used to enable 2FA backup codes.
 */
-func (a *Client) AdminEnableMyBackupCodesV4Short(params *AdminEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyBackupCodesV4OK, error) {
+func (a *Client) AdminEnableMyBackupCodesV4Short(params *AdminEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminEnableMyBackupCodesV4Params()
@@ -1643,19 +2366,54 @@ func (a *Client) AdminEnableMyBackupCodesV4Short(params *AdminEnableMyBackupCode
 	switch v := result.(type) {
 
 	case *AdminEnableMyBackupCodesV4OK:
-		return v, nil
+		response := &AdminEnableMyBackupCodesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminEnableMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &AdminEnableMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &AdminEnableMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &AdminEnableMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyBackupCodesV4NotFound:
-		return nil, v
+		response := &AdminEnableMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyBackupCodesV4Conflict:
-		return nil, v
+		response := &AdminEnableMyBackupCodesV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &AdminEnableMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1667,7 +2425,7 @@ AdminGetBackupCodesV4Short get backup codes and send to email
 This endpoint is used to get 8-digits backup codes.
 Each code is a one-time code and will be deleted once used.
 */
-func (a *Client) AdminGetBackupCodesV4Short(params *AdminGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBackupCodesV4NoContent, error) {
+func (a *Client) AdminGetBackupCodesV4Short(params *AdminGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetBackupCodesV4Params()
@@ -1705,17 +2463,46 @@ func (a *Client) AdminGetBackupCodesV4Short(params *AdminGetBackupCodesV4Params,
 	switch v := result.(type) {
 
 	case *AdminGetBackupCodesV4NoContent:
-		return v, nil
+		response := &AdminGetBackupCodesV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetBackupCodesV4BadRequest:
-		return nil, v
+		response := &AdminGetBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBackupCodesV4Unauthorized:
-		return nil, v
+		response := &AdminGetBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBackupCodesV4Forbidden:
-		return nil, v
+		response := &AdminGetBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBackupCodesV4NotFound:
-		return nil, v
+		response := &AdminGetBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBackupCodesV4InternalServerError:
-		return nil, v
+		response := &AdminGetBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1727,7 +2514,7 @@ AdminGenerateBackupCodesV4Short generate backup codes
 This endpoint is used to generate 8-digits backup codes.
 Each code is a one-time code and will be deleted once used.
 */
-func (a *Client) AdminGenerateBackupCodesV4Short(params *AdminGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateBackupCodesV4OK, error) {
+func (a *Client) AdminGenerateBackupCodesV4Short(params *AdminGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGenerateBackupCodesV4Params()
@@ -1765,17 +2552,46 @@ func (a *Client) AdminGenerateBackupCodesV4Short(params *AdminGenerateBackupCode
 	switch v := result.(type) {
 
 	case *AdminGenerateBackupCodesV4OK:
-		return v, nil
+		response := &AdminGenerateBackupCodesV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGenerateBackupCodesV4BadRequest:
-		return nil, v
+		response := &AdminGenerateBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateBackupCodesV4Unauthorized:
-		return nil, v
+		response := &AdminGenerateBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateBackupCodesV4Forbidden:
-		return nil, v
+		response := &AdminGenerateBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateBackupCodesV4NotFound:
-		return nil, v
+		response := &AdminGenerateBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGenerateBackupCodesV4InternalServerError:
-		return nil, v
+		response := &AdminGenerateBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1786,7 +2602,7 @@ func (a *Client) AdminGenerateBackupCodesV4Short(params *AdminGenerateBackupCode
 AdminEnableBackupCodesV4Short enable 2fa backup codes
 This endpoint is used to enable 2FA backup codes.
 */
-func (a *Client) AdminEnableBackupCodesV4Short(params *AdminEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableBackupCodesV4OK, error) {
+func (a *Client) AdminEnableBackupCodesV4Short(params *AdminEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminEnableBackupCodesV4Params()
@@ -1824,19 +2640,53 @@ func (a *Client) AdminEnableBackupCodesV4Short(params *AdminEnableBackupCodesV4P
 	switch v := result.(type) {
 
 	case *AdminEnableBackupCodesV4OK:
-		return v, nil
+		response := &AdminEnableBackupCodesV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminEnableBackupCodesV4BadRequest:
-		return nil, v
+		response := &AdminEnableBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableBackupCodesV4Unauthorized:
-		return nil, v
+		response := &AdminEnableBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableBackupCodesV4Forbidden:
-		return nil, v
+		response := &AdminEnableBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableBackupCodesV4NotFound:
-		return nil, v
+		response := &AdminEnableBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableBackupCodesV4Conflict:
-		return nil, v
+		response := &AdminEnableBackupCodesV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableBackupCodesV4InternalServerError:
-		return nil, v
+		response := &AdminEnableBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1847,7 +2697,7 @@ func (a *Client) AdminEnableBackupCodesV4Short(params *AdminEnableBackupCodesV4P
 AdminChallengeMyMFAV4Short challenge user mfa
 This endpoint will verify user's' MFA code and generate a MFA token.
 */
-func (a *Client) AdminChallengeMyMFAV4Short(params *AdminChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChallengeMyMFAV4OK, error) {
+func (a *Client) AdminChallengeMyMFAV4Short(params *AdminChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChallengeMyMFAV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminChallengeMyMFAV4Params()
@@ -1885,19 +2735,53 @@ func (a *Client) AdminChallengeMyMFAV4Short(params *AdminChallengeMyMFAV4Params,
 	switch v := result.(type) {
 
 	case *AdminChallengeMyMFAV4OK:
-		return v, nil
+		response := &AdminChallengeMyMFAV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminChallengeMyMFAV4NoContent:
-		return nil, v
+		response := &AdminChallengeMyMFAV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminChallengeMyMFAV4BadRequest:
-		return nil, v
+		response := &AdminChallengeMyMFAV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChallengeMyMFAV4Unauthorized:
-		return nil, v
+		response := &AdminChallengeMyMFAV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChallengeMyMFAV4Forbidden:
-		return nil, v
+		response := &AdminChallengeMyMFAV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChallengeMyMFAV4NotFound:
-		return nil, v
+		response := &AdminChallengeMyMFAV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminChallengeMyMFAV4InternalServerError:
-		return nil, v
+		response := &AdminChallengeMyMFAV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1912,7 +2796,7 @@ Supported actions:
 * ChangePassword
 * DisableMFAEmail
 */
-func (a *Client) AdminSendMyMFAEmailCodeV4Short(params *AdminSendMyMFAEmailCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendMyMFAEmailCodeV4NoContent, error) {
+func (a *Client) AdminSendMyMFAEmailCodeV4Short(params *AdminSendMyMFAEmailCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendMyMFAEmailCodeV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSendMyMFAEmailCodeV4Params()
@@ -1950,19 +2834,53 @@ func (a *Client) AdminSendMyMFAEmailCodeV4Short(params *AdminSendMyMFAEmailCodeV
 	switch v := result.(type) {
 
 	case *AdminSendMyMFAEmailCodeV4NoContent:
-		return v, nil
+		response := &AdminSendMyMFAEmailCodeV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSendMyMFAEmailCodeV4BadRequest:
-		return nil, v
+		response := &AdminSendMyMFAEmailCodeV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendMyMFAEmailCodeV4Unauthorized:
-		return nil, v
+		response := &AdminSendMyMFAEmailCodeV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendMyMFAEmailCodeV4Forbidden:
-		return nil, v
+		response := &AdminSendMyMFAEmailCodeV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendMyMFAEmailCodeV4NotFound:
-		return nil, v
+		response := &AdminSendMyMFAEmailCodeV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendMyMFAEmailCodeV4TooManyRequests:
-		return nil, v
+		response := &AdminSendMyMFAEmailCodeV4Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSendMyMFAEmailCodeV4InternalServerError:
-		return nil, v
+		response := &AdminSendMyMFAEmailCodeV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1978,7 +2896,7 @@ This endpoint is used to disable 2FA email.
 - The **Two-Factor Authentication** is enabled in the IAM client where user logs in
 - Users already enabled the MFA
 */
-func (a *Client) AdminDisableMyEmailV4Short(params *AdminDisableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyEmailV4NoContent, error) {
+func (a *Client) AdminDisableMyEmailV4Short(params *AdminDisableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDisableMyEmailV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDisableMyEmailV4Params()
@@ -2016,17 +2934,46 @@ func (a *Client) AdminDisableMyEmailV4Short(params *AdminDisableMyEmailV4Params,
 	switch v := result.(type) {
 
 	case *AdminDisableMyEmailV4NoContent:
-		return v, nil
+		response := &AdminDisableMyEmailV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDisableMyEmailV4BadRequest:
-		return nil, v
+		response := &AdminDisableMyEmailV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyEmailV4Unauthorized:
-		return nil, v
+		response := &AdminDisableMyEmailV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyEmailV4Forbidden:
-		return nil, v
+		response := &AdminDisableMyEmailV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyEmailV4NotFound:
-		return nil, v
+		response := &AdminDisableMyEmailV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDisableMyEmailV4InternalServerError:
-		return nil, v
+		response := &AdminDisableMyEmailV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2037,7 +2984,7 @@ func (a *Client) AdminDisableMyEmailV4Short(params *AdminDisableMyEmailV4Params,
 AdminEnableMyEmailV4Short enable 2fa email
 This endpoint is used to enable 2FA email.
 */
-func (a *Client) AdminEnableMyEmailV4Short(params *AdminEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyEmailV4NoContent, error) {
+func (a *Client) AdminEnableMyEmailV4Short(params *AdminEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyEmailV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminEnableMyEmailV4Params()
@@ -2075,19 +3022,53 @@ func (a *Client) AdminEnableMyEmailV4Short(params *AdminEnableMyEmailV4Params, a
 	switch v := result.(type) {
 
 	case *AdminEnableMyEmailV4NoContent:
-		return v, nil
+		response := &AdminEnableMyEmailV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminEnableMyEmailV4BadRequest:
-		return nil, v
+		response := &AdminEnableMyEmailV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyEmailV4Unauthorized:
-		return nil, v
+		response := &AdminEnableMyEmailV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyEmailV4Forbidden:
-		return nil, v
+		response := &AdminEnableMyEmailV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyEmailV4NotFound:
-		return nil, v
+		response := &AdminEnableMyEmailV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyEmailV4Conflict:
-		return nil, v
+		response := &AdminEnableMyEmailV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminEnableMyEmailV4InternalServerError:
-		return nil, v
+		response := &AdminEnableMyEmailV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2098,7 +3079,7 @@ func (a *Client) AdminEnableMyEmailV4Short(params *AdminEnableMyEmailV4Params, a
 AdminGetMyEnabledFactorsV4Short get user enabled factors
 This endpoint is used to get user enabled factors.
 */
-func (a *Client) AdminGetMyEnabledFactorsV4Short(params *AdminGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyEnabledFactorsV4OK, error) {
+func (a *Client) AdminGetMyEnabledFactorsV4Short(params *AdminGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyEnabledFactorsV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMyEnabledFactorsV4Params()
@@ -2136,17 +3117,47 @@ func (a *Client) AdminGetMyEnabledFactorsV4Short(params *AdminGetMyEnabledFactor
 	switch v := result.(type) {
 
 	case *AdminGetMyEnabledFactorsV4OK:
-		return v, nil
+		response := &AdminGetMyEnabledFactorsV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMyEnabledFactorsV4BadRequest:
-		return nil, v
+		response := &AdminGetMyEnabledFactorsV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyEnabledFactorsV4Unauthorized:
-		return nil, v
+		response := &AdminGetMyEnabledFactorsV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyEnabledFactorsV4Forbidden:
-		return nil, v
+		response := &AdminGetMyEnabledFactorsV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyEnabledFactorsV4NotFound:
-		return nil, v
+		response := &AdminGetMyEnabledFactorsV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyEnabledFactorsV4InternalServerError:
-		return nil, v
+		response := &AdminGetMyEnabledFactorsV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2157,7 +3168,7 @@ func (a *Client) AdminGetMyEnabledFactorsV4Short(params *AdminGetMyEnabledFactor
 AdminMakeFactorMyDefaultV4Short make 2fa factor default
 This endpoint is used to make 2FA factor default.
 */
-func (a *Client) AdminMakeFactorMyDefaultV4Short(params *AdminMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminMakeFactorMyDefaultV4NoContent, error) {
+func (a *Client) AdminMakeFactorMyDefaultV4Short(params *AdminMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminMakeFactorMyDefaultV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminMakeFactorMyDefaultV4Params()
@@ -2195,17 +3206,46 @@ func (a *Client) AdminMakeFactorMyDefaultV4Short(params *AdminMakeFactorMyDefaul
 	switch v := result.(type) {
 
 	case *AdminMakeFactorMyDefaultV4NoContent:
-		return v, nil
+		response := &AdminMakeFactorMyDefaultV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminMakeFactorMyDefaultV4BadRequest:
-		return nil, v
+		response := &AdminMakeFactorMyDefaultV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminMakeFactorMyDefaultV4Unauthorized:
-		return nil, v
+		response := &AdminMakeFactorMyDefaultV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminMakeFactorMyDefaultV4Forbidden:
-		return nil, v
+		response := &AdminMakeFactorMyDefaultV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminMakeFactorMyDefaultV4NotFound:
-		return nil, v
+		response := &AdminMakeFactorMyDefaultV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminMakeFactorMyDefaultV4InternalServerError:
-		return nil, v
+		response := &AdminMakeFactorMyDefaultV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2216,7 +3256,7 @@ func (a *Client) AdminMakeFactorMyDefaultV4Short(params *AdminMakeFactorMyDefaul
 AdminGetMyOwnMFAStatusV4Short get admin own mfa status
 This endpoint will get user's' MFA status.
 */
-func (a *Client) AdminGetMyOwnMFAStatusV4Short(params *AdminGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyOwnMFAStatusV4OK, error) {
+func (a *Client) AdminGetMyOwnMFAStatusV4Short(params *AdminGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyOwnMFAStatusV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMyOwnMFAStatusV4Params()
@@ -2254,15 +3294,40 @@ func (a *Client) AdminGetMyOwnMFAStatusV4Short(params *AdminGetMyOwnMFAStatusV4P
 	switch v := result.(type) {
 
 	case *AdminGetMyOwnMFAStatusV4OK:
-		return v, nil
+		response := &AdminGetMyOwnMFAStatusV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMyOwnMFAStatusV4Unauthorized:
-		return nil, v
+		response := &AdminGetMyOwnMFAStatusV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyOwnMFAStatusV4Forbidden:
-		return nil, v
+		response := &AdminGetMyOwnMFAStatusV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyOwnMFAStatusV4NotFound:
-		return nil, v
+		response := &AdminGetMyOwnMFAStatusV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyOwnMFAStatusV4InternalServerError:
-		return nil, v
+		response := &AdminGetMyOwnMFAStatusV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2275,7 +3340,7 @@ This endpoint will get user's' MFA status.
 ------------
 **Substitute endpoint**: /iam/v4/admin/users/me/mfa/status [GET]
 */
-func (a *Client) AdminGetMyMFAStatusV4Short(params *AdminGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyMFAStatusV4OK, error) {
+func (a *Client) AdminGetMyMFAStatusV4Short(params *AdminGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyMFAStatusV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMyMFAStatusV4Params()
@@ -2313,15 +3378,40 @@ func (a *Client) AdminGetMyMFAStatusV4Short(params *AdminGetMyMFAStatusV4Params,
 	switch v := result.(type) {
 
 	case *AdminGetMyMFAStatusV4OK:
-		return v, nil
+		response := &AdminGetMyMFAStatusV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMyMFAStatusV4Unauthorized:
-		return nil, v
+		response := &AdminGetMyMFAStatusV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyMFAStatusV4Forbidden:
-		return nil, v
+		response := &AdminGetMyMFAStatusV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyMFAStatusV4NotFound:
-		return nil, v
+		response := &AdminGetMyMFAStatusV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMyMFAStatusV4InternalServerError:
-		return nil, v
+		response := &AdminGetMyMFAStatusV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2346,7 +3436,7 @@ The invited admin will also assigned with "User" role by default.
 
 Substitute endpoint: /iam/v4/admin/users/invite
 */
-func (a *Client) AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV4Created, error) {
+func (a *Client) AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminInviteUserV4Params()
@@ -2384,21 +3474,61 @@ func (a *Client) AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInf
 	switch v := result.(type) {
 
 	case *AdminInviteUserV4Created:
-		return v, nil
+		response := &AdminInviteUserV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminInviteUserV4BadRequest:
-		return nil, v
+		response := &AdminInviteUserV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV4Unauthorized:
-		return nil, v
+		response := &AdminInviteUserV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV4Forbidden:
-		return nil, v
+		response := &AdminInviteUserV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV4NotFound:
-		return nil, v
+		response := &AdminInviteUserV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV4Conflict:
-		return nil, v
+		response := &AdminInviteUserV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV4UnprocessableEntity:
-		return nil, v
+		response := &AdminInviteUserV4Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminInviteUserV4InternalServerError:
-		return nil, v
+		response := &AdminInviteUserV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2442,7 +3572,7 @@ Note:
 
 If the request body exceed the max limitation, the max count will be in response body's messageVariables: "messageVariables": {"maxCount": "100"}
 */
-func (a *Client) PublicListUserIDByPlatformUserIDsV4Short(params *PublicListUserIDByPlatformUserIDsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV4OK, error) {
+func (a *Client) PublicListUserIDByPlatformUserIDsV4Short(params *PublicListUserIDByPlatformUserIDsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListUserIDByPlatformUserIDsV4Params()
@@ -2480,15 +3610,40 @@ func (a *Client) PublicListUserIDByPlatformUserIDsV4Short(params *PublicListUser
 	switch v := result.(type) {
 
 	case *PublicListUserIDByPlatformUserIDsV4OK:
-		return v, nil
+		response := &PublicListUserIDByPlatformUserIDsV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListUserIDByPlatformUserIDsV4BadRequest:
-		return nil, v
+		response := &PublicListUserIDByPlatformUserIDsV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserIDByPlatformUserIDsV4Unauthorized:
-		return nil, v
+		response := &PublicListUserIDByPlatformUserIDsV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserIDByPlatformUserIDsV4Forbidden:
-		return nil, v
+		response := &PublicListUserIDByPlatformUserIDsV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListUserIDByPlatformUserIDsV4InternalServerError:
-		return nil, v
+		response := &PublicListUserIDByPlatformUserIDsV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2512,7 +3667,7 @@ Create a test user and not send verification code email
 
 This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
 */
-func (a *Client) PublicCreateTestUserV4Short(params *PublicCreateTestUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateTestUserV4Created, error) {
+func (a *Client) PublicCreateTestUserV4Short(params *PublicCreateTestUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateTestUserV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateTestUserV4Params()
@@ -2550,15 +3705,40 @@ func (a *Client) PublicCreateTestUserV4Short(params *PublicCreateTestUserV4Param
 	switch v := result.(type) {
 
 	case *PublicCreateTestUserV4Created:
-		return v, nil
+		response := &PublicCreateTestUserV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateTestUserV4BadRequest:
-		return nil, v
+		response := &PublicCreateTestUserV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateTestUserV4NotFound:
-		return nil, v
+		response := &PublicCreateTestUserV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateTestUserV4Conflict:
-		return nil, v
+		response := &PublicCreateTestUserV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateTestUserV4InternalServerError:
-		return nil, v
+		response := &PublicCreateTestUserV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2582,7 +3762,7 @@ Create a new user with unique email address and username.
 - displayName: Please refer to the rule from /v3/public/inputValidations API.
 This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
 */
-func (a *Client) PublicCreateUserV4Short(params *PublicCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV4Created, error) {
+func (a *Client) PublicCreateUserV4Short(params *PublicCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateUserV4Params()
@@ -2620,19 +3800,54 @@ func (a *Client) PublicCreateUserV4Short(params *PublicCreateUserV4Params, authI
 	switch v := result.(type) {
 
 	case *PublicCreateUserV4Created:
-		return v, nil
+		response := &PublicCreateUserV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateUserV4BadRequest:
-		return nil, v
+		response := &PublicCreateUserV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV4Forbidden:
-		return nil, v
+		response := &PublicCreateUserV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV4NotFound:
-		return nil, v
+		response := &PublicCreateUserV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV4Conflict:
-		return nil, v
+		response := &PublicCreateUserV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV4TooManyRequests:
-		return nil, v
+		response := &PublicCreateUserV4Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateUserV4InternalServerError:
-		return nil, v
+		response := &PublicCreateUserV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2662,7 +3877,7 @@ Required attributes:
 - password: Please refer to the rule from /v3/public/inputValidations API.
 - username: Please refer to the rule from /v3/public/inputValidations API.
 */
-func (a *Client) CreateUserFromInvitationV4Short(params *CreateUserFromInvitationV4Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV4Created, error) {
+func (a *Client) CreateUserFromInvitationV4Short(params *CreateUserFromInvitationV4Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateUserFromInvitationV4Params()
@@ -2700,17 +3915,47 @@ func (a *Client) CreateUserFromInvitationV4Short(params *CreateUserFromInvitatio
 	switch v := result.(type) {
 
 	case *CreateUserFromInvitationV4Created:
-		return v, nil
+		response := &CreateUserFromInvitationV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateUserFromInvitationV4BadRequest:
-		return nil, v
+		response := &CreateUserFromInvitationV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserFromInvitationV4Forbidden:
-		return nil, v
+		response := &CreateUserFromInvitationV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserFromInvitationV4NotFound:
-		return nil, v
+		response := &CreateUserFromInvitationV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserFromInvitationV4Conflict:
-		return nil, v
+		response := &CreateUserFromInvitationV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateUserFromInvitationV4InternalServerError:
-		return nil, v
+		response := &CreateUserFromInvitationV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2731,7 +3976,7 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 
 action code : 10103
 */
-func (a *Client) PublicUpdateUserV4Short(params *PublicUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV4OK, error) {
+func (a *Client) PublicUpdateUserV4Short(params *PublicUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateUserV4Params()
@@ -2769,17 +4014,47 @@ func (a *Client) PublicUpdateUserV4Short(params *PublicUpdateUserV4Params, authI
 	switch v := result.(type) {
 
 	case *PublicUpdateUserV4OK:
-		return v, nil
+		response := &PublicUpdateUserV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateUserV4BadRequest:
-		return nil, v
+		response := &PublicUpdateUserV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserV4Unauthorized:
-		return nil, v
+		response := &PublicUpdateUserV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserV4Forbidden:
-		return nil, v
+		response := &PublicUpdateUserV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserV4Conflict:
-		return nil, v
+		response := &PublicUpdateUserV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserV4InternalServerError:
-		return nil, v
+		response := &PublicUpdateUserV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2791,7 +4066,7 @@ PublicUpdateUserEmailAddressV4Short update my email address
 The endpoint to update my email address.
 It requires a verification code from `/users/me/code/request` with **UpdateEmailAddress** context.
 */
-func (a *Client) PublicUpdateUserEmailAddressV4Short(params *PublicUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserEmailAddressV4NoContent, error) {
+func (a *Client) PublicUpdateUserEmailAddressV4Short(params *PublicUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserEmailAddressV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateUserEmailAddressV4Params()
@@ -2829,17 +4104,46 @@ func (a *Client) PublicUpdateUserEmailAddressV4Short(params *PublicUpdateUserEma
 	switch v := result.(type) {
 
 	case *PublicUpdateUserEmailAddressV4NoContent:
-		return v, nil
+		response := &PublicUpdateUserEmailAddressV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateUserEmailAddressV4BadRequest:
-		return nil, v
+		response := &PublicUpdateUserEmailAddressV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserEmailAddressV4Unauthorized:
-		return nil, v
+		response := &PublicUpdateUserEmailAddressV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserEmailAddressV4NotFound:
-		return nil, v
+		response := &PublicUpdateUserEmailAddressV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserEmailAddressV4Conflict:
-		return nil, v
+		response := &PublicUpdateUserEmailAddressV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateUserEmailAddressV4InternalServerError:
-		return nil, v
+		response := &PublicUpdateUserEmailAddressV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2862,7 +4166,7 @@ Supported user data fields:
 
 action code : 10124
 */
-func (a *Client) PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(params *PublicUpgradeHeadlessAccountWithVerificationCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountWithVerificationCodeV4OK, error) {
+func (a *Client) PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(params *PublicUpgradeHeadlessAccountWithVerificationCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountWithVerificationCodeV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpgradeHeadlessAccountWithVerificationCodeV4Params()
@@ -2900,19 +4204,54 @@ func (a *Client) PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(params 
 	switch v := result.(type) {
 
 	case *PublicUpgradeHeadlessAccountWithVerificationCodeV4OK:
-		return v, nil
+		response := &PublicUpgradeHeadlessAccountWithVerificationCodeV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountWithVerificationCodeV4BadRequest:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountWithVerificationCodeV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountWithVerificationCodeV4Unauthorized:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountWithVerificationCodeV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountWithVerificationCodeV4Forbidden:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountWithVerificationCodeV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountWithVerificationCodeV4NotFound:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountWithVerificationCodeV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountWithVerificationCodeV4Conflict:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountWithVerificationCodeV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountWithVerificationCodeV4InternalServerError:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountWithVerificationCodeV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2924,7 +4263,7 @@ PublicUpgradeHeadlessAccountV4Short upgrade user account to full account
 Upgrade headless account to full account without verifying email address. Client does not need to provide verification code which sent to email address.
 action code : 10124
 */
-func (a *Client) PublicUpgradeHeadlessAccountV4Short(params *PublicUpgradeHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV4OK, error) {
+func (a *Client) PublicUpgradeHeadlessAccountV4Short(params *PublicUpgradeHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpgradeHeadlessAccountV4Params()
@@ -2962,17 +4301,47 @@ func (a *Client) PublicUpgradeHeadlessAccountV4Short(params *PublicUpgradeHeadle
 	switch v := result.(type) {
 
 	case *PublicUpgradeHeadlessAccountV4OK:
-		return v, nil
+		response := &PublicUpgradeHeadlessAccountV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV4BadRequest:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV4Unauthorized:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV4NotFound:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV4Conflict:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpgradeHeadlessAccountV4InternalServerError:
-		return nil, v
+		response := &PublicUpgradeHeadlessAccountV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2988,7 +4357,7 @@ This endpoint is used to disable 2FA authenticator.
 - The **Two-Factor Authentication** is enabled in the IAM client where user logs in
 - Users already enabled the MFA
 */
-func (a *Client) PublicDisableMyAuthenticatorV4Short(params *PublicDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyAuthenticatorV4NoContent, error) {
+func (a *Client) PublicDisableMyAuthenticatorV4Short(params *PublicDisableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyAuthenticatorV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDisableMyAuthenticatorV4Params()
@@ -3026,17 +4395,46 @@ func (a *Client) PublicDisableMyAuthenticatorV4Short(params *PublicDisableMyAuth
 	switch v := result.(type) {
 
 	case *PublicDisableMyAuthenticatorV4NoContent:
-		return v, nil
+		response := &PublicDisableMyAuthenticatorV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDisableMyAuthenticatorV4BadRequest:
-		return nil, v
+		response := &PublicDisableMyAuthenticatorV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyAuthenticatorV4Unauthorized:
-		return nil, v
+		response := &PublicDisableMyAuthenticatorV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyAuthenticatorV4Forbidden:
-		return nil, v
+		response := &PublicDisableMyAuthenticatorV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyAuthenticatorV4NotFound:
-		return nil, v
+		response := &PublicDisableMyAuthenticatorV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyAuthenticatorV4InternalServerError:
-		return nil, v
+		response := &PublicDisableMyAuthenticatorV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3052,7 +4450,7 @@ Prerequisites:
 - Consume the secret key/QR code by an authenticator app
 - Get the code from the authenticator app
 */
-func (a *Client) PublicEnableMyAuthenticatorV4Short(params *PublicEnableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyAuthenticatorV4NoContent, error) {
+func (a *Client) PublicEnableMyAuthenticatorV4Short(params *PublicEnableMyAuthenticatorV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyAuthenticatorV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicEnableMyAuthenticatorV4Params()
@@ -3090,19 +4488,53 @@ func (a *Client) PublicEnableMyAuthenticatorV4Short(params *PublicEnableMyAuthen
 	switch v := result.(type) {
 
 	case *PublicEnableMyAuthenticatorV4NoContent:
-		return v, nil
+		response := &PublicEnableMyAuthenticatorV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicEnableMyAuthenticatorV4BadRequest:
-		return nil, v
+		response := &PublicEnableMyAuthenticatorV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyAuthenticatorV4Unauthorized:
-		return nil, v
+		response := &PublicEnableMyAuthenticatorV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyAuthenticatorV4Forbidden:
-		return nil, v
+		response := &PublicEnableMyAuthenticatorV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyAuthenticatorV4NotFound:
-		return nil, v
+		response := &PublicEnableMyAuthenticatorV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyAuthenticatorV4Conflict:
-		return nil, v
+		response := &PublicEnableMyAuthenticatorV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyAuthenticatorV4InternalServerError:
-		return nil, v
+		response := &PublicEnableMyAuthenticatorV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3114,7 +4546,7 @@ PublicGenerateMyAuthenticatorKeyV4Short generate secret key for 3rd-party authen
 This endpoint is used to generate a secret key for 3rd-party authenticator app.
 A QR code URI is also returned so that frontend can generate QR code image.
 */
-func (a *Client) PublicGenerateMyAuthenticatorKeyV4Short(params *PublicGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyAuthenticatorKeyV4OK, error) {
+func (a *Client) PublicGenerateMyAuthenticatorKeyV4Short(params *PublicGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyAuthenticatorKeyV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGenerateMyAuthenticatorKeyV4Params()
@@ -3152,17 +4584,47 @@ func (a *Client) PublicGenerateMyAuthenticatorKeyV4Short(params *PublicGenerateM
 	switch v := result.(type) {
 
 	case *PublicGenerateMyAuthenticatorKeyV4OK:
-		return v, nil
+		response := &PublicGenerateMyAuthenticatorKeyV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGenerateMyAuthenticatorKeyV4BadRequest:
-		return nil, v
+		response := &PublicGenerateMyAuthenticatorKeyV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateMyAuthenticatorKeyV4Unauthorized:
-		return nil, v
+		response := &PublicGenerateMyAuthenticatorKeyV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateMyAuthenticatorKeyV4Forbidden:
-		return nil, v
+		response := &PublicGenerateMyAuthenticatorKeyV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateMyAuthenticatorKeyV4NotFound:
-		return nil, v
+		response := &PublicGenerateMyAuthenticatorKeyV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateMyAuthenticatorKeyV4InternalServerError:
-		return nil, v
+		response := &PublicGenerateMyAuthenticatorKeyV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3174,7 +4636,7 @@ PublicGetMyBackupCodesV4Short get backup codes
 This endpoint is used to get 8-digits backup codes.
 Each code is a one-time code and will be deleted once used.
 */
-func (a *Client) PublicGetMyBackupCodesV4Short(params *PublicGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyBackupCodesV4OK, error) {
+func (a *Client) PublicGetMyBackupCodesV4Short(params *PublicGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyBackupCodesV4Params()
@@ -3212,17 +4674,47 @@ func (a *Client) PublicGetMyBackupCodesV4Short(params *PublicGetMyBackupCodesV4P
 	switch v := result.(type) {
 
 	case *PublicGetMyBackupCodesV4OK:
-		return v, nil
+		response := &PublicGetMyBackupCodesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &PublicGetMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &PublicGetMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &PublicGetMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyBackupCodesV4NotFound:
-		return nil, v
+		response := &PublicGetMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &PublicGetMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3234,7 +4726,7 @@ PublicGenerateMyBackupCodesV4Short generate backup codes
 This endpoint is used to generate 8-digits backup codes.
 Each code is a one-time code and will be deleted once used.
 */
-func (a *Client) PublicGenerateMyBackupCodesV4Short(params *PublicGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyBackupCodesV4OK, error) {
+func (a *Client) PublicGenerateMyBackupCodesV4Short(params *PublicGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGenerateMyBackupCodesV4Params()
@@ -3272,17 +4764,47 @@ func (a *Client) PublicGenerateMyBackupCodesV4Short(params *PublicGenerateMyBack
 	switch v := result.(type) {
 
 	case *PublicGenerateMyBackupCodesV4OK:
-		return v, nil
+		response := &PublicGenerateMyBackupCodesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGenerateMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &PublicGenerateMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &PublicGenerateMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &PublicGenerateMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateMyBackupCodesV4NotFound:
-		return nil, v
+		response := &PublicGenerateMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &PublicGenerateMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3298,7 +4820,7 @@ This endpoint is used to disable 2FA backup codes.
 - The **Two-Factor Authentication** is enabled in the IAM client where user logs in
 - Users already enabled the MFA
 */
-func (a *Client) PublicDisableMyBackupCodesV4Short(params *PublicDisableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyBackupCodesV4NoContent, error) {
+func (a *Client) PublicDisableMyBackupCodesV4Short(params *PublicDisableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDisableMyBackupCodesV4Params()
@@ -3336,17 +4858,46 @@ func (a *Client) PublicDisableMyBackupCodesV4Short(params *PublicDisableMyBackup
 	switch v := result.(type) {
 
 	case *PublicDisableMyBackupCodesV4NoContent:
-		return v, nil
+		response := &PublicDisableMyBackupCodesV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDisableMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &PublicDisableMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &PublicDisableMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &PublicDisableMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyBackupCodesV4NotFound:
-		return nil, v
+		response := &PublicDisableMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &PublicDisableMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3357,7 +4908,7 @@ func (a *Client) PublicDisableMyBackupCodesV4Short(params *PublicDisableMyBackup
 PublicDownloadMyBackupCodesV4Short download user backup codes
 This endpoint is used to download backup codes.
 */
-func (a *Client) PublicDownloadMyBackupCodesV4Short(params *PublicDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadMyBackupCodesV4OK, error) {
+func (a *Client) PublicDownloadMyBackupCodesV4Short(params *PublicDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDownloadMyBackupCodesV4Params()
@@ -3395,17 +4946,47 @@ func (a *Client) PublicDownloadMyBackupCodesV4Short(params *PublicDownloadMyBack
 	switch v := result.(type) {
 
 	case *PublicDownloadMyBackupCodesV4OK:
-		return v, nil
+		response := &PublicDownloadMyBackupCodesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDownloadMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &PublicDownloadMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &PublicDownloadMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &PublicDownloadMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadMyBackupCodesV4NotFound:
-		return nil, v
+		response := &PublicDownloadMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDownloadMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &PublicDownloadMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3416,7 +4997,7 @@ func (a *Client) PublicDownloadMyBackupCodesV4Short(params *PublicDownloadMyBack
 PublicEnableMyBackupCodesV4Short enable 2fa backup codes
 This endpoint is used to enable 2FA backup codes.
 */
-func (a *Client) PublicEnableMyBackupCodesV4Short(params *PublicEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyBackupCodesV4OK, error) {
+func (a *Client) PublicEnableMyBackupCodesV4Short(params *PublicEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicEnableMyBackupCodesV4Params()
@@ -3454,19 +5035,54 @@ func (a *Client) PublicEnableMyBackupCodesV4Short(params *PublicEnableMyBackupCo
 	switch v := result.(type) {
 
 	case *PublicEnableMyBackupCodesV4OK:
-		return v, nil
+		response := &PublicEnableMyBackupCodesV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicEnableMyBackupCodesV4BadRequest:
-		return nil, v
+		response := &PublicEnableMyBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyBackupCodesV4Unauthorized:
-		return nil, v
+		response := &PublicEnableMyBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyBackupCodesV4Forbidden:
-		return nil, v
+		response := &PublicEnableMyBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyBackupCodesV4NotFound:
-		return nil, v
+		response := &PublicEnableMyBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyBackupCodesV4Conflict:
-		return nil, v
+		response := &PublicEnableMyBackupCodesV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyBackupCodesV4InternalServerError:
-		return nil, v
+		response := &PublicEnableMyBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3479,7 +5095,7 @@ This endpoint is used to get existing 8-digits backup codes.
 Each codes is a one-time code and will be deleted once used.
 The codes will be sent through linked email.
 */
-func (a *Client) PublicGetBackupCodesV4Short(params *PublicGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBackupCodesV4NoContent, error) {
+func (a *Client) PublicGetBackupCodesV4Short(params *PublicGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetBackupCodesV4Params()
@@ -3517,17 +5133,46 @@ func (a *Client) PublicGetBackupCodesV4Short(params *PublicGetBackupCodesV4Param
 	switch v := result.(type) {
 
 	case *PublicGetBackupCodesV4NoContent:
-		return v, nil
+		response := &PublicGetBackupCodesV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetBackupCodesV4BadRequest:
-		return nil, v
+		response := &PublicGetBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetBackupCodesV4Unauthorized:
-		return nil, v
+		response := &PublicGetBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetBackupCodesV4Forbidden:
-		return nil, v
+		response := &PublicGetBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetBackupCodesV4NotFound:
-		return nil, v
+		response := &PublicGetBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetBackupCodesV4InternalServerError:
-		return nil, v
+		response := &PublicGetBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3540,7 +5185,7 @@ This endpoint is used to generate 8-digits backup codes.
 Each codes is a one-time code and will be deleted once used.
 The codes will be sent through linked email.
 */
-func (a *Client) PublicGenerateBackupCodesV4Short(params *PublicGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateBackupCodesV4NoContent, error) {
+func (a *Client) PublicGenerateBackupCodesV4Short(params *PublicGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGenerateBackupCodesV4Params()
@@ -3578,17 +5223,46 @@ func (a *Client) PublicGenerateBackupCodesV4Short(params *PublicGenerateBackupCo
 	switch v := result.(type) {
 
 	case *PublicGenerateBackupCodesV4NoContent:
-		return v, nil
+		response := &PublicGenerateBackupCodesV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGenerateBackupCodesV4BadRequest:
-		return nil, v
+		response := &PublicGenerateBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateBackupCodesV4Unauthorized:
-		return nil, v
+		response := &PublicGenerateBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateBackupCodesV4Forbidden:
-		return nil, v
+		response := &PublicGenerateBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateBackupCodesV4NotFound:
-		return nil, v
+		response := &PublicGenerateBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGenerateBackupCodesV4InternalServerError:
-		return nil, v
+		response := &PublicGenerateBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3599,7 +5273,7 @@ func (a *Client) PublicGenerateBackupCodesV4Short(params *PublicGenerateBackupCo
 PublicEnableBackupCodesV4Short enable 2fa backup codes
 This endpoint is used to enable 2FA backup codes.
 */
-func (a *Client) PublicEnableBackupCodesV4Short(params *PublicEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableBackupCodesV4NoContent, error) {
+func (a *Client) PublicEnableBackupCodesV4Short(params *PublicEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicEnableBackupCodesV4Params()
@@ -3637,19 +5311,53 @@ func (a *Client) PublicEnableBackupCodesV4Short(params *PublicEnableBackupCodesV
 	switch v := result.(type) {
 
 	case *PublicEnableBackupCodesV4NoContent:
-		return v, nil
+		response := &PublicEnableBackupCodesV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicEnableBackupCodesV4BadRequest:
-		return nil, v
+		response := &PublicEnableBackupCodesV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableBackupCodesV4Unauthorized:
-		return nil, v
+		response := &PublicEnableBackupCodesV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableBackupCodesV4Forbidden:
-		return nil, v
+		response := &PublicEnableBackupCodesV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableBackupCodesV4NotFound:
-		return nil, v
+		response := &PublicEnableBackupCodesV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableBackupCodesV4Conflict:
-		return nil, v
+		response := &PublicEnableBackupCodesV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableBackupCodesV4InternalServerError:
-		return nil, v
+		response := &PublicEnableBackupCodesV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3660,7 +5368,7 @@ func (a *Client) PublicEnableBackupCodesV4Short(params *PublicEnableBackupCodesV
 PublicChallengeMyMFAV4Short challenge user mfa
 This endpoint will verify user's' MFA code and generate a MFA token for the action.
 */
-func (a *Client) PublicChallengeMyMFAV4Short(params *PublicChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicChallengeMyMFAV4OK, error) {
+func (a *Client) PublicChallengeMyMFAV4Short(params *PublicChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicChallengeMyMFAV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicChallengeMyMFAV4Params()
@@ -3698,19 +5406,53 @@ func (a *Client) PublicChallengeMyMFAV4Short(params *PublicChallengeMyMFAV4Param
 	switch v := result.(type) {
 
 	case *PublicChallengeMyMFAV4OK:
-		return v, nil
+		response := &PublicChallengeMyMFAV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicChallengeMyMFAV4NoContent:
-		return nil, v
+		response := &PublicChallengeMyMFAV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicChallengeMyMFAV4BadRequest:
-		return nil, v
+		response := &PublicChallengeMyMFAV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChallengeMyMFAV4Unauthorized:
-		return nil, v
+		response := &PublicChallengeMyMFAV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChallengeMyMFAV4Forbidden:
-		return nil, v
+		response := &PublicChallengeMyMFAV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChallengeMyMFAV4NotFound:
-		return nil, v
+		response := &PublicChallengeMyMFAV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicChallengeMyMFAV4InternalServerError:
-		return nil, v
+		response := &PublicChallengeMyMFAV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3722,7 +5464,7 @@ PublicRemoveTrustedDeviceV4Short remove trusted device
 (Only for test)This endpoint is used to remove trusted device.
 This endpoint Requires device_token in cookie
 */
-func (a *Client) PublicRemoveTrustedDeviceV4Short(params *PublicRemoveTrustedDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicRemoveTrustedDeviceV4NoContent, error) {
+func (a *Client) PublicRemoveTrustedDeviceV4Short(params *PublicRemoveTrustedDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicRemoveTrustedDeviceV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicRemoveTrustedDeviceV4Params()
@@ -3760,17 +5502,46 @@ func (a *Client) PublicRemoveTrustedDeviceV4Short(params *PublicRemoveTrustedDev
 	switch v := result.(type) {
 
 	case *PublicRemoveTrustedDeviceV4NoContent:
-		return v, nil
+		response := &PublicRemoveTrustedDeviceV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicRemoveTrustedDeviceV4BadRequest:
-		return nil, v
+		response := &PublicRemoveTrustedDeviceV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRemoveTrustedDeviceV4Unauthorized:
-		return nil, v
+		response := &PublicRemoveTrustedDeviceV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRemoveTrustedDeviceV4Forbidden:
-		return nil, v
+		response := &PublicRemoveTrustedDeviceV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRemoveTrustedDeviceV4NotFound:
-		return nil, v
+		response := &PublicRemoveTrustedDeviceV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicRemoveTrustedDeviceV4InternalServerError:
-		return nil, v
+		response := &PublicRemoveTrustedDeviceV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3785,7 +5556,7 @@ Supported values of action:
 * ChangePassword
 * DisableMFAEmail
 */
-func (a *Client) PublicSendMyMFAEmailCodeV4Short(params *PublicSendMyMFAEmailCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendMyMFAEmailCodeV4NoContent, error) {
+func (a *Client) PublicSendMyMFAEmailCodeV4Short(params *PublicSendMyMFAEmailCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendMyMFAEmailCodeV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSendMyMFAEmailCodeV4Params()
@@ -3823,19 +5594,53 @@ func (a *Client) PublicSendMyMFAEmailCodeV4Short(params *PublicSendMyMFAEmailCod
 	switch v := result.(type) {
 
 	case *PublicSendMyMFAEmailCodeV4NoContent:
-		return v, nil
+		response := &PublicSendMyMFAEmailCodeV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSendMyMFAEmailCodeV4BadRequest:
-		return nil, v
+		response := &PublicSendMyMFAEmailCodeV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendMyMFAEmailCodeV4Unauthorized:
-		return nil, v
+		response := &PublicSendMyMFAEmailCodeV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendMyMFAEmailCodeV4Forbidden:
-		return nil, v
+		response := &PublicSendMyMFAEmailCodeV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendMyMFAEmailCodeV4NotFound:
-		return nil, v
+		response := &PublicSendMyMFAEmailCodeV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendMyMFAEmailCodeV4TooManyRequests:
-		return nil, v
+		response := &PublicSendMyMFAEmailCodeV4Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSendMyMFAEmailCodeV4InternalServerError:
-		return nil, v
+		response := &PublicSendMyMFAEmailCodeV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3851,7 +5656,7 @@ This endpoint is used to disable 2FA email.
 - The **Two-Factor Authentication** is enabled in the IAM client where user logs in
 - Users already enabled the MFA
 */
-func (a *Client) PublicDisableMyEmailV4Short(params *PublicDisableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyEmailV4NoContent, error) {
+func (a *Client) PublicDisableMyEmailV4Short(params *PublicDisableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicDisableMyEmailV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDisableMyEmailV4Params()
@@ -3889,17 +5694,46 @@ func (a *Client) PublicDisableMyEmailV4Short(params *PublicDisableMyEmailV4Param
 	switch v := result.(type) {
 
 	case *PublicDisableMyEmailV4NoContent:
-		return v, nil
+		response := &PublicDisableMyEmailV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDisableMyEmailV4BadRequest:
-		return nil, v
+		response := &PublicDisableMyEmailV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyEmailV4Unauthorized:
-		return nil, v
+		response := &PublicDisableMyEmailV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyEmailV4Forbidden:
-		return nil, v
+		response := &PublicDisableMyEmailV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyEmailV4NotFound:
-		return nil, v
+		response := &PublicDisableMyEmailV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDisableMyEmailV4InternalServerError:
-		return nil, v
+		response := &PublicDisableMyEmailV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3910,7 +5744,7 @@ func (a *Client) PublicDisableMyEmailV4Short(params *PublicDisableMyEmailV4Param
 PublicEnableMyEmailV4Short enable 2fa email
 This endpoint is used to enable 2FA email.
 */
-func (a *Client) PublicEnableMyEmailV4Short(params *PublicEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyEmailV4NoContent, error) {
+func (a *Client) PublicEnableMyEmailV4Short(params *PublicEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyEmailV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicEnableMyEmailV4Params()
@@ -3948,19 +5782,53 @@ func (a *Client) PublicEnableMyEmailV4Short(params *PublicEnableMyEmailV4Params,
 	switch v := result.(type) {
 
 	case *PublicEnableMyEmailV4NoContent:
-		return v, nil
+		response := &PublicEnableMyEmailV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicEnableMyEmailV4BadRequest:
-		return nil, v
+		response := &PublicEnableMyEmailV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyEmailV4Unauthorized:
-		return nil, v
+		response := &PublicEnableMyEmailV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyEmailV4Forbidden:
-		return nil, v
+		response := &PublicEnableMyEmailV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyEmailV4NotFound:
-		return nil, v
+		response := &PublicEnableMyEmailV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyEmailV4Conflict:
-		return nil, v
+		response := &PublicEnableMyEmailV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicEnableMyEmailV4InternalServerError:
-		return nil, v
+		response := &PublicEnableMyEmailV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3971,7 +5839,7 @@ func (a *Client) PublicEnableMyEmailV4Short(params *PublicEnableMyEmailV4Params,
 PublicGetMyEnabledFactorsV4Short get user enabled factors
 This endpoint is used to get user enabled factors.
 */
-func (a *Client) PublicGetMyEnabledFactorsV4Short(params *PublicGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEnabledFactorsV4OK, error) {
+func (a *Client) PublicGetMyEnabledFactorsV4Short(params *PublicGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEnabledFactorsV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyEnabledFactorsV4Params()
@@ -4009,17 +5877,47 @@ func (a *Client) PublicGetMyEnabledFactorsV4Short(params *PublicGetMyEnabledFact
 	switch v := result.(type) {
 
 	case *PublicGetMyEnabledFactorsV4OK:
-		return v, nil
+		response := &PublicGetMyEnabledFactorsV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMyEnabledFactorsV4BadRequest:
-		return nil, v
+		response := &PublicGetMyEnabledFactorsV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyEnabledFactorsV4Unauthorized:
-		return nil, v
+		response := &PublicGetMyEnabledFactorsV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyEnabledFactorsV4Forbidden:
-		return nil, v
+		response := &PublicGetMyEnabledFactorsV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyEnabledFactorsV4NotFound:
-		return nil, v
+		response := &PublicGetMyEnabledFactorsV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyEnabledFactorsV4InternalServerError:
-		return nil, v
+		response := &PublicGetMyEnabledFactorsV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4030,7 +5928,7 @@ func (a *Client) PublicGetMyEnabledFactorsV4Short(params *PublicGetMyEnabledFact
 PublicMakeFactorMyDefaultV4Short make 2fa factor default
 This endpoint is used to make 2FA factor default.
 */
-func (a *Client) PublicMakeFactorMyDefaultV4Short(params *PublicMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicMakeFactorMyDefaultV4NoContent, error) {
+func (a *Client) PublicMakeFactorMyDefaultV4Short(params *PublicMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicMakeFactorMyDefaultV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicMakeFactorMyDefaultV4Params()
@@ -4068,17 +5966,46 @@ func (a *Client) PublicMakeFactorMyDefaultV4Short(params *PublicMakeFactorMyDefa
 	switch v := result.(type) {
 
 	case *PublicMakeFactorMyDefaultV4NoContent:
-		return v, nil
+		response := &PublicMakeFactorMyDefaultV4Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicMakeFactorMyDefaultV4BadRequest:
-		return nil, v
+		response := &PublicMakeFactorMyDefaultV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicMakeFactorMyDefaultV4Unauthorized:
-		return nil, v
+		response := &PublicMakeFactorMyDefaultV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicMakeFactorMyDefaultV4Forbidden:
-		return nil, v
+		response := &PublicMakeFactorMyDefaultV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicMakeFactorMyDefaultV4NotFound:
-		return nil, v
+		response := &PublicMakeFactorMyDefaultV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicMakeFactorMyDefaultV4InternalServerError:
-		return nil, v
+		response := &PublicMakeFactorMyDefaultV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4089,7 +6016,7 @@ func (a *Client) PublicMakeFactorMyDefaultV4Short(params *PublicMakeFactorMyDefa
 PublicGetMyOwnMFAStatusV4Short get my own mfa status
 This endpoint will get user's' MFA status.
 */
-func (a *Client) PublicGetMyOwnMFAStatusV4Short(params *PublicGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyOwnMFAStatusV4OK, error) {
+func (a *Client) PublicGetMyOwnMFAStatusV4Short(params *PublicGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyOwnMFAStatusV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyOwnMFAStatusV4Params()
@@ -4127,15 +6054,40 @@ func (a *Client) PublicGetMyOwnMFAStatusV4Short(params *PublicGetMyOwnMFAStatusV
 	switch v := result.(type) {
 
 	case *PublicGetMyOwnMFAStatusV4OK:
-		return v, nil
+		response := &PublicGetMyOwnMFAStatusV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMyOwnMFAStatusV4Unauthorized:
-		return nil, v
+		response := &PublicGetMyOwnMFAStatusV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyOwnMFAStatusV4Forbidden:
-		return nil, v
+		response := &PublicGetMyOwnMFAStatusV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyOwnMFAStatusV4NotFound:
-		return nil, v
+		response := &PublicGetMyOwnMFAStatusV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyOwnMFAStatusV4InternalServerError:
-		return nil, v
+		response := &PublicGetMyOwnMFAStatusV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4148,7 +6100,7 @@ This endpoint will get user's' MFA status.
 ---------
 **Substitute endpoint**: /iam/v4/public/namespaces/{namespace}/users/me/mfa/status [GET]
 */
-func (a *Client) PublicGetMyMFAStatusV4Short(params *PublicGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyMFAStatusV4OK, error) {
+func (a *Client) PublicGetMyMFAStatusV4Short(params *PublicGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyMFAStatusV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMyMFAStatusV4Params()
@@ -4186,15 +6138,40 @@ func (a *Client) PublicGetMyMFAStatusV4Short(params *PublicGetMyMFAStatusV4Param
 	switch v := result.(type) {
 
 	case *PublicGetMyMFAStatusV4OK:
-		return v, nil
+		response := &PublicGetMyMFAStatusV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMyMFAStatusV4Unauthorized:
-		return nil, v
+		response := &PublicGetMyMFAStatusV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyMFAStatusV4Forbidden:
-		return nil, v
+		response := &PublicGetMyMFAStatusV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyMFAStatusV4NotFound:
-		return nil, v
+		response := &PublicGetMyMFAStatusV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetMyMFAStatusV4InternalServerError:
-		return nil, v
+		response := &PublicGetMyMFAStatusV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4206,7 +6183,7 @@ PublicGetUserPublicInfoByUserIDV4Short get user public info by user id
 This endpoint only returns user's public information.
 action code: 10129
 */
-func (a *Client) PublicGetUserPublicInfoByUserIDV4Short(params *PublicGetUserPublicInfoByUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPublicInfoByUserIDV4OK, error) {
+func (a *Client) PublicGetUserPublicInfoByUserIDV4Short(params *PublicGetUserPublicInfoByUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPublicInfoByUserIDV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserPublicInfoByUserIDV4Params()
@@ -4244,13 +6221,33 @@ func (a *Client) PublicGetUserPublicInfoByUserIDV4Short(params *PublicGetUserPub
 	switch v := result.(type) {
 
 	case *PublicGetUserPublicInfoByUserIDV4OK:
-		return v, nil
+		response := &PublicGetUserPublicInfoByUserIDV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserPublicInfoByUserIDV4BadRequest:
-		return nil, v
+		response := &PublicGetUserPublicInfoByUserIDV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserPublicInfoByUserIDV4NotFound:
-		return nil, v
+		response := &PublicGetUserPublicInfoByUserIDV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserPublicInfoByUserIDV4InternalServerError:
-		return nil, v
+		response := &PublicGetUserPublicInfoByUserIDV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4270,7 +6267,7 @@ Request body details:
 
 The invited users will also be assigned with "User" role by default.
 */
-func (a *Client) PublicInviteUserV4Short(params *PublicInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicInviteUserV4Created, error) {
+func (a *Client) PublicInviteUserV4Short(params *PublicInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicInviteUserV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicInviteUserV4Params()
@@ -4308,17 +6305,47 @@ func (a *Client) PublicInviteUserV4Short(params *PublicInviteUserV4Params, authI
 	switch v := result.(type) {
 
 	case *PublicInviteUserV4Created:
-		return v, nil
+		response := &PublicInviteUserV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicInviteUserV4BadRequest:
-		return nil, v
+		response := &PublicInviteUserV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicInviteUserV4Conflict:
-		return nil, v
+		response := &PublicInviteUserV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicInviteUserV4UnprocessableEntity:
-		return nil, v
+		response := &PublicInviteUserV4Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicInviteUserV4TooManyRequests:
-		return nil, v
+		response := &PublicInviteUserV4Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicInviteUserV4InternalServerError:
-		return nil, v
+		response := &PublicInviteUserV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

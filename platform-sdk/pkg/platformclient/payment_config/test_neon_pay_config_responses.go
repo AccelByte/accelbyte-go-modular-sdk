@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type TestNeonPayConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.TestResult
+}
+
+func (m *TestNeonPayConfigResponse) Unpack() (*platformclientmodels.TestResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // TestNeonPayConfigReader is a Reader for the TestNeonPayConfig structure.
 type TestNeonPayConfigReader struct {
 	formats strfmt.Registry

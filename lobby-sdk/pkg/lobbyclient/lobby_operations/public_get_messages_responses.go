@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type PublicGetMessagesResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data []*lobbyclientmodels.LogAppMessageDeclaration
+
+	Error500 *lobbyclientmodels.RestapiErrorResponseBody
+}
+
+func (m *PublicGetMessagesResponse) Unpack() ([]*lobbyclientmodels.LogAppMessageDeclaration, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetMessagesReader is a Reader for the PublicGetMessages structure.
 type PublicGetMessagesReader struct {
 	formats strfmt.Registry

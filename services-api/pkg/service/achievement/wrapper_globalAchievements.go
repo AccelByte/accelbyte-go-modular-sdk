@@ -9,7 +9,6 @@ package achievement
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/global_achievements"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *GlobalAchievementsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *GlobalAchievementsService) AdminListGlobalAchievementsShort(input *global_achievements.AdminListGlobalAchievementsParams) (*achievementclientmodels.ModelsPaginatedGlobalAchievementResponse, error) {
+func (aaa *GlobalAchievementsService) AdminListGlobalAchievementsShort(input *global_achievements.AdminListGlobalAchievementsParams) (*global_achievements.AdminListGlobalAchievementsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *GlobalAchievementsService) AdminListGlobalAchievementsShort(input *gl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalAchievementsService) AdminListGlobalAchievementContributorsShort(input *global_achievements.AdminListGlobalAchievementContributorsParams) (*achievementclientmodels.ModelsPaginatedContributorResponse, error) {
+func (aaa *GlobalAchievementsService) AdminListGlobalAchievementContributorsShort(input *global_achievements.AdminListGlobalAchievementContributorsParams) (*global_achievements.AdminListGlobalAchievementContributorsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *GlobalAchievementsService) AdminListGlobalAchievementContributorsShor
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GlobalAchievementsService) ResetGlobalAchievementShort(input *global_achievements.ResetGlobalAchievementParams) error {
@@ -129,7 +128,7 @@ func (aaa *GlobalAchievementsService) ResetGlobalAchievementShort(input *global_
 	return nil
 }
 
-func (aaa *GlobalAchievementsService) AdminListUserContributionsShort(input *global_achievements.AdminListUserContributionsParams) (*achievementclientmodels.ModelsPaginatedUserContributionResponse, error) {
+func (aaa *GlobalAchievementsService) AdminListUserContributionsShort(input *global_achievements.AdminListUserContributionsParams) (*global_achievements.AdminListUserContributionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *GlobalAchievementsService) AdminListUserContributionsShort(input *glo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalAchievementsService) PublicListGlobalAchievementsShort(input *global_achievements.PublicListGlobalAchievementsParams) (*achievementclientmodels.ModelsPaginatedGlobalAchievementResponse, error) {
+func (aaa *GlobalAchievementsService) PublicListGlobalAchievementsShort(input *global_achievements.PublicListGlobalAchievementsParams) (*global_achievements.PublicListGlobalAchievementsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *GlobalAchievementsService) PublicListGlobalAchievementsShort(input *g
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalAchievementsService) ListGlobalAchievementContributorsShort(input *global_achievements.ListGlobalAchievementContributorsParams) (*achievementclientmodels.ModelsPaginatedContributorResponse, error) {
+func (aaa *GlobalAchievementsService) ListGlobalAchievementContributorsShort(input *global_achievements.ListGlobalAchievementContributorsParams) (*global_achievements.ListGlobalAchievementContributorsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *GlobalAchievementsService) ListGlobalAchievementContributorsShort(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalAchievementsService) ListUserContributionsShort(input *global_achievements.ListUserContributionsParams) (*achievementclientmodels.ModelsPaginatedUserContributionResponse, error) {
+func (aaa *GlobalAchievementsService) ListUserContributionsShort(input *global_achievements.ListUserContributionsParams) (*global_achievements.ListUserContributionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,7 +245,7 @@ func (aaa *GlobalAchievementsService) ListUserContributionsShort(input *global_a
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GlobalAchievementsService) ClaimGlobalAchievementRewardShort(input *global_achievements.ClaimGlobalAchievementRewardParams) error {

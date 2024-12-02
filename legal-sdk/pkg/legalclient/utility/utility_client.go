@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CheckReadinessShort(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessOK, error)
+	CheckReadinessShort(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 CheckReadinessShort check legal data readiness
 Readiness status defined as at least one legal basePolicy is present and having active basePolicy.
 */
-func (a *Client) CheckReadinessShort(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessOK, error) {
+func (a *Client) CheckReadinessShort(params *CheckReadinessParams, authInfo runtime.ClientAuthInfoWriter) (*CheckReadinessResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCheckReadinessParams()
@@ -77,7 +77,12 @@ func (a *Client) CheckReadinessShort(params *CheckReadinessParams, authInfo runt
 	switch v := result.(type) {
 
 	case *CheckReadinessOK:
-		return v, nil
+		response := &CheckReadinessResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

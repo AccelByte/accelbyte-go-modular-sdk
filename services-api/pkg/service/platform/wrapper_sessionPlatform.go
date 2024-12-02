@@ -38,7 +38,7 @@ func (aaa *SessionPlatformService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *SessionPlatformService) RegisterXblSessionsShort(input *session_platform.RegisterXblSessionsParams) (map[string]interface{}, error) {
+func (aaa *SessionPlatformService) RegisterXblSessionsShort(input *session_platform.RegisterXblSessionsParams) (*session_platform.RegisterXblSessionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -65,5 +65,5 @@ func (aaa *SessionPlatformService) RegisterXblSessionsShort(input *session_platf
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

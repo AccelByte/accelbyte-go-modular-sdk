@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type TokenIntrospectionV3Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.OauthmodelTokenIntrospectResponse
+
+	Error400 *iamclientmodels.OauthmodelErrorResponse
+	Error401 *iamclientmodels.OauthmodelErrorResponse
+}
+
+func (m *TokenIntrospectionV3Response) Unpack() (*iamclientmodels.OauthmodelTokenIntrospectResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // TokenIntrospectionV3Reader is a Reader for the TokenIntrospectionV3 structure.
 type TokenIntrospectionV3Reader struct {
 	formats strfmt.Registry

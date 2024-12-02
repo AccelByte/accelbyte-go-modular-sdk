@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_content_v2"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type PublicContentV2Service struct {
@@ -37,7 +36,7 @@ func (aaa *PublicContentV2Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicContentV2Service) PublicGetContentByChannelIDV2Short(input *public_content_v2.PublicGetContentByChannelIDV2Params) (*ugcclientmodels.ModelsPaginatedContentDownloadResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicGetContentByChannelIDV2Short(input *public_content_v2.PublicGetContentByChannelIDV2Params) (*public_content_v2.PublicGetContentByChannelIDV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicContentV2Service) PublicGetContentByChannelIDV2Short(input *pub
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicListContentV2Short(input *public_content_v2.PublicListContentV2Params) (*ugcclientmodels.ModelsPaginatedContentDownloadResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicListContentV2Short(input *public_content_v2.PublicListContentV2Params) (*public_content_v2.PublicListContentV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PublicContentV2Service) PublicListContentV2Short(input *public_conten
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicBulkGetContentByIDV2Short(input *public_content_v2.PublicBulkGetContentByIDV2Params) ([]*ugcclientmodels.ModelsContentDownloadResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicBulkGetContentByIDV2Short(input *public_content_v2.PublicBulkGetContentByIDV2Params) (*public_content_v2.PublicBulkGetContentByIDV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *PublicContentV2Service) PublicBulkGetContentByIDV2Short(input *public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicGetContentBulkByShareCodesV2Short(input *public_content_v2.PublicGetContentBulkByShareCodesV2Params) ([]*ugcclientmodels.ModelsContentDownloadResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicGetContentBulkByShareCodesV2Short(input *public_content_v2.PublicGetContentBulkByShareCodesV2Params) (*public_content_v2.PublicGetContentBulkByShareCodesV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *PublicContentV2Service) PublicGetContentBulkByShareCodesV2Short(input
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicGetContentByShareCodeV2Short(input *public_content_v2.PublicGetContentByShareCodeV2Params) (*ugcclientmodels.ModelsContentDownloadResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicGetContentByShareCodeV2Short(input *public_content_v2.PublicGetContentByShareCodeV2Params) (*public_content_v2.PublicGetContentByShareCodeV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *PublicContentV2Service) PublicGetContentByShareCodeV2Short(input *pub
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicGetContentByIDV2Short(input *public_content_v2.PublicGetContentByIDV2Params) (*ugcclientmodels.ModelsContentDownloadResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicGetContentByIDV2Short(input *public_content_v2.PublicGetContentByIDV2Params) (*public_content_v2.PublicGetContentByIDV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *PublicContentV2Service) PublicGetContentByIDV2Short(input *public_con
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicCreateContentV2Short(input *public_content_v2.PublicCreateContentV2Params) (*ugcclientmodels.ModelsCreateContentResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicCreateContentV2Short(input *public_content_v2.PublicCreateContentV2Params) (*public_content_v2.PublicCreateContentV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *PublicContentV2Service) PublicCreateContentV2Short(input *public_cont
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PublicContentV2Service) PublicUpdateContentByShareCodeV2Short(input *public_content_v2.PublicUpdateContentByShareCodeV2Params) (*ugcclientmodels.ModelsCreateContentResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicUpdateContentByShareCodeV2Short(input *public_content_v2.PublicUpdateContentByShareCodeV2Params) (*public_content_v2.PublicUpdateContentByShareCodeV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,7 +273,7 @@ func (aaa *PublicContentV2Service) PublicUpdateContentByShareCodeV2Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PublicContentV2Service) PublicDeleteContentByShareCodeV2Short(input *public_content_v2.PublicDeleteContentByShareCodeV2Params) error {
@@ -337,7 +336,7 @@ func (aaa *PublicContentV2Service) PublicDeleteContentV2Short(input *public_cont
 	return nil
 }
 
-func (aaa *PublicContentV2Service) PublicUpdateContentV2Short(input *public_content_v2.PublicUpdateContentV2Params) (*ugcclientmodels.ModelsUpdateContentResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicUpdateContentV2Short(input *public_content_v2.PublicUpdateContentV2Params) (*public_content_v2.PublicUpdateContentV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *PublicContentV2Service) PublicUpdateContentV2Short(input *public_cont
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicUpdateContentFileLocationShort(input *public_content_v2.PublicUpdateContentFileLocationParams) (*ugcclientmodels.ModelsUpdateContentResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicUpdateContentFileLocationShort(input *public_content_v2.PublicUpdateContentFileLocationParams) (*public_content_v2.PublicUpdateContentFileLocationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *PublicContentV2Service) PublicUpdateContentFileLocationShort(input *p
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) UpdateContentShareCodeV2Short(input *public_content_v2.UpdateContentShareCodeV2Params) (*ugcclientmodels.ModelsCreateContentResponseV2, error) {
+func (aaa *PublicContentV2Service) UpdateContentShareCodeV2Short(input *public_content_v2.UpdateContentShareCodeV2Params) (*public_content_v2.UpdateContentShareCodeV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,10 +423,10 @@ func (aaa *PublicContentV2Service) UpdateContentShareCodeV2Short(input *public_c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicGenerateContentUploadURLV2Short(input *public_content_v2.PublicGenerateContentUploadURLV2Params) (*ugcclientmodels.ModelsGenerateContentUploadURLResponse, error) {
+func (aaa *PublicContentV2Service) PublicGenerateContentUploadURLV2Short(input *public_content_v2.PublicGenerateContentUploadURLV2Params) (*public_content_v2.PublicGenerateContentUploadURLV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *PublicContentV2Service) PublicGenerateContentUploadURLV2Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) PublicGetContentByUserIDV2Short(input *public_content_v2.PublicGetContentByUserIDV2Params) (*ugcclientmodels.ModelsPaginatedContentDownloadResponseV2, error) {
+func (aaa *PublicContentV2Service) PublicGetContentByUserIDV2Short(input *public_content_v2.PublicGetContentByUserIDV2Params) (*public_content_v2.PublicGetContentByUserIDV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,10 +483,10 @@ func (aaa *PublicContentV2Service) PublicGetContentByUserIDV2Short(input *public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) UpdateScreenshotsV2Short(input *public_content_v2.UpdateScreenshotsV2Params) (*ugcclientmodels.ModelsUpdateScreenshotResponse, error) {
+func (aaa *PublicContentV2Service) UpdateScreenshotsV2Short(input *public_content_v2.UpdateScreenshotsV2Params) (*public_content_v2.UpdateScreenshotsV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,10 +513,10 @@ func (aaa *PublicContentV2Service) UpdateScreenshotsV2Short(input *public_conten
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentV2Service) UploadContentScreenshotV2Short(input *public_content_v2.UploadContentScreenshotV2Params) (*ugcclientmodels.ModelsCreateScreenshotResponse, error) {
+func (aaa *PublicContentV2Service) UploadContentScreenshotV2Short(input *public_content_v2.UploadContentScreenshotV2Params) (*public_content_v2.UploadContentScreenshotV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -544,7 +543,7 @@ func (aaa *PublicContentV2Service) UploadContentScreenshotV2Short(input *public_
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *PublicContentV2Service) DeleteContentScreenshotV2Short(input *public_content_v2.DeleteContentScreenshotV2Params) error {

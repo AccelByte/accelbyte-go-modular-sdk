@@ -31,8 +31,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DownloadInvoiceDetailsShort(params *DownloadInvoiceDetailsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadInvoiceDetailsOK, error)
-	GenerateInvoiceSummaryShort(params *GenerateInvoiceSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GenerateInvoiceSummaryOK, error)
+	DownloadInvoiceDetailsShort(params *DownloadInvoiceDetailsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadInvoiceDetailsResponse, error)
+	GenerateInvoiceSummaryShort(params *GenerateInvoiceSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GenerateInvoiceSummaryResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ Other detail info:
 
   * Returns : invoice details csv file
 */
-func (a *Client) DownloadInvoiceDetailsShort(params *DownloadInvoiceDetailsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadInvoiceDetailsOK, error) {
+func (a *Client) DownloadInvoiceDetailsShort(params *DownloadInvoiceDetailsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadInvoiceDetailsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadInvoiceDetailsParams()
@@ -82,7 +82,12 @@ func (a *Client) DownloadInvoiceDetailsShort(params *DownloadInvoiceDetailsParam
 	switch v := result.(type) {
 
 	case *DownloadInvoiceDetailsOK:
-		return v, nil
+		response := &DownloadInvoiceDetailsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -96,7 +101,7 @@ Other detail info:
 
   * Returns : query orders
 */
-func (a *Client) GenerateInvoiceSummaryShort(params *GenerateInvoiceSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GenerateInvoiceSummaryOK, error) {
+func (a *Client) GenerateInvoiceSummaryShort(params *GenerateInvoiceSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GenerateInvoiceSummaryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGenerateInvoiceSummaryParams()
@@ -134,9 +139,19 @@ func (a *Client) GenerateInvoiceSummaryShort(params *GenerateInvoiceSummaryParam
 	switch v := result.(type) {
 
 	case *GenerateInvoiceSummaryOK:
-		return v, nil
+		response := &GenerateInvoiceSummaryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GenerateInvoiceSummaryUnprocessableEntity:
-		return nil, v
+		response := &GenerateInvoiceSummaryResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

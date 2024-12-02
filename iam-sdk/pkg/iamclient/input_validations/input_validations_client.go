@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetInputValidationsShort(params *AdminGetInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInputValidationsOK, error)
-	AdminUpdateInputValidationsShort(params *AdminUpdateInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInputValidationsNoContent, error)
-	AdminResetInputValidationsShort(params *AdminResetInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetInputValidationsNoContent, error)
-	PublicGetInputValidationsShort(params *PublicGetInputValidationsParams) (*PublicGetInputValidationsOK, error)
-	PublicGetInputValidationByFieldShort(params *PublicGetInputValidationByFieldParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetInputValidationByFieldOK, error)
+	AdminGetInputValidationsShort(params *AdminGetInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInputValidationsResponse, error)
+	AdminUpdateInputValidationsShort(params *AdminUpdateInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInputValidationsResponse, error)
+	AdminResetInputValidationsShort(params *AdminResetInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetInputValidationsResponse, error)
+	PublicGetInputValidationsShort(params *PublicGetInputValidationsParams) (*PublicGetInputValidationsResponse, error)
+	PublicGetInputValidationByFieldShort(params *PublicGetInputValidationByFieldParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetInputValidationByFieldResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ AdminGetInputValidationsShort admin get input validations
 This endpoint is to get list of input validation configuration.
 `regex` parameter will be returned if `isCustomRegex` is true. Otherwise, it will be empty.
 */
-func (a *Client) AdminGetInputValidationsShort(params *AdminGetInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInputValidationsOK, error) {
+func (a *Client) AdminGetInputValidationsShort(params *AdminGetInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInputValidationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetInputValidationsParams()
@@ -82,11 +82,26 @@ func (a *Client) AdminGetInputValidationsShort(params *AdminGetInputValidationsP
 	switch v := result.(type) {
 
 	case *AdminGetInputValidationsOK:
-		return v, nil
+		response := &AdminGetInputValidationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetInputValidationsUnauthorized:
-		return nil, v
+		response := &AdminGetInputValidationsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInputValidationsForbidden:
-		return nil, v
+		response := &AdminGetInputValidationsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -122,7 +137,7 @@ If `specialCharacters` is empty, `specialCharacterLocation` and `maxRepeatingSpe
 If `blockedWord` is set by admin, any input from user which contain kind of blocked word(s) will be blocked for create/upgrade/update account
 If `avatarConfig` is set, will use this config and skip all the other validation conditions
 */
-func (a *Client) AdminUpdateInputValidationsShort(params *AdminUpdateInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInputValidationsNoContent, error) {
+func (a *Client) AdminUpdateInputValidationsShort(params *AdminUpdateInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInputValidationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateInputValidationsParams()
@@ -160,13 +175,32 @@ func (a *Client) AdminUpdateInputValidationsShort(params *AdminUpdateInputValida
 	switch v := result.(type) {
 
 	case *AdminUpdateInputValidationsNoContent:
-		return v, nil
+		response := &AdminUpdateInputValidationsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateInputValidationsUnauthorized:
-		return nil, v
+		response := &AdminUpdateInputValidationsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInputValidationsForbidden:
-		return nil, v
+		response := &AdminUpdateInputValidationsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateInputValidationsNotFound:
-		return nil, v
+		response := &AdminUpdateInputValidationsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -177,7 +211,7 @@ func (a *Client) AdminUpdateInputValidationsShort(params *AdminUpdateInputValida
 AdminResetInputValidationsShort admin reset input validations
 This endpoint is used to reset input validation to the default input validation configurations
 */
-func (a *Client) AdminResetInputValidationsShort(params *AdminResetInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetInputValidationsNoContent, error) {
+func (a *Client) AdminResetInputValidationsShort(params *AdminResetInputValidationsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetInputValidationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminResetInputValidationsParams()
@@ -215,13 +249,32 @@ func (a *Client) AdminResetInputValidationsShort(params *AdminResetInputValidati
 	switch v := result.(type) {
 
 	case *AdminResetInputValidationsNoContent:
-		return v, nil
+		response := &AdminResetInputValidationsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminResetInputValidationsUnauthorized:
-		return nil, v
+		response := &AdminResetInputValidationsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetInputValidationsForbidden:
-		return nil, v
+		response := &AdminResetInputValidationsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminResetInputValidationsNotFound:
-		return nil, v
+		response := &AdminResetInputValidationsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -234,7 +287,7 @@ No role required
 This endpoint is to get list of input validation configuration.
 `regex` parameter will be returned if `isCustomRegex` is true. Otherwise, it will be empty.
 */
-func (a *Client) PublicGetInputValidationsShort(params *PublicGetInputValidationsParams) (*PublicGetInputValidationsOK, error) {
+func (a *Client) PublicGetInputValidationsShort(params *PublicGetInputValidationsParams) (*PublicGetInputValidationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetInputValidationsParams()
@@ -271,11 +324,25 @@ func (a *Client) PublicGetInputValidationsShort(params *PublicGetInputValidation
 	switch v := result.(type) {
 
 	case *PublicGetInputValidationsOK:
-		return v, nil
+		response := &PublicGetInputValidationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetInputValidationsNotFound:
-		return nil, v
+		response := &PublicGetInputValidationsResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetInputValidationsInternalServerError:
-		return nil, v
+		response := &PublicGetInputValidationsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -286,7 +353,7 @@ func (a *Client) PublicGetInputValidationsShort(params *PublicGetInputValidation
 PublicGetInputValidationByFieldShort public get input validation by field
 This endpoint is to get input validation configuration by field.
 */
-func (a *Client) PublicGetInputValidationByFieldShort(params *PublicGetInputValidationByFieldParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetInputValidationByFieldOK, error) {
+func (a *Client) PublicGetInputValidationByFieldShort(params *PublicGetInputValidationByFieldParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetInputValidationByFieldResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetInputValidationByFieldParams()
@@ -324,11 +391,25 @@ func (a *Client) PublicGetInputValidationByFieldShort(params *PublicGetInputVali
 	switch v := result.(type) {
 
 	case *PublicGetInputValidationByFieldOK:
-		return v, nil
+		response := &PublicGetInputValidationByFieldResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetInputValidationByFieldNotFound:
-		return nil, v
+		response := &PublicGetInputValidationByFieldResponse{}
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetInputValidationByFieldInternalServerError:
-		return nil, v
+		response := &PublicGetInputValidationByFieldResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

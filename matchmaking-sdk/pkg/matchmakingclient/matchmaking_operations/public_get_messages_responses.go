@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclientmodels"
 )
 
+type PublicGetMessagesResponse struct {
+	matchmakingclientmodels.ApiResponse
+	Data []*matchmakingclientmodels.LogAppMessageDeclaration
+
+	Error500 *matchmakingclientmodels.ResponseError
+}
+
+func (m *PublicGetMessagesResponse) Unpack() ([]*matchmakingclientmodels.LogAppMessageDeclaration, *matchmakingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &matchmakingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetMessagesReader is a Reader for the PublicGetMessages structure.
 type PublicGetMessagesReader struct {
 	formats strfmt.Registry

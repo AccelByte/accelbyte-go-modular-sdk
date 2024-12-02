@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetConfigsShort(params *AdminGetConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigsOK, error)
-	AdminUpdateConfigShort(params *AdminUpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigCreated, error)
+	AdminGetConfigsShort(params *AdminGetConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigsResponse, error)
+	AdminUpdateConfigShort(params *AdminUpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 AdminGetConfigsShort get configs
 Get config paginated
 */
-func (a *Client) AdminGetConfigsShort(params *AdminGetConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigsOK, error) {
+func (a *Client) AdminGetConfigsShort(params *AdminGetConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetConfigsParams()
@@ -78,15 +78,40 @@ func (a *Client) AdminGetConfigsShort(params *AdminGetConfigsParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminGetConfigsOK:
-		return v, nil
+		response := &AdminGetConfigsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetConfigsBadRequest:
-		return nil, v
+		response := &AdminGetConfigsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigsUnauthorized:
-		return nil, v
+		response := &AdminGetConfigsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigsForbidden:
-		return nil, v
+		response := &AdminGetConfigsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigsInternalServerError:
-		return nil, v
+		response := &AdminGetConfigsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +125,7 @@ This endpoint will create a new config if the *key* doesn't exist.
 Allowed key value:
 - *contentReview*: *enabled*,*disabled*
 */
-func (a *Client) AdminUpdateConfigShort(params *AdminUpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigCreated, error) {
+func (a *Client) AdminUpdateConfigShort(params *AdminUpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateConfigParams()
@@ -138,15 +163,39 @@ func (a *Client) AdminUpdateConfigShort(params *AdminUpdateConfigParams, authInf
 	switch v := result.(type) {
 
 	case *AdminUpdateConfigCreated:
-		return v, nil
+		response := &AdminUpdateConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateConfigBadRequest:
-		return nil, v
+		response := &AdminUpdateConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigUnauthorized:
-		return nil, v
+		response := &AdminUpdateConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigForbidden:
-		return nil, v
+		response := &AdminUpdateConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigInternalServerError:
-		return nil, v
+		response := &AdminUpdateConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

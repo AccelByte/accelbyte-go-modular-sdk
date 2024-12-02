@@ -9,7 +9,6 @@ package ams
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/servers"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ServersService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ServersService) FleetServerHistoryShort(input *servers.FleetServerHistoryParams) (*amsclientmodels.APIDSHistoryList, error) {
+func (aaa *ServersService) FleetServerHistoryShort(input *servers.FleetServerHistoryParams) (*servers.FleetServerHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ServersService) FleetServerHistoryShort(input *servers.FleetServerHis
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServersService) FleetServerInfoShort(input *servers.FleetServerInfoParams) (*amsclientmodels.APIFleetServerInfoResponse, error) {
+func (aaa *ServersService) FleetServerInfoShort(input *servers.FleetServerInfoParams) (*servers.FleetServerInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *ServersService) FleetServerInfoShort(input *servers.FleetServerInfoPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServersService) FleetServerConnectionInfoShort(input *servers.FleetServerConnectionInfoParams) (*amsclientmodels.APIFleetServerConnectionInfoResponse, error) {
+func (aaa *ServersService) FleetServerConnectionInfoShort(input *servers.FleetServerConnectionInfoParams) (*servers.FleetServerConnectionInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *ServersService) FleetServerConnectionInfoShort(input *servers.FleetSe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ServersService) ServerHistoryShort(input *servers.ServerHistoryParams) (*amsclientmodels.APIFleetServerHistoryResponse, error) {
+func (aaa *ServersService) ServerHistoryShort(input *servers.ServerHistoryParams) (*servers.ServerHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,5 +155,5 @@ func (aaa *ServersService) ServerHistoryShort(input *servers.ServerHistoryParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

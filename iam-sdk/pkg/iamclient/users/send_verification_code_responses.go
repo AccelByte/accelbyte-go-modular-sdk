@@ -19,6 +19,59 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type SendVerificationCodeResponse struct {
+	iamclientmodels.ApiResponse
+
+	Error400 string
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 string
+	Error404 string
+	Error409 string
+	Error429 string
+	Error500 string
+}
+
+func (m *SendVerificationCodeResponse) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			return &iamclientmodels.ApiError{Code: "400", Message: m.Error400}
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			return &iamclientmodels.ApiError{Code: "403", Message: m.Error403}
+
+		case 404:
+			return &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		case 409:
+			return &iamclientmodels.ApiError{Code: "409", Message: m.Error409}
+
+		case 429:
+			return &iamclientmodels.ApiError{Code: "429", Message: m.Error429}
+
+		case 500:
+			return &iamclientmodels.ApiError{Code: "500", Message: m.Error500}
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // SendVerificationCodeReader is a Reader for the SendVerificationCode structure.
 type SendVerificationCodeReader struct {
 	formats strfmt.Registry

@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclientmodels"
 )
 
+type ExportChannelsResponse struct {
+	matchmakingclientmodels.ApiResponse
+	Data io.Writer
+
+	Error401 *matchmakingclientmodels.ResponseErrorV1
+	Error403 *matchmakingclientmodels.ResponseErrorV1
+	Error500 *matchmakingclientmodels.ResponseErrorV1
+}
+
+func (m *ExportChannelsResponse) Unpack() (io.Writer, *matchmakingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &matchmakingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ExportChannelsReader is a Reader for the ExportChannels structure.
 type ExportChannelsReader struct {
 	formats strfmt.Registry

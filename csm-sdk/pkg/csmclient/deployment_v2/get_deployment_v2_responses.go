@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 )
 
+type GetDeploymentV2Response struct {
+	csmclientmodels.ApiResponse
+	Data *csmclientmodels.ApimodelGetDeploymentListV2DataItem
+
+	Error401 *csmclientmodels.ResponseErrorResponse
+	Error403 *csmclientmodels.ResponseErrorResponse
+	Error404 *csmclientmodels.ResponseErrorResponse
+	Error500 *csmclientmodels.ResponseErrorResponse
+}
+
+func (m *GetDeploymentV2Response) Unpack() (*csmclientmodels.ApimodelGetDeploymentListV2DataItem, *csmclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &csmclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetDeploymentV2Reader is a Reader for the GetDeploymentV2 structure.
 type GetDeploymentV2Reader struct {
 	formats strfmt.Registry

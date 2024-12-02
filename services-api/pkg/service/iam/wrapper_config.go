@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigService) AdminGetConfigValueV3Short(input *config.AdminGetConfigValueV3Params) (*iamclientmodels.ModelConfigValueResponseV3, error) {
+func (aaa *ConfigService) AdminGetConfigValueV3Short(input *config.AdminGetConfigValueV3Params) (*config.AdminGetConfigValueV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ConfigService) AdminGetConfigValueV3Short(input *config.AdminGetConfi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) PublicGetConfigValueV3Short(input *config.PublicGetConfigValueV3Params) (*iamclientmodels.ModelConfigValueResponseV3, error) {
+func (aaa *ConfigService) PublicGetConfigValueV3Short(input *config.PublicGetConfigValueV3Params) (*config.PublicGetConfigValueV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *ConfigService) PublicGetConfigValueV3Short(input *config.PublicGetCon
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -19,6 +19,44 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type DeleteTicketResponse struct {
+	reportingclientmodels.ApiResponse
+
+	Error404 *reportingclientmodels.RestapiErrorResponse
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *DeleteTicketResponse) Unpack() *reportingclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // DeleteTicketReader is a Reader for the DeleteTicket structure.
 type DeleteTicketReader struct {
 	formats strfmt.Registry

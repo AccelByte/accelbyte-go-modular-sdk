@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicListInventoryConfigurationsShort(params *PublicListInventoryConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListInventoryConfigurationsOK, error)
+	PublicListInventoryConfigurationsShort(params *PublicListInventoryConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListInventoryConfigurationsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ PublicListInventoryConfigurationsShort to list inventory configurations
 Listing all inventory configurations in a namespace.
 The response body will be in the form of standard pagination.
 */
-func (a *Client) PublicListInventoryConfigurationsShort(params *PublicListInventoryConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListInventoryConfigurationsOK, error) {
+func (a *Client) PublicListInventoryConfigurationsShort(params *PublicListInventoryConfigurationsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListInventoryConfigurationsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListInventoryConfigurationsParams()
@@ -79,11 +79,26 @@ func (a *Client) PublicListInventoryConfigurationsShort(params *PublicListInvent
 	switch v := result.(type) {
 
 	case *PublicListInventoryConfigurationsOK:
-		return v, nil
+		response := &PublicListInventoryConfigurationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListInventoryConfigurationsBadRequest:
-		return nil, v
+		response := &PublicListInventoryConfigurationsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListInventoryConfigurationsInternalServerError:
-		return nil, v
+		response := &PublicListInventoryConfigurationsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,59 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type BulkDeleteFriendsResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data *lobbyclientmodels.ModelBulkFriendsResponse
+
+	Error400 *lobbyclientmodels.RestapiErrorResponseV1
+	Error401 *lobbyclientmodels.RestapiErrorResponseV1
+	Error403 *lobbyclientmodels.RestapiErrorResponseV1
+	Error500 *lobbyclientmodels.ModelBulkFriendsResponse
+}
+
+func (m *BulkDeleteFriendsResponse) Unpack() (*lobbyclientmodels.ModelBulkFriendsResponse, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+
+			return m.Error500, nil
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // BulkDeleteFriendsReader is a Reader for the BulkDeleteFriends structure.
 type BulkDeleteFriendsReader struct {
 	formats strfmt.Registry

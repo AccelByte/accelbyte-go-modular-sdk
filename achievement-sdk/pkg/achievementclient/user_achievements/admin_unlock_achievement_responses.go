@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 )
 
+type AdminUnlockAchievementResponse struct {
+	achievementclientmodels.ApiResponse
+
+	Error400 *achievementclientmodels.ResponseError
+	Error401 *achievementclientmodels.ResponseError
+	Error422 *achievementclientmodels.ResponseError
+	Error500 *achievementclientmodels.ResponseError
+}
+
+func (m *AdminUnlockAchievementResponse) Unpack() *achievementclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &achievementclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminUnlockAchievementReader is a Reader for the AdminUnlockAchievement structure.
 type AdminUnlockAchievementReader struct {
 	formats strfmt.Registry

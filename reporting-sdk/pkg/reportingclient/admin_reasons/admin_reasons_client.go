@@ -30,18 +30,18 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListReasonGroupsShort(params *AdminListReasonGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListReasonGroupsOK, error)
-	CreateReasonGroupShort(params *CreateReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateReasonGroupCreated, error)
-	GetReasonGroupShort(params *GetReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetReasonGroupOK, error)
-	DeleteReasonGroupShort(params *DeleteReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReasonGroupNoContent, error)
-	UpdateReasonGroupShort(params *UpdateReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateReasonGroupOK, error)
-	AdminGetReasonsShort(params *AdminGetReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetReasonsOK, error)
-	CreateReasonShort(params *CreateReasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateReasonCreated, error)
-	AdminGetAllReasonsShort(params *AdminGetAllReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllReasonsOK, error)
-	AdminGetUnusedReasonsShort(params *AdminGetUnusedReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUnusedReasonsOK, error)
-	AdminGetReasonShort(params *AdminGetReasonParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetReasonOK, error)
-	DeleteReasonShort(params *DeleteReasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReasonNoContent, error)
-	UpdateReasonShort(params *UpdateReasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateReasonOK, error)
+	AdminListReasonGroupsShort(params *AdminListReasonGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListReasonGroupsResponse, error)
+	CreateReasonGroupShort(params *CreateReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateReasonGroupResponse, error)
+	GetReasonGroupShort(params *GetReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetReasonGroupResponse, error)
+	DeleteReasonGroupShort(params *DeleteReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReasonGroupResponse, error)
+	UpdateReasonGroupShort(params *UpdateReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateReasonGroupResponse, error)
+	AdminGetReasonsShort(params *AdminGetReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetReasonsResponse, error)
+	CreateReasonShort(params *CreateReasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateReasonResponse, error)
+	AdminGetAllReasonsShort(params *AdminGetAllReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllReasonsResponse, error)
+	AdminGetUnusedReasonsShort(params *AdminGetUnusedReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUnusedReasonsResponse, error)
+	AdminGetReasonShort(params *AdminGetReasonParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetReasonResponse, error)
+	DeleteReasonShort(params *DeleteReasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReasonResponse, error)
+	UpdateReasonShort(params *UpdateReasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateReasonResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ AdminListReasonGroupsShort list reason groups under a namespace
 Return list of reason groups ID and title under given namespace.
 To fetch the reasons inside a group, use get reason group endpoint.
 */
-func (a *Client) AdminListReasonGroupsShort(params *AdminListReasonGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListReasonGroupsOK, error) {
+func (a *Client) AdminListReasonGroupsShort(params *AdminListReasonGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListReasonGroupsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListReasonGroupsParams()
@@ -89,9 +89,19 @@ func (a *Client) AdminListReasonGroupsShort(params *AdminListReasonGroupsParams,
 	switch v := result.(type) {
 
 	case *AdminListReasonGroupsOK:
-		return v, nil
+		response := &AdminListReasonGroupsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListReasonGroupsInternalServerError:
-		return nil, v
+		response := &AdminListReasonGroupsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +114,7 @@ Create a reason group for easier query. You can query reasons by specifying
 the group title in the list reasons query. Reason group title is case insensitive,
 meaning you can't have **reason** if you already create a reason titled **Reason**
 */
-func (a *Client) CreateReasonGroupShort(params *CreateReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateReasonGroupCreated, error) {
+func (a *Client) CreateReasonGroupShort(params *CreateReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateReasonGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateReasonGroupParams()
@@ -142,13 +152,33 @@ func (a *Client) CreateReasonGroupShort(params *CreateReasonGroupParams, authInf
 	switch v := result.(type) {
 
 	case *CreateReasonGroupCreated:
-		return v, nil
+		response := &CreateReasonGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateReasonGroupBadRequest:
-		return nil, v
+		response := &CreateReasonGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateReasonGroupConflict:
-		return nil, v
+		response := &CreateReasonGroupResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateReasonGroupInternalServerError:
-		return nil, v
+		response := &CreateReasonGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -158,7 +188,7 @@ func (a *Client) CreateReasonGroupShort(params *CreateReasonGroupParams, authInf
 /*
 GetReasonGroupShort get reason group
 */
-func (a *Client) GetReasonGroupShort(params *GetReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetReasonGroupOK, error) {
+func (a *Client) GetReasonGroupShort(params *GetReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetReasonGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetReasonGroupParams()
@@ -196,11 +226,26 @@ func (a *Client) GetReasonGroupShort(params *GetReasonGroupParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetReasonGroupOK:
-		return v, nil
+		response := &GetReasonGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetReasonGroupNotFound:
-		return nil, v
+		response := &GetReasonGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetReasonGroupInternalServerError:
-		return nil, v
+		response := &GetReasonGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -211,7 +256,7 @@ func (a *Client) GetReasonGroupShort(params *GetReasonGroupParams, authInfo runt
 DeleteReasonGroupShort delete a reason group
 This endpoint delete a reason group for a namespace with ID.
 */
-func (a *Client) DeleteReasonGroupShort(params *DeleteReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReasonGroupNoContent, error) {
+func (a *Client) DeleteReasonGroupShort(params *DeleteReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReasonGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteReasonGroupParams()
@@ -249,9 +294,18 @@ func (a *Client) DeleteReasonGroupShort(params *DeleteReasonGroupParams, authInf
 	switch v := result.(type) {
 
 	case *DeleteReasonGroupNoContent:
-		return v, nil
+		response := &DeleteReasonGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteReasonGroupInternalServerError:
-		return nil, v
+		response := &DeleteReasonGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -263,7 +317,7 @@ UpdateReasonGroupShort update a reason group
 Reason group title is case insensitive, meaning you can't have **reason** if you already create a reason titled **Reason**
 If no reasonIds passed when updating, the current reasons under the reason group will be kept (reasons will not be removed from the group).
 */
-func (a *Client) UpdateReasonGroupShort(params *UpdateReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateReasonGroupOK, error) {
+func (a *Client) UpdateReasonGroupShort(params *UpdateReasonGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateReasonGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateReasonGroupParams()
@@ -301,13 +355,33 @@ func (a *Client) UpdateReasonGroupShort(params *UpdateReasonGroupParams, authInf
 	switch v := result.(type) {
 
 	case *UpdateReasonGroupOK:
-		return v, nil
+		response := &UpdateReasonGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateReasonGroupBadRequest:
-		return nil, v
+		response := &UpdateReasonGroupResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateReasonGroupConflict:
-		return nil, v
+		response := &UpdateReasonGroupResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateReasonGroupInternalServerError:
-		return nil, v
+		response := &UpdateReasonGroupResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -318,7 +392,7 @@ func (a *Client) UpdateReasonGroupShort(params *UpdateReasonGroupParams, authInf
 AdminGetReasonsShort get list of reasons
 This endpoint get reasons with pagination
 */
-func (a *Client) AdminGetReasonsShort(params *AdminGetReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetReasonsOK, error) {
+func (a *Client) AdminGetReasonsShort(params *AdminGetReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetReasonsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetReasonsParams()
@@ -356,11 +430,26 @@ func (a *Client) AdminGetReasonsShort(params *AdminGetReasonsParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminGetReasonsOK:
-		return v, nil
+		response := &AdminGetReasonsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetReasonsNotFound:
-		return nil, v
+		response := &AdminGetReasonsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetReasonsInternalServerError:
-		return nil, v
+		response := &AdminGetReasonsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -371,7 +460,7 @@ func (a *Client) AdminGetReasonsShort(params *AdminGetReasonsParams, authInfo ru
 CreateReasonShort create a report reason
 This endpoint create a reason for a namespace.
 */
-func (a *Client) CreateReasonShort(params *CreateReasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateReasonCreated, error) {
+func (a *Client) CreateReasonShort(params *CreateReasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateReasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateReasonParams()
@@ -409,13 +498,33 @@ func (a *Client) CreateReasonShort(params *CreateReasonParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *CreateReasonCreated:
-		return v, nil
+		response := &CreateReasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateReasonBadRequest:
-		return nil, v
+		response := &CreateReasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateReasonConflict:
-		return nil, v
+		response := &CreateReasonResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateReasonInternalServerError:
-		return nil, v
+		response := &CreateReasonResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -426,7 +535,7 @@ func (a *Client) CreateReasonShort(params *CreateReasonParams, authInfo runtime.
 AdminGetAllReasonsShort get all reasons
 This endpoint get all reasons without pagination.
 */
-func (a *Client) AdminGetAllReasonsShort(params *AdminGetAllReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllReasonsOK, error) {
+func (a *Client) AdminGetAllReasonsShort(params *AdminGetAllReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllReasonsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAllReasonsParams()
@@ -464,9 +573,19 @@ func (a *Client) AdminGetAllReasonsShort(params *AdminGetAllReasonsParams, authI
 	switch v := result.(type) {
 
 	case *AdminGetAllReasonsOK:
-		return v, nil
+		response := &AdminGetAllReasonsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAllReasonsInternalServerError:
-		return nil, v
+		response := &AdminGetAllReasonsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -477,7 +596,7 @@ func (a *Client) AdminGetAllReasonsShort(params *AdminGetAllReasonsParams, authI
 AdminGetUnusedReasonsShort get list of reasons that not used by moderation rules
 This endpoint get reasons not used by moderation rules.
 */
-func (a *Client) AdminGetUnusedReasonsShort(params *AdminGetUnusedReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUnusedReasonsOK, error) {
+func (a *Client) AdminGetUnusedReasonsShort(params *AdminGetUnusedReasonsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUnusedReasonsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUnusedReasonsParams()
@@ -515,11 +634,26 @@ func (a *Client) AdminGetUnusedReasonsShort(params *AdminGetUnusedReasonsParams,
 	switch v := result.(type) {
 
 	case *AdminGetUnusedReasonsOK:
-		return v, nil
+		response := &AdminGetUnusedReasonsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUnusedReasonsNotFound:
-		return nil, v
+		response := &AdminGetUnusedReasonsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUnusedReasonsInternalServerError:
-		return nil, v
+		response := &AdminGetUnusedReasonsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -530,7 +664,7 @@ func (a *Client) AdminGetUnusedReasonsShort(params *AdminGetUnusedReasonsParams,
 AdminGetReasonShort get a single reason
 This endpoint get a single reason.
 */
-func (a *Client) AdminGetReasonShort(params *AdminGetReasonParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetReasonOK, error) {
+func (a *Client) AdminGetReasonShort(params *AdminGetReasonParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetReasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetReasonParams()
@@ -568,11 +702,26 @@ func (a *Client) AdminGetReasonShort(params *AdminGetReasonParams, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminGetReasonOK:
-		return v, nil
+		response := &AdminGetReasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetReasonNotFound:
-		return nil, v
+		response := &AdminGetReasonResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetReasonInternalServerError:
-		return nil, v
+		response := &AdminGetReasonResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -583,7 +732,7 @@ func (a *Client) AdminGetReasonShort(params *AdminGetReasonParams, authInfo runt
 DeleteReasonShort delete a report reason
 This endpoint delete a reason for a namespace with ID.
 */
-func (a *Client) DeleteReasonShort(params *DeleteReasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReasonNoContent, error) {
+func (a *Client) DeleteReasonShort(params *DeleteReasonParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteReasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteReasonParams()
@@ -621,9 +770,18 @@ func (a *Client) DeleteReasonShort(params *DeleteReasonParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteReasonNoContent:
-		return v, nil
+		response := &DeleteReasonResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteReasonInternalServerError:
-		return nil, v
+		response := &DeleteReasonResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -634,7 +792,7 @@ func (a *Client) DeleteReasonShort(params *DeleteReasonParams, authInfo runtime.
 UpdateReasonShort update a report reason
 This endpoint update a reason for a namespace with ID.
 */
-func (a *Client) UpdateReasonShort(params *UpdateReasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateReasonOK, error) {
+func (a *Client) UpdateReasonShort(params *UpdateReasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateReasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateReasonParams()
@@ -672,13 +830,33 @@ func (a *Client) UpdateReasonShort(params *UpdateReasonParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UpdateReasonOK:
-		return v, nil
+		response := &UpdateReasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateReasonBadRequest:
-		return nil, v
+		response := &UpdateReasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateReasonConflict:
-		return nil, v
+		response := &UpdateReasonResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateReasonInternalServerError:
-		return nil, v
+		response := &UpdateReasonResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

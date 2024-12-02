@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type AdminDeleteGlobalConfigResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data string
+
+	Error401 *lobbyclientmodels.RestapiErrorResponseBody
+	Error403 *lobbyclientmodels.RestapiErrorResponseBody
+}
+
+func (m *AdminDeleteGlobalConfigResponse) Unpack() (string, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return "", e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return "", e
+
+		default:
+			return "", &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminDeleteGlobalConfigReader is a Reader for the AdminDeleteGlobalConfig structure.
 type AdminDeleteGlobalConfigReader struct {
 	formats strfmt.Registry

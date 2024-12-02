@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetAppleIAPConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.AppleIAPConfigInfo
+}
+
+func (m *GetAppleIAPConfigResponse) Unpack() (*platformclientmodels.AppleIAPConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetAppleIAPConfigReader is a Reader for the GetAppleIAPConfig structure.
 type GetAppleIAPConfigReader struct {
 	formats strfmt.Registry

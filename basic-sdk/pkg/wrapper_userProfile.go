@@ -9,7 +9,6 @@ package basic
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *UserProfileService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *UserProfileService) GetUserProfileInfoByPublicIDShort(input *user_profile.GetUserProfileInfoByPublicIDParams) (*basicclientmodels.UserProfileInfo, error) {
+func (aaa *UserProfileService) GetUserProfileInfoByPublicIDShort(input *user_profile.GetUserProfileInfoByPublicIDParams) (*user_profile.GetUserProfileInfoByPublicIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *UserProfileService) GetUserProfileInfoByPublicIDShort(input *user_pro
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) AdminGetUserProfilePublicInfoByIdsShort(input *user_profile.AdminGetUserProfilePublicInfoByIdsParams) ([]*basicclientmodels.UserProfilePublicInfo, error) {
+func (aaa *UserProfileService) AdminGetUserProfilePublicInfoByIdsShort(input *user_profile.AdminGetUserProfilePublicInfoByIdsParams) (*user_profile.AdminGetUserProfilePublicInfoByIdsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *UserProfileService) AdminGetUserProfilePublicInfoByIdsShort(input *us
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) GetUserProfileInfoShort(input *user_profile.GetUserProfileInfoParams) (*basicclientmodels.UserProfilePrivateInfo, error) {
+func (aaa *UserProfileService) GetUserProfileInfoShort(input *user_profile.GetUserProfileInfoParams) (*user_profile.GetUserProfileInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *UserProfileService) GetUserProfileInfoShort(input *user_profile.GetUs
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) UpdateUserProfileShort(input *user_profile.UpdateUserProfileParams) (*basicclientmodels.UserProfilePrivateInfo, error) {
+func (aaa *UserProfileService) UpdateUserProfileShort(input *user_profile.UpdateUserProfileParams) (*user_profile.UpdateUserProfileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *UserProfileService) UpdateUserProfileShort(input *user_profile.Update
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) DeleteUserProfileShort(input *user_profile.DeleteUserProfileParams) (*basicclientmodels.UserProfilePrivateInfo, error) {
+func (aaa *UserProfileService) DeleteUserProfileShort(input *user_profile.DeleteUserProfileParams) (*user_profile.DeleteUserProfileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *UserProfileService) DeleteUserProfileShort(input *user_profile.Delete
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) GetCustomAttributesInfoShort(input *user_profile.GetCustomAttributesInfoParams) (map[string]interface{}, error) {
+func (aaa *UserProfileService) GetCustomAttributesInfoShort(input *user_profile.GetCustomAttributesInfoParams) (*user_profile.GetCustomAttributesInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *UserProfileService) GetCustomAttributesInfoShort(input *user_profile.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) UpdateCustomAttributesPartiallyShort(input *user_profile.UpdateCustomAttributesPartiallyParams) (map[string]interface{}, error) {
+func (aaa *UserProfileService) UpdateCustomAttributesPartiallyShort(input *user_profile.UpdateCustomAttributesPartiallyParams) (*user_profile.UpdateCustomAttributesPartiallyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *UserProfileService) UpdateCustomAttributesPartiallyShort(input *user_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) GetPrivateCustomAttributesInfoShort(input *user_profile.GetPrivateCustomAttributesInfoParams) (map[string]interface{}, error) {
+func (aaa *UserProfileService) GetPrivateCustomAttributesInfoShort(input *user_profile.GetPrivateCustomAttributesInfoParams) (*user_profile.GetPrivateCustomAttributesInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *UserProfileService) GetPrivateCustomAttributesInfoShort(input *user_p
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) UpdatePrivateCustomAttributesPartiallyShort(input *user_profile.UpdatePrivateCustomAttributesPartiallyParams) (map[string]interface{}, error) {
+func (aaa *UserProfileService) UpdatePrivateCustomAttributesPartiallyShort(input *user_profile.UpdatePrivateCustomAttributesPartiallyParams) (*user_profile.UpdatePrivateCustomAttributesPartiallyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *UserProfileService) UpdatePrivateCustomAttributesPartiallyShort(input
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) UpdateUserProfileStatusShort(input *user_profile.UpdateUserProfileStatusParams) (*basicclientmodels.UserProfilePrivateInfo, error) {
+func (aaa *UserProfileService) UpdateUserProfileStatusShort(input *user_profile.UpdateUserProfileStatusParams) (*user_profile.UpdateUserProfileStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *UserProfileService) UpdateUserProfileStatusShort(input *user_profile.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicGetUserProfilePublicInfoByIdsShort(input *user_profile.PublicGetUserProfilePublicInfoByIdsParams) ([]*basicclientmodels.UserProfilePublicInfo, error) {
+func (aaa *UserProfileService) PublicGetUserProfilePublicInfoByIdsShort(input *user_profile.PublicGetUserProfilePublicInfoByIdsParams) (*user_profile.PublicGetUserProfilePublicInfoByIdsResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -357,10 +356,10 @@ func (aaa *UserProfileService) PublicGetUserProfilePublicInfoByIdsShort(input *u
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicBulkGetUserProfilePublicInfoShort(input *user_profile.PublicBulkGetUserProfilePublicInfoParams) ([]*basicclientmodels.UserProfilePublicInfo, error) {
+func (aaa *UserProfileService) PublicBulkGetUserProfilePublicInfoShort(input *user_profile.PublicBulkGetUserProfilePublicInfoParams) (*user_profile.PublicBulkGetUserProfilePublicInfoResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -380,10 +379,10 @@ func (aaa *UserProfileService) PublicBulkGetUserProfilePublicInfoShort(input *us
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicGetUserProfileInfoByPublicIDShort(input *user_profile.PublicGetUserProfileInfoByPublicIDParams) (*basicclientmodels.UserProfilePublicInfo, error) {
+func (aaa *UserProfileService) PublicGetUserProfileInfoByPublicIDShort(input *user_profile.PublicGetUserProfileInfoByPublicIDParams) (*user_profile.PublicGetUserProfileInfoByPublicIDResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -403,10 +402,10 @@ func (aaa *UserProfileService) PublicGetUserProfileInfoByPublicIDShort(input *us
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) GetMyProfileInfoShort(input *user_profile.GetMyProfileInfoParams) (*basicclientmodels.UserProfilePrivateInfo, error) {
+func (aaa *UserProfileService) GetMyProfileInfoShort(input *user_profile.GetMyProfileInfoParams) (*user_profile.GetMyProfileInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -433,10 +432,10 @@ func (aaa *UserProfileService) GetMyProfileInfoShort(input *user_profile.GetMyPr
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) UpdateMyProfileShort(input *user_profile.UpdateMyProfileParams) (*basicclientmodels.UserProfilePrivateInfo, error) {
+func (aaa *UserProfileService) UpdateMyProfileShort(input *user_profile.UpdateMyProfileParams) (*user_profile.UpdateMyProfileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -463,10 +462,10 @@ func (aaa *UserProfileService) UpdateMyProfileShort(input *user_profile.UpdateMy
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) CreateMyProfileShort(input *user_profile.CreateMyProfileParams) (*basicclientmodels.UserProfilePrivateInfo, error) {
+func (aaa *UserProfileService) CreateMyProfileShort(input *user_profile.CreateMyProfileParams) (*user_profile.CreateMyProfileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -493,10 +492,10 @@ func (aaa *UserProfileService) CreateMyProfileShort(input *user_profile.CreateMy
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UserProfileService) GetMyPrivateCustomAttributesInfoShort(input *user_profile.GetMyPrivateCustomAttributesInfoParams) (map[string]interface{}, error) {
+func (aaa *UserProfileService) GetMyPrivateCustomAttributesInfoShort(input *user_profile.GetMyPrivateCustomAttributesInfoParams) (*user_profile.GetMyPrivateCustomAttributesInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -523,10 +522,10 @@ func (aaa *UserProfileService) GetMyPrivateCustomAttributesInfoShort(input *user
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) UpdateMyPrivateCustomAttributesPartiallyShort(input *user_profile.UpdateMyPrivateCustomAttributesPartiallyParams) (map[string]interface{}, error) {
+func (aaa *UserProfileService) UpdateMyPrivateCustomAttributesPartiallyShort(input *user_profile.UpdateMyPrivateCustomAttributesPartiallyParams) (*user_profile.UpdateMyPrivateCustomAttributesPartiallyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -553,10 +552,10 @@ func (aaa *UserProfileService) UpdateMyPrivateCustomAttributesPartiallyShort(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) GetMyZipCodeShort(input *user_profile.GetMyZipCodeParams) (*basicclientmodels.UserZipCode, error) {
+func (aaa *UserProfileService) GetMyZipCodeShort(input *user_profile.GetMyZipCodeParams) (*user_profile.GetMyZipCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -583,10 +582,10 @@ func (aaa *UserProfileService) GetMyZipCodeShort(input *user_profile.GetMyZipCod
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) UpdateMyZipCodeShort(input *user_profile.UpdateMyZipCodeParams) (*basicclientmodels.UserZipCode, error) {
+func (aaa *UserProfileService) UpdateMyZipCodeShort(input *user_profile.UpdateMyZipCodeParams) (*user_profile.UpdateMyZipCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -613,10 +612,10 @@ func (aaa *UserProfileService) UpdateMyZipCodeShort(input *user_profile.UpdateMy
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicGetUserProfileInfoShort(input *user_profile.PublicGetUserProfileInfoParams) (*basicclientmodels.UserProfileInfo, error) {
+func (aaa *UserProfileService) PublicGetUserProfileInfoShort(input *user_profile.PublicGetUserProfileInfoParams) (*user_profile.PublicGetUserProfileInfoResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -643,10 +642,10 @@ func (aaa *UserProfileService) PublicGetUserProfileInfoShort(input *user_profile
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicUpdateUserProfileShort(input *user_profile.PublicUpdateUserProfileParams) (*basicclientmodels.UserProfileInfo, error) {
+func (aaa *UserProfileService) PublicUpdateUserProfileShort(input *user_profile.PublicUpdateUserProfileParams) (*user_profile.PublicUpdateUserProfileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -673,10 +672,10 @@ func (aaa *UserProfileService) PublicUpdateUserProfileShort(input *user_profile.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicCreateUserProfileShort(input *user_profile.PublicCreateUserProfileParams) (*basicclientmodels.UserProfileInfo, error) {
+func (aaa *UserProfileService) PublicCreateUserProfileShort(input *user_profile.PublicCreateUserProfileParams) (*user_profile.PublicCreateUserProfileResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -703,10 +702,10 @@ func (aaa *UserProfileService) PublicCreateUserProfileShort(input *user_profile.
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UserProfileService) PublicGetCustomAttributesInfoShort(input *user_profile.PublicGetCustomAttributesInfoParams) (map[string]interface{}, error) {
+func (aaa *UserProfileService) PublicGetCustomAttributesInfoShort(input *user_profile.PublicGetCustomAttributesInfoParams) (*user_profile.PublicGetCustomAttributesInfoResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -726,10 +725,10 @@ func (aaa *UserProfileService) PublicGetCustomAttributesInfoShort(input *user_pr
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicUpdateCustomAttributesPartiallyShort(input *user_profile.PublicUpdateCustomAttributesPartiallyParams) (map[string]interface{}, error) {
+func (aaa *UserProfileService) PublicUpdateCustomAttributesPartiallyShort(input *user_profile.PublicUpdateCustomAttributesPartiallyParams) (*user_profile.PublicUpdateCustomAttributesPartiallyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -756,10 +755,10 @@ func (aaa *UserProfileService) PublicUpdateCustomAttributesPartiallyShort(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicGetUserProfilePublicInfoShort(input *user_profile.PublicGetUserProfilePublicInfoParams) (*basicclientmodels.UserProfilePublicInfo, error) {
+func (aaa *UserProfileService) PublicGetUserProfilePublicInfoShort(input *user_profile.PublicGetUserProfilePublicInfoParams) (*user_profile.PublicGetUserProfilePublicInfoResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -779,10 +778,10 @@ func (aaa *UserProfileService) PublicGetUserProfilePublicInfoShort(input *user_p
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UserProfileService) PublicUpdateUserProfileStatusShort(input *user_profile.PublicUpdateUserProfileStatusParams) (*basicclientmodels.UserProfileInfo, error) {
+func (aaa *UserProfileService) PublicUpdateUserProfileStatusShort(input *user_profile.PublicUpdateUserProfileStatusParams) (*user_profile.PublicUpdateUserProfileStatusResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -809,5 +808,5 @@ func (aaa *UserProfileService) PublicUpdateUserProfileStatusShort(input *user_pr
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

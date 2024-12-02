@@ -31,13 +31,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1OK, error)
-	AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigOK, error)
-	AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigOK, error)
-	AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1OK, error)
-	AdminUpdateConfigV1Short(params *AdminUpdateConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigV1OK, error)
-	AdminExportConfigV1Short(params *AdminExportConfigV1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminExportConfigV1OK, error)
-	AdminImportConfigV1Short(params *AdminImportConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminImportConfigV1OK, error)
+	AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1Response, error)
+	AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigResponse, error)
+	AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigResponse, error)
+	AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1Response, error)
+	AdminUpdateConfigV1Short(params *AdminUpdateConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigV1Response, error)
+	AdminExportConfigV1Short(params *AdminExportConfigV1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminExportConfigV1Response, error)
+	AdminImportConfigV1Short(params *AdminImportConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminImportConfigV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ AdminGetAllConfigV1Short admin get all namespaces config
 Get lobby config of all namespaces.
 default MaxDSWaitTime is 120 (second)
 */
-func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1OK, error) {
+func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAllConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAllConfigV1Params()
@@ -85,17 +85,47 @@ func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, aut
 	switch v := result.(type) {
 
 	case *AdminGetAllConfigV1OK:
-		return v, nil
+		response := &AdminGetAllConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAllConfigV1BadRequest:
-		return nil, v
+		response := &AdminGetAllConfigV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigV1Unauthorized:
-		return nil, v
+		response := &AdminGetAllConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigV1Forbidden:
-		return nil, v
+		response := &AdminGetAllConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigV1NotFound:
-		return nil, v
+		response := &AdminGetAllConfigV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAllConfigV1InternalServerError:
-		return nil, v
+		response := &AdminGetAllConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -111,7 +141,7 @@ socketLogEnabled is use for enable socket log
 logLevelDB use for logging in DB, the value can use is trace|debug|info|warning|error|fatal|panic
 slowQueryThreshold use for logging slow threshold in time measure is nano second
 */
-func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigOK, error) {
+func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLogConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetLogConfigParams()
@@ -149,7 +179,12 @@ func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInf
 	switch v := result.(type) {
 
 	case *AdminGetLogConfigOK:
-		return v, nil
+		response := &AdminGetLogConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -165,7 +200,7 @@ socketLogEnabled is use for enable socket log
 logLevelDB use for logging in DB, the value can use is trace|debug|info|warning|error|fatal|panic
 slowQueryThreshold use for logging slow threshold in time measure is nano second
 */
-func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigOK, error) {
+func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminPatchUpdateLogConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminPatchUpdateLogConfigParams()
@@ -203,7 +238,12 @@ func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfi
 	switch v := result.(type) {
 
 	case *AdminPatchUpdateLogConfigOK:
-		return v, nil
+		response := &AdminPatchUpdateLogConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -215,7 +255,7 @@ AdminGetConfigV1Short admin get namespace config
 Get lobby config of a namespace.
 default MaxDSWaitTime is 120 (second)
 */
-func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1OK, error) {
+func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetConfigV1Params()
@@ -253,17 +293,47 @@ func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo 
 	switch v := result.(type) {
 
 	case *AdminGetConfigV1OK:
-		return v, nil
+		response := &AdminGetConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetConfigV1BadRequest:
-		return nil, v
+		response := &AdminGetConfigV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigV1Unauthorized:
-		return nil, v
+		response := &AdminGetConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigV1Forbidden:
-		return nil, v
+		response := &AdminGetConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigV1NotFound:
-		return nil, v
+		response := &AdminGetConfigV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigV1InternalServerError:
-		return nil, v
+		response := &AdminGetConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -275,7 +345,7 @@ AdminUpdateConfigV1Short admin update namespace config
 Update lobby config of a namespace.
 MaxDSWaitTime value is cannot less than 1, if null it will use default value in 120 (second)
 */
-func (a *Client) AdminUpdateConfigV1Short(params *AdminUpdateConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigV1OK, error) {
+func (a *Client) AdminUpdateConfigV1Short(params *AdminUpdateConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateConfigV1Params()
@@ -313,19 +383,54 @@ func (a *Client) AdminUpdateConfigV1Short(params *AdminUpdateConfigV1Params, aut
 	switch v := result.(type) {
 
 	case *AdminUpdateConfigV1OK:
-		return v, nil
+		response := &AdminUpdateConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateConfigV1BadRequest:
-		return nil, v
+		response := &AdminUpdateConfigV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigV1Unauthorized:
-		return nil, v
+		response := &AdminUpdateConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigV1Forbidden:
-		return nil, v
+		response := &AdminUpdateConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigV1NotFound:
-		return nil, v
+		response := &AdminUpdateConfigV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigV1PreconditionFailed:
-		return nil, v
+		response := &AdminUpdateConfigV1Response{}
+		response.Error412 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateConfigV1InternalServerError:
-		return nil, v
+		response := &AdminUpdateConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -449,7 +554,7 @@ JSON Schema of the exported file:
 }
 }
 */
-func (a *Client) AdminExportConfigV1Short(params *AdminExportConfigV1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminExportConfigV1OK, error) {
+func (a *Client) AdminExportConfigV1Short(params *AdminExportConfigV1Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminExportConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminExportConfigV1Params()
@@ -487,13 +592,33 @@ func (a *Client) AdminExportConfigV1Short(params *AdminExportConfigV1Params, aut
 	switch v := result.(type) {
 
 	case *AdminExportConfigV1OK:
-		return v, nil
+		response := &AdminExportConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminExportConfigV1Unauthorized:
-		return nil, v
+		response := &AdminExportConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminExportConfigV1Forbidden:
-		return nil, v
+		response := &AdminExportConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminExportConfigV1InternalServerError:
-		return nil, v
+		response := &AdminExportConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -508,7 +633,7 @@ The json file to import can be obtained from the /export endpoint.
 
 MaxDSWaitTime value is cannot less than 1, if null it will use default value in 120 (second)
 */
-func (a *Client) AdminImportConfigV1Short(params *AdminImportConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminImportConfigV1OK, error) {
+func (a *Client) AdminImportConfigV1Short(params *AdminImportConfigV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminImportConfigV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminImportConfigV1Params()
@@ -546,13 +671,33 @@ func (a *Client) AdminImportConfigV1Short(params *AdminImportConfigV1Params, aut
 	switch v := result.(type) {
 
 	case *AdminImportConfigV1OK:
-		return v, nil
+		response := &AdminImportConfigV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminImportConfigV1Unauthorized:
-		return nil, v
+		response := &AdminImportConfigV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminImportConfigV1Forbidden:
-		return nil, v
+		response := &AdminImportConfigV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminImportConfigV1InternalServerError:
-		return nil, v
+		response := &AdminImportConfigV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

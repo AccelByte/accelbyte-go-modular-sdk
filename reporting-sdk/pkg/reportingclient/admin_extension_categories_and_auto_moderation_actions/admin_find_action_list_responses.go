@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type AdminFindActionListResponse struct {
+	reportingclientmodels.ApiResponse
+	Data *reportingclientmodels.RestapiActionListAPIResponse
+
+	Error400 *reportingclientmodels.RestapiErrorResponse
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *AdminFindActionListResponse) Unpack() (*reportingclientmodels.RestapiActionListAPIResponse, *reportingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminFindActionListReader is a Reader for the AdminFindActionList structure.
 type AdminFindActionListReader struct {
 	formats strfmt.Registry

@@ -19,6 +19,81 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 )
 
+type AcceptGroupJoinRequestPublicV1Response struct {
+	groupclientmodels.ApiResponse
+	Data *groupclientmodels.ModelsMemberRequestGroupResponseV1
+
+	Error400 *groupclientmodels.ResponseErrorResponse
+	Error401 *groupclientmodels.ResponseErrorResponse
+	Error403 *groupclientmodels.ResponseErrorResponse
+	Error404 *groupclientmodels.ResponseErrorResponse
+	Error409 *groupclientmodels.ResponseErrorResponse
+	Error500 *groupclientmodels.ResponseErrorResponse
+}
+
+func (m *AcceptGroupJoinRequestPublicV1Response) Unpack() (*groupclientmodels.ModelsMemberRequestGroupResponseV1, *groupclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &groupclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AcceptGroupJoinRequestPublicV1Reader is a Reader for the AcceptGroupJoinRequestPublicV1 structure.
 type AcceptGroupJoinRequestPublicV1Reader struct {
 	formats strfmt.Registry

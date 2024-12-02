@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListReportsShort(params *ListReportsParams, authInfo runtime.ClientAuthInfoWriter) (*ListReportsOK, error)
-	AdminSubmitReportShort(params *AdminSubmitReportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitReportCreated, error)
+	ListReportsShort(params *ListReportsParams, authInfo runtime.ClientAuthInfoWriter) (*ListReportsResponse, error)
+	AdminSubmitReportShort(params *AdminSubmitReportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitReportResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ Reports list can be ordered by:
 - createdAt
 - updatedAt
 */
-func (a *Client) ListReportsShort(params *ListReportsParams, authInfo runtime.ClientAuthInfoWriter) (*ListReportsOK, error) {
+func (a *Client) ListReportsShort(params *ListReportsParams, authInfo runtime.ClientAuthInfoWriter) (*ListReportsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListReportsParams()
@@ -81,9 +81,19 @@ func (a *Client) ListReportsShort(params *ListReportsParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ListReportsOK:
-		return v, nil
+		response := &ListReportsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListReportsInternalServerError:
-		return nil, v
+		response := &ListReportsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -101,7 +111,7 @@ Reporting the same user / object in the same OPEN ticket will return HTTP code 4
 Fill the 'reason' field with a 'reason title'
 Supported category: - UGC - USER - CHAT - EXTENSION
 */
-func (a *Client) AdminSubmitReportShort(params *AdminSubmitReportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitReportCreated, error) {
+func (a *Client) AdminSubmitReportShort(params *AdminSubmitReportParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSubmitReportResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSubmitReportParams()
@@ -139,13 +149,33 @@ func (a *Client) AdminSubmitReportShort(params *AdminSubmitReportParams, authInf
 	switch v := result.(type) {
 
 	case *AdminSubmitReportCreated:
-		return v, nil
+		response := &AdminSubmitReportResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSubmitReportBadRequest:
-		return nil, v
+		response := &AdminSubmitReportResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSubmitReportConflict:
-		return nil, v
+		response := &AdminSubmitReportResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSubmitReportInternalServerError:
-		return nil, v
+		response := &AdminSubmitReportResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclientmodels"
 )
 
+type StoreMatchResultsResponse struct {
+	matchmakingclientmodels.ApiResponse
+	Data *matchmakingclientmodels.ModelsMatchResultResponse
+
+	Error400 *matchmakingclientmodels.ResponseError
+	Error401 *matchmakingclientmodels.ResponseError
+	Error403 *matchmakingclientmodels.ResponseError
+	Error500 *matchmakingclientmodels.ResponseError
+}
+
+func (m *StoreMatchResultsResponse) Unpack() (*matchmakingclientmodels.ModelsMatchResultResponse, *matchmakingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &matchmakingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // StoreMatchResultsReader is a Reader for the StoreMatchResults structure.
 type StoreMatchResultsReader struct {
 	formats strfmt.Registry

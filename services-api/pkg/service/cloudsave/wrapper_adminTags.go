@@ -9,7 +9,6 @@ package cloudsave
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/admin_tags"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AdminTagsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminTagsService) AdminListTagsHandlerV1Short(input *admin_tags.AdminListTagsHandlerV1Params) (*cloudsaveclientmodels.ModelsListTagsResponse, error) {
+func (aaa *AdminTagsService) AdminListTagsHandlerV1Short(input *admin_tags.AdminListTagsHandlerV1Params) (*admin_tags.AdminListTagsHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *AdminTagsService) AdminListTagsHandlerV1Short(input *admin_tags.Admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminTagsService) AdminPostTagHandlerV1Short(input *admin_tags.AdminPostTagHandlerV1Params) error {

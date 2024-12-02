@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminAnonymizeUserLeaderboardAdminV1Short(params *AdminAnonymizeUserLeaderboardAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserLeaderboardAdminV1NoContent, error)
+	AdminAnonymizeUserLeaderboardAdminV1Short(params *AdminAnonymizeUserLeaderboardAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserLeaderboardAdminV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ AdminAnonymizeUserLeaderboardAdminV1Short anonymize user's leaderboard
 
 This API will delete specified user leaderboard
 */
-func (a *Client) AdminAnonymizeUserLeaderboardAdminV1Short(params *AdminAnonymizeUserLeaderboardAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserLeaderboardAdminV1NoContent, error) {
+func (a *Client) AdminAnonymizeUserLeaderboardAdminV1Short(params *AdminAnonymizeUserLeaderboardAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserLeaderboardAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAnonymizeUserLeaderboardAdminV1Params()
@@ -79,13 +79,32 @@ func (a *Client) AdminAnonymizeUserLeaderboardAdminV1Short(params *AdminAnonymiz
 	switch v := result.(type) {
 
 	case *AdminAnonymizeUserLeaderboardAdminV1NoContent:
-		return v, nil
+		response := &AdminAnonymizeUserLeaderboardAdminV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAnonymizeUserLeaderboardAdminV1Unauthorized:
-		return nil, v
+		response := &AdminAnonymizeUserLeaderboardAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAnonymizeUserLeaderboardAdminV1Forbidden:
-		return nil, v
+		response := &AdminAnonymizeUserLeaderboardAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAnonymizeUserLeaderboardAdminV1InternalServerError:
-		return nil, v
+		response := &AdminAnonymizeUserLeaderboardAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

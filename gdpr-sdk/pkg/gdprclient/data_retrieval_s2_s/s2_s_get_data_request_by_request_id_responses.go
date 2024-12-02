@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 )
 
+type S2SGetDataRequestByRequestIDResponse struct {
+	gdprclientmodels.ApiResponse
+	Data *gdprclientmodels.DTOS2SDataRequestSummary
+
+	Error401 *gdprclientmodels.ResponseError
+	Error404 *gdprclientmodels.ResponseError
+	Error500 *gdprclientmodels.ResponseError
+}
+
+func (m *S2SGetDataRequestByRequestIDResponse) Unpack() (*gdprclientmodels.DTOS2SDataRequestSummary, *gdprclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &gdprclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // S2SGetDataRequestByRequestIDReader is a Reader for the S2SGetDataRequestByRequestID structure.
 type S2SGetDataRequestByRequestIDReader struct {
 	formats strfmt.Registry

@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/recent_player"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 // RecentPlayerService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *RecentPlayerService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *RecentPlayerService) AdminGetRecentPlayerShort(input *recent_player.AdminGetRecentPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {
+func (aaa *RecentPlayerService) AdminGetRecentPlayerShort(input *recent_player.AdminGetRecentPlayerParams) (*recent_player.AdminGetRecentPlayerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *RecentPlayerService) AdminGetRecentPlayerShort(input *recent_player.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RecentPlayerService) AdminGetRecentTeamPlayerShort(input *recent_player.AdminGetRecentTeamPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {
+func (aaa *RecentPlayerService) AdminGetRecentTeamPlayerShort(input *recent_player.AdminGetRecentTeamPlayerParams) (*recent_player.AdminGetRecentTeamPlayerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *RecentPlayerService) AdminGetRecentTeamPlayerShort(input *recent_play
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RecentPlayerService) PublicGetRecentPlayerShort(input *recent_player.PublicGetRecentPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {
+func (aaa *RecentPlayerService) PublicGetRecentPlayerShort(input *recent_player.PublicGetRecentPlayerParams) (*recent_player.PublicGetRecentPlayerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *RecentPlayerService) PublicGetRecentPlayerShort(input *recent_player.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RecentPlayerService) PublicGetRecentTeamPlayerShort(input *recent_player.PublicGetRecentTeamPlayerParams) (*sessionclientmodels.ModelsRecentPlayerQueryResponse, error) {
+func (aaa *RecentPlayerService) PublicGetRecentTeamPlayerShort(input *recent_player.PublicGetRecentTeamPlayerParams) (*recent_player.PublicGetRecentTeamPlayerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,5 +155,5 @@ func (aaa *RecentPlayerService) PublicGetRecentTeamPlayerShort(input *recent_pla
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

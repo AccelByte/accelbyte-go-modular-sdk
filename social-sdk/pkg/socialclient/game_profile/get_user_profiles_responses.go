@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type GetUserProfilesResponse struct {
+	socialclientmodels.ApiResponse
+	Data []*socialclientmodels.GameProfileHeader
+
+	Error401 *socialclientmodels.ErrorEntity
+	Error403 *socialclientmodels.ErrorEntity
+	Error500 *socialclientmodels.ErrorEntity
+}
+
+func (m *GetUserProfilesResponse) Unpack() ([]*socialclientmodels.GameProfileHeader, *socialclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserProfilesReader is a Reader for the GetUserProfiles structure.
 type GetUserProfilesReader struct {
 	formats strfmt.Registry

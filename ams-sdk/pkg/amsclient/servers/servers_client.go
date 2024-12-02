@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	FleetServerHistoryShort(params *FleetServerHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerHistoryOK, error)
-	FleetServerInfoShort(params *FleetServerInfoParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerInfoOK, error)
-	FleetServerConnectionInfoShort(params *FleetServerConnectionInfoParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerConnectionInfoOK, error)
-	ServerHistoryShort(params *ServerHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*ServerHistoryOK, error)
+	FleetServerHistoryShort(params *FleetServerHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerHistoryResponse, error)
+	FleetServerInfoShort(params *FleetServerInfoParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerInfoResponse, error)
+	FleetServerConnectionInfoShort(params *FleetServerConnectionInfoParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerConnectionInfoResponse, error)
+	ServerHistoryShort(params *ServerHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*ServerHistoryResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 FleetServerHistoryShort get history records of a dedicated server in a fleet
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]
 */
-func (a *Client) FleetServerHistoryShort(params *FleetServerHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerHistoryOK, error) {
+func (a *Client) FleetServerHistoryShort(params *FleetServerHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetServerHistoryParams()
@@ -80,15 +80,40 @@ func (a *Client) FleetServerHistoryShort(params *FleetServerHistoryParams, authI
 	switch v := result.(type) {
 
 	case *FleetServerHistoryOK:
-		return v, nil
+		response := &FleetServerHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetServerHistoryBadRequest:
-		return nil, v
+		response := &FleetServerHistoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerHistoryUnauthorized:
-		return nil, v
+		response := &FleetServerHistoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerHistoryForbidden:
-		return nil, v
+		response := &FleetServerHistoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerHistoryInternalServerError:
-		return nil, v
+		response := &FleetServerHistoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -99,7 +124,7 @@ func (a *Client) FleetServerHistoryShort(params *FleetServerHistoryParams, authI
 FleetServerInfoShort get information about a dedicated server
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]
 */
-func (a *Client) FleetServerInfoShort(params *FleetServerInfoParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerInfoOK, error) {
+func (a *Client) FleetServerInfoShort(params *FleetServerInfoParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetServerInfoParams()
@@ -137,15 +162,40 @@ func (a *Client) FleetServerInfoShort(params *FleetServerInfoParams, authInfo ru
 	switch v := result.(type) {
 
 	case *FleetServerInfoOK:
-		return v, nil
+		response := &FleetServerInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetServerInfoUnauthorized:
-		return nil, v
+		response := &FleetServerInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerInfoForbidden:
-		return nil, v
+		response := &FleetServerInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerInfoNotFound:
-		return nil, v
+		response := &FleetServerInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerInfoInternalServerError:
-		return nil, v
+		response := &FleetServerInfoResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +206,7 @@ func (a *Client) FleetServerInfoShort(params *FleetServerInfoParams, authInfo ru
 FleetServerConnectionInfoShort get connection info for a dedicated server
 Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:DS:LOGS [READ]
 */
-func (a *Client) FleetServerConnectionInfoShort(params *FleetServerConnectionInfoParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerConnectionInfoOK, error) {
+func (a *Client) FleetServerConnectionInfoShort(params *FleetServerConnectionInfoParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServerConnectionInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetServerConnectionInfoParams()
@@ -194,15 +244,40 @@ func (a *Client) FleetServerConnectionInfoShort(params *FleetServerConnectionInf
 	switch v := result.(type) {
 
 	case *FleetServerConnectionInfoOK:
-		return v, nil
+		response := &FleetServerConnectionInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetServerConnectionInfoUnauthorized:
-		return nil, v
+		response := &FleetServerConnectionInfoResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerConnectionInfoForbidden:
-		return nil, v
+		response := &FleetServerConnectionInfoResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerConnectionInfoNotFound:
-		return nil, v
+		response := &FleetServerConnectionInfoResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServerConnectionInfoInternalServerError:
-		return nil, v
+		response := &FleetServerConnectionInfoResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -213,7 +288,7 @@ func (a *Client) FleetServerConnectionInfoShort(params *FleetServerConnectionInf
 ServerHistoryShort get history records of a dedicated server
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]
 */
-func (a *Client) ServerHistoryShort(params *ServerHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*ServerHistoryOK, error) {
+func (a *Client) ServerHistoryShort(params *ServerHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*ServerHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewServerHistoryParams()
@@ -251,15 +326,40 @@ func (a *Client) ServerHistoryShort(params *ServerHistoryParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *ServerHistoryOK:
-		return v, nil
+		response := &ServerHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ServerHistoryBadRequest:
-		return nil, v
+		response := &ServerHistoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ServerHistoryUnauthorized:
-		return nil, v
+		response := &ServerHistoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ServerHistoryForbidden:
-		return nil, v
+		response := &ServerHistoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ServerHistoryInternalServerError:
-		return nil, v
+		response := &ServerHistoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

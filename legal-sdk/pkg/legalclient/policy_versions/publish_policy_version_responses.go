@@ -19,6 +19,44 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type PublishPolicyVersionResponse struct {
+	legalclientmodels.ApiResponse
+
+	Error400 *legalclientmodels.ErrorEntity
+	Error409 *legalclientmodels.ErrorEntity
+}
+
+func (m *PublishPolicyVersionResponse) Unpack() *legalclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // PublishPolicyVersionReader is a Reader for the PublishPolicyVersion structure.
 type PublishPolicyVersionReader struct {
 	formats strfmt.Registry

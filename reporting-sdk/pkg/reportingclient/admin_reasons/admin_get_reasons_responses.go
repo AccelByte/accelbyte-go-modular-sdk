@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type AdminGetReasonsResponse struct {
+	reportingclientmodels.ApiResponse
+	Data *reportingclientmodels.RestapiAdminReasonListResponse
+
+	Error404 *reportingclientmodels.RestapiErrorResponse
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *AdminGetReasonsResponse) Unpack() (*reportingclientmodels.RestapiAdminReasonListResponse, *reportingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetReasonsReader is a Reader for the AdminGetReasons structure.
 type AdminGetReasonsReader struct {
 	formats strfmt.Registry

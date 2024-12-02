@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 )
 
+type FleetListResponse struct {
+	amsclientmodels.ApiResponse
+	Data *amsclientmodels.APIFleetListResponse
+
+	Error500 *amsclientmodels.ResponseErrorResponse
+}
+
+func (m *FleetListResponse) Unpack() (*amsclientmodels.APIFleetListResponse, *amsclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &amsclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // FleetListReader is a Reader for the FleetList structure.
 type FleetListReader struct {
 	formats strfmt.Registry

@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type AdminConfigService struct {
@@ -37,7 +36,7 @@ func (aaa *AdminConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminConfigService) AdminGetConfigsShort(input *admin_config.AdminGetConfigsParams) (*ugcclientmodels.ModelsPaginatedGetConfigsResponse, error) {
+func (aaa *AdminConfigService) AdminGetConfigsShort(input *admin_config.AdminGetConfigsParams) (*admin_config.AdminGetConfigsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,7 +63,7 @@ func (aaa *AdminConfigService) AdminGetConfigsShort(input *admin_config.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminConfigService) AdminUpdateConfigShort(input *admin_config.AdminUpdateConfigParams) error {

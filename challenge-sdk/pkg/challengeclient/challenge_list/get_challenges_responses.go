@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 )
 
+type GetChallengesResponse struct {
+	challengeclientmodels.ApiResponse
+	Data *challengeclientmodels.ModelListChallengeResponse
+
+	Error401 *challengeclientmodels.IamErrorResponse
+	Error403 *challengeclientmodels.IamErrorResponse
+	Error500 *challengeclientmodels.ResponseError
+}
+
+func (m *GetChallengesResponse) Unpack() (*challengeclientmodels.ModelListChallengeResponse, *challengeclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &challengeclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetChallengesReader is a Reader for the GetChallenges structure.
 type GetChallengesReader struct {
 	formats strfmt.Registry

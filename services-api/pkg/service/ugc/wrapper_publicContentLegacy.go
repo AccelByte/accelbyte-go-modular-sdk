@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_content_legacy"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 // PublicContentLegacyService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *PublicContentLegacyService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicContentLegacyService) SearchChannelSpecificContentShort(input *public_content_legacy.SearchChannelSpecificContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *PublicContentLegacyService) SearchChannelSpecificContentShort(input *public_content_legacy.SearchChannelSpecificContentParams) (*public_content_legacy.SearchChannelSpecificContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *PublicContentLegacyService) SearchChannelSpecificContentShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) PublicSearchContentShort(input *public_content_legacy.PublicSearchContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *PublicContentLegacyService) PublicSearchContentShort(input *public_content_legacy.PublicSearchContentParams) (*public_content_legacy.PublicSearchContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *PublicContentLegacyService) PublicSearchContentShort(input *public_co
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) PublicGetContentBulkShort(input *public_content_legacy.PublicGetContentBulkParams) ([]*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *PublicContentLegacyService) PublicGetContentBulkShort(input *public_content_legacy.PublicGetContentBulkParams) (*public_content_legacy.PublicGetContentBulkResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *PublicContentLegacyService) PublicGetContentBulkShort(input *public_c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) PublicGetContentBulkByShareCodesShort(input *public_content_legacy.PublicGetContentBulkByShareCodesParams) ([]*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *PublicContentLegacyService) PublicGetContentBulkByShareCodesShort(input *public_content_legacy.PublicGetContentBulkByShareCodesParams) (*public_content_legacy.PublicGetContentBulkByShareCodesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *PublicContentLegacyService) PublicGetContentBulkByShareCodesShort(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) PublicDownloadContentByShareCodeShort(input *public_content_legacy.PublicDownloadContentByShareCodeParams) (*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *PublicContentLegacyService) PublicDownloadContentByShareCodeShort(input *public_content_legacy.PublicDownloadContentByShareCodeParams) (*public_content_legacy.PublicDownloadContentByShareCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *PublicContentLegacyService) PublicDownloadContentByShareCodeShort(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) PublicDownloadContentByContentIDShort(input *public_content_legacy.PublicDownloadContentByContentIDParams) (*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *PublicContentLegacyService) PublicDownloadContentByContentIDShort(input *public_content_legacy.PublicDownloadContentByContentIDParams) (*public_content_legacy.PublicDownloadContentByContentIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *PublicContentLegacyService) PublicDownloadContentByContentIDShort(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) PublicDownloadContentPreviewShort(input *public_content_legacy.PublicDownloadContentPreviewParams) (*ugcclientmodels.ModelsGetContentPreviewResponse, error) {
+func (aaa *PublicContentLegacyService) PublicDownloadContentPreviewShort(input *public_content_legacy.PublicDownloadContentPreviewParams) (*public_content_legacy.PublicDownloadContentPreviewResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *PublicContentLegacyService) PublicDownloadContentPreviewShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) CreateContentDirectShort(input *public_content_legacy.CreateContentDirectParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *PublicContentLegacyService) CreateContentDirectShort(input *public_content_legacy.CreateContentDirectParams) (*public_content_legacy.CreateContentDirectResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *PublicContentLegacyService) CreateContentDirectShort(input *public_co
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PublicContentLegacyService) CreateContentS3Short(input *public_content_legacy.CreateContentS3Params) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *PublicContentLegacyService) CreateContentS3Short(input *public_content_legacy.CreateContentS3Params) (*public_content_legacy.CreateContentS3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *PublicContentLegacyService) CreateContentS3Short(input *public_conten
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PublicContentLegacyService) PublicUpdateContentByShareCodeShort(input *public_content_legacy.PublicUpdateContentByShareCodeParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *PublicContentLegacyService) PublicUpdateContentByShareCodeShort(input *public_content_legacy.PublicUpdateContentByShareCodeParams) (*public_content_legacy.PublicUpdateContentByShareCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,10 +335,10 @@ func (aaa *PublicContentLegacyService) PublicUpdateContentByShareCodeShort(input
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) UpdateContentS3Short(input *public_content_legacy.UpdateContentS3Params) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *PublicContentLegacyService) UpdateContentS3Short(input *public_content_legacy.UpdateContentS3Params) (*public_content_legacy.UpdateContentS3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,7 +365,7 @@ func (aaa *PublicContentLegacyService) UpdateContentS3Short(input *public_conten
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PublicContentLegacyService) PublicDeleteContentByShareCodeShort(input *public_content_legacy.PublicDeleteContentByShareCodeParams) error {
@@ -399,7 +398,7 @@ func (aaa *PublicContentLegacyService) PublicDeleteContentByShareCodeShort(input
 	return nil
 }
 
-func (aaa *PublicContentLegacyService) UpdateContentDirectShort(input *public_content_legacy.UpdateContentDirectParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *PublicContentLegacyService) UpdateContentDirectShort(input *public_content_legacy.UpdateContentDirectParams) (*public_content_legacy.UpdateContentDirectResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -426,7 +425,7 @@ func (aaa *PublicContentLegacyService) UpdateContentDirectShort(input *public_co
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PublicContentLegacyService) DeleteContentShort(input *public_content_legacy.DeleteContentParams) error {
@@ -459,7 +458,7 @@ func (aaa *PublicContentLegacyService) DeleteContentShort(input *public_content_
 	return nil
 }
 
-func (aaa *PublicContentLegacyService) UpdateContentShareCodeShort(input *public_content_legacy.UpdateContentShareCodeParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *PublicContentLegacyService) UpdateContentShareCodeShort(input *public_content_legacy.UpdateContentShareCodeParams) (*public_content_legacy.UpdateContentShareCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -486,10 +485,10 @@ func (aaa *PublicContentLegacyService) UpdateContentShareCodeShort(input *public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) PublicGetUserContentShort(input *public_content_legacy.PublicGetUserContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *PublicContentLegacyService) PublicGetUserContentShort(input *public_content_legacy.PublicGetUserContentParams) (*public_content_legacy.PublicGetUserContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -516,10 +515,10 @@ func (aaa *PublicContentLegacyService) PublicGetUserContentShort(input *public_c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) UpdateScreenshotsShort(input *public_content_legacy.UpdateScreenshotsParams) (*ugcclientmodels.ModelsUpdateScreenshotResponse, error) {
+func (aaa *PublicContentLegacyService) UpdateScreenshotsShort(input *public_content_legacy.UpdateScreenshotsParams) (*public_content_legacy.UpdateScreenshotsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -546,10 +545,10 @@ func (aaa *PublicContentLegacyService) UpdateScreenshotsShort(input *public_cont
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicContentLegacyService) UploadContentScreenshotShort(input *public_content_legacy.UploadContentScreenshotParams) (*ugcclientmodels.ModelsCreateScreenshotResponse, error) {
+func (aaa *PublicContentLegacyService) UploadContentScreenshotShort(input *public_content_legacy.UploadContentScreenshotParams) (*public_content_legacy.UploadContentScreenshotResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -576,7 +575,7 @@ func (aaa *PublicContentLegacyService) UploadContentScreenshotShort(input *publi
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *PublicContentLegacyService) DeleteContentScreenshotShort(input *public_content_legacy.DeleteContentScreenshotParams) error {

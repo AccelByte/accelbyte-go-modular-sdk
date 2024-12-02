@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/d_s_m_c_default_configuration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 type DSMCDefaultConfigurationService struct {
@@ -37,7 +36,7 @@ func (aaa *DSMCDefaultConfigurationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *DSMCDefaultConfigurationService) AdminGetDSMCConfigurationDefaultShort(input *d_s_m_c_default_configuration.AdminGetDSMCConfigurationDefaultParams) (*sessionclientmodels.ModelsDefaultDSMCConfig, error) {
+func (aaa *DSMCDefaultConfigurationService) AdminGetDSMCConfigurationDefaultShort(input *d_s_m_c_default_configuration.AdminGetDSMCConfigurationDefaultParams) (*d_s_m_c_default_configuration.AdminGetDSMCConfigurationDefaultResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *DSMCDefaultConfigurationService) AdminGetDSMCConfigurationDefaultShor
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

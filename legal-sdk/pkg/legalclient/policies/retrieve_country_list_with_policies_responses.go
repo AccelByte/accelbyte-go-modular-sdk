@@ -15,7 +15,29 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
+
+type RetrieveCountryListWithPoliciesResponse struct {
+	legalclientmodels.ApiResponse
+	Data []string
+}
+
+func (m *RetrieveCountryListWithPoliciesResponse) Unpack() ([]string, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
 
 // RetrieveCountryListWithPoliciesReader is a Reader for the RetrieveCountryListWithPolicies structure.
 type RetrieveCountryListWithPoliciesReader struct {

@@ -9,7 +9,6 @@ package ams
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/account"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AccountService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AccountService) AdminAccountGetShort(input *account.AdminAccountGetParams) (*amsclientmodels.APIAccountResponse, error) {
+func (aaa *AccountService) AdminAccountGetShort(input *account.AdminAccountGetParams) (*account.AdminAccountGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AccountService) AdminAccountGetShort(input *account.AdminAccountGetPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AccountService) AdminAccountCreateShort(input *account.AdminAccountCreateParams) (*amsclientmodels.APIAccountCreateResponse, error) {
+func (aaa *AccountService) AdminAccountCreateShort(input *account.AdminAccountCreateParams) (*account.AdminAccountCreateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AccountService) AdminAccountCreateShort(input *account.AdminAccountCr
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AccountService) AdminAccountLinkTokenGetShort(input *account.AdminAccountLinkTokenGetParams) (*amsclientmodels.APIAccountLinkTokenResponse, error) {
+func (aaa *AccountService) AdminAccountLinkTokenGetShort(input *account.AdminAccountLinkTokenGetParams) (*account.AdminAccountLinkTokenGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *AccountService) AdminAccountLinkTokenGetShort(input *account.AdminAcc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AccountService) AdminAccountLinkShort(input *account.AdminAccountLinkParams) (*amsclientmodels.APIAccountLinkResponse, error) {
+func (aaa *AccountService) AdminAccountLinkShort(input *account.AdminAccountLinkParams) (*account.AdminAccountLinkResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *AccountService) AdminAccountLinkShort(input *account.AdminAccountLink
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AccountService) AccountGetShort(input *account.AccountGetParams) (*amsclientmodels.APIAccountResponse, error) {
+func (aaa *AccountService) AccountGetShort(input *account.AccountGetParams) (*account.AccountGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,5 +185,5 @@ func (aaa *AccountService) AccountGetShort(input *account.AccountGetParams) (*am
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

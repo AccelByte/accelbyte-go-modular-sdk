@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *SSOCredentialService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *SSOCredentialService) RetrieveAllSSOLoginPlatformCredentialV3Short(input *sso_credential.RetrieveAllSSOLoginPlatformCredentialV3Params) ([]*iamclientmodels.ModelSSOPlatformCredentialResponse, error) {
+func (aaa *SSOCredentialService) RetrieveAllSSOLoginPlatformCredentialV3Short(input *sso_credential.RetrieveAllSSOLoginPlatformCredentialV3Params) (*sso_credential.RetrieveAllSSOLoginPlatformCredentialV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *SSOCredentialService) RetrieveAllSSOLoginPlatformCredentialV3Short(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SSOCredentialService) RetrieveSSOLoginPlatformCredentialShort(input *sso_credential.RetrieveSSOLoginPlatformCredentialParams) (*iamclientmodels.ModelSSOPlatformCredentialResponse, error) {
+func (aaa *SSOCredentialService) RetrieveSSOLoginPlatformCredentialShort(input *sso_credential.RetrieveSSOLoginPlatformCredentialParams) (*sso_credential.RetrieveSSOLoginPlatformCredentialResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *SSOCredentialService) RetrieveSSOLoginPlatformCredentialShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SSOCredentialService) AddSSOLoginPlatformCredentialShort(input *sso_credential.AddSSOLoginPlatformCredentialParams) (*iamclientmodels.ModelSSOPlatformCredentialResponse, error) {
+func (aaa *SSOCredentialService) AddSSOLoginPlatformCredentialShort(input *sso_credential.AddSSOLoginPlatformCredentialParams) (*sso_credential.AddSSOLoginPlatformCredentialResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *SSOCredentialService) AddSSOLoginPlatformCredentialShort(input *sso_c
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *SSOCredentialService) DeleteSSOLoginPlatformCredentialV3Short(input *sso_credential.DeleteSSOLoginPlatformCredentialV3Params) error {
@@ -157,7 +156,7 @@ func (aaa *SSOCredentialService) DeleteSSOLoginPlatformCredentialV3Short(input *
 	return nil
 }
 
-func (aaa *SSOCredentialService) UpdateSSOPlatformCredentialShort(input *sso_credential.UpdateSSOPlatformCredentialParams) (*iamclientmodels.ModelSSOPlatformCredentialResponse, error) {
+func (aaa *SSOCredentialService) UpdateSSOPlatformCredentialShort(input *sso_credential.UpdateSSOPlatformCredentialParams) (*sso_credential.UpdateSSOPlatformCredentialResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,5 +183,5 @@ func (aaa *SSOCredentialService) UpdateSSOPlatformCredentialShort(input *sso_cre
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

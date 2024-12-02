@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminQueryPlayerAttributesShort(params *AdminQueryPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPlayerAttributesOK, error)
-	AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerAttributesOK, error)
-	PublicGetBulkPlayerCurrentPlatformShort(params *PublicGetBulkPlayerCurrentPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBulkPlayerCurrentPlatformOK, error)
-	PublicGetPlayerAttributesShort(params *PublicGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerAttributesOK, error)
-	PublicStorePlayerAttributesShort(params *PublicStorePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicStorePlayerAttributesOK, error)
-	PublicDeletePlayerAttributesShort(params *PublicDeletePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerAttributesNoContent, error)
+	AdminQueryPlayerAttributesShort(params *AdminQueryPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPlayerAttributesResponse, error)
+	AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerAttributesResponse, error)
+	PublicGetBulkPlayerCurrentPlatformShort(params *PublicGetBulkPlayerCurrentPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBulkPlayerCurrentPlatformResponse, error)
+	PublicGetPlayerAttributesShort(params *PublicGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerAttributesResponse, error)
+	PublicStorePlayerAttributesShort(params *PublicStorePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicStorePlayerAttributesResponse, error)
+	PublicDeletePlayerAttributesShort(params *PublicDeletePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerAttributesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -55,7 +55,7 @@ Field descriptions:
 - currentPlatform : latest user game platform.
 - roles : user role for matchmaking role base support.
 */
-func (a *Client) AdminQueryPlayerAttributesShort(params *AdminQueryPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPlayerAttributesOK, error) {
+func (a *Client) AdminQueryPlayerAttributesShort(params *AdminQueryPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPlayerAttributesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminQueryPlayerAttributesParams()
@@ -93,15 +93,40 @@ func (a *Client) AdminQueryPlayerAttributesShort(params *AdminQueryPlayerAttribu
 	switch v := result.(type) {
 
 	case *AdminQueryPlayerAttributesOK:
-		return v, nil
+		response := &AdminQueryPlayerAttributesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminQueryPlayerAttributesBadRequest:
-		return nil, v
+		response := &AdminQueryPlayerAttributesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryPlayerAttributesUnauthorized:
-		return nil, v
+		response := &AdminQueryPlayerAttributesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryPlayerAttributesNotFound:
-		return nil, v
+		response := &AdminQueryPlayerAttributesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminQueryPlayerAttributesInternalServerError:
-		return nil, v
+		response := &AdminQueryPlayerAttributesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -123,7 +148,7 @@ Field descriptions:
 - currentPlatform : latest user game platform.
 - roles : user role for matchmaking role base support.
 */
-func (a *Client) AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerAttributesOK, error) {
+func (a *Client) AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlayerAttributesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlayerAttributesParams()
@@ -161,15 +186,40 @@ func (a *Client) AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesP
 	switch v := result.(type) {
 
 	case *AdminGetPlayerAttributesOK:
-		return v, nil
+		response := &AdminGetPlayerAttributesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlayerAttributesBadRequest:
-		return nil, v
+		response := &AdminGetPlayerAttributesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerAttributesUnauthorized:
-		return nil, v
+		response := &AdminGetPlayerAttributesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerAttributesNotFound:
-		return nil, v
+		response := &AdminGetPlayerAttributesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlayerAttributesInternalServerError:
-		return nil, v
+		response := &AdminGetPlayerAttributesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -180,7 +230,7 @@ func (a *Client) AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesP
 PublicGetBulkPlayerCurrentPlatformShort get player current platform in bulk.
 Get bulk players current platform.
 */
-func (a *Client) PublicGetBulkPlayerCurrentPlatformShort(params *PublicGetBulkPlayerCurrentPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBulkPlayerCurrentPlatformOK, error) {
+func (a *Client) PublicGetBulkPlayerCurrentPlatformShort(params *PublicGetBulkPlayerCurrentPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBulkPlayerCurrentPlatformResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetBulkPlayerCurrentPlatformParams()
@@ -218,15 +268,40 @@ func (a *Client) PublicGetBulkPlayerCurrentPlatformShort(params *PublicGetBulkPl
 	switch v := result.(type) {
 
 	case *PublicGetBulkPlayerCurrentPlatformOK:
-		return v, nil
+		response := &PublicGetBulkPlayerCurrentPlatformResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetBulkPlayerCurrentPlatformBadRequest:
-		return nil, v
+		response := &PublicGetBulkPlayerCurrentPlatformResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetBulkPlayerCurrentPlatformUnauthorized:
-		return nil, v
+		response := &PublicGetBulkPlayerCurrentPlatformResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetBulkPlayerCurrentPlatformNotFound:
-		return nil, v
+		response := &PublicGetBulkPlayerCurrentPlatformResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetBulkPlayerCurrentPlatformInternalServerError:
-		return nil, v
+		response := &PublicGetBulkPlayerCurrentPlatformResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -248,7 +323,7 @@ Field descriptions:
 - currentPlatform : latest user game platform.
 - roles : user role for matchmaking role base support.
 */
-func (a *Client) PublicGetPlayerAttributesShort(params *PublicGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerAttributesOK, error) {
+func (a *Client) PublicGetPlayerAttributesShort(params *PublicGetPlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerAttributesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPlayerAttributesParams()
@@ -286,15 +361,40 @@ func (a *Client) PublicGetPlayerAttributesShort(params *PublicGetPlayerAttribute
 	switch v := result.(type) {
 
 	case *PublicGetPlayerAttributesOK:
-		return v, nil
+		response := &PublicGetPlayerAttributesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPlayerAttributesBadRequest:
-		return nil, v
+		response := &PublicGetPlayerAttributesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerAttributesUnauthorized:
-		return nil, v
+		response := &PublicGetPlayerAttributesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerAttributesNotFound:
-		return nil, v
+		response := &PublicGetPlayerAttributesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerAttributesInternalServerError:
-		return nil, v
+		response := &PublicGetPlayerAttributesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -316,7 +416,7 @@ Field descriptions:
 - currentPlatform : latest user game platform.
 - roles : user role for matchmaking role base support.
 */
-func (a *Client) PublicStorePlayerAttributesShort(params *PublicStorePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicStorePlayerAttributesOK, error) {
+func (a *Client) PublicStorePlayerAttributesShort(params *PublicStorePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicStorePlayerAttributesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicStorePlayerAttributesParams()
@@ -354,13 +454,33 @@ func (a *Client) PublicStorePlayerAttributesShort(params *PublicStorePlayerAttri
 	switch v := result.(type) {
 
 	case *PublicStorePlayerAttributesOK:
-		return v, nil
+		response := &PublicStorePlayerAttributesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicStorePlayerAttributesBadRequest:
-		return nil, v
+		response := &PublicStorePlayerAttributesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicStorePlayerAttributesUnauthorized:
-		return nil, v
+		response := &PublicStorePlayerAttributesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicStorePlayerAttributesInternalServerError:
-		return nil, v
+		response := &PublicStorePlayerAttributesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -371,7 +491,7 @@ func (a *Client) PublicStorePlayerAttributesShort(params *PublicStorePlayerAttri
 PublicDeletePlayerAttributesShort remove player attributes.
 Reset player attributes.
 */
-func (a *Client) PublicDeletePlayerAttributesShort(params *PublicDeletePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerAttributesNoContent, error) {
+func (a *Client) PublicDeletePlayerAttributesShort(params *PublicDeletePlayerAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePlayerAttributesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicDeletePlayerAttributesParams()
@@ -409,15 +529,39 @@ func (a *Client) PublicDeletePlayerAttributesShort(params *PublicDeletePlayerAtt
 	switch v := result.(type) {
 
 	case *PublicDeletePlayerAttributesNoContent:
-		return v, nil
+		response := &PublicDeletePlayerAttributesResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicDeletePlayerAttributesBadRequest:
-		return nil, v
+		response := &PublicDeletePlayerAttributesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlayerAttributesUnauthorized:
-		return nil, v
+		response := &PublicDeletePlayerAttributesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlayerAttributesNotFound:
-		return nil, v
+		response := &PublicDeletePlayerAttributesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicDeletePlayerAttributesInternalServerError:
-		return nil, v
+		response := &PublicDeletePlayerAttributesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

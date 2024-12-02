@@ -19,6 +19,53 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 )
 
+type EvaluateMyProgressResponse struct {
+	challengeclientmodels.ApiResponse
+
+	Error401 *challengeclientmodels.IamErrorResponse
+	Error403 *challengeclientmodels.IamErrorResponse
+	Error500 *challengeclientmodels.ResponseError
+}
+
+func (m *EvaluateMyProgressResponse) Unpack() *challengeclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &challengeclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // EvaluateMyProgressReader is a Reader for the EvaluateMyProgress structure.
 type EvaluateMyProgressReader struct {
 	formats strfmt.Registry

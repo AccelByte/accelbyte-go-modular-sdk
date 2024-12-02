@@ -30,19 +30,19 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetRootCategoriesShort(params *GetRootCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRootCategoriesOK, error)
-	CreateCategoryShort(params *CreateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCategoryCreated, error)
-	ListCategoriesBasicShort(params *ListCategoriesBasicParams, authInfo runtime.ClientAuthInfoWriter) (*ListCategoriesBasicOK, error)
-	GetCategoryShort(params *GetCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCategoryOK, error)
-	UpdateCategoryShort(params *UpdateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCategoryOK, error)
-	DeleteCategoryShort(params *DeleteCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCategoryOK, error)
-	GetChildCategoriesShort(params *GetChildCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildCategoriesOK, error)
-	GetDescendantCategoriesShort(params *GetDescendantCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDescendantCategoriesOK, error)
-	PublicGetRootCategoriesShort(params *PublicGetRootCategoriesParams) (*PublicGetRootCategoriesOK, error)
-	DownloadCategoriesShort(params *DownloadCategoriesParams) (*DownloadCategoriesOK, error)
-	PublicGetCategoryShort(params *PublicGetCategoryParams) (*PublicGetCategoryOK, error)
-	PublicGetChildCategoriesShort(params *PublicGetChildCategoriesParams) (*PublicGetChildCategoriesOK, error)
-	PublicGetDescendantCategoriesShort(params *PublicGetDescendantCategoriesParams) (*PublicGetDescendantCategoriesOK, error)
+	GetRootCategoriesShort(params *GetRootCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRootCategoriesResponse, error)
+	CreateCategoryShort(params *CreateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCategoryResponse, error)
+	ListCategoriesBasicShort(params *ListCategoriesBasicParams, authInfo runtime.ClientAuthInfoWriter) (*ListCategoriesBasicResponse, error)
+	GetCategoryShort(params *GetCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCategoryResponse, error)
+	UpdateCategoryShort(params *UpdateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCategoryResponse, error)
+	DeleteCategoryShort(params *DeleteCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCategoryResponse, error)
+	GetChildCategoriesShort(params *GetChildCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildCategoriesResponse, error)
+	GetDescendantCategoriesShort(params *GetDescendantCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDescendantCategoriesResponse, error)
+	PublicGetRootCategoriesShort(params *PublicGetRootCategoriesParams) (*PublicGetRootCategoriesResponse, error)
+	DownloadCategoriesShort(params *DownloadCategoriesParams) (*DownloadCategoriesResponse, error)
+	PublicGetCategoryShort(params *PublicGetCategoryParams) (*PublicGetCategoryResponse, error)
+	PublicGetChildCategoriesShort(params *PublicGetChildCategoriesParams) (*PublicGetChildCategoriesResponse, error)
+	PublicGetDescendantCategoriesShort(params *PublicGetDescendantCategoriesParams) (*PublicGetDescendantCategoriesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -55,7 +55,7 @@ Other detail info:
 
   * Returns : root category data
 */
-func (a *Client) GetRootCategoriesShort(params *GetRootCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRootCategoriesOK, error) {
+func (a *Client) GetRootCategoriesShort(params *GetRootCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRootCategoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRootCategoriesParams()
@@ -93,7 +93,12 @@ func (a *Client) GetRootCategoriesShort(params *GetRootCategoriesParams, authInf
 	switch v := result.(type) {
 
 	case *GetRootCategoriesOK:
-		return v, nil
+		response := &GetRootCategoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -119,7 +124,7 @@ Other detail info:
 
   * Returns : created category data
 */
-func (a *Client) CreateCategoryShort(params *CreateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCategoryCreated, error) {
+func (a *Client) CreateCategoryShort(params *CreateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCategoryParams()
@@ -157,15 +162,40 @@ func (a *Client) CreateCategoryShort(params *CreateCategoryParams, authInfo runt
 	switch v := result.(type) {
 
 	case *CreateCategoryCreated:
-		return v, nil
+		response := &CreateCategoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateCategoryBadRequest:
-		return nil, v
+		response := &CreateCategoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateCategoryNotFound:
-		return nil, v
+		response := &CreateCategoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateCategoryConflict:
-		return nil, v
+		response := &CreateCategoryResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateCategoryUnprocessableEntity:
-		return nil, v
+		response := &CreateCategoryResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -180,7 +210,7 @@ Other detail info:
 
   * Returns : list of categories' paths
 */
-func (a *Client) ListCategoriesBasicShort(params *ListCategoriesBasicParams, authInfo runtime.ClientAuthInfoWriter) (*ListCategoriesBasicOK, error) {
+func (a *Client) ListCategoriesBasicShort(params *ListCategoriesBasicParams, authInfo runtime.ClientAuthInfoWriter) (*ListCategoriesBasicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListCategoriesBasicParams()
@@ -218,7 +248,12 @@ func (a *Client) ListCategoriesBasicShort(params *ListCategoriesBasicParams, aut
 	switch v := result.(type) {
 
 	case *ListCategoriesBasicOK:
-		return v, nil
+		response := &ListCategoriesBasicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -233,7 +268,7 @@ Other detail info:
 
   * Returns : category data
 */
-func (a *Client) GetCategoryShort(params *GetCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCategoryOK, error) {
+func (a *Client) GetCategoryShort(params *GetCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCategoryParams()
@@ -271,9 +306,19 @@ func (a *Client) GetCategoryShort(params *GetCategoryParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *GetCategoryOK:
-		return v, nil
+		response := &GetCategoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCategoryNotFound:
-		return nil, v
+		response := &GetCategoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -299,7 +344,7 @@ Other detail info:
 
   * Returns : the updated category data
 */
-func (a *Client) UpdateCategoryShort(params *UpdateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCategoryOK, error) {
+func (a *Client) UpdateCategoryShort(params *UpdateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCategoryParams()
@@ -337,15 +382,40 @@ func (a *Client) UpdateCategoryShort(params *UpdateCategoryParams, authInfo runt
 	switch v := result.(type) {
 
 	case *UpdateCategoryOK:
-		return v, nil
+		response := &UpdateCategoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateCategoryBadRequest:
-		return nil, v
+		response := &UpdateCategoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCategoryNotFound:
-		return nil, v
+		response := &UpdateCategoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCategoryConflict:
-		return nil, v
+		response := &UpdateCategoryResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCategoryUnprocessableEntity:
-		return nil, v
+		response := &UpdateCategoryResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -360,7 +430,7 @@ Other detail info:
 
   * Returns : the deleted category data
 */
-func (a *Client) DeleteCategoryShort(params *DeleteCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCategoryOK, error) {
+func (a *Client) DeleteCategoryShort(params *DeleteCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteCategoryParams()
@@ -398,11 +468,26 @@ func (a *Client) DeleteCategoryShort(params *DeleteCategoryParams, authInfo runt
 	switch v := result.(type) {
 
 	case *DeleteCategoryOK:
-		return v, nil
+		response := &DeleteCategoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteCategoryNotFound:
-		return nil, v
+		response := &DeleteCategoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteCategoryConflict:
-		return nil, v
+		response := &DeleteCategoryResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -417,7 +502,7 @@ Other detail info:
 
   * Returns : list of child categories data
 */
-func (a *Client) GetChildCategoriesShort(params *GetChildCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildCategoriesOK, error) {
+func (a *Client) GetChildCategoriesShort(params *GetChildCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildCategoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetChildCategoriesParams()
@@ -455,7 +540,12 @@ func (a *Client) GetChildCategoriesShort(params *GetChildCategoriesParams, authI
 	switch v := result.(type) {
 
 	case *GetChildCategoriesOK:
-		return v, nil
+		response := &GetChildCategoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -470,7 +560,7 @@ Other detail info:
 
   * Returns : list of descendant categories data
 */
-func (a *Client) GetDescendantCategoriesShort(params *GetDescendantCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDescendantCategoriesOK, error) {
+func (a *Client) GetDescendantCategoriesShort(params *GetDescendantCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDescendantCategoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDescendantCategoriesParams()
@@ -508,7 +598,12 @@ func (a *Client) GetDescendantCategoriesShort(params *GetDescendantCategoriesPar
 	switch v := result.(type) {
 
 	case *GetDescendantCategoriesOK:
-		return v, nil
+		response := &GetDescendantCategoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -525,7 +620,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
   *  Returns : root category data
 */
-func (a *Client) PublicGetRootCategoriesShort(params *PublicGetRootCategoriesParams) (*PublicGetRootCategoriesOK, error) {
+func (a *Client) PublicGetRootCategoriesShort(params *PublicGetRootCategoriesParams) (*PublicGetRootCategoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetRootCategoriesParams()
@@ -562,7 +657,12 @@ func (a *Client) PublicGetRootCategoriesShort(params *PublicGetRootCategoriesPar
 	switch v := result.(type) {
 
 	case *PublicGetRootCategoriesOK:
-		return v, nil
+		response := &PublicGetRootCategoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -579,7 +679,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store content)
   *  Returns : structured categories
 */
-func (a *Client) DownloadCategoriesShort(params *DownloadCategoriesParams) (*DownloadCategoriesOK, error) {
+func (a *Client) DownloadCategoriesShort(params *DownloadCategoriesParams) (*DownloadCategoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadCategoriesParams()
@@ -616,9 +716,19 @@ func (a *Client) DownloadCategoriesShort(params *DownloadCategoriesParams) (*Dow
 	switch v := result.(type) {
 
 	case *DownloadCategoriesOK:
-		return v, nil
+		response := &DownloadCategoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DownloadCategoriesNotFound:
-		return nil, v
+		response := &DownloadCategoriesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -635,7 +745,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1 (CREATE)(user with this permission can view draft store category)
   *  Returns : category data
 */
-func (a *Client) PublicGetCategoryShort(params *PublicGetCategoryParams) (*PublicGetCategoryOK, error) {
+func (a *Client) PublicGetCategoryShort(params *PublicGetCategoryParams) (*PublicGetCategoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCategoryParams()
@@ -672,9 +782,19 @@ func (a *Client) PublicGetCategoryShort(params *PublicGetCategoryParams) (*Publi
 	switch v := result.(type) {
 
 	case *PublicGetCategoryOK:
-		return v, nil
+		response := &PublicGetCategoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCategoryNotFound:
-		return nil, v
+		response := &PublicGetCategoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -691,7 +811,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
   *  Returns : list of child categories data
 */
-func (a *Client) PublicGetChildCategoriesShort(params *PublicGetChildCategoriesParams) (*PublicGetChildCategoriesOK, error) {
+func (a *Client) PublicGetChildCategoriesShort(params *PublicGetChildCategoriesParams) (*PublicGetChildCategoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetChildCategoriesParams()
@@ -728,7 +848,12 @@ func (a *Client) PublicGetChildCategoriesShort(params *PublicGetChildCategoriesP
 	switch v := result.(type) {
 
 	case *PublicGetChildCategoriesOK:
-		return v, nil
+		response := &PublicGetChildCategoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -745,7 +870,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
   *  Returns : list of descendant categories data
 */
-func (a *Client) PublicGetDescendantCategoriesShort(params *PublicGetDescendantCategoriesParams) (*PublicGetDescendantCategoriesOK, error) {
+func (a *Client) PublicGetDescendantCategoriesShort(params *PublicGetDescendantCategoriesParams) (*PublicGetDescendantCategoriesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetDescendantCategoriesParams()
@@ -782,7 +907,12 @@ func (a *Client) PublicGetDescendantCategoriesShort(params *PublicGetDescendantC
 	switch v := result.(type) {
 
 	case *PublicGetDescendantCategoriesOK:
-		return v, nil
+		response := &PublicGetDescendantCategoriesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

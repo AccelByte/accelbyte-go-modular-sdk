@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUsersRewardsOK, error)
-	AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsByGoalCodeOK, error)
-	AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserRewardsOK, error)
-	AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsOK, error)
-	PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsByGoalCodeOK, error)
-	PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserRewardsOK, error)
-	PublicClaimUserRewardsShort(params *PublicClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsOK, error)
+	AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUsersRewardsResponse, error)
+	AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsByGoalCodeResponse, error)
+	AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserRewardsResponse, error)
+	AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsResponse, error)
+	PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsByGoalCodeResponse, error)
+	PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserRewardsResponse, error)
+	PublicClaimUserRewardsShort(params *PublicClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ AdminClaimUsersRewardsShort claim  rewards of multiple users
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
-func (a *Client) AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUsersRewardsOK, error) {
+func (a *Client) AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUsersRewardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminClaimUsersRewardsParams()
@@ -84,17 +84,47 @@ func (a *Client) AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParam
 	switch v := result.(type) {
 
 	case *AdminClaimUsersRewardsOK:
-		return v, nil
+		response := &AdminClaimUsersRewardsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminClaimUsersRewardsBadRequest:
-		return nil, v
+		response := &AdminClaimUsersRewardsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUsersRewardsUnauthorized:
-		return nil, v
+		response := &AdminClaimUsersRewardsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUsersRewardsForbidden:
-		return nil, v
+		response := &AdminClaimUsersRewardsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUsersRewardsNotFound:
-		return nil, v
+		response := &AdminClaimUsersRewardsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUsersRewardsInternalServerError:
-		return nil, v
+		response := &AdminClaimUsersRewardsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -106,7 +136,7 @@ AdminClaimUserRewardsByGoalCodeShort claim rewards of a single user by goal code
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
-func (a *Client) AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsByGoalCodeOK, error) {
+func (a *Client) AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsByGoalCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminClaimUserRewardsByGoalCodeParams()
@@ -144,19 +174,54 @@ func (a *Client) AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewa
 	switch v := result.(type) {
 
 	case *AdminClaimUserRewardsByGoalCodeOK:
-		return v, nil
+		response := &AdminClaimUserRewardsByGoalCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminClaimUserRewardsByGoalCodeBadRequest:
-		return nil, v
+		response := &AdminClaimUserRewardsByGoalCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsByGoalCodeUnauthorized:
-		return nil, v
+		response := &AdminClaimUserRewardsByGoalCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsByGoalCodeForbidden:
-		return nil, v
+		response := &AdminClaimUserRewardsByGoalCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsByGoalCodeNotFound:
-		return nil, v
+		response := &AdminClaimUserRewardsByGoalCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsByGoalCodeUnprocessableEntity:
-		return nil, v
+		response := &AdminClaimUserRewardsByGoalCodeResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsByGoalCodeInternalServerError:
-		return nil, v
+		response := &AdminClaimUserRewardsByGoalCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,7 +233,7 @@ AdminGetUserRewardsShort list user's rewards
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
 */
-func (a *Client) AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserRewardsOK, error) {
+func (a *Client) AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserRewardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetUserRewardsParams()
@@ -206,13 +271,33 @@ func (a *Client) AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, aut
 	switch v := result.(type) {
 
 	case *AdminGetUserRewardsOK:
-		return v, nil
+		response := &AdminGetUserRewardsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetUserRewardsUnauthorized:
-		return nil, v
+		response := &AdminGetUserRewardsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserRewardsForbidden:
-		return nil, v
+		response := &AdminGetUserRewardsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetUserRewardsInternalServerError:
-		return nil, v
+		response := &AdminGetUserRewardsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -224,7 +309,7 @@ AdminClaimUserRewardsShort claim rewards of a single user
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
-func (a *Client) AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsOK, error) {
+func (a *Client) AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminClaimUserRewardsParams()
@@ -262,17 +347,47 @@ func (a *Client) AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams,
 	switch v := result.(type) {
 
 	case *AdminClaimUserRewardsOK:
-		return v, nil
+		response := &AdminClaimUserRewardsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminClaimUserRewardsUnauthorized:
-		return nil, v
+		response := &AdminClaimUserRewardsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsForbidden:
-		return nil, v
+		response := &AdminClaimUserRewardsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsNotFound:
-		return nil, v
+		response := &AdminClaimUserRewardsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsUnprocessableEntity:
-		return nil, v
+		response := &AdminClaimUserRewardsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminClaimUserRewardsInternalServerError:
-		return nil, v
+		response := &AdminClaimUserRewardsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -284,7 +399,7 @@ PublicClaimUserRewardsByGoalCodeShort claim user's rewards by goal code
 
     * Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
-func (a *Client) PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsByGoalCodeOK, error) {
+func (a *Client) PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsByGoalCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicClaimUserRewardsByGoalCodeParams()
@@ -322,19 +437,54 @@ func (a *Client) PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRe
 	switch v := result.(type) {
 
 	case *PublicClaimUserRewardsByGoalCodeOK:
-		return v, nil
+		response := &PublicClaimUserRewardsByGoalCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicClaimUserRewardsByGoalCodeBadRequest:
-		return nil, v
+		response := &PublicClaimUserRewardsByGoalCodeResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsByGoalCodeUnauthorized:
-		return nil, v
+		response := &PublicClaimUserRewardsByGoalCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsByGoalCodeForbidden:
-		return nil, v
+		response := &PublicClaimUserRewardsByGoalCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsByGoalCodeNotFound:
-		return nil, v
+		response := &PublicClaimUserRewardsByGoalCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsByGoalCodeUnprocessableEntity:
-		return nil, v
+		response := &PublicClaimUserRewardsByGoalCodeResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsByGoalCodeInternalServerError:
-		return nil, v
+		response := &PublicClaimUserRewardsByGoalCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -346,7 +496,7 @@ PublicGetUserRewardsShort list user's rewards
 
     * Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
 */
-func (a *Client) PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserRewardsOK, error) {
+func (a *Client) PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserRewardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetUserRewardsParams()
@@ -384,13 +534,33 @@ func (a *Client) PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, a
 	switch v := result.(type) {
 
 	case *PublicGetUserRewardsOK:
-		return v, nil
+		response := &PublicGetUserRewardsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetUserRewardsUnauthorized:
-		return nil, v
+		response := &PublicGetUserRewardsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserRewardsForbidden:
-		return nil, v
+		response := &PublicGetUserRewardsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetUserRewardsInternalServerError:
-		return nil, v
+		response := &PublicGetUserRewardsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -402,7 +572,7 @@ PublicClaimUserRewardsShort claim user's rewards
 
     * Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
-func (a *Client) PublicClaimUserRewardsShort(params *PublicClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsOK, error) {
+func (a *Client) PublicClaimUserRewardsShort(params *PublicClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicClaimUserRewardsParams()
@@ -440,17 +610,47 @@ func (a *Client) PublicClaimUserRewardsShort(params *PublicClaimUserRewardsParam
 	switch v := result.(type) {
 
 	case *PublicClaimUserRewardsOK:
-		return v, nil
+		response := &PublicClaimUserRewardsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicClaimUserRewardsUnauthorized:
-		return nil, v
+		response := &PublicClaimUserRewardsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsForbidden:
-		return nil, v
+		response := &PublicClaimUserRewardsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsNotFound:
-		return nil, v
+		response := &PublicClaimUserRewardsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsUnprocessableEntity:
-		return nil, v
+		response := &PublicClaimUserRewardsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicClaimUserRewardsInternalServerError:
-		return nil, v
+		response := &PublicClaimUserRewardsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

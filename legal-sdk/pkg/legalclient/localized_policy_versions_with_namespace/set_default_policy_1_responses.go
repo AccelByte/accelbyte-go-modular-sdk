@@ -13,7 +13,28 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
+
+type SetDefaultPolicy1Response struct {
+	legalclientmodels.ApiResponse
+}
+
+func (m *SetDefaultPolicy1Response) Unpack() *legalclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // SetDefaultPolicy1Reader is a Reader for the SetDefaultPolicy1 structure.
 type SetDefaultPolicy1Reader struct {

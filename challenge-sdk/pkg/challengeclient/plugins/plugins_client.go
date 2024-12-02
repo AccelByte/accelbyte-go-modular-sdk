@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAssignmentPluginOK, error)
-	AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAssignmentPluginOK, error)
-	AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateAssignmentPluginCreated, error)
-	AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginNoContent, error)
+	AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAssignmentPluginResponse, error)
+	AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAssignmentPluginResponse, error)
+	AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateAssignmentPluginResponse, error)
+	AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ AdminGetAssignmentPluginShort get assignment plugin
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [READ]
 */
-func (a *Client) AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAssignmentPluginOK, error) {
+func (a *Client) AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAssignmentPluginResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetAssignmentPluginParams()
@@ -81,17 +81,47 @@ func (a *Client) AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginP
 	switch v := result.(type) {
 
 	case *AdminGetAssignmentPluginOK:
-		return v, nil
+		response := &AdminGetAssignmentPluginResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetAssignmentPluginBadRequest:
-		return nil, v
+		response := &AdminGetAssignmentPluginResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAssignmentPluginUnauthorized:
-		return nil, v
+		response := &AdminGetAssignmentPluginResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAssignmentPluginForbidden:
-		return nil, v
+		response := &AdminGetAssignmentPluginResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAssignmentPluginNotFound:
-		return nil, v
+		response := &AdminGetAssignmentPluginResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetAssignmentPluginInternalServerError:
-		return nil, v
+		response := &AdminGetAssignmentPluginResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +133,7 @@ AdminUpdateAssignmentPluginShort update assignment plugin
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [UPDATE]
 */
-func (a *Client) AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAssignmentPluginOK, error) {
+func (a *Client) AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAssignmentPluginResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateAssignmentPluginParams()
@@ -141,17 +171,47 @@ func (a *Client) AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentP
 	switch v := result.(type) {
 
 	case *AdminUpdateAssignmentPluginOK:
-		return v, nil
+		response := &AdminUpdateAssignmentPluginResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateAssignmentPluginBadRequest:
-		return nil, v
+		response := &AdminUpdateAssignmentPluginResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAssignmentPluginUnauthorized:
-		return nil, v
+		response := &AdminUpdateAssignmentPluginResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAssignmentPluginForbidden:
-		return nil, v
+		response := &AdminUpdateAssignmentPluginResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAssignmentPluginNotFound:
-		return nil, v
+		response := &AdminUpdateAssignmentPluginResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAssignmentPluginInternalServerError:
-		return nil, v
+		response := &AdminUpdateAssignmentPluginResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -163,7 +223,7 @@ AdminCreateAssignmentPluginShort create assignment plugin
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [CREATE]
 */
-func (a *Client) AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateAssignmentPluginCreated, error) {
+func (a *Client) AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateAssignmentPluginResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateAssignmentPluginParams()
@@ -201,15 +261,40 @@ func (a *Client) AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentP
 	switch v := result.(type) {
 
 	case *AdminCreateAssignmentPluginCreated:
-		return v, nil
+		response := &AdminCreateAssignmentPluginResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateAssignmentPluginBadRequest:
-		return nil, v
+		response := &AdminCreateAssignmentPluginResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateAssignmentPluginUnauthorized:
-		return nil, v
+		response := &AdminCreateAssignmentPluginResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateAssignmentPluginForbidden:
-		return nil, v
+		response := &AdminCreateAssignmentPluginResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateAssignmentPluginInternalServerError:
-		return nil, v
+		response := &AdminCreateAssignmentPluginResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -221,7 +306,7 @@ AdminDeleteAssignmentPluginShort delete assignment plugin
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [DELETE]
 */
-func (a *Client) AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginNoContent, error) {
+func (a *Client) AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteAssignmentPluginParams()
@@ -259,17 +344,46 @@ func (a *Client) AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentP
 	switch v := result.(type) {
 
 	case *AdminDeleteAssignmentPluginNoContent:
-		return v, nil
+		response := &AdminDeleteAssignmentPluginResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteAssignmentPluginBadRequest:
-		return nil, v
+		response := &AdminDeleteAssignmentPluginResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAssignmentPluginUnauthorized:
-		return nil, v
+		response := &AdminDeleteAssignmentPluginResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAssignmentPluginForbidden:
-		return nil, v
+		response := &AdminDeleteAssignmentPluginResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAssignmentPluginNotFound:
-		return nil, v
+		response := &AdminDeleteAssignmentPluginResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteAssignmentPluginInternalServerError:
-		return nil, v
+		response := &AdminDeleteAssignmentPluginResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

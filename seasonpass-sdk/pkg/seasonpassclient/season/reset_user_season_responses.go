@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 )
 
+type ResetUserSeasonResponse struct {
+	seasonpassclientmodels.ApiResponse
+
+	Error400 *seasonpassclientmodels.ErrorEntity
+}
+
+func (m *ResetUserSeasonResponse) Unpack() *seasonpassclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &seasonpassclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // ResetUserSeasonReader is a Reader for the ResetUserSeason structure.
 type ResetUserSeasonReader struct {
 	formats strfmt.Registry

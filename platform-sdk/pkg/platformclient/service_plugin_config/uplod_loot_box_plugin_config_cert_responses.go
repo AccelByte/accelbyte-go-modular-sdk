@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type UplodLootBoxPluginConfigCertResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.LootBoxPluginConfigInfo
+
+	Error422 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *UplodLootBoxPluginConfigCertResponse) Unpack() (*platformclientmodels.LootBoxPluginConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UplodLootBoxPluginConfigCertReader is a Reader for the UplodLootBoxPluginConfigCert structure.
 type UplodLootBoxPluginConfigCertReader struct {
 	formats strfmt.Registry

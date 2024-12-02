@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 )
 
+type QueryRewardsResponse struct {
+	seasonpassclientmodels.ApiResponse
+	Data []*seasonpassclientmodels.RewardInfo
+
+	Error400 *seasonpassclientmodels.ErrorEntity
+	Error404 *seasonpassclientmodels.ErrorEntity
+}
+
+func (m *QueryRewardsResponse) Unpack() ([]*seasonpassclientmodels.RewardInfo, *seasonpassclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &seasonpassclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryRewardsReader is a Reader for the QueryRewards structure.
 type QueryRewardsReader struct {
 	formats strfmt.Registry

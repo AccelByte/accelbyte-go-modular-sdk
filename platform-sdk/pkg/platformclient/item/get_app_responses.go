@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetAppResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.FullAppInfo
+}
+
+func (m *GetAppResponse) Unpack() (*platformclientmodels.FullAppInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetAppReader is a Reader for the GetApp structure.
 type GetAppReader struct {
 	formats strfmt.Registry

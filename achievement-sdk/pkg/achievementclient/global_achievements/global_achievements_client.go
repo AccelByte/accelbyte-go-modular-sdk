@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListGlobalAchievementsShort(params *AdminListGlobalAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalAchievementsOK, error)
-	AdminListGlobalAchievementContributorsShort(params *AdminListGlobalAchievementContributorsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalAchievementContributorsOK, error)
-	ResetGlobalAchievementShort(params *ResetGlobalAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*ResetGlobalAchievementNoContent, error)
-	AdminListUserContributionsShort(params *AdminListUserContributionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserContributionsOK, error)
-	PublicListGlobalAchievementsShort(params *PublicListGlobalAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListGlobalAchievementsOK, error)
-	ListGlobalAchievementContributorsShort(params *ListGlobalAchievementContributorsParams, authInfo runtime.ClientAuthInfoWriter) (*ListGlobalAchievementContributorsOK, error)
-	ListUserContributionsShort(params *ListUserContributionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserContributionsOK, error)
-	ClaimGlobalAchievementRewardShort(params *ClaimGlobalAchievementRewardParams, authInfo runtime.ClientAuthInfoWriter) (*ClaimGlobalAchievementRewardAccepted, error)
+	AdminListGlobalAchievementsShort(params *AdminListGlobalAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalAchievementsResponse, error)
+	AdminListGlobalAchievementContributorsShort(params *AdminListGlobalAchievementContributorsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalAchievementContributorsResponse, error)
+	ResetGlobalAchievementShort(params *ResetGlobalAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*ResetGlobalAchievementResponse, error)
+	AdminListUserContributionsShort(params *AdminListUserContributionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserContributionsResponse, error)
+	PublicListGlobalAchievementsShort(params *PublicListGlobalAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListGlobalAchievementsResponse, error)
+	ListGlobalAchievementContributorsShort(params *ListGlobalAchievementContributorsParams, authInfo runtime.ClientAuthInfoWriter) (*ListGlobalAchievementContributorsResponse, error)
+	ListUserContributionsShort(params *ListUserContributionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserContributionsResponse, error)
+	ClaimGlobalAchievementRewardShort(params *ClaimGlobalAchievementRewardParams, authInfo runtime.ClientAuthInfoWriter) (*ClaimGlobalAchievementRewardResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -59,7 +59,7 @@ Note:
 
 Global achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
 */
-func (a *Client) AdminListGlobalAchievementsShort(params *AdminListGlobalAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalAchievementsOK, error) {
+func (a *Client) AdminListGlobalAchievementsShort(params *AdminListGlobalAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalAchievementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListGlobalAchievementsParams()
@@ -97,13 +97,33 @@ func (a *Client) AdminListGlobalAchievementsShort(params *AdminListGlobalAchieve
 	switch v := result.(type) {
 
 	case *AdminListGlobalAchievementsOK:
-		return v, nil
+		response := &AdminListGlobalAchievementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListGlobalAchievementsBadRequest:
-		return nil, v
+		response := &AdminListGlobalAchievementsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListGlobalAchievementsUnauthorized:
-		return nil, v
+		response := &AdminListGlobalAchievementsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListGlobalAchievementsInternalServerError:
-		return nil, v
+		response := &AdminListGlobalAchievementsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -117,7 +137,7 @@ AdminListGlobalAchievementContributorsShort admin list contributors of global ac
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) AdminListGlobalAchievementContributorsShort(params *AdminListGlobalAchievementContributorsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalAchievementContributorsOK, error) {
+func (a *Client) AdminListGlobalAchievementContributorsShort(params *AdminListGlobalAchievementContributorsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListGlobalAchievementContributorsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListGlobalAchievementContributorsParams()
@@ -155,13 +175,33 @@ func (a *Client) AdminListGlobalAchievementContributorsShort(params *AdminListGl
 	switch v := result.(type) {
 
 	case *AdminListGlobalAchievementContributorsOK:
-		return v, nil
+		response := &AdminListGlobalAchievementContributorsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListGlobalAchievementContributorsBadRequest:
-		return nil, v
+		response := &AdminListGlobalAchievementContributorsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListGlobalAchievementContributorsUnauthorized:
-		return nil, v
+		response := &AdminListGlobalAchievementContributorsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListGlobalAchievementContributorsInternalServerError:
-		return nil, v
+		response := &AdminListGlobalAchievementContributorsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -180,7 +220,7 @@ ResetGlobalAchievementShort reset global achievement
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and scope `social`
 */
-func (a *Client) ResetGlobalAchievementShort(params *ResetGlobalAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*ResetGlobalAchievementNoContent, error) {
+func (a *Client) ResetGlobalAchievementShort(params *ResetGlobalAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*ResetGlobalAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewResetGlobalAchievementParams()
@@ -218,13 +258,32 @@ func (a *Client) ResetGlobalAchievementShort(params *ResetGlobalAchievementParam
 	switch v := result.(type) {
 
 	case *ResetGlobalAchievementNoContent:
-		return v, nil
+		response := &ResetGlobalAchievementResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ResetGlobalAchievementUnauthorized:
-		return nil, v
+		response := &ResetGlobalAchievementResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ResetGlobalAchievementForbidden:
-		return nil, v
+		response := &ResetGlobalAchievementResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ResetGlobalAchievementInternalServerError:
-		return nil, v
+		response := &ResetGlobalAchievementResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -238,7 +297,7 @@ AdminListUserContributionsShort admin list of global achievements that has been 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) AdminListUserContributionsShort(params *AdminListUserContributionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserContributionsOK, error) {
+func (a *Client) AdminListUserContributionsShort(params *AdminListUserContributionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserContributionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListUserContributionsParams()
@@ -276,13 +335,33 @@ func (a *Client) AdminListUserContributionsShort(params *AdminListUserContributi
 	switch v := result.(type) {
 
 	case *AdminListUserContributionsOK:
-		return v, nil
+		response := &AdminListUserContributionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListUserContributionsBadRequest:
-		return nil, v
+		response := &AdminListUserContributionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserContributionsUnauthorized:
-		return nil, v
+		response := &AdminListUserContributionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListUserContributionsInternalServerError:
-		return nil, v
+		response := &AdminListUserContributionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -306,7 +385,7 @@ Note:
 
 Global achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
 */
-func (a *Client) PublicListGlobalAchievementsShort(params *PublicListGlobalAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListGlobalAchievementsOK, error) {
+func (a *Client) PublicListGlobalAchievementsShort(params *PublicListGlobalAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListGlobalAchievementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListGlobalAchievementsParams()
@@ -344,13 +423,33 @@ func (a *Client) PublicListGlobalAchievementsShort(params *PublicListGlobalAchie
 	switch v := result.(type) {
 
 	case *PublicListGlobalAchievementsOK:
-		return v, nil
+		response := &PublicListGlobalAchievementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListGlobalAchievementsBadRequest:
-		return nil, v
+		response := &PublicListGlobalAchievementsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListGlobalAchievementsUnauthorized:
-		return nil, v
+		response := &PublicListGlobalAchievementsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListGlobalAchievementsInternalServerError:
-		return nil, v
+		response := &PublicListGlobalAchievementsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -364,7 +463,7 @@ ListGlobalAchievementContributorsShort list contributors of global achievement
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) ListGlobalAchievementContributorsShort(params *ListGlobalAchievementContributorsParams, authInfo runtime.ClientAuthInfoWriter) (*ListGlobalAchievementContributorsOK, error) {
+func (a *Client) ListGlobalAchievementContributorsShort(params *ListGlobalAchievementContributorsParams, authInfo runtime.ClientAuthInfoWriter) (*ListGlobalAchievementContributorsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListGlobalAchievementContributorsParams()
@@ -402,13 +501,33 @@ func (a *Client) ListGlobalAchievementContributorsShort(params *ListGlobalAchiev
 	switch v := result.(type) {
 
 	case *ListGlobalAchievementContributorsOK:
-		return v, nil
+		response := &ListGlobalAchievementContributorsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListGlobalAchievementContributorsBadRequest:
-		return nil, v
+		response := &ListGlobalAchievementContributorsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGlobalAchievementContributorsUnauthorized:
-		return nil, v
+		response := &ListGlobalAchievementContributorsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListGlobalAchievementContributorsInternalServerError:
-		return nil, v
+		response := &ListGlobalAchievementContributorsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -422,7 +541,7 @@ ListUserContributionsShort list of global achievements that has been contributed
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 */
-func (a *Client) ListUserContributionsShort(params *ListUserContributionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserContributionsOK, error) {
+func (a *Client) ListUserContributionsShort(params *ListUserContributionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserContributionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListUserContributionsParams()
@@ -460,13 +579,33 @@ func (a *Client) ListUserContributionsShort(params *ListUserContributionsParams,
 	switch v := result.(type) {
 
 	case *ListUserContributionsOK:
-		return v, nil
+		response := &ListUserContributionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListUserContributionsBadRequest:
-		return nil, v
+		response := &ListUserContributionsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListUserContributionsUnauthorized:
-		return nil, v
+		response := &ListUserContributionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListUserContributionsInternalServerError:
-		return nil, v
+		response := &ListUserContributionsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -490,7 +629,7 @@ Note:
 
 Global achievement should be unlocked to claim the reward. Only contributor of global achievement are eligible for rewards
 */
-func (a *Client) ClaimGlobalAchievementRewardShort(params *ClaimGlobalAchievementRewardParams, authInfo runtime.ClientAuthInfoWriter) (*ClaimGlobalAchievementRewardAccepted, error) {
+func (a *Client) ClaimGlobalAchievementRewardShort(params *ClaimGlobalAchievementRewardParams, authInfo runtime.ClientAuthInfoWriter) (*ClaimGlobalAchievementRewardResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewClaimGlobalAchievementRewardParams()
@@ -528,13 +667,32 @@ func (a *Client) ClaimGlobalAchievementRewardShort(params *ClaimGlobalAchievemen
 	switch v := result.(type) {
 
 	case *ClaimGlobalAchievementRewardAccepted:
-		return v, nil
+		response := &ClaimGlobalAchievementRewardResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ClaimGlobalAchievementRewardBadRequest:
-		return nil, v
+		response := &ClaimGlobalAchievementRewardResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ClaimGlobalAchievementRewardUnauthorized:
-		return nil, v
+		response := &ClaimGlobalAchievementRewardResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ClaimGlobalAchievementRewardInternalServerError:
-		return nil, v
+		response := &ClaimGlobalAchievementRewardResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

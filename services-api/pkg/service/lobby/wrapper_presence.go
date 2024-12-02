@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/presence"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *PresenceService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PresenceService) UsersPresenceHandlerV1Short(input *presence.UsersPresenceHandlerV1Params) (*lobbyclientmodels.HandlersGetUsersPresenceResponse, error) {
+func (aaa *PresenceService) UsersPresenceHandlerV1Short(input *presence.UsersPresenceHandlerV1Params) (*presence.UsersPresenceHandlerV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *PresenceService) UsersPresenceHandlerV1Short(input *presence.UsersPre
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PresenceService) UsersPresenceHandlerV2Short(input *presence.UsersPresenceHandlerV2Params) (*lobbyclientmodels.HandlersGetUsersPresenceResponse, error) {
+func (aaa *PresenceService) UsersPresenceHandlerV2Short(input *presence.UsersPresenceHandlerV2Params) (*presence.UsersPresenceHandlerV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *PresenceService) UsersPresenceHandlerV2Short(input *presence.UsersPre
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

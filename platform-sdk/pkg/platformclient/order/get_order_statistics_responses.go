@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetOrderStatisticsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.OrderStatistics
+}
+
+func (m *GetOrderStatisticsResponse) Unpack() (*platformclientmodels.OrderStatistics, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetOrderStatisticsReader is a Reader for the GetOrderStatistics structure.
 type GetOrderStatisticsReader struct {
 	formats strfmt.Registry

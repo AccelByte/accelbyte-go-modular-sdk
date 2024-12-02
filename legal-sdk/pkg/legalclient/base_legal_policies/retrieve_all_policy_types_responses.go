@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type RetrieveAllPolicyTypesResponse struct {
+	legalclientmodels.ApiResponse
+	Data []*legalclientmodels.RetrievePolicyTypeResponse
+}
+
+func (m *RetrieveAllPolicyTypesResponse) Unpack() ([]*legalclientmodels.RetrievePolicyTypeResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RetrieveAllPolicyTypesReader is a Reader for the RetrieveAllPolicyTypes structure.
 type RetrieveAllPolicyTypesReader struct {
 	formats strfmt.Registry

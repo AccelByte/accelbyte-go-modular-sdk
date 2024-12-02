@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadXBoxCertificateOK, error)
+	AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadXBoxCertificateResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 AdminUploadXBoxCertificateShort upload certificates for xbox.
 Upload certificates for XBox. Certificate must be in the valid form of PFX format.
 */
-func (a *Client) AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadXBoxCertificateOK, error) {
+func (a *Client) AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadXBoxCertificateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUploadXBoxCertificateParams()
@@ -77,17 +77,47 @@ func (a *Client) AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertific
 	switch v := result.(type) {
 
 	case *AdminUploadXBoxCertificateOK:
-		return v, nil
+		response := &AdminUploadXBoxCertificateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUploadXBoxCertificateBadRequest:
-		return nil, v
+		response := &AdminUploadXBoxCertificateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUploadXBoxCertificateUnauthorized:
-		return nil, v
+		response := &AdminUploadXBoxCertificateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUploadXBoxCertificateForbidden:
-		return nil, v
+		response := &AdminUploadXBoxCertificateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUploadXBoxCertificateNotFound:
-		return nil, v
+		response := &AdminUploadXBoxCertificateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUploadXBoxCertificateInternalServerError:
-		return nil, v
+		response := &AdminUploadXBoxCertificateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetRootCategoriesResponse struct {
+	platformclientmodels.ApiResponse
+	Data []*platformclientmodels.FullCategoryInfo
+}
+
+func (m *GetRootCategoriesResponse) Unpack() ([]*platformclientmodels.FullCategoryInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetRootCategoriesReader is a Reader for the GetRootCategories structure.
 type GetRootCategoriesReader struct {
 	formats strfmt.Registry

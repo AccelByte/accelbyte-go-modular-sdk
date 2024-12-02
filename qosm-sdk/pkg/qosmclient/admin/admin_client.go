@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	UpdateServerConfigShort(params *UpdateServerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServerConfigNoContent, error)
-	DeleteServerShort(params *DeleteServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServerNoContent, error)
-	SetServerAliasShort(params *SetServerAliasParams, authInfo runtime.ClientAuthInfoWriter) (*SetServerAliasNoContent, error)
+	UpdateServerConfigShort(params *UpdateServerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServerConfigResponse, error)
+	DeleteServerShort(params *DeleteServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServerResponse, error)
+	SetServerAliasShort(params *SetServerAliasParams, authInfo runtime.ClientAuthInfoWriter) (*SetServerAliasResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ Required scope: social
 This endpoint updates the registered QoS service's configurable configuration'.
 ```
 */
-func (a *Client) UpdateServerConfigShort(params *UpdateServerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServerConfigNoContent, error) {
+func (a *Client) UpdateServerConfigShort(params *UpdateServerConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServerConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateServerConfigParams()
@@ -84,13 +84,32 @@ func (a *Client) UpdateServerConfigShort(params *UpdateServerConfigParams, authI
 	switch v := result.(type) {
 
 	case *UpdateServerConfigNoContent:
-		return v, nil
+		response := &UpdateServerConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateServerConfigBadRequest:
-		return nil, v
+		response := &UpdateServerConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateServerConfigNotFound:
-		return nil, v
+		response := &UpdateServerConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateServerConfigInternalServerError:
-		return nil, v
+		response := &UpdateServerConfigResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -106,7 +125,7 @@ Required scope: social
 This endpoint delete a registered QoS service record.
 ```
 */
-func (a *Client) DeleteServerShort(params *DeleteServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServerNoContent, error) {
+func (a *Client) DeleteServerShort(params *DeleteServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteServerParams()
@@ -144,9 +163,18 @@ func (a *Client) DeleteServerShort(params *DeleteServerParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteServerNoContent:
-		return v, nil
+		response := &DeleteServerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteServerInternalServerError:
-		return nil, v
+		response := &DeleteServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -162,7 +190,7 @@ Required scope: social
 This endpoint modifies a registered QoS service's region alias.
 ```
 */
-func (a *Client) SetServerAliasShort(params *SetServerAliasParams, authInfo runtime.ClientAuthInfoWriter) (*SetServerAliasNoContent, error) {
+func (a *Client) SetServerAliasShort(params *SetServerAliasParams, authInfo runtime.ClientAuthInfoWriter) (*SetServerAliasResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSetServerAliasParams()
@@ -200,13 +228,32 @@ func (a *Client) SetServerAliasShort(params *SetServerAliasParams, authInfo runt
 	switch v := result.(type) {
 
 	case *SetServerAliasNoContent:
-		return v, nil
+		response := &SetServerAliasResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SetServerAliasBadRequest:
-		return nil, v
+		response := &SetServerAliasResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetServerAliasNotFound:
-		return nil, v
+		response := &SetServerAliasResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SetServerAliasInternalServerError:
-		return nil, v
+		response := &SetServerAliasResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

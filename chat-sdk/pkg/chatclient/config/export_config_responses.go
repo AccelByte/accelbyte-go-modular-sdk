@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 )
 
+type ExportConfigResponse struct {
+	chatclientmodels.ApiResponse
+	Data []*chatclientmodels.ModelsConfigExport
+
+	Error401 *chatclientmodels.ResponseError
+	Error403 *chatclientmodels.ResponseError
+	Error500 *chatclientmodels.ResponseError
+}
+
+func (m *ExportConfigResponse) Unpack() ([]*chatclientmodels.ModelsConfigExport, *chatclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ExportConfigReader is a Reader for the ExportConfig structure.
 type ExportConfigReader struct {
 	formats strfmt.Registry

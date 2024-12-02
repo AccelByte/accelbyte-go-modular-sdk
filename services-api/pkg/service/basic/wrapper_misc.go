@@ -9,7 +9,6 @@ package basic
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *MiscService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *MiscService) GetCountriesShort(input *misc.GetCountriesParams) ([]*basicclientmodels.CountryObject, error) {
+func (aaa *MiscService) GetCountriesShort(input *misc.GetCountriesParams) (*misc.GetCountriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *MiscService) GetCountriesShort(input *misc.GetCountriesParams) ([]*ba
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MiscService) GetCountryGroupsShort(input *misc.GetCountryGroupsParams) ([]*basicclientmodels.RetrieveCountryGroupResponse, error) {
+func (aaa *MiscService) GetCountryGroupsShort(input *misc.GetCountryGroupsParams) (*misc.GetCountryGroupsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *MiscService) GetCountryGroupsShort(input *misc.GetCountryGroupsParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MiscService) AddCountryGroupShort(input *misc.AddCountryGroupParams) (*basicclientmodels.AddCountryGroupResponse, error) {
+func (aaa *MiscService) AddCountryGroupShort(input *misc.AddCountryGroupParams) (*misc.AddCountryGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *MiscService) AddCountryGroupShort(input *misc.AddCountryGroupParams) 
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *MiscService) UpdateCountryGroupShort(input *misc.UpdateCountryGroupParams) (*basicclientmodels.CountryGroupObject, error) {
+func (aaa *MiscService) UpdateCountryGroupShort(input *misc.UpdateCountryGroupParams) (*misc.UpdateCountryGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *MiscService) UpdateCountryGroupShort(input *misc.UpdateCountryGroupPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *MiscService) DeleteCountryGroupShort(input *misc.DeleteCountryGroupParams) error {
@@ -189,7 +188,7 @@ func (aaa *MiscService) DeleteCountryGroupShort(input *misc.DeleteCountryGroupPa
 	return nil
 }
 
-func (aaa *MiscService) GetLanguagesShort(input *misc.GetLanguagesParams) (map[string]string, error) {
+func (aaa *MiscService) GetLanguagesShort(input *misc.GetLanguagesParams) (*misc.GetLanguagesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *MiscService) GetLanguagesShort(input *misc.GetLanguagesParams) (map[s
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MiscService) GetTimeZonesShort(input *misc.GetTimeZonesParams) ([]string, error) {
+func (aaa *MiscService) GetTimeZonesShort(input *misc.GetTimeZonesParams) (*misc.GetTimeZonesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *MiscService) GetTimeZonesShort(input *misc.GetTimeZonesParams) ([]str
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MiscService) PublicGetTimeShort(input *misc.PublicGetTimeParams) (*basicclientmodels.RetrieveTimeResponse, error) {
+func (aaa *MiscService) PublicGetTimeShort(input *misc.PublicGetTimeParams) (*misc.PublicGetTimeResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -269,10 +268,10 @@ func (aaa *MiscService) PublicGetTimeShort(input *misc.PublicGetTimeParams) (*ba
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MiscService) PublicGetCountriesShort(input *misc.PublicGetCountriesParams) ([]*basicclientmodels.CountryObject, error) {
+func (aaa *MiscService) PublicGetCountriesShort(input *misc.PublicGetCountriesParams) (*misc.PublicGetCountriesResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -292,10 +291,10 @@ func (aaa *MiscService) PublicGetCountriesShort(input *misc.PublicGetCountriesPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MiscService) PublicGetLanguagesShort(input *misc.PublicGetLanguagesParams) (map[string]interface{}, error) {
+func (aaa *MiscService) PublicGetLanguagesShort(input *misc.PublicGetLanguagesParams) (*misc.PublicGetLanguagesResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -315,10 +314,10 @@ func (aaa *MiscService) PublicGetLanguagesShort(input *misc.PublicGetLanguagesPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MiscService) PublicGetTimeZonesShort(input *misc.PublicGetTimeZonesParams) ([]string, error) {
+func (aaa *MiscService) PublicGetTimeZonesShort(input *misc.PublicGetTimeZonesParams) (*misc.PublicGetTimeZonesResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -338,5 +337,5 @@ func (aaa *MiscService) PublicGetTimeZonesShort(input *misc.PublicGetTimeZonesPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type GetGlobalStatItemByStatCode1Response struct {
+	socialclientmodels.ApiResponse
+	Data *socialclientmodels.GlobalStatItemInfo
+
+	Error401 *socialclientmodels.ErrorEntity
+	Error403 *socialclientmodels.ErrorEntity
+	Error404 *socialclientmodels.ErrorEntity
+	Error500 *socialclientmodels.ErrorEntity
+}
+
+func (m *GetGlobalStatItemByStatCode1Response) Unpack() (*socialclientmodels.GlobalStatItemInfo, *socialclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetGlobalStatItemByStatCode1Reader is a Reader for the GetGlobalStatItemByStatCode1 structure.
 type GetGlobalStatItemByStatCode1Reader struct {
 	formats strfmt.Registry

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type GetUserInfoStatusResponse struct {
+	legalclientmodels.ApiResponse
+	Data []*legalclientmodels.RetrieveUserInfoCacheStatusResponse
+}
+
+func (m *GetUserInfoStatusResponse) Unpack() ([]*legalclientmodels.RetrieveUserInfoCacheStatusResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserInfoStatusReader is a Reader for the GetUserInfoStatus structure.
 type GetUserInfoStatusReader struct {
 	formats strfmt.Registry

@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 )
 
+type GetLanguagesResponse struct {
+	basicclientmodels.ApiResponse
+	Data map[string]string
+
+	Error400 *basicclientmodels.ValidationErrorEntity
+	Error401 *basicclientmodels.ErrorEntity
+}
+
+func (m *GetLanguagesResponse) Unpack() (map[string]string, *basicclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &basicclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetLanguagesReader is a Reader for the GetLanguages structure.
 type GetLanguagesReader struct {
 	formats strfmt.Registry

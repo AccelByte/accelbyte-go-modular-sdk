@@ -15,7 +15,29 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
+
+type GetAggregatePaymentProvidersResponse struct {
+	platformclientmodels.ApiResponse
+	Data []string
+}
+
+func (m *GetAggregatePaymentProvidersResponse) Unpack() ([]string, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
 
 // GetAggregatePaymentProvidersReader is a Reader for the GetAggregatePaymentProviders structure.
 type GetAggregatePaymentProvidersReader struct {

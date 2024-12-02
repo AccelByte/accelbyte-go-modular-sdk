@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetLootBoxGrpcInfoResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.GrpcServerInfo
+}
+
+func (m *GetLootBoxGrpcInfoResponse) Unpack() (*platformclientmodels.GrpcServerInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetLootBoxGrpcInfoReader is a Reader for the GetLootBoxGrpcInfo structure.
 type GetLootBoxGrpcInfoReader struct {
 	formats strfmt.Registry

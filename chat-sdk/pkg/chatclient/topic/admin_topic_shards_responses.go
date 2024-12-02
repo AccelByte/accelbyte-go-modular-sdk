@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 )
 
+type AdminTopicShardsResponse struct {
+	chatclientmodels.ApiResponse
+	Data []string
+
+	Error400 *chatclientmodels.RestapiErrorResponseBody
+	Error401 *chatclientmodels.RestapiErrorResponseBody
+	Error403 *chatclientmodels.RestapiErrorResponseBody
+	Error500 *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (m *AdminTopicShardsResponse) Unpack() ([]string, *chatclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminTopicShardsReader is a Reader for the AdminTopicShards structure.
 type AdminTopicShardsReader struct {
 	formats strfmt.Registry

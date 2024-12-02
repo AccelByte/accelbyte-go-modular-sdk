@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BulkCreatePSNEventShort(params *BulkCreatePSNEventParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreatePSNEventOK, error)
+	BulkCreatePSNEventShort(params *BulkCreatePSNEventParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreatePSNEventResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 BulkCreatePSNEventShort create psn uds events
 Create PSN UDS events. Player need to login first using playstation token to IAM service.
 */
-func (a *Client) BulkCreatePSNEventShort(params *BulkCreatePSNEventParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreatePSNEventOK, error) {
+func (a *Client) BulkCreatePSNEventShort(params *BulkCreatePSNEventParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreatePSNEventResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkCreatePSNEventParams()
@@ -77,13 +77,33 @@ func (a *Client) BulkCreatePSNEventShort(params *BulkCreatePSNEventParams, authI
 	switch v := result.(type) {
 
 	case *BulkCreatePSNEventOK:
-		return v, nil
+		response := &BulkCreatePSNEventResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkCreatePSNEventUnauthorized:
-		return nil, v
+		response := &BulkCreatePSNEventResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkCreatePSNEventForbidden:
-		return nil, v
+		response := &BulkCreatePSNEventResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkCreatePSNEventInternalServerError:
-		return nil, v
+		response := &BulkCreatePSNEventResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

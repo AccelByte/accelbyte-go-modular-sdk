@@ -9,7 +9,6 @@ package chat
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/moderation"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ModerationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ModerationService) AdminGetChatSnapshotShort(input *moderation.AdminGetChatSnapshotParams) (*chatclientmodels.ModelsChatSnapshots, error) {
+func (aaa *ModerationService) AdminGetChatSnapshotShort(input *moderation.AdminGetChatSnapshotParams) (*moderation.AdminGetChatSnapshotResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *ModerationService) AdminGetChatSnapshotShort(input *moderation.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ModerationService) AdminDeleteChatSnapshotShort(input *moderation.AdminDeleteChatSnapshotParams) error {
@@ -99,7 +98,7 @@ func (aaa *ModerationService) AdminDeleteChatSnapshotShort(input *moderation.Adm
 	return nil
 }
 
-func (aaa *ModerationService) PublicGetChatSnapshotShort(input *moderation.PublicGetChatSnapshotParams) (*chatclientmodels.ModelsChatSnapshots, error) {
+func (aaa *ModerationService) PublicGetChatSnapshotShort(input *moderation.PublicGetChatSnapshotParams) (*moderation.PublicGetChatSnapshotResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,5 +125,5 @@ func (aaa *ModerationService) PublicGetChatSnapshotShort(input *moderation.Publi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

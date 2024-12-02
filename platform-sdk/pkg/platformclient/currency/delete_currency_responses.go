@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type DeleteCurrencyResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.CurrencyInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *DeleteCurrencyResponse) Unpack() (*platformclientmodels.CurrencyInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // DeleteCurrencyReader is a Reader for the DeleteCurrency structure.
 type DeleteCurrencyReader struct {
 	formats strfmt.Registry

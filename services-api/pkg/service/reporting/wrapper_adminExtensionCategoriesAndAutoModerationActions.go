@@ -9,7 +9,6 @@ package reporting
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_extension_categories_and_auto_moderation_actions"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) GetAuthSessi
 	}
 }
 
-func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindActionListShort(input *admin_extension_categories_and_auto_moderation_actions.AdminFindActionListParams) (*reportingclientmodels.RestapiActionListAPIResponse, error) {
+func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindActionListShort(input *admin_extension_categories_and_auto_moderation_actions.AdminFindActionListParams) (*admin_extension_categories_and_auto_moderation_actions.AdminFindActionListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindAct
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateModActionShort(input *admin_extension_categories_and_auto_moderation_actions.AdminCreateModActionParams) (*reportingclientmodels.RestapiActionAPIResponse, error) {
+func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateModActionShort(input *admin_extension_categories_and_auto_moderation_actions.AdminCreateModActionParams) (*admin_extension_categories_and_auto_moderation_actions.AdminCreateModActionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateM
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindExtensionCategoryListShort(input *admin_extension_categories_and_auto_moderation_actions.AdminFindExtensionCategoryListParams) (*reportingclientmodels.RestapiExtensionCategoryListAPIResponse, error) {
+func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindExtensionCategoryListShort(input *admin_extension_categories_and_auto_moderation_actions.AdminFindExtensionCategoryListParams) (*admin_extension_categories_and_auto_moderation_actions.AdminFindExtensionCategoryListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindExt
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateExtensionCategoryShort(input *admin_extension_categories_and_auto_moderation_actions.AdminCreateExtensionCategoryParams) (*reportingclientmodels.RestapiExtensionCategoryAPIResponse, error) {
+func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateExtensionCategoryShort(input *admin_extension_categories_and_auto_moderation_actions.AdminCreateExtensionCategoryParams) (*admin_extension_categories_and_auto_moderation_actions.AdminCreateExtensionCategoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,5 +155,5 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateE
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }

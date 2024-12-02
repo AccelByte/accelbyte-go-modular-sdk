@@ -19,6 +19,62 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 )
 
+type PublicUnmuteUserResponse struct {
+	chatclientmodels.ApiResponse
+
+	Error400 *chatclientmodels.RestapiErrorResponseBody
+	Error401 *chatclientmodels.RestapiErrorResponseBody
+	Error403 *chatclientmodels.RestapiErrorResponseBody
+	Error500 *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (m *PublicUnmuteUserResponse) Unpack() *chatclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // PublicUnmuteUserReader is a Reader for the PublicUnmuteUser structure.
 type PublicUnmuteUserReader struct {
 	formats strfmt.Registry

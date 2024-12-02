@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/revocation"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *RevocationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *RevocationService) GetRevocationConfigShort(input *revocation.GetRevocationConfigParams) (*platformclientmodels.RevocationConfigInfo, error) {
+func (aaa *RevocationService) GetRevocationConfigShort(input *revocation.GetRevocationConfigParams) (*revocation.GetRevocationConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *RevocationService) GetRevocationConfigShort(input *revocation.GetRevo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RevocationService) UpdateRevocationConfigShort(input *revocation.UpdateRevocationConfigParams) (*platformclientmodels.RevocationConfigInfo, error) {
+func (aaa *RevocationService) UpdateRevocationConfigShort(input *revocation.UpdateRevocationConfigParams) (*revocation.UpdateRevocationConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *RevocationService) UpdateRevocationConfigShort(input *revocation.Upda
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *RevocationService) DeleteRevocationConfigShort(input *revocation.DeleteRevocationConfigParams) error {
@@ -129,7 +128,7 @@ func (aaa *RevocationService) DeleteRevocationConfigShort(input *revocation.Dele
 	return nil
 }
 
-func (aaa *RevocationService) QueryRevocationHistoriesShort(input *revocation.QueryRevocationHistoriesParams) (*platformclientmodels.RevocationHistoryPagingSlicedResult, error) {
+func (aaa *RevocationService) QueryRevocationHistoriesShort(input *revocation.QueryRevocationHistoriesParams) (*revocation.QueryRevocationHistoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *RevocationService) QueryRevocationHistoriesShort(input *revocation.Qu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *RevocationService) DoRevocationShort(input *revocation.DoRevocationParams) (*platformclientmodels.RevocationResult, error) {
+func (aaa *RevocationService) DoRevocationShort(input *revocation.DoRevocationParams) (*revocation.DoRevocationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,5 +185,5 @@ func (aaa *RevocationService) DoRevocationShort(input *revocation.DoRevocationPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicSearchCreatorShort(params *PublicSearchCreatorParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchCreatorOK, error)
-	PublicGetCreatorShort(params *PublicGetCreatorParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCreatorOK, error)
+	PublicSearchCreatorShort(params *PublicSearchCreatorParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchCreatorResponse, error)
+	PublicGetCreatorShort(params *PublicGetCreatorParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCreatorResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 PublicSearchCreatorShort search creator
 Public user can access without token or if token specified, requires valid user token
 */
-func (a *Client) PublicSearchCreatorShort(params *PublicSearchCreatorParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchCreatorOK, error) {
+func (a *Client) PublicSearchCreatorShort(params *PublicSearchCreatorParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchCreatorResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSearchCreatorParams()
@@ -78,13 +78,33 @@ func (a *Client) PublicSearchCreatorShort(params *PublicSearchCreatorParams, aut
 	switch v := result.(type) {
 
 	case *PublicSearchCreatorOK:
-		return v, nil
+		response := &PublicSearchCreatorResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSearchCreatorBadRequest:
-		return nil, v
+		response := &PublicSearchCreatorResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSearchCreatorUnauthorized:
-		return nil, v
+		response := &PublicSearchCreatorResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicSearchCreatorInternalServerError:
-		return nil, v
+		response := &PublicSearchCreatorResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -95,7 +115,7 @@ func (a *Client) PublicSearchCreatorShort(params *PublicSearchCreatorParams, aut
 PublicGetCreatorShort get creator stats: number of total like by other user, number of total following and follower user
 Public user can access without token or if token specified, requires valid user token
 */
-func (a *Client) PublicGetCreatorShort(params *PublicGetCreatorParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCreatorOK, error) {
+func (a *Client) PublicGetCreatorShort(params *PublicGetCreatorParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCreatorResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCreatorParams()
@@ -133,13 +153,33 @@ func (a *Client) PublicGetCreatorShort(params *PublicGetCreatorParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicGetCreatorOK:
-		return v, nil
+		response := &PublicGetCreatorResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCreatorUnauthorized:
-		return nil, v
+		response := &PublicGetCreatorResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetCreatorNotFound:
-		return nil, v
+		response := &PublicGetCreatorResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetCreatorInternalServerError:
-		return nil, v
+		response := &PublicGetCreatorResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

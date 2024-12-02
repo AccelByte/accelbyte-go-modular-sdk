@@ -9,7 +9,6 @@ package lobby
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/notification"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -157,7 +156,7 @@ func (aaa *NotificationService) SendPartyTemplatedNotificationV1AdminShort(input
 	return nil
 }
 
-func (aaa *NotificationService) GetAllNotificationTemplatesV1AdminShort(input *notification.GetAllNotificationTemplatesV1AdminParams) ([]*lobbyclientmodels.ModelNotificationTemplateResponse, error) {
+func (aaa *NotificationService) GetAllNotificationTemplatesV1AdminShort(input *notification.GetAllNotificationTemplatesV1AdminParams) (*notification.GetAllNotificationTemplatesV1AdminResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,7 +183,7 @@ func (aaa *NotificationService) GetAllNotificationTemplatesV1AdminShort(input *n
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *NotificationService) CreateNotificationTemplateV1AdminShort(input *notification.CreateNotificationTemplateV1AdminParams) error {
@@ -247,7 +246,7 @@ func (aaa *NotificationService) SendUsersTemplatedNotificationV1AdminShort(input
 	return nil
 }
 
-func (aaa *NotificationService) GetTemplateSlugLocalizationsTemplateV1AdminShort(input *notification.GetTemplateSlugLocalizationsTemplateV1AdminParams) (*lobbyclientmodels.ModelGetAllNotificationTemplateSlugResp, error) {
+func (aaa *NotificationService) GetTemplateSlugLocalizationsTemplateV1AdminShort(input *notification.GetTemplateSlugLocalizationsTemplateV1AdminParams) (*notification.GetTemplateSlugLocalizationsTemplateV1AdminResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,7 +273,7 @@ func (aaa *NotificationService) GetTemplateSlugLocalizationsTemplateV1AdminShort
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *NotificationService) DeleteNotificationTemplateSlugV1AdminShort(input *notification.DeleteNotificationTemplateSlugV1AdminParams) error {
@@ -307,7 +306,7 @@ func (aaa *NotificationService) DeleteNotificationTemplateSlugV1AdminShort(input
 	return nil
 }
 
-func (aaa *NotificationService) GetSingleTemplateLocalizationV1AdminShort(input *notification.GetSingleTemplateLocalizationV1AdminParams) (*lobbyclientmodels.ModelLocalization, error) {
+func (aaa *NotificationService) GetSingleTemplateLocalizationV1AdminShort(input *notification.GetSingleTemplateLocalizationV1AdminParams) (*notification.GetSingleTemplateLocalizationV1AdminResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,7 +333,7 @@ func (aaa *NotificationService) GetSingleTemplateLocalizationV1AdminShort(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *NotificationService) UpdateTemplateLocalizationV1AdminShort(input *notification.UpdateTemplateLocalizationV1AdminParams) error {
@@ -427,7 +426,7 @@ func (aaa *NotificationService) PublishTemplateLocalizationV1AdminShort(input *n
 	return nil
 }
 
-func (aaa *NotificationService) GetAllNotificationTopicsV1AdminShort(input *notification.GetAllNotificationTopicsV1AdminParams) (*lobbyclientmodels.ModelGetAllNotificationTopicsResponse, error) {
+func (aaa *NotificationService) GetAllNotificationTopicsV1AdminShort(input *notification.GetAllNotificationTopicsV1AdminParams) (*notification.GetAllNotificationTopicsV1AdminResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,7 +453,7 @@ func (aaa *NotificationService) GetAllNotificationTopicsV1AdminShort(input *noti
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *NotificationService) CreateNotificationTopicV1AdminShort(input *notification.CreateNotificationTopicV1AdminParams) error {
@@ -487,7 +486,7 @@ func (aaa *NotificationService) CreateNotificationTopicV1AdminShort(input *notif
 	return nil
 }
 
-func (aaa *NotificationService) GetNotificationTopicV1AdminShort(input *notification.GetNotificationTopicV1AdminParams) (*lobbyclientmodels.ModelNotificationTopicResponseV1, error) {
+func (aaa *NotificationService) GetNotificationTopicV1AdminShort(input *notification.GetNotificationTopicV1AdminParams) (*notification.GetNotificationTopicV1AdminResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,7 +513,7 @@ func (aaa *NotificationService) GetNotificationTopicV1AdminShort(input *notifica
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *NotificationService) UpdateNotificationTopicV1AdminShort(input *notification.UpdateNotificationTopicV1AdminParams) error {
@@ -637,7 +636,7 @@ func (aaa *NotificationService) SendSpecificUserTemplatedNotificationV1AdminShor
 	return nil
 }
 
-func (aaa *NotificationService) GetMyNotificationsShort(input *notification.GetMyNotificationsParams) (*lobbyclientmodels.ModelNotificationResponse, error) {
+func (aaa *NotificationService) GetMyNotificationsShort(input *notification.GetMyNotificationsParams) (*notification.GetMyNotificationsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -664,10 +663,10 @@ func (aaa *NotificationService) GetMyNotificationsShort(input *notification.GetM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *NotificationService) GetTopicByNamespaceShort(input *notification.GetTopicByNamespaceParams) (*lobbyclientmodels.ModelTopicByNamespacesResponse, error) {
+func (aaa *NotificationService) GetTopicByNamespaceShort(input *notification.GetTopicByNamespaceParams) (*notification.GetTopicByNamespaceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -694,7 +693,7 @@ func (aaa *NotificationService) GetTopicByNamespaceShort(input *notification.Get
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *NotificationService) CreateTopicShort(input *notification.CreateTopicParams) error {
@@ -727,7 +726,7 @@ func (aaa *NotificationService) CreateTopicShort(input *notification.CreateTopic
 	return nil
 }
 
-func (aaa *NotificationService) GetTopicByTopicNameShort(input *notification.GetTopicByTopicNameParams) (*lobbyclientmodels.ModelNotificationTopicResponse, error) {
+func (aaa *NotificationService) GetTopicByTopicNameShort(input *notification.GetTopicByTopicNameParams) (*notification.GetTopicByTopicNameResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -754,7 +753,7 @@ func (aaa *NotificationService) GetTopicByTopicNameShort(input *notification.Get
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *NotificationService) UpdateTopicByTopicNameShort(input *notification.UpdateTopicByTopicNameParams) error {

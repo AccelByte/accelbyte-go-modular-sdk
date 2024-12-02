@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetUserPlatformAccountClosureHistoriesResponse struct {
+	platformclientmodels.ApiResponse
+	Data []*platformclientmodels.PlatformAccountClosureHistoryInfo
+}
+
+func (m *GetUserPlatformAccountClosureHistoriesResponse) Unpack() ([]*platformclientmodels.PlatformAccountClosureHistoryInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserPlatformAccountClosureHistoriesReader is a Reader for the GetUserPlatformAccountClosureHistories structure.
 type GetUserPlatformAccountClosureHistoriesReader struct {
 	formats strfmt.Registry

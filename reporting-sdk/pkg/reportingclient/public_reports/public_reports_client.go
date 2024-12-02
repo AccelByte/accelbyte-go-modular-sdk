@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SubmitReportShort(params *SubmitReportParams, authInfo runtime.ClientAuthInfoWriter) (*SubmitReportCreated, error)
+	SubmitReportShort(params *SubmitReportParams, authInfo runtime.ClientAuthInfoWriter) (*SubmitReportResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ Reporting the same user / object in the same OPEN ticket will return HTTP code 4
 Fill the 'reason' field with a 'reason title'
 Supported category: - UGC - USER - CHAT - EXTENSION
 */
-func (a *Client) SubmitReportShort(params *SubmitReportParams, authInfo runtime.ClientAuthInfoWriter) (*SubmitReportCreated, error) {
+func (a *Client) SubmitReportShort(params *SubmitReportParams, authInfo runtime.ClientAuthInfoWriter) (*SubmitReportResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSubmitReportParams()
@@ -85,15 +85,40 @@ func (a *Client) SubmitReportShort(params *SubmitReportParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *SubmitReportCreated:
-		return v, nil
+		response := &SubmitReportResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SubmitReportBadRequest:
-		return nil, v
+		response := &SubmitReportResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubmitReportConflict:
-		return nil, v
+		response := &SubmitReportResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubmitReportTooManyRequests:
-		return nil, v
+		response := &SubmitReportResponse{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SubmitReportInternalServerError:
-		return nil, v
+		response := &SubmitReportResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetDLCItemConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.DLCItemConfigInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *GetDLCItemConfigResponse) Unpack() (*platformclientmodels.DLCItemConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetDLCItemConfigReader is a Reader for the GetDLCItemConfig structure.
 type GetDLCItemConfigReader struct {
 	formats strfmt.Registry

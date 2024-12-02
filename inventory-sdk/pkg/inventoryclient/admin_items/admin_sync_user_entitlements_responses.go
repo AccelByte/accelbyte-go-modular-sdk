@@ -19,6 +19,71 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 )
 
+type AdminSyncUserEntitlementsResponse struct {
+	inventoryclientmodels.ApiResponse
+
+	Error400 *inventoryclientmodels.ApimodelsErrorResponse
+	Error401 *inventoryclientmodels.ApimodelsErrorResponse
+	Error403 *inventoryclientmodels.ApimodelsErrorResponse
+	Error404 *inventoryclientmodels.ApimodelsErrorResponse
+	Error500 *inventoryclientmodels.ApimodelsErrorResponse
+}
+
+func (m *AdminSyncUserEntitlementsResponse) Unpack() *inventoryclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &inventoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminSyncUserEntitlementsReader is a Reader for the AdminSyncUserEntitlements structure.
 type AdminSyncUserEntitlementsReader struct {
 	formats strfmt.Registry

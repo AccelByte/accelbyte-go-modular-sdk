@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type GetUserSlotConfigResponse struct {
+	socialclientmodels.ApiResponse
+	Data *socialclientmodels.UserSlotConfigInfo
+}
+
+func (m *GetUserSlotConfigResponse) Unpack() (*socialclientmodels.UserSlotConfigInfo, *socialclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserSlotConfigReader is a Reader for the GetUserSlotConfig structure.
 type GetUserSlotConfigReader struct {
 	formats strfmt.Registry

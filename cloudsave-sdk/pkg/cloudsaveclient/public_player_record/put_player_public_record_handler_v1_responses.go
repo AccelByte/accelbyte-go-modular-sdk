@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 )
 
+type PutPlayerPublicRecordHandlerV1Response struct {
+	cloudsaveclientmodels.ApiResponse
+	Data *cloudsaveclientmodels.ModelsPlayerRecordResponse
+
+	Error400 *cloudsaveclientmodels.ModelsResponseError
+	Error401 *cloudsaveclientmodels.ModelsResponseError
+	Error403 *cloudsaveclientmodels.ModelsResponseError
+	Error500 *cloudsaveclientmodels.ModelsResponseError
+}
+
+func (m *PutPlayerPublicRecordHandlerV1Response) Unpack() (*cloudsaveclientmodels.ModelsPlayerRecordResponse, *cloudsaveclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &cloudsaveclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PutPlayerPublicRecordHandlerV1Reader is a Reader for the PutPlayerPublicRecordHandlerV1 structure.
 type PutPlayerPublicRecordHandlerV1Reader struct {
 	formats strfmt.Registry

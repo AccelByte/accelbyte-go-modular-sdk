@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetListNativeSessionShort(params *AdminGetListNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListNativeSessionOK, error)
+	AdminGetListNativeSessionShort(params *AdminGetListNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListNativeSessionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 AdminGetListNativeSessionShort list of native sessions.
 List of native sessions.
 */
-func (a *Client) AdminGetListNativeSessionShort(params *AdminGetListNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListNativeSessionOK, error) {
+func (a *Client) AdminGetListNativeSessionShort(params *AdminGetListNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListNativeSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetListNativeSessionParams()
@@ -77,11 +77,26 @@ func (a *Client) AdminGetListNativeSessionShort(params *AdminGetListNativeSessio
 	switch v := result.(type) {
 
 	case *AdminGetListNativeSessionOK:
-		return v, nil
+		response := &AdminGetListNativeSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetListNativeSessionUnauthorized:
-		return nil, v
+		response := &AdminGetListNativeSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListNativeSessionForbidden:
-		return nil, v
+		response := &AdminGetListNativeSessionResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

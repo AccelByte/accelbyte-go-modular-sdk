@@ -9,7 +9,6 @@ package ams
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/images"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ImagesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ImagesService) ImageListShort(input *images.ImageListParams) (*amsclientmodels.APIImageList, error) {
+func (aaa *ImagesService) ImageListShort(input *images.ImageListParams) (*images.ImageListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ImagesService) ImageListShort(input *images.ImageListParams) (*amscli
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ImagesService) ImagesStorageShort(input *images.ImagesStorageParams) (*amsclientmodels.APIImageStorage, error) {
+func (aaa *ImagesService) ImagesStorageShort(input *images.ImagesStorageParams) (*images.ImagesStorageResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *ImagesService) ImagesStorageShort(input *images.ImagesStorageParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ImagesService) ImageGetShort(input *images.ImageGetParams) (*amsclientmodels.APIImageDetails, error) {
+func (aaa *ImagesService) ImageGetShort(input *images.ImageGetParams) (*images.ImageGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *ImagesService) ImageGetShort(input *images.ImageGetParams) (*amsclien
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ImagesService) ImageMarkForDeletionShort(input *images.ImageMarkForDeletionParams) error {
@@ -159,7 +158,7 @@ func (aaa *ImagesService) ImageMarkForDeletionShort(input *images.ImageMarkForDe
 	return nil
 }
 
-func (aaa *ImagesService) ImagePatchShort(input *images.ImagePatchParams) (*amsclientmodels.APIImageDetails, error) {
+func (aaa *ImagesService) ImagePatchShort(input *images.ImagePatchParams) (*images.ImagePatchResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *ImagesService) ImagePatchShort(input *images.ImagePatchParams) (*amsc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ImagesService) ImageUnmarkForDeletionShort(input *images.ImageUnmarkForDeletionParams) error {

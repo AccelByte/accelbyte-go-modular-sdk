@@ -9,7 +9,6 @@ package challenge
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_list"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ChallengeListService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ChallengeListService) GetChallengesShort(input *challenge_list.GetChallengesParams) (*challengeclientmodels.ModelListChallengeResponse, error) {
+func (aaa *ChallengeListService) GetChallengesShort(input *challenge_list.GetChallengesParams) (*challenge_list.GetChallengesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ChallengeListService) GetChallengesShort(input *challenge_list.GetCha
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ChallengeListService) PublicGetScheduledGoalsShort(input *challenge_list.PublicGetScheduledGoalsParams) (*challengeclientmodels.ModelGetGoalsResponse, error) {
+func (aaa *ChallengeListService) PublicGetScheduledGoalsShort(input *challenge_list.PublicGetScheduledGoalsParams) (*challenge_list.PublicGetScheduledGoalsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *ChallengeListService) PublicGetScheduledGoalsShort(input *challenge_l
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

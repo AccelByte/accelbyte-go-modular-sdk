@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 )
 
+type AdminGetGoalsResponse struct {
+	challengeclientmodels.ApiResponse
+	Data *challengeclientmodels.ModelGetGoalsResponse
+
+	Error401 *challengeclientmodels.IamErrorResponse
+	Error403 *challengeclientmodels.IamErrorResponse
+	Error404 *challengeclientmodels.ResponseError
+	Error500 *challengeclientmodels.ResponseError
+}
+
+func (m *AdminGetGoalsResponse) Unpack() (*challengeclientmodels.ModelGetGoalsResponse, *challengeclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &challengeclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetGoalsReader is a Reader for the AdminGetGoals structure.
 type AdminGetGoalsReader struct {
 	formats strfmt.Registry

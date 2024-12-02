@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoOK, error)
-	GetHealthcheckInfoV1Short(params *GetHealthcheckInfoV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoV1OK, error)
+	GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoResponse, error)
+	GetHealthcheckInfoV1Short(params *GetHealthcheckInfoV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 /*
 GetHealthcheckInfoShort
 */
-func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoOK, error) {
+func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetHealthcheckInfoParams()
@@ -77,7 +77,11 @@ func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authI
 	switch v := result.(type) {
 
 	case *GetHealthcheckInfoOK:
-		return v, nil
+		response := &GetHealthcheckInfoResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -87,7 +91,7 @@ func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authI
 /*
 GetHealthcheckInfoV1Short
 */
-func (a *Client) GetHealthcheckInfoV1Short(params *GetHealthcheckInfoV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoV1OK, error) {
+func (a *Client) GetHealthcheckInfoV1Short(params *GetHealthcheckInfoV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetHealthcheckInfoV1Params()
@@ -125,7 +129,11 @@ func (a *Client) GetHealthcheckInfoV1Short(params *GetHealthcheckInfoV1Params, a
 	switch v := result.(type) {
 
 	case *GetHealthcheckInfoV1OK:
-		return v, nil
+		response := &GetHealthcheckInfoV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

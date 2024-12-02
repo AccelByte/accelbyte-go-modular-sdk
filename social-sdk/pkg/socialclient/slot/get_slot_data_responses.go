@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type GetSlotDataResponse struct {
+	socialclientmodels.ApiResponse
+	Data io.Writer
+
+	Error404 *socialclientmodels.ErrorEntity
+}
+
+func (m *GetSlotDataResponse) Unpack() (io.Writer, *socialclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetSlotDataReader is a Reader for the GetSlotData structure.
 type GetSlotDataReader struct {
 	formats strfmt.Registry

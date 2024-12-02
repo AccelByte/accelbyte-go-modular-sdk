@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/public_items"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PublicItemsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicItemsService) PublicConsumeMyItemShort(input *public_items.PublicConsumeMyItemParams) (*inventoryclientmodels.ApimodelsItemResp, error) {
+func (aaa *PublicItemsService) PublicConsumeMyItemShort(input *public_items.PublicConsumeMyItemParams) (*public_items.PublicConsumeMyItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicItemsService) PublicConsumeMyItemShort(input *public_items.Publ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicItemsService) PublicListItemsShort(input *public_items.PublicListItemsParams) (*inventoryclientmodels.ApimodelsListItemResp, error) {
+func (aaa *PublicItemsService) PublicListItemsShort(input *public_items.PublicListItemsParams) (*public_items.PublicListItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PublicItemsService) PublicListItemsShort(input *public_items.PublicLi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicItemsService) PublicBulkUpdateMyItemsShort(input *public_items.PublicBulkUpdateMyItemsParams) ([]*inventoryclientmodels.ApimodelsUpdateItemResp, error) {
+func (aaa *PublicItemsService) PublicBulkUpdateMyItemsShort(input *public_items.PublicBulkUpdateMyItemsParams) (*public_items.PublicBulkUpdateMyItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *PublicItemsService) PublicBulkUpdateMyItemsShort(input *public_items.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicItemsService) PublicBulkRemoveMyItemsShort(input *public_items.PublicBulkRemoveMyItemsParams) ([]*inventoryclientmodels.ApimodelsUpdateItemResp, error) {
+func (aaa *PublicItemsService) PublicBulkRemoveMyItemsShort(input *public_items.PublicBulkRemoveMyItemsParams) (*public_items.PublicBulkRemoveMyItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *PublicItemsService) PublicBulkRemoveMyItemsShort(input *public_items.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicItemsService) PublicMoveMyItemsShort(input *public_items.PublicMoveMyItemsParams) (*inventoryclientmodels.ApimodelsMoveItemsResp, error) {
+func (aaa *PublicItemsService) PublicMoveMyItemsShort(input *public_items.PublicMoveMyItemsParams) (*public_items.PublicMoveMyItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *PublicItemsService) PublicMoveMyItemsShort(input *public_items.Public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicItemsService) PublicGetItemShort(input *public_items.PublicGetItemParams) (*inventoryclientmodels.ApimodelsItemResp, error) {
+func (aaa *PublicItemsService) PublicGetItemShort(input *public_items.PublicGetItemParams) (*public_items.PublicGetItemResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,5 +213,5 @@ func (aaa *PublicItemsService) PublicGetItemShort(input *public_items.PublicGetI
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

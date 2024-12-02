@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	SyncNativeBlockedUserShort(params *SyncNativeBlockedUserParams, authInfo runtime.ClientAuthInfoWriter) (*SyncNativeBlockedUserOK, error)
+	SyncNativeBlockedUserShort(params *SyncNativeBlockedUserParams, authInfo runtime.ClientAuthInfoWriter) (*SyncNativeBlockedUserResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ Supported platforms:
 ps5, ps4 and pspc : the default environment would be sp-int, can be override using psnEnv.
 psnEnv consist of sp-int (default), prod-qa, np
 */
-func (a *Client) SyncNativeBlockedUserShort(params *SyncNativeBlockedUserParams, authInfo runtime.ClientAuthInfoWriter) (*SyncNativeBlockedUserOK, error) {
+func (a *Client) SyncNativeBlockedUserShort(params *SyncNativeBlockedUserParams, authInfo runtime.ClientAuthInfoWriter) (*SyncNativeBlockedUserResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncNativeBlockedUserParams()
@@ -80,15 +80,40 @@ func (a *Client) SyncNativeBlockedUserShort(params *SyncNativeBlockedUserParams,
 	switch v := result.(type) {
 
 	case *SyncNativeBlockedUserOK:
-		return v, nil
+		response := &SyncNativeBlockedUserResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncNativeBlockedUserBadRequest:
-		return nil, v
+		response := &SyncNativeBlockedUserResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncNativeBlockedUserUnauthorized:
-		return nil, v
+		response := &SyncNativeBlockedUserResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncNativeBlockedUserForbidden:
-		return nil, v
+		response := &SyncNativeBlockedUserResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncNativeBlockedUserInternalServerError:
-		return nil, v
+		response := &SyncNativeBlockedUserResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

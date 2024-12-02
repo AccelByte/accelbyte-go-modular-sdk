@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetPaymentTaxConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PaymentTaxConfigInfo
+}
+
+func (m *GetPaymentTaxConfigResponse) Unpack() (*platformclientmodels.PaymentTaxConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetPaymentTaxConfigReader is a Reader for the GetPaymentTaxConfig structure.
 type GetPaymentTaxConfigReader struct {
 	formats strfmt.Registry

@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/max_active"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 // MaxActiveService this is use for compatibility with latest modular sdk only
@@ -39,7 +38,7 @@ func (aaa *MaxActiveService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *MaxActiveService) AdminGetMemberActiveSessionShort(input *max_active.AdminGetMemberActiveSessionParams) (*sessionclientmodels.ModelsMemberActiveSession, error) {
+func (aaa *MaxActiveService) AdminGetMemberActiveSessionShort(input *max_active.AdminGetMemberActiveSessionParams) (*max_active.AdminGetMemberActiveSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *MaxActiveService) AdminGetMemberActiveSessionShort(input *max_active.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *MaxActiveService) AdminReconcileMaxActiveSessionShort(input *max_active.AdminReconcileMaxActiveSessionParams) error {

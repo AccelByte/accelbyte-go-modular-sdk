@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicListContentLikeV2Short(params *PublicListContentLikeV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentLikeV2OK, error)
-	UpdateContentLikeStatusV2Short(params *UpdateContentLikeStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusV2OK, error)
+	PublicListContentLikeV2Short(params *PublicListContentLikeV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentLikeV2Response, error)
+	UpdateContentLikeStatusV2Short(params *UpdateContentLikeStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 PublicListContentLikeV2Short retrieve list of user that like specified content.
 This endpoint will only display the list of users who performed like from v2 endpoint.
 */
-func (a *Client) PublicListContentLikeV2Short(params *PublicListContentLikeV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentLikeV2OK, error) {
+func (a *Client) PublicListContentLikeV2Short(params *PublicListContentLikeV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListContentLikeV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListContentLikeV2Params()
@@ -78,13 +78,33 @@ func (a *Client) PublicListContentLikeV2Short(params *PublicListContentLikeV2Par
 	switch v := result.(type) {
 
 	case *PublicListContentLikeV2OK:
-		return v, nil
+		response := &PublicListContentLikeV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListContentLikeV2BadRequest:
-		return nil, v
+		response := &PublicListContentLikeV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListContentLikeV2Unauthorized:
-		return nil, v
+		response := &PublicListContentLikeV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListContentLikeV2InternalServerError:
-		return nil, v
+		response := &PublicListContentLikeV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -95,7 +115,7 @@ func (a *Client) PublicListContentLikeV2Short(params *PublicListContentLikeV2Par
 UpdateContentLikeStatusV2Short update like/unlike status to a content
 This endpoint will update like/unlike state from a content
 */
-func (a *Client) UpdateContentLikeStatusV2Short(params *UpdateContentLikeStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusV2OK, error) {
+func (a *Client) UpdateContentLikeStatusV2Short(params *UpdateContentLikeStatusV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateContentLikeStatusV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateContentLikeStatusV2Params()
@@ -133,17 +153,47 @@ func (a *Client) UpdateContentLikeStatusV2Short(params *UpdateContentLikeStatusV
 	switch v := result.(type) {
 
 	case *UpdateContentLikeStatusV2OK:
-		return v, nil
+		response := &UpdateContentLikeStatusV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateContentLikeStatusV2BadRequest:
-		return nil, v
+		response := &UpdateContentLikeStatusV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentLikeStatusV2Unauthorized:
-		return nil, v
+		response := &UpdateContentLikeStatusV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentLikeStatusV2NotFound:
-		return nil, v
+		response := &UpdateContentLikeStatusV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentLikeStatusV2TooManyRequests:
-		return nil, v
+		response := &UpdateContentLikeStatusV2Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateContentLikeStatusV2InternalServerError:
-		return nil, v
+		response := &UpdateContentLikeStatusV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

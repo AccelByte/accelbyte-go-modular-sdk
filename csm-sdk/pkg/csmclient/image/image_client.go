@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAppImageListV1Short(params *GetAppImageListV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppImageListV1OK, error)
-	DeleteAppImagesV1Short(params *DeleteAppImagesV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppImagesV1NoContent, error)
+	GetAppImageListV1Short(params *GetAppImageListV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppImageListV1Response, error)
+	DeleteAppImagesV1Short(params *DeleteAppImagesV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppImagesV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ Get a list of container images
 
 Default 'cached' parameter is 'true'
 */
-func (a *Client) GetAppImageListV1Short(params *GetAppImageListV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppImageListV1OK, error) {
+func (a *Client) GetAppImageListV1Short(params *GetAppImageListV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppImageListV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppImageListV1Params()
@@ -82,15 +82,40 @@ func (a *Client) GetAppImageListV1Short(params *GetAppImageListV1Params, authInf
 	switch v := result.(type) {
 
 	case *GetAppImageListV1OK:
-		return v, nil
+		response := &GetAppImageListV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAppImageListV1Unauthorized:
-		return nil, v
+		response := &GetAppImageListV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppImageListV1Forbidden:
-		return nil, v
+		response := &GetAppImageListV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppImageListV1NotFound:
-		return nil, v
+		response := &GetAppImageListV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppImageListV1InternalServerError:
-		return nil, v
+		response := &GetAppImageListV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +128,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:IMAGE [DELETE]`
 
 Deletes the images uploaded to the repository
 */
-func (a *Client) DeleteAppImagesV1Short(params *DeleteAppImagesV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppImagesV1NoContent, error) {
+func (a *Client) DeleteAppImagesV1Short(params *DeleteAppImagesV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppImagesV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAppImagesV1Params()
@@ -141,15 +166,39 @@ func (a *Client) DeleteAppImagesV1Short(params *DeleteAppImagesV1Params, authInf
 	switch v := result.(type) {
 
 	case *DeleteAppImagesV1NoContent:
-		return v, nil
+		response := &DeleteAppImagesV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAppImagesV1Unauthorized:
-		return nil, v
+		response := &DeleteAppImagesV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppImagesV1Forbidden:
-		return nil, v
+		response := &DeleteAppImagesV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppImagesV1NotFound:
-		return nil, v
+		response := &DeleteAppImagesV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppImagesV1InternalServerError:
-		return nil, v
+		response := &DeleteAppImagesV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,35 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type PublicDeleteUserNamespaceSlotResponse struct {
+	socialclientmodels.ApiResponse
+
+	Error404 *socialclientmodels.ErrorEntity
+}
+
+func (m *PublicDeleteUserNamespaceSlotResponse) Unpack() *socialclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // PublicDeleteUserNamespaceSlotReader is a Reader for the PublicDeleteUserNamespaceSlot structure.
 type PublicDeleteUserNamespaceSlotReader struct {
 	formats strfmt.Registry

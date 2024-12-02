@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	LoginSSOClientShort(params *LoginSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LoginSSOClientOK, error)
-	LogoutSSOClientShort(params *LogoutSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutSSOClientNoContent, error)
+	LoginSSOClientShort(params *LoginSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LoginSSOClientResponse, error)
+	LogoutSSOClientShort(params *LogoutSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutSSOClientResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 /*
 LoginSSOClientShort login to sso client with provided platformid
 */
-func (a *Client) LoginSSOClientShort(params *LoginSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LoginSSOClientOK, error) {
+func (a *Client) LoginSSOClientShort(params *LoginSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LoginSSOClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewLoginSSOClientParams()
@@ -77,7 +77,11 @@ func (a *Client) LoginSSOClientShort(params *LoginSSOClientParams, authInfo runt
 	switch v := result.(type) {
 
 	case *LoginSSOClientOK:
-		return v, nil
+		response := &LoginSSOClientResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -91,7 +95,7 @@ Logout user's session on platform that logged in using SSO.
 Supported platforms:
 - discourse
 */
-func (a *Client) LogoutSSOClientShort(params *LogoutSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutSSOClientNoContent, error) {
+func (a *Client) LogoutSSOClientShort(params *LogoutSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutSSOClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewLogoutSSOClientParams()
@@ -129,13 +133,32 @@ func (a *Client) LogoutSSOClientShort(params *LogoutSSOClientParams, authInfo ru
 	switch v := result.(type) {
 
 	case *LogoutSSOClientNoContent:
-		return v, nil
+		response := &LogoutSSOClientResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *LogoutSSOClientNotFound:
-		return nil, v
+		response := &LogoutSSOClientResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LogoutSSOClientUnprocessableEntity:
-		return nil, v
+		response := &LogoutSSOClientResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *LogoutSSOClientInternalServerError:
-		return nil, v
+		response := &LogoutSSOClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

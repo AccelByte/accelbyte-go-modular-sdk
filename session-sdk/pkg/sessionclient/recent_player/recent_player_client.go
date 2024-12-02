@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetRecentPlayerShort(params *AdminGetRecentPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRecentPlayerOK, error)
-	AdminGetRecentTeamPlayerShort(params *AdminGetRecentTeamPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRecentTeamPlayerOK, error)
-	PublicGetRecentPlayerShort(params *PublicGetRecentPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRecentPlayerOK, error)
-	PublicGetRecentTeamPlayerShort(params *PublicGetRecentTeamPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRecentTeamPlayerOK, error)
+	AdminGetRecentPlayerShort(params *AdminGetRecentPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRecentPlayerResponse, error)
+	AdminGetRecentTeamPlayerShort(params *AdminGetRecentTeamPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRecentTeamPlayerResponse, error)
+	PublicGetRecentPlayerShort(params *PublicGetRecentPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRecentPlayerResponse, error)
+	PublicGetRecentTeamPlayerShort(params *PublicGetRecentTeamPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRecentTeamPlayerResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ If user id parameter is empty:
 
 Please ensure environment variable "RECENT_PLAYER_ENABLED" is set to "TRUE" to use this feature.
 */
-func (a *Client) AdminGetRecentPlayerShort(params *AdminGetRecentPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRecentPlayerOK, error) {
+func (a *Client) AdminGetRecentPlayerShort(params *AdminGetRecentPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRecentPlayerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRecentPlayerParams()
@@ -86,15 +86,40 @@ func (a *Client) AdminGetRecentPlayerShort(params *AdminGetRecentPlayerParams, a
 	switch v := result.(type) {
 
 	case *AdminGetRecentPlayerOK:
-		return v, nil
+		response := &AdminGetRecentPlayerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRecentPlayerBadRequest:
-		return nil, v
+		response := &AdminGetRecentPlayerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRecentPlayerUnauthorized:
-		return nil, v
+		response := &AdminGetRecentPlayerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRecentPlayerNotFound:
-		return nil, v
+		response := &AdminGetRecentPlayerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRecentPlayerInternalServerError:
-		return nil, v
+		response := &AdminGetRecentPlayerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -111,7 +136,7 @@ If user id parameter is empty:
 
 Please ensure environment variable "RECENT_TEAM_PLAYER_ENABLED" is set to "TRUE" to use this feature.
 */
-func (a *Client) AdminGetRecentTeamPlayerShort(params *AdminGetRecentTeamPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRecentTeamPlayerOK, error) {
+func (a *Client) AdminGetRecentTeamPlayerShort(params *AdminGetRecentTeamPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRecentTeamPlayerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetRecentTeamPlayerParams()
@@ -149,15 +174,40 @@ func (a *Client) AdminGetRecentTeamPlayerShort(params *AdminGetRecentTeamPlayerP
 	switch v := result.(type) {
 
 	case *AdminGetRecentTeamPlayerOK:
-		return v, nil
+		response := &AdminGetRecentTeamPlayerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetRecentTeamPlayerBadRequest:
-		return nil, v
+		response := &AdminGetRecentTeamPlayerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRecentTeamPlayerUnauthorized:
-		return nil, v
+		response := &AdminGetRecentTeamPlayerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRecentTeamPlayerNotFound:
-		return nil, v
+		response := &AdminGetRecentTeamPlayerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetRecentTeamPlayerInternalServerError:
-		return nil, v
+		response := &AdminGetRecentTeamPlayerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -170,7 +220,7 @@ Query user's recent player.
 
 Please ensure environment variable "RECENT_PLAYER_ENABLED" is set to "TRUE" to use this feature.
 */
-func (a *Client) PublicGetRecentPlayerShort(params *PublicGetRecentPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRecentPlayerOK, error) {
+func (a *Client) PublicGetRecentPlayerShort(params *PublicGetRecentPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRecentPlayerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetRecentPlayerParams()
@@ -208,15 +258,40 @@ func (a *Client) PublicGetRecentPlayerShort(params *PublicGetRecentPlayerParams,
 	switch v := result.(type) {
 
 	case *PublicGetRecentPlayerOK:
-		return v, nil
+		response := &PublicGetRecentPlayerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetRecentPlayerBadRequest:
-		return nil, v
+		response := &PublicGetRecentPlayerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetRecentPlayerUnauthorized:
-		return nil, v
+		response := &PublicGetRecentPlayerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetRecentPlayerNotFound:
-		return nil, v
+		response := &PublicGetRecentPlayerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetRecentPlayerInternalServerError:
-		return nil, v
+		response := &PublicGetRecentPlayerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -229,7 +304,7 @@ Query user's recent player who were on the same team.
 
 Please ensure environment variable "RECENT_TEAM_PLAYER_ENABLED" is set to "TRUE" to use this feature.
 */
-func (a *Client) PublicGetRecentTeamPlayerShort(params *PublicGetRecentTeamPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRecentTeamPlayerOK, error) {
+func (a *Client) PublicGetRecentTeamPlayerShort(params *PublicGetRecentTeamPlayerParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRecentTeamPlayerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetRecentTeamPlayerParams()
@@ -267,15 +342,40 @@ func (a *Client) PublicGetRecentTeamPlayerShort(params *PublicGetRecentTeamPlaye
 	switch v := result.(type) {
 
 	case *PublicGetRecentTeamPlayerOK:
-		return v, nil
+		response := &PublicGetRecentTeamPlayerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetRecentTeamPlayerBadRequest:
-		return nil, v
+		response := &PublicGetRecentTeamPlayerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetRecentTeamPlayerUnauthorized:
-		return nil, v
+		response := &PublicGetRecentTeamPlayerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetRecentTeamPlayerNotFound:
-		return nil, v
+		response := &PublicGetRecentTeamPlayerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetRecentTeamPlayerInternalServerError:
-		return nil, v
+		response := &PublicGetRecentTeamPlayerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

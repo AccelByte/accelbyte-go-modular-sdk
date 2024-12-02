@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	MatchPoolListShort(params *MatchPoolListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolListOK, error)
-	CreateMatchPoolShort(params *CreateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchPoolCreated, error)
-	MatchPoolDetailsShort(params *MatchPoolDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolDetailsOK, error)
-	UpdateMatchPoolShort(params *UpdateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchPoolOK, error)
-	DeleteMatchPoolShort(params *DeleteMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchPoolNoContent, error)
-	MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolMetricOK, error)
-	GetPlayerMetricShort(params *GetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerMetricOK, error)
-	AdminGetMatchPoolTicketsShort(params *AdminGetMatchPoolTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchPoolTicketsOK, error)
-	PublicGetPlayerMetricShort(params *PublicGetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerMetricOK, error)
+	MatchPoolListShort(params *MatchPoolListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolListResponse, error)
+	CreateMatchPoolShort(params *CreateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchPoolResponse, error)
+	MatchPoolDetailsShort(params *MatchPoolDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolDetailsResponse, error)
+	UpdateMatchPoolShort(params *UpdateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchPoolResponse, error)
+	DeleteMatchPoolShort(params *DeleteMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchPoolResponse, error)
+	MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolMetricResponse, error)
+	GetPlayerMetricShort(params *GetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerMetricResponse, error)
+	AdminGetMatchPoolTicketsShort(params *AdminGetMatchPoolTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchPoolTicketsResponse, error)
+	PublicGetPlayerMetricShort(params *PublicGetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerMetricResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -47,7 +47,7 @@ type ClientService interface {
 MatchPoolListShort list match pools
 List matchmaking pools.
 */
-func (a *Client) MatchPoolListShort(params *MatchPoolListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolListOK, error) {
+func (a *Client) MatchPoolListShort(params *MatchPoolListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewMatchPoolListParams()
@@ -85,13 +85,33 @@ func (a *Client) MatchPoolListShort(params *MatchPoolListParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *MatchPoolListOK:
-		return v, nil
+		response := &MatchPoolListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *MatchPoolListUnauthorized:
-		return nil, v
+		response := &MatchPoolListResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchPoolListForbidden:
-		return nil, v
+		response := &MatchPoolListResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchPoolListInternalServerError:
-		return nil, v
+		response := &MatchPoolListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -120,7 +140,7 @@ e.g.
 }
 }
 */
-func (a *Client) CreateMatchPoolShort(params *CreateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchPoolCreated, error) {
+func (a *Client) CreateMatchPoolShort(params *CreateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchPoolResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMatchPoolParams()
@@ -158,17 +178,46 @@ func (a *Client) CreateMatchPoolShort(params *CreateMatchPoolParams, authInfo ru
 	switch v := result.(type) {
 
 	case *CreateMatchPoolCreated:
-		return v, nil
+		response := &CreateMatchPoolResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateMatchPoolBadRequest:
-		return nil, v
+		response := &CreateMatchPoolResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchPoolUnauthorized:
-		return nil, v
+		response := &CreateMatchPoolResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchPoolForbidden:
-		return nil, v
+		response := &CreateMatchPoolResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchPoolConflict:
-		return nil, v
+		response := &CreateMatchPoolResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMatchPoolInternalServerError:
-		return nil, v
+		response := &CreateMatchPoolResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -179,7 +228,7 @@ func (a *Client) CreateMatchPoolShort(params *CreateMatchPoolParams, authInfo ru
 MatchPoolDetailsShort get details for a specific match pool
 Get details for a specific match pool
 */
-func (a *Client) MatchPoolDetailsShort(params *MatchPoolDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolDetailsOK, error) {
+func (a *Client) MatchPoolDetailsShort(params *MatchPoolDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolDetailsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewMatchPoolDetailsParams()
@@ -217,13 +266,33 @@ func (a *Client) MatchPoolDetailsShort(params *MatchPoolDetailsParams, authInfo 
 	switch v := result.(type) {
 
 	case *MatchPoolDetailsOK:
-		return v, nil
+		response := &MatchPoolDetailsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *MatchPoolDetailsUnauthorized:
-		return nil, v
+		response := &MatchPoolDetailsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchPoolDetailsForbidden:
-		return nil, v
+		response := &MatchPoolDetailsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchPoolDetailsInternalServerError:
-		return nil, v
+		response := &MatchPoolDetailsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -249,7 +318,7 @@ e.g.
 }
 }
 */
-func (a *Client) UpdateMatchPoolShort(params *UpdateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchPoolOK, error) {
+func (a *Client) UpdateMatchPoolShort(params *UpdateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchPoolResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMatchPoolParams()
@@ -287,17 +356,47 @@ func (a *Client) UpdateMatchPoolShort(params *UpdateMatchPoolParams, authInfo ru
 	switch v := result.(type) {
 
 	case *UpdateMatchPoolOK:
-		return v, nil
+		response := &UpdateMatchPoolResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMatchPoolBadRequest:
-		return nil, v
+		response := &UpdateMatchPoolResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchPoolUnauthorized:
-		return nil, v
+		response := &UpdateMatchPoolResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchPoolForbidden:
-		return nil, v
+		response := &UpdateMatchPoolResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchPoolNotFound:
-		return nil, v
+		response := &UpdateMatchPoolResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMatchPoolInternalServerError:
-		return nil, v
+		response := &UpdateMatchPoolResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -308,7 +407,7 @@ func (a *Client) UpdateMatchPoolShort(params *UpdateMatchPoolParams, authInfo ru
 DeleteMatchPoolShort delete a match pool
 Deletes an existing matchmaking pool.
 */
-func (a *Client) DeleteMatchPoolShort(params *DeleteMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchPoolNoContent, error) {
+func (a *Client) DeleteMatchPoolShort(params *DeleteMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchPoolResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteMatchPoolParams()
@@ -346,15 +445,39 @@ func (a *Client) DeleteMatchPoolShort(params *DeleteMatchPoolParams, authInfo ru
 	switch v := result.(type) {
 
 	case *DeleteMatchPoolNoContent:
-		return v, nil
+		response := &DeleteMatchPoolResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteMatchPoolUnauthorized:
-		return nil, v
+		response := &DeleteMatchPoolResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchPoolForbidden:
-		return nil, v
+		response := &DeleteMatchPoolResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchPoolNotFound:
-		return nil, v
+		response := &DeleteMatchPoolResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMatchPoolInternalServerError:
-		return nil, v
+		response := &DeleteMatchPoolResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -367,7 +490,7 @@ Get metric for a specific match pool
 
 Result: queueTime in seconds
 */
-func (a *Client) MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolMetricOK, error) {
+func (a *Client) MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolMetricResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewMatchPoolMetricParams()
@@ -405,15 +528,40 @@ func (a *Client) MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo ru
 	switch v := result.(type) {
 
 	case *MatchPoolMetricOK:
-		return v, nil
+		response := &MatchPoolMetricResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *MatchPoolMetricUnauthorized:
-		return nil, v
+		response := &MatchPoolMetricResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchPoolMetricForbidden:
-		return nil, v
+		response := &MatchPoolMetricResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchPoolMetricNotFound:
-		return nil, v
+		response := &MatchPoolMetricResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MatchPoolMetricInternalServerError:
-		return nil, v
+		response := &MatchPoolMetricResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -424,7 +572,7 @@ func (a *Client) MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo ru
 GetPlayerMetricShort get metrics player for a specific match pool
 Get player metric for a specific match pool
 */
-func (a *Client) GetPlayerMetricShort(params *GetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerMetricOK, error) {
+func (a *Client) GetPlayerMetricShort(params *GetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerMetricResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlayerMetricParams()
@@ -462,15 +610,40 @@ func (a *Client) GetPlayerMetricShort(params *GetPlayerMetricParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetPlayerMetricOK:
-		return v, nil
+		response := &GetPlayerMetricResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPlayerMetricUnauthorized:
-		return nil, v
+		response := &GetPlayerMetricResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerMetricForbidden:
-		return nil, v
+		response := &GetPlayerMetricResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerMetricNotFound:
-		return nil, v
+		response := &GetPlayerMetricResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPlayerMetricInternalServerError:
-		return nil, v
+		response := &GetPlayerMetricResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -483,7 +656,7 @@ Get tickets in queue for a specific match pool
 
 Result: number of tickets and list of ticket detail in a match pool.
 */
-func (a *Client) AdminGetMatchPoolTicketsShort(params *AdminGetMatchPoolTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchPoolTicketsOK, error) {
+func (a *Client) AdminGetMatchPoolTicketsShort(params *AdminGetMatchPoolTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchPoolTicketsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMatchPoolTicketsParams()
@@ -521,15 +694,40 @@ func (a *Client) AdminGetMatchPoolTicketsShort(params *AdminGetMatchPoolTicketsP
 	switch v := result.(type) {
 
 	case *AdminGetMatchPoolTicketsOK:
-		return v, nil
+		response := &AdminGetMatchPoolTicketsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMatchPoolTicketsUnauthorized:
-		return nil, v
+		response := &AdminGetMatchPoolTicketsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchPoolTicketsForbidden:
-		return nil, v
+		response := &AdminGetMatchPoolTicketsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchPoolTicketsNotFound:
-		return nil, v
+		response := &AdminGetMatchPoolTicketsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMatchPoolTicketsInternalServerError:
-		return nil, v
+		response := &AdminGetMatchPoolTicketsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -540,7 +738,7 @@ func (a *Client) AdminGetMatchPoolTicketsShort(params *AdminGetMatchPoolTicketsP
 PublicGetPlayerMetricShort get metrics player for a specific match pool
 Public get player metric for a specific match pool
 */
-func (a *Client) PublicGetPlayerMetricShort(params *PublicGetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerMetricOK, error) {
+func (a *Client) PublicGetPlayerMetricShort(params *PublicGetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerMetricResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetPlayerMetricParams()
@@ -578,15 +776,40 @@ func (a *Client) PublicGetPlayerMetricShort(params *PublicGetPlayerMetricParams,
 	switch v := result.(type) {
 
 	case *PublicGetPlayerMetricOK:
-		return v, nil
+		response := &PublicGetPlayerMetricResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetPlayerMetricUnauthorized:
-		return nil, v
+		response := &PublicGetPlayerMetricResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerMetricForbidden:
-		return nil, v
+		response := &PublicGetPlayerMetricResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerMetricNotFound:
-		return nil, v
+		response := &PublicGetPlayerMetricResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetPlayerMetricInternalServerError:
-		return nil, v
+		response := &PublicGetPlayerMetricResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type RetrieveEligibilitiesPublicResponse struct {
+	legalclientmodels.ApiResponse
+	Data []*legalclientmodels.RetrieveUserEligibilitiesResponse
+
+	Error400 *legalclientmodels.ErrorEntity
+	Error404 *legalclientmodels.ErrorEntity
+}
+
+func (m *RetrieveEligibilitiesPublicResponse) Unpack() ([]*legalclientmodels.RetrieveUserEligibilitiesResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RetrieveEligibilitiesPublicReader is a Reader for the RetrieveEligibilitiesPublic structure.
 type RetrieveEligibilitiesPublicReader struct {
 	formats strfmt.Registry

@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/configuration_v2"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ConfigurationV2Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigurationV2Service) GetListOfSecretsV2Short(input *configuration_v2.GetListOfSecretsV2Params) (*csmclientmodels.ApimodelGetListOfConfigurationsV2Response, error) {
+func (aaa *ConfigurationV2Service) GetListOfSecretsV2Short(input *configuration_v2.GetListOfSecretsV2Params) (*configuration_v2.GetListOfSecretsV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ConfigurationV2Service) GetListOfSecretsV2Short(input *configuration_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationV2Service) SaveSecretV2Short(input *configuration_v2.SaveSecretV2Params) (*csmclientmodels.ApimodelSaveConfigurationV2Response, error) {
+func (aaa *ConfigurationV2Service) SaveSecretV2Short(input *configuration_v2.SaveSecretV2Params) (*configuration_v2.SaveSecretV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *ConfigurationV2Service) SaveSecretV2Short(input *configuration_v2.Sav
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationV2Service) UpdateSecretV2Short(input *configuration_v2.UpdateSecretV2Params) (*csmclientmodels.ApimodelUpdateConfigurationV2Response, error) {
+func (aaa *ConfigurationV2Service) UpdateSecretV2Short(input *configuration_v2.UpdateSecretV2Params) (*configuration_v2.UpdateSecretV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *ConfigurationV2Service) UpdateSecretV2Short(input *configuration_v2.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigurationV2Service) DeleteSecretV2Short(input *configuration_v2.DeleteSecretV2Params) error {
@@ -159,7 +158,7 @@ func (aaa *ConfigurationV2Service) DeleteSecretV2Short(input *configuration_v2.D
 	return nil
 }
 
-func (aaa *ConfigurationV2Service) GetListOfVariablesV2Short(input *configuration_v2.GetListOfVariablesV2Params) (*csmclientmodels.ApimodelGetListOfConfigurationsV2Response, error) {
+func (aaa *ConfigurationV2Service) GetListOfVariablesV2Short(input *configuration_v2.GetListOfVariablesV2Params) (*configuration_v2.GetListOfVariablesV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *ConfigurationV2Service) GetListOfVariablesV2Short(input *configuratio
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationV2Service) SaveVariableV2Short(input *configuration_v2.SaveVariableV2Params) (*csmclientmodels.ApimodelSaveConfigurationV2Response, error) {
+func (aaa *ConfigurationV2Service) SaveVariableV2Short(input *configuration_v2.SaveVariableV2Params) (*configuration_v2.SaveVariableV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *ConfigurationV2Service) SaveVariableV2Short(input *configuration_v2.S
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationV2Service) UpdateVariableV2Short(input *configuration_v2.UpdateVariableV2Params) (*csmclientmodels.ApimodelUpdateConfigurationV2Response, error) {
+func (aaa *ConfigurationV2Service) UpdateVariableV2Short(input *configuration_v2.UpdateVariableV2Params) (*configuration_v2.UpdateVariableV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,7 +245,7 @@ func (aaa *ConfigurationV2Service) UpdateVariableV2Short(input *configuration_v2
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigurationV2Service) DeleteVariableV2Short(input *configuration_v2.DeleteVariableV2Params) error {

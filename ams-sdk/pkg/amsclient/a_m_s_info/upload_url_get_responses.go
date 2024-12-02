@@ -13,7 +13,28 @@ import (
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 )
+
+type UploadURLGetResponse struct {
+	amsclientmodels.ApiResponse
+}
+
+func (m *UploadURLGetResponse) Unpack() *amsclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return &amsclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
 
 // UploadURLGetReader is a Reader for the UploadURLGet structure.
 type UploadURLGetReader struct {

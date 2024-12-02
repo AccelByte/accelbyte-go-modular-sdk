@@ -30,16 +30,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListItemsShort(params *AdminListItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListItemsOK, error)
-	AdminGetInventoryItemShort(params *AdminGetInventoryItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInventoryItemOK, error)
-	AdminConsumeUserItemShort(params *AdminConsumeUserItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminConsumeUserItemOK, error)
-	AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateMyItemsOK, error)
-	AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemToInventoryOK, error)
-	AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkRemoveItemsOK, error)
-	AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemToInventoryOK, error)
-	AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemOK, error)
-	AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemOK, error)
-	AdminSyncUserEntitlementsShort(params *AdminSyncUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncUserEntitlementsNoContent, error)
+	AdminListItemsShort(params *AdminListItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListItemsResponse, error)
+	AdminGetInventoryItemShort(params *AdminGetInventoryItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInventoryItemResponse, error)
+	AdminConsumeUserItemShort(params *AdminConsumeUserItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminConsumeUserItemResponse, error)
+	AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateMyItemsResponse, error)
+	AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemToInventoryResponse, error)
+	AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkRemoveItemsResponse, error)
+	AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemToInventoryResponse, error)
+	AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemResponse, error)
+	AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemResponse, error)
+	AdminSyncUserEntitlementsShort(params *AdminSyncUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncUserEntitlementsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ The response body will be in the form of standard pagination.
 
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [READ]
 */
-func (a *Client) AdminListItemsShort(params *AdminListItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListItemsOK, error) {
+func (a *Client) AdminListItemsShort(params *AdminListItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListItemsParams()
@@ -90,11 +90,26 @@ func (a *Client) AdminListItemsShort(params *AdminListItemsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminListItemsOK:
-		return v, nil
+		response := &AdminListItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListItemsBadRequest:
-		return nil, v
+		response := &AdminListItemsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListItemsInternalServerError:
-		return nil, v
+		response := &AdminListItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -108,7 +123,7 @@ Getting an item info.
 
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [READ]
 */
-func (a *Client) AdminGetInventoryItemShort(params *AdminGetInventoryItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInventoryItemOK, error) {
+func (a *Client) AdminGetInventoryItemShort(params *AdminGetInventoryItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInventoryItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetInventoryItemParams()
@@ -146,13 +161,33 @@ func (a *Client) AdminGetInventoryItemShort(params *AdminGetInventoryItemParams,
 	switch v := result.(type) {
 
 	case *AdminGetInventoryItemOK:
-		return v, nil
+		response := &AdminGetInventoryItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetInventoryItemBadRequest:
-		return nil, v
+		response := &AdminGetInventoryItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInventoryItemNotFound:
-		return nil, v
+		response := &AdminGetInventoryItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetInventoryItemInternalServerError:
-		return nil, v
+		response := &AdminGetInventoryItemResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +201,7 @@ Consume user's own item
 Client should pass item ID in options if item type is OPTIONBOX
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
 */
-func (a *Client) AdminConsumeUserItemShort(params *AdminConsumeUserItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminConsumeUserItemOK, error) {
+func (a *Client) AdminConsumeUserItemShort(params *AdminConsumeUserItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminConsumeUserItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminConsumeUserItemParams()
@@ -204,13 +239,33 @@ func (a *Client) AdminConsumeUserItemShort(params *AdminConsumeUserItemParams, a
 	switch v := result.(type) {
 
 	case *AdminConsumeUserItemOK:
-		return v, nil
+		response := &AdminConsumeUserItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminConsumeUserItemBadRequest:
-		return nil, v
+		response := &AdminConsumeUserItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminConsumeUserItemNotFound:
-		return nil, v
+		response := &AdminConsumeUserItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminConsumeUserItemInternalServerError:
-		return nil, v
+		response := &AdminConsumeUserItemResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -225,7 +280,7 @@ Tags will be auto-created.
 
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
 */
-func (a *Client) AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateMyItemsOK, error) {
+func (a *Client) AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkUpdateMyItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkUpdateMyItemsParams()
@@ -263,13 +318,33 @@ func (a *Client) AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParam
 	switch v := result.(type) {
 
 	case *AdminBulkUpdateMyItemsOK:
-		return v, nil
+		response := &AdminBulkUpdateMyItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkUpdateMyItemsBadRequest:
-		return nil, v
+		response := &AdminBulkUpdateMyItemsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateMyItemsNotFound:
-		return nil, v
+		response := &AdminBulkUpdateMyItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkUpdateMyItemsInternalServerError:
-		return nil, v
+		response := &AdminBulkUpdateMyItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -290,7 +365,7 @@ You must have this permission to access this endpoint:
 
 **Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]**
 */
-func (a *Client) AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemToInventoryOK, error) {
+func (a *Client) AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemToInventoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSaveItemToInventoryParams()
@@ -328,17 +403,47 @@ func (a *Client) AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryP
 	switch v := result.(type) {
 
 	case *AdminSaveItemToInventoryOK:
-		return v, nil
+		response := &AdminSaveItemToInventoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSaveItemToInventoryBadRequest:
-		return nil, v
+		response := &AdminSaveItemToInventoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveItemToInventoryUnauthorized:
-		return nil, v
+		response := &AdminSaveItemToInventoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveItemToInventoryForbidden:
-		return nil, v
+		response := &AdminSaveItemToInventoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveItemToInventoryNotFound:
-		return nil, v
+		response := &AdminSaveItemToInventoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveItemToInventoryInternalServerError:
-		return nil, v
+		response := &AdminSaveItemToInventoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -352,7 +457,7 @@ Bulk remove user's own items'.
 
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [DELETE]
 */
-func (a *Client) AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkRemoveItemsOK, error) {
+func (a *Client) AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkRemoveItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkRemoveItemsParams()
@@ -390,13 +495,33 @@ func (a *Client) AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, a
 	switch v := result.(type) {
 
 	case *AdminBulkRemoveItemsOK:
-		return v, nil
+		response := &AdminBulkRemoveItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkRemoveItemsBadRequest:
-		return nil, v
+		response := &AdminBulkRemoveItemsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkRemoveItemsNotFound:
-		return nil, v
+		response := &AdminBulkRemoveItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkRemoveItemsInternalServerError:
-		return nil, v
+		response := &AdminBulkRemoveItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -418,7 +543,7 @@ AdminBulkSaveItemToInventoryShort bulk save items to specific inventory
 You must have this permission to access this endpoint:
 **Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM[CREATE]**
 */
-func (a *Client) AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemToInventoryOK, error) {
+func (a *Client) AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemToInventoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkSaveItemToInventoryParams()
@@ -456,19 +581,54 @@ func (a *Client) AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToIn
 	switch v := result.(type) {
 
 	case *AdminBulkSaveItemToInventoryOK:
-		return v, nil
+		response := &AdminBulkSaveItemToInventoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkSaveItemToInventoryBadRequest:
-		return nil, v
+		response := &AdminBulkSaveItemToInventoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemToInventoryUnauthorized:
-		return nil, v
+		response := &AdminBulkSaveItemToInventoryResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemToInventoryForbidden:
-		return nil, v
+		response := &AdminBulkSaveItemToInventoryResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemToInventoryNotFound:
-		return nil, v
+		response := &AdminBulkSaveItemToInventoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemToInventoryUnprocessableEntity:
-		return nil, v
+		response := &AdminBulkSaveItemToInventoryResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemToInventoryInternalServerError:
-		return nil, v
+		response := &AdminBulkSaveItemToInventoryResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -491,7 +651,7 @@ AdminSaveItemShort to save item
 You must have this permission to access this endpoint:
 **Permission:ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]**
 */
-func (a *Client) AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemOK, error) {
+func (a *Client) AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSaveItemParams()
@@ -529,11 +689,26 @@ func (a *Client) AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *AdminSaveItemOK:
-		return v, nil
+		response := &AdminSaveItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSaveItemBadRequest:
-		return nil, v
+		response := &AdminSaveItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSaveItemInternalServerError:
-		return nil, v
+		response := &AdminSaveItemResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -562,7 +737,7 @@ AdminBulkSaveItemShort bulk save items to inventory
 You must have this permission to access this endpoint:
 **Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]**
 */
-func (a *Client) AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemOK, error) {
+func (a *Client) AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkSaveItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBulkSaveItemParams()
@@ -600,19 +775,54 @@ func (a *Client) AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInf
 	switch v := result.(type) {
 
 	case *AdminBulkSaveItemOK:
-		return v, nil
+		response := &AdminBulkSaveItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBulkSaveItemBadRequest:
-		return nil, v
+		response := &AdminBulkSaveItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemUnauthorized:
-		return nil, v
+		response := &AdminBulkSaveItemResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemForbidden:
-		return nil, v
+		response := &AdminBulkSaveItemResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemNotFound:
-		return nil, v
+		response := &AdminBulkSaveItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemUnprocessableEntity:
-		return nil, v
+		response := &AdminBulkSaveItemResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBulkSaveItemInternalServerError:
-		return nil, v
+		response := &AdminBulkSaveItemResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -626,7 +836,7 @@ Sync user's entitlement from e-commerce service to inventory for non exist item 
 will skip the item if already exist at user inventory.
 Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
 */
-func (a *Client) AdminSyncUserEntitlementsShort(params *AdminSyncUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncUserEntitlementsNoContent, error) {
+func (a *Client) AdminSyncUserEntitlementsShort(params *AdminSyncUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncUserEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminSyncUserEntitlementsParams()
@@ -664,17 +874,46 @@ func (a *Client) AdminSyncUserEntitlementsShort(params *AdminSyncUserEntitlement
 	switch v := result.(type) {
 
 	case *AdminSyncUserEntitlementsNoContent:
-		return v, nil
+		response := &AdminSyncUserEntitlementsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminSyncUserEntitlementsBadRequest:
-		return nil, v
+		response := &AdminSyncUserEntitlementsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncUserEntitlementsUnauthorized:
-		return nil, v
+		response := &AdminSyncUserEntitlementsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncUserEntitlementsForbidden:
-		return nil, v
+		response := &AdminSyncUserEntitlementsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncUserEntitlementsNotFound:
-		return nil, v
+		response := &AdminSyncUserEntitlementsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminSyncUserEntitlementsInternalServerError:
-		return nil, v
+		response := &AdminSyncUserEntitlementsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

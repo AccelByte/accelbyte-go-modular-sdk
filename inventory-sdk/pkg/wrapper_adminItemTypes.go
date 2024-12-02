@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_item_types"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminItemTypesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminItemTypesService) AdminListItemTypesShort(input *admin_item_types.AdminListItemTypesParams) (*inventoryclientmodels.ApimodelsListItemTypesResp, error) {
+func (aaa *AdminItemTypesService) AdminListItemTypesShort(input *admin_item_types.AdminListItemTypesParams) (*admin_item_types.AdminListItemTypesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminItemTypesService) AdminListItemTypesShort(input *admin_item_type
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminItemTypesService) AdminCreateItemTypeShort(input *admin_item_types.AdminCreateItemTypeParams) (*inventoryclientmodels.ApimodelsCreateItemTypeResp, error) {
+func (aaa *AdminItemTypesService) AdminCreateItemTypeShort(input *admin_item_types.AdminCreateItemTypeParams) (*admin_item_types.AdminCreateItemTypeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *AdminItemTypesService) AdminCreateItemTypeShort(input *admin_item_typ
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *AdminItemTypesService) AdminDeleteItemTypeShort(input *admin_item_types.AdminDeleteItemTypeParams) error {

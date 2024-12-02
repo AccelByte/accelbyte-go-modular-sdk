@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetServicePluginConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.ServicePluginConfigInfo
+}
+
+func (m *GetServicePluginConfigResponse) Unpack() (*platformclientmodels.ServicePluginConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetServicePluginConfigReader is a Reader for the GetServicePluginConfig structure.
 type GetServicePluginConfigReader struct {
 	formats strfmt.Registry

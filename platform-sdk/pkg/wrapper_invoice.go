@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/invoice"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *InvoiceService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *InvoiceService) DownloadInvoiceDetailsShort(input *invoice.DownloadInvoiceDetailsParams, writer io.Writer) (io.Writer, error) {
+func (aaa *InvoiceService) DownloadInvoiceDetailsShort(input *invoice.DownloadInvoiceDetailsParams, writer io.Writer) (*invoice.DownloadInvoiceDetailsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *InvoiceService) DownloadInvoiceDetailsShort(input *invoice.DownloadIn
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *InvoiceService) GenerateInvoiceSummaryShort(input *invoice.GenerateInvoiceSummaryParams) (*platformclientmodels.InvoiceSummary, error) {
+func (aaa *InvoiceService) GenerateInvoiceSummaryShort(input *invoice.GenerateInvoiceSummaryParams) (*invoice.GenerateInvoiceSummaryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,5 +95,5 @@ func (aaa *InvoiceService) GenerateInvoiceSummaryShort(input *invoice.GenerateIn
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

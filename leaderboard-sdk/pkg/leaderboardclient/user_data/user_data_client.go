@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserLeaderboardRankingsAdminV1Short(params *GetUserLeaderboardRankingsAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserLeaderboardRankingsAdminV1OK, error)
+	GetUserLeaderboardRankingsAdminV1Short(params *GetUserLeaderboardRankingsAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserLeaderboardRankingsAdminV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ GetUserLeaderboardRankingsAdminV1Short get user rankings
 
 Get user leaderboard rankings
 */
-func (a *Client) GetUserLeaderboardRankingsAdminV1Short(params *GetUserLeaderboardRankingsAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserLeaderboardRankingsAdminV1OK, error) {
+func (a *Client) GetUserLeaderboardRankingsAdminV1Short(params *GetUserLeaderboardRankingsAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserLeaderboardRankingsAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserLeaderboardRankingsAdminV1Params()
@@ -79,13 +79,33 @@ func (a *Client) GetUserLeaderboardRankingsAdminV1Short(params *GetUserLeaderboa
 	switch v := result.(type) {
 
 	case *GetUserLeaderboardRankingsAdminV1OK:
-		return v, nil
+		response := &GetUserLeaderboardRankingsAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetUserLeaderboardRankingsAdminV1Unauthorized:
-		return nil, v
+		response := &GetUserLeaderboardRankingsAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserLeaderboardRankingsAdminV1Forbidden:
-		return nil, v
+		response := &GetUserLeaderboardRankingsAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetUserLeaderboardRankingsAdminV1InternalServerError:
-		return nil, v
+		response := &GetUserLeaderboardRankingsAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

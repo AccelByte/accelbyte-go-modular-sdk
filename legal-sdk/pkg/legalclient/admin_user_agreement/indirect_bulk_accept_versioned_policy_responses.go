@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type IndirectBulkAcceptVersionedPolicyResponse struct {
+	legalclientmodels.ApiResponse
+	Data *legalclientmodels.AcceptAgreementResponse
+}
+
+func (m *IndirectBulkAcceptVersionedPolicyResponse) Unpack() (*legalclientmodels.AcceptAgreementResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // IndirectBulkAcceptVersionedPolicyReader is a Reader for the IndirectBulkAcceptVersionedPolicy structure.
 type IndirectBulkAcceptVersionedPolicyReader struct {
 	formats strfmt.Registry

@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_staging_content"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type PublicStagingContentService struct {
@@ -37,7 +36,7 @@ func (aaa *PublicStagingContentService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicStagingContentService) ListUserStagingContentsShort(input *public_staging_content.ListUserStagingContentsParams) (*ugcclientmodels.ModelsPaginatedListStagingContentResponse, error) {
+func (aaa *PublicStagingContentService) ListUserStagingContentsShort(input *public_staging_content.ListUserStagingContentsParams) (*public_staging_content.ListUserStagingContentsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicStagingContentService) ListUserStagingContentsShort(input *publ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicStagingContentService) GetUserStagingContentByIDShort(input *public_staging_content.GetUserStagingContentByIDParams) (*ugcclientmodels.ModelsStagingContentResponse, error) {
+func (aaa *PublicStagingContentService) GetUserStagingContentByIDShort(input *public_staging_content.GetUserStagingContentByIDParams) (*public_staging_content.GetUserStagingContentByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PublicStagingContentService) GetUserStagingContentByIDShort(input *pu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicStagingContentService) UpdateStagingContentShort(input *public_staging_content.UpdateStagingContentParams) (*ugcclientmodels.ModelsStagingContentResponse, error) {
+func (aaa *PublicStagingContentService) UpdateStagingContentShort(input *public_staging_content.UpdateStagingContentParams) (*public_staging_content.UpdateStagingContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *PublicStagingContentService) UpdateStagingContentShort(input *public_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PublicStagingContentService) DeleteUserStagingContentByIDShort(input *public_staging_content.DeleteUserStagingContentByIDParams) error {

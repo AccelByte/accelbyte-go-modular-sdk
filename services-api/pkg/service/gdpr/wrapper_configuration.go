@@ -9,7 +9,6 @@ package gdpr
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/configuration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ConfigurationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigurationService) GetAdminEmailConfigurationShort(input *configuration.GetAdminEmailConfigurationParams) ([]string, error) {
+func (aaa *ConfigurationService) GetAdminEmailConfigurationShort(input *configuration.GetAdminEmailConfigurationParams) (*configuration.GetAdminEmailConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *ConfigurationService) GetAdminEmailConfigurationShort(input *configur
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigurationService) UpdateAdminEmailConfigurationShort(input *configuration.UpdateAdminEmailConfigurationParams) error {
@@ -159,7 +158,7 @@ func (aaa *ConfigurationService) DeleteAdminEmailConfigurationShort(input *confi
 	return nil
 }
 
-func (aaa *ConfigurationService) AdminGetServicesConfigurationShort(input *configuration.AdminGetServicesConfigurationParams) (*gdprclientmodels.DTOServicesConfigurationResponse, error) {
+func (aaa *ConfigurationService) AdminGetServicesConfigurationShort(input *configuration.AdminGetServicesConfigurationParams) (*configuration.AdminGetServicesConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *ConfigurationService) AdminGetServicesConfigurationShort(input *confi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationService) AdminUpdateServicesConfigurationShort(input *configuration.AdminUpdateServicesConfigurationParams) (*gdprclientmodels.DTOServiceConfigurationUpdateRequest, error) {
+func (aaa *ConfigurationService) AdminUpdateServicesConfigurationShort(input *configuration.AdminUpdateServicesConfigurationParams) (*configuration.AdminUpdateServicesConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *ConfigurationService) AdminUpdateServicesConfigurationShort(input *co
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigurationService) AdminResetServicesConfigurationShort(input *configuration.AdminResetServicesConfigurationParams) error {
@@ -249,7 +248,7 @@ func (aaa *ConfigurationService) AdminResetServicesConfigurationShort(input *con
 	return nil
 }
 
-func (aaa *ConfigurationService) AdminGetPlatformAccountClosureServicesConfigurationShort(input *configuration.AdminGetPlatformAccountClosureServicesConfigurationParams) (*gdprclientmodels.DTOServicesConfigurationResponse, error) {
+func (aaa *ConfigurationService) AdminGetPlatformAccountClosureServicesConfigurationShort(input *configuration.AdminGetPlatformAccountClosureServicesConfigurationParams) (*configuration.AdminGetPlatformAccountClosureServicesConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *ConfigurationService) AdminGetPlatformAccountClosureServicesConfigura
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationService) AdminUpdatePlatformAccountClosureServicesConfigurationShort(input *configuration.AdminUpdatePlatformAccountClosureServicesConfigurationParams) (*gdprclientmodels.DTOServiceConfigurationUpdateRequest, error) {
+func (aaa *ConfigurationService) AdminUpdatePlatformAccountClosureServicesConfigurationShort(input *configuration.AdminUpdatePlatformAccountClosureServicesConfigurationParams) (*configuration.AdminUpdatePlatformAccountClosureServicesConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,7 +305,7 @@ func (aaa *ConfigurationService) AdminUpdatePlatformAccountClosureServicesConfig
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigurationService) AdminResetPlatformAccountClosureServicesConfigurationShort(input *configuration.AdminResetPlatformAccountClosureServicesConfigurationParams) error {

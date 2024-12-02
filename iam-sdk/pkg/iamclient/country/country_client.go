@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetCountryListV3Short(params *AdminGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryListV3OK, error)
-	AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryBlacklistV3OK, error)
-	AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddCountryBlacklistV3NoContent, error)
-	PublicGetCountryListV3Short(params *PublicGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryListV3OK, error)
+	AdminGetCountryListV3Short(params *AdminGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryListV3Response, error)
+	AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryBlacklistV3Response, error)
+	AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddCountryBlacklistV3Response, error)
+	PublicGetCountryListV3Short(params *PublicGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryListV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 AdminGetCountryListV3Short get country list
 Admin get country list
 */
-func (a *Client) AdminGetCountryListV3Short(params *AdminGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryListV3OK, error) {
+func (a *Client) AdminGetCountryListV3Short(params *AdminGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryListV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetCountryListV3Params()
@@ -80,13 +80,33 @@ func (a *Client) AdminGetCountryListV3Short(params *AdminGetCountryListV3Params,
 	switch v := result.(type) {
 
 	case *AdminGetCountryListV3OK:
-		return v, nil
+		response := &AdminGetCountryListV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetCountryListV3Unauthorized:
-		return nil, v
+		response := &AdminGetCountryListV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetCountryListV3Forbidden:
-		return nil, v
+		response := &AdminGetCountryListV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetCountryListV3InternalServerError:
-		return nil, v
+		response := &AdminGetCountryListV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +117,7 @@ func (a *Client) AdminGetCountryListV3Short(params *AdminGetCountryListV3Params,
 AdminGetCountryBlacklistV3Short get country blacklist
 Admin get country blacklist
 */
-func (a *Client) AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryBlacklistV3OK, error) {
+func (a *Client) AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryBlacklistV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetCountryBlacklistV3Params()
@@ -135,13 +155,33 @@ func (a *Client) AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklis
 	switch v := result.(type) {
 
 	case *AdminGetCountryBlacklistV3OK:
-		return v, nil
+		response := &AdminGetCountryBlacklistV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetCountryBlacklistV3Unauthorized:
-		return nil, v
+		response := &AdminGetCountryBlacklistV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetCountryBlacklistV3Forbidden:
-		return nil, v
+		response := &AdminGetCountryBlacklistV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetCountryBlacklistV3InternalServerError:
-		return nil, v
+		response := &AdminGetCountryBlacklistV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -152,7 +192,7 @@ func (a *Client) AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklis
 AdminAddCountryBlacklistV3Short update country blacklist
 Admin update country blacklist
 */
-func (a *Client) AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddCountryBlacklistV3NoContent, error) {
+func (a *Client) AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddCountryBlacklistV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminAddCountryBlacklistV3Params()
@@ -190,15 +230,39 @@ func (a *Client) AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklis
 	switch v := result.(type) {
 
 	case *AdminAddCountryBlacklistV3NoContent:
-		return v, nil
+		response := &AdminAddCountryBlacklistV3Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminAddCountryBlacklistV3BadRequest:
-		return nil, v
+		response := &AdminAddCountryBlacklistV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddCountryBlacklistV3Unauthorized:
-		return nil, v
+		response := &AdminAddCountryBlacklistV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddCountryBlacklistV3Forbidden:
-		return nil, v
+		response := &AdminAddCountryBlacklistV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminAddCountryBlacklistV3InternalServerError:
-		return nil, v
+		response := &AdminAddCountryBlacklistV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -209,7 +273,7 @@ func (a *Client) AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklis
 PublicGetCountryListV3Short get country list
 Public get country list, will filter out countries in black list
 */
-func (a *Client) PublicGetCountryListV3Short(params *PublicGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryListV3OK, error) {
+func (a *Client) PublicGetCountryListV3Short(params *PublicGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryListV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCountryListV3Params()
@@ -247,9 +311,19 @@ func (a *Client) PublicGetCountryListV3Short(params *PublicGetCountryListV3Param
 	switch v := result.(type) {
 
 	case *PublicGetCountryListV3OK:
-		return v, nil
+		response := &PublicGetCountryListV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetCountryListV3InternalServerError:
-		return nil, v
+		response := &PublicGetCountryListV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

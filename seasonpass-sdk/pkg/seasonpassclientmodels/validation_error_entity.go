@@ -7,6 +7,8 @@
 package seasonpassclientmodels
 
 import (
+	"fmt"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -82,4 +84,8 @@ func (m *ValidationErrorEntity) UnmarshalBinary(b []byte) error {
 	}
 	*m = res
 	return nil
+}
+
+func (m *ValidationErrorEntity) TranslateToApiError() (*ApiError, error) {
+	return &ApiError{Code: fmt.Sprint(*m.ErrorCode), Message: *m.ErrorMessage}, nil
 }

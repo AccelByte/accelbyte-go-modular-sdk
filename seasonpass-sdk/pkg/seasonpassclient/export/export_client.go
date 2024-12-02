@@ -31,7 +31,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ExportSeasonShort(params *ExportSeasonParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportSeasonOK, error)
+	ExportSeasonShort(params *ExportSeasonParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportSeasonResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 ExportSeasonShort export season service data
 This API is used to export all of season service data files with csv format.
 */
-func (a *Client) ExportSeasonShort(params *ExportSeasonParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportSeasonOK, error) {
+func (a *Client) ExportSeasonShort(params *ExportSeasonParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportSeasonParams()
@@ -78,9 +78,19 @@ func (a *Client) ExportSeasonShort(params *ExportSeasonParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *ExportSeasonOK:
-		return v, nil
+		response := &ExportSeasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportSeasonBadRequest:
-		return nil, v
+		response := &ExportSeasonResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

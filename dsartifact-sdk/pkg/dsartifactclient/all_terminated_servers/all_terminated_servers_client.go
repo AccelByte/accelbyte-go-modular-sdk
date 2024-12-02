@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersOK, error)
+	ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSAM:SERVER [READ]
 This endpoint used to retrieve terminated servers in all namespace
 ```
 */
-func (a *Client) ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersOK, error) {
+func (a *Client) ListTerminatedServersShort(params *ListTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListTerminatedServersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListTerminatedServersParams()
@@ -81,13 +81,33 @@ func (a *Client) ListTerminatedServersShort(params *ListTerminatedServersParams,
 	switch v := result.(type) {
 
 	case *ListTerminatedServersOK:
-		return v, nil
+		response := &ListTerminatedServersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListTerminatedServersBadRequest:
-		return nil, v
+		response := &ListTerminatedServersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListTerminatedServersUnauthorized:
-		return nil, v
+		response := &ListTerminatedServersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListTerminatedServersInternalServerError:
-		return nil, v
+		response := &ListTerminatedServersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/iap_subscription"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *IAPSubscriptionService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *IAPSubscriptionService) QueryThirdPartySubscriptionShort(input *iap_subscription.QueryThirdPartySubscriptionParams) (*platformclientmodels.ThirdPartyUserSubscriptionPagingSlicedResult, error) {
+func (aaa *IAPSubscriptionService) QueryThirdPartySubscriptionShort(input *iap_subscription.QueryThirdPartySubscriptionParams) (*iap_subscription.QueryThirdPartySubscriptionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *IAPSubscriptionService) QueryThirdPartySubscriptionShort(input *iap_s
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionShort(input *iap_subscription.QueryUserThirdPartySubscriptionParams) (*platformclientmodels.ThirdPartyUserSubscriptionPagingSlicedResult, error) {
+func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionShort(input *iap_subscription.QueryUserThirdPartySubscriptionParams) (*iap_subscription.QueryUserThirdPartySubscriptionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionShort(input *i
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(input *iap_subscription.GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams) (*platformclientmodels.ThirdPartySubscriptionOwnership, error) {
+func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(input *iap_subscription.GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams) (*iap_subscription.GetThirdPartyPlatformSubscriptionOwnershipByGroupIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(input *iap_subscription.GetThirdPartyPlatformSubscriptionOwnershipByProductIDParams) (*platformclientmodels.ThirdPartySubscriptionOwnership, error) {
+func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(input *iap_subscription.GetThirdPartyPlatformSubscriptionOwnershipByProductIDParams) (*iap_subscription.GetThirdPartyPlatformSubscriptionOwnershipByProductIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionTransactionsShort(input *iap_subscription.QueryUserThirdPartySubscriptionTransactionsParams) (*platformclientmodels.ThirdPartySubscriptionTransactionPagingSlicedResult, error) {
+func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionTransactionsShort(input *iap_subscription.QueryUserThirdPartySubscriptionTransactionsParams) (*iap_subscription.QueryUserThirdPartySubscriptionTransactionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionTransactionsSh
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) GetThirdPartySubscriptionDetailsShort(input *iap_subscription.GetThirdPartySubscriptionDetailsParams) (*platformclientmodels.ThirdPartySubscriptionTransactionInfo, error) {
+func (aaa *IAPSubscriptionService) GetThirdPartySubscriptionDetailsShort(input *iap_subscription.GetThirdPartySubscriptionDetailsParams) (*iap_subscription.GetThirdPartySubscriptionDetailsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *IAPSubscriptionService) GetThirdPartySubscriptionDetailsShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) GetSubscriptionHistoryShort(input *iap_subscription.GetSubscriptionHistoryParams) (*platformclientmodels.ThirdPartySubscriptionTransactionHistoryPagingSlicedResult, error) {
+func (aaa *IAPSubscriptionService) GetSubscriptionHistoryShort(input *iap_subscription.GetSubscriptionHistoryParams) (*iap_subscription.GetSubscriptionHistoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *IAPSubscriptionService) GetSubscriptionHistoryShort(input *iap_subscr
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) SyncSubscriptionTransactionShort(input *iap_subscription.SyncSubscriptionTransactionParams) (*platformclientmodels.ThirdPartySubscriptionTransactionInfo, error) {
+func (aaa *IAPSubscriptionService) SyncSubscriptionTransactionShort(input *iap_subscription.SyncSubscriptionTransactionParams) (*iap_subscription.SyncSubscriptionTransactionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *IAPSubscriptionService) SyncSubscriptionTransactionShort(input *iap_s
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) GetThirdPartyUserSubscriptionDetailsShort(input *iap_subscription.GetThirdPartyUserSubscriptionDetailsParams) (*platformclientmodels.ThirdPartyUserSubscriptionInfo, error) {
+func (aaa *IAPSubscriptionService) GetThirdPartyUserSubscriptionDetailsShort(input *iap_subscription.GetThirdPartyUserSubscriptionDetailsParams) (*iap_subscription.GetThirdPartyUserSubscriptionDetailsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,10 +305,10 @@ func (aaa *IAPSubscriptionService) GetThirdPartyUserSubscriptionDetailsShort(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) SyncSubscriptionShort(input *iap_subscription.SyncSubscriptionParams) (*platformclientmodels.ThirdPartyUserSubscriptionInfo, error) {
+func (aaa *IAPSubscriptionService) SyncSubscriptionShort(input *iap_subscription.SyncSubscriptionParams) (*iap_subscription.SyncSubscriptionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -336,10 +335,10 @@ func (aaa *IAPSubscriptionService) SyncSubscriptionShort(input *iap_subscription
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *IAPSubscriptionService) PublicQueryUserThirdPartySubscriptionShort(input *iap_subscription.PublicQueryUserThirdPartySubscriptionParams) (*platformclientmodels.ThirdPartyUserSubscriptionPagingSlicedResult, error) {
+func (aaa *IAPSubscriptionService) PublicQueryUserThirdPartySubscriptionShort(input *iap_subscription.PublicQueryUserThirdPartySubscriptionParams) (*iap_subscription.PublicQueryUserThirdPartySubscriptionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,5 +365,5 @@ func (aaa *IAPSubscriptionService) PublicQueryUserThirdPartySubscriptionShort(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/configuration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *ConfigurationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigurationService) GetListOfSecretsV1Short(input *configuration.GetListOfSecretsV1Params) (*csmclientmodels.GeneratedGetListOfConfigurationsV1Response, error) {
+func (aaa *ConfigurationService) GetListOfSecretsV1Short(input *configuration.GetListOfSecretsV1Params) (*configuration.GetListOfSecretsV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *ConfigurationService) GetListOfSecretsV1Short(input *configuration.Ge
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationService) SaveSecretV1Short(input *configuration.SaveSecretV1Params) (*csmclientmodels.GeneratedSaveConfigurationV1Response, error) {
+func (aaa *ConfigurationService) SaveSecretV1Short(input *configuration.SaveSecretV1Params) (*configuration.SaveSecretV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *ConfigurationService) SaveSecretV1Short(input *configuration.SaveSecr
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationService) UpdateSecretV1Short(input *configuration.UpdateSecretV1Params) (*csmclientmodels.GeneratedUpdateConfigurationV1Response, error) {
+func (aaa *ConfigurationService) UpdateSecretV1Short(input *configuration.UpdateSecretV1Params) (*configuration.UpdateSecretV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *ConfigurationService) UpdateSecretV1Short(input *configuration.Update
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigurationService) DeleteSecretV1Short(input *configuration.DeleteSecretV1Params) error {
@@ -157,7 +156,7 @@ func (aaa *ConfigurationService) DeleteSecretV1Short(input *configuration.Delete
 	return nil
 }
 
-func (aaa *ConfigurationService) GetListOfVariablesV1Short(input *configuration.GetListOfVariablesV1Params) (*csmclientmodels.GeneratedGetListOfConfigurationsV1Response, error) {
+func (aaa *ConfigurationService) GetListOfVariablesV1Short(input *configuration.GetListOfVariablesV1Params) (*configuration.GetListOfVariablesV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *ConfigurationService) GetListOfVariablesV1Short(input *configuration.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationService) SaveVariableV1Short(input *configuration.SaveVariableV1Params) (*csmclientmodels.GeneratedSaveConfigurationV1Response, error) {
+func (aaa *ConfigurationService) SaveVariableV1Short(input *configuration.SaveVariableV1Params) (*configuration.SaveVariableV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *ConfigurationService) SaveVariableV1Short(input *configuration.SaveVa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigurationService) UpdateVariableV1Short(input *configuration.UpdateVariableV1Params) (*csmclientmodels.GeneratedUpdateConfigurationV1Response, error) {
+func (aaa *ConfigurationService) UpdateVariableV1Short(input *configuration.UpdateVariableV1Params) (*configuration.UpdateVariableV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,7 +243,7 @@ func (aaa *ConfigurationService) UpdateVariableV1Short(input *configuration.Upda
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigurationService) DeleteVariableV1Short(input *configuration.DeleteVariableV1Params) error {

@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 )
 
+type UnpublishSeasonResponse struct {
+	seasonpassclientmodels.ApiResponse
+	Data *seasonpassclientmodels.SeasonInfo
+
+	Error400 *seasonpassclientmodels.ErrorEntity
+	Error404 *seasonpassclientmodels.ErrorEntity
+	Error409 *seasonpassclientmodels.ErrorEntity
+}
+
+func (m *UnpublishSeasonResponse) Unpack() (*seasonpassclientmodels.SeasonInfo, *seasonpassclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &seasonpassclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UnpublishSeasonReader is a Reader for the UnpublishSeason structure.
 type UnpublishSeasonReader struct {
 	formats strfmt.Registry

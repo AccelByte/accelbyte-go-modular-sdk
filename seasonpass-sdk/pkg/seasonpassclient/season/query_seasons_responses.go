@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclientmodels"
 )
 
+type QuerySeasonsResponse struct {
+	seasonpassclientmodels.ApiResponse
+	Data *seasonpassclientmodels.ListSeasonInfoPagingSlicedResult
+
+	Error400 *seasonpassclientmodels.ErrorEntity
+}
+
+func (m *QuerySeasonsResponse) Unpack() (*seasonpassclientmodels.ListSeasonInfoPagingSlicedResult, *seasonpassclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &seasonpassclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QuerySeasonsReader is a Reader for the QuerySeasons structure.
 type QuerySeasonsReader struct {
 	formats strfmt.Registry

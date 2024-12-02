@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/image"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ImageService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ImageService) GetAppImageListV1Short(input *image.GetAppImageListV1Params) (*csmclientmodels.GeneratedGetAppImageListV1Response, error) {
+func (aaa *ImageService) GetAppImageListV1Short(input *image.GetAppImageListV1Params) (*image.GetAppImageListV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *ImageService) GetAppImageListV1Short(input *image.GetAppImageListV1Pa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ImageService) DeleteAppImagesV1Short(input *image.DeleteAppImagesV1Params) error {

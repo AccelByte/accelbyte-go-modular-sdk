@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetUserActiveEntitlementsByItemIdsResponse struct {
+	platformclientmodels.ApiResponse
+	Data []*platformclientmodels.EntitlementInfo
+}
+
+func (m *GetUserActiveEntitlementsByItemIdsResponse) Unpack() ([]*platformclientmodels.EntitlementInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserActiveEntitlementsByItemIdsReader is a Reader for the GetUserActiveEntitlementsByItemIds structure.
 type GetUserActiveEntitlementsByItemIdsReader struct {
 	formats strfmt.Registry

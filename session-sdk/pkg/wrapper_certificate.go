@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/certificate"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 type CertificateService struct {
@@ -37,7 +36,7 @@ func (aaa *CertificateService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *CertificateService) AdminUploadXBoxCertificateShort(input *certificate.AdminUploadXBoxCertificateParams) (*sessionclientmodels.ModelsPlatformCredentials, error) {
+func (aaa *CertificateService) AdminUploadXBoxCertificateShort(input *certificate.AdminUploadXBoxCertificateParams) (*certificate.AdminUploadXBoxCertificateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *CertificateService) AdminUploadXBoxCertificateShort(input *certificat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

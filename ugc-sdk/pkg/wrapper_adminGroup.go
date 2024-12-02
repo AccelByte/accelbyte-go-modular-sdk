@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_group"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type AdminGroupService struct {
@@ -37,7 +36,7 @@ func (aaa *AdminGroupService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminGroupService) SingleAdminGetAllGroupsShort(input *admin_group.SingleAdminGetAllGroupsParams) (*ugcclientmodels.ModelsPaginatedGroupResponse, error) {
+func (aaa *AdminGroupService) SingleAdminGetAllGroupsShort(input *admin_group.SingleAdminGetAllGroupsParams) (*admin_group.SingleAdminGetAllGroupsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminGroupService) SingleAdminGetAllGroupsShort(input *admin_group.Si
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGroupService) AdminCreateGroupShort(input *admin_group.AdminCreateGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
+func (aaa *AdminGroupService) AdminCreateGroupShort(input *admin_group.AdminCreateGroupParams) (*admin_group.AdminCreateGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminGroupService) AdminCreateGroupShort(input *admin_group.AdminCrea
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminGroupService) SingleAdminGetGroupShort(input *admin_group.SingleAdminGetGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
+func (aaa *AdminGroupService) SingleAdminGetGroupShort(input *admin_group.SingleAdminGetGroupParams) (*admin_group.SingleAdminGetGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *AdminGroupService) SingleAdminGetGroupShort(input *admin_group.Single
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGroupService) SingleAdminUpdateGroupShort(input *admin_group.SingleAdminUpdateGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
+func (aaa *AdminGroupService) SingleAdminUpdateGroupShort(input *admin_group.SingleAdminUpdateGroupParams) (*admin_group.SingleAdminUpdateGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,7 +153,7 @@ func (aaa *AdminGroupService) SingleAdminUpdateGroupShort(input *admin_group.Sin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminGroupService) SingleAdminDeleteGroupShort(input *admin_group.SingleAdminDeleteGroupParams) error {
@@ -187,7 +186,7 @@ func (aaa *AdminGroupService) SingleAdminDeleteGroupShort(input *admin_group.Sin
 	return nil
 }
 
-func (aaa *AdminGroupService) SingleAdminGetGroupContentsShort(input *admin_group.SingleAdminGetGroupContentsParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *AdminGroupService) SingleAdminGetGroupContentsShort(input *admin_group.SingleAdminGetGroupContentsParams) (*admin_group.SingleAdminGetGroupContentsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *AdminGroupService) SingleAdminGetGroupContentsShort(input *admin_grou
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGroupService) AdminGetAllGroupsShort(input *admin_group.AdminGetAllGroupsParams) (*ugcclientmodels.ModelsPaginatedGroupResponse, error) {
+func (aaa *AdminGroupService) AdminGetAllGroupsShort(input *admin_group.AdminGetAllGroupsParams) (*admin_group.AdminGetAllGroupsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *AdminGroupService) AdminGetAllGroupsShort(input *admin_group.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGroupService) AdminGetGroupShort(input *admin_group.AdminGetGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
+func (aaa *AdminGroupService) AdminGetGroupShort(input *admin_group.AdminGetGroupParams) (*admin_group.AdminGetGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *AdminGroupService) AdminGetGroupShort(input *admin_group.AdminGetGrou
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGroupService) AdminUpdateGroupShort(input *admin_group.AdminUpdateGroupParams) (*ugcclientmodels.ModelsCreateGroupResponse, error) {
+func (aaa *AdminGroupService) AdminUpdateGroupShort(input *admin_group.AdminUpdateGroupParams) (*admin_group.AdminUpdateGroupResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,7 +303,7 @@ func (aaa *AdminGroupService) AdminUpdateGroupShort(input *admin_group.AdminUpda
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminGroupService) AdminDeleteGroupShort(input *admin_group.AdminDeleteGroupParams) error {
@@ -337,7 +336,7 @@ func (aaa *AdminGroupService) AdminDeleteGroupShort(input *admin_group.AdminDele
 	return nil
 }
 
-func (aaa *AdminGroupService) AdminGetGroupContentsShort(input *admin_group.AdminGetGroupContentsParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *AdminGroupService) AdminGetGroupContentsShort(input *admin_group.AdminGetGroupContentsParams) (*admin_group.AdminGetGroupContentsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *AdminGroupService) AdminGetGroupContentsShort(input *admin_group.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGroupService) AdminGetOfficialGroupContentsV2Short(input *admin_group.AdminGetOfficialGroupContentsV2Params) (*ugcclientmodels.ModelsPaginatedContentDownloadResponseV2, error) {
+func (aaa *AdminGroupService) AdminGetOfficialGroupContentsV2Short(input *admin_group.AdminGetOfficialGroupContentsV2Params) (*admin_group.AdminGetOfficialGroupContentsV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *AdminGroupService) AdminGetOfficialGroupContentsV2Short(input *admin_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminGroupService) AdminGetUserGroupContentsV2Short(input *admin_group.AdminGetUserGroupContentsV2Params) (*ugcclientmodels.ModelsPaginatedContentDownloadResponseV2, error) {
+func (aaa *AdminGroupService) AdminGetUserGroupContentsV2Short(input *admin_group.AdminGetUserGroupContentsV2Params) (*admin_group.AdminGetUserGroupContentsV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,5 +423,5 @@ func (aaa *AdminGroupService) AdminGetUserGroupContentsV2Short(input *admin_grou
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

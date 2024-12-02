@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/global_statistic"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
 type GlobalStatisticService struct {
@@ -37,7 +36,7 @@ func (aaa *GlobalStatisticService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *GlobalStatisticService) GetGlobalStatItemsShort(input *global_statistic.GetGlobalStatItemsParams) (*socialclientmodels.GlobalStatItemPagingSlicedResult, error) {
+func (aaa *GlobalStatisticService) GetGlobalStatItemsShort(input *global_statistic.GetGlobalStatItemsParams) (*global_statistic.GetGlobalStatItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemsShort(input *global_statist
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCodeShort(input *global_statistic.GetGlobalStatItemByStatCodeParams) (*socialclientmodels.GlobalStatItemInfo, error) {
+func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCodeShort(input *global_statistic.GetGlobalStatItemByStatCodeParams) (*global_statistic.GetGlobalStatItemByStatCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCodeShort(input *globa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalStatisticService) GetGlobalStatItems1Short(input *global_statistic.GetGlobalStatItems1Params) (*socialclientmodels.GlobalStatItemPagingSlicedResult, error) {
+func (aaa *GlobalStatisticService) GetGlobalStatItems1Short(input *global_statistic.GetGlobalStatItems1Params) (*global_statistic.GetGlobalStatItems1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *GlobalStatisticService) GetGlobalStatItems1Short(input *global_statis
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCode1Short(input *global_statistic.GetGlobalStatItemByStatCode1Params) (*socialclientmodels.GlobalStatItemInfo, error) {
+func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCode1Short(input *global_statistic.GetGlobalStatItemByStatCode1Params) (*global_statistic.GetGlobalStatItemByStatCode1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,5 +153,5 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCode1Short(input *glob
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

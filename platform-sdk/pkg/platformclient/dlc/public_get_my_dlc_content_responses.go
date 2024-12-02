@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type PublicGetMyDLCContentResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.SimpleUserDLCRewardContentsResponse
+}
+
+func (m *PublicGetMyDLCContentResponse) Unpack() (*platformclientmodels.SimpleUserDLCRewardContentsResponse, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetMyDLCContentReader is a Reader for the PublicGetMyDLCContent structure.
 type PublicGetMyDLCContentReader struct {
 	formats strfmt.Registry

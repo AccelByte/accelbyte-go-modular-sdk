@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/catalog_changes"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *CatalogChangesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *CatalogChangesService) QueryChangesShort(input *catalog_changes.QueryChangesParams) (*platformclientmodels.CatalogChangePagingResult, error) {
+func (aaa *CatalogChangesService) QueryChangesShort(input *catalog_changes.QueryChangesParams) (*catalog_changes.QueryChangesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *CatalogChangesService) QueryChangesShort(input *catalog_changes.Query
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CatalogChangesService) PublishAllShort(input *catalog_changes.PublishAllParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *CatalogChangesService) PublishAllShort(input *catalog_changes.PublishAllParams) (*catalog_changes.PublishAllResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *CatalogChangesService) PublishAllShort(input *catalog_changes.Publish
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *CatalogChangesService) PublishSelectedShort(input *catalog_changes.PublishSelectedParams) (*platformclientmodels.StoreInfo, error) {
+func (aaa *CatalogChangesService) PublishSelectedShort(input *catalog_changes.PublishSelectedParams) (*catalog_changes.PublishSelectedResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *CatalogChangesService) PublishSelectedShort(input *catalog_changes.Pu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *CatalogChangesService) SelectAllRecordsShort(input *catalog_changes.SelectAllRecordsParams) error {
@@ -189,7 +188,7 @@ func (aaa *CatalogChangesService) SelectAllRecordsByCriteriaShort(input *catalog
 	return nil
 }
 
-func (aaa *CatalogChangesService) GetStatisticShort(input *catalog_changes.GetStatisticParams) (*platformclientmodels.CatalogChangeStatistics, error) {
+func (aaa *CatalogChangesService) GetStatisticShort(input *catalog_changes.GetStatisticParams) (*catalog_changes.GetStatisticResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *CatalogChangesService) GetStatisticShort(input *catalog_changes.GetSt
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *CatalogChangesService) UnselectAllRecordsShort(input *catalog_changes.UnselectAllRecordsParams) error {

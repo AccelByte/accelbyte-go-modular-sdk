@@ -30,18 +30,18 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetMemberRolesListAdminV1Short(params *GetMemberRolesListAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListAdminV1OK, error)
-	CreateMemberRoleAdminV1Short(params *CreateMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateMemberRoleAdminV1Created, error)
-	GetSingleMemberRoleAdminV1Short(params *GetSingleMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleMemberRoleAdminV1OK, error)
-	DeleteMemberRoleAdminV1Short(params *DeleteMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRoleAdminV1NoContent, error)
-	UpdateMemberRoleAdminV1Short(params *UpdateMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRoleAdminV1OK, error)
-	UpdateMemberRolePermissionAdminV1Short(params *UpdateMemberRolePermissionAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePermissionAdminV1OK, error)
-	GetMemberRolesListPublicV1Short(params *GetMemberRolesListPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListPublicV1OK, error)
-	UpdateMemberRolePublicV1Short(params *UpdateMemberRolePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePublicV1OK, error)
-	DeleteMemberRolePublicV1Short(params *DeleteMemberRolePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRolePublicV1NoContent, error)
-	GetMemberRolesListPublicV2Short(params *GetMemberRolesListPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListPublicV2OK, error)
-	UpdateMemberRolePublicV2Short(params *UpdateMemberRolePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePublicV2OK, error)
-	DeleteMemberRolePublicV2Short(params *DeleteMemberRolePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRolePublicV2NoContent, error)
+	GetMemberRolesListAdminV1Short(params *GetMemberRolesListAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListAdminV1Response, error)
+	CreateMemberRoleAdminV1Short(params *CreateMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateMemberRoleAdminV1Response, error)
+	GetSingleMemberRoleAdminV1Short(params *GetSingleMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleMemberRoleAdminV1Response, error)
+	DeleteMemberRoleAdminV1Short(params *DeleteMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRoleAdminV1Response, error)
+	UpdateMemberRoleAdminV1Short(params *UpdateMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRoleAdminV1Response, error)
+	UpdateMemberRolePermissionAdminV1Short(params *UpdateMemberRolePermissionAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePermissionAdminV1Response, error)
+	GetMemberRolesListPublicV1Short(params *GetMemberRolesListPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListPublicV1Response, error)
+	UpdateMemberRolePublicV1Short(params *UpdateMemberRolePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePublicV1Response, error)
+	DeleteMemberRolePublicV1Short(params *DeleteMemberRolePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRolePublicV1Response, error)
+	GetMemberRolesListPublicV2Short(params *GetMemberRolesListPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListPublicV2Response, error)
+	UpdateMemberRolePublicV2Short(params *UpdateMemberRolePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePublicV2Response, error)
+	DeleteMemberRolePublicV2Short(params *DeleteMemberRolePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRolePublicV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ This endpoint is used to get list of member roles
 
 Action Code: 73201
 */
-func (a *Client) GetMemberRolesListAdminV1Short(params *GetMemberRolesListAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListAdminV1OK, error) {
+func (a *Client) GetMemberRolesListAdminV1Short(params *GetMemberRolesListAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMemberRolesListAdminV1Params()
@@ -90,15 +90,40 @@ func (a *Client) GetMemberRolesListAdminV1Short(params *GetMemberRolesListAdminV
 	switch v := result.(type) {
 
 	case *GetMemberRolesListAdminV1OK:
-		return v, nil
+		response := &GetMemberRolesListAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMemberRolesListAdminV1BadRequest:
-		return nil, v
+		response := &GetMemberRolesListAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListAdminV1Unauthorized:
-		return nil, v
+		response := &GetMemberRolesListAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListAdminV1Forbidden:
-		return nil, v
+		response := &GetMemberRolesListAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListAdminV1InternalServerError:
-		return nil, v
+		response := &GetMemberRolesListAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -121,7 +146,7 @@ memberRolePermissions example value :
 
 The changes will give user with that role have a permission to create a role for new group member
 */
-func (a *Client) CreateMemberRoleAdminV1Short(params *CreateMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateMemberRoleAdminV1Created, error) {
+func (a *Client) CreateMemberRoleAdminV1Short(params *CreateMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateMemberRoleAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateMemberRoleAdminV1Params()
@@ -159,15 +184,40 @@ func (a *Client) CreateMemberRoleAdminV1Short(params *CreateMemberRoleAdminV1Par
 	switch v := result.(type) {
 
 	case *CreateMemberRoleAdminV1Created:
-		return v, nil
+		response := &CreateMemberRoleAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateMemberRoleAdminV1BadRequest:
-		return nil, v
+		response := &CreateMemberRoleAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMemberRoleAdminV1Unauthorized:
-		return nil, v
+		response := &CreateMemberRoleAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMemberRoleAdminV1Forbidden:
-		return nil, v
+		response := &CreateMemberRoleAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateMemberRoleAdminV1InternalServerError:
-		return nil, v
+		response := &CreateMemberRoleAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -180,7 +230,7 @@ This endpoint is used to get member role based on the role ID
 
 Action Code: 73203
 */
-func (a *Client) GetSingleMemberRoleAdminV1Short(params *GetSingleMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleMemberRoleAdminV1OK, error) {
+func (a *Client) GetSingleMemberRoleAdminV1Short(params *GetSingleMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetSingleMemberRoleAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSingleMemberRoleAdminV1Params()
@@ -218,17 +268,47 @@ func (a *Client) GetSingleMemberRoleAdminV1Short(params *GetSingleMemberRoleAdmi
 	switch v := result.(type) {
 
 	case *GetSingleMemberRoleAdminV1OK:
-		return v, nil
+		response := &GetSingleMemberRoleAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSingleMemberRoleAdminV1BadRequest:
-		return nil, v
+		response := &GetSingleMemberRoleAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleMemberRoleAdminV1Unauthorized:
-		return nil, v
+		response := &GetSingleMemberRoleAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleMemberRoleAdminV1Forbidden:
-		return nil, v
+		response := &GetSingleMemberRoleAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleMemberRoleAdminV1NotFound:
-		return nil, v
+		response := &GetSingleMemberRoleAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetSingleMemberRoleAdminV1InternalServerError:
-		return nil, v
+		response := &GetSingleMemberRoleAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -241,7 +321,7 @@ This endpoint is used to delete member role. Any member role can't be deleted if
 
 Action Code: 73207
 */
-func (a *Client) DeleteMemberRoleAdminV1Short(params *DeleteMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRoleAdminV1NoContent, error) {
+func (a *Client) DeleteMemberRoleAdminV1Short(params *DeleteMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRoleAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteMemberRoleAdminV1Params()
@@ -279,17 +359,46 @@ func (a *Client) DeleteMemberRoleAdminV1Short(params *DeleteMemberRoleAdminV1Par
 	switch v := result.(type) {
 
 	case *DeleteMemberRoleAdminV1NoContent:
-		return v, nil
+		response := &DeleteMemberRoleAdminV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteMemberRoleAdminV1BadRequest:
-		return nil, v
+		response := &DeleteMemberRoleAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRoleAdminV1Unauthorized:
-		return nil, v
+		response := &DeleteMemberRoleAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRoleAdminV1Forbidden:
-		return nil, v
+		response := &DeleteMemberRoleAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRoleAdminV1NotFound:
-		return nil, v
+		response := &DeleteMemberRoleAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRoleAdminV1InternalServerError:
-		return nil, v
+		response := &DeleteMemberRoleAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -302,7 +411,7 @@ This endpoint is used to update member role
 
 Action Code: 73204
 */
-func (a *Client) UpdateMemberRoleAdminV1Short(params *UpdateMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRoleAdminV1OK, error) {
+func (a *Client) UpdateMemberRoleAdminV1Short(params *UpdateMemberRoleAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRoleAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMemberRoleAdminV1Params()
@@ -340,17 +449,47 @@ func (a *Client) UpdateMemberRoleAdminV1Short(params *UpdateMemberRoleAdminV1Par
 	switch v := result.(type) {
 
 	case *UpdateMemberRoleAdminV1OK:
-		return v, nil
+		response := &UpdateMemberRoleAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMemberRoleAdminV1BadRequest:
-		return nil, v
+		response := &UpdateMemberRoleAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRoleAdminV1Unauthorized:
-		return nil, v
+		response := &UpdateMemberRoleAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRoleAdminV1Forbidden:
-		return nil, v
+		response := &UpdateMemberRoleAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRoleAdminV1NotFound:
-		return nil, v
+		response := &UpdateMemberRoleAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRoleAdminV1InternalServerError:
-		return nil, v
+		response := &UpdateMemberRoleAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -373,7 +512,7 @@ memberRolePermissions example value :
 
 The changes will update user role to be able to read a role of other member
 */
-func (a *Client) UpdateMemberRolePermissionAdminV1Short(params *UpdateMemberRolePermissionAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePermissionAdminV1OK, error) {
+func (a *Client) UpdateMemberRolePermissionAdminV1Short(params *UpdateMemberRolePermissionAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePermissionAdminV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMemberRolePermissionAdminV1Params()
@@ -411,17 +550,47 @@ func (a *Client) UpdateMemberRolePermissionAdminV1Short(params *UpdateMemberRole
 	switch v := result.(type) {
 
 	case *UpdateMemberRolePermissionAdminV1OK:
-		return v, nil
+		response := &UpdateMemberRolePermissionAdminV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMemberRolePermissionAdminV1BadRequest:
-		return nil, v
+		response := &UpdateMemberRolePermissionAdminV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePermissionAdminV1Unauthorized:
-		return nil, v
+		response := &UpdateMemberRolePermissionAdminV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePermissionAdminV1Forbidden:
-		return nil, v
+		response := &UpdateMemberRolePermissionAdminV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePermissionAdminV1NotFound:
-		return nil, v
+		response := &UpdateMemberRolePermissionAdminV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePermissionAdminV1InternalServerError:
-		return nil, v
+		response := &UpdateMemberRolePermissionAdminV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -436,7 +605,7 @@ This endpoint is used to get list of member roles
 
 Action Code: 73201
 */
-func (a *Client) GetMemberRolesListPublicV1Short(params *GetMemberRolesListPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListPublicV1OK, error) {
+func (a *Client) GetMemberRolesListPublicV1Short(params *GetMemberRolesListPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMemberRolesListPublicV1Params()
@@ -474,15 +643,40 @@ func (a *Client) GetMemberRolesListPublicV1Short(params *GetMemberRolesListPubli
 	switch v := result.(type) {
 
 	case *GetMemberRolesListPublicV1OK:
-		return v, nil
+		response := &GetMemberRolesListPublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMemberRolesListPublicV1BadRequest:
-		return nil, v
+		response := &GetMemberRolesListPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListPublicV1Unauthorized:
-		return nil, v
+		response := &GetMemberRolesListPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListPublicV1Forbidden:
-		return nil, v
+		response := &GetMemberRolesListPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListPublicV1InternalServerError:
-		return nil, v
+		response := &GetMemberRolesListPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -497,7 +691,7 @@ This endpoint is used to assign role to group member
 
 Action Code: 73204
 */
-func (a *Client) UpdateMemberRolePublicV1Short(params *UpdateMemberRolePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePublicV1OK, error) {
+func (a *Client) UpdateMemberRolePublicV1Short(params *UpdateMemberRolePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMemberRolePublicV1Params()
@@ -535,17 +729,47 @@ func (a *Client) UpdateMemberRolePublicV1Short(params *UpdateMemberRolePublicV1P
 	switch v := result.(type) {
 
 	case *UpdateMemberRolePublicV1OK:
-		return v, nil
+		response := &UpdateMemberRolePublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMemberRolePublicV1BadRequest:
-		return nil, v
+		response := &UpdateMemberRolePublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePublicV1Unauthorized:
-		return nil, v
+		response := &UpdateMemberRolePublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePublicV1Forbidden:
-		return nil, v
+		response := &UpdateMemberRolePublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePublicV1NotFound:
-		return nil, v
+		response := &UpdateMemberRolePublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePublicV1InternalServerError:
-		return nil, v
+		response := &UpdateMemberRolePublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -560,7 +784,7 @@ This endpoint is used to remove role from group member
 
 Action Code: 73204
 */
-func (a *Client) DeleteMemberRolePublicV1Short(params *DeleteMemberRolePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRolePublicV1NoContent, error) {
+func (a *Client) DeleteMemberRolePublicV1Short(params *DeleteMemberRolePublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRolePublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteMemberRolePublicV1Params()
@@ -598,19 +822,53 @@ func (a *Client) DeleteMemberRolePublicV1Short(params *DeleteMemberRolePublicV1P
 	switch v := result.(type) {
 
 	case *DeleteMemberRolePublicV1NoContent:
-		return v, nil
+		response := &DeleteMemberRolePublicV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteMemberRolePublicV1BadRequest:
-		return nil, v
+		response := &DeleteMemberRolePublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV1Unauthorized:
-		return nil, v
+		response := &DeleteMemberRolePublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV1Forbidden:
-		return nil, v
+		response := &DeleteMemberRolePublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV1NotFound:
-		return nil, v
+		response := &DeleteMemberRolePublicV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV1UnprocessableEntity:
-		return nil, v
+		response := &DeleteMemberRolePublicV1Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV1InternalServerError:
-		return nil, v
+		response := &DeleteMemberRolePublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -623,7 +881,7 @@ This endpoint is used to get list of member roles
 
 Action Code: 73201
 */
-func (a *Client) GetMemberRolesListPublicV2Short(params *GetMemberRolesListPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListPublicV2OK, error) {
+func (a *Client) GetMemberRolesListPublicV2Short(params *GetMemberRolesListPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetMemberRolesListPublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMemberRolesListPublicV2Params()
@@ -661,15 +919,40 @@ func (a *Client) GetMemberRolesListPublicV2Short(params *GetMemberRolesListPubli
 	switch v := result.(type) {
 
 	case *GetMemberRolesListPublicV2OK:
-		return v, nil
+		response := &GetMemberRolesListPublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMemberRolesListPublicV2BadRequest:
-		return nil, v
+		response := &GetMemberRolesListPublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListPublicV2Unauthorized:
-		return nil, v
+		response := &GetMemberRolesListPublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListPublicV2Forbidden:
-		return nil, v
+		response := &GetMemberRolesListPublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMemberRolesListPublicV2InternalServerError:
-		return nil, v
+		response := &GetMemberRolesListPublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -684,7 +967,7 @@ This endpoint is used to assign role to group member
 
 Action Code: 73204
 */
-func (a *Client) UpdateMemberRolePublicV2Short(params *UpdateMemberRolePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePublicV2OK, error) {
+func (a *Client) UpdateMemberRolePublicV2Short(params *UpdateMemberRolePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateMemberRolePublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateMemberRolePublicV2Params()
@@ -722,17 +1005,47 @@ func (a *Client) UpdateMemberRolePublicV2Short(params *UpdateMemberRolePublicV2P
 	switch v := result.(type) {
 
 	case *UpdateMemberRolePublicV2OK:
-		return v, nil
+		response := &UpdateMemberRolePublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateMemberRolePublicV2BadRequest:
-		return nil, v
+		response := &UpdateMemberRolePublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePublicV2Unauthorized:
-		return nil, v
+		response := &UpdateMemberRolePublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePublicV2Forbidden:
-		return nil, v
+		response := &UpdateMemberRolePublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePublicV2NotFound:
-		return nil, v
+		response := &UpdateMemberRolePublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateMemberRolePublicV2InternalServerError:
-		return nil, v
+		response := &UpdateMemberRolePublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -747,7 +1060,7 @@ This endpoint is used to remove role from group member
 
 Action Code: 73204
 */
-func (a *Client) DeleteMemberRolePublicV2Short(params *DeleteMemberRolePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRolePublicV2NoContent, error) {
+func (a *Client) DeleteMemberRolePublicV2Short(params *DeleteMemberRolePublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteMemberRolePublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteMemberRolePublicV2Params()
@@ -785,19 +1098,53 @@ func (a *Client) DeleteMemberRolePublicV2Short(params *DeleteMemberRolePublicV2P
 	switch v := result.(type) {
 
 	case *DeleteMemberRolePublicV2NoContent:
-		return v, nil
+		response := &DeleteMemberRolePublicV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteMemberRolePublicV2BadRequest:
-		return nil, v
+		response := &DeleteMemberRolePublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV2Unauthorized:
-		return nil, v
+		response := &DeleteMemberRolePublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV2Forbidden:
-		return nil, v
+		response := &DeleteMemberRolePublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV2NotFound:
-		return nil, v
+		response := &DeleteMemberRolePublicV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV2UnprocessableEntity:
-		return nil, v
+		response := &DeleteMemberRolePublicV2Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteMemberRolePublicV2InternalServerError:
-		return nil, v
+		response := &DeleteMemberRolePublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

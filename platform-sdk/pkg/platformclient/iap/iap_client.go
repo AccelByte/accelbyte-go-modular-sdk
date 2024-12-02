@@ -30,56 +30,56 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleIAPConfigOK, error)
-	UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleIAPConfigOK, error)
-	DeleteAppleIAPConfigShort(params *DeleteAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppleIAPConfigNoContent, error)
-	UpdateAppleP8FileShort(params *UpdateAppleP8FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleP8FileOK, error)
-	GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetEpicGamesIAPConfigOK, error)
-	UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateEpicGamesIAPConfigOK, error)
-	DeleteEpicGamesIAPConfigShort(params *DeleteEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteEpicGamesIAPConfigNoContent, error)
-	GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetGoogleIAPConfigOK, error)
-	UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleIAPConfigOK, error)
-	DeleteGoogleIAPConfigShort(params *DeleteGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGoogleIAPConfigNoContent, error)
-	UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleP12FileOK, error)
-	GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemConfigOK, error)
-	UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIAPItemConfigOK, error)
-	DeleteIAPItemConfigShort(params *DeleteIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteIAPItemConfigNoContent, error)
-	GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetOculusIAPConfigOK, error)
-	UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOculusIAPConfigOK, error)
-	DeleteOculusIAPConfigShort(params *DeleteOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusIAPConfigNoContent, error)
-	GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayStationIAPConfigOK, error)
-	UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlaystationIAPConfigOK, error)
-	DeletePlaystationIAPConfigShort(params *DeletePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlaystationIAPConfigNoContent, error)
-	ValidateExistedPlaystationIAPConfigShort(params *ValidateExistedPlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateExistedPlaystationIAPConfigOK, error)
-	ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidatePlaystationIAPConfigOK, error)
-	GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSteamIAPConfigOK, error)
-	UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSteamIAPConfigOK, error)
-	DeleteSteamIAPConfigShort(params *DeleteSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSteamIAPConfigNoContent, error)
-	GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetTwitchIAPConfigOK, error)
-	UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTwitchIAPConfigOK, error)
-	DeleteTwitchIAPConfigShort(params *DeleteTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTwitchIAPConfigNoContent, error)
-	GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblIAPConfigOK, error)
-	UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblIAPConfigOK, error)
-	DeleteXblAPConfigShort(params *DeleteXblAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteXblAPConfigNoContent, error)
-	UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblBPCertFileOK, error)
-	GetIAPOrderConsumeDetailsShort(params *GetIAPOrderConsumeDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPOrderConsumeDetailsOK, error)
-	QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPOrdersOK, error)
-	QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAllUserIAPOrdersOK, error)
-	QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPConsumeHistoryOK, error)
-	MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*MockFulfillIAPItemNoContent, error)
-	GetAppleConfigVersionShort(params *GetAppleConfigVersionParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleConfigVersionOK, error)
-	GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemMappingOK, error)
-	SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlementOK, error)
-	PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillAppleIAPItemNoContent, error)
-	SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGamesInventoryOK, error)
-	PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillGoogleIAPItemOK, error)
-	SyncOculusConsumableEntitlementsShort(params *SyncOculusConsumableEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusConsumableEntitlementsOK, error)
-	PublicReconcilePlayStationStoreShort(params *PublicReconcilePlayStationStoreParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreOK, error)
-	PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(params *PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK, error)
-	SyncSteamInventoryShort(params *SyncSteamInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamInventoryNoContent, error)
-	SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitlement1Params, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlement1NoContent, error)
-	SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxInventoryOK, error)
-	V2PublicFulfillAppleIAPItemShort(params *V2PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*V2PublicFulfillAppleIAPItemNoContent, error)
+	GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleIAPConfigResponse, error)
+	UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleIAPConfigResponse, error)
+	DeleteAppleIAPConfigShort(params *DeleteAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppleIAPConfigResponse, error)
+	UpdateAppleP8FileShort(params *UpdateAppleP8FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleP8FileResponse, error)
+	GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetEpicGamesIAPConfigResponse, error)
+	UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateEpicGamesIAPConfigResponse, error)
+	DeleteEpicGamesIAPConfigShort(params *DeleteEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteEpicGamesIAPConfigResponse, error)
+	GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetGoogleIAPConfigResponse, error)
+	UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleIAPConfigResponse, error)
+	DeleteGoogleIAPConfigShort(params *DeleteGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGoogleIAPConfigResponse, error)
+	UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleP12FileResponse, error)
+	GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemConfigResponse, error)
+	UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIAPItemConfigResponse, error)
+	DeleteIAPItemConfigShort(params *DeleteIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteIAPItemConfigResponse, error)
+	GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetOculusIAPConfigResponse, error)
+	UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOculusIAPConfigResponse, error)
+	DeleteOculusIAPConfigShort(params *DeleteOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusIAPConfigResponse, error)
+	GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayStationIAPConfigResponse, error)
+	UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlaystationIAPConfigResponse, error)
+	DeletePlaystationIAPConfigShort(params *DeletePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlaystationIAPConfigResponse, error)
+	ValidateExistedPlaystationIAPConfigShort(params *ValidateExistedPlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateExistedPlaystationIAPConfigResponse, error)
+	ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidatePlaystationIAPConfigResponse, error)
+	GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSteamIAPConfigResponse, error)
+	UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSteamIAPConfigResponse, error)
+	DeleteSteamIAPConfigShort(params *DeleteSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSteamIAPConfigResponse, error)
+	GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetTwitchIAPConfigResponse, error)
+	UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTwitchIAPConfigResponse, error)
+	DeleteTwitchIAPConfigShort(params *DeleteTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTwitchIAPConfigResponse, error)
+	GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblIAPConfigResponse, error)
+	UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblIAPConfigResponse, error)
+	DeleteXblAPConfigShort(params *DeleteXblAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteXblAPConfigResponse, error)
+	UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblBPCertFileResponse, error)
+	GetIAPOrderConsumeDetailsShort(params *GetIAPOrderConsumeDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPOrderConsumeDetailsResponse, error)
+	QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPOrdersResponse, error)
+	QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAllUserIAPOrdersResponse, error)
+	QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPConsumeHistoryResponse, error)
+	MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*MockFulfillIAPItemResponse, error)
+	GetAppleConfigVersionShort(params *GetAppleConfigVersionParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleConfigVersionResponse, error)
+	GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemMappingResponse, error)
+	SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlementResponse, error)
+	PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillAppleIAPItemResponse, error)
+	SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGamesInventoryResponse, error)
+	PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillGoogleIAPItemResponse, error)
+	SyncOculusConsumableEntitlementsShort(params *SyncOculusConsumableEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusConsumableEntitlementsResponse, error)
+	PublicReconcilePlayStationStoreShort(params *PublicReconcilePlayStationStoreParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreResponse, error)
+	PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(params *PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreWithMultipleServiceLabelsResponse, error)
+	SyncSteamInventoryShort(params *SyncSteamInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamInventoryResponse, error)
+	SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitlement1Params, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlement1Response, error)
+	SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxInventoryResponse, error)
+	V2PublicFulfillAppleIAPItemShort(params *V2PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*V2PublicFulfillAppleIAPItemResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -91,7 +91,7 @@ Other detail info:
 
   * Returns : apple iap config
 */
-func (a *Client) GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleIAPConfigOK, error) {
+func (a *Client) GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppleIAPConfigParams()
@@ -129,7 +129,12 @@ func (a *Client) GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInf
 	switch v := result.(type) {
 
 	case *GetAppleIAPConfigOK:
-		return v, nil
+		response := &GetAppleIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -141,7 +146,7 @@ UpdateAppleIAPConfigShort update apple iap config
 Update apple iap config. Other detail info:
   * Returns : updated apple iap config
 */
-func (a *Client) UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleIAPConfigOK, error) {
+func (a *Client) UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAppleIAPConfigParams()
@@ -179,7 +184,12 @@ func (a *Client) UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, a
 	switch v := result.(type) {
 
 	case *UpdateAppleIAPConfigOK:
-		return v, nil
+		response := &UpdateAppleIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -190,7 +200,7 @@ func (a *Client) UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, a
 DeleteAppleIAPConfigShort delete apple iap config
 Delete apple iap config.
 */
-func (a *Client) DeleteAppleIAPConfigShort(params *DeleteAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppleIAPConfigNoContent, error) {
+func (a *Client) DeleteAppleIAPConfigShort(params *DeleteAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAppleIAPConfigParams()
@@ -228,7 +238,11 @@ func (a *Client) DeleteAppleIAPConfigShort(params *DeleteAppleIAPConfigParams, a
 	switch v := result.(type) {
 
 	case *DeleteAppleIAPConfigNoContent:
-		return v, nil
+		response := &DeleteAppleIAPConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -242,7 +256,7 @@ Other detail info:
 
   * Returns : updated apple iap config
 */
-func (a *Client) UpdateAppleP8FileShort(params *UpdateAppleP8FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleP8FileOK, error) {
+func (a *Client) UpdateAppleP8FileShort(params *UpdateAppleP8FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleP8FileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAppleP8FileParams()
@@ -280,7 +294,12 @@ func (a *Client) UpdateAppleP8FileShort(params *UpdateAppleP8FileParams, authInf
 	switch v := result.(type) {
 
 	case *UpdateAppleP8FileOK:
-		return v, nil
+		response := &UpdateAppleP8FileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -294,7 +313,7 @@ Other detail info:
 
   * Returns : epic games iap config
 */
-func (a *Client) GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetEpicGamesIAPConfigOK, error) {
+func (a *Client) GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetEpicGamesIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetEpicGamesIAPConfigParams()
@@ -332,7 +351,12 @@ func (a *Client) GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams,
 	switch v := result.(type) {
 
 	case *GetEpicGamesIAPConfigOK:
-		return v, nil
+		response := &GetEpicGamesIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -344,7 +368,7 @@ UpdateEpicGamesIAPConfigShort update epic games iap config
 Update epic games iap config. Other detail info:
   * Returns : updated epic games iap config
 */
-func (a *Client) UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateEpicGamesIAPConfigOK, error) {
+func (a *Client) UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateEpicGamesIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateEpicGamesIAPConfigParams()
@@ -382,7 +406,12 @@ func (a *Client) UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigP
 	switch v := result.(type) {
 
 	case *UpdateEpicGamesIAPConfigOK:
-		return v, nil
+		response := &UpdateEpicGamesIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -393,7 +422,7 @@ func (a *Client) UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigP
 DeleteEpicGamesIAPConfigShort delete epic games iap config
 Delete epic games iap config.
 */
-func (a *Client) DeleteEpicGamesIAPConfigShort(params *DeleteEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteEpicGamesIAPConfigNoContent, error) {
+func (a *Client) DeleteEpicGamesIAPConfigShort(params *DeleteEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteEpicGamesIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteEpicGamesIAPConfigParams()
@@ -431,7 +460,11 @@ func (a *Client) DeleteEpicGamesIAPConfigShort(params *DeleteEpicGamesIAPConfigP
 	switch v := result.(type) {
 
 	case *DeleteEpicGamesIAPConfigNoContent:
-		return v, nil
+		response := &DeleteEpicGamesIAPConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -445,7 +478,7 @@ Other detail info:
 
   * Returns : google iap config
 */
-func (a *Client) GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetGoogleIAPConfigOK, error) {
+func (a *Client) GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetGoogleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGoogleIAPConfigParams()
@@ -483,7 +516,12 @@ func (a *Client) GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authI
 	switch v := result.(type) {
 
 	case *GetGoogleIAPConfigOK:
-		return v, nil
+		response := &GetGoogleIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -495,7 +533,7 @@ UpdateGoogleIAPConfigShort update google iap config
 Update google iap config. Other detail info:
   * Returns : updated google iap config
 */
-func (a *Client) UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleIAPConfigOK, error) {
+func (a *Client) UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGoogleIAPConfigParams()
@@ -533,7 +571,12 @@ func (a *Client) UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams,
 	switch v := result.(type) {
 
 	case *UpdateGoogleIAPConfigOK:
-		return v, nil
+		response := &UpdateGoogleIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -544,7 +587,7 @@ func (a *Client) UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams,
 DeleteGoogleIAPConfigShort delete google iap config
 Delete google iap config.
 */
-func (a *Client) DeleteGoogleIAPConfigShort(params *DeleteGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGoogleIAPConfigNoContent, error) {
+func (a *Client) DeleteGoogleIAPConfigShort(params *DeleteGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGoogleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteGoogleIAPConfigParams()
@@ -582,7 +625,11 @@ func (a *Client) DeleteGoogleIAPConfigShort(params *DeleteGoogleIAPConfigParams,
 	switch v := result.(type) {
 
 	case *DeleteGoogleIAPConfigNoContent:
-		return v, nil
+		response := &DeleteGoogleIAPConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -596,7 +643,7 @@ Other detail info:
 
   * Returns : updated google iap config
 */
-func (a *Client) UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleP12FileOK, error) {
+func (a *Client) UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleP12FileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateGoogleP12FileParams()
@@ -634,7 +681,12 @@ func (a *Client) UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, aut
 	switch v := result.(type) {
 
 	case *UpdateGoogleP12FileOK:
-		return v, nil
+		response := &UpdateGoogleP12FileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -645,7 +697,7 @@ func (a *Client) UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, aut
 GetIAPItemConfigShort get iap item config
 Get iap item config.
 */
-func (a *Client) GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemConfigOK, error) {
+func (a *Client) GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIAPItemConfigParams()
@@ -683,9 +735,19 @@ func (a *Client) GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetIAPItemConfigOK:
-		return v, nil
+		response := &GetIAPItemConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetIAPItemConfigNotFound:
-		return nil, v
+		response := &GetIAPItemConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -697,7 +759,7 @@ UpdateIAPItemConfigShort update iap item config
 Update iap item config. Other detail info:
   * Returns : updated iap item config
 */
-func (a *Client) UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIAPItemConfigOK, error) {
+func (a *Client) UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIAPItemConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateIAPItemConfigParams()
@@ -735,13 +797,33 @@ func (a *Client) UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, aut
 	switch v := result.(type) {
 
 	case *UpdateIAPItemConfigOK:
-		return v, nil
+		response := &UpdateIAPItemConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateIAPItemConfigBadRequest:
-		return nil, v
+		response := &UpdateIAPItemConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateIAPItemConfigConflict:
-		return nil, v
+		response := &UpdateIAPItemConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateIAPItemConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdateIAPItemConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -752,7 +834,7 @@ func (a *Client) UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, aut
 DeleteIAPItemConfigShort delete a iap item config
 delete a iap item config.
 */
-func (a *Client) DeleteIAPItemConfigShort(params *DeleteIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteIAPItemConfigNoContent, error) {
+func (a *Client) DeleteIAPItemConfigShort(params *DeleteIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteIAPItemConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteIAPItemConfigParams()
@@ -790,7 +872,11 @@ func (a *Client) DeleteIAPItemConfigShort(params *DeleteIAPItemConfigParams, aut
 	switch v := result.(type) {
 
 	case *DeleteIAPItemConfigNoContent:
-		return v, nil
+		response := &DeleteIAPItemConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -804,7 +890,7 @@ Other detail info:
 
   * Returns : steam iap config
 */
-func (a *Client) GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetOculusIAPConfigOK, error) {
+func (a *Client) GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetOculusIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetOculusIAPConfigParams()
@@ -842,7 +928,12 @@ func (a *Client) GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authI
 	switch v := result.(type) {
 
 	case *GetOculusIAPConfigOK:
-		return v, nil
+		response := &GetOculusIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -854,7 +945,7 @@ UpdateOculusIAPConfigShort update oculus iap config
 Update oculus iap config. Other detail info:
   * Returns : updated steam iap config
 */
-func (a *Client) UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOculusIAPConfigOK, error) {
+func (a *Client) UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOculusIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateOculusIAPConfigParams()
@@ -892,7 +983,12 @@ func (a *Client) UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams,
 	switch v := result.(type) {
 
 	case *UpdateOculusIAPConfigOK:
-		return v, nil
+		response := &UpdateOculusIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -903,7 +999,7 @@ func (a *Client) UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams,
 DeleteOculusIAPConfigShort delete oculus iap config
 Delete oculus iap config.
 */
-func (a *Client) DeleteOculusIAPConfigShort(params *DeleteOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusIAPConfigNoContent, error) {
+func (a *Client) DeleteOculusIAPConfigShort(params *DeleteOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteOculusIAPConfigParams()
@@ -941,7 +1037,11 @@ func (a *Client) DeleteOculusIAPConfigShort(params *DeleteOculusIAPConfigParams,
 	switch v := result.(type) {
 
 	case *DeleteOculusIAPConfigNoContent:
-		return v, nil
+		response := &DeleteOculusIAPConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -955,7 +1055,7 @@ Other detail info:
 
   * Returns : playstation iap config
 */
-func (a *Client) GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayStationIAPConfigOK, error) {
+func (a *Client) GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayStationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPlayStationIAPConfigParams()
@@ -993,7 +1093,12 @@ func (a *Client) GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigPar
 	switch v := result.(type) {
 
 	case *GetPlayStationIAPConfigOK:
-		return v, nil
+		response := &GetPlayStationIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1005,7 +1110,7 @@ UpdatePlaystationIAPConfigShort update playstation iap config
 Update playstation iap config. Other detail info:
   * Returns : updated playstation iap config
 */
-func (a *Client) UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlaystationIAPConfigOK, error) {
+func (a *Client) UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlaystationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePlaystationIAPConfigParams()
@@ -1043,9 +1148,19 @@ func (a *Client) UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPCon
 	switch v := result.(type) {
 
 	case *UpdatePlaystationIAPConfigOK:
-		return v, nil
+		response := &UpdatePlaystationIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePlaystationIAPConfigBadRequest:
-		return nil, v
+		response := &UpdatePlaystationIAPConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1056,7 +1171,7 @@ func (a *Client) UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPCon
 DeletePlaystationIAPConfigShort delete playstation iap config
 Delete playstation iap config.
 */
-func (a *Client) DeletePlaystationIAPConfigShort(params *DeletePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlaystationIAPConfigNoContent, error) {
+func (a *Client) DeletePlaystationIAPConfigShort(params *DeletePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePlaystationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeletePlaystationIAPConfigParams()
@@ -1094,7 +1209,11 @@ func (a *Client) DeletePlaystationIAPConfigShort(params *DeletePlaystationIAPCon
 	switch v := result.(type) {
 
 	case *DeletePlaystationIAPConfigNoContent:
-		return v, nil
+		response := &DeletePlaystationIAPConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1106,7 +1225,7 @@ ValidateExistedPlaystationIAPConfigShort validate existed playstation iap config
 Validate playstation iap config. Other detail info:
   * Returns : Test Results
 */
-func (a *Client) ValidateExistedPlaystationIAPConfigShort(params *ValidateExistedPlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateExistedPlaystationIAPConfigOK, error) {
+func (a *Client) ValidateExistedPlaystationIAPConfigShort(params *ValidateExistedPlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateExistedPlaystationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewValidateExistedPlaystationIAPConfigParams()
@@ -1144,7 +1263,12 @@ func (a *Client) ValidateExistedPlaystationIAPConfigShort(params *ValidateExiste
 	switch v := result.(type) {
 
 	case *ValidateExistedPlaystationIAPConfigOK:
-		return v, nil
+		response := &ValidateExistedPlaystationIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1156,7 +1280,7 @@ ValidatePlaystationIAPConfigShort validate playstation iap config
 Validate playstation iap config. Other detail info:
   * Returns : Test Results
 */
-func (a *Client) ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidatePlaystationIAPConfigOK, error) {
+func (a *Client) ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidatePlaystationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewValidatePlaystationIAPConfigParams()
@@ -1194,7 +1318,12 @@ func (a *Client) ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIA
 	switch v := result.(type) {
 
 	case *ValidatePlaystationIAPConfigOK:
-		return v, nil
+		response := &ValidatePlaystationIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1208,7 +1337,7 @@ Other detail info:
 
   * Returns : steam iap config
 */
-func (a *Client) GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSteamIAPConfigOK, error) {
+func (a *Client) GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSteamIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSteamIAPConfigParams()
@@ -1246,7 +1375,12 @@ func (a *Client) GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInf
 	switch v := result.(type) {
 
 	case *GetSteamIAPConfigOK:
-		return v, nil
+		response := &GetSteamIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1258,7 +1392,7 @@ UpdateSteamIAPConfigShort update steam iap config
 Update steam iap config. Other detail info:
   * Returns : updated steam iap config
 */
-func (a *Client) UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSteamIAPConfigOK, error) {
+func (a *Client) UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSteamIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSteamIAPConfigParams()
@@ -1296,9 +1430,19 @@ func (a *Client) UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, a
 	switch v := result.(type) {
 
 	case *UpdateSteamIAPConfigOK:
-		return v, nil
+		response := &UpdateSteamIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateSteamIAPConfigBadRequest:
-		return nil, v
+		response := &UpdateSteamIAPConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1309,7 +1453,7 @@ func (a *Client) UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, a
 DeleteSteamIAPConfigShort delete steam iap config
 Delete steam iap config.
 */
-func (a *Client) DeleteSteamIAPConfigShort(params *DeleteSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSteamIAPConfigNoContent, error) {
+func (a *Client) DeleteSteamIAPConfigShort(params *DeleteSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSteamIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSteamIAPConfigParams()
@@ -1347,7 +1491,11 @@ func (a *Client) DeleteSteamIAPConfigShort(params *DeleteSteamIAPConfigParams, a
 	switch v := result.(type) {
 
 	case *DeleteSteamIAPConfigNoContent:
-		return v, nil
+		response := &DeleteSteamIAPConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1361,7 +1509,7 @@ Other detail info:
 
   * Returns : twitch iap config
 */
-func (a *Client) GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetTwitchIAPConfigOK, error) {
+func (a *Client) GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetTwitchIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTwitchIAPConfigParams()
@@ -1399,7 +1547,12 @@ func (a *Client) GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authI
 	switch v := result.(type) {
 
 	case *GetTwitchIAPConfigOK:
-		return v, nil
+		response := &GetTwitchIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1411,7 +1564,7 @@ UpdateTwitchIAPConfigShort update twitch iap config
 Update twitch iap config. Other detail info:
   * Returns : updated twitch iap config
 */
-func (a *Client) UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTwitchIAPConfigOK, error) {
+func (a *Client) UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTwitchIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateTwitchIAPConfigParams()
@@ -1449,7 +1602,12 @@ func (a *Client) UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams,
 	switch v := result.(type) {
 
 	case *UpdateTwitchIAPConfigOK:
-		return v, nil
+		response := &UpdateTwitchIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1460,7 +1618,7 @@ func (a *Client) UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams,
 DeleteTwitchIAPConfigShort delete twitch iap config
 Delete twitch iap config.
 */
-func (a *Client) DeleteTwitchIAPConfigShort(params *DeleteTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTwitchIAPConfigNoContent, error) {
+func (a *Client) DeleteTwitchIAPConfigShort(params *DeleteTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTwitchIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTwitchIAPConfigParams()
@@ -1498,7 +1656,11 @@ func (a *Client) DeleteTwitchIAPConfigShort(params *DeleteTwitchIAPConfigParams,
 	switch v := result.(type) {
 
 	case *DeleteTwitchIAPConfigNoContent:
-		return v, nil
+		response := &DeleteTwitchIAPConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1512,7 +1674,7 @@ Other detail info:
 
   * Returns : xbox iap config
 */
-func (a *Client) GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblIAPConfigOK, error) {
+func (a *Client) GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetXblIAPConfigParams()
@@ -1550,7 +1712,12 @@ func (a *Client) GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo ru
 	switch v := result.(type) {
 
 	case *GetXblIAPConfigOK:
-		return v, nil
+		response := &GetXblIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1562,7 +1729,7 @@ UpdateXblIAPConfigShort update xbl iap config
 Update xbl iap config. Other detail info:
   * Returns : updated xbl iap config
 */
-func (a *Client) UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblIAPConfigOK, error) {
+func (a *Client) UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateXblIAPConfigParams()
@@ -1600,7 +1767,12 @@ func (a *Client) UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authI
 	switch v := result.(type) {
 
 	case *UpdateXblIAPConfigOK:
-		return v, nil
+		response := &UpdateXblIAPConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1611,7 +1783,7 @@ func (a *Client) UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authI
 DeleteXblAPConfigShort delete xbl iap config
 Delete xbl iap config.
 */
-func (a *Client) DeleteXblAPConfigShort(params *DeleteXblAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteXblAPConfigNoContent, error) {
+func (a *Client) DeleteXblAPConfigShort(params *DeleteXblAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteXblAPConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteXblAPConfigParams()
@@ -1649,7 +1821,11 @@ func (a *Client) DeleteXblAPConfigShort(params *DeleteXblAPConfigParams, authInf
 	switch v := result.(type) {
 
 	case *DeleteXblAPConfigNoContent:
-		return v, nil
+		response := &DeleteXblAPConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1663,7 +1839,7 @@ Other detail info:
 
   * Returns : updated xbl iap config
 */
-func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblBPCertFileOK, error) {
+func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblBPCertFileResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateXblBPCertFileParams()
@@ -1701,9 +1877,19 @@ func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, aut
 	switch v := result.(type) {
 
 	case *UpdateXblBPCertFileOK:
-		return v, nil
+		response := &UpdateXblBPCertFileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateXblBPCertFileBadRequest:
-		return nil, v
+		response := &UpdateXblBPCertFileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1714,7 +1900,7 @@ func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, aut
 GetIAPOrderConsumeDetailsShort get iap order consume details by iap order number.
 Get IAP Order Consume Details by IAP Order Number.
 */
-func (a *Client) GetIAPOrderConsumeDetailsShort(params *GetIAPOrderConsumeDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPOrderConsumeDetailsOK, error) {
+func (a *Client) GetIAPOrderConsumeDetailsShort(params *GetIAPOrderConsumeDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPOrderConsumeDetailsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIAPOrderConsumeDetailsParams()
@@ -1752,7 +1938,12 @@ func (a *Client) GetIAPOrderConsumeDetailsShort(params *GetIAPOrderConsumeDetail
 	switch v := result.(type) {
 
 	case *GetIAPOrderConsumeDetailsOK:
-		return v, nil
+		response := &GetIAPOrderConsumeDetailsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1766,7 +1957,7 @@ Other detail info:
 
   * Returns : paginated iap orders
 */
-func (a *Client) QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPOrdersOK, error) {
+func (a *Client) QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPOrdersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserIAPOrdersParams()
@@ -1804,7 +1995,12 @@ func (a *Client) QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authI
 	switch v := result.(type) {
 
 	case *QueryUserIAPOrdersOK:
-		return v, nil
+		response := &QueryUserIAPOrdersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1818,7 +2014,7 @@ Other detail info:
 
   * Returns : list of iap orders
 */
-func (a *Client) QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAllUserIAPOrdersOK, error) {
+func (a *Client) QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAllUserIAPOrdersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryAllUserIAPOrdersParams()
@@ -1856,7 +2052,12 @@ func (a *Client) QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams,
 	switch v := result.(type) {
 
 	case *QueryAllUserIAPOrdersOK:
-		return v, nil
+		response := &QueryAllUserIAPOrdersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1870,7 +2071,7 @@ Other detail info:
 
   * Returns : paginated iap consume history
 */
-func (a *Client) QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPConsumeHistoryOK, error) {
+func (a *Client) QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPConsumeHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserIAPConsumeHistoryParams()
@@ -1908,7 +2109,12 @@ func (a *Client) QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHist
 	switch v := result.(type) {
 
 	case *QueryUserIAPConsumeHistoryOK:
-		return v, nil
+		response := &QueryUserIAPConsumeHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1921,7 +2127,7 @@ MockFulfillIAPItemShort mock fulfill iap item.
 
   * Returns :
 */
-func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*MockFulfillIAPItemNoContent, error) {
+func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*MockFulfillIAPItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewMockFulfillIAPItemParams()
@@ -1959,13 +2165,32 @@ func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authI
 	switch v := result.(type) {
 
 	case *MockFulfillIAPItemNoContent:
-		return v, nil
+		response := &MockFulfillIAPItemResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *MockFulfillIAPItemBadRequest:
-		return nil, v
+		response := &MockFulfillIAPItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MockFulfillIAPItemNotFound:
-		return nil, v
+		response := &MockFulfillIAPItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *MockFulfillIAPItemConflict:
-		return nil, v
+		response := &MockFulfillIAPItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1976,7 +2201,7 @@ func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authI
 GetAppleConfigVersionShort get apple config version
 Get apple config version.
 */
-func (a *Client) GetAppleConfigVersionShort(params *GetAppleConfigVersionParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleConfigVersionOK, error) {
+func (a *Client) GetAppleConfigVersionShort(params *GetAppleConfigVersionParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleConfigVersionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppleConfigVersionParams()
@@ -2014,9 +2239,19 @@ func (a *Client) GetAppleConfigVersionShort(params *GetAppleConfigVersionParams,
 	switch v := result.(type) {
 
 	case *GetAppleConfigVersionOK:
-		return v, nil
+		response := &GetAppleConfigVersionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAppleConfigVersionNotFound:
-		return nil, v
+		response := &GetAppleConfigVersionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2027,7 +2262,7 @@ func (a *Client) GetAppleConfigVersionShort(params *GetAppleConfigVersionParams,
 GetIAPItemMappingShort get iap item mapping
 Get iap item mapping.
 */
-func (a *Client) GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemMappingOK, error) {
+func (a *Client) GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemMappingResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetIAPItemMappingParams()
@@ -2065,9 +2300,19 @@ func (a *Client) GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInf
 	switch v := result.(type) {
 
 	case *GetIAPItemMappingOK:
-		return v, nil
+		response := &GetIAPItemMappingResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetIAPItemMappingNotFound:
-		return nil, v
+		response := &GetIAPItemMappingResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2078,7 +2323,7 @@ func (a *Client) GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInf
 SyncTwitchDropsEntitlementShort sync my game twitch drops entitlements.
 Sync my game twitch drops entitlements.
 */
-func (a *Client) SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlementOK, error) {
+func (a *Client) SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncTwitchDropsEntitlementParams()
@@ -2116,9 +2361,19 @@ func (a *Client) SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlem
 	switch v := result.(type) {
 
 	case *SyncTwitchDropsEntitlementOK:
-		return v, nil
+		response := &SyncTwitchDropsEntitlementResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncTwitchDropsEntitlementBadRequest:
-		return nil, v
+		response := &SyncTwitchDropsEntitlementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2130,7 +2385,7 @@ PublicFulfillAppleIAPItemShort fulfill apple iap item.
 Verify apple iap receipt and fulfill item. don't support subscriptionOther detail info:
   * Returns :
 */
-func (a *Client) PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillAppleIAPItemNoContent, error) {
+func (a *Client) PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillAppleIAPItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicFulfillAppleIAPItemParams()
@@ -2168,13 +2423,32 @@ func (a *Client) PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPIte
 	switch v := result.(type) {
 
 	case *PublicFulfillAppleIAPItemNoContent:
-		return v, nil
+		response := &PublicFulfillAppleIAPItemResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicFulfillAppleIAPItemBadRequest:
-		return nil, v
+		response := &PublicFulfillAppleIAPItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicFulfillAppleIAPItemNotFound:
-		return nil, v
+		response := &PublicFulfillAppleIAPItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicFulfillAppleIAPItemConflict:
-		return nil, v
+		response := &PublicFulfillAppleIAPItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2186,7 +2460,7 @@ SyncEpicGamesInventoryShort sync epic games inventory.
 Sync epic games inventory's items.Other detail info:
   * Returns :
 */
-func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGamesInventoryOK, error) {
+func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGamesInventoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncEpicGamesInventoryParams()
@@ -2224,11 +2498,26 @@ func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParam
 	switch v := result.(type) {
 
 	case *SyncEpicGamesInventoryOK:
-		return v, nil
+		response := &SyncEpicGamesInventoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncEpicGamesInventoryBadRequest:
-		return nil, v
+		response := &SyncEpicGamesInventoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncEpicGamesInventoryNotFound:
-		return nil, v
+		response := &SyncEpicGamesInventoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2240,7 +2529,7 @@ PublicFulfillGoogleIAPItemShort fulfill google iap item.
 Verify google iap receipt and fulfill item.Other detail info:
   * Returns :
 */
-func (a *Client) PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillGoogleIAPItemOK, error) {
+func (a *Client) PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillGoogleIAPItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicFulfillGoogleIAPItemParams()
@@ -2278,13 +2567,33 @@ func (a *Client) PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPI
 	switch v := result.(type) {
 
 	case *PublicFulfillGoogleIAPItemOK:
-		return v, nil
+		response := &PublicFulfillGoogleIAPItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicFulfillGoogleIAPItemBadRequest:
-		return nil, v
+		response := &PublicFulfillGoogleIAPItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicFulfillGoogleIAPItemNotFound:
-		return nil, v
+		response := &PublicFulfillGoogleIAPItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicFulfillGoogleIAPItemConflict:
-		return nil, v
+		response := &PublicFulfillGoogleIAPItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2296,7 +2605,7 @@ SyncOculusConsumableEntitlementsShort sync oculus entitlements.
 Sync Oculus entitlements.Other detail info:
   * Returns :
 */
-func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsumableEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusConsumableEntitlementsOK, error) {
+func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsumableEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusConsumableEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncOculusConsumableEntitlementsParams()
@@ -2334,11 +2643,26 @@ func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsuma
 	switch v := result.(type) {
 
 	case *SyncOculusConsumableEntitlementsOK:
-		return v, nil
+		response := &SyncOculusConsumableEntitlementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncOculusConsumableEntitlementsBadRequest:
-		return nil, v
+		response := &SyncOculusConsumableEntitlementsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncOculusConsumableEntitlementsNotFound:
-		return nil, v
+		response := &SyncOculusConsumableEntitlementsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2350,7 +2674,7 @@ PublicReconcilePlayStationStoreShort synchronize with entitlements in psn store.
 Synchronize with entitlements in PSN Store.Other detail info:
   * Returns : result of synchronization
 */
-func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePlayStationStoreParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreOK, error) {
+func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePlayStationStoreParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicReconcilePlayStationStoreParams()
@@ -2388,11 +2712,26 @@ func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePla
 	switch v := result.(type) {
 
 	case *PublicReconcilePlayStationStoreOK:
-		return v, nil
+		response := &PublicReconcilePlayStationStoreResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicReconcilePlayStationStoreBadRequest:
-		return nil, v
+		response := &PublicReconcilePlayStationStoreResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicReconcilePlayStationStoreNotFound:
-		return nil, v
+		response := &PublicReconcilePlayStationStoreResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2404,7 +2743,7 @@ PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort synchronize with e
 Synchronize with entitlements in PSN Store with multiple service labels.Other detail info:
   * Returns : result of synchronization
 */
-func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(params *PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK, error) {
+func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(params *PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreWithMultipleServiceLabelsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicReconcilePlayStationStoreWithMultipleServiceLabelsParams()
@@ -2442,11 +2781,26 @@ func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(p
 	switch v := result.(type) {
 
 	case *PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK:
-		return v, nil
+		response := &PublicReconcilePlayStationStoreWithMultipleServiceLabelsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicReconcilePlayStationStoreWithMultipleServiceLabelsBadRequest:
-		return nil, v
+		response := &PublicReconcilePlayStationStoreWithMultipleServiceLabelsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicReconcilePlayStationStoreWithMultipleServiceLabelsNotFound:
-		return nil, v
+		response := &PublicReconcilePlayStationStoreWithMultipleServiceLabelsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2458,7 +2812,7 @@ SyncSteamInventoryShort sync steam inventory.
 Sync steam inventory's items.Other detail info:
   * Returns :
 */
-func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamInventoryNoContent, error) {
+func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamInventoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncSteamInventoryParams()
@@ -2496,11 +2850,25 @@ func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authI
 	switch v := result.(type) {
 
 	case *SyncSteamInventoryNoContent:
-		return v, nil
+		response := &SyncSteamInventoryResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncSteamInventoryBadRequest:
-		return nil, v
+		response := &SyncSteamInventoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncSteamInventoryNotFound:
-		return nil, v
+		response := &SyncSteamInventoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2512,7 +2880,7 @@ SyncTwitchDropsEntitlement1Short sync twitch drops entitlements.
 Sync twitch drops entitlements.Other detail info:
   * Returns :
 */
-func (a *Client) SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitlement1Params, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlement1NoContent, error) {
+func (a *Client) SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitlement1Params, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlement1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncTwitchDropsEntitlement1Params()
@@ -2550,9 +2918,18 @@ func (a *Client) SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitle
 	switch v := result.(type) {
 
 	case *SyncTwitchDropsEntitlement1NoContent:
-		return v, nil
+		response := &SyncTwitchDropsEntitlement1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncTwitchDropsEntitlement1BadRequest:
-		return nil, v
+		response := &SyncTwitchDropsEntitlement1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2564,7 +2941,7 @@ SyncXboxInventoryShort sync xbox inventory.
 Sync Xbox inventory's items.Other detail info:
   * Returns :
 */
-func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxInventoryOK, error) {
+func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxInventoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncXboxInventoryParams()
@@ -2602,11 +2979,26 @@ func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInf
 	switch v := result.(type) {
 
 	case *SyncXboxInventoryOK:
-		return v, nil
+		response := &SyncXboxInventoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncXboxInventoryBadRequest:
-		return nil, v
+		response := &SyncXboxInventoryResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncXboxInventoryNotFound:
-		return nil, v
+		response := &SyncXboxInventoryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2618,7 +3010,7 @@ V2PublicFulfillAppleIAPItemShort fulfill apple iap item v2.
 Verify apple iap transaction and fulfill item, support subscriptionOther detail info:
   * Returns :
 */
-func (a *Client) V2PublicFulfillAppleIAPItemShort(params *V2PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*V2PublicFulfillAppleIAPItemNoContent, error) {
+func (a *Client) V2PublicFulfillAppleIAPItemShort(params *V2PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*V2PublicFulfillAppleIAPItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewV2PublicFulfillAppleIAPItemParams()
@@ -2656,13 +3048,32 @@ func (a *Client) V2PublicFulfillAppleIAPItemShort(params *V2PublicFulfillAppleIA
 	switch v := result.(type) {
 
 	case *V2PublicFulfillAppleIAPItemNoContent:
-		return v, nil
+		response := &V2PublicFulfillAppleIAPItemResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *V2PublicFulfillAppleIAPItemBadRequest:
-		return nil, v
+		response := &V2PublicFulfillAppleIAPItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *V2PublicFulfillAppleIAPItemNotFound:
-		return nil, v
+		response := &V2PublicFulfillAppleIAPItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *V2PublicFulfillAppleIAPItemConflict:
-		return nil, v
+		response := &V2PublicFulfillAppleIAPItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

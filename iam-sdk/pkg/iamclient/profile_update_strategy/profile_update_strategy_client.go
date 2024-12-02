@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetProfileUpdateStrategyV3Short(params *AdminGetProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetProfileUpdateStrategyV3OK, error)
-	AdminUpdateProfileUpdateStrategyV3Short(params *AdminUpdateProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateProfileUpdateStrategyV3OK, error)
-	PublicGetProfileUpdateStrategyV3Short(params *PublicGetProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileUpdateStrategyV3OK, error)
+	AdminGetProfileUpdateStrategyV3Short(params *AdminGetProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetProfileUpdateStrategyV3Response, error)
+	AdminUpdateProfileUpdateStrategyV3Short(params *AdminUpdateProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateProfileUpdateStrategyV3Response, error)
+	PublicGetProfileUpdateStrategyV3Short(params *PublicGetProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileUpdateStrategyV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ AdminGetProfileUpdateStrategyV3Short admin get profile update strategy by namesp
 This API is for admin to get profile update strategy by namespace and field.
 Note: If the config is not found, this API will return a config with unlimited.
 */
-func (a *Client) AdminGetProfileUpdateStrategyV3Short(params *AdminGetProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetProfileUpdateStrategyV3OK, error) {
+func (a *Client) AdminGetProfileUpdateStrategyV3Short(params *AdminGetProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetProfileUpdateStrategyV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetProfileUpdateStrategyV3Params()
@@ -80,15 +80,40 @@ func (a *Client) AdminGetProfileUpdateStrategyV3Short(params *AdminGetProfileUpd
 	switch v := result.(type) {
 
 	case *AdminGetProfileUpdateStrategyV3OK:
-		return v, nil
+		response := &AdminGetProfileUpdateStrategyV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetProfileUpdateStrategyV3BadRequest:
-		return nil, v
+		response := &AdminGetProfileUpdateStrategyV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetProfileUpdateStrategyV3Unauthorized:
-		return nil, v
+		response := &AdminGetProfileUpdateStrategyV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetProfileUpdateStrategyV3Forbidden:
-		return nil, v
+		response := &AdminGetProfileUpdateStrategyV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetProfileUpdateStrategyV3InternalServerError:
-		return nil, v
+		response := &AdminGetProfileUpdateStrategyV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -101,7 +126,7 @@ This API includes upsert behavior.
 Note:
 1. field 'config'' in request body will only work when type is limited
 */
-func (a *Client) AdminUpdateProfileUpdateStrategyV3Short(params *AdminUpdateProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateProfileUpdateStrategyV3OK, error) {
+func (a *Client) AdminUpdateProfileUpdateStrategyV3Short(params *AdminUpdateProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateProfileUpdateStrategyV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateProfileUpdateStrategyV3Params()
@@ -139,15 +164,40 @@ func (a *Client) AdminUpdateProfileUpdateStrategyV3Short(params *AdminUpdateProf
 	switch v := result.(type) {
 
 	case *AdminUpdateProfileUpdateStrategyV3OK:
-		return v, nil
+		response := &AdminUpdateProfileUpdateStrategyV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateProfileUpdateStrategyV3BadRequest:
-		return nil, v
+		response := &AdminUpdateProfileUpdateStrategyV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateProfileUpdateStrategyV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateProfileUpdateStrategyV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateProfileUpdateStrategyV3Forbidden:
-		return nil, v
+		response := &AdminUpdateProfileUpdateStrategyV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateProfileUpdateStrategyV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateProfileUpdateStrategyV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,7 +209,7 @@ PublicGetProfileUpdateStrategyV3Short public get profile update strategy by name
 This API is for public user to get profile update strategy by namespace and field.
 Note: If the config is not found, this API will return a config with unlimited.
 */
-func (a *Client) PublicGetProfileUpdateStrategyV3Short(params *PublicGetProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileUpdateStrategyV3OK, error) {
+func (a *Client) PublicGetProfileUpdateStrategyV3Short(params *PublicGetProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetProfileUpdateStrategyV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetProfileUpdateStrategyV3Params()
@@ -197,15 +247,40 @@ func (a *Client) PublicGetProfileUpdateStrategyV3Short(params *PublicGetProfileU
 	switch v := result.(type) {
 
 	case *PublicGetProfileUpdateStrategyV3OK:
-		return v, nil
+		response := &PublicGetProfileUpdateStrategyV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetProfileUpdateStrategyV3BadRequest:
-		return nil, v
+		response := &PublicGetProfileUpdateStrategyV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileUpdateStrategyV3Unauthorized:
-		return nil, v
+		response := &PublicGetProfileUpdateStrategyV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileUpdateStrategyV3Forbidden:
-		return nil, v
+		response := &PublicGetProfileUpdateStrategyV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetProfileUpdateStrategyV3InternalServerError:
-		return nil, v
+		response := &PublicGetProfileUpdateStrategyV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

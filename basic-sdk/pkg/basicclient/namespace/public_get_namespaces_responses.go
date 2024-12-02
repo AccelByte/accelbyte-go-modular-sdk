@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 )
 
+type PublicGetNamespacesResponse struct {
+	basicclientmodels.ApiResponse
+	Data []*basicclientmodels.NamespaceInfo
+
+	Error401 *basicclientmodels.ErrorEntity
+}
+
+func (m *PublicGetNamespacesResponse) Unpack() ([]*basicclientmodels.NamespaceInfo, *basicclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &basicclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetNamespacesReader is a Reader for the PublicGetNamespaces structure.
 type PublicGetNamespacesReader struct {
 	formats strfmt.Registry

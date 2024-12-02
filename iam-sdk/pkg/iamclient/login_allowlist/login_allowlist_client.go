@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetLoginAllowlistV3Short(params *AdminGetLoginAllowlistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLoginAllowlistV3OK, error)
-	AdminUpdateLoginAllowlistV3Short(params *AdminUpdateLoginAllowlistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateLoginAllowlistV3NoContent, error)
+	AdminGetLoginAllowlistV3Short(params *AdminGetLoginAllowlistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLoginAllowlistV3Response, error)
+	AdminUpdateLoginAllowlistV3Short(params *AdminUpdateLoginAllowlistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateLoginAllowlistV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -40,7 +40,7 @@ type ClientService interface {
 AdminGetLoginAllowlistV3Short admin get login allowlist
 This endpoint return login allowlist configuration from specific namespace.
 */
-func (a *Client) AdminGetLoginAllowlistV3Short(params *AdminGetLoginAllowlistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLoginAllowlistV3OK, error) {
+func (a *Client) AdminGetLoginAllowlistV3Short(params *AdminGetLoginAllowlistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetLoginAllowlistV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetLoginAllowlistV3Params()
@@ -78,13 +78,33 @@ func (a *Client) AdminGetLoginAllowlistV3Short(params *AdminGetLoginAllowlistV3P
 	switch v := result.(type) {
 
 	case *AdminGetLoginAllowlistV3OK:
-		return v, nil
+		response := &AdminGetLoginAllowlistV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetLoginAllowlistV3Unauthorized:
-		return nil, v
+		response := &AdminGetLoginAllowlistV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetLoginAllowlistV3Forbidden:
-		return nil, v
+		response := &AdminGetLoginAllowlistV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetLoginAllowlistV3InternalServerError:
-		return nil, v
+		response := &AdminGetLoginAllowlistV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +117,7 @@ This endpoint update login allowlist configuration from specific game namespace.
 roleIds: are list of role that allowed to login
 Note: only accept game namespace
 */
-func (a *Client) AdminUpdateLoginAllowlistV3Short(params *AdminUpdateLoginAllowlistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateLoginAllowlistV3NoContent, error) {
+func (a *Client) AdminUpdateLoginAllowlistV3Short(params *AdminUpdateLoginAllowlistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateLoginAllowlistV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateLoginAllowlistV3Params()
@@ -135,15 +155,40 @@ func (a *Client) AdminUpdateLoginAllowlistV3Short(params *AdminUpdateLoginAllowl
 	switch v := result.(type) {
 
 	case *AdminUpdateLoginAllowlistV3NoContent:
-		return v, nil
+		response := &AdminUpdateLoginAllowlistV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateLoginAllowlistV3BadRequest:
-		return nil, v
+		response := &AdminUpdateLoginAllowlistV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateLoginAllowlistV3Unauthorized:
-		return nil, v
+		response := &AdminUpdateLoginAllowlistV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateLoginAllowlistV3Forbidden:
-		return nil, v
+		response := &AdminUpdateLoginAllowlistV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateLoginAllowlistV3InternalServerError:
-		return nil, v
+		response := &AdminUpdateLoginAllowlistV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

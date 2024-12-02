@@ -19,6 +19,53 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 )
 
+type AdminDeleteGoalResponse struct {
+	challengeclientmodels.ApiResponse
+
+	Error400 *challengeclientmodels.ResponseError
+	Error404 *challengeclientmodels.ResponseError
+	Error500 *challengeclientmodels.ResponseError
+}
+
+func (m *AdminDeleteGoalResponse) Unpack() *challengeclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &challengeclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminDeleteGoalReader is a Reader for the AdminDeleteGoal structure.
 type AdminDeleteGoalReader struct {
 	formats strfmt.Registry

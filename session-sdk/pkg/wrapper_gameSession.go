@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/game_session"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 type GameSessionService struct {
@@ -37,7 +36,7 @@ func (aaa *GameSessionService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *GameSessionService) AdminQueryGameSessionsShort(input *game_session.AdminQueryGameSessionsParams) (*sessionclientmodels.ApimodelsGameSessionQueryResponse, error) {
+func (aaa *GameSessionService) AdminQueryGameSessionsShort(input *game_session.AdminQueryGameSessionsParams) (*game_session.AdminQueryGameSessionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *GameSessionService) AdminQueryGameSessionsShort(input *game_session.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) AdminQueryGameSessionsByAttributesShort(input *game_session.AdminQueryGameSessionsByAttributesParams) (*sessionclientmodels.ApimodelsGameSessionQueryResponse, error) {
+func (aaa *GameSessionService) AdminQueryGameSessionsByAttributesShort(input *game_session.AdminQueryGameSessionsByAttributesParams) (*game_session.AdminQueryGameSessionsByAttributesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *GameSessionService) AdminQueryGameSessionsByAttributesShort(input *ga
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) AdminDeleteBulkGameSessionsShort(input *game_session.AdminDeleteBulkGameSessionsParams) (*sessionclientmodels.ApimodelsDeleteBulkGameSessionsAPIResponse, error) {
+func (aaa *GameSessionService) AdminDeleteBulkGameSessionsShort(input *game_session.AdminDeleteBulkGameSessionsParams) (*game_session.AdminDeleteBulkGameSessionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *GameSessionService) AdminDeleteBulkGameSessionsShort(input *game_sess
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GameSessionService) AdminSetDSReadyShort(input *game_session.AdminSetDSReadyParams) error {
@@ -187,7 +186,7 @@ func (aaa *GameSessionService) AdminKickGameSessionMemberShort(input *game_sessi
 	return nil
 }
 
-func (aaa *GameSessionService) AdminUpdateGameSessionMemberShort(input *game_session.AdminUpdateGameSessionMemberParams) (*sessionclientmodels.ApimodelsUpdateGameSessionMemberStatusResponse, error) {
+func (aaa *GameSessionService) AdminUpdateGameSessionMemberShort(input *game_session.AdminUpdateGameSessionMemberParams) (*game_session.AdminUpdateGameSessionMemberResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *GameSessionService) AdminUpdateGameSessionMemberShort(input *game_ses
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) CreateGameSessionShort(input *game_session.CreateGameSessionParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) CreateGameSessionShort(input *game_session.CreateGameSessionParams) (*game_session.CreateGameSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *GameSessionService) CreateGameSessionShort(input *game_session.Create
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *GameSessionService) PublicQueryGameSessionsByAttributesShort(input *game_session.PublicQueryGameSessionsByAttributesParams) (*sessionclientmodels.ApimodelsGameSessionQueryResponse, error) {
+func (aaa *GameSessionService) PublicQueryGameSessionsByAttributesShort(input *game_session.PublicQueryGameSessionsByAttributesParams) (*game_session.PublicQueryGameSessionsByAttributesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *GameSessionService) PublicQueryGameSessionsByAttributesShort(input *g
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) PublicSessionJoinCodeShort(input *game_session.PublicSessionJoinCodeParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) PublicSessionJoinCodeShort(input *game_session.PublicSessionJoinCodeParams) (*game_session.PublicSessionJoinCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *GameSessionService) PublicSessionJoinCodeShort(input *game_session.Pu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) GetGameSessionByPodNameShort(input *game_session.GetGameSessionByPodNameParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) GetGameSessionByPodNameShort(input *game_session.GetGameSessionByPodNameParams) (*game_session.GetGameSessionByPodNameResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *GameSessionService) GetGameSessionByPodNameShort(input *game_session.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) GetGameSessionShort(input *game_session.GetGameSessionParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) GetGameSessionShort(input *game_session.GetGameSessionParams) (*game_session.GetGameSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *GameSessionService) GetGameSessionShort(input *game_session.GetGameSe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) UpdateGameSessionShort(input *game_session.UpdateGameSessionParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) UpdateGameSessionShort(input *game_session.UpdateGameSessionParams) (*game_session.UpdateGameSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,7 +393,7 @@ func (aaa *GameSessionService) UpdateGameSessionShort(input *game_session.Update
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GameSessionService) DeleteGameSessionShort(input *game_session.DeleteGameSessionParams) error {
@@ -427,7 +426,7 @@ func (aaa *GameSessionService) DeleteGameSessionShort(input *game_session.Delete
 	return nil
 }
 
-func (aaa *GameSessionService) PatchUpdateGameSessionShort(input *game_session.PatchUpdateGameSessionParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) PatchUpdateGameSessionShort(input *game_session.PatchUpdateGameSessionParams) (*game_session.PatchUpdateGameSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *GameSessionService) PatchUpdateGameSessionShort(input *game_session.P
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) UpdateGameSessionBackfillTicketIDShort(input *game_session.UpdateGameSessionBackfillTicketIDParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) UpdateGameSessionBackfillTicketIDShort(input *game_session.UpdateGameSessionBackfillTicketIDParams) (*game_session.UpdateGameSessionBackfillTicketIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,10 +483,10 @@ func (aaa *GameSessionService) UpdateGameSessionBackfillTicketIDShort(input *gam
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) GameSessionGenerateCodeShort(input *game_session.GameSessionGenerateCodeParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) GameSessionGenerateCodeShort(input *game_session.GameSessionGenerateCodeParams) (*game_session.GameSessionGenerateCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,7 +513,7 @@ func (aaa *GameSessionService) GameSessionGenerateCodeShort(input *game_session.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GameSessionService) PublicRevokeGameSessionCodeShort(input *game_session.PublicRevokeGameSessionCodeParams) error {
@@ -577,7 +576,7 @@ func (aaa *GameSessionService) PublicGameSessionInviteShort(input *game_session.
 	return nil
 }
 
-func (aaa *GameSessionService) JoinGameSessionShort(input *game_session.JoinGameSessionParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) JoinGameSessionShort(input *game_session.JoinGameSessionParams) (*game_session.JoinGameSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -604,10 +603,10 @@ func (aaa *GameSessionService) JoinGameSessionShort(input *game_session.JoinGame
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) PublicPromoteGameSessionLeaderShort(input *game_session.PublicPromoteGameSessionLeaderParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) PublicPromoteGameSessionLeaderShort(input *game_session.PublicPromoteGameSessionLeaderParams) (*game_session.PublicPromoteGameSessionLeaderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -634,7 +633,7 @@ func (aaa *GameSessionService) PublicPromoteGameSessionLeaderShort(input *game_s
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GameSessionService) LeaveGameSessionShort(input *game_session.LeaveGameSessionParams) error {
@@ -727,7 +726,7 @@ func (aaa *GameSessionService) PublicGameSessionRejectShort(input *game_session.
 	return nil
 }
 
-func (aaa *GameSessionService) GetSessionServerSecretShort(input *game_session.GetSessionServerSecretParams) (*sessionclientmodels.ApimodelsServerSecret, error) {
+func (aaa *GameSessionService) GetSessionServerSecretShort(input *game_session.GetSessionServerSecretParams) (*game_session.GetSessionServerSecretResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -754,10 +753,10 @@ func (aaa *GameSessionService) GetSessionServerSecretShort(input *game_session.G
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GameSessionService) AppendTeamGameSessionShort(input *game_session.AppendTeamGameSessionParams) (*sessionclientmodels.ApimodelsGameSessionResponse, error) {
+func (aaa *GameSessionService) AppendTeamGameSessionShort(input *game_session.AppendTeamGameSessionParams) (*game_session.AppendTeamGameSessionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -784,7 +783,7 @@ func (aaa *GameSessionService) AppendTeamGameSessionShort(input *game_session.Ap
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GameSessionService) PublicGameSessionCancelShort(input *game_session.PublicGameSessionCancelParams) error {
@@ -817,7 +816,7 @@ func (aaa *GameSessionService) PublicGameSessionCancelShort(input *game_session.
 	return nil
 }
 
-func (aaa *GameSessionService) PublicQueryMyGameSessionsShort(input *game_session.PublicQueryMyGameSessionsParams) (*sessionclientmodels.ApimodelsGameSessionQueryResponse, error) {
+func (aaa *GameSessionService) PublicQueryMyGameSessionsShort(input *game_session.PublicQueryMyGameSessionsParams) (*game_session.PublicQueryMyGameSessionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -844,5 +843,5 @@ func (aaa *GameSessionService) PublicQueryMyGameSessionsShort(input *game_sessio
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

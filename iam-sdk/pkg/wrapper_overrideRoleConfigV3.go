@@ -9,7 +9,6 @@ package iam
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/override_role_config_v3"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *OverrideRoleConfigv3Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *OverrideRoleConfigv3Service) AdminGetRoleOverrideConfigV3Short(input *override_role_config_v3.AdminGetRoleOverrideConfigV3Params) (*iamclientmodels.ModelRoleOverrideResponse, error) {
+func (aaa *OverrideRoleConfigv3Service) AdminGetRoleOverrideConfigV3Short(input *override_role_config_v3.AdminGetRoleOverrideConfigV3Params) (*override_role_config_v3.AdminGetRoleOverrideConfigV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleOverrideConfigV3Short(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OverrideRoleConfigv3Service) AdminUpdateRoleOverrideConfigV3Short(input *override_role_config_v3.AdminUpdateRoleOverrideConfigV3Params) (*iamclientmodels.ModelRoleOverrideResponse, error) {
+func (aaa *OverrideRoleConfigv3Service) AdminUpdateRoleOverrideConfigV3Short(input *override_role_config_v3.AdminUpdateRoleOverrideConfigV3Params) (*override_role_config_v3.AdminUpdateRoleOverrideConfigV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminUpdateRoleOverrideConfigV3Short(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OverrideRoleConfigv3Service) AdminGetRoleSourceV3Short(input *override_role_config_v3.AdminGetRoleSourceV3Params) (*iamclientmodels.ModelRoleOverrideSourceResponse, error) {
+func (aaa *OverrideRoleConfigv3Service) AdminGetRoleSourceV3Short(input *override_role_config_v3.AdminGetRoleSourceV3Params) (*override_role_config_v3.AdminGetRoleSourceV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleSourceV3Short(input *overrid
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OverrideRoleConfigv3Service) AdminChangeRoleOverrideConfigStatusV3Short(input *override_role_config_v3.AdminChangeRoleOverrideConfigStatusV3Params) (*iamclientmodels.ModelRoleOverrideResponse, error) {
+func (aaa *OverrideRoleConfigv3Service) AdminChangeRoleOverrideConfigStatusV3Short(input *override_role_config_v3.AdminChangeRoleOverrideConfigStatusV3Params) (*override_role_config_v3.AdminChangeRoleOverrideConfigStatusV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminChangeRoleOverrideConfigStatusV3Sho
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OverrideRoleConfigv3Service) AdminGetRoleNamespacePermissionV3Short(input *override_role_config_v3.AdminGetRoleNamespacePermissionV3Params) (*iamclientmodels.ModelRolePermissionResponseV3, error) {
+func (aaa *OverrideRoleConfigv3Service) AdminGetRoleNamespacePermissionV3Short(input *override_role_config_v3.AdminGetRoleNamespacePermissionV3Params) (*override_role_config_v3.AdminGetRoleNamespacePermissionV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,5 +183,5 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleNamespacePermissionV3Short(i
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

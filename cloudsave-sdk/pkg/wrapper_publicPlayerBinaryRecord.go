@@ -9,7 +9,6 @@ package cloudsave
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/public_player_binary_record"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PublicPlayerBinaryRecordService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicPlayerBinaryRecordService) BulkGetPlayerPublicBinaryRecordsV1Short(input *public_player_binary_record.BulkGetPlayerPublicBinaryRecordsV1Params) (*cloudsaveclientmodels.ModelsBulkGetPlayerBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) BulkGetPlayerPublicBinaryRecordsV1Short(input *public_player_binary_record.BulkGetPlayerPublicBinaryRecordsV1Params) (*public_player_binary_record.BulkGetPlayerPublicBinaryRecordsV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetPlayerPublicBinaryRecordsV1Sh
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) ListMyBinaryRecordsV1Short(input *public_player_binary_record.ListMyBinaryRecordsV1Params) (*cloudsaveclientmodels.ModelsListPlayerBinaryRecordsResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) ListMyBinaryRecordsV1Short(input *public_player_binary_record.ListMyBinaryRecordsV1Params) (*public_player_binary_record.ListMyBinaryRecordsV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *PublicPlayerBinaryRecordService) ListMyBinaryRecordsV1Short(input *pu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) BulkGetMyBinaryRecordV1Short(input *public_player_binary_record.BulkGetMyBinaryRecordV1Params) (*cloudsaveclientmodels.ModelsBulkGetPlayerBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) BulkGetMyBinaryRecordV1Short(input *public_player_binary_record.BulkGetMyBinaryRecordV1Params) (*public_player_binary_record.BulkGetMyBinaryRecordV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetMyBinaryRecordV1Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryRecordV1Short(input *public_player_binary_record.PostPlayerBinaryRecordV1Params) (*cloudsaveclientmodels.ModelsUploadBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryRecordV1Short(input *public_player_binary_record.PostPlayerBinaryRecordV1Params) (*public_player_binary_record.PostPlayerBinaryRecordV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryRecordV1Short(input 
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) ListOtherPlayerPublicBinaryRecordsV1Short(input *public_player_binary_record.ListOtherPlayerPublicBinaryRecordsV1Params) (*cloudsaveclientmodels.ModelsListPlayerBinaryRecordsResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) ListOtherPlayerPublicBinaryRecordsV1Short(input *public_player_binary_record.ListOtherPlayerPublicBinaryRecordsV1Params) (*public_player_binary_record.ListOtherPlayerPublicBinaryRecordsV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *PublicPlayerBinaryRecordService) ListOtherPlayerPublicBinaryRecordsV1
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) BulkGetOtherPlayerPublicBinaryRecordsV1Short(input *public_player_binary_record.BulkGetOtherPlayerPublicBinaryRecordsV1Params) (*cloudsaveclientmodels.ModelsBulkGetPlayerBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) BulkGetOtherPlayerPublicBinaryRecordsV1Short(input *public_player_binary_record.BulkGetOtherPlayerPublicBinaryRecordsV1Params) (*public_player_binary_record.BulkGetOtherPlayerPublicBinaryRecordsV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetOtherPlayerPublicBinaryRecord
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) GetPlayerBinaryRecordV1Short(input *public_player_binary_record.GetPlayerBinaryRecordV1Params) (*cloudsaveclientmodels.ModelsPlayerBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) GetPlayerBinaryRecordV1Short(input *public_player_binary_record.GetPlayerBinaryRecordV1Params) (*public_player_binary_record.GetPlayerBinaryRecordV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *PublicPlayerBinaryRecordService) GetPlayerBinaryRecordV1Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecordV1Short(input *public_player_binary_record.PutPlayerBinaryRecordV1Params) (*cloudsaveclientmodels.ModelsPlayerBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecordV1Short(input *public_player_binary_record.PutPlayerBinaryRecordV1Params) (*public_player_binary_record.PutPlayerBinaryRecordV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,7 +273,7 @@ func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecordV1Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PublicPlayerBinaryRecordService) DeletePlayerBinaryRecordV1Short(input *public_player_binary_record.DeletePlayerBinaryRecordV1Params) error {
@@ -307,7 +306,7 @@ func (aaa *PublicPlayerBinaryRecordService) DeletePlayerBinaryRecordV1Short(inpu
 	return nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecorMetadataV1Short(input *public_player_binary_record.PutPlayerBinaryRecorMetadataV1Params) (*cloudsaveclientmodels.ModelsPlayerBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecorMetadataV1Short(input *public_player_binary_record.PutPlayerBinaryRecorMetadataV1Params) (*public_player_binary_record.PutPlayerBinaryRecorMetadataV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecorMetadataV1Short(
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryPresignedURLV1Short(input *public_player_binary_record.PostPlayerBinaryPresignedURLV1Params) (*cloudsaveclientmodels.ModelsUploadBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryPresignedURLV1Short(input *public_player_binary_record.PostPlayerBinaryPresignedURLV1Params) (*public_player_binary_record.PostPlayerBinaryPresignedURLV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryPresignedURLV1Short(
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PublicPlayerBinaryRecordService) GetPlayerPublicBinaryRecordsV1Short(input *public_player_binary_record.GetPlayerPublicBinaryRecordsV1Params) (*cloudsaveclientmodels.ModelsPlayerBinaryRecordResponse, error) {
+func (aaa *PublicPlayerBinaryRecordService) GetPlayerPublicBinaryRecordsV1Short(input *public_player_binary_record.GetPlayerPublicBinaryRecordsV1Params) (*public_player_binary_record.GetPlayerPublicBinaryRecordsV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,5 +393,5 @@ func (aaa *PublicPlayerBinaryRecordService) GetPlayerPublicBinaryRecordsV1Short(
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

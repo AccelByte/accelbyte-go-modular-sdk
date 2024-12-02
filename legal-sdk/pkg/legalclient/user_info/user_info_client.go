@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserInfoStatusShort(params *GetUserInfoStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserInfoStatusOK, error)
-	SyncUserInfoShort(params *SyncUserInfoParams, authInfo runtime.ClientAuthInfoWriter) (*SyncUserInfoOK, error)
-	InvalidateUserInfoCacheShort(params *InvalidateUserInfoCacheParams, authInfo runtime.ClientAuthInfoWriter) (*InvalidateUserInfoCacheNoContent, error)
+	GetUserInfoStatusShort(params *GetUserInfoStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserInfoStatusResponse, error)
+	SyncUserInfoShort(params *SyncUserInfoParams, authInfo runtime.ClientAuthInfoWriter) (*SyncUserInfoResponse, error)
+	InvalidateUserInfoCacheShort(params *InvalidateUserInfoCacheParams, authInfo runtime.ClientAuthInfoWriter) (*InvalidateUserInfoCacheResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ Get user info cache last updated time per namespace.
 The query parameter namespaces can be a list of namespace separated by comma.
 If query parameter namespaces is empty, user info cache status for all available namespaces will be returned.
 */
-func (a *Client) GetUserInfoStatusShort(params *GetUserInfoStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserInfoStatusOK, error) {
+func (a *Client) GetUserInfoStatusShort(params *GetUserInfoStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserInfoStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetUserInfoStatusParams()
@@ -81,7 +81,12 @@ func (a *Client) GetUserInfoStatusShort(params *GetUserInfoStatusParams, authInf
 	switch v := result.(type) {
 
 	case *GetUserInfoStatusOK:
-		return v, nil
+		response := &GetUserInfoStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -92,7 +97,7 @@ func (a *Client) GetUserInfoStatusShort(params *GetUserInfoStatusParams, authInf
 SyncUserInfoShort sync user info with iam service
 Sync user info cache in agreement service with iam service.
 */
-func (a *Client) SyncUserInfoShort(params *SyncUserInfoParams, authInfo runtime.ClientAuthInfoWriter) (*SyncUserInfoOK, error) {
+func (a *Client) SyncUserInfoShort(params *SyncUserInfoParams, authInfo runtime.ClientAuthInfoWriter) (*SyncUserInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncUserInfoParams()
@@ -130,7 +135,11 @@ func (a *Client) SyncUserInfoShort(params *SyncUserInfoParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *SyncUserInfoOK:
-		return v, nil
+		response := &SyncUserInfoResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -141,7 +150,7 @@ func (a *Client) SyncUserInfoShort(params *SyncUserInfoParams, authInfo runtime.
 InvalidateUserInfoCacheShort invalidate user info cache
 Invalidate user info cache in agreement service.
 */
-func (a *Client) InvalidateUserInfoCacheShort(params *InvalidateUserInfoCacheParams, authInfo runtime.ClientAuthInfoWriter) (*InvalidateUserInfoCacheNoContent, error) {
+func (a *Client) InvalidateUserInfoCacheShort(params *InvalidateUserInfoCacheParams, authInfo runtime.ClientAuthInfoWriter) (*InvalidateUserInfoCacheResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewInvalidateUserInfoCacheParams()
@@ -179,7 +188,11 @@ func (a *Client) InvalidateUserInfoCacheShort(params *InvalidateUserInfoCachePar
 	switch v := result.(type) {
 
 	case *InvalidateUserInfoCacheNoContent:
-		return v, nil
+		response := &InvalidateUserInfoCacheResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

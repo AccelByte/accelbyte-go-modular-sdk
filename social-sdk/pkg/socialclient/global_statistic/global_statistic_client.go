@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemsOK, error)
-	GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemByStatCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCodeOK, error)
-	GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItems1OK, error)
-	GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemByStatCode1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCode1OK, error)
+	GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemsResponse, error)
+	GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemByStatCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCodeResponse, error)
+	GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItems1Response, error)
+	GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemByStatCode1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCode1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 GetGlobalStatItemsShort list global statitems
 List global statItems by pagination.
 */
-func (a *Client) GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemsOK, error) {
+func (a *Client) GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGlobalStatItemsParams()
@@ -80,13 +80,33 @@ func (a *Client) GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authI
 	switch v := result.(type) {
 
 	case *GetGlobalStatItemsOK:
-		return v, nil
+		response := &GetGlobalStatItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGlobalStatItemsUnauthorized:
-		return nil, v
+		response := &GetGlobalStatItemsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItemsForbidden:
-		return nil, v
+		response := &GetGlobalStatItemsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItemsInternalServerError:
-		return nil, v
+		response := &GetGlobalStatItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -99,7 +119,7 @@ Get global statItem by stat code.
 Other detail info:
         *  Returns : global stat item
 */
-func (a *Client) GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemByStatCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCodeOK, error) {
+func (a *Client) GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemByStatCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGlobalStatItemByStatCodeParams()
@@ -137,15 +157,40 @@ func (a *Client) GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemBySta
 	switch v := result.(type) {
 
 	case *GetGlobalStatItemByStatCodeOK:
-		return v, nil
+		response := &GetGlobalStatItemByStatCodeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGlobalStatItemByStatCodeUnauthorized:
-		return nil, v
+		response := &GetGlobalStatItemByStatCodeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItemByStatCodeForbidden:
-		return nil, v
+		response := &GetGlobalStatItemByStatCodeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItemByStatCodeNotFound:
-		return nil, v
+		response := &GetGlobalStatItemByStatCodeResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItemByStatCodeInternalServerError:
-		return nil, v
+		response := &GetGlobalStatItemByStatCodeResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -158,7 +203,7 @@ List global statItems by pagination.
 Other detail info:
         *  Returns : stat items
 */
-func (a *Client) GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItems1OK, error) {
+func (a *Client) GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItems1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGlobalStatItems1Params()
@@ -196,13 +241,33 @@ func (a *Client) GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, aut
 	switch v := result.(type) {
 
 	case *GetGlobalStatItems1OK:
-		return v, nil
+		response := &GetGlobalStatItems1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGlobalStatItems1Unauthorized:
-		return nil, v
+		response := &GetGlobalStatItems1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItems1Forbidden:
-		return nil, v
+		response := &GetGlobalStatItems1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItems1InternalServerError:
-		return nil, v
+		response := &GetGlobalStatItems1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -215,7 +280,7 @@ Get global statItem by stat code.
 Other detail info:
         *  Returns : global stat item
 */
-func (a *Client) GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemByStatCode1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCode1OK, error) {
+func (a *Client) GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemByStatCode1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCode1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGlobalStatItemByStatCode1Params()
@@ -253,15 +318,40 @@ func (a *Client) GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemBySt
 	switch v := result.(type) {
 
 	case *GetGlobalStatItemByStatCode1OK:
-		return v, nil
+		response := &GetGlobalStatItemByStatCode1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGlobalStatItemByStatCode1Unauthorized:
-		return nil, v
+		response := &GetGlobalStatItemByStatCode1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItemByStatCode1Forbidden:
-		return nil, v
+		response := &GetGlobalStatItemByStatCode1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItemByStatCode1NotFound:
-		return nil, v
+		response := &GetGlobalStatItemByStatCode1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGlobalStatItemByStatCode1InternalServerError:
-		return nil, v
+		response := &GetGlobalStatItemByStatCode1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

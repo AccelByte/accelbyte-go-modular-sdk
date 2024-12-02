@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 )
 
+type GetResourcesLimitsResponse struct {
+	csmclientmodels.ApiResponse
+	Data *csmclientmodels.ApimodelCSMAppLimitsResponse
+
+	Error401 *csmclientmodels.ResponseErrorResponse
+	Error402 *csmclientmodels.ResponseErrorResponse
+	Error403 *csmclientmodels.ResponseErrorResponse
+	Error500 *csmclientmodels.ResponseErrorResponse
+}
+
+func (m *GetResourcesLimitsResponse) Unpack() (*csmclientmodels.ApimodelCSMAppLimitsResponse, *csmclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 402:
+			e, err := m.Error402.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &csmclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetResourcesLimitsReader is a Reader for the GetResourcesLimits structure.
 type GetResourcesLimitsReader struct {
 	formats strfmt.Registry

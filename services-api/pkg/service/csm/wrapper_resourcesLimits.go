@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/resources_limits"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ResourcesLimitsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ResourcesLimitsService) GetResourcesLimitsShort(input *resources_limits.GetResourcesLimitsParams) (*csmclientmodels.ApimodelCSMAppLimitsResponse, error) {
+func (aaa *ResourcesLimitsService) GetResourcesLimitsShort(input *resources_limits.GetResourcesLimitsParams) (*resources_limits.GetResourcesLimitsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,5 +65,5 @@ func (aaa *ResourcesLimitsService) GetResourcesLimitsShort(input *resources_limi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

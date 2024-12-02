@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListCurrenciesShort(params *ListCurrenciesParams, authInfo runtime.ClientAuthInfoWriter) (*ListCurrenciesOK, error)
-	CreateCurrencyShort(params *CreateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCurrencyOK, error)
-	UpdateCurrencyShort(params *UpdateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCurrencyOK, error)
-	DeleteCurrencyShort(params *DeleteCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCurrencyOK, error)
-	GetCurrencyConfigShort(params *GetCurrencyConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencyConfigOK, error)
-	GetCurrencySummaryShort(params *GetCurrencySummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencySummaryOK, error)
-	PublicListCurrenciesShort(params *PublicListCurrenciesParams) (*PublicListCurrenciesOK, error)
+	ListCurrenciesShort(params *ListCurrenciesParams, authInfo runtime.ClientAuthInfoWriter) (*ListCurrenciesResponse, error)
+	CreateCurrencyShort(params *CreateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCurrencyResponse, error)
+	UpdateCurrencyShort(params *UpdateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCurrencyResponse, error)
+	DeleteCurrencyShort(params *DeleteCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCurrencyResponse, error)
+	GetCurrencyConfigShort(params *GetCurrencyConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencyConfigResponse, error)
+	GetCurrencySummaryShort(params *GetCurrencySummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencySummaryResponse, error)
+	PublicListCurrenciesShort(params *PublicListCurrenciesParams) (*PublicListCurrenciesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ Other detail info:
 
   * Returns : Currency List
 */
-func (a *Client) ListCurrenciesShort(params *ListCurrenciesParams, authInfo runtime.ClientAuthInfoWriter) (*ListCurrenciesOK, error) {
+func (a *Client) ListCurrenciesShort(params *ListCurrenciesParams, authInfo runtime.ClientAuthInfoWriter) (*ListCurrenciesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListCurrenciesParams()
@@ -86,7 +86,12 @@ func (a *Client) ListCurrenciesShort(params *ListCurrenciesParams, authInfo runt
 	switch v := result.(type) {
 
 	case *ListCurrenciesOK:
-		return v, nil
+		response := &ListCurrenciesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +105,7 @@ Other detail info:
 
   * Returns : created currency
 */
-func (a *Client) CreateCurrencyShort(params *CreateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCurrencyOK, error) {
+func (a *Client) CreateCurrencyShort(params *CreateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCurrencyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateCurrencyParams()
@@ -138,11 +143,26 @@ func (a *Client) CreateCurrencyShort(params *CreateCurrencyParams, authInfo runt
 	switch v := result.(type) {
 
 	case *CreateCurrencyOK:
-		return v, nil
+		response := &CreateCurrencyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateCurrencyConflict:
-		return nil, v
+		response := &CreateCurrencyResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateCurrencyUnprocessableEntity:
-		return nil, v
+		response := &CreateCurrencyResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +176,7 @@ Other detail info:
 
   * Returns : updated currency
 */
-func (a *Client) UpdateCurrencyShort(params *UpdateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCurrencyOK, error) {
+func (a *Client) UpdateCurrencyShort(params *UpdateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCurrencyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateCurrencyParams()
@@ -194,11 +214,26 @@ func (a *Client) UpdateCurrencyShort(params *UpdateCurrencyParams, authInfo runt
 	switch v := result.(type) {
 
 	case *UpdateCurrencyOK:
-		return v, nil
+		response := &UpdateCurrencyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateCurrencyNotFound:
-		return nil, v
+		response := &UpdateCurrencyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateCurrencyUnprocessableEntity:
-		return nil, v
+		response := &UpdateCurrencyResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -212,7 +247,7 @@ Other detail info:
 
   * Returns :
 */
-func (a *Client) DeleteCurrencyShort(params *DeleteCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCurrencyOK, error) {
+func (a *Client) DeleteCurrencyShort(params *DeleteCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCurrencyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteCurrencyParams()
@@ -250,9 +285,19 @@ func (a *Client) DeleteCurrencyShort(params *DeleteCurrencyParams, authInfo runt
 	switch v := result.(type) {
 
 	case *DeleteCurrencyOK:
-		return v, nil
+		response := &DeleteCurrencyResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteCurrencyNotFound:
-		return nil, v
+		response := &DeleteCurrencyResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -266,7 +311,7 @@ Other detail info:
 
   * Returns : simplified Currency
 */
-func (a *Client) GetCurrencyConfigShort(params *GetCurrencyConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencyConfigOK, error) {
+func (a *Client) GetCurrencyConfigShort(params *GetCurrencyConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencyConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCurrencyConfigParams()
@@ -304,9 +349,19 @@ func (a *Client) GetCurrencyConfigShort(params *GetCurrencyConfigParams, authInf
 	switch v := result.(type) {
 
 	case *GetCurrencyConfigOK:
-		return v, nil
+		response := &GetCurrencyConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCurrencyConfigNotFound:
-		return nil, v
+		response := &GetCurrencyConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -320,7 +375,7 @@ Other detail info:
 
   * Returns : simplified Currency
 */
-func (a *Client) GetCurrencySummaryShort(params *GetCurrencySummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencySummaryOK, error) {
+func (a *Client) GetCurrencySummaryShort(params *GetCurrencySummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencySummaryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetCurrencySummaryParams()
@@ -358,9 +413,19 @@ func (a *Client) GetCurrencySummaryShort(params *GetCurrencySummaryParams, authI
 	switch v := result.(type) {
 
 	case *GetCurrencySummaryOK:
-		return v, nil
+		response := &GetCurrencySummaryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetCurrencySummaryNotFound:
-		return nil, v
+		response := &GetCurrencySummaryResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -374,7 +439,7 @@ Other detail info:
 
   * Returns : Currency List
 */
-func (a *Client) PublicListCurrenciesShort(params *PublicListCurrenciesParams) (*PublicListCurrenciesOK, error) {
+func (a *Client) PublicListCurrenciesShort(params *PublicListCurrenciesParams) (*PublicListCurrenciesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListCurrenciesParams()
@@ -411,7 +476,12 @@ func (a *Client) PublicListCurrenciesShort(params *PublicListCurrenciesParams) (
 	switch v := result.(type) {
 
 	case *PublicListCurrenciesOK:
-		return v, nil
+		response := &PublicListCurrenciesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

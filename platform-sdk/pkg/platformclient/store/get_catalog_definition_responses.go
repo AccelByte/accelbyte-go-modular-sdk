@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetCatalogDefinitionResponse struct {
+	platformclientmodels.ApiResponse
+	Data []*platformclientmodels.CatalogDefinitionInfo
+}
+
+func (m *GetCatalogDefinitionResponse) Unpack() ([]*platformclientmodels.CatalogDefinitionInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetCatalogDefinitionReader is a Reader for the GetCatalogDefinition structure.
 type GetCatalogDefinitionReader struct {
 	formats strfmt.Registry

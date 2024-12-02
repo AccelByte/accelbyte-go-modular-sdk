@@ -9,7 +9,6 @@ package gdpr
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/platform_account_closure_client"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *PlatformAccountClosureClientService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PlatformAccountClosureClientService) AdminGetPlatformAccountClosureClientShort(input *platform_account_closure_client.AdminGetPlatformAccountClosureClientParams) (*gdprclientmodels.DTOPlatformAccountClosureClientResponse, error) {
+func (aaa *PlatformAccountClosureClientService) AdminGetPlatformAccountClosureClientShort(input *platform_account_closure_client.AdminGetPlatformAccountClosureClientParams) (*platform_account_closure_client.AdminGetPlatformAccountClosureClientResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,7 +63,7 @@ func (aaa *PlatformAccountClosureClientService) AdminGetPlatformAccountClosureCl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PlatformAccountClosureClientService) AdminUpdatePlatformAccountClosureClientShort(input *platform_account_closure_client.AdminUpdatePlatformAccountClosureClientParams) error {

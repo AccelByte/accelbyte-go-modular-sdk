@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryKeyGroupsShort(params *QueryKeyGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryKeyGroupsOK, error)
-	CreateKeyGroupShort(params *CreateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateKeyGroupCreated, error)
-	GetKeyGroupByBoothNameShort(params *GetKeyGroupByBoothNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupByBoothNameOK, error)
-	GetKeyGroupShort(params *GetKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupOK, error)
-	UpdateKeyGroupShort(params *UpdateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateKeyGroupOK, error)
-	GetKeyGroupDynamicShort(params *GetKeyGroupDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupDynamicOK, error)
-	ListKeysShort(params *ListKeysParams, authInfo runtime.ClientAuthInfoWriter) (*ListKeysOK, error)
-	UploadKeysShort(params *UploadKeysParams, authInfo runtime.ClientAuthInfoWriter) (*UploadKeysOK, error)
+	QueryKeyGroupsShort(params *QueryKeyGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryKeyGroupsResponse, error)
+	CreateKeyGroupShort(params *CreateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateKeyGroupResponse, error)
+	GetKeyGroupByBoothNameShort(params *GetKeyGroupByBoothNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupByBoothNameResponse, error)
+	GetKeyGroupShort(params *GetKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupResponse, error)
+	UpdateKeyGroupShort(params *UpdateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateKeyGroupResponse, error)
+	GetKeyGroupDynamicShort(params *GetKeyGroupDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupDynamicResponse, error)
+	ListKeysShort(params *ListKeysParams, authInfo runtime.ClientAuthInfoWriter) (*ListKeysResponse, error)
+	UploadKeysShort(params *UploadKeysParams, authInfo runtime.ClientAuthInfoWriter) (*UploadKeysResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ Other detail info:
 
   * Returns : slice of key group
 */
-func (a *Client) QueryKeyGroupsShort(params *QueryKeyGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryKeyGroupsOK, error) {
+func (a *Client) QueryKeyGroupsShort(params *QueryKeyGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryKeyGroupsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryKeyGroupsParams()
@@ -87,7 +87,12 @@ func (a *Client) QueryKeyGroupsShort(params *QueryKeyGroupsParams, authInfo runt
 	switch v := result.(type) {
 
 	case *QueryKeyGroupsOK:
-		return v, nil
+		response := &QueryKeyGroupsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -101,7 +106,7 @@ Other detail info:
 
   * Returns : created key group
 */
-func (a *Client) CreateKeyGroupShort(params *CreateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateKeyGroupCreated, error) {
+func (a *Client) CreateKeyGroupShort(params *CreateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateKeyGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateKeyGroupParams()
@@ -139,11 +144,26 @@ func (a *Client) CreateKeyGroupShort(params *CreateKeyGroupParams, authInfo runt
 	switch v := result.(type) {
 
 	case *CreateKeyGroupCreated:
-		return v, nil
+		response := &CreateKeyGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateKeyGroupConflict:
-		return nil, v
+		response := &CreateKeyGroupResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateKeyGroupUnprocessableEntity:
-		return nil, v
+		response := &CreateKeyGroupResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -157,7 +177,7 @@ Other detail info:
 
   * Returns : key group info
 */
-func (a *Client) GetKeyGroupByBoothNameShort(params *GetKeyGroupByBoothNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupByBoothNameOK, error) {
+func (a *Client) GetKeyGroupByBoothNameShort(params *GetKeyGroupByBoothNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupByBoothNameResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetKeyGroupByBoothNameParams()
@@ -195,9 +215,19 @@ func (a *Client) GetKeyGroupByBoothNameShort(params *GetKeyGroupByBoothNameParam
 	switch v := result.(type) {
 
 	case *GetKeyGroupByBoothNameOK:
-		return v, nil
+		response := &GetKeyGroupByBoothNameResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetKeyGroupByBoothNameNotFound:
-		return nil, v
+		response := &GetKeyGroupByBoothNameResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -211,7 +241,7 @@ Other detail info:
 
   * Returns : key group info
 */
-func (a *Client) GetKeyGroupShort(params *GetKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupOK, error) {
+func (a *Client) GetKeyGroupShort(params *GetKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetKeyGroupParams()
@@ -249,9 +279,19 @@ func (a *Client) GetKeyGroupShort(params *GetKeyGroupParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *GetKeyGroupOK:
-		return v, nil
+		response := &GetKeyGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetKeyGroupNotFound:
-		return nil, v
+		response := &GetKeyGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -265,7 +305,7 @@ Other detail info:
 
   * Returns : updated key group
 */
-func (a *Client) UpdateKeyGroupShort(params *UpdateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateKeyGroupOK, error) {
+func (a *Client) UpdateKeyGroupShort(params *UpdateKeyGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateKeyGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateKeyGroupParams()
@@ -303,13 +343,33 @@ func (a *Client) UpdateKeyGroupShort(params *UpdateKeyGroupParams, authInfo runt
 	switch v := result.(type) {
 
 	case *UpdateKeyGroupOK:
-		return v, nil
+		response := &UpdateKeyGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateKeyGroupNotFound:
-		return nil, v
+		response := &UpdateKeyGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateKeyGroupConflict:
-		return nil, v
+		response := &UpdateKeyGroupResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateKeyGroupUnprocessableEntity:
-		return nil, v
+		response := &UpdateKeyGroupResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -323,7 +383,7 @@ Other detail info:
 
   * Returns : key group info
 */
-func (a *Client) GetKeyGroupDynamicShort(params *GetKeyGroupDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupDynamicOK, error) {
+func (a *Client) GetKeyGroupDynamicShort(params *GetKeyGroupDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetKeyGroupDynamicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetKeyGroupDynamicParams()
@@ -361,9 +421,19 @@ func (a *Client) GetKeyGroupDynamicShort(params *GetKeyGroupDynamicParams, authI
 	switch v := result.(type) {
 
 	case *GetKeyGroupDynamicOK:
-		return v, nil
+		response := &GetKeyGroupDynamicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetKeyGroupDynamicNotFound:
-		return nil, v
+		response := &GetKeyGroupDynamicResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -377,7 +447,7 @@ Other detail info:
 
   * Returns : keys
 */
-func (a *Client) ListKeysShort(params *ListKeysParams, authInfo runtime.ClientAuthInfoWriter) (*ListKeysOK, error) {
+func (a *Client) ListKeysShort(params *ListKeysParams, authInfo runtime.ClientAuthInfoWriter) (*ListKeysResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListKeysParams()
@@ -415,7 +485,12 @@ func (a *Client) ListKeysShort(params *ListKeysParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *ListKeysOK:
-		return v, nil
+		response := &ListKeysResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -430,7 +505,7 @@ Other detail info:
 
   * Returns : item data
 */
-func (a *Client) UploadKeysShort(params *UploadKeysParams, authInfo runtime.ClientAuthInfoWriter) (*UploadKeysOK, error) {
+func (a *Client) UploadKeysShort(params *UploadKeysParams, authInfo runtime.ClientAuthInfoWriter) (*UploadKeysResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadKeysParams()
@@ -468,11 +543,26 @@ func (a *Client) UploadKeysShort(params *UploadKeysParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UploadKeysOK:
-		return v, nil
+		response := &UploadKeysResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UploadKeysBadRequest:
-		return nil, v
+		response := &UploadKeysResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UploadKeysNotFound:
-		return nil, v
+		response := &UploadKeysResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

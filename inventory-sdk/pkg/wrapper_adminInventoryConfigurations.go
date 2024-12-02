@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_inventory_configurations"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AdminInventoryConfigurationsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminInventoryConfigurationsService) AdminListInventoryConfigurationsShort(input *admin_inventory_configurations.AdminListInventoryConfigurationsParams) (*inventoryclientmodels.ApimodelsListInventoryConfigurationsResp, error) {
+func (aaa *AdminInventoryConfigurationsService) AdminListInventoryConfigurationsShort(input *admin_inventory_configurations.AdminListInventoryConfigurationsParams) (*admin_inventory_configurations.AdminListInventoryConfigurationsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminInventoryConfigurationsService) AdminListInventoryConfigurations
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminInventoryConfigurationsService) AdminCreateInventoryConfigurationShort(input *admin_inventory_configurations.AdminCreateInventoryConfigurationParams) (*inventoryclientmodels.ApimodelsInventoryConfigurationResp, error) {
+func (aaa *AdminInventoryConfigurationsService) AdminCreateInventoryConfigurationShort(input *admin_inventory_configurations.AdminCreateInventoryConfigurationParams) (*admin_inventory_configurations.AdminCreateInventoryConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminInventoryConfigurationsService) AdminCreateInventoryConfiguratio
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminInventoryConfigurationsService) AdminGetInventoryConfigurationShort(input *admin_inventory_configurations.AdminGetInventoryConfigurationParams) (*inventoryclientmodels.ApimodelsInventoryConfigurationResp, error) {
+func (aaa *AdminInventoryConfigurationsService) AdminGetInventoryConfigurationShort(input *admin_inventory_configurations.AdminGetInventoryConfigurationParams) (*admin_inventory_configurations.AdminGetInventoryConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *AdminInventoryConfigurationsService) AdminGetInventoryConfigurationSh
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminInventoryConfigurationsService) AdminUpdateInventoryConfigurationShort(input *admin_inventory_configurations.AdminUpdateInventoryConfigurationParams) (*inventoryclientmodels.ApimodelsInventoryConfigurationResp, error) {
+func (aaa *AdminInventoryConfigurationsService) AdminUpdateInventoryConfigurationShort(input *admin_inventory_configurations.AdminUpdateInventoryConfigurationParams) (*admin_inventory_configurations.AdminUpdateInventoryConfigurationResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,7 +153,7 @@ func (aaa *AdminInventoryConfigurationsService) AdminUpdateInventoryConfiguratio
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminInventoryConfigurationsService) AdminDeleteInventoryConfigurationShort(input *admin_inventory_configurations.AdminDeleteInventoryConfigurationParams) error {

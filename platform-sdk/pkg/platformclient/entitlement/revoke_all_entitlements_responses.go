@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type RevokeAllEntitlementsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.BulkOperationResult
+}
+
+func (m *RevokeAllEntitlementsResponse) Unpack() (*platformclientmodels.BulkOperationResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RevokeAllEntitlementsReader is a Reader for the RevokeAllEntitlements structure.
 type RevokeAllEntitlementsReader struct {
 	formats strfmt.Registry

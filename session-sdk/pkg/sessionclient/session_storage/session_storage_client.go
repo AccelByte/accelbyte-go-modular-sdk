@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminReadSessionStorageShort(params *AdminReadSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadSessionStorageOK, error)
-	AdminDeleteUserSessionStorageShort(params *AdminDeleteUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserSessionStorageNoContent, error)
-	AdminReadUserSessionStorageShort(params *AdminReadUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadUserSessionStorageOK, error)
-	PublicUpdateInsertSessionStorageLeaderShort(params *PublicUpdateInsertSessionStorageLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageLeaderOK, error)
-	PublicUpdateInsertSessionStorageShort(params *PublicUpdateInsertSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageOK, error)
+	AdminReadSessionStorageShort(params *AdminReadSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadSessionStorageResponse, error)
+	AdminDeleteUserSessionStorageShort(params *AdminDeleteUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserSessionStorageResponse, error)
+	AdminReadUserSessionStorageShort(params *AdminReadUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadUserSessionStorageResponse, error)
+	PublicUpdateInsertSessionStorageLeaderShort(params *PublicUpdateInsertSessionStorageLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageLeaderResponse, error)
+	PublicUpdateInsertSessionStorageShort(params *PublicUpdateInsertSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ AdminReadSessionStorageShort read session storage.
 Read Session Storage by sessionID
 Session Storage feature only available for Gamesession
 */
-func (a *Client) AdminReadSessionStorageShort(params *AdminReadSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadSessionStorageOK, error) {
+func (a *Client) AdminReadSessionStorageShort(params *AdminReadSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadSessionStorageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminReadSessionStorageParams()
@@ -83,15 +83,40 @@ func (a *Client) AdminReadSessionStorageShort(params *AdminReadSessionStoragePar
 	switch v := result.(type) {
 
 	case *AdminReadSessionStorageOK:
-		return v, nil
+		response := &AdminReadSessionStorageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminReadSessionStorageBadRequest:
-		return nil, v
+		response := &AdminReadSessionStorageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminReadSessionStorageUnauthorized:
-		return nil, v
+		response := &AdminReadSessionStorageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminReadSessionStorageNotFound:
-		return nil, v
+		response := &AdminReadSessionStorageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminReadSessionStorageInternalServerError:
-		return nil, v
+		response := &AdminReadSessionStorageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +129,7 @@ AdminDeleteUserSessionStorageShort delete session storage.
 Delete Session Storage By sessionID
 Session Storage feature only available for Gamesession
 */
-func (a *Client) AdminDeleteUserSessionStorageShort(params *AdminDeleteUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserSessionStorageNoContent, error) {
+func (a *Client) AdminDeleteUserSessionStorageShort(params *AdminDeleteUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserSessionStorageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteUserSessionStorageParams()
@@ -142,15 +167,39 @@ func (a *Client) AdminDeleteUserSessionStorageShort(params *AdminDeleteUserSessi
 	switch v := result.(type) {
 
 	case *AdminDeleteUserSessionStorageNoContent:
-		return v, nil
+		response := &AdminDeleteUserSessionStorageResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteUserSessionStorageBadRequest:
-		return nil, v
+		response := &AdminDeleteUserSessionStorageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserSessionStorageUnauthorized:
-		return nil, v
+		response := &AdminDeleteUserSessionStorageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserSessionStorageNotFound:
-		return nil, v
+		response := &AdminDeleteUserSessionStorageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteUserSessionStorageInternalServerError:
-		return nil, v
+		response := &AdminDeleteUserSessionStorageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -163,7 +212,7 @@ AdminReadUserSessionStorageShort read session storage user.
 Read Session Storage by sessionID and userID
 Session Storage feature only available for Gamesession
 */
-func (a *Client) AdminReadUserSessionStorageShort(params *AdminReadUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadUserSessionStorageOK, error) {
+func (a *Client) AdminReadUserSessionStorageShort(params *AdminReadUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadUserSessionStorageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminReadUserSessionStorageParams()
@@ -201,15 +250,40 @@ func (a *Client) AdminReadUserSessionStorageShort(params *AdminReadUserSessionSt
 	switch v := result.(type) {
 
 	case *AdminReadUserSessionStorageOK:
-		return v, nil
+		response := &AdminReadUserSessionStorageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminReadUserSessionStorageBadRequest:
-		return nil, v
+		response := &AdminReadUserSessionStorageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminReadUserSessionStorageUnauthorized:
-		return nil, v
+		response := &AdminReadUserSessionStorageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminReadUserSessionStorageNotFound:
-		return nil, v
+		response := &AdminReadUserSessionStorageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminReadUserSessionStorageInternalServerError:
-		return nil, v
+		response := &AdminReadUserSessionStorageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -231,7 +305,7 @@ example json can store :
 game Admin can update or insert session storage
 Session Storage feature only available for Gamesession
 */
-func (a *Client) PublicUpdateInsertSessionStorageLeaderShort(params *PublicUpdateInsertSessionStorageLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageLeaderOK, error) {
+func (a *Client) PublicUpdateInsertSessionStorageLeaderShort(params *PublicUpdateInsertSessionStorageLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageLeaderResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateInsertSessionStorageLeaderParams()
@@ -269,17 +343,47 @@ func (a *Client) PublicUpdateInsertSessionStorageLeaderShort(params *PublicUpdat
 	switch v := result.(type) {
 
 	case *PublicUpdateInsertSessionStorageLeaderOK:
-		return v, nil
+		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageLeaderBadRequest:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageLeaderUnauthorized:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageLeaderForbidden:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageLeaderNotFound:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageLeaderInternalServerError:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -301,7 +405,7 @@ example json can store :
 game Admin can update or insert session storage
 Session Storage feature only available for Gamesession
 */
-func (a *Client) PublicUpdateInsertSessionStorageShort(params *PublicUpdateInsertSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageOK, error) {
+func (a *Client) PublicUpdateInsertSessionStorageShort(params *PublicUpdateInsertSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicUpdateInsertSessionStorageParams()
@@ -339,17 +443,47 @@ func (a *Client) PublicUpdateInsertSessionStorageShort(params *PublicUpdateInser
 	switch v := result.(type) {
 
 	case *PublicUpdateInsertSessionStorageOK:
-		return v, nil
+		response := &PublicUpdateInsertSessionStorageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageBadRequest:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageUnauthorized:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageForbidden:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageNotFound:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicUpdateInsertSessionStorageInternalServerError:
-		return nil, v
+		response := &PublicUpdateInsertSessionStorageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

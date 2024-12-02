@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 )
 
+type AdminUpdateInventoryConfigurationResponse struct {
+	inventoryclientmodels.ApiResponse
+	Data *inventoryclientmodels.ApimodelsInventoryConfigurationResp
+
+	Error400 *inventoryclientmodels.ApimodelsErrorResponse
+	Error404 *inventoryclientmodels.ApimodelsErrorResponse
+	Error409 *inventoryclientmodels.ApimodelsErrorResponse
+	Error500 *inventoryclientmodels.ApimodelsErrorResponse
+}
+
+func (m *AdminUpdateInventoryConfigurationResponse) Unpack() (*inventoryclientmodels.ApimodelsInventoryConfigurationResp, *inventoryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &inventoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminUpdateInventoryConfigurationReader is a Reader for the AdminUpdateInventoryConfiguration structure.
 type AdminUpdateInventoryConfigurationReader struct {
 	formats strfmt.Registry

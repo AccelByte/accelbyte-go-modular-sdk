@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QuerySectionsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.SectionPagingSlicedResult
+
+	Error404 *platformclientmodels.ErrorEntity
+	Error422 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *QuerySectionsResponse) Unpack() (*platformclientmodels.SectionPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QuerySectionsReader is a Reader for the QuerySections structure.
 type QuerySectionsReader struct {
 	formats strfmt.Registry

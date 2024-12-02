@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeMyItemOK, error)
-	PublicListItemsShort(params *PublicListItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListItemsOK, error)
-	PublicBulkUpdateMyItemsShort(params *PublicBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkUpdateMyItemsOK, error)
-	PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkRemoveMyItemsOK, error)
-	PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMoveMyItemsOK, error)
-	PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemOK, error)
+	PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeMyItemResponse, error)
+	PublicListItemsShort(params *PublicListItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListItemsResponse, error)
+	PublicBulkUpdateMyItemsShort(params *PublicBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkUpdateMyItemsResponse, error)
+	PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkRemoveMyItemsResponse, error)
+	PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMoveMyItemsResponse, error)
+	PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ PublicConsumeMyItemShort to consume item
 Consume user's own item.
 Client should pass item ID in options if item type is OPTIONBOX
 */
-func (a *Client) PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeMyItemOK, error) {
+func (a *Client) PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeMyItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicConsumeMyItemParams()
@@ -84,13 +84,33 @@ func (a *Client) PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, aut
 	switch v := result.(type) {
 
 	case *PublicConsumeMyItemOK:
-		return v, nil
+		response := &PublicConsumeMyItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicConsumeMyItemBadRequest:
-		return nil, v
+		response := &PublicConsumeMyItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicConsumeMyItemNotFound:
-		return nil, v
+		response := &PublicConsumeMyItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicConsumeMyItemInternalServerError:
-		return nil, v
+		response := &PublicConsumeMyItemResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +123,7 @@ PublicListItemsShort to list all items
 Listing all user's owned items in an inventory.
 The response body will be in the form of standard pagination.
 */
-func (a *Client) PublicListItemsShort(params *PublicListItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListItemsOK, error) {
+func (a *Client) PublicListItemsShort(params *PublicListItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListItemsParams()
@@ -141,11 +161,26 @@ func (a *Client) PublicListItemsShort(params *PublicListItemsParams, authInfo ru
 	switch v := result.(type) {
 
 	case *PublicListItemsOK:
-		return v, nil
+		response := &PublicListItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListItemsBadRequest:
-		return nil, v
+		response := &PublicListItemsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListItemsInternalServerError:
-		return nil, v
+		response := &PublicListItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -157,7 +192,7 @@ PublicBulkUpdateMyItemsShort to bulk update items
 
 Bulk Updating user's own items.
 */
-func (a *Client) PublicBulkUpdateMyItemsShort(params *PublicBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkUpdateMyItemsOK, error) {
+func (a *Client) PublicBulkUpdateMyItemsShort(params *PublicBulkUpdateMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkUpdateMyItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicBulkUpdateMyItemsParams()
@@ -195,13 +230,33 @@ func (a *Client) PublicBulkUpdateMyItemsShort(params *PublicBulkUpdateMyItemsPar
 	switch v := result.(type) {
 
 	case *PublicBulkUpdateMyItemsOK:
-		return v, nil
+		response := &PublicBulkUpdateMyItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicBulkUpdateMyItemsBadRequest:
-		return nil, v
+		response := &PublicBulkUpdateMyItemsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBulkUpdateMyItemsNotFound:
-		return nil, v
+		response := &PublicBulkUpdateMyItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBulkUpdateMyItemsInternalServerError:
-		return nil, v
+		response := &PublicBulkUpdateMyItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -213,7 +268,7 @@ PublicBulkRemoveMyItemsShort to bulk remove items
 
 Bulk remove user's own items.
 */
-func (a *Client) PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkRemoveMyItemsOK, error) {
+func (a *Client) PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkRemoveMyItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicBulkRemoveMyItemsParams()
@@ -251,13 +306,33 @@ func (a *Client) PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsPar
 	switch v := result.(type) {
 
 	case *PublicBulkRemoveMyItemsOK:
-		return v, nil
+		response := &PublicBulkRemoveMyItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicBulkRemoveMyItemsBadRequest:
-		return nil, v
+		response := &PublicBulkRemoveMyItemsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBulkRemoveMyItemsNotFound:
-		return nil, v
+		response := &PublicBulkRemoveMyItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicBulkRemoveMyItemsInternalServerError:
-		return nil, v
+		response := &PublicBulkRemoveMyItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -269,7 +344,7 @@ PublicMoveMyItemsShort to move items between my inventories
 
 Move items between inventories that is owned by the same user.
 */
-func (a *Client) PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMoveMyItemsOK, error) {
+func (a *Client) PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMoveMyItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicMoveMyItemsParams()
@@ -307,11 +382,26 @@ func (a *Client) PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInf
 	switch v := result.(type) {
 
 	case *PublicMoveMyItemsOK:
-		return v, nil
+		response := &PublicMoveMyItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicMoveMyItemsBadRequest:
-		return nil, v
+		response := &PublicMoveMyItemsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicMoveMyItemsInternalServerError:
-		return nil, v
+		response := &PublicMoveMyItemsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -323,7 +413,7 @@ PublicGetItemShort to get an item
 
 Getting an user's owned item info.
 */
-func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemOK, error) {
+func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetItemParams()
@@ -361,13 +451,33 @@ func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *PublicGetItemOK:
-		return v, nil
+		response := &PublicGetItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetItemBadRequest:
-		return nil, v
+		response := &PublicGetItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetItemNotFound:
-		return nil, v
+		response := &PublicGetItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetItemInternalServerError:
-		return nil, v
+		response := &PublicGetItemResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

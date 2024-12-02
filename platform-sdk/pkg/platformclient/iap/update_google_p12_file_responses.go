@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type UpdateGoogleP12FileResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.GoogleIAPConfigInfo
+}
+
+func (m *UpdateGoogleP12FileResponse) Unpack() (*platformclientmodels.GoogleIAPConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateGoogleP12FileReader is a Reader for the UpdateGoogleP12File structure.
 type UpdateGoogleP12FileReader struct {
 	formats strfmt.Registry

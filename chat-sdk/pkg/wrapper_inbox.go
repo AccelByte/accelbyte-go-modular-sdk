@@ -9,7 +9,6 @@ package chat
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *InboxService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *InboxService) AdminGetInboxCategoriesShort(input *inbox.AdminGetInboxCategoriesParams) ([]*chatclientmodels.ModelsGetInboxCategoriesResponseItem, error) {
+func (aaa *InboxService) AdminGetInboxCategoriesShort(input *inbox.AdminGetInboxCategoriesParams) (*inbox.AdminGetInboxCategoriesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *InboxService) AdminGetInboxCategoriesShort(input *inbox.AdminGetInbox
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *InboxService) AdminAddInboxCategoryShort(input *inbox.AdminAddInboxCategoryParams) (*chatclientmodels.ModelsAddInboxCategoryResponse, error) {
+func (aaa *InboxService) AdminAddInboxCategoryShort(input *inbox.AdminAddInboxCategoryParams) (*inbox.AdminAddInboxCategoryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *InboxService) AdminAddInboxCategoryShort(input *inbox.AdminAddInboxCa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *InboxService) AdminDeleteInboxCategoryShort(input *inbox.AdminDeleteInboxCategoryParams) error {
@@ -157,7 +156,7 @@ func (aaa *InboxService) AdminUpdateInboxCategoryShort(input *inbox.AdminUpdateI
 	return nil
 }
 
-func (aaa *InboxService) AdminGetCategorySchemaShort(input *inbox.AdminGetCategorySchemaParams) (*chatclientmodels.ModelsJSONSchemaType, error) {
+func (aaa *InboxService) AdminGetCategorySchemaShort(input *inbox.AdminGetCategorySchemaParams) (*inbox.AdminGetCategorySchemaResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,7 +183,7 @@ func (aaa *InboxService) AdminGetCategorySchemaShort(input *inbox.AdminGetCatego
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *InboxService) AdminDeleteInboxMessageShort(input *inbox.AdminDeleteInboxMessageParams) error {
@@ -217,7 +216,7 @@ func (aaa *InboxService) AdminDeleteInboxMessageShort(input *inbox.AdminDeleteIn
 	return nil
 }
 
-func (aaa *InboxService) AdminGetInboxMessagesShort(input *inbox.AdminGetInboxMessagesParams) (*chatclientmodels.ModelsGetInboxMessagesResponse, error) {
+func (aaa *InboxService) AdminGetInboxMessagesShort(input *inbox.AdminGetInboxMessagesParams) (*inbox.AdminGetInboxMessagesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *InboxService) AdminGetInboxMessagesShort(input *inbox.AdminGetInboxMe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *InboxService) AdminSaveInboxMessageShort(input *inbox.AdminSaveInboxMessageParams) (*chatclientmodels.ModelsSaveInboxMessageResponse, error) {
+func (aaa *InboxService) AdminSaveInboxMessageShort(input *inbox.AdminSaveInboxMessageParams) (*inbox.AdminSaveInboxMessageResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *InboxService) AdminSaveInboxMessageShort(input *inbox.AdminSaveInboxM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *InboxService) AdminUnsendInboxMessageShort(input *inbox.AdminUnsendInboxMessageParams) (*chatclientmodels.ModelsUnsendInboxMessageResponse, error) {
+func (aaa *InboxService) AdminUnsendInboxMessageShort(input *inbox.AdminUnsendInboxMessageParams) (*inbox.AdminUnsendInboxMessageResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *InboxService) AdminUnsendInboxMessageShort(input *inbox.AdminUnsendIn
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *InboxService) AdminGetInboxUsersShort(input *inbox.AdminGetInboxUsersParams) (*chatclientmodels.ModelsGetInboxUsersResponse, error) {
+func (aaa *InboxService) AdminGetInboxUsersShort(input *inbox.AdminGetInboxUsersParams) (*inbox.AdminGetInboxUsersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,7 +333,7 @@ func (aaa *InboxService) AdminGetInboxUsersShort(input *inbox.AdminGetInboxUsers
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *InboxService) AdminUpdateInboxMessageShort(input *inbox.AdminUpdateInboxMessageParams) error {
@@ -367,7 +366,7 @@ func (aaa *InboxService) AdminUpdateInboxMessageShort(input *inbox.AdminUpdateIn
 	return nil
 }
 
-func (aaa *InboxService) AdminSendInboxMessageShort(input *inbox.AdminSendInboxMessageParams) (*chatclientmodels.ModelsSendInboxMessageResponse, error) {
+func (aaa *InboxService) AdminSendInboxMessageShort(input *inbox.AdminSendInboxMessageParams) (*inbox.AdminSendInboxMessageResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *InboxService) AdminSendInboxMessageShort(input *inbox.AdminSendInboxM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *InboxService) AdminGetInboxStatsShort(input *inbox.AdminGetInboxStatsParams) (*chatclientmodels.ModelsGetInboxStatsResponse, error) {
+func (aaa *InboxService) AdminGetInboxStatsShort(input *inbox.AdminGetInboxStatsParams) (*inbox.AdminGetInboxStatsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,5 +423,5 @@ func (aaa *InboxService) AdminGetInboxStatsShort(input *inbox.AdminGetInboxStats
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

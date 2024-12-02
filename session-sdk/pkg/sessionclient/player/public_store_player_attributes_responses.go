@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
+type PublicStorePlayerAttributesResponse struct {
+	sessionclientmodels.ApiResponse
+	Data *sessionclientmodels.ApimodelsPlayerAttributesResponseBody
+
+	Error400 *sessionclientmodels.ResponseError
+	Error401 *sessionclientmodels.ResponseError
+	Error500 *sessionclientmodels.ResponseError
+}
+
+func (m *PublicStorePlayerAttributesResponse) Unpack() (*sessionclientmodels.ApimodelsPlayerAttributesResponseBody, *sessionclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicStorePlayerAttributesReader is a Reader for the PublicStorePlayerAttributes structure.
 type PublicStorePlayerAttributesReader struct {
 	formats strfmt.Registry

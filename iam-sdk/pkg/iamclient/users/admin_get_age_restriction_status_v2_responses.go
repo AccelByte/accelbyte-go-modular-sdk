@@ -19,6 +19,49 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type AdminGetAgeRestrictionStatusV2Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.ModelAgeRestrictionResponse
+
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 *iamclientmodels.RestErrorResponse
+	Error404 string
+}
+
+func (m *AdminGetAgeRestrictionStatusV2Response) Unpack() (*iamclientmodels.ModelAgeRestrictionResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			return nil, &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetAgeRestrictionStatusV2Reader is a Reader for the AdminGetAgeRestrictionStatusV2 structure.
 type AdminGetAgeRestrictionStatusV2Reader struct {
 	formats strfmt.Registry

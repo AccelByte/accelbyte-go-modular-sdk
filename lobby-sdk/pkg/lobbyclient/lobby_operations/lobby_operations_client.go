@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminUpdatePartyAttributesV1Short(params *AdminUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePartyAttributesV1OK, error)
-	AdminJoinPartyV1Short(params *AdminJoinPartyV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminJoinPartyV1Accepted, error)
-	PublicGetMessagesShort(params *PublicGetMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMessagesOK, error)
+	AdminUpdatePartyAttributesV1Short(params *AdminUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePartyAttributesV1Response, error)
+	AdminJoinPartyV1Short(params *AdminJoinPartyV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminJoinPartyV1Response, error)
+	PublicGetMessagesShort(params *PublicGetMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMessagesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 AdminUpdatePartyAttributesV1Short admin update party attributes
 Update party attributes in a namespace.
 */
-func (a *Client) AdminUpdatePartyAttributesV1Short(params *AdminUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePartyAttributesV1OK, error) {
+func (a *Client) AdminUpdatePartyAttributesV1Short(params *AdminUpdatePartyAttributesV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePartyAttributesV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdatePartyAttributesV1Params()
@@ -79,19 +79,54 @@ func (a *Client) AdminUpdatePartyAttributesV1Short(params *AdminUpdatePartyAttri
 	switch v := result.(type) {
 
 	case *AdminUpdatePartyAttributesV1OK:
-		return v, nil
+		response := &AdminUpdatePartyAttributesV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdatePartyAttributesV1BadRequest:
-		return nil, v
+		response := &AdminUpdatePartyAttributesV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePartyAttributesV1Unauthorized:
-		return nil, v
+		response := &AdminUpdatePartyAttributesV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePartyAttributesV1Forbidden:
-		return nil, v
+		response := &AdminUpdatePartyAttributesV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePartyAttributesV1NotFound:
-		return nil, v
+		response := &AdminUpdatePartyAttributesV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePartyAttributesV1PreconditionFailed:
-		return nil, v
+		response := &AdminUpdatePartyAttributesV1Response{}
+		response.Error412 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePartyAttributesV1InternalServerError:
-		return nil, v
+		response := &AdminUpdatePartyAttributesV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -102,7 +137,7 @@ func (a *Client) AdminUpdatePartyAttributesV1Short(params *AdminUpdatePartyAttri
 AdminJoinPartyV1Short admin join a player into a party
 Admin join a player into a party.
 */
-func (a *Client) AdminJoinPartyV1Short(params *AdminJoinPartyV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminJoinPartyV1Accepted, error) {
+func (a *Client) AdminJoinPartyV1Short(params *AdminJoinPartyV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminJoinPartyV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminJoinPartyV1Params()
@@ -140,19 +175,53 @@ func (a *Client) AdminJoinPartyV1Short(params *AdminJoinPartyV1Params, authInfo 
 	switch v := result.(type) {
 
 	case *AdminJoinPartyV1Accepted:
-		return v, nil
+		response := &AdminJoinPartyV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminJoinPartyV1BadRequest:
-		return nil, v
+		response := &AdminJoinPartyV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminJoinPartyV1Unauthorized:
-		return nil, v
+		response := &AdminJoinPartyV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminJoinPartyV1Forbidden:
-		return nil, v
+		response := &AdminJoinPartyV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminJoinPartyV1NotFound:
-		return nil, v
+		response := &AdminJoinPartyV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminJoinPartyV1PreconditionFailed:
-		return nil, v
+		response := &AdminJoinPartyV1Response{}
+		response.Error412 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminJoinPartyV1InternalServerError:
-		return nil, v
+		response := &AdminJoinPartyV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -163,7 +232,7 @@ func (a *Client) AdminJoinPartyV1Short(params *AdminJoinPartyV1Params, authInfo 
 PublicGetMessagesShort get service messages
 get the list of messages.
 */
-func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMessagesOK, error) {
+func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMessagesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMessagesParams()
@@ -201,9 +270,19 @@ func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInf
 	switch v := result.(type) {
 
 	case *PublicGetMessagesOK:
-		return v, nil
+		response := &PublicGetMessagesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMessagesInternalServerError:
-		return nil, v
+		response := &PublicGetMessagesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

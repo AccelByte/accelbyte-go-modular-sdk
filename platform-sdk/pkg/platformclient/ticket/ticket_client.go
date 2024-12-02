@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDynamicOK, error)
-	DecreaseTicketSaleShort(params *DecreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*DecreaseTicketSaleNoContent, error)
-	GetTicketBoothIDShort(params *GetTicketBoothIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketBoothIDOK, error)
-	IncreaseTicketSaleShort(params *IncreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*IncreaseTicketSaleOK, error)
-	AcquireUserTicketShort(params *AcquireUserTicketParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireUserTicketOK, error)
+	GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDynamicResponse, error)
+	DecreaseTicketSaleShort(params *DecreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*DecreaseTicketSaleResponse, error)
+	GetTicketBoothIDShort(params *GetTicketBoothIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketBoothIDResponse, error)
+	IncreaseTicketSaleShort(params *IncreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*IncreaseTicketSaleResponse, error)
+	AcquireUserTicketShort(params *AcquireUserTicketParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireUserTicketResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ Other detail info:
 
   * Returns : ticket dynamic
 */
-func (a *Client) GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDynamicOK, error) {
+func (a *Client) GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDynamicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTicketDynamicParams()
@@ -84,9 +84,19 @@ func (a *Client) GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetTicketDynamicOK:
-		return v, nil
+		response := &GetTicketDynamicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTicketDynamicNotFound:
-		return nil, v
+		response := &GetTicketDynamicResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +107,7 @@ func (a *Client) GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo 
 DecreaseTicketSaleShort decrease ticket sale
  [SERVICE COMMUNICATION ONLY] Decrease ticket(code/key) sale if requested orderNo is already increased.
 */
-func (a *Client) DecreaseTicketSaleShort(params *DecreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*DecreaseTicketSaleNoContent, error) {
+func (a *Client) DecreaseTicketSaleShort(params *DecreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*DecreaseTicketSaleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDecreaseTicketSaleParams()
@@ -135,11 +145,25 @@ func (a *Client) DecreaseTicketSaleShort(params *DecreaseTicketSaleParams, authI
 	switch v := result.(type) {
 
 	case *DecreaseTicketSaleNoContent:
-		return v, nil
+		response := &DecreaseTicketSaleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DecreaseTicketSaleNotFound:
-		return nil, v
+		response := &DecreaseTicketSaleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DecreaseTicketSaleUnprocessableEntity:
-		return nil, v
+		response := &DecreaseTicketSaleResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -153,7 +177,7 @@ Other detail info:
 
   * Returns : ticket booth id
 */
-func (a *Client) GetTicketBoothIDShort(params *GetTicketBoothIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketBoothIDOK, error) {
+func (a *Client) GetTicketBoothIDShort(params *GetTicketBoothIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketBoothIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTicketBoothIDParams()
@@ -191,9 +215,19 @@ func (a *Client) GetTicketBoothIDShort(params *GetTicketBoothIDParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetTicketBoothIDOK:
-		return v, nil
+		response := &GetTicketBoothIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetTicketBoothIDNotFound:
-		return nil, v
+		response := &GetTicketBoothIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -207,7 +241,7 @@ Other detail info:
 
   * Returns : Ticket sale increment result
 */
-func (a *Client) IncreaseTicketSaleShort(params *IncreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*IncreaseTicketSaleOK, error) {
+func (a *Client) IncreaseTicketSaleShort(params *IncreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*IncreaseTicketSaleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewIncreaseTicketSaleParams()
@@ -245,11 +279,26 @@ func (a *Client) IncreaseTicketSaleShort(params *IncreaseTicketSaleParams, authI
 	switch v := result.(type) {
 
 	case *IncreaseTicketSaleOK:
-		return v, nil
+		response := &IncreaseTicketSaleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *IncreaseTicketSaleNotFound:
-		return nil, v
+		response := &IncreaseTicketSaleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *IncreaseTicketSaleUnprocessableEntity:
-		return nil, v
+		response := &IncreaseTicketSaleResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -263,7 +312,7 @@ Other detail info:
 
   * Returns : acquire result
 */
-func (a *Client) AcquireUserTicketShort(params *AcquireUserTicketParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireUserTicketOK, error) {
+func (a *Client) AcquireUserTicketShort(params *AcquireUserTicketParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireUserTicketResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAcquireUserTicketParams()
@@ -301,13 +350,33 @@ func (a *Client) AcquireUserTicketShort(params *AcquireUserTicketParams, authInf
 	switch v := result.(type) {
 
 	case *AcquireUserTicketOK:
-		return v, nil
+		response := &AcquireUserTicketResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AcquireUserTicketNotFound:
-		return nil, v
+		response := &AcquireUserTicketResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AcquireUserTicketConflict:
-		return nil, v
+		response := &AcquireUserTicketResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AcquireUserTicketUnprocessableEntity:
-		return nil, v
+		response := &AcquireUserTicketResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

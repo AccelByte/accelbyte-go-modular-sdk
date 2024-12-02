@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DownloadServerArtifactsShort(params *DownloadServerArtifactsParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadServerArtifactsOK, error)
-	CheckServerArtifactShort(params *CheckServerArtifactParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerArtifactOK, error)
+	DownloadServerArtifactsShort(params *DownloadServerArtifactsParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadServerArtifactsResponse, error)
+	CheckServerArtifactShort(params *CheckServerArtifactParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerArtifactResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ Required scope: social
 
 This endpoint will download dedicated server's Artifact file (.zip).
 */
-func (a *Client) DownloadServerArtifactsShort(params *DownloadServerArtifactsParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadServerArtifactsOK, error) {
+func (a *Client) DownloadServerArtifactsShort(params *DownloadServerArtifactsParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadServerArtifactsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadServerArtifactsParams()
@@ -82,11 +82,25 @@ func (a *Client) DownloadServerArtifactsShort(params *DownloadServerArtifactsPar
 	switch v := result.(type) {
 
 	case *DownloadServerArtifactsOK:
-		return v, nil
+		response := &DownloadServerArtifactsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DownloadServerArtifactsNotFound:
-		return nil, v
+		response := &DownloadServerArtifactsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DownloadServerArtifactsInternalServerError:
-		return nil, v
+		response := &DownloadServerArtifactsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +119,7 @@ This endpoint will return the artifact status.
 
 The possible status is : 'Empty', 'In Queue', 'Uploading', 'Ready', 'Failed'
 */
-func (a *Client) CheckServerArtifactShort(params *CheckServerArtifactParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerArtifactOK, error) {
+func (a *Client) CheckServerArtifactShort(params *CheckServerArtifactParams, authInfo runtime.ClientAuthInfoWriter) (*CheckServerArtifactResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCheckServerArtifactParams()
@@ -143,11 +157,26 @@ func (a *Client) CheckServerArtifactShort(params *CheckServerArtifactParams, aut
 	switch v := result.(type) {
 
 	case *CheckServerArtifactOK:
-		return v, nil
+		response := &CheckServerArtifactResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CheckServerArtifactNotFound:
-		return nil, v
+		response := &CheckServerArtifactResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CheckServerArtifactInternalServerError:
-		return nil, v
+		response := &CheckServerArtifactResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

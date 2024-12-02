@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type PartialUpdatePolicy1Response struct {
+	legalclientmodels.ApiResponse
+	Data *legalclientmodels.UpdateBasePolicyResponse
+
+	Error400 *legalclientmodels.ErrorEntity
+}
+
+func (m *PartialUpdatePolicy1Response) Unpack() (*legalclientmodels.UpdateBasePolicyResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PartialUpdatePolicy1Reader is a Reader for the PartialUpdatePolicy1 structure.
 type PartialUpdatePolicy1Reader struct {
 	formats strfmt.Registry

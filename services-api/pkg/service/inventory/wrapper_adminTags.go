@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_tags"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AdminTagsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminTagsService) AdminListTagsShort(input *admin_tags.AdminListTagsParams) (*inventoryclientmodels.ApimodelsListTagsResp, error) {
+func (aaa *AdminTagsService) AdminListTagsShort(input *admin_tags.AdminListTagsParams) (*admin_tags.AdminListTagsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AdminTagsService) AdminListTagsShort(input *admin_tags.AdminListTagsP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminTagsService) AdminCreateTagShort(input *admin_tags.AdminCreateTagParams) (*inventoryclientmodels.ApimodelsCreateTagResp, error) {
+func (aaa *AdminTagsService) AdminCreateTagShort(input *admin_tags.AdminCreateTagParams) (*admin_tags.AdminCreateTagResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,7 +95,7 @@ func (aaa *AdminTagsService) AdminCreateTagShort(input *admin_tags.AdminCreateTa
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *AdminTagsService) AdminDeleteTagShort(input *admin_tags.AdminDeleteTagParams) error {

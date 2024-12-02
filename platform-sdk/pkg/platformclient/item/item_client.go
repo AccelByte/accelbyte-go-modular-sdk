@@ -30,54 +30,54 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*ListItemTypeConfigsOK, error)
-	CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemTypeConfigCreated, error)
-	SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemTypeConfigOK, error)
-	GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemTypeConfigOK, error)
-	UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemTypeConfigOK, error)
-	DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemTypeConfigNoContent, error)
-	SyncInGameItemShort(params *SyncInGameItemParams, authInfo runtime.ClientAuthInfoWriter) (*SyncInGameItemOK, error)
-	CreateItemShort(params *CreateItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemCreated, error)
-	GetItemByAppIDShort(params *GetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemByAppIDOK, error)
-	QueryItemsShort(params *QueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsOK, error)
-	ListBasicItemsByFeaturesShort(params *ListBasicItemsByFeaturesParams, authInfo runtime.ClientAuthInfoWriter) (*ListBasicItemsByFeaturesOK, error)
-	GetItemsShort(params *GetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemsOK, error)
-	GetItemBySkuShort(params *GetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemBySkuOK, error)
-	GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemBySkuOK, error)
-	GetEstimatedPriceShort(params *GetEstimatedPriceParams, authInfo runtime.ClientAuthInfoWriter) (*GetEstimatedPriceOK, error)
-	GetItemIDBySkuShort(params *GetItemIDBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemIDBySkuOK, error)
-	GetBulkItemIDBySkusShort(params *GetBulkItemIDBySkusParams, authInfo runtime.ClientAuthInfoWriter) (*GetBulkItemIDBySkusOK, error)
-	BulkGetLocaleItemsShort(params *BulkGetLocaleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetLocaleItemsOK, error)
-	GetAvailablePredicateTypesShort(params *GetAvailablePredicateTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailablePredicateTypesOK, error)
-	ValidateItemPurchaseConditionShort(params *ValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateItemPurchaseConditionOK, error)
-	BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataNoContent, error)
-	SearchItemsShort(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsOK, error)
-	QueryUncategorizedItemsShort(params *QueryUncategorizedItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUncategorizedItemsOK, error)
-	GetItemShort(params *GetItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemOK, error)
-	UpdateItemShort(params *UpdateItemParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemOK, error)
-	DeleteItemShort(params *DeleteItemParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemNoContent, error)
-	AcquireItemShort(params *AcquireItemParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireItemOK, error)
-	GetAppShort(params *GetAppParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppOK, error)
-	UpdateAppShort(params *UpdateAppParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppOK, error)
-	DisableItemShort(params *DisableItemParams, authInfo runtime.ClientAuthInfoWriter) (*DisableItemOK, error)
-	GetItemDynamicDataShort(params *GetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemDynamicDataOK, error)
-	EnableItemShort(params *EnableItemParams, authInfo runtime.ClientAuthInfoWriter) (*EnableItemOK, error)
-	FeatureItemShort(params *FeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*FeatureItemOK, error)
-	DefeatureItemShort(params *DefeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*DefeatureItemOK, error)
-	GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemOK, error)
-	UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemPurchaseConditionOK, error)
-	ReturnItemShort(params *ReturnItemParams, authInfo runtime.ClientAuthInfoWriter) (*ReturnItemNoContent, error)
-	PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemByAppIDOK, error)
-	PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryItemsOK, error)
-	PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemBySkuOK, error)
-	PublicGetEstimatedPriceShort(params *PublicGetEstimatedPriceParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetEstimatedPriceOK, error)
-	PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetItemsOK, error)
-	PublicValidateItemPurchaseConditionShort(params *PublicValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateItemPurchaseConditionOK, error)
-	PublicSearchItemsShort(params *PublicSearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchItemsOK, error)
-	PublicGetAppShort(params *PublicGetAppParams) (*PublicGetAppOK, error)
-	PublicGetItemDynamicDataShort(params *PublicGetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemDynamicDataOK, error)
-	PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemOK, error)
-	QueryItemsV2Short(params *QueryItemsV2Params, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsV2OK, error)
+	ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*ListItemTypeConfigsResponse, error)
+	CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemTypeConfigResponse, error)
+	SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemTypeConfigResponse, error)
+	GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemTypeConfigResponse, error)
+	UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemTypeConfigResponse, error)
+	DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemTypeConfigResponse, error)
+	SyncInGameItemShort(params *SyncInGameItemParams, authInfo runtime.ClientAuthInfoWriter) (*SyncInGameItemResponse, error)
+	CreateItemShort(params *CreateItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemResponse, error)
+	GetItemByAppIDShort(params *GetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemByAppIDResponse, error)
+	QueryItemsShort(params *QueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsResponse, error)
+	ListBasicItemsByFeaturesShort(params *ListBasicItemsByFeaturesParams, authInfo runtime.ClientAuthInfoWriter) (*ListBasicItemsByFeaturesResponse, error)
+	GetItemsShort(params *GetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemsResponse, error)
+	GetItemBySkuShort(params *GetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemBySkuResponse, error)
+	GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemBySkuResponse, error)
+	GetEstimatedPriceShort(params *GetEstimatedPriceParams, authInfo runtime.ClientAuthInfoWriter) (*GetEstimatedPriceResponse, error)
+	GetItemIDBySkuShort(params *GetItemIDBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemIDBySkuResponse, error)
+	GetBulkItemIDBySkusShort(params *GetBulkItemIDBySkusParams, authInfo runtime.ClientAuthInfoWriter) (*GetBulkItemIDBySkusResponse, error)
+	BulkGetLocaleItemsShort(params *BulkGetLocaleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetLocaleItemsResponse, error)
+	GetAvailablePredicateTypesShort(params *GetAvailablePredicateTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailablePredicateTypesResponse, error)
+	ValidateItemPurchaseConditionShort(params *ValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateItemPurchaseConditionResponse, error)
+	BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataResponse, error)
+	SearchItemsShort(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsResponse, error)
+	QueryUncategorizedItemsShort(params *QueryUncategorizedItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUncategorizedItemsResponse, error)
+	GetItemShort(params *GetItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemResponse, error)
+	UpdateItemShort(params *UpdateItemParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemResponse, error)
+	DeleteItemShort(params *DeleteItemParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemResponse, error)
+	AcquireItemShort(params *AcquireItemParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireItemResponse, error)
+	GetAppShort(params *GetAppParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppResponse, error)
+	UpdateAppShort(params *UpdateAppParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResponse, error)
+	DisableItemShort(params *DisableItemParams, authInfo runtime.ClientAuthInfoWriter) (*DisableItemResponse, error)
+	GetItemDynamicDataShort(params *GetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemDynamicDataResponse, error)
+	EnableItemShort(params *EnableItemParams, authInfo runtime.ClientAuthInfoWriter) (*EnableItemResponse, error)
+	FeatureItemShort(params *FeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*FeatureItemResponse, error)
+	DefeatureItemShort(params *DefeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*DefeatureItemResponse, error)
+	GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemResponse, error)
+	UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemPurchaseConditionResponse, error)
+	ReturnItemShort(params *ReturnItemParams, authInfo runtime.ClientAuthInfoWriter) (*ReturnItemResponse, error)
+	PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemByAppIDResponse, error)
+	PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryItemsResponse, error)
+	PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemBySkuResponse, error)
+	PublicGetEstimatedPriceShort(params *PublicGetEstimatedPriceParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetEstimatedPriceResponse, error)
+	PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetItemsResponse, error)
+	PublicValidateItemPurchaseConditionShort(params *PublicValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateItemPurchaseConditionResponse, error)
+	PublicSearchItemsShort(params *PublicSearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchItemsResponse, error)
+	PublicGetAppShort(params *PublicGetAppParams) (*PublicGetAppResponse, error)
+	PublicGetItemDynamicDataShort(params *PublicGetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemDynamicDataResponse, error)
+	PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemResponse, error)
+	QueryItemsV2Short(params *QueryItemsV2Params, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -90,7 +90,7 @@ Other detail info:
 
   * Returns : the list of items
 */
-func (a *Client) ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*ListItemTypeConfigsOK, error) {
+func (a *Client) ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*ListItemTypeConfigsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListItemTypeConfigsParams()
@@ -128,7 +128,12 @@ func (a *Client) ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, aut
 	switch v := result.(type) {
 
 	case *ListItemTypeConfigsOK:
-		return v, nil
+		response := &ListItemTypeConfigsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -141,7 +146,7 @@ CreateItemTypeConfigShort create an item type config
 
 *  Returns : item type config data
 */
-func (a *Client) CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemTypeConfigCreated, error) {
+func (a *Client) CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemTypeConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateItemTypeConfigParams()
@@ -179,13 +184,32 @@ func (a *Client) CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, a
 	switch v := result.(type) {
 
 	case *CreateItemTypeConfigCreated:
-		return v, nil
+		response := &CreateItemTypeConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateItemTypeConfigBadRequest:
-		return nil, v
+		response := &CreateItemTypeConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateItemTypeConfigConflict:
-		return nil, v
+		response := &CreateItemTypeConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateItemTypeConfigUnprocessableEntity:
-		return nil, v
+		response := &CreateItemTypeConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -200,7 +224,7 @@ Other detail info:
 
   * Returns : item type config data
 */
-func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemTypeConfigOK, error) {
+func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemTypeConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSearchItemTypeConfigParams()
@@ -238,9 +262,19 @@ func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, a
 	switch v := result.(type) {
 
 	case *SearchItemTypeConfigOK:
-		return v, nil
+		response := &SearchItemTypeConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SearchItemTypeConfigNotFound:
-		return nil, v
+		response := &SearchItemTypeConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -255,7 +289,7 @@ Other detail info:
 
   * Returns : item type config data
 */
-func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemTypeConfigOK, error) {
+func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemTypeConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetItemTypeConfigParams()
@@ -293,9 +327,19 @@ func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInf
 	switch v := result.(type) {
 
 	case *GetItemTypeConfigOK:
-		return v, nil
+		response := &GetItemTypeConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetItemTypeConfigNotFound:
-		return nil, v
+		response := &GetItemTypeConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -308,7 +352,7 @@ UpdateItemTypeConfigShort update an item type config
 
 *  Returns : item type config data
 */
-func (a *Client) UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemTypeConfigOK, error) {
+func (a *Client) UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemTypeConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateItemTypeConfigParams()
@@ -346,13 +390,33 @@ func (a *Client) UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, a
 	switch v := result.(type) {
 
 	case *UpdateItemTypeConfigOK:
-		return v, nil
+		response := &UpdateItemTypeConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateItemTypeConfigNotFound:
-		return nil, v
+		response := &UpdateItemTypeConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateItemTypeConfigConflict:
-		return nil, v
+		response := &UpdateItemTypeConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateItemTypeConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdateItemTypeConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -363,7 +427,7 @@ func (a *Client) UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, a
 DeleteItemTypeConfigShort delete an item type config
  [Not supported yet in AGS Shared Cloud] This API is used to delete an item type config permanently.
 */
-func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemTypeConfigNoContent, error) {
+func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemTypeConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteItemTypeConfigParams()
@@ -401,9 +465,18 @@ func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, a
 	switch v := result.(type) {
 
 	case *DeleteItemTypeConfigNoContent:
-		return v, nil
+		response := &DeleteItemTypeConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteItemTypeConfigNotFound:
-		return nil, v
+		response := &DeleteItemTypeConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -420,7 +493,7 @@ Other detail info:
 
   * Returns : item data
 */
-func (a *Client) SyncInGameItemShort(params *SyncInGameItemParams, authInfo runtime.ClientAuthInfoWriter) (*SyncInGameItemOK, error) {
+func (a *Client) SyncInGameItemShort(params *SyncInGameItemParams, authInfo runtime.ClientAuthInfoWriter) (*SyncInGameItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncInGameItemParams()
@@ -458,15 +531,40 @@ func (a *Client) SyncInGameItemShort(params *SyncInGameItemParams, authInfo runt
 	switch v := result.(type) {
 
 	case *SyncInGameItemOK:
-		return v, nil
+		response := &SyncInGameItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncInGameItemBadRequest:
-		return nil, v
+		response := &SyncInGameItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncInGameItemNotFound:
-		return nil, v
+		response := &SyncInGameItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncInGameItemConflict:
-		return nil, v
+		response := &SyncInGameItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncInGameItemUnprocessableEntity:
-		return nil, v
+		response := &SyncInGameItemResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -712,7 +810,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) CreateItemShort(params *CreateItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemCreated, error) {
+func (a *Client) CreateItemShort(params *CreateItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateItemParams()
@@ -750,15 +848,40 @@ func (a *Client) CreateItemShort(params *CreateItemParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *CreateItemCreated:
-		return v, nil
+		response := &CreateItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateItemBadRequest:
-		return nil, v
+		response := &CreateItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateItemNotFound:
-		return nil, v
+		response := &CreateItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateItemConflict:
-		return nil, v
+		response := &CreateItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateItemUnprocessableEntity:
-		return nil, v
+		response := &CreateItemResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -773,7 +896,7 @@ Other detail info:
 
   * Returns : the item with that appId
 */
-func (a *Client) GetItemByAppIDShort(params *GetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemByAppIDOK, error) {
+func (a *Client) GetItemByAppIDShort(params *GetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemByAppIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetItemByAppIDParams()
@@ -811,9 +934,19 @@ func (a *Client) GetItemByAppIDShort(params *GetItemByAppIDParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetItemByAppIDOK:
-		return v, nil
+		response := &GetItemByAppIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetItemByAppIDNotFound:
-		return nil, v
+		response := &GetItemByAppIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -828,7 +961,7 @@ Other detail info:
 
   * Returns : the list of items
 */
-func (a *Client) QueryItemsShort(params *QueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsOK, error) {
+func (a *Client) QueryItemsShort(params *QueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryItemsParams()
@@ -866,11 +999,26 @@ func (a *Client) QueryItemsShort(params *QueryItemsParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *QueryItemsOK:
-		return v, nil
+		response := &QueryItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryItemsNotFound:
-		return nil, v
+		response := &QueryItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryItemsUnprocessableEntity:
-		return nil, v
+		response := &QueryItemsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -885,7 +1033,7 @@ Other detail info:
 
   * Returns : the list of basic items
 */
-func (a *Client) ListBasicItemsByFeaturesShort(params *ListBasicItemsByFeaturesParams, authInfo runtime.ClientAuthInfoWriter) (*ListBasicItemsByFeaturesOK, error) {
+func (a *Client) ListBasicItemsByFeaturesShort(params *ListBasicItemsByFeaturesParams, authInfo runtime.ClientAuthInfoWriter) (*ListBasicItemsByFeaturesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListBasicItemsByFeaturesParams()
@@ -923,7 +1071,12 @@ func (a *Client) ListBasicItemsByFeaturesShort(params *ListBasicItemsByFeaturesP
 	switch v := result.(type) {
 
 	case *ListBasicItemsByFeaturesOK:
-		return v, nil
+		response := &ListBasicItemsByFeaturesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -938,7 +1091,7 @@ Other detail info:
 
   * Returns : the list of items info
 */
-func (a *Client) GetItemsShort(params *GetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemsOK, error) {
+func (a *Client) GetItemsShort(params *GetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetItemsParams()
@@ -976,9 +1129,19 @@ func (a *Client) GetItemsShort(params *GetItemsParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *GetItemsOK:
-		return v, nil
+		response := &GetItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetItemsNotFound:
-		return nil, v
+		response := &GetItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -993,7 +1156,7 @@ Other detail info:
 
   * Returns : the item with sku
 */
-func (a *Client) GetItemBySkuShort(params *GetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemBySkuOK, error) {
+func (a *Client) GetItemBySkuShort(params *GetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetItemBySkuParams()
@@ -1031,9 +1194,19 @@ func (a *Client) GetItemBySkuShort(params *GetItemBySkuParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetItemBySkuOK:
-		return v, nil
+		response := &GetItemBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetItemBySkuNotFound:
-		return nil, v
+		response := &GetItemBySkuResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1048,7 +1221,7 @@ Other detail info:
 
   * Returns : item data
 */
-func (a *Client) GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemBySkuOK, error) {
+func (a *Client) GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLocaleItemBySkuParams()
@@ -1086,9 +1259,19 @@ func (a *Client) GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authI
 	switch v := result.(type) {
 
 	case *GetLocaleItemBySkuOK:
-		return v, nil
+		response := &GetLocaleItemBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLocaleItemBySkuNotFound:
-		return nil, v
+		response := &GetLocaleItemBySkuResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1099,7 +1282,7 @@ func (a *Client) GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authI
 GetEstimatedPriceShort get estimated price
 This API is used to get estimated prices of a flexible pricing bundle
 */
-func (a *Client) GetEstimatedPriceShort(params *GetEstimatedPriceParams, authInfo runtime.ClientAuthInfoWriter) (*GetEstimatedPriceOK, error) {
+func (a *Client) GetEstimatedPriceShort(params *GetEstimatedPriceParams, authInfo runtime.ClientAuthInfoWriter) (*GetEstimatedPriceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetEstimatedPriceParams()
@@ -1137,9 +1320,19 @@ func (a *Client) GetEstimatedPriceShort(params *GetEstimatedPriceParams, authInf
 	switch v := result.(type) {
 
 	case *GetEstimatedPriceOK:
-		return v, nil
+		response := &GetEstimatedPriceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetEstimatedPriceNotFound:
-		return nil, v
+		response := &GetEstimatedPriceResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1154,7 +1347,7 @@ Other detail info:
 
   * Returns : the itemId with sku
 */
-func (a *Client) GetItemIDBySkuShort(params *GetItemIDBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemIDBySkuOK, error) {
+func (a *Client) GetItemIDBySkuShort(params *GetItemIDBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemIDBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetItemIDBySkuParams()
@@ -1192,9 +1385,19 @@ func (a *Client) GetItemIDBySkuShort(params *GetItemIDBySkuParams, authInfo runt
 	switch v := result.(type) {
 
 	case *GetItemIDBySkuOK:
-		return v, nil
+		response := &GetItemIDBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetItemIDBySkuNotFound:
-		return nil, v
+		response := &GetItemIDBySkuResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1209,7 +1412,7 @@ Other detail info:
 
   * Returns : item data
 */
-func (a *Client) GetBulkItemIDBySkusShort(params *GetBulkItemIDBySkusParams, authInfo runtime.ClientAuthInfoWriter) (*GetBulkItemIDBySkusOK, error) {
+func (a *Client) GetBulkItemIDBySkusShort(params *GetBulkItemIDBySkusParams, authInfo runtime.ClientAuthInfoWriter) (*GetBulkItemIDBySkusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetBulkItemIDBySkusParams()
@@ -1247,7 +1450,12 @@ func (a *Client) GetBulkItemIDBySkusShort(params *GetBulkItemIDBySkusParams, aut
 	switch v := result.(type) {
 
 	case *GetBulkItemIDBySkusOK:
-		return v, nil
+		response := &GetBulkItemIDBySkusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1262,7 +1470,7 @@ Other detail info:
 
   * Returns : the list of items info
 */
-func (a *Client) BulkGetLocaleItemsShort(params *BulkGetLocaleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetLocaleItemsOK, error) {
+func (a *Client) BulkGetLocaleItemsShort(params *BulkGetLocaleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetLocaleItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkGetLocaleItemsParams()
@@ -1300,9 +1508,19 @@ func (a *Client) BulkGetLocaleItemsShort(params *BulkGetLocaleItemsParams, authI
 	switch v := result.(type) {
 
 	case *BulkGetLocaleItemsOK:
-		return v, nil
+		response := &BulkGetLocaleItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkGetLocaleItemsNotFound:
-		return nil, v
+		response := &BulkGetLocaleItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1316,7 +1534,7 @@ Other detail info:
 
   * Returns : available predicate types
 */
-func (a *Client) GetAvailablePredicateTypesShort(params *GetAvailablePredicateTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailablePredicateTypesOK, error) {
+func (a *Client) GetAvailablePredicateTypesShort(params *GetAvailablePredicateTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailablePredicateTypesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAvailablePredicateTypesParams()
@@ -1354,9 +1572,19 @@ func (a *Client) GetAvailablePredicateTypesShort(params *GetAvailablePredicateTy
 	switch v := result.(type) {
 
 	case *GetAvailablePredicateTypesOK:
-		return v, nil
+		response := &GetAvailablePredicateTypesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAvailablePredicateTypesNotFound:
-		return nil, v
+		response := &GetAvailablePredicateTypesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1367,7 +1595,7 @@ func (a *Client) GetAvailablePredicateTypesShort(params *GetAvailablePredicateTy
 ValidateItemPurchaseConditionShort validate user purchase condition
 This API is used to validate user purchase condition
 */
-func (a *Client) ValidateItemPurchaseConditionShort(params *ValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateItemPurchaseConditionOK, error) {
+func (a *Client) ValidateItemPurchaseConditionShort(params *ValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateItemPurchaseConditionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewValidateItemPurchaseConditionParams()
@@ -1405,9 +1633,19 @@ func (a *Client) ValidateItemPurchaseConditionShort(params *ValidateItemPurchase
 	switch v := result.(type) {
 
 	case *ValidateItemPurchaseConditionOK:
-		return v, nil
+		response := &ValidateItemPurchaseConditionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ValidateItemPurchaseConditionUnprocessableEntity:
-		return nil, v
+		response := &ValidateItemPurchaseConditionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1418,7 +1656,7 @@ func (a *Client) ValidateItemPurchaseConditionShort(params *ValidateItemPurchase
 BulkUpdateRegionDataShort update item's region data in bulk
 This API is used to update region data of items in bulk
 */
-func (a *Client) BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataNoContent, error) {
+func (a *Client) BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, authInfo runtime.ClientAuthInfoWriter) (*BulkUpdateRegionDataResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBulkUpdateRegionDataParams()
@@ -1456,15 +1694,39 @@ func (a *Client) BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, a
 	switch v := result.(type) {
 
 	case *BulkUpdateRegionDataNoContent:
-		return v, nil
+		response := &BulkUpdateRegionDataResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BulkUpdateRegionDataBadRequest:
-		return nil, v
+		response := &BulkUpdateRegionDataResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkUpdateRegionDataNotFound:
-		return nil, v
+		response := &BulkUpdateRegionDataResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkUpdateRegionDataConflict:
-		return nil, v
+		response := &BulkUpdateRegionDataResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BulkUpdateRegionDataUnprocessableEntity:
-		return nil, v
+		response := &BulkUpdateRegionDataResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1479,7 +1741,7 @@ Other detail info:
 
   * Returns : the list of items
 */
-func (a *Client) SearchItemsShort(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsOK, error) {
+func (a *Client) SearchItemsShort(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSearchItemsParams()
@@ -1517,9 +1779,19 @@ func (a *Client) SearchItemsShort(params *SearchItemsParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *SearchItemsOK:
-		return v, nil
+		response := &SearchItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SearchItemsNotFound:
-		return nil, v
+		response := &SearchItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1534,7 +1806,7 @@ Other detail info:
 
   * Returns : the list of uncategorized items
 */
-func (a *Client) QueryUncategorizedItemsShort(params *QueryUncategorizedItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUncategorizedItemsOK, error) {
+func (a *Client) QueryUncategorizedItemsShort(params *QueryUncategorizedItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUncategorizedItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUncategorizedItemsParams()
@@ -1572,11 +1844,26 @@ func (a *Client) QueryUncategorizedItemsShort(params *QueryUncategorizedItemsPar
 	switch v := result.(type) {
 
 	case *QueryUncategorizedItemsOK:
-		return v, nil
+		response := &QueryUncategorizedItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryUncategorizedItemsNotFound:
-		return nil, v
+		response := &QueryUncategorizedItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryUncategorizedItemsUnprocessableEntity:
-		return nil, v
+		response := &QueryUncategorizedItemsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1591,7 +1878,7 @@ Other detail info:
 
   * Returns : item data
 */
-func (a *Client) GetItemShort(params *GetItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemOK, error) {
+func (a *Client) GetItemShort(params *GetItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetItemParams()
@@ -1629,9 +1916,19 @@ func (a *Client) GetItemShort(params *GetItemParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *GetItemOK:
-		return v, nil
+		response := &GetItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetItemNotFound:
-		return nil, v
+		response := &GetItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1879,7 +2176,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) UpdateItemShort(params *UpdateItemParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemOK, error) {
+func (a *Client) UpdateItemShort(params *UpdateItemParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateItemParams()
@@ -1917,15 +2214,40 @@ func (a *Client) UpdateItemShort(params *UpdateItemParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UpdateItemOK:
-		return v, nil
+		response := &UpdateItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateItemBadRequest:
-		return nil, v
+		response := &UpdateItemResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateItemNotFound:
-		return nil, v
+		response := &UpdateItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateItemConflict:
-		return nil, v
+		response := &UpdateItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateItemUnprocessableEntity:
-		return nil, v
+		response := &UpdateItemResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1940,7 +2262,7 @@ force: the default value should be: false. When the value is:
 * false: only the items in the draft store that have never been published yet can be removed.
 *  true: the item in the draft store(even been published before) can be removed.
 */
-func (a *Client) DeleteItemShort(params *DeleteItemParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemNoContent, error) {
+func (a *Client) DeleteItemShort(params *DeleteItemParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteItemParams()
@@ -1978,9 +2300,18 @@ func (a *Client) DeleteItemShort(params *DeleteItemParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *DeleteItemNoContent:
-		return v, nil
+		response := &DeleteItemResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteItemNotFound:
-		return nil, v
+		response := &DeleteItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1994,7 +2325,7 @@ Other detail info:
 
   * Returns : acquire result
 */
-func (a *Client) AcquireItemShort(params *AcquireItemParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireItemOK, error) {
+func (a *Client) AcquireItemShort(params *AcquireItemParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAcquireItemParams()
@@ -2032,9 +2363,19 @@ func (a *Client) AcquireItemShort(params *AcquireItemParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *AcquireItemOK:
-		return v, nil
+		response := &AcquireItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AcquireItemNotFound:
-		return nil, v
+		response := &AcquireItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2049,7 +2390,7 @@ Other detail info:
 
   * Returns : app data
 */
-func (a *Client) GetAppShort(params *GetAppParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppOK, error) {
+func (a *Client) GetAppShort(params *GetAppParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppParams()
@@ -2087,7 +2428,12 @@ func (a *Client) GetAppShort(params *GetAppParams, authInfo runtime.ClientAuthIn
 	switch v := result.(type) {
 
 	case *GetAppOK:
-		return v, nil
+		response := &GetAppResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2189,7 +2535,7 @@ Other detail info:
 
   * Returns : updated app data
 */
-func (a *Client) UpdateAppShort(params *UpdateAppParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppOK, error) {
+func (a *Client) UpdateAppShort(params *UpdateAppParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAppParams()
@@ -2227,13 +2573,33 @@ func (a *Client) UpdateAppShort(params *UpdateAppParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *UpdateAppOK:
-		return v, nil
+		response := &UpdateAppResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateAppNotFound:
-		return nil, v
+		response := &UpdateAppResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppConflict:
-		return nil, v
+		response := &UpdateAppResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppUnprocessableEntity:
-		return nil, v
+		response := &UpdateAppResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2247,7 +2613,7 @@ Other detail info:
 
   * Returns : updated item
 */
-func (a *Client) DisableItemShort(params *DisableItemParams, authInfo runtime.ClientAuthInfoWriter) (*DisableItemOK, error) {
+func (a *Client) DisableItemShort(params *DisableItemParams, authInfo runtime.ClientAuthInfoWriter) (*DisableItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDisableItemParams()
@@ -2285,11 +2651,26 @@ func (a *Client) DisableItemShort(params *DisableItemParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DisableItemOK:
-		return v, nil
+		response := &DisableItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DisableItemNotFound:
-		return nil, v
+		response := &DisableItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DisableItemConflict:
-		return nil, v
+		response := &DisableItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2303,7 +2684,7 @@ Other detail info:
 
   * Returns : item dynamic data
 */
-func (a *Client) GetItemDynamicDataShort(params *GetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemDynamicDataOK, error) {
+func (a *Client) GetItemDynamicDataShort(params *GetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemDynamicDataResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetItemDynamicDataParams()
@@ -2341,9 +2722,19 @@ func (a *Client) GetItemDynamicDataShort(params *GetItemDynamicDataParams, authI
 	switch v := result.(type) {
 
 	case *GetItemDynamicDataOK:
-		return v, nil
+		response := &GetItemDynamicDataResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetItemDynamicDataNotFound:
-		return nil, v
+		response := &GetItemDynamicDataResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2357,7 +2748,7 @@ Other detail info:
 
   * Returns : updated item
 */
-func (a *Client) EnableItemShort(params *EnableItemParams, authInfo runtime.ClientAuthInfoWriter) (*EnableItemOK, error) {
+func (a *Client) EnableItemShort(params *EnableItemParams, authInfo runtime.ClientAuthInfoWriter) (*EnableItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewEnableItemParams()
@@ -2395,11 +2786,26 @@ func (a *Client) EnableItemShort(params *EnableItemParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *EnableItemOK:
-		return v, nil
+		response := &EnableItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *EnableItemNotFound:
-		return nil, v
+		response := &EnableItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *EnableItemConflict:
-		return nil, v
+		response := &EnableItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2413,7 +2819,7 @@ Other detail info:
 
   * Returns : updated item
 */
-func (a *Client) FeatureItemShort(params *FeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*FeatureItemOK, error) {
+func (a *Client) FeatureItemShort(params *FeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*FeatureItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFeatureItemParams()
@@ -2451,11 +2857,26 @@ func (a *Client) FeatureItemShort(params *FeatureItemParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *FeatureItemOK:
-		return v, nil
+		response := &FeatureItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FeatureItemNotFound:
-		return nil, v
+		response := &FeatureItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FeatureItemConflict:
-		return nil, v
+		response := &FeatureItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2469,7 +2890,7 @@ Other detail info:
 
   * Returns : updated item
 */
-func (a *Client) DefeatureItemShort(params *DefeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*DefeatureItemOK, error) {
+func (a *Client) DefeatureItemShort(params *DefeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*DefeatureItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDefeatureItemParams()
@@ -2507,11 +2928,26 @@ func (a *Client) DefeatureItemShort(params *DefeatureItemParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *DefeatureItemOK:
-		return v, nil
+		response := &DefeatureItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DefeatureItemNotFound:
-		return nil, v
+		response := &DefeatureItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DefeatureItemConflict:
-		return nil, v
+		response := &DefeatureItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2526,7 +2962,7 @@ Other detail info:
 
   * Returns : item data
 */
-func (a *Client) GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemOK, error) {
+func (a *Client) GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLocaleItemParams()
@@ -2564,9 +3000,19 @@ func (a *Client) GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *GetLocaleItemOK:
-		return v, nil
+		response := &GetLocaleItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetLocaleItemNotFound:
-		return nil, v
+		response := &GetLocaleItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2577,7 +3023,7 @@ func (a *Client) GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtim
 UpdateItemPurchaseConditionShort update item purchase condition
 This API is used to update item purchase condition
 */
-func (a *Client) UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemPurchaseConditionOK, error) {
+func (a *Client) UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemPurchaseConditionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateItemPurchaseConditionParams()
@@ -2615,15 +3061,40 @@ func (a *Client) UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseCond
 	switch v := result.(type) {
 
 	case *UpdateItemPurchaseConditionOK:
-		return v, nil
+		response := &UpdateItemPurchaseConditionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateItemPurchaseConditionBadRequest:
-		return nil, v
+		response := &UpdateItemPurchaseConditionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateItemPurchaseConditionNotFound:
-		return nil, v
+		response := &UpdateItemPurchaseConditionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateItemPurchaseConditionConflict:
-		return nil, v
+		response := &UpdateItemPurchaseConditionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateItemPurchaseConditionUnprocessableEntity:
-		return nil, v
+		response := &UpdateItemPurchaseConditionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2634,7 +3105,7 @@ func (a *Client) UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseCond
 ReturnItemShort return item
  [SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is maxCount limited, it will increase the sale available count if orderNo already acquired.
 */
-func (a *Client) ReturnItemShort(params *ReturnItemParams, authInfo runtime.ClientAuthInfoWriter) (*ReturnItemNoContent, error) {
+func (a *Client) ReturnItemShort(params *ReturnItemParams, authInfo runtime.ClientAuthInfoWriter) (*ReturnItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewReturnItemParams()
@@ -2672,11 +3143,25 @@ func (a *Client) ReturnItemShort(params *ReturnItemParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *ReturnItemNoContent:
-		return v, nil
+		response := &ReturnItemResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ReturnItemNotFound:
-		return nil, v
+		response := &ReturnItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ReturnItemUnprocessableEntity:
-		return nil, v
+		response := &ReturnItemResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2693,7 +3178,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
   *  Returns : the item with that appId
 */
-func (a *Client) PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemByAppIDOK, error) {
+func (a *Client) PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemByAppIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetItemByAppIDParams()
@@ -2731,9 +3216,19 @@ func (a *Client) PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, a
 	switch v := result.(type) {
 
 	case *PublicGetItemByAppIDOK:
-		return v, nil
+		response := &PublicGetItemByAppIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetItemByAppIDNotFound:
-		return nil, v
+		response := &PublicGetItemByAppIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2750,7 +3245,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
   *  Returns : the list of items
 */
-func (a *Client) PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryItemsOK, error) {
+func (a *Client) PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryItemsParams()
@@ -2788,11 +3283,26 @@ func (a *Client) PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo 
 	switch v := result.(type) {
 
 	case *PublicQueryItemsOK:
-		return v, nil
+		response := &PublicQueryItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicQueryItemsNotFound:
-		return nil, v
+		response := &PublicQueryItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicQueryItemsUnprocessableEntity:
-		return nil, v
+		response := &PublicQueryItemsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2809,7 +3319,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
   *  Returns : the item with sku
 */
-func (a *Client) PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemBySkuOK, error) {
+func (a *Client) PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemBySkuResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetItemBySkuParams()
@@ -2847,9 +3357,19 @@ func (a *Client) PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authI
 	switch v := result.(type) {
 
 	case *PublicGetItemBySkuOK:
-		return v, nil
+		response := &PublicGetItemBySkuResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetItemBySkuNotFound:
-		return nil, v
+		response := &PublicGetItemBySkuResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2860,7 +3380,7 @@ func (a *Client) PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authI
 PublicGetEstimatedPriceShort get estimated price
 This API is used to get estimated prices of item
 */
-func (a *Client) PublicGetEstimatedPriceShort(params *PublicGetEstimatedPriceParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetEstimatedPriceOK, error) {
+func (a *Client) PublicGetEstimatedPriceShort(params *PublicGetEstimatedPriceParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetEstimatedPriceResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetEstimatedPriceParams()
@@ -2898,9 +3418,19 @@ func (a *Client) PublicGetEstimatedPriceShort(params *PublicGetEstimatedPricePar
 	switch v := result.(type) {
 
 	case *PublicGetEstimatedPriceOK:
-		return v, nil
+		response := &PublicGetEstimatedPriceResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetEstimatedPriceNotFound:
-		return nil, v
+		response := &PublicGetEstimatedPriceResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2917,7 +3447,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store items)
   *  Returns : the list of items info
 */
-func (a *Client) PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetItemsOK, error) {
+func (a *Client) PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicBulkGetItemsParams()
@@ -2955,9 +3485,19 @@ func (a *Client) PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authI
 	switch v := result.(type) {
 
 	case *PublicBulkGetItemsOK:
-		return v, nil
+		response := &PublicBulkGetItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicBulkGetItemsNotFound:
-		return nil, v
+		response := &PublicBulkGetItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2968,7 +3508,7 @@ func (a *Client) PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authI
 PublicValidateItemPurchaseConditionShort validate user item purchase condition
 This API is used to validate user item purchase condition
 */
-func (a *Client) PublicValidateItemPurchaseConditionShort(params *PublicValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateItemPurchaseConditionOK, error) {
+func (a *Client) PublicValidateItemPurchaseConditionShort(params *PublicValidateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateItemPurchaseConditionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicValidateItemPurchaseConditionParams()
@@ -3006,9 +3546,19 @@ func (a *Client) PublicValidateItemPurchaseConditionShort(params *PublicValidate
 	switch v := result.(type) {
 
 	case *PublicValidateItemPurchaseConditionOK:
-		return v, nil
+		response := &PublicValidateItemPurchaseConditionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicValidateItemPurchaseConditionUnprocessableEntity:
-		return nil, v
+		response := &PublicValidateItemPurchaseConditionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3025,7 +3575,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
   *  Returns : the list of items
 */
-func (a *Client) PublicSearchItemsShort(params *PublicSearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchItemsOK, error) {
+func (a *Client) PublicSearchItemsShort(params *PublicSearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicSearchItemsParams()
@@ -3063,9 +3613,19 @@ func (a *Client) PublicSearchItemsShort(params *PublicSearchItemsParams, authInf
 	switch v := result.(type) {
 
 	case *PublicSearchItemsOK:
-		return v, nil
+		response := &PublicSearchItemsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicSearchItemsNotFound:
-		return nil, v
+		response := &PublicSearchItemsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3082,7 +3642,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store app)
   *  Returns : app data
 */
-func (a *Client) PublicGetAppShort(params *PublicGetAppParams) (*PublicGetAppOK, error) {
+func (a *Client) PublicGetAppShort(params *PublicGetAppParams) (*PublicGetAppResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetAppParams()
@@ -3119,9 +3679,19 @@ func (a *Client) PublicGetAppShort(params *PublicGetAppParams) (*PublicGetAppOK,
 	switch v := result.(type) {
 
 	case *PublicGetAppOK:
-		return v, nil
+		response := &PublicGetAppResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetAppNotFound:
-		return nil, v
+		response := &PublicGetAppResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3135,7 +3705,7 @@ Other detail info:
 
   * Returns : item dynamic data
 */
-func (a *Client) PublicGetItemDynamicDataShort(params *PublicGetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemDynamicDataOK, error) {
+func (a *Client) PublicGetItemDynamicDataShort(params *PublicGetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemDynamicDataResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetItemDynamicDataParams()
@@ -3173,9 +3743,19 @@ func (a *Client) PublicGetItemDynamicDataShort(params *PublicGetItemDynamicDataP
 	switch v := result.(type) {
 
 	case *PublicGetItemDynamicDataOK:
-		return v, nil
+		response := &PublicGetItemDynamicDataResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetItemDynamicDataNotFound:
-		return nil, v
+		response := &PublicGetItemDynamicDataResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3192,7 +3772,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
   *  Returns : item data
 */
-func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemOK, error) {
+func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetItemParams()
@@ -3230,9 +3810,19 @@ func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *PublicGetItemOK:
-		return v, nil
+		response := &PublicGetItemResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetItemNotFound:
-		return nil, v
+		response := &PublicGetItemResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3251,7 +3841,7 @@ Other detail info:
 
   * Returns : the list of items
 */
-func (a *Client) QueryItemsV2Short(params *QueryItemsV2Params, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsV2OK, error) {
+func (a *Client) QueryItemsV2Short(params *QueryItemsV2Params, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryItemsV2Params()
@@ -3289,11 +3879,26 @@ func (a *Client) QueryItemsV2Short(params *QueryItemsV2Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *QueryItemsV2OK:
-		return v, nil
+		response := &QueryItemsV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryItemsV2NotFound:
-		return nil, v
+		response := &QueryItemsV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryItemsV2UnprocessableEntity:
-		return nil, v
+		response := &QueryItemsV2Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

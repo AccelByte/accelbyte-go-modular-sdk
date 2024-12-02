@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type StopStatCycleResponse struct {
+	socialclientmodels.ApiResponse
+	Data *socialclientmodels.StatCycleInfo
+
+	Error401 *socialclientmodels.ErrorEntity
+	Error403 *socialclientmodels.ErrorEntity
+	Error404 *socialclientmodels.ErrorEntity
+	Error409 *socialclientmodels.ErrorEntity
+	Error500 *socialclientmodels.ErrorEntity
+}
+
+func (m *StopStatCycleResponse) Unpack() (*socialclientmodels.StatCycleInfo, *socialclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // StopStatCycleReader is a Reader for the StopStatCycle structure.
 type StopStatCycleReader struct {
 	formats strfmt.Registry

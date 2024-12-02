@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type FulfillUserOrderResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.OrderInfo
+
+	Error400 *platformclientmodels.ErrorEntity
+	Error404 *platformclientmodels.ErrorEntity
+	Error409 *platformclientmodels.ErrorEntity
+}
+
+func (m *FulfillUserOrderResponse) Unpack() (*platformclientmodels.OrderInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // FulfillUserOrderReader is a Reader for the FulfillUserOrder structure.
 type FulfillUserOrderReader struct {
 	formats strfmt.Registry

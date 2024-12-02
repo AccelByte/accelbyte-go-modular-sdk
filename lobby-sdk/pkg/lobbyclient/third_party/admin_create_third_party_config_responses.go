@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type AdminCreateThirdPartyConfigResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data *lobbyclientmodels.ModelsCreateConfigResponse
+
+	Error400 *lobbyclientmodels.RestapiErrorResponseV1
+	Error401 *lobbyclientmodels.RestapiErrorResponseV1
+	Error403 *lobbyclientmodels.RestapiErrorResponseV1
+	Error409 *lobbyclientmodels.RestapiErrorResponseV1
+	Error500 *lobbyclientmodels.RestapiErrorResponseV1
+}
+
+func (m *AdminCreateThirdPartyConfigResponse) Unpack() (*lobbyclientmodels.ModelsCreateConfigResponse, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminCreateThirdPartyConfigReader is a Reader for the AdminCreateThirdPartyConfig structure.
 type AdminCreateThirdPartyConfigReader struct {
 	formats strfmt.Registry

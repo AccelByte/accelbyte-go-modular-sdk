@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type MockXblClawbackEventResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.ClawbackInfo
+}
+
+func (m *MockXblClawbackEventResponse) Unpack() (*platformclientmodels.ClawbackInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // MockXblClawbackEventReader is a Reader for the MockXblClawbackEvent structure.
 type MockXblClawbackEventReader struct {
 	formats strfmt.Registry

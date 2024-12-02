@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GeneratedUploadURLShort(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLOK, error)
-	GeneratedUserUploadContentURLShort(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLOK, error)
-	PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLOK, error)
-	PublicGeneratedUserUploadContentURLShort(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLOK, error)
+	GeneratedUploadURLShort(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLResponse, error)
+	GeneratedUserUploadContentURLShort(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLResponse, error)
+	PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLResponse, error)
+	PublicGeneratedUserUploadContentURLShort(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ Other detail info:
   * Action code : 11101
   *  Returns : URL data
 */
-func (a *Client) GeneratedUploadURLShort(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLOK, error) {
+func (a *Client) GeneratedUploadURLShort(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGeneratedUploadURLParams()
@@ -84,15 +84,40 @@ func (a *Client) GeneratedUploadURLShort(params *GeneratedUploadURLParams, authI
 	switch v := result.(type) {
 
 	case *GeneratedUploadURLOK:
-		return v, nil
+		response := &GeneratedUploadURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GeneratedUploadURLBadRequest:
-		return nil, v
+		response := &GeneratedUploadURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GeneratedUploadURLUnauthorized:
-		return nil, v
+		response := &GeneratedUploadURLResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GeneratedUploadURLForbidden:
-		return nil, v
+		response := &GeneratedUploadURLResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GeneratedUploadURLInternalServerError:
-		return nil, v
+		response := &GeneratedUploadURLResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -109,7 +134,7 @@ Other detail info:
   *  Default maximum file size per user : 104857600 bytes
   *  Returns : URL data
 */
-func (a *Client) GeneratedUserUploadContentURLShort(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLOK, error) {
+func (a *Client) GeneratedUserUploadContentURLShort(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGeneratedUserUploadContentURLParams()
@@ -147,17 +172,47 @@ func (a *Client) GeneratedUserUploadContentURLShort(params *GeneratedUserUploadC
 	switch v := result.(type) {
 
 	case *GeneratedUserUploadContentURLOK:
-		return v, nil
+		response := &GeneratedUserUploadContentURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GeneratedUserUploadContentURLBadRequest:
-		return nil, v
+		response := &GeneratedUserUploadContentURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GeneratedUserUploadContentURLUnauthorized:
-		return nil, v
+		response := &GeneratedUserUploadContentURLResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GeneratedUserUploadContentURLForbidden:
-		return nil, v
+		response := &GeneratedUserUploadContentURLResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GeneratedUserUploadContentURLConflict:
-		return nil, v
+		response := &GeneratedUserUploadContentURLResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GeneratedUserUploadContentURLInternalServerError:
-		return nil, v
+		response := &GeneratedUserUploadContentURLResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -172,7 +227,7 @@ Other detail info:
   * Action code : 11101
   *  Returns : URL data
 */
-func (a *Client) PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLOK, error) {
+func (a *Client) PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGeneratedUploadURLParams()
@@ -210,15 +265,40 @@ func (a *Client) PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLP
 	switch v := result.(type) {
 
 	case *PublicGeneratedUploadURLOK:
-		return v, nil
+		response := &PublicGeneratedUploadURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGeneratedUploadURLBadRequest:
-		return nil, v
+		response := &PublicGeneratedUploadURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratedUploadURLUnauthorized:
-		return nil, v
+		response := &PublicGeneratedUploadURLResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratedUploadURLForbidden:
-		return nil, v
+		response := &PublicGeneratedUploadURLResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratedUploadURLInternalServerError:
-		return nil, v
+		response := &PublicGeneratedUploadURLResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -237,7 +317,7 @@ Other detail info:
   *  Default maximum file size per user : 104857600 bytes
   *  Returns : URL data
 */
-func (a *Client) PublicGeneratedUserUploadContentURLShort(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLOK, error) {
+func (a *Client) PublicGeneratedUserUploadContentURLShort(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGeneratedUserUploadContentURLParams()
@@ -275,17 +355,47 @@ func (a *Client) PublicGeneratedUserUploadContentURLShort(params *PublicGenerate
 	switch v := result.(type) {
 
 	case *PublicGeneratedUserUploadContentURLOK:
-		return v, nil
+		response := &PublicGeneratedUserUploadContentURLResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGeneratedUserUploadContentURLBadRequest:
-		return nil, v
+		response := &PublicGeneratedUserUploadContentURLResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratedUserUploadContentURLUnauthorized:
-		return nil, v
+		response := &PublicGeneratedUserUploadContentURLResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratedUserUploadContentURLForbidden:
-		return nil, v
+		response := &PublicGeneratedUserUploadContentURLResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratedUserUploadContentURLConflict:
-		return nil, v
+		response := &PublicGeneratedUserUploadContentURLResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGeneratedUserUploadContentURLInternalServerError:
-		return nil, v
+		response := &PublicGeneratedUserUploadContentURLResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

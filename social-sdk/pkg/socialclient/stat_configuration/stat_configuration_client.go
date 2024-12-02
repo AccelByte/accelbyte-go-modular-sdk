@@ -31,16 +31,16 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetStatsShort(params *GetStatsParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatsOK, error)
-	CreateStatShort(params *CreateStatParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCreated, error)
-	ExportStatsShort(params *ExportStatsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStatsOK, error)
-	ImportStatsShort(params *ImportStatsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStatsCreated, error)
-	QueryStatsShort(params *QueryStatsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryStatsOK, error)
-	GetStatShort(params *GetStatParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatOK, error)
-	DeleteStatShort(params *DeleteStatParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatNoContent, error)
-	UpdateStatShort(params *UpdateStatParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatOK, error)
-	DeleteTiedStatShort(params *DeleteTiedStatParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTiedStatNoContent, error)
-	CreateStat1Short(params *CreateStat1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateStat1Created, error)
+	GetStatsShort(params *GetStatsParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatsResponse, error)
+	CreateStatShort(params *CreateStatParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatResponse, error)
+	ExportStatsShort(params *ExportStatsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStatsResponse, error)
+	ImportStatsShort(params *ImportStatsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStatsResponse, error)
+	QueryStatsShort(params *QueryStatsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryStatsResponse, error)
+	GetStatShort(params *GetStatParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatResponse, error)
+	DeleteStatShort(params *DeleteStatParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatResponse, error)
+	UpdateStatShort(params *UpdateStatParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatResponse, error)
+	DeleteTiedStatShort(params *DeleteTiedStatParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTiedStatResponse, error)
+	CreateStat1Short(params *CreateStat1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateStat1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ List stats by pagination.
 Other detail info:
             *  Returns : stats
 */
-func (a *Client) GetStatsShort(params *GetStatsParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatsOK, error) {
+func (a *Client) GetStatsShort(params *GetStatsParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStatsParams()
@@ -89,13 +89,33 @@ func (a *Client) GetStatsShort(params *GetStatsParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *GetStatsOK:
-		return v, nil
+		response := &GetStatsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetStatsUnauthorized:
-		return nil, v
+		response := &GetStatsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatsForbidden:
-		return nil, v
+		response := &GetStatsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatsInternalServerError:
-		return nil, v
+		response := &GetStatsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -111,7 +131,7 @@ Other detail info:
             * default maximum value is 1.7976931348623157e+308
             * Field globalAggregationMethod will be ignored when setAsGlobal field is false
 */
-func (a *Client) CreateStatShort(params *CreateStatParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCreated, error) {
+func (a *Client) CreateStatShort(params *CreateStatParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateStatParams()
@@ -149,21 +169,61 @@ func (a *Client) CreateStatShort(params *CreateStatParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *CreateStatCreated:
-		return v, nil
+		response := &CreateStatResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateStatBadRequest:
-		return nil, v
+		response := &CreateStatResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatUnauthorized:
-		return nil, v
+		response := &CreateStatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatForbidden:
-		return nil, v
+		response := &CreateStatResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatNotFound:
-		return nil, v
+		response := &CreateStatResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatConflict:
-		return nil, v
+		response := &CreateStatResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatUnprocessableEntity:
-		return nil, v
+		response := &CreateStatResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStatInternalServerError:
-		return nil, v
+		response := &CreateStatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,7 +234,7 @@ func (a *Client) CreateStatShort(params *CreateStatParams, authInfo runtime.Clie
 ExportStatsShort export all stat configurations
 Export all stat configurations for a given namespace into file At current, only JSON file is supported.
 */
-func (a *Client) ExportStatsShort(params *ExportStatsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStatsOK, error) {
+func (a *Client) ExportStatsShort(params *ExportStatsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*ExportStatsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewExportStatsParams()
@@ -212,13 +272,33 @@ func (a *Client) ExportStatsShort(params *ExportStatsParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ExportStatsOK:
-		return v, nil
+		response := &ExportStatsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ExportStatsUnauthorized:
-		return nil, v
+		response := &ExportStatsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportStatsForbidden:
-		return nil, v
+		response := &ExportStatsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ExportStatsInternalServerError:
-		return nil, v
+		response := &ExportStatsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -229,7 +309,7 @@ func (a *Client) ExportStatsShort(params *ExportStatsParams, authInfo runtime.Cl
 ImportStatsShort import stat configurations
 Import stat configurations for a given namespace from file. At current, only JSON file is supported.
 */
-func (a *Client) ImportStatsShort(params *ImportStatsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStatsCreated, error) {
+func (a *Client) ImportStatsShort(params *ImportStatsParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStatsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewImportStatsParams()
@@ -267,15 +347,40 @@ func (a *Client) ImportStatsShort(params *ImportStatsParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *ImportStatsCreated:
-		return v, nil
+		response := &ImportStatsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ImportStatsBadRequest:
-		return nil, v
+		response := &ImportStatsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStatsUnauthorized:
-		return nil, v
+		response := &ImportStatsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStatsForbidden:
-		return nil, v
+		response := &ImportStatsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ImportStatsInternalServerError:
-		return nil, v
+		response := &ImportStatsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,7 +393,7 @@ Query stats by keyword.
 Other detail info:
             *  Returns : stats
 */
-func (a *Client) QueryStatsShort(params *QueryStatsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryStatsOK, error) {
+func (a *Client) QueryStatsShort(params *QueryStatsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryStatsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryStatsParams()
@@ -326,13 +431,33 @@ func (a *Client) QueryStatsShort(params *QueryStatsParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *QueryStatsOK:
-		return v, nil
+		response := &QueryStatsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QueryStatsUnauthorized:
-		return nil, v
+		response := &QueryStatsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryStatsForbidden:
-		return nil, v
+		response := &QueryStatsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QueryStatsInternalServerError:
-		return nil, v
+		response := &QueryStatsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -345,7 +470,7 @@ Get stat by statCode.
 Other detail info:
             *  Returns : stat info
 */
-func (a *Client) GetStatShort(params *GetStatParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatOK, error) {
+func (a *Client) GetStatShort(params *GetStatParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetStatParams()
@@ -383,15 +508,40 @@ func (a *Client) GetStatShort(params *GetStatParams, authInfo runtime.ClientAuth
 	switch v := result.(type) {
 
 	case *GetStatOK:
-		return v, nil
+		response := &GetStatResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetStatUnauthorized:
-		return nil, v
+		response := &GetStatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatForbidden:
-		return nil, v
+		response := &GetStatResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatNotFound:
-		return nil, v
+		response := &GetStatResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetStatInternalServerError:
-		return nil, v
+		response := &GetStatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -402,7 +552,7 @@ func (a *Client) GetStatShort(params *GetStatParams, authInfo runtime.ClientAuth
 DeleteStatShort deletes stat
 Deletes stat template.
 */
-func (a *Client) DeleteStatShort(params *DeleteStatParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatNoContent, error) {
+func (a *Client) DeleteStatShort(params *DeleteStatParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteStatParams()
@@ -440,15 +590,39 @@ func (a *Client) DeleteStatShort(params *DeleteStatParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *DeleteStatNoContent:
-		return v, nil
+		response := &DeleteStatResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteStatUnauthorized:
-		return nil, v
+		response := &DeleteStatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteStatForbidden:
-		return nil, v
+		response := &DeleteStatResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteStatNotFound:
-		return nil, v
+		response := &DeleteStatResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteStatInternalServerError:
-		return nil, v
+		response := &DeleteStatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -464,7 +638,7 @@ Other detail info:
             *  Field globalAggregationMethod is not updatable when the stat status is TIED
             *  Field visibility is not updatable when the stat status is TIED
 */
-func (a *Client) UpdateStatShort(params *UpdateStatParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatOK, error) {
+func (a *Client) UpdateStatShort(params *UpdateStatParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateStatParams()
@@ -502,19 +676,54 @@ func (a *Client) UpdateStatShort(params *UpdateStatParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *UpdateStatOK:
-		return v, nil
+		response := &UpdateStatResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateStatBadRequest:
-		return nil, v
+		response := &UpdateStatResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatUnauthorized:
-		return nil, v
+		response := &UpdateStatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatForbidden:
-		return nil, v
+		response := &UpdateStatResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatNotFound:
-		return nil, v
+		response := &UpdateStatResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatUnprocessableEntity:
-		return nil, v
+		response := &UpdateStatResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateStatInternalServerError:
-		return nil, v
+		response := &UpdateStatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -525,7 +734,7 @@ func (a *Client) UpdateStatShort(params *UpdateStatParams, authInfo runtime.Clie
 DeleteTiedStatShort deletes tied stat
 Deletes stat template.
 */
-func (a *Client) DeleteTiedStatShort(params *DeleteTiedStatParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTiedStatNoContent, error) {
+func (a *Client) DeleteTiedStatShort(params *DeleteTiedStatParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTiedStatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteTiedStatParams()
@@ -563,17 +772,46 @@ func (a *Client) DeleteTiedStatShort(params *DeleteTiedStatParams, authInfo runt
 	switch v := result.(type) {
 
 	case *DeleteTiedStatNoContent:
-		return v, nil
+		response := &DeleteTiedStatResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteTiedStatUnauthorized:
-		return nil, v
+		response := &DeleteTiedStatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTiedStatForbidden:
-		return nil, v
+		response := &DeleteTiedStatResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTiedStatNotFound:
-		return nil, v
+		response := &DeleteTiedStatResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTiedStatConflict:
-		return nil, v
+		response := &DeleteTiedStatResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteTiedStatInternalServerError:
-		return nil, v
+		response := &DeleteTiedStatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -589,7 +827,7 @@ Other detail info:
             * default maximum value is 1.7976931348623157e+308
             * Field globalAggregationMethod will be ignored when setAsGlobal field is false
 */
-func (a *Client) CreateStat1Short(params *CreateStat1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateStat1Created, error) {
+func (a *Client) CreateStat1Short(params *CreateStat1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateStat1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateStat1Params()
@@ -627,21 +865,61 @@ func (a *Client) CreateStat1Short(params *CreateStat1Params, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CreateStat1Created:
-		return v, nil
+		response := &CreateStat1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateStat1BadRequest:
-		return nil, v
+		response := &CreateStat1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStat1Unauthorized:
-		return nil, v
+		response := &CreateStat1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStat1Forbidden:
-		return nil, v
+		response := &CreateStat1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStat1NotFound:
-		return nil, v
+		response := &CreateStat1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStat1Conflict:
-		return nil, v
+		response := &CreateStat1Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStat1UnprocessableEntity:
-		return nil, v
+		response := &CreateStat1Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateStat1InternalServerError:
-		return nil, v
+		response := &CreateStat1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

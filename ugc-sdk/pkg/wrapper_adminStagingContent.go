@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_staging_content"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type AdminStagingContentService struct {
@@ -37,7 +36,7 @@ func (aaa *AdminStagingContentService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminStagingContentService) AdminListStagingContentsShort(input *admin_staging_content.AdminListStagingContentsParams) (*ugcclientmodels.ModelsPaginatedListStagingContentResponse, error) {
+func (aaa *AdminStagingContentService) AdminListStagingContentsShort(input *admin_staging_content.AdminListStagingContentsParams) (*admin_staging_content.AdminListStagingContentsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminStagingContentService) AdminListStagingContentsShort(input *admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminStagingContentService) AdminGetStagingContentByIDShort(input *admin_staging_content.AdminGetStagingContentByIDParams) (*ugcclientmodels.ModelsStagingContentResponse, error) {
+func (aaa *AdminStagingContentService) AdminGetStagingContentByIDShort(input *admin_staging_content.AdminGetStagingContentByIDParams) (*admin_staging_content.AdminGetStagingContentByIDResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminStagingContentService) AdminGetStagingContentByIDShort(input *ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminStagingContentService) AdminApproveStagingContentShort(input *admin_staging_content.AdminApproveStagingContentParams) (*ugcclientmodels.ModelsStagingContentResponse, error) {
+func (aaa *AdminStagingContentService) AdminApproveStagingContentShort(input *admin_staging_content.AdminApproveStagingContentParams) (*admin_staging_content.AdminApproveStagingContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *AdminStagingContentService) AdminApproveStagingContentShort(input *ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminStagingContentService) AdminListUserStagingContentsShort(input *admin_staging_content.AdminListUserStagingContentsParams) (*ugcclientmodels.ModelsPaginatedListStagingContentResponse, error) {
+func (aaa *AdminStagingContentService) AdminListUserStagingContentsShort(input *admin_staging_content.AdminListUserStagingContentsParams) (*admin_staging_content.AdminListUserStagingContentsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,5 +153,5 @@ func (aaa *AdminStagingContentService) AdminListUserStagingContentsShort(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

@@ -9,7 +9,6 @@ package match2
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_tickets"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *MatchTicketsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *MatchTicketsService) CreateMatchTicketShort(input *match_tickets.CreateMatchTicketParams) (*match2clientmodels.APIMatchTicketResponse, error) {
+func (aaa *MatchTicketsService) CreateMatchTicketShort(input *match_tickets.CreateMatchTicketParams) (*match_tickets.CreateMatchTicketResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *MatchTicketsService) CreateMatchTicketShort(input *match_tickets.Crea
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *MatchTicketsService) GetMyMatchTicketsShort(input *match_tickets.GetMyMatchTicketsParams) (*match2clientmodels.APIMatchTicketStatuses, error) {
+func (aaa *MatchTicketsService) GetMyMatchTicketsShort(input *match_tickets.GetMyMatchTicketsParams) (*match_tickets.GetMyMatchTicketsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *MatchTicketsService) GetMyMatchTicketsShort(input *match_tickets.GetM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MatchTicketsService) MatchTicketDetailsShort(input *match_tickets.MatchTicketDetailsParams) (*match2clientmodels.APIMatchTicketStatus, error) {
+func (aaa *MatchTicketsService) MatchTicketDetailsShort(input *match_tickets.MatchTicketDetailsParams) (*match_tickets.MatchTicketDetailsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *MatchTicketsService) MatchTicketDetailsShort(input *match_tickets.Mat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *MatchTicketsService) DeleteMatchTicketShort(input *match_tickets.DeleteMatchTicketParams) error {

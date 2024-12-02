@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_download_count_v2"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type PublicDownloadCountV2Service struct {
@@ -37,7 +36,7 @@ func (aaa *PublicDownloadCountV2Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicDownloadCountV2Service) PublicAddDownloadCountV2Short(input *public_download_count_v2.PublicAddDownloadCountV2Params) (*ugcclientmodels.ModelsAddDownloadCountResponse, error) {
+func (aaa *PublicDownloadCountV2Service) PublicAddDownloadCountV2Short(input *public_download_count_v2.PublicAddDownloadCountV2Params) (*public_download_count_v2.PublicAddDownloadCountV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PublicDownloadCountV2Service) PublicAddDownloadCountV2Short(input *pu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PublicDownloadCountV2Service) PublicListContentDownloaderV2Short(input *public_download_count_v2.PublicListContentDownloaderV2Params) (*ugcclientmodels.ModelsPaginatedContentDownloaderResponse, error) {
+func (aaa *PublicDownloadCountV2Service) PublicListContentDownloaderV2Short(input *public_download_count_v2.PublicListContentDownloaderV2Params) (*public_download_count_v2.PublicListContentDownloaderV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,5 +93,5 @@ func (aaa *PublicDownloadCountV2Service) PublicListContentDownloaderV2Short(inpu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

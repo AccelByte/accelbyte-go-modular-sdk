@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV2OK, error)
-	GetAppV2Short(params *GetAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV2OK, error)
-	CreateAppV2Short(params *CreateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV2OK, error)
-	DeleteAppV2Short(params *DeleteAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV2NoContent, error)
-	UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV2OK, error)
-	UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesV2OK, error)
-	UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppResourcesResourceLimitFormV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesResourceLimitFormV2NoContent, error)
-	StartAppV2Short(params *StartAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV2Accepted, error)
-	StopAppV2Short(params *StopAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV2Accepted, error)
+	GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV2Response, error)
+	GetAppV2Short(params *GetAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV2Response, error)
+	CreateAppV2Short(params *CreateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV2Response, error)
+	DeleteAppV2Short(params *DeleteAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV2Response, error)
+	UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV2Response, error)
+	UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesV2Response, error)
+	UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppResourcesResourceLimitFormV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesResourceLimitFormV2Response, error)
+	StartAppV2Short(params *StartAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV2Response, error)
+	StopAppV2Short(params *StopAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
 
 Get list of extend apps on a given game namespace
 */
-func (a *Client) GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV2OK, error) {
+func (a *Client) GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppListV2Params()
@@ -87,17 +87,47 @@ func (a *Client) GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *GetAppListV2OK:
-		return v, nil
+		response := &GetAppListV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAppListV2BadRequest:
-		return nil, v
+		response := &GetAppListV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppListV2Unauthorized:
-		return nil, v
+		response := &GetAppListV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppListV2Forbidden:
-		return nil, v
+		response := &GetAppListV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppListV2NotFound:
-		return nil, v
+		response := &GetAppListV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppListV2InternalServerError:
-		return nil, v
+		response := &GetAppListV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -134,7 +164,7 @@ Available app status:
 - `app-removed`
 - `app-remove-timeout`
 */
-func (a *Client) GetAppV2Short(params *GetAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV2OK, error) {
+func (a *Client) GetAppV2Short(params *GetAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetAppV2Params()
@@ -172,15 +202,40 @@ func (a *Client) GetAppV2Short(params *GetAppV2Params, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *GetAppV2OK:
-		return v, nil
+		response := &GetAppV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetAppV2Unauthorized:
-		return nil, v
+		response := &GetAppV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppV2Forbidden:
-		return nil, v
+		response := &GetAppV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppV2NotFound:
-		return nil, v
+		response := &GetAppV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetAppV2InternalServerError:
-		return nil, v
+		response := &GetAppV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -217,7 +272,7 @@ Available app status:
 - `app-removed`
 - `app-remove-timeout`
 */
-func (a *Client) CreateAppV2Short(params *CreateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV2OK, error) {
+func (a *Client) CreateAppV2Short(params *CreateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateAppV2Params()
@@ -255,19 +310,54 @@ func (a *Client) CreateAppV2Short(params *CreateAppV2Params, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *CreateAppV2OK:
-		return v, nil
+		response := &CreateAppV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateAppV2BadRequest:
-		return nil, v
+		response := &CreateAppV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV2Unauthorized:
-		return nil, v
+		response := &CreateAppV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV2Forbidden:
-		return nil, v
+		response := &CreateAppV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV2NotFound:
-		return nil, v
+		response := &CreateAppV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV2Conflict:
-		return nil, v
+		response := &CreateAppV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateAppV2InternalServerError:
-		return nil, v
+		response := &CreateAppV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -283,7 +373,7 @@ Delete extend app by given {app} name
 This endpoint will delete app information, configuration, deployments and all related manifest from
 db, storage and cluster
 */
-func (a *Client) DeleteAppV2Short(params *DeleteAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV2NoContent, error) {
+func (a *Client) DeleteAppV2Short(params *DeleteAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteAppV2Params()
@@ -321,17 +411,46 @@ func (a *Client) DeleteAppV2Short(params *DeleteAppV2Params, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *DeleteAppV2NoContent:
-		return v, nil
+		response := &DeleteAppV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteAppV2BadRequest:
-		return nil, v
+		response := &DeleteAppV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppV2Unauthorized:
-		return nil, v
+		response := &DeleteAppV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppV2Forbidden:
-		return nil, v
+		response := &DeleteAppV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppV2NotFound:
-		return nil, v
+		response := &DeleteAppV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteAppV2InternalServerError:
-		return nil, v
+		response := &DeleteAppV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -344,7 +463,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
 
 Update app info provided on request body
 */
-func (a *Client) UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV2OK, error) {
+func (a *Client) UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAppV2Params()
@@ -382,17 +501,47 @@ func (a *Client) UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *UpdateAppV2OK:
-		return v, nil
+		response := &UpdateAppV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateAppV2BadRequest:
-		return nil, v
+		response := &UpdateAppV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppV2Unauthorized:
-		return nil, v
+		response := &UpdateAppV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppV2Forbidden:
-		return nil, v
+		response := &UpdateAppV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppV2NotFound:
-		return nil, v
+		response := &UpdateAppV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppV2InternalServerError:
-		return nil, v
+		response := &UpdateAppV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -405,7 +554,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
 
 Update app resources provided on request body
 */
-func (a *Client) UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesV2OK, error) {
+func (a *Client) UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAppResourcesV2Params()
@@ -443,17 +592,47 @@ func (a *Client) UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, a
 	switch v := result.(type) {
 
 	case *UpdateAppResourcesV2OK:
-		return v, nil
+		response := &UpdateAppResourcesV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateAppResourcesV2BadRequest:
-		return nil, v
+		response := &UpdateAppResourcesV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppResourcesV2Unauthorized:
-		return nil, v
+		response := &UpdateAppResourcesV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppResourcesV2Forbidden:
-		return nil, v
+		response := &UpdateAppResourcesV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppResourcesV2NotFound:
-		return nil, v
+		response := &UpdateAppResourcesV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppResourcesV2InternalServerError:
-		return nil, v
+		response := &UpdateAppResourcesV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -466,7 +645,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
 
 Update app resources provided on request body
 */
-func (a *Client) UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppResourcesResourceLimitFormV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesResourceLimitFormV2NoContent, error) {
+func (a *Client) UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppResourcesResourceLimitFormV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesResourceLimitFormV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateAppResourcesResourceLimitFormV2Params()
@@ -504,17 +683,46 @@ func (a *Client) UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppRes
 	switch v := result.(type) {
 
 	case *UpdateAppResourcesResourceLimitFormV2NoContent:
-		return v, nil
+		response := &UpdateAppResourcesResourceLimitFormV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateAppResourcesResourceLimitFormV2BadRequest:
-		return nil, v
+		response := &UpdateAppResourcesResourceLimitFormV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppResourcesResourceLimitFormV2Unauthorized:
-		return nil, v
+		response := &UpdateAppResourcesResourceLimitFormV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppResourcesResourceLimitFormV2Forbidden:
-		return nil, v
+		response := &UpdateAppResourcesResourceLimitFormV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppResourcesResourceLimitFormV2NotFound:
-		return nil, v
+		response := &UpdateAppResourcesResourceLimitFormV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateAppResourcesResourceLimitFormV2InternalServerError:
-		return nil, v
+		response := &UpdateAppResourcesResourceLimitFormV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -527,7 +735,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
 
 Starts the Application
 */
-func (a *Client) StartAppV2Short(params *StartAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV2Accepted, error) {
+func (a *Client) StartAppV2Short(params *StartAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewStartAppV2Params()
@@ -565,17 +773,46 @@ func (a *Client) StartAppV2Short(params *StartAppV2Params, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *StartAppV2Accepted:
-		return v, nil
+		response := &StartAppV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *StartAppV2BadRequest:
-		return nil, v
+		response := &StartAppV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StartAppV2Unauthorized:
-		return nil, v
+		response := &StartAppV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StartAppV2Forbidden:
-		return nil, v
+		response := &StartAppV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StartAppV2NotFound:
-		return nil, v
+		response := &StartAppV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StartAppV2InternalServerError:
-		return nil, v
+		response := &StartAppV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -588,7 +825,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
 
 Stops the Application
 */
-func (a *Client) StopAppV2Short(params *StopAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV2Accepted, error) {
+func (a *Client) StopAppV2Short(params *StopAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewStopAppV2Params()
@@ -626,17 +863,46 @@ func (a *Client) StopAppV2Short(params *StopAppV2Params, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *StopAppV2Accepted:
-		return v, nil
+		response := &StopAppV2Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *StopAppV2BadRequest:
-		return nil, v
+		response := &StopAppV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopAppV2Unauthorized:
-		return nil, v
+		response := &StopAppV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopAppV2Forbidden:
-		return nil, v
+		response := &StopAppV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopAppV2NotFound:
-		return nil, v
+		response := &StopAppV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *StopAppV2InternalServerError:
-		return nil, v
+		response := &StopAppV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

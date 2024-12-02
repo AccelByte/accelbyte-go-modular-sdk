@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type GetJWKSResponse struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.OauthcommonJWKSet
+}
+
+func (m *GetJWKSResponse) Unpack() (*iamclientmodels.OauthcommonJWKSet, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetJWKSReader is a Reader for the GetJWKS structure.
 type GetJWKSReader struct {
 	formats strfmt.Registry

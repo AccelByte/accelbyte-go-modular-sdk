@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetFollowedContentShort(params *GetFollowedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetFollowedContentOK, error)
-	GetFollowedUsersShort(params *GetFollowedUsersParams, authInfo runtime.ClientAuthInfoWriter) (*GetFollowedUsersOK, error)
-	UpdateUserFollowStatusShort(params *UpdateUserFollowStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserFollowStatusOK, error)
-	GetPublicFollowersShort(params *GetPublicFollowersParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublicFollowersOK, error)
-	GetPublicFollowingShort(params *GetPublicFollowingParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublicFollowingOK, error)
+	GetFollowedContentShort(params *GetFollowedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetFollowedContentResponse, error)
+	GetFollowedUsersShort(params *GetFollowedUsersParams, authInfo runtime.ClientAuthInfoWriter) (*GetFollowedUsersResponse, error)
+	UpdateUserFollowStatusShort(params *UpdateUserFollowStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserFollowStatusResponse, error)
+	GetPublicFollowersShort(params *GetPublicFollowersParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublicFollowersResponse, error)
+	GetPublicFollowingShort(params *GetPublicFollowingParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublicFollowingResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 GetFollowedContentShort get contents from followed creators
 Requires valid user token
 */
-func (a *Client) GetFollowedContentShort(params *GetFollowedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetFollowedContentOK, error) {
+func (a *Client) GetFollowedContentShort(params *GetFollowedContentParams, authInfo runtime.ClientAuthInfoWriter) (*GetFollowedContentResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetFollowedContentParams()
@@ -81,13 +81,33 @@ func (a *Client) GetFollowedContentShort(params *GetFollowedContentParams, authI
 	switch v := result.(type) {
 
 	case *GetFollowedContentOK:
-		return v, nil
+		response := &GetFollowedContentResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetFollowedContentBadRequest:
-		return nil, v
+		response := &GetFollowedContentResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetFollowedContentUnauthorized:
-		return nil, v
+		response := &GetFollowedContentResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetFollowedContentInternalServerError:
-		return nil, v
+		response := &GetFollowedContentResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -98,7 +118,7 @@ func (a *Client) GetFollowedContentShort(params *GetFollowedContentParams, authI
 GetFollowedUsersShort get followed creators
 Requires valid user token
 */
-func (a *Client) GetFollowedUsersShort(params *GetFollowedUsersParams, authInfo runtime.ClientAuthInfoWriter) (*GetFollowedUsersOK, error) {
+func (a *Client) GetFollowedUsersShort(params *GetFollowedUsersParams, authInfo runtime.ClientAuthInfoWriter) (*GetFollowedUsersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetFollowedUsersParams()
@@ -136,13 +156,33 @@ func (a *Client) GetFollowedUsersShort(params *GetFollowedUsersParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetFollowedUsersOK:
-		return v, nil
+		response := &GetFollowedUsersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetFollowedUsersBadRequest:
-		return nil, v
+		response := &GetFollowedUsersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetFollowedUsersUnauthorized:
-		return nil, v
+		response := &GetFollowedUsersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetFollowedUsersInternalServerError:
-		return nil, v
+		response := &GetFollowedUsersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -153,7 +193,7 @@ func (a *Client) GetFollowedUsersShort(params *GetFollowedUsersParams, authInfo 
 UpdateUserFollowStatusShort update follow/unfollow status to a user
 Requires valid user token
 */
-func (a *Client) UpdateUserFollowStatusShort(params *UpdateUserFollowStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserFollowStatusOK, error) {
+func (a *Client) UpdateUserFollowStatusShort(params *UpdateUserFollowStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserFollowStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateUserFollowStatusParams()
@@ -191,13 +231,33 @@ func (a *Client) UpdateUserFollowStatusShort(params *UpdateUserFollowStatusParam
 	switch v := result.(type) {
 
 	case *UpdateUserFollowStatusOK:
-		return v, nil
+		response := &UpdateUserFollowStatusResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateUserFollowStatusBadRequest:
-		return nil, v
+		response := &UpdateUserFollowStatusResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserFollowStatusUnauthorized:
-		return nil, v
+		response := &UpdateUserFollowStatusResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateUserFollowStatusInternalServerError:
-		return nil, v
+		response := &UpdateUserFollowStatusResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -207,7 +267,7 @@ func (a *Client) UpdateUserFollowStatusShort(params *UpdateUserFollowStatusParam
 /*
 GetPublicFollowersShort get list of followers
 */
-func (a *Client) GetPublicFollowersShort(params *GetPublicFollowersParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublicFollowersOK, error) {
+func (a *Client) GetPublicFollowersShort(params *GetPublicFollowersParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublicFollowersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPublicFollowersParams()
@@ -245,13 +305,33 @@ func (a *Client) GetPublicFollowersShort(params *GetPublicFollowersParams, authI
 	switch v := result.(type) {
 
 	case *GetPublicFollowersOK:
-		return v, nil
+		response := &GetPublicFollowersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPublicFollowersBadRequest:
-		return nil, v
+		response := &GetPublicFollowersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublicFollowersUnauthorized:
-		return nil, v
+		response := &GetPublicFollowersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublicFollowersInternalServerError:
-		return nil, v
+		response := &GetPublicFollowersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -261,7 +341,7 @@ func (a *Client) GetPublicFollowersShort(params *GetPublicFollowersParams, authI
 /*
 GetPublicFollowingShort get list of following
 */
-func (a *Client) GetPublicFollowingShort(params *GetPublicFollowingParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublicFollowingOK, error) {
+func (a *Client) GetPublicFollowingShort(params *GetPublicFollowingParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublicFollowingResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPublicFollowingParams()
@@ -299,13 +379,33 @@ func (a *Client) GetPublicFollowingShort(params *GetPublicFollowingParams, authI
 	switch v := result.(type) {
 
 	case *GetPublicFollowingOK:
-		return v, nil
+		response := &GetPublicFollowingResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPublicFollowingBadRequest:
-		return nil, v
+		response := &GetPublicFollowingResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublicFollowingUnauthorized:
-		return nil, v
+		response := &GetPublicFollowingResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublicFollowingInternalServerError:
-		return nil, v
+		response := &GetPublicFollowingResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

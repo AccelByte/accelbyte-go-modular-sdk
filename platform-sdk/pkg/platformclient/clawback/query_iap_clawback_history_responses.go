@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryIAPClawbackHistoryResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.IAPClawbackPagingSlicedResult
+}
+
+func (m *QueryIAPClawbackHistoryResponse) Unpack() (*platformclientmodels.IAPClawbackPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryIAPClawbackHistoryReader is a Reader for the QueryIAPClawbackHistory structure.
 type QueryIAPClawbackHistoryReader struct {
 	formats strfmt.Registry

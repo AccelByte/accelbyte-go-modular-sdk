@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListEnvironmentVariablesShort(params *AdminListEnvironmentVariablesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListEnvironmentVariablesOK, error)
+	AdminListEnvironmentVariablesShort(params *AdminListEnvironmentVariablesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListEnvironmentVariablesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 AdminListEnvironmentVariablesShort list of environment variables.
 List of environment variables.
 */
-func (a *Client) AdminListEnvironmentVariablesShort(params *AdminListEnvironmentVariablesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListEnvironmentVariablesOK, error) {
+func (a *Client) AdminListEnvironmentVariablesShort(params *AdminListEnvironmentVariablesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListEnvironmentVariablesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListEnvironmentVariablesParams()
@@ -77,11 +77,26 @@ func (a *Client) AdminListEnvironmentVariablesShort(params *AdminListEnvironment
 	switch v := result.(type) {
 
 	case *AdminListEnvironmentVariablesOK:
-		return v, nil
+		response := &AdminListEnvironmentVariablesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListEnvironmentVariablesUnauthorized:
-		return nil, v
+		response := &AdminListEnvironmentVariablesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListEnvironmentVariablesForbidden:
-		return nil, v
+		response := &AdminListEnvironmentVariablesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

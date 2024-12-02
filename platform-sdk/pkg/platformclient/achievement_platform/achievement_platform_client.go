@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UnlockSteamUserAchievementNoContent, error)
-	GetXblUserAchievementsShort(params *GetXblUserAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblUserAchievementsOK, error)
-	UpdateXblUserAchievementShort(params *UpdateXblUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblUserAchievementNoContent, error)
+	UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UnlockSteamUserAchievementResponse, error)
+	GetXblUserAchievementsShort(params *GetXblUserAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblUserAchievementsResponse, error)
+	UpdateXblUserAchievementShort(params *UpdateXblUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblUserAchievementResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 UnlockSteamUserAchievementShort unlock steam achievement.
 This API is used to unlock steam achievement.
 */
-func (a *Client) UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UnlockSteamUserAchievementNoContent, error) {
+func (a *Client) UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UnlockSteamUserAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUnlockSteamUserAchievementParams()
@@ -79,11 +79,25 @@ func (a *Client) UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievem
 	switch v := result.(type) {
 
 	case *UnlockSteamUserAchievementNoContent:
-		return v, nil
+		response := &UnlockSteamUserAchievementResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UnlockSteamUserAchievementBadRequest:
-		return nil, v
+		response := &UnlockSteamUserAchievementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UnlockSteamUserAchievementNotFound:
-		return nil, v
+		response := &UnlockSteamUserAchievementResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -94,7 +108,7 @@ func (a *Client) UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievem
 GetXblUserAchievementsShort get xbox live user achievements.
 This API is used to get xbox live user achievements(Only for test).
 */
-func (a *Client) GetXblUserAchievementsShort(params *GetXblUserAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblUserAchievementsOK, error) {
+func (a *Client) GetXblUserAchievementsShort(params *GetXblUserAchievementsParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblUserAchievementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetXblUserAchievementsParams()
@@ -132,9 +146,19 @@ func (a *Client) GetXblUserAchievementsShort(params *GetXblUserAchievementsParam
 	switch v := result.(type) {
 
 	case *GetXblUserAchievementsOK:
-		return v, nil
+		response := &GetXblUserAchievementsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetXblUserAchievementsBadRequest:
-		return nil, v
+		response := &GetXblUserAchievementsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -145,7 +169,7 @@ func (a *Client) GetXblUserAchievementsShort(params *GetXblUserAchievementsParam
 UpdateXblUserAchievementShort update xbox live achievements.
 This API is used to update xbox live achievements.
 */
-func (a *Client) UpdateXblUserAchievementShort(params *UpdateXblUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblUserAchievementNoContent, error) {
+func (a *Client) UpdateXblUserAchievementShort(params *UpdateXblUserAchievementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblUserAchievementResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateXblUserAchievementParams()
@@ -183,9 +207,18 @@ func (a *Client) UpdateXblUserAchievementShort(params *UpdateXblUserAchievementP
 	switch v := result.(type) {
 
 	case *UpdateXblUserAchievementNoContent:
-		return v, nil
+		response := &UpdateXblUserAchievementResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateXblUserAchievementBadRequest:
-		return nil, v
+		response := &UpdateXblUserAchievementResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

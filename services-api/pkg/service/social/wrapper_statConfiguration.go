@@ -14,7 +14,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/stat_configuration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
 // StatConfigurationService this is use for compatibility with latest modular sdk only
@@ -41,7 +40,7 @@ func (aaa *StatConfigurationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *StatConfigurationService) GetStatsShort(input *stat_configuration.GetStatsParams) (*socialclientmodels.StatPagingSlicedResult, error) {
+func (aaa *StatConfigurationService) GetStatsShort(input *stat_configuration.GetStatsParams) (*stat_configuration.GetStatsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -68,10 +67,10 @@ func (aaa *StatConfigurationService) GetStatsShort(input *stat_configuration.Get
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatConfigurationService) CreateStatShort(input *stat_configuration.CreateStatParams) (*socialclientmodels.StatInfo, error) {
+func (aaa *StatConfigurationService) CreateStatShort(input *stat_configuration.CreateStatParams) (*stat_configuration.CreateStatResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -98,10 +97,10 @@ func (aaa *StatConfigurationService) CreateStatShort(input *stat_configuration.C
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *StatConfigurationService) ExportStatsShort(input *stat_configuration.ExportStatsParams, writer io.Writer) (io.Writer, error) {
+func (aaa *StatConfigurationService) ExportStatsShort(input *stat_configuration.ExportStatsParams, writer io.Writer) (*stat_configuration.ExportStatsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -128,10 +127,10 @@ func (aaa *StatConfigurationService) ExportStatsShort(input *stat_configuration.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatConfigurationService) ImportStatsShort(input *stat_configuration.ImportStatsParams) (*socialclientmodels.StatImportInfo, error) {
+func (aaa *StatConfigurationService) ImportStatsShort(input *stat_configuration.ImportStatsParams) (*stat_configuration.ImportStatsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -158,10 +157,10 @@ func (aaa *StatConfigurationService) ImportStatsShort(input *stat_configuration.
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *StatConfigurationService) QueryStatsShort(input *stat_configuration.QueryStatsParams) (*socialclientmodels.StatPagingSlicedResult, error) {
+func (aaa *StatConfigurationService) QueryStatsShort(input *stat_configuration.QueryStatsParams) (*stat_configuration.QueryStatsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -188,10 +187,10 @@ func (aaa *StatConfigurationService) QueryStatsShort(input *stat_configuration.Q
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *StatConfigurationService) GetStatShort(input *stat_configuration.GetStatParams) (*socialclientmodels.StatInfo, error) {
+func (aaa *StatConfigurationService) GetStatShort(input *stat_configuration.GetStatParams) (*stat_configuration.GetStatResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -218,7 +217,7 @@ func (aaa *StatConfigurationService) GetStatShort(input *stat_configuration.GetS
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *StatConfigurationService) DeleteStatShort(input *stat_configuration.DeleteStatParams) error {
@@ -251,7 +250,7 @@ func (aaa *StatConfigurationService) DeleteStatShort(input *stat_configuration.D
 	return nil
 }
 
-func (aaa *StatConfigurationService) UpdateStatShort(input *stat_configuration.UpdateStatParams) (*socialclientmodels.StatInfo, error) {
+func (aaa *StatConfigurationService) UpdateStatShort(input *stat_configuration.UpdateStatParams) (*stat_configuration.UpdateStatResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -278,7 +277,7 @@ func (aaa *StatConfigurationService) UpdateStatShort(input *stat_configuration.U
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *StatConfigurationService) DeleteTiedStatShort(input *stat_configuration.DeleteTiedStatParams) error {
@@ -311,7 +310,7 @@ func (aaa *StatConfigurationService) DeleteTiedStatShort(input *stat_configurati
 	return nil
 }
 
-func (aaa *StatConfigurationService) CreateStat1Short(input *stat_configuration.CreateStat1Params) (*socialclientmodels.StatInfo, error) {
+func (aaa *StatConfigurationService) CreateStat1Short(input *stat_configuration.CreateStat1Params) (*stat_configuration.CreateStat1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -338,5 +337,5 @@ func (aaa *StatConfigurationService) CreateStat1Short(input *stat_configuration.
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }

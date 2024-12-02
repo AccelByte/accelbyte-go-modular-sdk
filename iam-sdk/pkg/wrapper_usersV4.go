@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *UsersV4Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *UsersV4Service) AdminListInvitationHistoriesV4Short(input *users_v4.AdminListInvitationHistoriesV4Params) (*iamclientmodels.ModelListInvitationHistoriesV4Response, error) {
+func (aaa *UsersV4Service) AdminListInvitationHistoriesV4Short(input *users_v4.AdminListInvitationHistoriesV4Params) (*users_v4.AdminListInvitationHistoriesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *UsersV4Service) AdminListInvitationHistoriesV4Short(input *users_v4.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminGetNamespaceInvitationHistoryV4Short(input *users_v4.AdminGetNamespaceInvitationHistoryV4Params) (*iamclientmodels.ModelInvitationHistoryResponse, error) {
+func (aaa *UsersV4Service) AdminGetNamespaceInvitationHistoryV4Short(input *users_v4.AdminGetNamespaceInvitationHistoryV4Params) (*users_v4.AdminGetNamespaceInvitationHistoryV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *UsersV4Service) AdminGetNamespaceInvitationHistoryV4Short(input *user
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminGetNamespaceUserInvitationHistoryV4Short(input *users_v4.AdminGetNamespaceUserInvitationHistoryV4Params) (*iamclientmodels.ModelNamespaceInvitationHistoryUserV4Response, error) {
+func (aaa *UsersV4Service) AdminGetNamespaceUserInvitationHistoryV4Short(input *users_v4.AdminGetNamespaceUserInvitationHistoryV4Params) (*users_v4.AdminGetNamespaceUserInvitationHistoryV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *UsersV4Service) AdminGetNamespaceUserInvitationHistoryV4Short(input *
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminCreateTestUsersV4Short(input *users_v4.AdminCreateTestUsersV4Params) (*iamclientmodels.AccountCreateTestUsersResponseV4, error) {
+func (aaa *UsersV4Service) AdminCreateTestUsersV4Short(input *users_v4.AdminCreateTestUsersV4Params) (*users_v4.AdminCreateTestUsersV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *UsersV4Service) AdminCreateTestUsersV4Short(input *users_v4.AdminCrea
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersV4Service) AdminCreateUserV4Short(input *users_v4.AdminCreateUserV4Params) (*iamclientmodels.AccountCreateUserResponseV4, error) {
+func (aaa *UsersV4Service) AdminCreateUserV4Short(input *users_v4.AdminCreateUserV4Params) (*users_v4.AdminCreateUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *UsersV4Service) AdminCreateUserV4Short(input *users_v4.AdminCreateUse
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *UsersV4Service) AdminBulkUpdateUserAccountTypeV4Short(input *users_v4.AdminBulkUpdateUserAccountTypeV4Params) error {
@@ -219,7 +218,7 @@ func (aaa *UsersV4Service) AdminBulkUpdateUserAccountTypeV4Short(input *users_v4
 	return nil
 }
 
-func (aaa *UsersV4Service) AdminBulkCheckValidUserIDV4Short(input *users_v4.AdminBulkCheckValidUserIDV4Params) (*iamclientmodels.ModelListValidUserIDResponseV4, error) {
+func (aaa *UsersV4Service) AdminBulkCheckValidUserIDV4Short(input *users_v4.AdminBulkCheckValidUserIDV4Params) (*users_v4.AdminBulkCheckValidUserIDV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *UsersV4Service) AdminBulkCheckValidUserIDV4Short(input *users_v4.Admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminUpdateUserV4Short(input *users_v4.AdminUpdateUserV4Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersV4Service) AdminUpdateUserV4Short(input *users_v4.AdminUpdateUserV4Params) (*users_v4.AdminUpdateUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,7 +275,7 @@ func (aaa *UsersV4Service) AdminUpdateUserV4Short(input *users_v4.AdminUpdateUse
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) AdminUpdateUserEmailAddressV4Short(input *users_v4.AdminUpdateUserEmailAddressV4Params) error {
@@ -339,7 +338,7 @@ func (aaa *UsersV4Service) AdminDisableUserMFAV4Short(input *users_v4.AdminDisab
 	return nil
 }
 
-func (aaa *UsersV4Service) AdminGetUserMFAStatusV4Short(input *users_v4.AdminGetUserMFAStatusV4Params) (*iamclientmodels.ModelUserMFAStatusResponseV4, error) {
+func (aaa *UsersV4Service) AdminGetUserMFAStatusV4Short(input *users_v4.AdminGetUserMFAStatusV4Params) (*users_v4.AdminGetUserMFAStatusV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -366,10 +365,10 @@ func (aaa *UsersV4Service) AdminGetUserMFAStatusV4Short(input *users_v4.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminListUserRolesV4Short(input *users_v4.AdminListUserRolesV4Params) (*iamclientmodels.ModelListUserRolesV4Response, error) {
+func (aaa *UsersV4Service) AdminListUserRolesV4Short(input *users_v4.AdminListUserRolesV4Params) (*users_v4.AdminListUserRolesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -396,10 +395,10 @@ func (aaa *UsersV4Service) AdminListUserRolesV4Short(input *users_v4.AdminListUs
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminUpdateUserRoleV4Short(input *users_v4.AdminUpdateUserRoleV4Params) (*iamclientmodels.ModelListUserRolesV4Response, error) {
+func (aaa *UsersV4Service) AdminUpdateUserRoleV4Short(input *users_v4.AdminUpdateUserRoleV4Params) (*users_v4.AdminUpdateUserRoleV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -426,10 +425,10 @@ func (aaa *UsersV4Service) AdminUpdateUserRoleV4Short(input *users_v4.AdminUpdat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminAddUserRoleV4Short(input *users_v4.AdminAddUserRoleV4Params) (*iamclientmodels.ModelListUserRolesV4Response, error) {
+func (aaa *UsersV4Service) AdminAddUserRoleV4Short(input *users_v4.AdminAddUserRoleV4Params) (*users_v4.AdminAddUserRoleV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -456,7 +455,7 @@ func (aaa *UsersV4Service) AdminAddUserRoleV4Short(input *users_v4.AdminAddUserR
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) AdminRemoveUserRoleV4Short(input *users_v4.AdminRemoveUserRoleV4Params) error {
@@ -489,7 +488,7 @@ func (aaa *UsersV4Service) AdminRemoveUserRoleV4Short(input *users_v4.AdminRemov
 	return nil
 }
 
-func (aaa *UsersV4Service) AdminInviteUserNewV4Short(input *users_v4.AdminInviteUserNewV4Params) (*iamclientmodels.ModelInviteUserResponseV3, error) {
+func (aaa *UsersV4Service) AdminInviteUserNewV4Short(input *users_v4.AdminInviteUserNewV4Params) (*users_v4.AdminInviteUserNewV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -516,10 +515,10 @@ func (aaa *UsersV4Service) AdminInviteUserNewV4Short(input *users_v4.AdminInvite
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersV4Service) AdminUpdateMyUserV4Short(input *users_v4.AdminUpdateMyUserV4Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersV4Service) AdminUpdateMyUserV4Short(input *users_v4.AdminUpdateMyUserV4Params) (*users_v4.AdminUpdateMyUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -546,7 +545,7 @@ func (aaa *UsersV4Service) AdminUpdateMyUserV4Short(input *users_v4.AdminUpdateM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) AdminDisableMyAuthenticatorV4Short(input *users_v4.AdminDisableMyAuthenticatorV4Params) error {
@@ -609,7 +608,7 @@ func (aaa *UsersV4Service) AdminEnableMyAuthenticatorV4Short(input *users_v4.Adm
 	return nil
 }
 
-func (aaa *UsersV4Service) AdminGenerateMyAuthenticatorKeyV4Short(input *users_v4.AdminGenerateMyAuthenticatorKeyV4Params) (*iamclientmodels.ModelAuthenticatorKeyResponseV4, error) {
+func (aaa *UsersV4Service) AdminGenerateMyAuthenticatorKeyV4Short(input *users_v4.AdminGenerateMyAuthenticatorKeyV4Params) (*users_v4.AdminGenerateMyAuthenticatorKeyV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -636,10 +635,10 @@ func (aaa *UsersV4Service) AdminGenerateMyAuthenticatorKeyV4Short(input *users_v
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminGetMyBackupCodesV4Short(input *users_v4.AdminGetMyBackupCodesV4Params) (*iamclientmodels.ModelBackupCodesResponseV4, error) {
+func (aaa *UsersV4Service) AdminGetMyBackupCodesV4Short(input *users_v4.AdminGetMyBackupCodesV4Params) (*users_v4.AdminGetMyBackupCodesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -666,10 +665,10 @@ func (aaa *UsersV4Service) AdminGetMyBackupCodesV4Short(input *users_v4.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminGenerateMyBackupCodesV4Short(input *users_v4.AdminGenerateMyBackupCodesV4Params) (*iamclientmodels.ModelBackupCodesResponseV4, error) {
+func (aaa *UsersV4Service) AdminGenerateMyBackupCodesV4Short(input *users_v4.AdminGenerateMyBackupCodesV4Params) (*users_v4.AdminGenerateMyBackupCodesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -696,7 +695,7 @@ func (aaa *UsersV4Service) AdminGenerateMyBackupCodesV4Short(input *users_v4.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) AdminDisableMyBackupCodesV4Short(input *users_v4.AdminDisableMyBackupCodesV4Params) error {
@@ -729,7 +728,7 @@ func (aaa *UsersV4Service) AdminDisableMyBackupCodesV4Short(input *users_v4.Admi
 	return nil
 }
 
-func (aaa *UsersV4Service) AdminDownloadMyBackupCodesV4Short(input *users_v4.AdminDownloadMyBackupCodesV4Params, writer io.Writer) (io.Writer, error) {
+func (aaa *UsersV4Service) AdminDownloadMyBackupCodesV4Short(input *users_v4.AdminDownloadMyBackupCodesV4Params, writer io.Writer) (*users_v4.AdminDownloadMyBackupCodesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -756,10 +755,10 @@ func (aaa *UsersV4Service) AdminDownloadMyBackupCodesV4Short(input *users_v4.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminEnableMyBackupCodesV4Short(input *users_v4.AdminEnableMyBackupCodesV4Params) (*iamclientmodels.ModelBackupCodesResponseV4, error) {
+func (aaa *UsersV4Service) AdminEnableMyBackupCodesV4Short(input *users_v4.AdminEnableMyBackupCodesV4Params) (*users_v4.AdminEnableMyBackupCodesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -786,7 +785,7 @@ func (aaa *UsersV4Service) AdminEnableMyBackupCodesV4Short(input *users_v4.Admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) AdminGetBackupCodesV4Short(input *users_v4.AdminGetBackupCodesV4Params) error {
@@ -879,7 +878,7 @@ func (aaa *UsersV4Service) AdminEnableBackupCodesV4Short(input *users_v4.AdminEn
 	return nil
 }
 
-func (aaa *UsersV4Service) AdminChallengeMyMFAV4Short(input *users_v4.AdminChallengeMyMFAV4Params) (*iamclientmodels.ModelUserMFATokenResponseV4, error) {
+func (aaa *UsersV4Service) AdminChallengeMyMFAV4Short(input *users_v4.AdminChallengeMyMFAV4Params) (*users_v4.AdminChallengeMyMFAV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -906,7 +905,7 @@ func (aaa *UsersV4Service) AdminChallengeMyMFAV4Short(input *users_v4.AdminChall
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) AdminSendMyMFAEmailCodeV4Short(input *users_v4.AdminSendMyMFAEmailCodeV4Params) error {
@@ -999,7 +998,7 @@ func (aaa *UsersV4Service) AdminEnableMyEmailV4Short(input *users_v4.AdminEnable
 	return nil
 }
 
-func (aaa *UsersV4Service) AdminGetMyEnabledFactorsV4Short(input *users_v4.AdminGetMyEnabledFactorsV4Params) (*iamclientmodels.ModelEnabledFactorsResponseV4, error) {
+func (aaa *UsersV4Service) AdminGetMyEnabledFactorsV4Short(input *users_v4.AdminGetMyEnabledFactorsV4Params) (*users_v4.AdminGetMyEnabledFactorsV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1026,7 +1025,7 @@ func (aaa *UsersV4Service) AdminGetMyEnabledFactorsV4Short(input *users_v4.Admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) AdminMakeFactorMyDefaultV4Short(input *users_v4.AdminMakeFactorMyDefaultV4Params) error {
@@ -1059,7 +1058,7 @@ func (aaa *UsersV4Service) AdminMakeFactorMyDefaultV4Short(input *users_v4.Admin
 	return nil
 }
 
-func (aaa *UsersV4Service) AdminGetMyOwnMFAStatusV4Short(input *users_v4.AdminGetMyOwnMFAStatusV4Params) (*iamclientmodels.ModelUserMFAStatusResponseV4, error) {
+func (aaa *UsersV4Service) AdminGetMyOwnMFAStatusV4Short(input *users_v4.AdminGetMyOwnMFAStatusV4Params) (*users_v4.AdminGetMyOwnMFAStatusV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1086,10 +1085,10 @@ func (aaa *UsersV4Service) AdminGetMyOwnMFAStatusV4Short(input *users_v4.AdminGe
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminGetMyMFAStatusV4Short(input *users_v4.AdminGetMyMFAStatusV4Params) (*iamclientmodels.ModelUserMFAStatusResponseV4, error) {
+func (aaa *UsersV4Service) AdminGetMyMFAStatusV4Short(input *users_v4.AdminGetMyMFAStatusV4Params) (*users_v4.AdminGetMyMFAStatusV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1116,10 +1115,10 @@ func (aaa *UsersV4Service) AdminGetMyMFAStatusV4Short(input *users_v4.AdminGetMy
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) AdminInviteUserV4Short(input *users_v4.AdminInviteUserV4Params) (*iamclientmodels.ModelInviteUserResponseV3, error) {
+func (aaa *UsersV4Service) AdminInviteUserV4Short(input *users_v4.AdminInviteUserV4Params) (*users_v4.AdminInviteUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1146,10 +1145,10 @@ func (aaa *UsersV4Service) AdminInviteUserV4Short(input *users_v4.AdminInviteUse
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersV4Service) PublicListUserIDByPlatformUserIDsV4Short(input *users_v4.PublicListUserIDByPlatformUserIDsV4Params) (*iamclientmodels.AccountcommonUserPlatforms, error) {
+func (aaa *UsersV4Service) PublicListUserIDByPlatformUserIDsV4Short(input *users_v4.PublicListUserIDByPlatformUserIDsV4Params) (*users_v4.PublicListUserIDByPlatformUserIDsV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1176,10 +1175,10 @@ func (aaa *UsersV4Service) PublicListUserIDByPlatformUserIDsV4Short(input *users
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) PublicCreateTestUserV4Short(input *users_v4.PublicCreateTestUserV4Params) (*iamclientmodels.AccountCreateUserResponseV4, error) {
+func (aaa *UsersV4Service) PublicCreateTestUserV4Short(input *users_v4.PublicCreateTestUserV4Params) (*users_v4.PublicCreateTestUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1206,10 +1205,10 @@ func (aaa *UsersV4Service) PublicCreateTestUserV4Short(input *users_v4.PublicCre
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersV4Service) PublicCreateUserV4Short(input *users_v4.PublicCreateUserV4Params) (*iamclientmodels.AccountCreateUserResponseV4, error) {
+func (aaa *UsersV4Service) PublicCreateUserV4Short(input *users_v4.PublicCreateUserV4Params) (*users_v4.PublicCreateUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1236,10 +1235,10 @@ func (aaa *UsersV4Service) PublicCreateUserV4Short(input *users_v4.PublicCreateU
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersV4Service) CreateUserFromInvitationV4Short(input *users_v4.CreateUserFromInvitationV4Params) (*iamclientmodels.AccountCreateUserResponseV4, error) {
+func (aaa *UsersV4Service) CreateUserFromInvitationV4Short(input *users_v4.CreateUserFromInvitationV4Params) (*users_v4.CreateUserFromInvitationV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1266,10 +1265,10 @@ func (aaa *UsersV4Service) CreateUserFromInvitationV4Short(input *users_v4.Creat
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *UsersV4Service) PublicUpdateUserV4Short(input *users_v4.PublicUpdateUserV4Params) (*iamclientmodels.ModelUserResponseV3, error) {
+func (aaa *UsersV4Service) PublicUpdateUserV4Short(input *users_v4.PublicUpdateUserV4Params) (*users_v4.PublicUpdateUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1296,7 +1295,7 @@ func (aaa *UsersV4Service) PublicUpdateUserV4Short(input *users_v4.PublicUpdateU
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) PublicUpdateUserEmailAddressV4Short(input *users_v4.PublicUpdateUserEmailAddressV4Params) error {
@@ -1329,7 +1328,7 @@ func (aaa *UsersV4Service) PublicUpdateUserEmailAddressV4Short(input *users_v4.P
 	return nil
 }
 
-func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(input *users_v4.PublicUpgradeHeadlessAccountWithVerificationCodeV4Params) (*iamclientmodels.AccountUserResponseV4, error) {
+func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(input *users_v4.PublicUpgradeHeadlessAccountWithVerificationCodeV4Params) (*users_v4.PublicUpgradeHeadlessAccountWithVerificationCodeV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1356,10 +1355,10 @@ func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountWithVerificationCodeV4Sho
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountV4Short(input *users_v4.PublicUpgradeHeadlessAccountV4Params) (*iamclientmodels.AccountUserResponseV4, error) {
+func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountV4Short(input *users_v4.PublicUpgradeHeadlessAccountV4Params) (*users_v4.PublicUpgradeHeadlessAccountV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1386,7 +1385,7 @@ func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountV4Short(input *users_v4.P
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) PublicDisableMyAuthenticatorV4Short(input *users_v4.PublicDisableMyAuthenticatorV4Params) error {
@@ -1449,7 +1448,7 @@ func (aaa *UsersV4Service) PublicEnableMyAuthenticatorV4Short(input *users_v4.Pu
 	return nil
 }
 
-func (aaa *UsersV4Service) PublicGenerateMyAuthenticatorKeyV4Short(input *users_v4.PublicGenerateMyAuthenticatorKeyV4Params) (*iamclientmodels.ModelAuthenticatorKeyResponseV4, error) {
+func (aaa *UsersV4Service) PublicGenerateMyAuthenticatorKeyV4Short(input *users_v4.PublicGenerateMyAuthenticatorKeyV4Params) (*users_v4.PublicGenerateMyAuthenticatorKeyV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1476,10 +1475,10 @@ func (aaa *UsersV4Service) PublicGenerateMyAuthenticatorKeyV4Short(input *users_
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) PublicGetMyBackupCodesV4Short(input *users_v4.PublicGetMyBackupCodesV4Params) (*iamclientmodels.ModelBackupCodesResponseV4, error) {
+func (aaa *UsersV4Service) PublicGetMyBackupCodesV4Short(input *users_v4.PublicGetMyBackupCodesV4Params) (*users_v4.PublicGetMyBackupCodesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1506,10 +1505,10 @@ func (aaa *UsersV4Service) PublicGetMyBackupCodesV4Short(input *users_v4.PublicG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) PublicGenerateMyBackupCodesV4Short(input *users_v4.PublicGenerateMyBackupCodesV4Params) (*iamclientmodels.ModelBackupCodesResponseV4, error) {
+func (aaa *UsersV4Service) PublicGenerateMyBackupCodesV4Short(input *users_v4.PublicGenerateMyBackupCodesV4Params) (*users_v4.PublicGenerateMyBackupCodesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1536,7 +1535,7 @@ func (aaa *UsersV4Service) PublicGenerateMyBackupCodesV4Short(input *users_v4.Pu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) PublicDisableMyBackupCodesV4Short(input *users_v4.PublicDisableMyBackupCodesV4Params) error {
@@ -1569,7 +1568,7 @@ func (aaa *UsersV4Service) PublicDisableMyBackupCodesV4Short(input *users_v4.Pub
 	return nil
 }
 
-func (aaa *UsersV4Service) PublicDownloadMyBackupCodesV4Short(input *users_v4.PublicDownloadMyBackupCodesV4Params, writer io.Writer) (io.Writer, error) {
+func (aaa *UsersV4Service) PublicDownloadMyBackupCodesV4Short(input *users_v4.PublicDownloadMyBackupCodesV4Params, writer io.Writer) (*users_v4.PublicDownloadMyBackupCodesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1596,10 +1595,10 @@ func (aaa *UsersV4Service) PublicDownloadMyBackupCodesV4Short(input *users_v4.Pu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) PublicEnableMyBackupCodesV4Short(input *users_v4.PublicEnableMyBackupCodesV4Params) (*iamclientmodels.ModelBackupCodesResponseV4, error) {
+func (aaa *UsersV4Service) PublicEnableMyBackupCodesV4Short(input *users_v4.PublicEnableMyBackupCodesV4Params) (*users_v4.PublicEnableMyBackupCodesV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1626,7 +1625,7 @@ func (aaa *UsersV4Service) PublicEnableMyBackupCodesV4Short(input *users_v4.Publ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) PublicGetBackupCodesV4Short(input *users_v4.PublicGetBackupCodesV4Params) error {
@@ -1719,7 +1718,7 @@ func (aaa *UsersV4Service) PublicEnableBackupCodesV4Short(input *users_v4.Public
 	return nil
 }
 
-func (aaa *UsersV4Service) PublicChallengeMyMFAV4Short(input *users_v4.PublicChallengeMyMFAV4Params) (*iamclientmodels.ModelUserMFATokenResponseV4, error) {
+func (aaa *UsersV4Service) PublicChallengeMyMFAV4Short(input *users_v4.PublicChallengeMyMFAV4Params) (*users_v4.PublicChallengeMyMFAV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1746,7 +1745,7 @@ func (aaa *UsersV4Service) PublicChallengeMyMFAV4Short(input *users_v4.PublicCha
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) PublicRemoveTrustedDeviceV4Short(input *users_v4.PublicRemoveTrustedDeviceV4Params) error {
@@ -1869,7 +1868,7 @@ func (aaa *UsersV4Service) PublicEnableMyEmailV4Short(input *users_v4.PublicEnab
 	return nil
 }
 
-func (aaa *UsersV4Service) PublicGetMyEnabledFactorsV4Short(input *users_v4.PublicGetMyEnabledFactorsV4Params) (*iamclientmodels.ModelEnabledFactorsResponseV4, error) {
+func (aaa *UsersV4Service) PublicGetMyEnabledFactorsV4Short(input *users_v4.PublicGetMyEnabledFactorsV4Params) (*users_v4.PublicGetMyEnabledFactorsV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1896,7 +1895,7 @@ func (aaa *UsersV4Service) PublicGetMyEnabledFactorsV4Short(input *users_v4.Publ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *UsersV4Service) PublicMakeFactorMyDefaultV4Short(input *users_v4.PublicMakeFactorMyDefaultV4Params) error {
@@ -1929,7 +1928,7 @@ func (aaa *UsersV4Service) PublicMakeFactorMyDefaultV4Short(input *users_v4.Publ
 	return nil
 }
 
-func (aaa *UsersV4Service) PublicGetMyOwnMFAStatusV4Short(input *users_v4.PublicGetMyOwnMFAStatusV4Params) (*iamclientmodels.ModelUserMFAStatusResponseV4, error) {
+func (aaa *UsersV4Service) PublicGetMyOwnMFAStatusV4Short(input *users_v4.PublicGetMyOwnMFAStatusV4Params) (*users_v4.PublicGetMyOwnMFAStatusV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1956,10 +1955,10 @@ func (aaa *UsersV4Service) PublicGetMyOwnMFAStatusV4Short(input *users_v4.Public
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) PublicGetMyMFAStatusV4Short(input *users_v4.PublicGetMyMFAStatusV4Params) (*iamclientmodels.ModelUserMFAStatusResponseV4, error) {
+func (aaa *UsersV4Service) PublicGetMyMFAStatusV4Short(input *users_v4.PublicGetMyMFAStatusV4Params) (*users_v4.PublicGetMyMFAStatusV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -1986,10 +1985,10 @@ func (aaa *UsersV4Service) PublicGetMyMFAStatusV4Short(input *users_v4.PublicGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) PublicGetUserPublicInfoByUserIDV4Short(input *users_v4.PublicGetUserPublicInfoByUserIDV4Params) (*iamclientmodels.ModelUserPublicInfoResponseV4, error) {
+func (aaa *UsersV4Service) PublicGetUserPublicInfoByUserIDV4Short(input *users_v4.PublicGetUserPublicInfoByUserIDV4Params) (*users_v4.PublicGetUserPublicInfoByUserIDV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2016,10 +2015,10 @@ func (aaa *UsersV4Service) PublicGetUserPublicInfoByUserIDV4Short(input *users_v
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *UsersV4Service) PublicInviteUserV4Short(input *users_v4.PublicInviteUserV4Params) (*iamclientmodels.ModelInviteUserResponseV3, error) {
+func (aaa *UsersV4Service) PublicInviteUserV4Short(input *users_v4.PublicInviteUserV4Params) (*users_v4.PublicInviteUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -2046,5 +2045,5 @@ func (aaa *UsersV4Service) PublicInviteUserV4Short(input *users_v4.PublicInviteU
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }

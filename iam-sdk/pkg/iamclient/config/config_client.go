@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetConfigValueV3Short(params *AdminGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigValueV3OK, error)
-	PublicGetConfigValueV3Short(params *PublicGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetConfigValueV3OK, error)
+	AdminGetConfigValueV3Short(params *AdminGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigValueV3Response, error)
+	PublicGetConfigValueV3Short(params *PublicGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetConfigValueV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ This endpoint return the value of config key. The namespace should be publisher 
 * usernameDisabled
 * mandatoryEmailVerificationEnabled
 */
-func (a *Client) AdminGetConfigValueV3Short(params *AdminGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigValueV3OK, error) {
+func (a *Client) AdminGetConfigValueV3Short(params *AdminGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigValueV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetConfigValueV3Params()
@@ -83,11 +83,26 @@ func (a *Client) AdminGetConfigValueV3Short(params *AdminGetConfigValueV3Params,
 	switch v := result.(type) {
 
 	case *AdminGetConfigValueV3OK:
-		return v, nil
+		response := &AdminGetConfigValueV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetConfigValueV3BadRequest:
-		return nil, v
+		response := &AdminGetConfigValueV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetConfigValueV3InternalServerError:
-		return nil, v
+		response := &AdminGetConfigValueV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -107,7 +122,7 @@ Note: this endpoint does not need any authorization.
 
 If the key is verificationCodeType, then possible value format will be '{collection}:{N}'; example: 'ABCDEFGHI:6', 'ABCDEFGHI1234:8','01234567894:7'
 */
-func (a *Client) PublicGetConfigValueV3Short(params *PublicGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetConfigValueV3OK, error) {
+func (a *Client) PublicGetConfigValueV3Short(params *PublicGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetConfigValueV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetConfigValueV3Params()
@@ -145,11 +160,26 @@ func (a *Client) PublicGetConfigValueV3Short(params *PublicGetConfigValueV3Param
 	switch v := result.(type) {
 
 	case *PublicGetConfigValueV3OK:
-		return v, nil
+		response := &PublicGetConfigValueV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetConfigValueV3BadRequest:
-		return nil, v
+		response := &PublicGetConfigValueV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicGetConfigValueV3InternalServerError:
-		return nil, v
+		response := &PublicGetConfigValueV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

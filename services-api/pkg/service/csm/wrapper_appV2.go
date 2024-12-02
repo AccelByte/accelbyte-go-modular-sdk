@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/app_v2"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *AppV2Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AppV2Service) GetAppListV2Short(input *app_v2.GetAppListV2Params) (*csmclientmodels.ApimodelGetAppListV2Response, error) {
+func (aaa *AppV2Service) GetAppListV2Short(input *app_v2.GetAppListV2Params) (*app_v2.GetAppListV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *AppV2Service) GetAppListV2Short(input *app_v2.GetAppListV2Params) (*c
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AppV2Service) GetAppV2Short(input *app_v2.GetAppV2Params) (*csmclientmodels.ApimodelAppItem, error) {
+func (aaa *AppV2Service) GetAppV2Short(input *app_v2.GetAppV2Params) (*app_v2.GetAppV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *AppV2Service) GetAppV2Short(input *app_v2.GetAppV2Params) (*csmclient
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AppV2Service) CreateAppV2Short(input *app_v2.CreateAppV2Params) (*csmclientmodels.ApimodelAppItem, error) {
+func (aaa *AppV2Service) CreateAppV2Short(input *app_v2.CreateAppV2Params) (*app_v2.CreateAppV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *AppV2Service) CreateAppV2Short(input *app_v2.CreateAppV2Params) (*csm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AppV2Service) DeleteAppV2Short(input *app_v2.DeleteAppV2Params) error {
@@ -159,7 +158,7 @@ func (aaa *AppV2Service) DeleteAppV2Short(input *app_v2.DeleteAppV2Params) error
 	return nil
 }
 
-func (aaa *AppV2Service) UpdateAppV2Short(input *app_v2.UpdateAppV2Params) (*csmclientmodels.ApimodelAppItem, error) {
+func (aaa *AppV2Service) UpdateAppV2Short(input *app_v2.UpdateAppV2Params) (*app_v2.UpdateAppV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,10 +185,10 @@ func (aaa *AppV2Service) UpdateAppV2Short(input *app_v2.UpdateAppV2Params) (*csm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AppV2Service) UpdateAppResourcesV2Short(input *app_v2.UpdateAppResourcesV2Params) (*csmclientmodels.ApimodelAppItem, error) {
+func (aaa *AppV2Service) UpdateAppResourcesV2Short(input *app_v2.UpdateAppResourcesV2Params) (*app_v2.UpdateAppResourcesV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,7 +215,7 @@ func (aaa *AppV2Service) UpdateAppResourcesV2Short(input *app_v2.UpdateAppResour
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AppV2Service) UpdateAppResourcesResourceLimitFormV2Short(input *app_v2.UpdateAppResourcesResourceLimitFormV2Params) error {

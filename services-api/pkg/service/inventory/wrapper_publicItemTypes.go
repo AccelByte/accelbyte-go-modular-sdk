@@ -9,7 +9,6 @@ package inventory
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/public_item_types"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *PublicItemTypesService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PublicItemTypesService) PublicListItemTypesShort(input *public_item_types.PublicListItemTypesParams) (*inventoryclientmodels.ApimodelsListItemTypesResp, error) {
+func (aaa *PublicItemTypesService) PublicListItemTypesShort(input *public_item_types.PublicListItemTypesParams) (*public_item_types.PublicListItemTypesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,5 +65,5 @@ func (aaa *PublicItemTypesService) PublicListItemTypesShort(input *public_item_t
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

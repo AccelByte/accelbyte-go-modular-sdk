@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetChannelsShort(params *GetChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*GetChannelsOK, error)
-	PublicCreateChannelShort(params *PublicCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateChannelCreated, error)
-	UpdateChannelShort(params *UpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateChannelOK, error)
-	DeleteChannelShort(params *DeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelNoContent, error)
+	GetChannelsShort(params *GetChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*GetChannelsResponse, error)
+	PublicCreateChannelShort(params *PublicCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateChannelResponse, error)
+	UpdateChannelShort(params *UpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateChannelResponse, error)
+	DeleteChannelShort(params *DeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 GetChannelsShort get channels
 Get user channel paginated
 */
-func (a *Client) GetChannelsShort(params *GetChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*GetChannelsOK, error) {
+func (a *Client) GetChannelsShort(params *GetChannelsParams, authInfo runtime.ClientAuthInfoWriter) (*GetChannelsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetChannelsParams()
@@ -80,13 +80,33 @@ func (a *Client) GetChannelsShort(params *GetChannelsParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *GetChannelsOK:
-		return v, nil
+		response := &GetChannelsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetChannelsBadRequest:
-		return nil, v
+		response := &GetChannelsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetChannelsUnauthorized:
-		return nil, v
+		response := &GetChannelsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetChannelsInternalServerError:
-		return nil, v
+		response := &GetChannelsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +117,7 @@ func (a *Client) GetChannelsShort(params *GetChannelsParams, authInfo runtime.Cl
 PublicCreateChannelShort create channel
 Create user channel
 */
-func (a *Client) PublicCreateChannelShort(params *PublicCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateChannelCreated, error) {
+func (a *Client) PublicCreateChannelShort(params *PublicCreateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicCreateChannelParams()
@@ -135,13 +155,33 @@ func (a *Client) PublicCreateChannelShort(params *PublicCreateChannelParams, aut
 	switch v := result.(type) {
 
 	case *PublicCreateChannelCreated:
-		return v, nil
+		response := &PublicCreateChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicCreateChannelBadRequest:
-		return nil, v
+		response := &PublicCreateChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateChannelUnauthorized:
-		return nil, v
+		response := &PublicCreateChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicCreateChannelInternalServerError:
-		return nil, v
+		response := &PublicCreateChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -152,7 +192,7 @@ func (a *Client) PublicCreateChannelShort(params *PublicCreateChannelParams, aut
 UpdateChannelShort update channel
 Update user channel
 */
-func (a *Client) UpdateChannelShort(params *UpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateChannelOK, error) {
+func (a *Client) UpdateChannelShort(params *UpdateChannelParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateChannelParams()
@@ -190,15 +230,40 @@ func (a *Client) UpdateChannelShort(params *UpdateChannelParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *UpdateChannelOK:
-		return v, nil
+		response := &UpdateChannelResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateChannelBadRequest:
-		return nil, v
+		response := &UpdateChannelResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateChannelUnauthorized:
-		return nil, v
+		response := &UpdateChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateChannelNotFound:
-		return nil, v
+		response := &UpdateChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateChannelInternalServerError:
-		return nil, v
+		response := &UpdateChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -209,7 +274,7 @@ func (a *Client) UpdateChannelShort(params *UpdateChannelParams, authInfo runtim
 DeleteChannelShort delete channel
 Delete user channel
 */
-func (a *Client) DeleteChannelShort(params *DeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelNoContent, error) {
+func (a *Client) DeleteChannelShort(params *DeleteChannelParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteChannelResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteChannelParams()
@@ -247,13 +312,32 @@ func (a *Client) DeleteChannelShort(params *DeleteChannelParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *DeleteChannelNoContent:
-		return v, nil
+		response := &DeleteChannelResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteChannelUnauthorized:
-		return nil, v
+		response := &DeleteChannelResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteChannelNotFound:
-		return nil, v
+		response := &DeleteChannelResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteChannelInternalServerError:
-		return nil, v
+		response := &DeleteChannelResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryWalletsResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.WalletPagingSlicedResult
+}
+
+func (m *QueryWalletsResponse) Unpack() (*platformclientmodels.WalletPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryWalletsReader is a Reader for the QueryWallets structure.
 type QueryWalletsReader struct {
 	formats strfmt.Registry

@@ -9,7 +9,6 @@ package gdpr
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_deletion_s2_s"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *DataDeletionS2SService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *DataDeletionS2SService) S2SGetListFinishedAccountDeletionRequestShort(input *data_deletion_s2_s.S2SGetListFinishedAccountDeletionRequestParams) (*gdprclientmodels.DTOListFinishedDataDeletion, error) {
+func (aaa *DataDeletionS2SService) S2SGetListFinishedAccountDeletionRequestShort(input *data_deletion_s2_s.S2SGetListFinishedAccountDeletionRequestParams) (*data_deletion_s2_s.S2SGetListFinishedAccountDeletionRequestResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *DataDeletionS2SService) S2SGetListFinishedAccountDeletionRequestShort
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DataDeletionS2SService) S2SSubmitUserAccountDeletionRequestShort(input *data_deletion_s2_s.S2SSubmitUserAccountDeletionRequestParams) (*gdprclientmodels.ModelsS2SRequestDeleteResponse, error) {
+func (aaa *DataDeletionS2SService) S2SSubmitUserAccountDeletionRequestShort(input *data_deletion_s2_s.S2SSubmitUserAccountDeletionRequestParams) (*data_deletion_s2_s.S2SSubmitUserAccountDeletionRequestResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,5 +93,5 @@ func (aaa *DataDeletionS2SService) S2SSubmitUserAccountDeletionRequestShort(inpu
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }

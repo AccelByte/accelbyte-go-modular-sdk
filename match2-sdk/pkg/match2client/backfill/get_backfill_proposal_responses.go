@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 )
 
+type GetBackfillProposalResponse struct {
+	match2clientmodels.ApiResponse
+	Data *match2clientmodels.APIBackfillProposalResponse
+
+	Error400 *match2clientmodels.ResponseError
+	Error401 *match2clientmodels.ResponseError
+	Error403 *match2clientmodels.ResponseError
+	Error404 *match2clientmodels.ResponseError
+	Error500 *match2clientmodels.ResponseError
+}
+
+func (m *GetBackfillProposalResponse) Unpack() (*match2clientmodels.APIBackfillProposalResponse, *match2clientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &match2clientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetBackfillProposalReader is a Reader for the GetBackfillProposal structure.
 type GetBackfillProposalReader struct {
 	formats strfmt.Registry

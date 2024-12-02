@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GeDLCDurableRewardShortMapResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.DLCConfigRewardShortInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *GeDLCDurableRewardShortMapResponse) Unpack() (*platformclientmodels.DLCConfigRewardShortInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GeDLCDurableRewardShortMapReader is a Reader for the GeDLCDurableRewardShortMap structure.
 type GeDLCDurableRewardShortMapReader struct {
 	formats strfmt.Registry

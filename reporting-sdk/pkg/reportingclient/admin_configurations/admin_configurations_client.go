@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetShort(params *GetParams, authInfo runtime.ClientAuthInfoWriter) (*GetOK, error)
-	UpsertShort(params *UpsertParams, authInfo runtime.ClientAuthInfoWriter) (*UpsertOK, error)
+	GetShort(params *GetParams, authInfo runtime.ClientAuthInfoWriter) (*GetResponse, error)
+	UpsertShort(params *UpsertParams, authInfo runtime.ClientAuthInfoWriter) (*UpsertResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ GetShort get configuration
 TimeInterval is in nanoseconds.
 When there's no configuration set, the response is the default value (configurable through envar).
 */
-func (a *Client) GetShort(params *GetParams, authInfo runtime.ClientAuthInfoWriter) (*GetOK, error) {
+func (a *Client) GetShort(params *GetParams, authInfo runtime.ClientAuthInfoWriter) (*GetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetParams()
@@ -79,9 +79,19 @@ func (a *Client) GetShort(params *GetParams, authInfo runtime.ClientAuthInfoWrit
 	switch v := result.(type) {
 
 	case *GetOK:
-		return v, nil
+		response := &GetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetInternalServerError:
-		return nil, v
+		response := &GetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -94,7 +104,7 @@ The behaviour of this endpoint is upsert based on the namespace.
 So, you can use this for both creating & updating the configuration.
 TimeInterval is in nanoseconds.
 */
-func (a *Client) UpsertShort(params *UpsertParams, authInfo runtime.ClientAuthInfoWriter) (*UpsertOK, error) {
+func (a *Client) UpsertShort(params *UpsertParams, authInfo runtime.ClientAuthInfoWriter) (*UpsertResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpsertParams()
@@ -132,11 +142,26 @@ func (a *Client) UpsertShort(params *UpsertParams, authInfo runtime.ClientAuthIn
 	switch v := result.(type) {
 
 	case *UpsertOK:
-		return v, nil
+		response := &UpsertResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpsertBadRequest:
-		return nil, v
+		response := &UpsertResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpsertInternalServerError:
-		return nil, v
+		response := &UpsertResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

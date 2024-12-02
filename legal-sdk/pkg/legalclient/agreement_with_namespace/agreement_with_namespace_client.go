@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAcceptedAgreementsForMultiUsersParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsForMultiUsersOK, error)
-	RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreements1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreements1OK, error)
-	RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersByPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersion1OK, error)
-	DownloadExportedAgreementsInCSVShort(params *DownloadExportedAgreementsInCSVParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadExportedAgreementsInCSVOK, error)
-	InitiateExportAgreementsToCSVShort(params *InitiateExportAgreementsToCSVParams, authInfo runtime.ClientAuthInfoWriter) (*InitiateExportAgreementsToCSVOK, error)
+	RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAcceptedAgreementsForMultiUsersParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsForMultiUsersResponse, error)
+	RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreements1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreements1Response, error)
+	RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersByPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersion1Response, error)
+	DownloadExportedAgreementsInCSVShort(params *DownloadExportedAgreementsInCSVParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadExportedAgreementsInCSVResponse, error)
+	InitiateExportAgreementsToCSVShort(params *InitiateExportAgreementsToCSVParams, authInfo runtime.ClientAuthInfoWriter) (*InitiateExportAgreementsToCSVResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 RetrieveAcceptedAgreementsForMultiUsersShort retrieve accepted legal agreements for multi users
 This API will return all accepted Legal Agreements for each user, including agreements of game users if publisher user has corresponding game account.
 */
-func (a *Client) RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAcceptedAgreementsForMultiUsersParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsForMultiUsersOK, error) {
+func (a *Client) RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAcceptedAgreementsForMultiUsersParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsForMultiUsersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAcceptedAgreementsForMultiUsersParams()
@@ -81,7 +81,12 @@ func (a *Client) RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAc
 	switch v := result.(type) {
 
 	case *RetrieveAcceptedAgreementsForMultiUsersOK:
-		return v, nil
+		response := &RetrieveAcceptedAgreementsForMultiUsersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -92,7 +97,7 @@ func (a *Client) RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAc
 RetrieveAcceptedAgreements1Short retrieve accepted legal agreements
 This API will return all accepted Legal Agreements for specified user.
 */
-func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreements1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreements1OK, error) {
+func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreements1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreements1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAcceptedAgreements1Params()
@@ -130,7 +135,12 @@ func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreem
 	switch v := result.(type) {
 
 	case *RetrieveAcceptedAgreements1OK:
-		return v, nil
+		response := &RetrieveAcceptedAgreements1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -141,7 +151,7 @@ func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreem
 RetrieveAllUsersByPolicyVersion1Short retrieve users accepting legal agreements
 This API will return all users who has accepted a specific policy version.
 */
-func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersByPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersion1OK, error) {
+func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersByPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersion1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRetrieveAllUsersByPolicyVersion1Params()
@@ -179,9 +189,19 @@ func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersB
 	switch v := result.(type) {
 
 	case *RetrieveAllUsersByPolicyVersion1OK:
-		return v, nil
+		response := &RetrieveAllUsersByPolicyVersion1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RetrieveAllUsersByPolicyVersion1NotFound:
-		return nil, v
+		response := &RetrieveAllUsersByPolicyVersion1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -193,7 +213,7 @@ DownloadExportedAgreementsInCSVShort download exported users accepted agreements
 This API will check the status of export process.
 If the export process has been completed, the response body will include the download url.
 */
-func (a *Client) DownloadExportedAgreementsInCSVShort(params *DownloadExportedAgreementsInCSVParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadExportedAgreementsInCSVOK, error) {
+func (a *Client) DownloadExportedAgreementsInCSVShort(params *DownloadExportedAgreementsInCSVParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadExportedAgreementsInCSVResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDownloadExportedAgreementsInCSVParams()
@@ -231,9 +251,19 @@ func (a *Client) DownloadExportedAgreementsInCSVShort(params *DownloadExportedAg
 	switch v := result.(type) {
 
 	case *DownloadExportedAgreementsInCSVOK:
-		return v, nil
+		response := &DownloadExportedAgreementsInCSVResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DownloadExportedAgreementsInCSVNotFound:
-		return nil, v
+		response := &DownloadExportedAgreementsInCSVResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -247,7 +277,7 @@ To check the export state after initialize it, use `GET /admin/namespaces/{names
 
 This Initiate API is not allow multiple export worker running for the same namespace, it will return 409 http error if so.
 */
-func (a *Client) InitiateExportAgreementsToCSVShort(params *InitiateExportAgreementsToCSVParams, authInfo runtime.ClientAuthInfoWriter) (*InitiateExportAgreementsToCSVOK, error) {
+func (a *Client) InitiateExportAgreementsToCSVShort(params *InitiateExportAgreementsToCSVParams, authInfo runtime.ClientAuthInfoWriter) (*InitiateExportAgreementsToCSVResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewInitiateExportAgreementsToCSVParams()
@@ -285,13 +315,33 @@ func (a *Client) InitiateExportAgreementsToCSVShort(params *InitiateExportAgreem
 	switch v := result.(type) {
 
 	case *InitiateExportAgreementsToCSVOK:
-		return v, nil
+		response := &InitiateExportAgreementsToCSVResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *InitiateExportAgreementsToCSVBadRequest:
-		return nil, v
+		response := &InitiateExportAgreementsToCSVResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InitiateExportAgreementsToCSVNotFound:
-		return nil, v
+		response := &InitiateExportAgreementsToCSVResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *InitiateExportAgreementsToCSVConflict:
-		return nil, v
+		response := &InitiateExportAgreementsToCSVResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

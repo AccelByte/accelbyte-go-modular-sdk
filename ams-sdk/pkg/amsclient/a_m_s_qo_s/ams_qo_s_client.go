@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QoSRegionsGetShort(params *QoSRegionsGetParams, authInfo runtime.ClientAuthInfoWriter) (*QoSRegionsGetOK, error)
-	QoSRegionsUpdateShort(params *QoSRegionsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*QoSRegionsUpdateNoContent, error)
+	QoSRegionsGetShort(params *QoSRegionsGetParams, authInfo runtime.ClientAuthInfoWriter) (*QoSRegionsGetResponse, error)
+	QoSRegionsUpdateShort(params *QoSRegionsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*QoSRegionsUpdateResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -57,7 +57,7 @@ The game then can use ping latency information to either:
 2. Send the latency list to Matchmaking Service so that player can be matched with other players
 in nearby regions
 */
-func (a *Client) QoSRegionsGetShort(params *QoSRegionsGetParams, authInfo runtime.ClientAuthInfoWriter) (*QoSRegionsGetOK, error) {
+func (a *Client) QoSRegionsGetShort(params *QoSRegionsGetParams, authInfo runtime.ClientAuthInfoWriter) (*QoSRegionsGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQoSRegionsGetParams()
@@ -95,15 +95,40 @@ func (a *Client) QoSRegionsGetShort(params *QoSRegionsGetParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *QoSRegionsGetOK:
-		return v, nil
+		response := &QoSRegionsGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QoSRegionsGetBadRequest:
-		return nil, v
+		response := &QoSRegionsGetResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QoSRegionsGetUnauthorized:
-		return nil, v
+		response := &QoSRegionsGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QoSRegionsGetForbidden:
-		return nil, v
+		response := &QoSRegionsGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QoSRegionsGetInternalServerError:
-		return nil, v
+		response := &QoSRegionsGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -117,7 +142,7 @@ Required Permission: ADMIN:NAMESPACE:{namespace}:QOS:SERVER [UPDATE]
 
 This endpoint updates the registered QoS service's configurable configuration.
 */
-func (a *Client) QoSRegionsUpdateShort(params *QoSRegionsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*QoSRegionsUpdateNoContent, error) {
+func (a *Client) QoSRegionsUpdateShort(params *QoSRegionsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*QoSRegionsUpdateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQoSRegionsUpdateParams()
@@ -155,17 +180,46 @@ func (a *Client) QoSRegionsUpdateShort(params *QoSRegionsUpdateParams, authInfo 
 	switch v := result.(type) {
 
 	case *QoSRegionsUpdateNoContent:
-		return v, nil
+		response := &QoSRegionsUpdateResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QoSRegionsUpdateBadRequest:
-		return nil, v
+		response := &QoSRegionsUpdateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QoSRegionsUpdateUnauthorized:
-		return nil, v
+		response := &QoSRegionsUpdateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QoSRegionsUpdateForbidden:
-		return nil, v
+		response := &QoSRegionsUpdateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QoSRegionsUpdateNotFound:
-		return nil, v
+		response := &QoSRegionsUpdateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QoSRegionsUpdateInternalServerError:
-		return nil, v
+		response := &QoSRegionsUpdateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

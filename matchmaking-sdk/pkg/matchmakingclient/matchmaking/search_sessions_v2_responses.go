@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclientmodels"
 )
 
+type SearchSessionsV2Response struct {
+	matchmakingclientmodels.ApiResponse
+	Data *matchmakingclientmodels.ServiceGetSessionHistorySearchResponseV2
+
+	Error400 *matchmakingclientmodels.ResponseErrorV1
+	Error401 *matchmakingclientmodels.ResponseErrorV1
+	Error403 *matchmakingclientmodels.ResponseErrorV1
+	Error404 *matchmakingclientmodels.ResponseErrorV1
+	Error500 *matchmakingclientmodels.ResponseError
+}
+
+func (m *SearchSessionsV2Response) Unpack() (*matchmakingclientmodels.ServiceGetSessionHistorySearchResponseV2, *matchmakingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &matchmakingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // SearchSessionsV2Reader is a Reader for the SearchSessionsV2 structure.
 type SearchSessionsV2Reader struct {
 	formats strfmt.Registry

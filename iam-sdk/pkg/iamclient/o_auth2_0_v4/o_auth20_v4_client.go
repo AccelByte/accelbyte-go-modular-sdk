@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AuthenticationWithPlatformLinkV4Short(params *AuthenticationWithPlatformLinkV4Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV4OK, error)
-	GenerateTokenByNewHeadlessAccountV4Short(params *GenerateTokenByNewHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV4OK, error)
-	Verify2FACodeV4Short(params *Verify2FACodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeV4OK, error)
-	PlatformTokenGrantV4Short(params *PlatformTokenGrantV4Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV4OK, error)
-	SimultaneousLoginV4Short(params *SimultaneousLoginV4Params, authInfo runtime.ClientAuthInfoWriter) (*SimultaneousLoginV4OK, error)
-	TokenGrantV4Short(params *TokenGrantV4Params, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantV4OK, error)
-	RequestTargetTokenResponseV4Short(params *RequestTargetTokenResponseV4Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV4OK, error)
+	AuthenticationWithPlatformLinkV4Short(params *AuthenticationWithPlatformLinkV4Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV4Response, error)
+	GenerateTokenByNewHeadlessAccountV4Short(params *GenerateTokenByNewHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV4Response, error)
+	Verify2FACodeV4Short(params *Verify2FACodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeV4Response, error)
+	PlatformTokenGrantV4Short(params *PlatformTokenGrantV4Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV4Response, error)
+	SimultaneousLoginV4Short(params *SimultaneousLoginV4Params, authInfo runtime.ClientAuthInfoWriter) (*SimultaneousLoginV4Response, error)
+	TokenGrantV4Short(params *TokenGrantV4Params, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantV4Response, error)
+	RequestTargetTokenResponseV4Short(params *RequestTargetTokenResponseV4Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV4Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -52,7 +52,7 @@ If user already enable 2FA, then invoke _/mfa/verify_ using **mfa_token** from t
 Device Cookie is used to protect the user account from brute force login attack, [more detail from OWASP](https://owasp.org/www-community/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies).
 This endpoint will read device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and set it into cookie when successfully authenticate.
 */
-func (a *Client) AuthenticationWithPlatformLinkV4Short(params *AuthenticationWithPlatformLinkV4Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV4OK, error) {
+func (a *Client) AuthenticationWithPlatformLinkV4Short(params *AuthenticationWithPlatformLinkV4Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthenticationWithPlatformLinkV4Params()
@@ -90,17 +90,47 @@ func (a *Client) AuthenticationWithPlatformLinkV4Short(params *AuthenticationWit
 	switch v := result.(type) {
 
 	case *AuthenticationWithPlatformLinkV4OK:
-		return v, nil
+		response := &AuthenticationWithPlatformLinkV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV4Accepted:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV4Response{}
+		response.Data202 = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV4BadRequest:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV4Unauthorized:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV4Forbidden:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AuthenticationWithPlatformLinkV4Conflict:
-		return nil, v
+		response := &AuthenticationWithPlatformLinkV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -113,7 +143,7 @@ This endpoint is being used to create headless account after 3rd platform authen
 The 'linkingToken' in request body is received from "/platforms/{platformId}/token"
 when 3rd platform account is not linked to justice account yet.
 */
-func (a *Client) GenerateTokenByNewHeadlessAccountV4Short(params *GenerateTokenByNewHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV4OK, error) {
+func (a *Client) GenerateTokenByNewHeadlessAccountV4Short(params *GenerateTokenByNewHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGenerateTokenByNewHeadlessAccountV4Params()
@@ -151,15 +181,40 @@ func (a *Client) GenerateTokenByNewHeadlessAccountV4Short(params *GenerateTokenB
 	switch v := result.(type) {
 
 	case *GenerateTokenByNewHeadlessAccountV4OK:
-		return v, nil
+		response := &GenerateTokenByNewHeadlessAccountV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GenerateTokenByNewHeadlessAccountV4Accepted:
-		return nil, v
+		response := &GenerateTokenByNewHeadlessAccountV4Response{}
+		response.Data202 = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GenerateTokenByNewHeadlessAccountV4BadRequest:
-		return nil, v
+		response := &GenerateTokenByNewHeadlessAccountV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GenerateTokenByNewHeadlessAccountV4Unauthorized:
-		return nil, v
+		response := &GenerateTokenByNewHeadlessAccountV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GenerateTokenByNewHeadlessAccountV4NotFound:
-		return nil, v
+		response := &GenerateTokenByNewHeadlessAccountV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -173,7 +228,7 @@ This endpoint is used for verifying 2FA code.
 ## 2FA remember device
 To remember device for 2FA, should provide cookie: device_token or header: Device-Token
 */
-func (a *Client) Verify2FACodeV4Short(params *Verify2FACodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeV4OK, error) {
+func (a *Client) Verify2FACodeV4Short(params *Verify2FACodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewVerify2FACodeV4Params()
@@ -211,11 +266,26 @@ func (a *Client) Verify2FACodeV4Short(params *Verify2FACodeV4Params, authInfo ru
 	switch v := result.(type) {
 
 	case *Verify2FACodeV4OK:
-		return v, nil
+		response := &Verify2FACodeV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *Verify2FACodeV4Accepted:
-		return nil, v
+		response := &Verify2FACodeV4Response{}
+		response.Data202 = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *Verify2FACodeV4Unauthorized:
-		return nil, v
+		response := &Verify2FACodeV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -298,7 +368,7 @@ The JWT contains user's active bans with its expiry date. List of ban types can 
 
 action code : 10704
 */
-func (a *Client) PlatformTokenGrantV4Short(params *PlatformTokenGrantV4Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV4OK, error) {
+func (a *Client) PlatformTokenGrantV4Short(params *PlatformTokenGrantV4Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPlatformTokenGrantV4Params()
@@ -336,17 +406,47 @@ func (a *Client) PlatformTokenGrantV4Short(params *PlatformTokenGrantV4Params, a
 	switch v := result.(type) {
 
 	case *PlatformTokenGrantV4OK:
-		return v, nil
+		response := &PlatformTokenGrantV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformTokenGrantV4Accepted:
-		return nil, v
+		response := &PlatformTokenGrantV4Response{}
+		response.Data202 = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PlatformTokenGrantV4BadRequest:
-		return nil, v
+		response := &PlatformTokenGrantV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenGrantV4Unauthorized:
-		return nil, v
+		response := &PlatformTokenGrantV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenGrantV4Forbidden:
-		return nil, v
+		response := &PlatformTokenGrantV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PlatformTokenGrantV4ServiceUnavailable:
-		return nil, v
+		response := &PlatformTokenGrantV4Response{}
+		response.Error503 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -382,7 +482,7 @@ link their accounts, and provide support for platform sync with a valid 3rd plat
 - Native ticket's account & Simultaneous ticket's account are both not linked to AGS account yet
 - Native ticket's account & Simultaneous ticket's account are already linked to same AGS account
 */
-func (a *Client) SimultaneousLoginV4Short(params *SimultaneousLoginV4Params, authInfo runtime.ClientAuthInfoWriter) (*SimultaneousLoginV4OK, error) {
+func (a *Client) SimultaneousLoginV4Short(params *SimultaneousLoginV4Params, authInfo runtime.ClientAuthInfoWriter) (*SimultaneousLoginV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSimultaneousLoginV4Params()
@@ -420,17 +520,47 @@ func (a *Client) SimultaneousLoginV4Short(params *SimultaneousLoginV4Params, aut
 	switch v := result.(type) {
 
 	case *SimultaneousLoginV4OK:
-		return v, nil
+		response := &SimultaneousLoginV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SimultaneousLoginV4Accepted:
-		return nil, v
+		response := &SimultaneousLoginV4Response{}
+		response.Data202 = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SimultaneousLoginV4BadRequest:
-		return nil, v
+		response := &SimultaneousLoginV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SimultaneousLoginV4Unauthorized:
-		return nil, v
+		response := &SimultaneousLoginV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SimultaneousLoginV4Conflict:
-		return nil, v
+		response := &SimultaneousLoginV4Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SimultaneousLoginV4InternalServerError:
-		return nil, v
+		response := &SimultaneousLoginV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -496,7 +626,7 @@ To remember device for 2FA, should provide cookie: device_token or header: Devic
 If it is a user token request and user hasn't accepted required legal policy, the field `is_comply` will be false in response and responsed token will have no permission.
 action code: 10703
 */
-func (a *Client) TokenGrantV4Short(params *TokenGrantV4Params, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantV4OK, error) {
+func (a *Client) TokenGrantV4Short(params *TokenGrantV4Params, authInfo runtime.ClientAuthInfoWriter) (*TokenGrantV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewTokenGrantV4Params()
@@ -534,17 +664,47 @@ func (a *Client) TokenGrantV4Short(params *TokenGrantV4Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *TokenGrantV4OK:
-		return v, nil
+		response := &TokenGrantV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TokenGrantV4Accepted:
-		return nil, v
+		response := &TokenGrantV4Response{}
+		response.Data202 = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *TokenGrantV4BadRequest:
-		return nil, v
+		response := &TokenGrantV4Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenGrantV4Unauthorized:
-		return nil, v
+		response := &TokenGrantV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenGrantV4Forbidden:
-		return nil, v
+		response := &TokenGrantV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *TokenGrantV4TooManyRequests:
-		return nil, v
+		response := &TokenGrantV4Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -557,7 +717,7 @@ This endpoint is being used to generate target token.
 It requires basic header with ClientID and Secret, it should match the ClientID when call `/iam/v3/namespace/{namespace}/token/request`
 The code should be generated from `/iam/v3/namespace/{namespace}/token/request`.
 */
-func (a *Client) RequestTargetTokenResponseV4Short(params *RequestTargetTokenResponseV4Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV4OK, error) {
+func (a *Client) RequestTargetTokenResponseV4Short(params *RequestTargetTokenResponseV4Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV4Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRequestTargetTokenResponseV4Params()
@@ -595,9 +755,19 @@ func (a *Client) RequestTargetTokenResponseV4Short(params *RequestTargetTokenRes
 	switch v := result.(type) {
 
 	case *RequestTargetTokenResponseV4OK:
-		return v, nil
+		response := &RequestTargetTokenResponseV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RequestTargetTokenResponseV4Accepted:
-		return nil, v
+		response := &RequestTargetTokenResponseV4Response{}
+		response.Data202 = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

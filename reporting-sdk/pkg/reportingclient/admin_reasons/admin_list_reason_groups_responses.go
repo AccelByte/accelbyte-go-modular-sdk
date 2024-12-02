@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type AdminListReasonGroupsResponse struct {
+	reportingclientmodels.ApiResponse
+	Data *reportingclientmodels.RestapiReasonGroupListResponse
+
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *AdminListReasonGroupsResponse) Unpack() (*reportingclientmodels.RestapiReasonGroupListResponse, *reportingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminListReasonGroupsReader is a Reader for the AdminListReasonGroups structure.
 type AdminListReasonGroupsReader struct {
 	formats strfmt.Registry

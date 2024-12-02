@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoOK, error)
-	HandlerV3HealthzShort(params *HandlerV3HealthzParams, authInfo runtime.ClientAuthInfoWriter) (*HandlerV3HealthzOK, error)
-	PublicGetMessagesShort(params *PublicGetMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMessagesOK, error)
-	VersionCheckHandlerShort(params *VersionCheckHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*VersionCheckHandlerOK, error)
+	GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoResponse, error)
+	HandlerV3HealthzShort(params *HandlerV3HealthzParams, authInfo runtime.ClientAuthInfoWriter) (*HandlerV3HealthzResponse, error)
+	PublicGetMessagesShort(params *PublicGetMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMessagesResponse, error)
+	VersionCheckHandlerShort(params *VersionCheckHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*VersionCheckHandlerResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ type ClientService interface {
 /*
 GetHealthcheckInfoShort
 */
-func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoOK, error) {
+func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetHealthcheckInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetHealthcheckInfoParams()
@@ -79,7 +79,11 @@ func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authI
 	switch v := result.(type) {
 
 	case *GetHealthcheckInfoOK:
-		return v, nil
+		response := &GetHealthcheckInfoResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -89,7 +93,7 @@ func (a *Client) GetHealthcheckInfoShort(params *GetHealthcheckInfoParams, authI
 /*
 HandlerV3HealthzShort
 */
-func (a *Client) HandlerV3HealthzShort(params *HandlerV3HealthzParams, authInfo runtime.ClientAuthInfoWriter) (*HandlerV3HealthzOK, error) {
+func (a *Client) HandlerV3HealthzShort(params *HandlerV3HealthzParams, authInfo runtime.ClientAuthInfoWriter) (*HandlerV3HealthzResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewHandlerV3HealthzParams()
@@ -127,7 +131,11 @@ func (a *Client) HandlerV3HealthzShort(params *HandlerV3HealthzParams, authInfo 
 	switch v := result.(type) {
 
 	case *HandlerV3HealthzOK:
-		return v, nil
+		response := &HandlerV3HealthzResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -138,7 +146,7 @@ func (a *Client) HandlerV3HealthzShort(params *HandlerV3HealthzParams, authInfo 
 PublicGetMessagesShort get service messages
 get the list of messages.
 */
-func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMessagesOK, error) {
+func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMessagesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetMessagesParams()
@@ -176,9 +184,19 @@ func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInf
 	switch v := result.(type) {
 
 	case *PublicGetMessagesOK:
-		return v, nil
+		response := &PublicGetMessagesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicGetMessagesInternalServerError:
-		return nil, v
+		response := &PublicGetMessagesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -188,7 +206,7 @@ func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInf
 /*
 VersionCheckHandlerShort
 */
-func (a *Client) VersionCheckHandlerShort(params *VersionCheckHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*VersionCheckHandlerOK, error) {
+func (a *Client) VersionCheckHandlerShort(params *VersionCheckHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*VersionCheckHandlerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewVersionCheckHandlerParams()
@@ -226,7 +244,11 @@ func (a *Client) VersionCheckHandlerShort(params *VersionCheckHandlerParams, aut
 	switch v := result.(type) {
 
 	case *VersionCheckHandlerOK:
-		return v, nil
+		response := &VersionCheckHandlerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsOK, error)
-	AdminCreateTagShort(params *AdminCreateTagParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTagCreated, error)
-	AdminDeleteTagShort(params *AdminDeleteTagParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTagNoContent, error)
+	AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsResponse, error)
+	AdminCreateTagShort(params *AdminCreateTagParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTagResponse, error)
+	AdminDeleteTagShort(params *AdminDeleteTagParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTagResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -45,7 +45,7 @@ The response body will be in the form of standard pagination.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:TAG [READ]
 */
-func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsOK, error) {
+func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListTagsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListTagsParams()
@@ -83,11 +83,26 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *AdminListTagsOK:
-		return v, nil
+		response := &AdminListTagsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListTagsBadRequest:
-		return nil, v
+		response := &AdminListTagsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListTagsInternalServerError:
-		return nil, v
+		response := &AdminListTagsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +118,7 @@ It is safe to call this endpoint even if the tag already exists.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:TAG [CREATE]
 */
-func (a *Client) AdminCreateTagShort(params *AdminCreateTagParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTagCreated, error) {
+func (a *Client) AdminCreateTagShort(params *AdminCreateTagParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTagResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateTagParams()
@@ -141,13 +156,33 @@ func (a *Client) AdminCreateTagShort(params *AdminCreateTagParams, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminCreateTagCreated:
-		return v, nil
+		response := &AdminCreateTagResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateTagBadRequest:
-		return nil, v
+		response := &AdminCreateTagResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateTagConflict:
-		return nil, v
+		response := &AdminCreateTagResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateTagInternalServerError:
-		return nil, v
+		response := &AdminCreateTagResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -162,7 +197,7 @@ If the tagName doesn't exist in a namespace, it'll return not found.
 
 Permission: ADMIN:NAMESPACE:{namespace}:INVENTORY:TAG [DELETE]
 */
-func (a *Client) AdminDeleteTagShort(params *AdminDeleteTagParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTagNoContent, error) {
+func (a *Client) AdminDeleteTagShort(params *AdminDeleteTagParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTagResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteTagParams()
@@ -200,11 +235,25 @@ func (a *Client) AdminDeleteTagShort(params *AdminDeleteTagParams, authInfo runt
 	switch v := result.(type) {
 
 	case *AdminDeleteTagNoContent:
-		return v, nil
+		response := &AdminDeleteTagResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteTagNotFound:
-		return nil, v
+		response := &AdminDeleteTagResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteTagInternalServerError:
-		return nil, v
+		response := &AdminDeleteTagResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

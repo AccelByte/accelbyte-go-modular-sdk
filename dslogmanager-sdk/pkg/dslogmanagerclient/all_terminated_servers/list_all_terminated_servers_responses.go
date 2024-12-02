@@ -19,6 +19,54 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclientmodels"
 )
 
+type ListAllTerminatedServersResponse struct {
+	dslogmanagerclientmodels.ApiResponse
+	Data *dslogmanagerclientmodels.ModelsListTerminatedServersResponse
+
+	Error400 *dslogmanagerclientmodels.ResponseError
+	Error401 *dslogmanagerclientmodels.ResponseError
+	Error500 *dslogmanagerclientmodels.ResponseError
+}
+
+func (m *ListAllTerminatedServersResponse) Unpack() (*dslogmanagerclientmodels.ModelsListTerminatedServersResponse, *dslogmanagerclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &dslogmanagerclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // ListAllTerminatedServersReader is a Reader for the ListAllTerminatedServers structure.
 type ListAllTerminatedServersReader struct {
 	formats strfmt.Registry

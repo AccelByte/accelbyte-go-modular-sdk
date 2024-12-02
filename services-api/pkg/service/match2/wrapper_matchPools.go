@@ -9,7 +9,6 @@ package match2
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_pools"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *MatchPoolsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *MatchPoolsService) MatchPoolListShort(input *match_pools.MatchPoolListParams) (*match2clientmodels.APIListMatchPoolsResponse, error) {
+func (aaa *MatchPoolsService) MatchPoolListShort(input *match_pools.MatchPoolListParams) (*match_pools.MatchPoolListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,7 +65,7 @@ func (aaa *MatchPoolsService) MatchPoolListShort(input *match_pools.MatchPoolLis
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *MatchPoolsService) CreateMatchPoolShort(input *match_pools.CreateMatchPoolParams) error {
@@ -99,7 +98,7 @@ func (aaa *MatchPoolsService) CreateMatchPoolShort(input *match_pools.CreateMatc
 	return nil
 }
 
-func (aaa *MatchPoolsService) MatchPoolDetailsShort(input *match_pools.MatchPoolDetailsParams) (*match2clientmodels.APIMatchPool, error) {
+func (aaa *MatchPoolsService) MatchPoolDetailsShort(input *match_pools.MatchPoolDetailsParams) (*match_pools.MatchPoolDetailsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *MatchPoolsService) MatchPoolDetailsShort(input *match_pools.MatchPool
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MatchPoolsService) UpdateMatchPoolShort(input *match_pools.UpdateMatchPoolParams) (*match2clientmodels.APIMatchPool, error) {
+func (aaa *MatchPoolsService) UpdateMatchPoolShort(input *match_pools.UpdateMatchPoolParams) (*match_pools.UpdateMatchPoolResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *MatchPoolsService) UpdateMatchPoolShort(input *match_pools.UpdateMatc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *MatchPoolsService) DeleteMatchPoolShort(input *match_pools.DeleteMatchPoolParams) error {
@@ -189,7 +188,7 @@ func (aaa *MatchPoolsService) DeleteMatchPoolShort(input *match_pools.DeleteMatc
 	return nil
 }
 
-func (aaa *MatchPoolsService) MatchPoolMetricShort(input *match_pools.MatchPoolMetricParams) (*match2clientmodels.APITicketMetricResultRecord, error) {
+func (aaa *MatchPoolsService) MatchPoolMetricShort(input *match_pools.MatchPoolMetricParams) (*match_pools.MatchPoolMetricResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,10 +215,10 @@ func (aaa *MatchPoolsService) MatchPoolMetricShort(input *match_pools.MatchPoolM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MatchPoolsService) GetPlayerMetricShort(input *match_pools.GetPlayerMetricParams) (*match2clientmodels.APIPlayerMetricRecord, error) {
+func (aaa *MatchPoolsService) GetPlayerMetricShort(input *match_pools.GetPlayerMetricParams) (*match_pools.GetPlayerMetricResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,10 +245,10 @@ func (aaa *MatchPoolsService) GetPlayerMetricShort(input *match_pools.GetPlayerM
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MatchPoolsService) AdminGetMatchPoolTicketsShort(input *match_pools.AdminGetMatchPoolTicketsParams) (*match2clientmodels.APIListMatchPoolTicketsResponse, error) {
+func (aaa *MatchPoolsService) AdminGetMatchPoolTicketsShort(input *match_pools.AdminGetMatchPoolTicketsParams) (*match_pools.AdminGetMatchPoolTicketsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -276,10 +275,10 @@ func (aaa *MatchPoolsService) AdminGetMatchPoolTicketsShort(input *match_pools.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MatchPoolsService) PublicGetPlayerMetricShort(input *match_pools.PublicGetPlayerMetricParams) (*match2clientmodels.APIPlayerMetricRecord, error) {
+func (aaa *MatchPoolsService) PublicGetPlayerMetricShort(input *match_pools.PublicGetPlayerMetricParams) (*match_pools.PublicGetPlayerMetricResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -306,5 +305,5 @@ func (aaa *MatchPoolsService) PublicGetPlayerMetricShort(input *match_pools.Publ
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

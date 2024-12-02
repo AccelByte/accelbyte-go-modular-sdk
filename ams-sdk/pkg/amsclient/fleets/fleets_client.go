@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	FleetListShort(params *FleetListParams, authInfo runtime.ClientAuthInfoWriter) (*FleetListOK, error)
-	FleetCreateShort(params *FleetCreateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetCreateCreated, error)
-	FleetGetShort(params *FleetGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetGetOK, error)
-	FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetUpdateNoContent, error)
-	FleetDeleteShort(params *FleetDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*FleetDeleteNoContent, error)
-	FleetServersShort(params *FleetServersParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServersOK, error)
-	FleetClaimByIDShort(params *FleetClaimByIDParams, authInfo runtime.ClientAuthInfoWriter) (*FleetClaimByIDOK, error)
-	FleetClaimByKeysShort(params *FleetClaimByKeysParams, authInfo runtime.ClientAuthInfoWriter) (*FleetClaimByKeysOK, error)
+	FleetListShort(params *FleetListParams, authInfo runtime.ClientAuthInfoWriter) (*FleetListResponse, error)
+	FleetCreateShort(params *FleetCreateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetCreateResponse, error)
+	FleetGetShort(params *FleetGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetGetResponse, error)
+	FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetUpdateResponse, error)
+	FleetDeleteShort(params *FleetDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*FleetDeleteResponse, error)
+	FleetServersShort(params *FleetServersParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServersResponse, error)
+	FleetClaimByIDShort(params *FleetClaimByIDParams, authInfo runtime.ClientAuthInfoWriter) (*FleetClaimByIDResponse, error)
+	FleetClaimByKeysShort(params *FleetClaimByKeysParams, authInfo runtime.ClientAuthInfoWriter) (*FleetClaimByKeysResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ type ClientService interface {
 FleetListShort list all fleets in a namespace
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]
 */
-func (a *Client) FleetListShort(params *FleetListParams, authInfo runtime.ClientAuthInfoWriter) (*FleetListOK, error) {
+func (a *Client) FleetListShort(params *FleetListParams, authInfo runtime.ClientAuthInfoWriter) (*FleetListResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetListParams()
@@ -84,9 +84,19 @@ func (a *Client) FleetListShort(params *FleetListParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *FleetListOK:
-		return v, nil
+		response := &FleetListResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetListInternalServerError:
-		return nil, v
+		response := &FleetListResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -99,7 +109,7 @@ Optionally, sampling rules for the fleet can also be specified
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [CREATE]
 */
-func (a *Client) FleetCreateShort(params *FleetCreateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetCreateCreated, error) {
+func (a *Client) FleetCreateShort(params *FleetCreateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetCreateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetCreateParams()
@@ -137,15 +147,40 @@ func (a *Client) FleetCreateShort(params *FleetCreateParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *FleetCreateCreated:
-		return v, nil
+		response := &FleetCreateResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetCreateBadRequest:
-		return nil, v
+		response := &FleetCreateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetCreateUnauthorized:
-		return nil, v
+		response := &FleetCreateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetCreateForbidden:
-		return nil, v
+		response := &FleetCreateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetCreateInternalServerError:
-		return nil, v
+		response := &FleetCreateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,7 +191,7 @@ func (a *Client) FleetCreateShort(params *FleetCreateParams, authInfo runtime.Cl
 FleetGetShort get a fleet
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]
 */
-func (a *Client) FleetGetShort(params *FleetGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetGetOK, error) {
+func (a *Client) FleetGetShort(params *FleetGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetGetResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetGetParams()
@@ -194,17 +229,47 @@ func (a *Client) FleetGetShort(params *FleetGetParams, authInfo runtime.ClientAu
 	switch v := result.(type) {
 
 	case *FleetGetOK:
-		return v, nil
+		response := &FleetGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetGetBadRequest:
-		return nil, v
+		response := &FleetGetResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetGetUnauthorized:
-		return nil, v
+		response := &FleetGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetGetForbidden:
-		return nil, v
+		response := &FleetGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetGetNotFound:
-		return nil, v
+		response := &FleetGetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetGetInternalServerError:
-		return nil, v
+		response := &FleetGetResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -217,7 +282,7 @@ Optionally, sampling rules for the fleet can also be updated
 
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [UPDATE]
 */
-func (a *Client) FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetUpdateNoContent, error) {
+func (a *Client) FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetUpdateResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetUpdateParams()
@@ -255,17 +320,46 @@ func (a *Client) FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *FleetUpdateNoContent:
-		return v, nil
+		response := &FleetUpdateResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetUpdateBadRequest:
-		return nil, v
+		response := &FleetUpdateResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetUpdateUnauthorized:
-		return nil, v
+		response := &FleetUpdateResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetUpdateForbidden:
-		return nil, v
+		response := &FleetUpdateResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetUpdateNotFound:
-		return nil, v
+		response := &FleetUpdateResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetUpdateInternalServerError:
-		return nil, v
+		response := &FleetUpdateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -276,7 +370,7 @@ func (a *Client) FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.Cl
 FleetDeleteShort delete a fleet
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [DELETE]
 */
-func (a *Client) FleetDeleteShort(params *FleetDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*FleetDeleteNoContent, error) {
+func (a *Client) FleetDeleteShort(params *FleetDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*FleetDeleteResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetDeleteParams()
@@ -314,17 +408,46 @@ func (a *Client) FleetDeleteShort(params *FleetDeleteParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *FleetDeleteNoContent:
-		return v, nil
+		response := &FleetDeleteResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetDeleteBadRequest:
-		return nil, v
+		response := &FleetDeleteResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetDeleteUnauthorized:
-		return nil, v
+		response := &FleetDeleteResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetDeleteForbidden:
-		return nil, v
+		response := &FleetDeleteResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetDeleteNotFound:
-		return nil, v
+		response := &FleetDeleteResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetDeleteInternalServerError:
-		return nil, v
+		response := &FleetDeleteResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -335,7 +458,7 @@ func (a *Client) FleetDeleteShort(params *FleetDeleteParams, authInfo runtime.Cl
 FleetServersShort get server details & counts for a fleet
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [READ]
 */
-func (a *Client) FleetServersShort(params *FleetServersParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServersOK, error) {
+func (a *Client) FleetServersShort(params *FleetServersParams, authInfo runtime.ClientAuthInfoWriter) (*FleetServersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetServersParams()
@@ -373,17 +496,47 @@ func (a *Client) FleetServersShort(params *FleetServersParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *FleetServersOK:
-		return v, nil
+		response := &FleetServersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetServersBadRequest:
-		return nil, v
+		response := &FleetServersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServersUnauthorized:
-		return nil, v
+		response := &FleetServersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServersForbidden:
-		return nil, v
+		response := &FleetServersResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServersNotFound:
-		return nil, v
+		response := &FleetServersResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetServersInternalServerError:
-		return nil, v
+		response := &FleetServersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -394,7 +547,7 @@ func (a *Client) FleetServersShort(params *FleetServersParams, authInfo runtime.
 FleetClaimByIDShort claim a dedicated server from a fleet
 Required Permission: NAMESPACE:{namespace}:AMS:SERVER:CLAIM [UPDATE]
 */
-func (a *Client) FleetClaimByIDShort(params *FleetClaimByIDParams, authInfo runtime.ClientAuthInfoWriter) (*FleetClaimByIDOK, error) {
+func (a *Client) FleetClaimByIDShort(params *FleetClaimByIDParams, authInfo runtime.ClientAuthInfoWriter) (*FleetClaimByIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetClaimByIDParams()
@@ -432,17 +585,47 @@ func (a *Client) FleetClaimByIDShort(params *FleetClaimByIDParams, authInfo runt
 	switch v := result.(type) {
 
 	case *FleetClaimByIDOK:
-		return v, nil
+		response := &FleetClaimByIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetClaimByIDBadRequest:
-		return nil, v
+		response := &FleetClaimByIDResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetClaimByIDUnauthorized:
-		return nil, v
+		response := &FleetClaimByIDResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetClaimByIDForbidden:
-		return nil, v
+		response := &FleetClaimByIDResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetClaimByIDNotFound:
-		return nil, v
+		response := &FleetClaimByIDResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetClaimByIDInternalServerError:
-		return nil, v
+		response := &FleetClaimByIDResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -457,7 +640,7 @@ If the claim key is for a development fleet and there are no DS available, a new
 
 Required Permission: NAMESPACE:{namespace}:AMS:SERVER:CLAIM [UPDATE]
 */
-func (a *Client) FleetClaimByKeysShort(params *FleetClaimByKeysParams, authInfo runtime.ClientAuthInfoWriter) (*FleetClaimByKeysOK, error) {
+func (a *Client) FleetClaimByKeysShort(params *FleetClaimByKeysParams, authInfo runtime.ClientAuthInfoWriter) (*FleetClaimByKeysResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFleetClaimByKeysParams()
@@ -495,17 +678,47 @@ func (a *Client) FleetClaimByKeysShort(params *FleetClaimByKeysParams, authInfo 
 	switch v := result.(type) {
 
 	case *FleetClaimByKeysOK:
-		return v, nil
+		response := &FleetClaimByKeysResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *FleetClaimByKeysBadRequest:
-		return nil, v
+		response := &FleetClaimByKeysResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetClaimByKeysUnauthorized:
-		return nil, v
+		response := &FleetClaimByKeysResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetClaimByKeysForbidden:
-		return nil, v
+		response := &FleetClaimByKeysResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetClaimByKeysNotFound:
-		return nil, v
+		response := &FleetClaimByKeysResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *FleetClaimByKeysInternalServerError:
-		return nil, v
+		response := &FleetClaimByKeysResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

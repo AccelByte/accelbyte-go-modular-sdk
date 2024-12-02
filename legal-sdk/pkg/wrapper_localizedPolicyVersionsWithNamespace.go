@@ -9,7 +9,6 @@ package legal
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -67,7 +66,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) DeleteLocalizedPolicySho
 	return nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyVersions1Short(input *localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersions1Params) ([]*legalclientmodels.RetrieveLocalizedPolicyVersionResponse, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyVersions1Short(input *localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersions1Params) (*localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersions1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyV
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.CreateLocalizedPolicyVersion1Params) (*legalclientmodels.CreateLocalizedPolicyVersionResponse, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.CreateLocalizedPolicyVersion1Params) (*localized_policy_versions_with_namespace.CreateLocalizedPolicyVersion1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVer
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion1Params) (*legalclientmodels.RetrieveLocalizedPolicyVersionResponse, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion1Params) (*localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.UpdateLocalizedPolicyVersion1Params) (*legalclientmodels.UpdateLocalizedPolicyVersionResponse, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.UpdateLocalizedPolicyVersion1Params) (*localized_policy_versions_with_namespace.UpdateLocalizedPolicyVersion1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVer
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURL1Short(input *localized_policy_versions_with_namespace.RequestPresignedURL1Params) (*legalclientmodels.UploadLocalizedPolicyVersionAttachmentResponse, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURL1Short(input *localized_policy_versions_with_namespace.RequestPresignedURL1Params) (*localized_policy_versions_with_namespace.RequestPresignedURL1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,7 +213,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURL1Shor
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *LocalizedPolicyVersionsWithNamespaceService) SetDefaultPolicy1Short(input *localized_policy_versions_with_namespace.SetDefaultPolicy1Params) error {
@@ -247,7 +246,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) SetDefaultPolicy1Short(i
 	return nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersion3Short(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion3Params) (*legalclientmodels.RetrieveLocalizedPolicyVersionPublicResponse, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersion3Short(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion3Params) (*localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion3Response, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -267,5 +266,5 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedP
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

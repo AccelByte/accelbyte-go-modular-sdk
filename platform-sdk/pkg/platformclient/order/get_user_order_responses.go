@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetUserOrderResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.OrderInfo
+
+	Error404 *platformclientmodels.ErrorEntity
+}
+
+func (m *GetUserOrderResponse) Unpack() (*platformclientmodels.OrderInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserOrderReader is a Reader for the GetUserOrder structure.
 type GetUserOrderReader struct {
 	formats strfmt.Registry

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetPlayStationIAPConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PlayStationIAPConfigInfo
+}
+
+func (m *GetPlayStationIAPConfigResponse) Unpack() (*platformclientmodels.PlayStationIAPConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetPlayStationIAPConfigReader is a Reader for the GetPlayStationIAPConfig structure.
 type GetPlayStationIAPConfigReader struct {
 	formats strfmt.Registry

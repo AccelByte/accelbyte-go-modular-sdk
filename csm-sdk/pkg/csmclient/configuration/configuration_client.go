@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetListOfSecretsV1Short(params *GetListOfSecretsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfSecretsV1OK, error)
-	SaveSecretV1Short(params *SaveSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*SaveSecretV1OK, error)
-	UpdateSecretV1Short(params *UpdateSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSecretV1OK, error)
-	DeleteSecretV1Short(params *DeleteSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSecretV1NoContent, error)
-	GetListOfVariablesV1Short(params *GetListOfVariablesV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfVariablesV1OK, error)
-	SaveVariableV1Short(params *SaveVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*SaveVariableV1OK, error)
-	UpdateVariableV1Short(params *UpdateVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateVariableV1OK, error)
-	DeleteVariableV1Short(params *DeleteVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteVariableV1NoContent, error)
+	GetListOfSecretsV1Short(params *GetListOfSecretsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfSecretsV1Response, error)
+	SaveSecretV1Short(params *SaveSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*SaveSecretV1Response, error)
+	UpdateSecretV1Short(params *UpdateSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSecretV1Response, error)
+	DeleteSecretV1Short(params *DeleteSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSecretV1Response, error)
+	GetListOfVariablesV1Short(params *GetListOfVariablesV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfVariablesV1Response, error)
+	SaveVariableV1Short(params *SaveVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*SaveVariableV1Response, error)
+	UpdateVariableV1Short(params *UpdateVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateVariableV1Response, error)
+	DeleteVariableV1Short(params *DeleteVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteVariableV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ Available Deployment Status:
 `deployed` = app config is already deployed
 `undeployed` = app config is not deployed yet and need restart and deploy of the app to be deployed
 */
-func (a *Client) GetListOfSecretsV1Short(params *GetListOfSecretsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfSecretsV1OK, error) {
+func (a *Client) GetListOfSecretsV1Short(params *GetListOfSecretsV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfSecretsV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListOfSecretsV1Params()
@@ -89,17 +89,47 @@ func (a *Client) GetListOfSecretsV1Short(params *GetListOfSecretsV1Params, authI
 	switch v := result.(type) {
 
 	case *GetListOfSecretsV1OK:
-		return v, nil
+		response := &GetListOfSecretsV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListOfSecretsV1BadRequest:
-		return nil, v
+		response := &GetListOfSecretsV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfSecretsV1Unauthorized:
-		return nil, v
+		response := &GetListOfSecretsV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfSecretsV1Forbidden:
-		return nil, v
+		response := &GetListOfSecretsV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfSecretsV1NotFound:
-		return nil, v
+		response := &GetListOfSecretsV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfSecretsV1InternalServerError:
-		return nil, v
+		response := &GetListOfSecretsV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -118,7 +148,7 @@ Request body:
 - description : description of the configuration - Optional.
 - applyMask : mask the value in the Helm manifest for sensitive information (true or false) - Optional.
 */
-func (a *Client) SaveSecretV1Short(params *SaveSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*SaveSecretV1OK, error) {
+func (a *Client) SaveSecretV1Short(params *SaveSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*SaveSecretV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSaveSecretV1Params()
@@ -156,15 +186,40 @@ func (a *Client) SaveSecretV1Short(params *SaveSecretV1Params, authInfo runtime.
 	switch v := result.(type) {
 
 	case *SaveSecretV1OK:
-		return v, nil
+		response := &SaveSecretV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SaveSecretV1BadRequest:
-		return nil, v
+		response := &SaveSecretV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveSecretV1Unauthorized:
-		return nil, v
+		response := &SaveSecretV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveSecretV1Forbidden:
-		return nil, v
+		response := &SaveSecretV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveSecretV1InternalServerError:
-		return nil, v
+		response := &SaveSecretV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,7 +236,7 @@ Request body:
 - description : description of the configuration - Optional.
 - applyMask : mask the value in the Helm manifest for sensitive information (true or false) - Optional.
 */
-func (a *Client) UpdateSecretV1Short(params *UpdateSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSecretV1OK, error) {
+func (a *Client) UpdateSecretV1Short(params *UpdateSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateSecretV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSecretV1Params()
@@ -219,15 +274,40 @@ func (a *Client) UpdateSecretV1Short(params *UpdateSecretV1Params, authInfo runt
 	switch v := result.(type) {
 
 	case *UpdateSecretV1OK:
-		return v, nil
+		response := &UpdateSecretV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateSecretV1BadRequest:
-		return nil, v
+		response := &UpdateSecretV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSecretV1Unauthorized:
-		return nil, v
+		response := &UpdateSecretV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSecretV1Forbidden:
-		return nil, v
+		response := &UpdateSecretV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSecretV1InternalServerError:
-		return nil, v
+		response := &UpdateSecretV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -240,7 +320,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SECRET [DELETE]`
 
 Delete an environment secret.
 */
-func (a *Client) DeleteSecretV1Short(params *DeleteSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSecretV1NoContent, error) {
+func (a *Client) DeleteSecretV1Short(params *DeleteSecretV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSecretV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSecretV1Params()
@@ -278,15 +358,39 @@ func (a *Client) DeleteSecretV1Short(params *DeleteSecretV1Params, authInfo runt
 	switch v := result.(type) {
 
 	case *DeleteSecretV1NoContent:
-		return v, nil
+		response := &DeleteSecretV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteSecretV1Unauthorized:
-		return nil, v
+		response := &DeleteSecretV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSecretV1Forbidden:
-		return nil, v
+		response := &DeleteSecretV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSecretV1NotFound:
-		return nil, v
+		response := &DeleteSecretV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSecretV1InternalServerError:
-		return nil, v
+		response := &DeleteSecretV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -302,7 +406,7 @@ Available Deployment Status:
 `deployed` = app config is already deployed
 `undeployed` = app config is not deployed yet and need restart and deploy of the app to be deployed
 */
-func (a *Client) GetListOfVariablesV1Short(params *GetListOfVariablesV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfVariablesV1OK, error) {
+func (a *Client) GetListOfVariablesV1Short(params *GetListOfVariablesV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetListOfVariablesV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListOfVariablesV1Params()
@@ -340,17 +444,47 @@ func (a *Client) GetListOfVariablesV1Short(params *GetListOfVariablesV1Params, a
 	switch v := result.(type) {
 
 	case *GetListOfVariablesV1OK:
-		return v, nil
+		response := &GetListOfVariablesV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListOfVariablesV1BadRequest:
-		return nil, v
+		response := &GetListOfVariablesV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfVariablesV1Unauthorized:
-		return nil, v
+		response := &GetListOfVariablesV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfVariablesV1Forbidden:
-		return nil, v
+		response := &GetListOfVariablesV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfVariablesV1NotFound:
-		return nil, v
+		response := &GetListOfVariablesV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListOfVariablesV1InternalServerError:
-		return nil, v
+		response := &GetListOfVariablesV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -369,7 +503,7 @@ Request body:
 - description : description of the configuration - Optional.
 - applyMask : mask the value in the Helm manifest for sensitive information (true or false) - Optional.
 */
-func (a *Client) SaveVariableV1Short(params *SaveVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*SaveVariableV1OK, error) {
+func (a *Client) SaveVariableV1Short(params *SaveVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*SaveVariableV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSaveVariableV1Params()
@@ -407,15 +541,40 @@ func (a *Client) SaveVariableV1Short(params *SaveVariableV1Params, authInfo runt
 	switch v := result.(type) {
 
 	case *SaveVariableV1OK:
-		return v, nil
+		response := &SaveVariableV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SaveVariableV1BadRequest:
-		return nil, v
+		response := &SaveVariableV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveVariableV1Unauthorized:
-		return nil, v
+		response := &SaveVariableV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveVariableV1Forbidden:
-		return nil, v
+		response := &SaveVariableV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SaveVariableV1InternalServerError:
-		return nil, v
+		response := &SaveVariableV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -432,7 +591,7 @@ Request body:
 - description : description of the configuration - Optional.
 - applyMask : mask the value in the Helm manifest for sensitive information (true or false) - Optional.
 */
-func (a *Client) UpdateVariableV1Short(params *UpdateVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateVariableV1OK, error) {
+func (a *Client) UpdateVariableV1Short(params *UpdateVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateVariableV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateVariableV1Params()
@@ -470,15 +629,40 @@ func (a *Client) UpdateVariableV1Short(params *UpdateVariableV1Params, authInfo 
 	switch v := result.(type) {
 
 	case *UpdateVariableV1OK:
-		return v, nil
+		response := &UpdateVariableV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateVariableV1BadRequest:
-		return nil, v
+		response := &UpdateVariableV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateVariableV1Unauthorized:
-		return nil, v
+		response := &UpdateVariableV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateVariableV1Forbidden:
-		return nil, v
+		response := &UpdateVariableV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateVariableV1InternalServerError:
-		return nil, v
+		response := &UpdateVariableV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -491,7 +675,7 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [DELETE]`
 
 Delete an environment variable.
 */
-func (a *Client) DeleteVariableV1Short(params *DeleteVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteVariableV1NoContent, error) {
+func (a *Client) DeleteVariableV1Short(params *DeleteVariableV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteVariableV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteVariableV1Params()
@@ -529,15 +713,39 @@ func (a *Client) DeleteVariableV1Short(params *DeleteVariableV1Params, authInfo 
 	switch v := result.(type) {
 
 	case *DeleteVariableV1NoContent:
-		return v, nil
+		response := &DeleteVariableV1Response{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteVariableV1Unauthorized:
-		return nil, v
+		response := &DeleteVariableV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteVariableV1Forbidden:
-		return nil, v
+		response := &DeleteVariableV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteVariableV1NotFound:
-		return nil, v
+		response := &DeleteVariableV1Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteVariableV1InternalServerError:
-		return nil, v
+		response := &DeleteVariableV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

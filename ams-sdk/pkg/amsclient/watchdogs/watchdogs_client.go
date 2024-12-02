@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	LocalWatchdogConnectShort(params *LocalWatchdogConnectParams, authInfo runtime.ClientAuthInfoWriter) (*LocalWatchdogConnectOK, error)
-	WatchdogConnectShort(params *WatchdogConnectParams, authInfo runtime.ClientAuthInfoWriter) (*WatchdogConnectOK, error)
+	LocalWatchdogConnectShort(params *LocalWatchdogConnectParams, authInfo runtime.ClientAuthInfoWriter) (*LocalWatchdogConnectResponse, error)
+	WatchdogConnectShort(params *WatchdogConnectParams, authInfo runtime.ClientAuthInfoWriter) (*WatchdogConnectResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ This is to support local ds development scenarios
 
 Required Permission: NAMESPACE:{namespace}:AMS:LOCALDS [CREATE]
 */
-func (a *Client) LocalWatchdogConnectShort(params *LocalWatchdogConnectParams, authInfo runtime.ClientAuthInfoWriter) (*LocalWatchdogConnectOK, error) {
+func (a *Client) LocalWatchdogConnectShort(params *LocalWatchdogConnectParams, authInfo runtime.ClientAuthInfoWriter) (*LocalWatchdogConnectResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewLocalWatchdogConnectParams()
@@ -80,7 +80,11 @@ func (a *Client) LocalWatchdogConnectShort(params *LocalWatchdogConnectParams, a
 	switch v := result.(type) {
 
 	case *LocalWatchdogConnectOK:
-		return v, nil
+		response := &LocalWatchdogConnectResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -91,7 +95,7 @@ func (a *Client) LocalWatchdogConnectShort(params *LocalWatchdogConnectParams, a
 WatchdogConnectShort connect a watchdog
 Required Permission: NAMESPACE:{namespace}:ARMADA:WATCHDOG [CREATE]
 */
-func (a *Client) WatchdogConnectShort(params *WatchdogConnectParams, authInfo runtime.ClientAuthInfoWriter) (*WatchdogConnectOK, error) {
+func (a *Client) WatchdogConnectShort(params *WatchdogConnectParams, authInfo runtime.ClientAuthInfoWriter) (*WatchdogConnectResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewWatchdogConnectParams()
@@ -129,7 +133,11 @@ func (a *Client) WatchdogConnectShort(params *WatchdogConnectParams, authInfo ru
 	switch v := result.(type) {
 
 	case *WatchdogConnectOK:
-		return v, nil
+		response := &WatchdogConnectResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

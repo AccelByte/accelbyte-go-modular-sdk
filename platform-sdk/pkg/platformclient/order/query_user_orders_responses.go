@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type QueryUserOrdersResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.OrderPagingSlicedResult
+}
+
+func (m *QueryUserOrdersResponse) Unpack() (*platformclientmodels.OrderPagingSlicedResult, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryUserOrdersReader is a Reader for the QueryUserOrders structure.
 type QueryUserOrdersReader struct {
 	formats strfmt.Registry

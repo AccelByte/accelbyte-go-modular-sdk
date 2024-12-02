@@ -9,7 +9,6 @@ package matchmaking
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclient/mock_matchmaking"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk/pkg/matchmakingclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -69,7 +68,7 @@ func (aaa *MockMatchmakingService) CleanAllMocksShort(input *mock_matchmaking.Cl
 	return nil
 }
 
-func (aaa *MockMatchmakingService) GetAllMockMatchesShort(input *mock_matchmaking.GetAllMockMatchesParams) (*matchmakingclientmodels.ModelsGetMockMatchesResponse, error) {
+func (aaa *MockMatchmakingService) GetAllMockMatchesShort(input *mock_matchmaking.GetAllMockMatchesParams) (*mock_matchmaking.GetAllMockMatchesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *MockMatchmakingService) GetAllMockMatchesShort(input *mock_matchmakin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MockMatchmakingService) GetMockMatchesByTimestampShort(input *mock_matchmaking.GetMockMatchesByTimestampParams) (*matchmakingclientmodels.ModelsGetMockMatchesResponse, error) {
+func (aaa *MockMatchmakingService) GetMockMatchesByTimestampShort(input *mock_matchmaking.GetMockMatchesByTimestampParams) (*mock_matchmaking.GetMockMatchesByTimestampResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *MockMatchmakingService) GetMockMatchesByTimestampShort(input *mock_ma
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MockMatchmakingService) GetAllMockTicketsShort(input *mock_matchmaking.GetAllMockTicketsParams) (*matchmakingclientmodels.ModelsGetMockTicketsResponse, error) {
+func (aaa *MockMatchmakingService) GetAllMockTicketsShort(input *mock_matchmaking.GetAllMockTicketsParams) (*mock_matchmaking.GetAllMockTicketsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,10 +155,10 @@ func (aaa *MockMatchmakingService) GetAllMockTicketsShort(input *mock_matchmakin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *MockMatchmakingService) CreateMockTicketsShort(input *mock_matchmaking.CreateMockTicketsParams) ([]*matchmakingclientmodels.ModelsMockTicket, error) {
+func (aaa *MockMatchmakingService) CreateMockTicketsShort(input *mock_matchmaking.CreateMockTicketsParams) (*mock_matchmaking.CreateMockTicketsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -186,7 +185,7 @@ func (aaa *MockMatchmakingService) CreateMockTicketsShort(input *mock_matchmakin
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *MockMatchmakingService) BulkCreateMockTicketsShort(input *mock_matchmaking.BulkCreateMockTicketsParams) error {
@@ -219,7 +218,7 @@ func (aaa *MockMatchmakingService) BulkCreateMockTicketsShort(input *mock_matchm
 	return nil
 }
 
-func (aaa *MockMatchmakingService) GetMockTicketsByTimestampShort(input *mock_matchmaking.GetMockTicketsByTimestampParams) (*matchmakingclientmodels.ModelsGetMockTicketsResponse, error) {
+func (aaa *MockMatchmakingService) GetMockTicketsByTimestampShort(input *mock_matchmaking.GetMockTicketsByTimestampParams) (*mock_matchmaking.GetMockTicketsByTimestampResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -246,5 +245,5 @@ func (aaa *MockMatchmakingService) GetMockTicketsByTimestampShort(input *mock_ma
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

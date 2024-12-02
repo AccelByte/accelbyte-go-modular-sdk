@@ -9,7 +9,6 @@ package challenge
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/goal_configuration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *GoalConfigurationService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *GoalConfigurationService) AdminGetGoalsShort(input *goal_configuration.AdminGetGoalsParams) (*challengeclientmodels.ModelGetGoalsResponse, error) {
+func (aaa *GoalConfigurationService) AdminGetGoalsShort(input *goal_configuration.AdminGetGoalsParams) (*goal_configuration.AdminGetGoalsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *GoalConfigurationService) AdminGetGoalsShort(input *goal_configuratio
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GoalConfigurationService) AdminCreateGoalShort(input *goal_configuration.AdminCreateGoalParams) (*challengeclientmodels.ModelGoalResponse, error) {
+func (aaa *GoalConfigurationService) AdminCreateGoalShort(input *goal_configuration.AdminCreateGoalParams) (*goal_configuration.AdminCreateGoalResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *GoalConfigurationService) AdminCreateGoalShort(input *goal_configurat
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *GoalConfigurationService) AdminGetGoalShort(input *goal_configuration.AdminGetGoalParams) (*challengeclientmodels.ModelGoalResponse, error) {
+func (aaa *GoalConfigurationService) AdminGetGoalShort(input *goal_configuration.AdminGetGoalParams) (*goal_configuration.AdminGetGoalResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *GoalConfigurationService) AdminGetGoalShort(input *goal_configuration
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *GoalConfigurationService) AdminUpdateGoalsShort(input *goal_configuration.AdminUpdateGoalsParams) (*challengeclientmodels.ModelGoalResponse, error) {
+func (aaa *GoalConfigurationService) AdminUpdateGoalsShort(input *goal_configuration.AdminUpdateGoalsParams) (*goal_configuration.AdminUpdateGoalsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *GoalConfigurationService) AdminUpdateGoalsShort(input *goal_configura
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *GoalConfigurationService) AdminDeleteGoalShort(input *goal_configuration.AdminDeleteGoalParams) error {

@@ -9,7 +9,6 @@ package challenge
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/plugins"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *PluginsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PluginsService) AdminGetAssignmentPluginShort(input *plugins.AdminGetAssignmentPluginParams) (*challengeclientmodels.ModelPluginAssignmentResponse, error) {
+func (aaa *PluginsService) AdminGetAssignmentPluginShort(input *plugins.AdminGetAssignmentPluginParams) (*plugins.AdminGetAssignmentPluginResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *PluginsService) AdminGetAssignmentPluginShort(input *plugins.AdminGet
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PluginsService) AdminUpdateAssignmentPluginShort(input *plugins.AdminUpdateAssignmentPluginParams) (*challengeclientmodels.ModelPluginAssignmentResponse, error) {
+func (aaa *PluginsService) AdminUpdateAssignmentPluginShort(input *plugins.AdminUpdateAssignmentPluginParams) (*plugins.AdminUpdateAssignmentPluginResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *PluginsService) AdminUpdateAssignmentPluginShort(input *plugins.Admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PluginsService) AdminCreateAssignmentPluginShort(input *plugins.AdminCreateAssignmentPluginParams) (*challengeclientmodels.ModelPluginAssignmentResponse, error) {
+func (aaa *PluginsService) AdminCreateAssignmentPluginShort(input *plugins.AdminCreateAssignmentPluginParams) (*plugins.AdminCreateAssignmentPluginResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *PluginsService) AdminCreateAssignmentPluginShort(input *plugins.Admin
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *PluginsService) AdminDeleteAssignmentPluginShort(input *plugins.AdminDeleteAssignmentPluginParams) error {

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 )
 
+type PublicGetTimeResponse struct {
+	basicclientmodels.ApiResponse
+	Data *basicclientmodels.RetrieveTimeResponse
+}
+
+func (m *PublicGetTimeResponse) Unpack() (*basicclientmodels.RetrieveTimeResponse, *basicclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &basicclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetTimeReader is a Reader for the PublicGetTime structure.
 type PublicGetTimeReader struct {
 	formats strfmt.Registry

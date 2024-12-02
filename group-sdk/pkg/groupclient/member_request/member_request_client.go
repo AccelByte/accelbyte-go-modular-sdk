@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetGroupJoinRequestPublicV1Short(params *GetGroupJoinRequestPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupJoinRequestPublicV1OK, error)
-	GetGroupInvitationRequestPublicV1Short(params *GetGroupInvitationRequestPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupInvitationRequestPublicV1OK, error)
-	GetGroupInviteRequestPublicV2Short(params *GetGroupInviteRequestPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupInviteRequestPublicV2OK, error)
-	GetGroupJoinRequestPublicV2Short(params *GetGroupJoinRequestPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupJoinRequestPublicV2OK, error)
-	GetMyGroupJoinRequestV2Short(params *GetMyGroupJoinRequestV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetMyGroupJoinRequestV2OK, error)
+	GetGroupJoinRequestPublicV1Short(params *GetGroupJoinRequestPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupJoinRequestPublicV1Response, error)
+	GetGroupInvitationRequestPublicV1Short(params *GetGroupInvitationRequestPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupInvitationRequestPublicV1Response, error)
+	GetGroupInviteRequestPublicV2Short(params *GetGroupInviteRequestPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupInviteRequestPublicV2Response, error)
+	GetGroupJoinRequestPublicV2Short(params *GetGroupJoinRequestPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupJoinRequestPublicV2Response, error)
+	GetMyGroupJoinRequestV2Short(params *GetMyGroupJoinRequestV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetMyGroupJoinRequestV2Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -51,7 +51,7 @@ Get Group Join Request List for specific group. Group members needs to have perm
 
 Action Code: 73501
 */
-func (a *Client) GetGroupJoinRequestPublicV1Short(params *GetGroupJoinRequestPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupJoinRequestPublicV1OK, error) {
+func (a *Client) GetGroupJoinRequestPublicV1Short(params *GetGroupJoinRequestPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupJoinRequestPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupJoinRequestPublicV1Params()
@@ -89,15 +89,40 @@ func (a *Client) GetGroupJoinRequestPublicV1Short(params *GetGroupJoinRequestPub
 	switch v := result.(type) {
 
 	case *GetGroupJoinRequestPublicV1OK:
-		return v, nil
+		response := &GetGroupJoinRequestPublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupJoinRequestPublicV1BadRequest:
-		return nil, v
+		response := &GetGroupJoinRequestPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupJoinRequestPublicV1Unauthorized:
-		return nil, v
+		response := &GetGroupJoinRequestPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupJoinRequestPublicV1Forbidden:
-		return nil, v
+		response := &GetGroupJoinRequestPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupJoinRequestPublicV1InternalServerError:
-		return nil, v
+		response := &GetGroupJoinRequestPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -114,7 +139,7 @@ Get Group Invitation Request List for the user calling this endpoint. It will ch
 
 Action Code: 73502
 */
-func (a *Client) GetGroupInvitationRequestPublicV1Short(params *GetGroupInvitationRequestPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupInvitationRequestPublicV1OK, error) {
+func (a *Client) GetGroupInvitationRequestPublicV1Short(params *GetGroupInvitationRequestPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupInvitationRequestPublicV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupInvitationRequestPublicV1Params()
@@ -152,15 +177,40 @@ func (a *Client) GetGroupInvitationRequestPublicV1Short(params *GetGroupInvitati
 	switch v := result.(type) {
 
 	case *GetGroupInvitationRequestPublicV1OK:
-		return v, nil
+		response := &GetGroupInvitationRequestPublicV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupInvitationRequestPublicV1BadRequest:
-		return nil, v
+		response := &GetGroupInvitationRequestPublicV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupInvitationRequestPublicV1Unauthorized:
-		return nil, v
+		response := &GetGroupInvitationRequestPublicV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupInvitationRequestPublicV1Forbidden:
-		return nil, v
+		response := &GetGroupInvitationRequestPublicV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupInvitationRequestPublicV1InternalServerError:
-		return nil, v
+		response := &GetGroupInvitationRequestPublicV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -179,7 +229,7 @@ Get Group Invite Request List for specific group. Group members needs to have pe
 
 Action Code: 73501
 */
-func (a *Client) GetGroupInviteRequestPublicV2Short(params *GetGroupInviteRequestPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupInviteRequestPublicV2OK, error) {
+func (a *Client) GetGroupInviteRequestPublicV2Short(params *GetGroupInviteRequestPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupInviteRequestPublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupInviteRequestPublicV2Params()
@@ -217,15 +267,40 @@ func (a *Client) GetGroupInviteRequestPublicV2Short(params *GetGroupInviteReques
 	switch v := result.(type) {
 
 	case *GetGroupInviteRequestPublicV2OK:
-		return v, nil
+		response := &GetGroupInviteRequestPublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupInviteRequestPublicV2BadRequest:
-		return nil, v
+		response := &GetGroupInviteRequestPublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupInviteRequestPublicV2Unauthorized:
-		return nil, v
+		response := &GetGroupInviteRequestPublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupInviteRequestPublicV2Forbidden:
-		return nil, v
+		response := &GetGroupInviteRequestPublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupInviteRequestPublicV2InternalServerError:
-		return nil, v
+		response := &GetGroupInviteRequestPublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -244,7 +319,7 @@ Get Group Join Request List for specific group. Group members needs to have perm
 
 Action Code: 73501
 */
-func (a *Client) GetGroupJoinRequestPublicV2Short(params *GetGroupJoinRequestPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupJoinRequestPublicV2OK, error) {
+func (a *Client) GetGroupJoinRequestPublicV2Short(params *GetGroupJoinRequestPublicV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetGroupJoinRequestPublicV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetGroupJoinRequestPublicV2Params()
@@ -282,15 +357,40 @@ func (a *Client) GetGroupJoinRequestPublicV2Short(params *GetGroupJoinRequestPub
 	switch v := result.(type) {
 
 	case *GetGroupJoinRequestPublicV2OK:
-		return v, nil
+		response := &GetGroupJoinRequestPublicV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetGroupJoinRequestPublicV2BadRequest:
-		return nil, v
+		response := &GetGroupJoinRequestPublicV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupJoinRequestPublicV2Unauthorized:
-		return nil, v
+		response := &GetGroupJoinRequestPublicV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupJoinRequestPublicV2Forbidden:
-		return nil, v
+		response := &GetGroupJoinRequestPublicV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetGroupJoinRequestPublicV2InternalServerError:
-		return nil, v
+		response := &GetGroupJoinRequestPublicV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -307,7 +407,7 @@ Get My Join Request To The Groups for the user calling this endpoint. It will ch
 
 Action Code: 73502
 */
-func (a *Client) GetMyGroupJoinRequestV2Short(params *GetMyGroupJoinRequestV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetMyGroupJoinRequestV2OK, error) {
+func (a *Client) GetMyGroupJoinRequestV2Short(params *GetMyGroupJoinRequestV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetMyGroupJoinRequestV2Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetMyGroupJoinRequestV2Params()
@@ -345,15 +445,40 @@ func (a *Client) GetMyGroupJoinRequestV2Short(params *GetMyGroupJoinRequestV2Par
 	switch v := result.(type) {
 
 	case *GetMyGroupJoinRequestV2OK:
-		return v, nil
+		response := &GetMyGroupJoinRequestV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetMyGroupJoinRequestV2BadRequest:
-		return nil, v
+		response := &GetMyGroupJoinRequestV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyGroupJoinRequestV2Unauthorized:
-		return nil, v
+		response := &GetMyGroupJoinRequestV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyGroupJoinRequestV2Forbidden:
-		return nil, v
+		response := &GetMyGroupJoinRequestV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetMyGroupJoinRequestV2InternalServerError:
-		return nil, v
+		response := &GetMyGroupJoinRequestV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

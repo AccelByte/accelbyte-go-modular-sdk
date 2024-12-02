@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 )
 
+type UpdateCountryGroupResponse struct {
+	basicclientmodels.ApiResponse
+	Data *basicclientmodels.CountryGroupObject
+
+	Error400 *basicclientmodels.ValidationErrorEntity
+	Error401 *basicclientmodels.ErrorEntity
+	Error403 *basicclientmodels.ErrorEntity
+	Error404 *basicclientmodels.ErrorEntity
+}
+
+func (m *UpdateCountryGroupResponse) Unpack() (*basicclientmodels.CountryGroupObject, *basicclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &basicclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateCountryGroupReader is a Reader for the UpdateCountryGroup structure.
 type UpdateCountryGroupReader struct {
 	formats strfmt.Registry

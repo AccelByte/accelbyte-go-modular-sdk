@@ -19,6 +19,72 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclientmodels"
 )
 
+type QueryTotalMatchmakingMatchResponse struct {
+	sessionhistoryclientmodels.ApiResponse
+	Data *sessionhistoryclientmodels.ApimodelsXRayMatchMatchmakingQueryResponse
+
+	Error400 *sessionhistoryclientmodels.ResponseError
+	Error401 *sessionhistoryclientmodels.ResponseError
+	Error403 *sessionhistoryclientmodels.ResponseError
+	Error404 *sessionhistoryclientmodels.ResponseError
+	Error500 *sessionhistoryclientmodels.ResponseError
+}
+
+func (m *QueryTotalMatchmakingMatchResponse) Unpack() (*sessionhistoryclientmodels.ApimodelsXRayMatchMatchmakingQueryResponse, *sessionhistoryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionhistoryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // QueryTotalMatchmakingMatchReader is a Reader for the QueryTotalMatchmakingMatch structure.
 type QueryTotalMatchmakingMatchReader struct {
 	formats strfmt.Registry

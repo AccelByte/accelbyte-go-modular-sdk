@@ -30,10 +30,10 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminListClientAvailablePermissionsShort(params *AdminListClientAvailablePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientAvailablePermissionsOK, error)
-	AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdateAvailablePermissionsByModuleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAvailablePermissionsByModuleNoContent, error)
-	AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteConfigPermissionsByGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigPermissionsByGroupNoContent, error)
-	AdminListClientTemplatesShort(params *AdminListClientTemplatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientTemplatesOK, error)
+	AdminListClientAvailablePermissionsShort(params *AdminListClientAvailablePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientAvailablePermissionsResponse, error)
+	AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdateAvailablePermissionsByModuleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAvailablePermissionsByModuleResponse, error)
+	AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteConfigPermissionsByGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigPermissionsByGroupResponse, error)
+	AdminListClientTemplatesShort(params *AdminListClientTemplatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientTemplatesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ type ClientService interface {
 AdminListClientAvailablePermissionsShort list client available permissions
 List Client available permissions
 */
-func (a *Client) AdminListClientAvailablePermissionsShort(params *AdminListClientAvailablePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientAvailablePermissionsOK, error) {
+func (a *Client) AdminListClientAvailablePermissionsShort(params *AdminListClientAvailablePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientAvailablePermissionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListClientAvailablePermissionsParams()
@@ -80,11 +80,26 @@ func (a *Client) AdminListClientAvailablePermissionsShort(params *AdminListClien
 	switch v := result.(type) {
 
 	case *AdminListClientAvailablePermissionsOK:
-		return v, nil
+		response := &AdminListClientAvailablePermissionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListClientAvailablePermissionsUnauthorized:
-		return nil, v
+		response := &AdminListClientAvailablePermissionsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListClientAvailablePermissionsForbidden:
-		return nil, v
+		response := &AdminListClientAvailablePermissionsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -95,7 +110,7 @@ func (a *Client) AdminListClientAvailablePermissionsShort(params *AdminListClien
 AdminUpdateAvailablePermissionsByModuleShort update or create client permissions module
 Update Client available permissions, if module or group not exists, it will auto create.
 */
-func (a *Client) AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdateAvailablePermissionsByModuleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAvailablePermissionsByModuleNoContent, error) {
+func (a *Client) AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdateAvailablePermissionsByModuleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAvailablePermissionsByModuleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateAvailablePermissionsByModuleParams()
@@ -133,11 +148,25 @@ func (a *Client) AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdat
 	switch v := result.(type) {
 
 	case *AdminUpdateAvailablePermissionsByModuleNoContent:
-		return v, nil
+		response := &AdminUpdateAvailablePermissionsByModuleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateAvailablePermissionsByModuleUnauthorized:
-		return nil, v
+		response := &AdminUpdateAvailablePermissionsByModuleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateAvailablePermissionsByModuleForbidden:
-		return nil, v
+		response := &AdminUpdateAvailablePermissionsByModuleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -148,7 +177,7 @@ func (a *Client) AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdat
 AdminDeleteConfigPermissionsByGroupShort delete client config permissions by module and group
 Delete Client config permissions by module and group.
 */
-func (a *Client) AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteConfigPermissionsByGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigPermissionsByGroupNoContent, error) {
+func (a *Client) AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteConfigPermissionsByGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigPermissionsByGroupResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteConfigPermissionsByGroupParams()
@@ -186,11 +215,25 @@ func (a *Client) AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteCon
 	switch v := result.(type) {
 
 	case *AdminDeleteConfigPermissionsByGroupNoContent:
-		return v, nil
+		response := &AdminDeleteConfigPermissionsByGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteConfigPermissionsByGroupUnauthorized:
-		return nil, v
+		response := &AdminDeleteConfigPermissionsByGroupResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteConfigPermissionsByGroupForbidden:
-		return nil, v
+		response := &AdminDeleteConfigPermissionsByGroupResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -201,7 +244,7 @@ func (a *Client) AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteCon
 AdminListClientTemplatesShort list client templates
 List client templates
 */
-func (a *Client) AdminListClientTemplatesShort(params *AdminListClientTemplatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientTemplatesOK, error) {
+func (a *Client) AdminListClientTemplatesShort(params *AdminListClientTemplatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientTemplatesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminListClientTemplatesParams()
@@ -239,11 +282,26 @@ func (a *Client) AdminListClientTemplatesShort(params *AdminListClientTemplatesP
 	switch v := result.(type) {
 
 	case *AdminListClientTemplatesOK:
-		return v, nil
+		response := &AdminListClientTemplatesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminListClientTemplatesUnauthorized:
-		return nil, v
+		response := &AdminListClientTemplatesResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminListClientTemplatesForbidden:
-		return nil, v
+		response := &AdminListClientTemplatesResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

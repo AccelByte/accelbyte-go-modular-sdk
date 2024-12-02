@@ -19,6 +19,64 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type PlatformTokenGrantV4Response struct {
+	iamclientmodels.ApiResponse
+	Data    *iamclientmodels.OauthmodelTokenResponseV3
+	Data202 *iamclientmodels.OauthmodelLoginQueueTicketResponse
+
+	Error400 *iamclientmodels.OauthmodelErrorResponse
+	Error401 *iamclientmodels.OauthmodelErrorResponse
+	Error403 *iamclientmodels.OauthmodelErrorResponse
+	Error503 *iamclientmodels.OauthmodelErrorResponse
+}
+
+func (m *PlatformTokenGrantV4Response) Unpack() (*iamclientmodels.OauthmodelTokenResponseV3, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 503:
+			e, err := m.Error503.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PlatformTokenGrantV4Reader is a Reader for the PlatformTokenGrantV4 structure.
 type PlatformTokenGrantV4Reader struct {
 	formats strfmt.Registry

@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 )
 
+type GetResponse struct {
+	reportingclientmodels.ApiResponse
+	Data *reportingclientmodels.RestapiConfigResponse
+
+	Error500 *reportingclientmodels.RestapiErrorResponse
+}
+
+func (m *GetResponse) Unpack() (*reportingclientmodels.RestapiConfigResponse, *reportingclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &reportingclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetReader is a Reader for the Get structure.
 type GetReader struct {
 	formats strfmt.Registry

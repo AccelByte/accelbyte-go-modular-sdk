@@ -9,7 +9,6 @@ package ams
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/development"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *DevelopmentService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *DevelopmentService) DevelopmentServerConfigurationListShort(input *development.DevelopmentServerConfigurationListParams) (*amsclientmodels.APIDevelopmentServerConfigurationListResponse, error) {
+func (aaa *DevelopmentService) DevelopmentServerConfigurationListShort(input *development.DevelopmentServerConfigurationListParams) (*development.DevelopmentServerConfigurationListResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *DevelopmentService) DevelopmentServerConfigurationListShort(input *de
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *DevelopmentService) DevelopmentServerConfigurationCreateShort(input *development.DevelopmentServerConfigurationCreateParams) (*amsclientmodels.APIDevelopmentServerConfigurationCreateResponse, error) {
+func (aaa *DevelopmentService) DevelopmentServerConfigurationCreateShort(input *development.DevelopmentServerConfigurationCreateParams) (*development.DevelopmentServerConfigurationCreateResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *DevelopmentService) DevelopmentServerConfigurationCreateShort(input *
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *DevelopmentService) DevelopmentServerConfigurationGetShort(input *development.DevelopmentServerConfigurationGetParams) (*amsclientmodels.APIDevelopmentServerConfigurationGetResponse, error) {
+func (aaa *DevelopmentService) DevelopmentServerConfigurationGetShort(input *development.DevelopmentServerConfigurationGetParams) (*development.DevelopmentServerConfigurationGetResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,7 +125,7 @@ func (aaa *DevelopmentService) DevelopmentServerConfigurationGetShort(input *dev
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *DevelopmentService) DevelopmentServerConfigurationDeleteShort(input *development.DevelopmentServerConfigurationDeleteParams) error {

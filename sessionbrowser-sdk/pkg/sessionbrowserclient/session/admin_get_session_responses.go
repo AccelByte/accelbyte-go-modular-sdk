@@ -19,6 +19,45 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 )
 
+type AdminGetSessionResponse struct {
+	sessionbrowserclientmodels.ApiResponse
+	Data *sessionbrowserclientmodels.ModelsAdminSessionResponse
+
+	Error404 *sessionbrowserclientmodels.RestapiErrorResponseV2
+	Error500 *sessionbrowserclientmodels.RestapiErrorResponseV2
+}
+
+func (m *AdminGetSessionResponse) Unpack() (*sessionbrowserclientmodels.ModelsAdminSessionResponse, *sessionbrowserclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionbrowserclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetSessionReader is a Reader for the AdminGetSession structure.
 type AdminGetSessionReader struct {
 	formats strfmt.Registry

@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 )
 
+type InitiateGroupConfigurationAdminV1Response struct {
+	groupclientmodels.ApiResponse
+	Data *groupclientmodels.ModelsCreateGroupConfigurationResponseV1
+
+	Error401 *groupclientmodels.ResponseErrorResponse
+	Error403 *groupclientmodels.ResponseErrorResponse
+	Error409 *groupclientmodels.ResponseErrorResponse
+	Error500 *groupclientmodels.ResponseErrorResponse
+}
+
+func (m *InitiateGroupConfigurationAdminV1Response) Unpack() (*groupclientmodels.ModelsCreateGroupConfigurationResponseV1, *groupclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &groupclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // InitiateGroupConfigurationAdminV1Reader is a Reader for the InitiateGroupConfigurationAdminV1 structure.
 type InitiateGroupConfigurationAdminV1Reader struct {
 	formats strfmt.Registry

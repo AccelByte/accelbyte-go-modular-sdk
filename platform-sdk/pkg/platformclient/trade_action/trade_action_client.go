@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CommitShort(params *CommitParams, authInfo runtime.ClientAuthInfoWriter) (*CommitOK, error)
-	GetTradeHistoryByCriteriaShort(params *GetTradeHistoryByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByCriteriaOK, error)
-	GetTradeHistoryByTransactionIDShort(params *GetTradeHistoryByTransactionIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByTransactionIDOK, error)
+	CommitShort(params *CommitParams, authInfo runtime.ClientAuthInfoWriter) (*CommitResponse, error)
+	GetTradeHistoryByCriteriaShort(params *GetTradeHistoryByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByCriteriaResponse, error)
+	GetTradeHistoryByTransactionIDShort(params *GetTradeHistoryByTransactionIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByTransactionIDResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -64,7 +64,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) CommitShort(params *CommitParams, authInfo runtime.ClientAuthInfoWriter) (*CommitOK, error) {
+func (a *Client) CommitShort(params *CommitParams, authInfo runtime.ClientAuthInfoWriter) (*CommitResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCommitParams()
@@ -102,7 +102,12 @@ func (a *Client) CommitShort(params *CommitParams, authInfo runtime.ClientAuthIn
 	switch v := result.(type) {
 
 	case *CommitOK:
-		return v, nil
+		response := &CommitResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -117,7 +122,7 @@ Other detail info:
 
   * Returns : trade history list based on criteria
 */
-func (a *Client) GetTradeHistoryByCriteriaShort(params *GetTradeHistoryByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByCriteriaOK, error) {
+func (a *Client) GetTradeHistoryByCriteriaShort(params *GetTradeHistoryByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByCriteriaResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTradeHistoryByCriteriaParams()
@@ -155,7 +160,12 @@ func (a *Client) GetTradeHistoryByCriteriaShort(params *GetTradeHistoryByCriteri
 	switch v := result.(type) {
 
 	case *GetTradeHistoryByCriteriaOK:
-		return v, nil
+		response := &GetTradeHistoryByCriteriaResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -170,7 +180,7 @@ Other detail info:
 
   * Returns : trade history based on transaction ID
 */
-func (a *Client) GetTradeHistoryByTransactionIDShort(params *GetTradeHistoryByTransactionIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByTransactionIDOK, error) {
+func (a *Client) GetTradeHistoryByTransactionIDShort(params *GetTradeHistoryByTransactionIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByTransactionIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetTradeHistoryByTransactionIDParams()
@@ -208,7 +218,12 @@ func (a *Client) GetTradeHistoryByTransactionIDShort(params *GetTradeHistoryByTr
 	switch v := result.(type) {
 
 	case *GetTradeHistoryByTransactionIDOK:
-		return v, nil
+		response := &GetTradeHistoryByTransactionIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

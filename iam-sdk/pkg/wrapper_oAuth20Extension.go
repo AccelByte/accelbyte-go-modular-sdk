@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -66,7 +65,7 @@ func (aaa *OAuth20ExtensionService) UserAuthenticationV3Short(input *o_auth2_0_e
 		return "", err
 	}
 
-	parsedURL, err := url.Parse(found.Location)
+	parsedURL, err := url.Parse(found.Data)
 	if err != nil {
 		return "", err
 	}
@@ -79,7 +78,7 @@ func (aaa *OAuth20ExtensionService) UserAuthenticationV3Short(input *o_auth2_0_e
 	return code, nil
 }
 
-func (aaa *OAuth20ExtensionService) AuthenticationWithPlatformLinkV3Short(input *o_auth2_0_extension.AuthenticationWithPlatformLinkV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (aaa *OAuth20ExtensionService) AuthenticationWithPlatformLinkV3Short(input *o_auth2_0_extension.AuthenticationWithPlatformLinkV3Params) (*o_auth2_0_extension.AuthenticationWithPlatformLinkV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -106,10 +105,10 @@ func (aaa *OAuth20ExtensionService) AuthenticationWithPlatformLinkV3Short(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3Short(input *o_auth2_0_extension.GenerateTokenByNewHeadlessAccountV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3Short(input *o_auth2_0_extension.GenerateTokenByNewHeadlessAccountV3Params) (*o_auth2_0_extension.GenerateTokenByNewHeadlessAccountV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -136,10 +135,10 @@ func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3Short(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20ExtensionService) RequestOneTimeLinkingCodeV3Short(input *o_auth2_0_extension.RequestOneTimeLinkingCodeV3Params) (*iamclientmodels.OauthmodelOneTimeLinkingCodeResponse, error) {
+func (aaa *OAuth20ExtensionService) RequestOneTimeLinkingCodeV3Short(input *o_auth2_0_extension.RequestOneTimeLinkingCodeV3Params) (*o_auth2_0_extension.RequestOneTimeLinkingCodeV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -166,10 +165,10 @@ func (aaa *OAuth20ExtensionService) RequestOneTimeLinkingCodeV3Short(input *o_au
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20ExtensionService) ValidateOneTimeLinkingCodeV3Short(input *o_auth2_0_extension.ValidateOneTimeLinkingCodeV3Params) (*iamclientmodels.OauthmodelOneTimeLinkingCodeValidationResponse, error) {
+func (aaa *OAuth20ExtensionService) ValidateOneTimeLinkingCodeV3Short(input *o_auth2_0_extension.ValidateOneTimeLinkingCodeV3Params) (*o_auth2_0_extension.ValidateOneTimeLinkingCodeV3Response, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -189,10 +188,10 @@ func (aaa *OAuth20ExtensionService) ValidateOneTimeLinkingCodeV3Short(input *o_a
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20ExtensionService) RequestTokenByOneTimeLinkCodeResponseV3Short(input *o_auth2_0_extension.RequestTokenByOneTimeLinkCodeResponseV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (aaa *OAuth20ExtensionService) RequestTokenByOneTimeLinkCodeResponseV3Short(input *o_auth2_0_extension.RequestTokenByOneTimeLinkCodeResponseV3Params) (*o_auth2_0_extension.RequestTokenByOneTimeLinkCodeResponseV3Response, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -212,10 +211,10 @@ func (aaa *OAuth20ExtensionService) RequestTokenByOneTimeLinkCodeResponseV3Short
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20ExtensionService) GetCountryLocationV3Short(input *o_auth2_0_extension.GetCountryLocationV3Params) (*iamclientmodels.OauthmodelCountryLocationResponse, error) {
+func (aaa *OAuth20ExtensionService) GetCountryLocationV3Short(input *o_auth2_0_extension.GetCountryLocationV3Params) (*o_auth2_0_extension.GetCountryLocationV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -242,7 +241,7 @@ func (aaa *OAuth20ExtensionService) GetCountryLocationV3Short(input *o_auth2_0_e
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OAuth20ExtensionService) LogoutShort(input *o_auth2_0_extension.LogoutParams) error {
@@ -275,7 +274,7 @@ func (aaa *OAuth20ExtensionService) LogoutShort(input *o_auth2_0_extension.Logou
 	return nil
 }
 
-func (aaa *OAuth20ExtensionService) RequestTokenExchangeCodeV3Short(input *o_auth2_0_extension.RequestTokenExchangeCodeV3Params) (*iamclientmodels.OauthmodelTargetTokenCodeResponse, error) {
+func (aaa *OAuth20ExtensionService) RequestTokenExchangeCodeV3Short(input *o_auth2_0_extension.RequestTokenExchangeCodeV3Params) (*o_auth2_0_extension.RequestTokenExchangeCodeV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -302,7 +301,7 @@ func (aaa *OAuth20ExtensionService) RequestTokenExchangeCodeV3Short(input *o_aut
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *OAuth20ExtensionService) PlatformAuthenticationV3Short(input *o_auth2_0_extension.PlatformAuthenticationV3Params) (string, error) {
@@ -332,10 +331,10 @@ func (aaa *OAuth20ExtensionService) PlatformAuthenticationV3Short(input *o_auth2
 		return "", err
 	}
 
-	return found.Location, nil
+	return found.Data, nil
 }
 
-func (aaa *OAuth20ExtensionService) PlatformTokenRefreshV3Short(input *o_auth2_0_extension.PlatformTokenRefreshV3Params) (*iamclientmodels.OauthmodelPlatformTokenRefreshResponseV3, error) {
+func (aaa *OAuth20ExtensionService) PlatformTokenRefreshV3Short(input *o_auth2_0_extension.PlatformTokenRefreshV3Params) (*o_auth2_0_extension.PlatformTokenRefreshV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -362,10 +361,10 @@ func (aaa *OAuth20ExtensionService) PlatformTokenRefreshV3Short(input *o_auth2_0
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *OAuth20ExtensionService) RequestTargetTokenResponseV3Short(input *o_auth2_0_extension.RequestTargetTokenResponseV3Params) (*iamclientmodels.OauthmodelTokenResponseV3, error) {
+func (aaa *OAuth20ExtensionService) RequestTargetTokenResponseV3Short(input *o_auth2_0_extension.RequestTargetTokenResponseV3Params) (*o_auth2_0_extension.RequestTargetTokenResponseV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -392,5 +391,5 @@ func (aaa *OAuth20ExtensionService) RequestTargetTokenResponseV3Short(input *o_a
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

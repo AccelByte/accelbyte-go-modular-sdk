@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclient/config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk/pkg/dsmcclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -41,7 +40,7 @@ func (aaa *ConfigService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ConfigService) ListConfigShort(input *config.ListConfigParams) (*dsmcclientmodels.ModelsListConfigResponse, error) {
+func (aaa *ConfigService) ListConfigShort(input *config.ListConfigParams) (*config.ListConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -68,7 +67,7 @@ func (aaa *ConfigService) ListConfigShort(input *config.ListConfigParams) (*dsmc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigService) SaveConfigShort(input *config.SaveConfigParams) error {
@@ -101,7 +100,7 @@ func (aaa *ConfigService) SaveConfigShort(input *config.SaveConfigParams) error 
 	return nil
 }
 
-func (aaa *ConfigService) GetConfigShort(input *config.GetConfigParams) (*dsmcclientmodels.ModelsDSMConfigRecord, error) {
+func (aaa *ConfigService) GetConfigShort(input *config.GetConfigParams) (*config.GetConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -128,10 +127,10 @@ func (aaa *ConfigService) GetConfigShort(input *config.GetConfigParams) (*dsmccl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*dsmcclientmodels.ModelsDSMConfigRecord, error) {
+func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*config.CreateConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -158,7 +157,7 @@ func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *ConfigService) DeleteConfigShort(input *config.DeleteConfigParams) error {
@@ -191,7 +190,7 @@ func (aaa *ConfigService) DeleteConfigShort(input *config.DeleteConfigParams) er
 	return nil
 }
 
-func (aaa *ConfigService) UpdateConfigShort(input *config.UpdateConfigParams) (*dsmcclientmodels.ModelsDSMConfigRecord, error) {
+func (aaa *ConfigService) UpdateConfigShort(input *config.UpdateConfigParams) (*config.UpdateConfigResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -218,7 +217,7 @@ func (aaa *ConfigService) UpdateConfigShort(input *config.UpdateConfigParams) (*
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ConfigService) ClearCacheShort(input *config.ClearCacheParams) error {
@@ -251,7 +250,7 @@ func (aaa *ConfigService) ClearCacheShort(input *config.ClearCacheParams) error 
 	return nil
 }
 
-func (aaa *ConfigService) AddPortShort(input *config.AddPortParams) (*dsmcclientmodels.ModelsDSMConfigRecord, error) {
+func (aaa *ConfigService) AddPortShort(input *config.AddPortParams) (*config.AddPortResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -278,10 +277,10 @@ func (aaa *ConfigService) AddPortShort(input *config.AddPortParams) (*dsmcclient
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *ConfigService) DeletePortShort(input *config.DeletePortParams) (*dsmcclientmodels.ModelsDSMConfigRecord, error) {
+func (aaa *ConfigService) DeletePortShort(input *config.DeletePortParams) (*config.DeletePortResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -308,10 +307,10 @@ func (aaa *ConfigService) DeletePortShort(input *config.DeletePortParams) (*dsmc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) UpdatePortShort(input *config.UpdatePortParams) (*dsmcclientmodels.ModelsDSMConfigRecord, error) {
+func (aaa *ConfigService) UpdatePortShort(input *config.UpdatePortParams) (*config.UpdatePortResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -338,10 +337,10 @@ func (aaa *ConfigService) UpdatePortShort(input *config.UpdatePortParams) (*dsmc
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) ExportConfigV1Short(input *config.ExportConfigV1Params, writer io.Writer) (io.Writer, error) {
+func (aaa *ConfigService) ExportConfigV1Short(input *config.ExportConfigV1Params, writer io.Writer) (*config.ExportConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -368,10 +367,10 @@ func (aaa *ConfigService) ExportConfigV1Short(input *config.ExportConfigV1Params
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ConfigService) ImportConfigV1Short(input *config.ImportConfigV1Params) (*dsmcclientmodels.ModelsImportResponse, error) {
+func (aaa *ConfigService) ImportConfigV1Short(input *config.ImportConfigV1Params) (*config.ImportConfigV1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -398,5 +397,5 @@ func (aaa *ConfigService) ImportConfigV1Short(input *config.ImportConfigV1Params
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

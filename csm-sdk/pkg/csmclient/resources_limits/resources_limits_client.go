@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetResourcesLimitsShort(params *GetResourcesLimitsParams, authInfo runtime.ClientAuthInfoWriter) (*GetResourcesLimitsOK, error)
+	GetResourcesLimitsShort(params *GetResourcesLimitsParams, authInfo runtime.ClientAuthInfoWriter) (*GetResourcesLimitsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ CPU Limit will be used to validate max allowed CPU for the extend app that hasn'
 Memory Limit will be used to validate max allowed Memory for the extend app that hasn't been created
 MaxAppNotificationSubscription will be used to validate the maximum number of subscriber for an app status notification
 */
-func (a *Client) GetResourcesLimitsShort(params *GetResourcesLimitsParams, authInfo runtime.ClientAuthInfoWriter) (*GetResourcesLimitsOK, error) {
+func (a *Client) GetResourcesLimitsShort(params *GetResourcesLimitsParams, authInfo runtime.ClientAuthInfoWriter) (*GetResourcesLimitsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetResourcesLimitsParams()
@@ -82,15 +82,40 @@ func (a *Client) GetResourcesLimitsShort(params *GetResourcesLimitsParams, authI
 	switch v := result.(type) {
 
 	case *GetResourcesLimitsOK:
-		return v, nil
+		response := &GetResourcesLimitsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetResourcesLimitsUnauthorized:
-		return nil, v
+		response := &GetResourcesLimitsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetResourcesLimitsPaymentRequired:
-		return nil, v
+		response := &GetResourcesLimitsResponse{}
+		response.Error402 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetResourcesLimitsForbidden:
-		return nil, v
+		response := &GetResourcesLimitsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetResourcesLimitsInternalServerError:
-		return nil, v
+		response := &GetResourcesLimitsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -30,15 +30,15 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListServerClientShort(params *ListServerClientParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerClientOK, error)
-	CountServerDetailedClientShort(params *CountServerDetailedClientParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerDetailedClientOK, error)
-	ServerHeartbeatShort(params *ServerHeartbeatParams, authInfo runtime.ClientAuthInfoWriter) (*ServerHeartbeatAccepted, error)
-	DeregisterLocalServerShort(params *DeregisterLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeregisterLocalServerNoContent, error)
-	RegisterLocalServerShort(params *RegisterLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterLocalServerOK, error)
-	RegisterServerShort(params *RegisterServerParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterServerOK, error)
-	ShutdownServerShort(params *ShutdownServerParams, authInfo runtime.ClientAuthInfoWriter) (*ShutdownServerNoContent, error)
-	GetServerSessionTimeoutShort(params *GetServerSessionTimeoutParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerSessionTimeoutOK, error)
-	GetServerSessionShort(params *GetServerSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerSessionOK, error)
+	ListServerClientShort(params *ListServerClientParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerClientResponse, error)
+	CountServerDetailedClientShort(params *CountServerDetailedClientParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerDetailedClientResponse, error)
+	ServerHeartbeatShort(params *ServerHeartbeatParams, authInfo runtime.ClientAuthInfoWriter) (*ServerHeartbeatResponse, error)
+	DeregisterLocalServerShort(params *DeregisterLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeregisterLocalServerResponse, error)
+	RegisterLocalServerShort(params *RegisterLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterLocalServerResponse, error)
+	RegisterServerShort(params *RegisterServerParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterServerResponse, error)
+	ShutdownServerShort(params *ShutdownServerParams, authInfo runtime.ClientAuthInfoWriter) (*ShutdownServerResponse, error)
+	GetServerSessionTimeoutShort(params *GetServerSessionTimeoutParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerSessionTimeoutResponse, error)
+	GetServerSessionShort(params *GetServerSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerSessionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -53,7 +53,7 @@ This endpoint lists all of dedicated servers in a namespace managed by this serv
 
 Parameter Offset and Count is Required
 */
-func (a *Client) ListServerClientShort(params *ListServerClientParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerClientOK, error) {
+func (a *Client) ListServerClientShort(params *ListServerClientParams, authInfo runtime.ClientAuthInfoWriter) (*ListServerClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListServerClientParams()
@@ -91,11 +91,26 @@ func (a *Client) ListServerClientShort(params *ListServerClientParams, authInfo 
 	switch v := result.(type) {
 
 	case *ListServerClientOK:
-		return v, nil
+		response := &ListServerClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListServerClientUnauthorized:
-		return nil, v
+		response := &ListServerClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListServerClientInternalServerError:
-		return nil, v
+		response := &ListServerClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -110,7 +125,7 @@ Required scope: social
 
 This endpoint counts all of dedicated servers in a region managed by this service.
 */
-func (a *Client) CountServerDetailedClientShort(params *CountServerDetailedClientParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerDetailedClientOK, error) {
+func (a *Client) CountServerDetailedClientShort(params *CountServerDetailedClientParams, authInfo runtime.ClientAuthInfoWriter) (*CountServerDetailedClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCountServerDetailedClientParams()
@@ -148,11 +163,26 @@ func (a *Client) CountServerDetailedClientShort(params *CountServerDetailedClien
 	switch v := result.(type) {
 
 	case *CountServerDetailedClientOK:
-		return v, nil
+		response := &CountServerDetailedClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CountServerDetailedClientUnauthorized:
-		return nil, v
+		response := &CountServerDetailedClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CountServerDetailedClientInternalServerError:
-		return nil, v
+		response := &CountServerDetailedClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -173,7 +203,7 @@ the session timout in the deployment configuration.
 If the last heartbeat is longer than the session timout, the server.
 will be considered as expired and will be terminated by DSMC.```
 */
-func (a *Client) ServerHeartbeatShort(params *ServerHeartbeatParams, authInfo runtime.ClientAuthInfoWriter) (*ServerHeartbeatAccepted, error) {
+func (a *Client) ServerHeartbeatShort(params *ServerHeartbeatParams, authInfo runtime.ClientAuthInfoWriter) (*ServerHeartbeatResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewServerHeartbeatParams()
@@ -211,15 +241,39 @@ func (a *Client) ServerHeartbeatShort(params *ServerHeartbeatParams, authInfo ru
 	switch v := result.(type) {
 
 	case *ServerHeartbeatAccepted:
-		return v, nil
+		response := &ServerHeartbeatResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ServerHeartbeatBadRequest:
-		return nil, v
+		response := &ServerHeartbeatResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ServerHeartbeatUnauthorized:
-		return nil, v
+		response := &ServerHeartbeatResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ServerHeartbeatNotFound:
-		return nil, v
+		response := &ServerHeartbeatResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ServerHeartbeatInternalServerError:
-		return nil, v
+		response := &ServerHeartbeatResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -237,7 +291,7 @@ to let DSM know that it is shutting down.
 
 Calling this will remove the server records from DB.```
 */
-func (a *Client) DeregisterLocalServerShort(params *DeregisterLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeregisterLocalServerNoContent, error) {
+func (a *Client) DeregisterLocalServerShort(params *DeregisterLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*DeregisterLocalServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeregisterLocalServerParams()
@@ -275,13 +329,32 @@ func (a *Client) DeregisterLocalServerShort(params *DeregisterLocalServerParams,
 	switch v := result.(type) {
 
 	case *DeregisterLocalServerNoContent:
-		return v, nil
+		response := &DeregisterLocalServerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeregisterLocalServerBadRequest:
-		return nil, v
+		response := &DeregisterLocalServerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeregisterLocalServerUnauthorized:
-		return nil, v
+		response := &DeregisterLocalServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeregisterLocalServerInternalServerError:
-		return nil, v
+		response := &DeregisterLocalServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -303,7 +376,7 @@ This MUST be called by DS after it is ready to accept match data and incoming cl
 Upon successfully calling this endpoint, the dedicated
 server is listed under READY local servers.```
 */
-func (a *Client) RegisterLocalServerShort(params *RegisterLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterLocalServerOK, error) {
+func (a *Client) RegisterLocalServerShort(params *RegisterLocalServerParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterLocalServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRegisterLocalServerParams()
@@ -341,15 +414,40 @@ func (a *Client) RegisterLocalServerShort(params *RegisterLocalServerParams, aut
 	switch v := result.(type) {
 
 	case *RegisterLocalServerOK:
-		return v, nil
+		response := &RegisterLocalServerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RegisterLocalServerBadRequest:
-		return nil, v
+		response := &RegisterLocalServerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RegisterLocalServerUnauthorized:
-		return nil, v
+		response := &RegisterLocalServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RegisterLocalServerConflict:
-		return nil, v
+		response := &RegisterLocalServerResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RegisterLocalServerInternalServerError:
-		return nil, v
+		response := &RegisterLocalServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -368,7 +466,7 @@ This MUST be called by DS after it is ready to accept match data and incoming cl
 Upon successfully calling this endpoint, the dedicated
 server is listed under READY servers.```
 */
-func (a *Client) RegisterServerShort(params *RegisterServerParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterServerOK, error) {
+func (a *Client) RegisterServerShort(params *RegisterServerParams, authInfo runtime.ClientAuthInfoWriter) (*RegisterServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewRegisterServerParams()
@@ -406,17 +504,47 @@ func (a *Client) RegisterServerShort(params *RegisterServerParams, authInfo runt
 	switch v := result.(type) {
 
 	case *RegisterServerOK:
-		return v, nil
+		response := &RegisterServerResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *RegisterServerBadRequest:
-		return nil, v
+		response := &RegisterServerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RegisterServerUnauthorized:
-		return nil, v
+		response := &RegisterServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RegisterServerNotFound:
-		return nil, v
+		response := &RegisterServerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RegisterServerConflict:
-		return nil, v
+		response := &RegisterServerResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *RegisterServerInternalServerError:
-		return nil, v
+		response := &RegisterServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -431,7 +559,7 @@ Required scope: social
 
 This endpoint is intended to be called by dedicated server to let DSM know that it is shutting down. Calling this will remove the server and session records from DB.Set 'kill_me' in request to 'true' if the DS cannot shut itself down.
 */
-func (a *Client) ShutdownServerShort(params *ShutdownServerParams, authInfo runtime.ClientAuthInfoWriter) (*ShutdownServerNoContent, error) {
+func (a *Client) ShutdownServerShort(params *ShutdownServerParams, authInfo runtime.ClientAuthInfoWriter) (*ShutdownServerResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewShutdownServerParams()
@@ -469,15 +597,39 @@ func (a *Client) ShutdownServerShort(params *ShutdownServerParams, authInfo runt
 	switch v := result.(type) {
 
 	case *ShutdownServerNoContent:
-		return v, nil
+		response := &ShutdownServerResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ShutdownServerBadRequest:
-		return nil, v
+		response := &ShutdownServerResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ShutdownServerUnauthorized:
-		return nil, v
+		response := &ShutdownServerResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ShutdownServerNotFound:
-		return nil, v
+		response := &ShutdownServerResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ShutdownServerInternalServerError:
-		return nil, v
+		response := &ShutdownServerResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -495,7 +647,7 @@ to get the session timeout that will be used for the DS.
 DS will use this session timeout to make sure it regularly make heartbeat
 call to the DSMC, before the session timeout.```
 */
-func (a *Client) GetServerSessionTimeoutShort(params *GetServerSessionTimeoutParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerSessionTimeoutOK, error) {
+func (a *Client) GetServerSessionTimeoutShort(params *GetServerSessionTimeoutParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerSessionTimeoutResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetServerSessionTimeoutParams()
@@ -533,15 +685,40 @@ func (a *Client) GetServerSessionTimeoutShort(params *GetServerSessionTimeoutPar
 	switch v := result.(type) {
 
 	case *GetServerSessionTimeoutOK:
-		return v, nil
+		response := &GetServerSessionTimeoutResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetServerSessionTimeoutBadRequest:
-		return nil, v
+		response := &GetServerSessionTimeoutResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerSessionTimeoutUnauthorized:
-		return nil, v
+		response := &GetServerSessionTimeoutResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerSessionTimeoutNotFound:
-		return nil, v
+		response := &GetServerSessionTimeoutResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerSessionTimeoutInternalServerError:
-		return nil, v
+		response := &GetServerSessionTimeoutResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -559,7 +736,7 @@ to query its session ID.
 DS should call this when it first receive player connection,
 to see if it is actually claimed```
 */
-func (a *Client) GetServerSessionShort(params *GetServerSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerSessionOK, error) {
+func (a *Client) GetServerSessionShort(params *GetServerSessionParams, authInfo runtime.ClientAuthInfoWriter) (*GetServerSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetServerSessionParams()
@@ -597,15 +774,40 @@ func (a *Client) GetServerSessionShort(params *GetServerSessionParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetServerSessionOK:
-		return v, nil
+		response := &GetServerSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetServerSessionBadRequest:
-		return nil, v
+		response := &GetServerSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerSessionUnauthorized:
-		return nil, v
+		response := &GetServerSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerSessionNotFound:
-		return nil, v
+		response := &GetServerSessionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetServerSessionInternalServerError:
-		return nil, v
+		response := &GetServerSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

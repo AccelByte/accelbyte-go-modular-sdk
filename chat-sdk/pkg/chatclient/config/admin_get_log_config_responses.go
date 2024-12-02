@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 )
 
+type AdminGetLogConfigResponse struct {
+	chatclientmodels.ApiResponse
+	Data *chatclientmodels.LogconfigConfiguration
+}
+
+func (m *AdminGetLogConfigResponse) Unpack() (*chatclientmodels.LogconfigConfiguration, *chatclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetLogConfigReader is a Reader for the AdminGetLogConfig structure.
 type AdminGetLogConfigReader struct {
 	formats strfmt.Registry

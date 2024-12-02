@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetUserAppEntitlementOwnershipByAppIDResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.Ownership
+}
+
+func (m *GetUserAppEntitlementOwnershipByAppIDResponse) Unpack() (*platformclientmodels.Ownership, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetUserAppEntitlementOwnershipByAppIDReader is a Reader for the GetUserAppEntitlementOwnershipByAppID structure.
 type GetUserAppEntitlementOwnershipByAppIDReader struct {
 	formats strfmt.Registry

@@ -36,7 +36,7 @@ func (aaa *SessionStorageService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *SessionStorageService) AdminReadSessionStorageShort(input *session_storage.AdminReadSessionStorageParams) (map[string]interface{}, error) {
+func (aaa *SessionStorageService) AdminReadSessionStorageShort(input *session_storage.AdminReadSessionStorageParams) (*session_storage.AdminReadSessionStorageResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -63,7 +63,7 @@ func (aaa *SessionStorageService) AdminReadSessionStorageShort(input *session_st
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *SessionStorageService) AdminDeleteUserSessionStorageShort(input *session_storage.AdminDeleteUserSessionStorageParams) error {
@@ -96,7 +96,7 @@ func (aaa *SessionStorageService) AdminDeleteUserSessionStorageShort(input *sess
 	return nil
 }
 
-func (aaa *SessionStorageService) AdminReadUserSessionStorageShort(input *session_storage.AdminReadUserSessionStorageParams) (map[string]interface{}, error) {
+func (aaa *SessionStorageService) AdminReadUserSessionStorageShort(input *session_storage.AdminReadUserSessionStorageParams) (*session_storage.AdminReadUserSessionStorageResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -123,10 +123,10 @@ func (aaa *SessionStorageService) AdminReadUserSessionStorageShort(input *sessio
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SessionStorageService) PublicUpdateInsertSessionStorageLeaderShort(input *session_storage.PublicUpdateInsertSessionStorageLeaderParams) (map[string]interface{}, error) {
+func (aaa *SessionStorageService) PublicUpdateInsertSessionStorageLeaderShort(input *session_storage.PublicUpdateInsertSessionStorageLeaderParams) (*session_storage.PublicUpdateInsertSessionStorageLeaderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -153,10 +153,10 @@ func (aaa *SessionStorageService) PublicUpdateInsertSessionStorageLeaderShort(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *SessionStorageService) PublicUpdateInsertSessionStorageShort(input *session_storage.PublicUpdateInsertSessionStorageParams) (map[string]interface{}, error) {
+func (aaa *SessionStorageService) PublicUpdateInsertSessionStorageShort(input *session_storage.PublicUpdateInsertSessionStorageParams) (*session_storage.PublicUpdateInsertSessionStorageResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -183,5 +183,5 @@ func (aaa *SessionStorageService) PublicUpdateInsertSessionStorageShort(input *s
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

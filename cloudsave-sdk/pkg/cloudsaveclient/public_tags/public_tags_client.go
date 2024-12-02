@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicListTagsHandlerV1Short(params *PublicListTagsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsHandlerV1OK, error)
+	PublicListTagsHandlerV1Short(params *PublicListTagsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsHandlerV1Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ PublicListTagsHandlerV1Short list tags
 
 Retrieve list of available tags by namespace
 */
-func (a *Client) PublicListTagsHandlerV1Short(params *PublicListTagsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsHandlerV1OK, error) {
+func (a *Client) PublicListTagsHandlerV1Short(params *PublicListTagsHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListTagsHandlerV1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListTagsHandlerV1Params()
@@ -79,15 +79,40 @@ func (a *Client) PublicListTagsHandlerV1Short(params *PublicListTagsHandlerV1Par
 	switch v := result.(type) {
 
 	case *PublicListTagsHandlerV1OK:
-		return v, nil
+		response := &PublicListTagsHandlerV1Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListTagsHandlerV1BadRequest:
-		return nil, v
+		response := &PublicListTagsHandlerV1Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListTagsHandlerV1Unauthorized:
-		return nil, v
+		response := &PublicListTagsHandlerV1Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListTagsHandlerV1Forbidden:
-		return nil, v
+		response := &PublicListTagsHandlerV1Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListTagsHandlerV1InternalServerError:
-		return nil, v
+		response := &PublicListTagsHandlerV1Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

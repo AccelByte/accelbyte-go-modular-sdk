@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/environment_variable"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 type EnvironmentVariableService struct {
@@ -37,7 +36,7 @@ func (aaa *EnvironmentVariableService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *EnvironmentVariableService) AdminListEnvironmentVariablesShort(input *environment_variable.AdminListEnvironmentVariablesParams) (*sessionclientmodels.ApimodelsEnvironmentVariableListResponse, error) {
+func (aaa *EnvironmentVariableService) AdminListEnvironmentVariablesShort(input *environment_variable.AdminListEnvironmentVariablesParams) (*environment_variable.AdminListEnvironmentVariablesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,5 +63,5 @@ func (aaa *EnvironmentVariableService) AdminListEnvironmentVariablesShort(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

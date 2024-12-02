@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type AdminGetLogConfigResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data *lobbyclientmodels.LogconfigConfiguration
+}
+
+func (m *AdminGetLogConfigResponse) Unpack() (*lobbyclientmodels.LogconfigConfiguration, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminGetLogConfigReader is a Reader for the AdminGetLogConfig structure.
 type AdminGetLogConfigReader struct {
 	formats strfmt.Registry

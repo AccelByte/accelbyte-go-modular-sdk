@@ -9,7 +9,6 @@ package legal
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/base_legal_policies_with_namespace"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) GetAuthSession() auth.Session 
 	}
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllLegalPoliciesByNamespaceShort(input *base_legal_policies_with_namespace.RetrieveAllLegalPoliciesByNamespaceParams) ([]*legalclientmodels.RetrieveBasePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllLegalPoliciesByNamespaceShort(input *base_legal_policies_with_namespace.RetrieveAllLegalPoliciesByNamespaceParams) (*base_legal_policies_with_namespace.RetrieveAllLegalPoliciesByNamespaceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllLegalPoliciesByName
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicy1Short(input *base_legal_policies_with_namespace.CreatePolicy1Params) (*legalclientmodels.CreateBasePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicy1Short(input *base_legal_policies_with_namespace.CreatePolicy1Params) (*base_legal_policies_with_namespace.CreatePolicy1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicy1Short(input *base
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveSinglePolicy1Short(input *base_legal_policies_with_namespace.RetrieveSinglePolicy1Params) (*legalclientmodels.RetrieveBasePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveSinglePolicy1Short(input *base_legal_policies_with_namespace.RetrieveSinglePolicy1Params) (*base_legal_policies_with_namespace.RetrieveSinglePolicy1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,7 +123,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveSinglePolicy1Short(inp
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *BaseLegalPoliciesWithNamespaceService) DeleteBasePolicyShort(input *base_legal_policies_with_namespace.DeleteBasePolicyParams) error {
@@ -157,7 +156,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) DeleteBasePolicyShort(input *b
 	return nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicy1Short(input *base_legal_policies_with_namespace.PartialUpdatePolicy1Params) (*legalclientmodels.UpdateBasePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicy1Short(input *base_legal_policies_with_namespace.PartialUpdatePolicy1Params) (*base_legal_policies_with_namespace.PartialUpdatePolicy1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicy1Short(inpu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrievePolicyCountry1Short(input *base_legal_policies_with_namespace.RetrievePolicyCountry1Params) (*legalclientmodels.RetrievePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) RetrievePolicyCountry1Short(input *base_legal_policies_with_namespace.RetrievePolicyCountry1Params) (*base_legal_policies_with_namespace.RetrievePolicyCountry1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrievePolicyCountry1Short(in
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPoliciesFromBasePolicyShort(input *base_legal_policies_with_namespace.RetrieveAllPoliciesFromBasePolicyParams) ([]*legalclientmodels.RetrievePoliciesFromBasePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPoliciesFromBasePolicyShort(input *base_legal_policies_with_namespace.RetrieveAllPoliciesFromBasePolicyParams) (*base_legal_policies_with_namespace.RetrieveAllPoliciesFromBasePolicyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPoliciesFromBasePol
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicyUnderBasePolicyShort(input *base_legal_policies_with_namespace.CreatePolicyUnderBasePolicyParams) (*legalclientmodels.CreatePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicyUnderBasePolicyShort(input *base_legal_policies_with_namespace.CreatePolicyUnderBasePolicyParams) (*base_legal_policies_with_namespace.CreatePolicyUnderBasePolicyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicyUnderBasePolicySho
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPolicyTypes1Short(input *base_legal_policies_with_namespace.RetrieveAllPolicyTypes1Params) ([]*legalclientmodels.RetrievePolicyTypeResponse, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPolicyTypes1Short(input *base_legal_policies_with_namespace.RetrieveAllPolicyTypes1Params) (*base_legal_policies_with_namespace.RetrieveAllPolicyTypes1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,5 +303,5 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPolicyTypes1Short(i
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

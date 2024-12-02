@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 )
 
+type RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse struct {
+	legalclientmodels.ApiResponse
+	Data []*legalclientmodels.RetrievePolicyPublicResponse
+}
+
+func (m *RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse) Unpack() ([]*legalclientmodels.RetrievePolicyPublicResponse, *legalclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &legalclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RetrieveLatestPoliciesByNamespaceAndCountryPublicReader is a Reader for the RetrieveLatestPoliciesByNamespaceAndCountryPublic structure.
 type RetrieveLatestPoliciesByNamespaceAndCountryPublicReader struct {
 	formats strfmt.Registry

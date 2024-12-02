@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 )
 
+type PublicGetCustomAttributesInfoResponse struct {
+	basicclientmodels.ApiResponse
+	Data map[string]interface{}
+
+	Error404 *basicclientmodels.ErrorEntity
+}
+
+func (m *PublicGetCustomAttributesInfoResponse) Unpack() (map[string]interface{}, *basicclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &basicclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicGetCustomAttributesInfoReader is a Reader for the PublicGetCustomAttributesInfo structure.
 type PublicGetCustomAttributesInfoReader struct {
 	formats strfmt.Registry

@@ -19,6 +19,53 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 )
 
+type AuthCheckResponse struct {
+	amsclientmodels.ApiResponse
+
+	Error401 *amsclientmodels.ResponseErrorResponse
+	Error403 *amsclientmodels.ResponseErrorResponse
+	Error500 *amsclientmodels.ResponseErrorResponse
+}
+
+func (m *AuthCheckResponse) Unpack() *amsclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &amsclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AuthCheckReader is a Reader for the AuthCheck structure.
 type AuthCheckReader struct {
 	formats strfmt.Registry

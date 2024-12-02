@@ -19,6 +19,61 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type AdminResetPasswordV3Response struct {
+	iamclientmodels.ApiResponse
+
+	Error400 string
+	Error401 *iamclientmodels.RestErrorResponse
+	Error403 *iamclientmodels.RestErrorResponse
+	Error404 string
+	Error500 *iamclientmodels.RestErrorResponse
+}
+
+func (m *AdminResetPasswordV3Response) Unpack() *iamclientmodels.ApiError {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			return &iamclientmodels.ApiError{Code: "400", Message: m.Error400}
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			return &iamclientmodels.ApiError{Code: "404", Message: m.Error404}
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		default:
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return nil
+}
+
 // AdminResetPasswordV3Reader is a Reader for the AdminResetPasswordV3 structure.
 type AdminResetPasswordV3Reader struct {
 	formats strfmt.Registry

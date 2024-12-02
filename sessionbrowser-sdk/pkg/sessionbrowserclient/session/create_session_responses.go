@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk/pkg/sessionbrowserclientmodels"
 )
 
+type CreateSessionResponse struct {
+	sessionbrowserclientmodels.ApiResponse
+	Data *sessionbrowserclientmodels.ModelsSessionResponse
+
+	Error400 *sessionbrowserclientmodels.RestapiErrorResponseV2
+	Error403 *sessionbrowserclientmodels.RestapiErrorResponseV2
+	Error409 *sessionbrowserclientmodels.RestapiErrorResponseV2
+	Error500 *sessionbrowserclientmodels.ResponseError
+}
+
+func (m *CreateSessionResponse) Unpack() (*sessionbrowserclientmodels.ModelsSessionResponse, *sessionbrowserclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 409:
+			e, err := m.Error409.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &sessionbrowserclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // CreateSessionReader is a Reader for the CreateSession structure.
 type CreateSessionReader struct {
 	formats strfmt.Registry

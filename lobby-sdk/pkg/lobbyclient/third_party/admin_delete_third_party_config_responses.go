@@ -19,6 +19,63 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 )
 
+type AdminDeleteThirdPartyConfigResponse struct {
+	lobbyclientmodels.ApiResponse
+	Data string
+
+	Error400 *lobbyclientmodels.RestapiErrorResponseV1
+	Error401 *lobbyclientmodels.RestapiErrorResponseV1
+	Error403 *lobbyclientmodels.RestapiErrorResponseV1
+	Error500 *lobbyclientmodels.RestapiErrorResponseV1
+}
+
+func (m *AdminDeleteThirdPartyConfigResponse) Unpack() (string, *lobbyclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return "", e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return "", e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return "", e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return "", e
+
+		default:
+			return "", &lobbyclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // AdminDeleteThirdPartyConfigReader is a Reader for the AdminDeleteThirdPartyConfig structure.
 type AdminDeleteThirdPartyConfigReader struct {
 	formats strfmt.Registry

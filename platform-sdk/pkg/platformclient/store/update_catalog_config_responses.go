@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type UpdateCatalogConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.CatalogConfigInfo
+
+	Error422 *platformclientmodels.ValidationErrorEntity
+}
+
+func (m *UpdateCatalogConfigResponse) Unpack() (*platformclientmodels.CatalogConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdateCatalogConfigReader is a Reader for the UpdateCatalogConfig structure.
 type UpdateCatalogConfigReader struct {
 	formats strfmt.Registry

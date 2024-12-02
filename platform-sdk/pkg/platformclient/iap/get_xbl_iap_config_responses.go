@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type GetXblIAPConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.XblIAPConfigInfo
+}
+
+func (m *GetXblIAPConfigResponse) Unpack() (*platformclientmodels.XblIAPConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetXblIAPConfigReader is a Reader for the GetXblIAPConfig structure.
 type GetXblIAPConfigReader struct {
 	formats strfmt.Registry

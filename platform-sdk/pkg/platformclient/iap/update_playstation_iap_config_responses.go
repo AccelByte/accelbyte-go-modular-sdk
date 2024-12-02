@@ -19,6 +19,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
+type UpdatePlaystationIAPConfigResponse struct {
+	platformclientmodels.ApiResponse
+	Data *platformclientmodels.PlayStationIAPConfigInfo
+
+	Error400 *platformclientmodels.ErrorEntity
+}
+
+func (m *UpdatePlaystationIAPConfigResponse) Unpack() (*platformclientmodels.PlayStationIAPConfigInfo, *platformclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &platformclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // UpdatePlaystationIAPConfigReader is a Reader for the UpdatePlaystationIAPConfig structure.
 type UpdatePlaystationIAPConfigReader struct {
 	formats strfmt.Registry

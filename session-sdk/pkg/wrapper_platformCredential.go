@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/platform_credential"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 type PlatformCredentialService struct {
@@ -37,7 +36,7 @@ func (aaa *PlatformCredentialService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PlatformCredentialService) AdminGetPlatformCredentialsShort(input *platform_credential.AdminGetPlatformCredentialsParams) (*sessionclientmodels.ModelsPlatformCredentials, error) {
+func (aaa *PlatformCredentialService) AdminGetPlatformCredentialsShort(input *platform_credential.AdminGetPlatformCredentialsParams) (*platform_credential.AdminGetPlatformCredentialsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PlatformCredentialService) AdminGetPlatformCredentialsShort(input *pl
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PlatformCredentialService) AdminUpdatePlatformCredentialsShort(input *platform_credential.AdminUpdatePlatformCredentialsParams) (*sessionclientmodels.ModelsPlatformCredentials, error) {
+func (aaa *PlatformCredentialService) AdminUpdatePlatformCredentialsShort(input *platform_credential.AdminUpdatePlatformCredentialsParams) (*platform_credential.AdminUpdatePlatformCredentialsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *PlatformCredentialService) AdminUpdatePlatformCredentialsShort(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PlatformCredentialService) AdminDeletePlatformCredentialsShort(input *platform_credential.AdminDeletePlatformCredentialsParams) error {
@@ -157,7 +156,7 @@ func (aaa *PlatformCredentialService) AdminDeletePlatformCredentialsByPlatformID
 	return nil
 }
 
-func (aaa *PlatformCredentialService) AdminSyncPlatformCredentialsShort(input *platform_credential.AdminSyncPlatformCredentialsParams) (*sessionclientmodels.ApimodelsXblCertificateResponseBody, error) {
+func (aaa *PlatformCredentialService) AdminSyncPlatformCredentialsShort(input *platform_credential.AdminSyncPlatformCredentialsParams) (*platform_credential.AdminSyncPlatformCredentialsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,5 +183,5 @@ func (aaa *PlatformCredentialService) AdminSyncPlatformCredentialsShort(input *p
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

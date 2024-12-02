@@ -9,7 +9,6 @@ package ams
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/a_m_s_info"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -37,7 +36,7 @@ func (aaa *AMSInfoService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AMSInfoService) InfoRegionsShort(input *a_m_s_info.InfoRegionsParams) (*amsclientmodels.APIAMSRegionsResponse, error) {
+func (aaa *AMSInfoService) InfoRegionsShort(input *a_m_s_info.InfoRegionsParams) (*a_m_s_info.InfoRegionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AMSInfoService) InfoRegionsShort(input *a_m_s_info.InfoRegionsParams)
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AMSInfoService) InfoSupportedInstancesShort(input *a_m_s_info.InfoSupportedInstancesParams) (*amsclientmodels.APIInstanceTypesForNamespaceResponse, error) {
+func (aaa *AMSInfoService) InfoSupportedInstancesShort(input *a_m_s_info.InfoSupportedInstancesParams) (*a_m_s_info.InfoSupportedInstancesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *AMSInfoService) InfoSupportedInstancesShort(input *a_m_s_info.InfoSup
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AMSInfoService) UploadURLGetShort(input *a_m_s_info.UploadURLGetParams) error {

@@ -19,6 +19,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+type RequestOneTimeLinkingCodeV3Response struct {
+	iamclientmodels.ApiResponse
+	Data *iamclientmodels.OauthmodelOneTimeLinkingCodeResponse
+}
+
+func (m *RequestOneTimeLinkingCodeV3Response) Unpack() (*iamclientmodels.OauthmodelOneTimeLinkingCodeResponse, *iamclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		default:
+			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // RequestOneTimeLinkingCodeV3Reader is a Reader for the RequestOneTimeLinkingCodeV3 structure.
 type RequestOneTimeLinkingCodeV3Reader struct {
 	formats strfmt.Registry

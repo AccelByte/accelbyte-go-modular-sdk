@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetGoalsShort(params *AdminGetGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalsOK, error)
-	AdminCreateGoalShort(params *AdminCreateGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGoalCreated, error)
-	AdminGetGoalShort(params *AdminGetGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalOK, error)
-	AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGoalsOK, error)
-	AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGoalNoContent, error)
+	AdminGetGoalsShort(params *AdminGetGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalsResponse, error)
+	AdminCreateGoalShort(params *AdminCreateGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGoalResponse, error)
+	AdminGetGoalShort(params *AdminGetGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalResponse, error)
+	AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGoalsResponse, error)
+	AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGoalResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -44,7 +44,7 @@ AdminGetGoalsShort list goals of a challenge
 
   * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) AdminGetGoalsShort(params *AdminGetGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalsOK, error) {
+func (a *Client) AdminGetGoalsShort(params *AdminGetGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetGoalsParams()
@@ -82,15 +82,40 @@ func (a *Client) AdminGetGoalsShort(params *AdminGetGoalsParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *AdminGetGoalsOK:
-		return v, nil
+		response := &AdminGetGoalsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetGoalsUnauthorized:
-		return nil, v
+		response := &AdminGetGoalsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGoalsForbidden:
-		return nil, v
+		response := &AdminGetGoalsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGoalsNotFound:
-		return nil, v
+		response := &AdminGetGoalsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGoalsInternalServerError:
-		return nil, v
+		response := &AdminGetGoalsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -134,7 +159,7 @@ The requirement will have target value and a operator that will evaluate that ag
 Supported item type for ENTITLEMENT reward type: APP, BUNDLE, CODE, COINS, EXTENSION, INGAMEITEM, LOOTBOX, MEDIA, OPTIONBOX.
 Number of goals per challenge is limited to 100 goals.
 */
-func (a *Client) AdminCreateGoalShort(params *AdminCreateGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGoalCreated, error) {
+func (a *Client) AdminCreateGoalShort(params *AdminCreateGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateGoalResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminCreateGoalParams()
@@ -172,21 +197,61 @@ func (a *Client) AdminCreateGoalShort(params *AdminCreateGoalParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminCreateGoalCreated:
-		return v, nil
+		response := &AdminCreateGoalResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminCreateGoalBadRequest:
-		return nil, v
+		response := &AdminCreateGoalResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateGoalUnauthorized:
-		return nil, v
+		response := &AdminCreateGoalResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateGoalForbidden:
-		return nil, v
+		response := &AdminCreateGoalResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateGoalNotFound:
-		return nil, v
+		response := &AdminCreateGoalResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateGoalConflict:
-		return nil, v
+		response := &AdminCreateGoalResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateGoalUnprocessableEntity:
-		return nil, v
+		response := &AdminCreateGoalResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminCreateGoalInternalServerError:
-		return nil, v
+		response := &AdminCreateGoalResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -198,7 +263,7 @@ AdminGetGoalShort get goal
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) AdminGetGoalShort(params *AdminGetGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalOK, error) {
+func (a *Client) AdminGetGoalShort(params *AdminGetGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetGoalParams()
@@ -236,15 +301,40 @@ func (a *Client) AdminGetGoalShort(params *AdminGetGoalParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *AdminGetGoalOK:
-		return v, nil
+		response := &AdminGetGoalResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetGoalUnauthorized:
-		return nil, v
+		response := &AdminGetGoalResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGoalForbidden:
-		return nil, v
+		response := &AdminGetGoalResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGoalNotFound:
-		return nil, v
+		response := &AdminGetGoalResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetGoalInternalServerError:
-		return nil, v
+		response := &AdminGetGoalResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -283,7 +373,7 @@ Request body:
     * isActive: when goal is in a schedule, isActive determine whether goal is active to progress or not (optional).
 Goal describe set of requirements that need to be fulfilled by players in order to complete it and describe what is the rewards given to player when they complete the goal.The requirement will have target value and a operator that will evaluate that against an observable playerâs attribute (e.g. statistic, entitlement). Goal belongs to a challenge.Supported item type for ENTITLEMENT reward type: APP, BUNDLE, CODE, COINS, EXTENSION, INGAMEITEM, LOOTBOX, MEDIA, OPTIONBOX
 */
-func (a *Client) AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGoalsOK, error) {
+func (a *Client) AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGoalsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdateGoalsParams()
@@ -321,15 +411,40 @@ func (a *Client) AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo 
 	switch v := result.(type) {
 
 	case *AdminUpdateGoalsOK:
-		return v, nil
+		response := &AdminUpdateGoalsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdateGoalsBadRequest:
-		return nil, v
+		response := &AdminUpdateGoalsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGoalsNotFound:
-		return nil, v
+		response := &AdminUpdateGoalsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGoalsUnprocessableEntity:
-		return nil, v
+		response := &AdminUpdateGoalsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdateGoalsInternalServerError:
-		return nil, v
+		response := &AdminUpdateGoalsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -341,7 +456,7 @@ AdminDeleteGoalShort delete goal
 
     * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
 */
-func (a *Client) AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGoalNoContent, error) {
+func (a *Client) AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGoalResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeleteGoalParams()
@@ -379,13 +494,32 @@ func (a *Client) AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo ru
 	switch v := result.(type) {
 
 	case *AdminDeleteGoalNoContent:
-		return v, nil
+		response := &AdminDeleteGoalResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeleteGoalBadRequest:
-		return nil, v
+		response := &AdminDeleteGoalResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGoalNotFound:
-		return nil, v
+		response := &AdminDeleteGoalResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeleteGoalInternalServerError:
-		return nil, v
+		response := &AdminDeleteGoalResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

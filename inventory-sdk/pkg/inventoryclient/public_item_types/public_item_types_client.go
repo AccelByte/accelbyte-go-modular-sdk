@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PublicListItemTypesShort(params *PublicListItemTypesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListItemTypesOK, error)
+	PublicListItemTypesShort(params *PublicListItemTypesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListItemTypesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ PublicListItemTypesShort to list item types
 This endpoint will list all item types in a namespace.
 The response body will be in the form of standard pagination.
 */
-func (a *Client) PublicListItemTypesShort(params *PublicListItemTypesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListItemTypesOK, error) {
+func (a *Client) PublicListItemTypesShort(params *PublicListItemTypesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListItemTypesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListItemTypesParams()
@@ -79,11 +79,26 @@ func (a *Client) PublicListItemTypesShort(params *PublicListItemTypesParams, aut
 	switch v := result.(type) {
 
 	case *PublicListItemTypesOK:
-		return v, nil
+		response := &PublicListItemTypesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListItemTypesBadRequest:
-		return nil, v
+		response := &PublicListItemTypesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *PublicListItemTypesInternalServerError:
-		return nil, v
+		response := &PublicListItemTypesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

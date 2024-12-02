@@ -19,6 +19,50 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclientmodels"
 )
 
+type GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetResponse struct {
+	gametelemetryclientmodels.ApiResponse
+	Data *gametelemetryclientmodels.PagedResponseGetNamespaceEventResponse
+
+	Error400 *gametelemetryclientmodels.BaseErrorResponse
+	Error422 *gametelemetryclientmodels.HTTPValidationError
+}
+
+func (m *GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetResponse) Unpack() (*gametelemetryclientmodels.PagedResponseGetNamespaceEventResponse, *gametelemetryclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 422:
+			var e *gametelemetryclientmodels.ApiError
+			for _, res := range m.Error422.Detail {
+				re, err := res.TranslateToApiError()
+				if err != nil {
+					_ = fmt.Errorf("failed to translate error. %v", err)
+				}
+
+				e = re
+			}
+
+			return nil, e
+
+		default:
+			return nil, &gametelemetryclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetReader is a Reader for the GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet structure.
 type GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetReader struct {
 	formats strfmt.Registry

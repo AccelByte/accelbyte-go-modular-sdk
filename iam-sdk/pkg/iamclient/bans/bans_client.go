@@ -30,14 +30,14 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetBansTypeShort(params *GetBansTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetBansTypeOK, error)
-	GetListBanReasonShort(params *GetListBanReasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetListBanReasonOK, error)
-	AdminGetBansTypeV3Short(params *AdminGetBansTypeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeV3OK, error)
-	AdminGetListBanReasonV3Short(params *AdminGetListBanReasonV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListBanReasonV3OK, error)
-	AdminGetBannedUsersV3Short(params *AdminGetBannedUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBannedUsersV3OK, error)
-	AdminBanUserBulkV3Short(params *AdminBanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserBulkV3Created, error)
-	AdminUnbanUserBulkV3Short(params *AdminUnbanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanUserBulkV3Created, error)
-	AdminGetBansTypeWithNamespaceV3Short(params *AdminGetBansTypeWithNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeWithNamespaceV3OK, error)
+	GetBansTypeShort(params *GetBansTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetBansTypeResponse, error)
+	GetListBanReasonShort(params *GetListBanReasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetListBanReasonResponse, error)
+	AdminGetBansTypeV3Short(params *AdminGetBansTypeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeV3Response, error)
+	AdminGetListBanReasonV3Short(params *AdminGetListBanReasonV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListBanReasonV3Response, error)
+	AdminGetBannedUsersV3Short(params *AdminGetBannedUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBannedUsersV3Response, error)
+	AdminBanUserBulkV3Short(params *AdminBanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserBulkV3Response, error)
+	AdminUnbanUserBulkV3Short(params *AdminUnbanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanUserBulkV3Response, error)
+	AdminGetBansTypeWithNamespaceV3Short(params *AdminGetBansTypeWithNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeWithNamespaceV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -48,7 +48,7 @@ GetBansTypeShort get list of ban types
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/bans [GET]_**
 */
-func (a *Client) GetBansTypeShort(params *GetBansTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetBansTypeOK, error) {
+func (a *Client) GetBansTypeShort(params *GetBansTypeParams, authInfo runtime.ClientAuthInfoWriter) (*GetBansTypeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetBansTypeParams()
@@ -86,11 +86,26 @@ func (a *Client) GetBansTypeShort(params *GetBansTypeParams, authInfo runtime.Cl
 	switch v := result.(type) {
 
 	case *GetBansTypeOK:
-		return v, nil
+		response := &GetBansTypeResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetBansTypeUnauthorized:
-		return nil, v
+		response := &GetBansTypeResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetBansTypeForbidden:
-		return nil, v
+		response := &GetBansTypeResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -103,7 +118,7 @@ GetListBanReasonShort get list of ban reasons
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/bans/reasons [GET]_**
 */
-func (a *Client) GetListBanReasonShort(params *GetListBanReasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetListBanReasonOK, error) {
+func (a *Client) GetListBanReasonShort(params *GetListBanReasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetListBanReasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetListBanReasonParams()
@@ -141,11 +156,26 @@ func (a *Client) GetListBanReasonShort(params *GetListBanReasonParams, authInfo 
 	switch v := result.(type) {
 
 	case *GetListBanReasonOK:
-		return v, nil
+		response := &GetListBanReasonResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetListBanReasonUnauthorized:
-		return nil, v
+		response := &GetListBanReasonResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetListBanReasonForbidden:
-		return nil, v
+		response := &GetListBanReasonResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -158,7 +188,7 @@ Ban type is the code
 available for ban assignment. It is applicable globally for any namespace.
 action code : 10201
 */
-func (a *Client) AdminGetBansTypeV3Short(params *AdminGetBansTypeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeV3OK, error) {
+func (a *Client) AdminGetBansTypeV3Short(params *AdminGetBansTypeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetBansTypeV3Params()
@@ -196,13 +226,33 @@ func (a *Client) AdminGetBansTypeV3Short(params *AdminGetBansTypeV3Params, authI
 	switch v := result.(type) {
 
 	case *AdminGetBansTypeV3OK:
-		return v, nil
+		response := &AdminGetBansTypeV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetBansTypeV3Unauthorized:
-		return nil, v
+		response := &AdminGetBansTypeV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBansTypeV3Forbidden:
-		return nil, v
+		response := &AdminGetBansTypeV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBansTypeV3InternalServerError:
-		return nil, v
+		response := &AdminGetBansTypeV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -214,7 +264,7 @@ AdminGetListBanReasonV3Short get list of ban reasons
 Ban reasons is the code available to justify ban assignment. It is applicable globally for any namespace.
 action code : 10202
 */
-func (a *Client) AdminGetListBanReasonV3Short(params *AdminGetListBanReasonV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListBanReasonV3OK, error) {
+func (a *Client) AdminGetListBanReasonV3Short(params *AdminGetListBanReasonV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListBanReasonV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetListBanReasonV3Params()
@@ -252,13 +302,33 @@ func (a *Client) AdminGetListBanReasonV3Short(params *AdminGetListBanReasonV3Par
 	switch v := result.(type) {
 
 	case *AdminGetListBanReasonV3OK:
-		return v, nil
+		response := &AdminGetListBanReasonV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetListBanReasonV3Unauthorized:
-		return nil, v
+		response := &AdminGetListBanReasonV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListBanReasonV3Forbidden:
-		return nil, v
+		response := &AdminGetListBanReasonV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetListBanReasonV3InternalServerError:
-		return nil, v
+		response := &AdminGetListBanReasonV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -271,7 +341,7 @@ Ban type is the code
 available for ban assignment. It is applicable globally for any namespace.
 action code : 10201
 */
-func (a *Client) AdminGetBannedUsersV3Short(params *AdminGetBannedUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBannedUsersV3OK, error) {
+func (a *Client) AdminGetBannedUsersV3Short(params *AdminGetBannedUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBannedUsersV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetBannedUsersV3Params()
@@ -309,13 +379,33 @@ func (a *Client) AdminGetBannedUsersV3Short(params *AdminGetBannedUsersV3Params,
 	switch v := result.(type) {
 
 	case *AdminGetBannedUsersV3OK:
-		return v, nil
+		response := &AdminGetBannedUsersV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetBannedUsersV3Unauthorized:
-		return nil, v
+		response := &AdminGetBannedUsersV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBannedUsersV3Forbidden:
-		return nil, v
+		response := &AdminGetBannedUsersV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBannedUsersV3InternalServerError:
-		return nil, v
+		response := &AdminGetBannedUsersV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -327,7 +417,7 @@ AdminBanUserBulkV3Short bulk ban user
 Bulk ban user with specific type of ban. Ban types and reason can be queried. The maximum limit value is 100 userIDs
 action code : 10141
 */
-func (a *Client) AdminBanUserBulkV3Short(params *AdminBanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserBulkV3Created, error) {
+func (a *Client) AdminBanUserBulkV3Short(params *AdminBanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserBulkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminBanUserBulkV3Params()
@@ -365,17 +455,47 @@ func (a *Client) AdminBanUserBulkV3Short(params *AdminBanUserBulkV3Params, authI
 	switch v := result.(type) {
 
 	case *AdminBanUserBulkV3Created:
-		return v, nil
+		response := &AdminBanUserBulkV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminBanUserBulkV3BadRequest:
-		return nil, v
+		response := &AdminBanUserBulkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserBulkV3Unauthorized:
-		return nil, v
+		response := &AdminBanUserBulkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserBulkV3Forbidden:
-		return nil, v
+		response := &AdminBanUserBulkV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserBulkV3NotFound:
-		return nil, v
+		response := &AdminBanUserBulkV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminBanUserBulkV3InternalServerError:
-		return nil, v
+		response := &AdminBanUserBulkV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -387,7 +507,7 @@ AdminUnbanUserBulkV3Short bulk unban user
 disable bulk ban user. The maximum limit value is 100
 action code : 10142
 */
-func (a *Client) AdminUnbanUserBulkV3Short(params *AdminUnbanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanUserBulkV3Created, error) {
+func (a *Client) AdminUnbanUserBulkV3Short(params *AdminUnbanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanUserBulkV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUnbanUserBulkV3Params()
@@ -425,17 +545,47 @@ func (a *Client) AdminUnbanUserBulkV3Short(params *AdminUnbanUserBulkV3Params, a
 	switch v := result.(type) {
 
 	case *AdminUnbanUserBulkV3Created:
-		return v, nil
+		response := &AdminUnbanUserBulkV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUnbanUserBulkV3BadRequest:
-		return nil, v
+		response := &AdminUnbanUserBulkV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnbanUserBulkV3Unauthorized:
-		return nil, v
+		response := &AdminUnbanUserBulkV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnbanUserBulkV3Forbidden:
-		return nil, v
+		response := &AdminUnbanUserBulkV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnbanUserBulkV3NotFound:
-		return nil, v
+		response := &AdminUnbanUserBulkV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUnbanUserBulkV3InternalServerError:
-		return nil, v
+		response := &AdminUnbanUserBulkV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -448,7 +598,7 @@ Ban type is the code
 available for ban assignment. It is applicable globally for any namespace.
 action code : 10201
 */
-func (a *Client) AdminGetBansTypeWithNamespaceV3Short(params *AdminGetBansTypeWithNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeWithNamespaceV3OK, error) {
+func (a *Client) AdminGetBansTypeWithNamespaceV3Short(params *AdminGetBansTypeWithNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeWithNamespaceV3Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetBansTypeWithNamespaceV3Params()
@@ -486,13 +636,33 @@ func (a *Client) AdminGetBansTypeWithNamespaceV3Short(params *AdminGetBansTypeWi
 	switch v := result.(type) {
 
 	case *AdminGetBansTypeWithNamespaceV3OK:
-		return v, nil
+		response := &AdminGetBansTypeWithNamespaceV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetBansTypeWithNamespaceV3Unauthorized:
-		return nil, v
+		response := &AdminGetBansTypeWithNamespaceV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBansTypeWithNamespaceV3Forbidden:
-		return nil, v
+		response := &AdminGetBansTypeWithNamespaceV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetBansTypeWithNamespaceV3InternalServerError:
-		return nil, v
+		response := &AdminGetBansTypeWithNamespaceV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

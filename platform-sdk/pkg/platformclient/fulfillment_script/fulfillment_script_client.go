@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*ListFulfillmentScriptsOK, error)
-	GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*GetFulfillmentScriptOK, error)
-	CreateFulfillmentScriptShort(params *CreateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*CreateFulfillmentScriptCreated, error)
-	DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFulfillmentScriptNoContent, error)
-	UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFulfillmentScriptOK, error)
+	ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*ListFulfillmentScriptsResponse, error)
+	GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*GetFulfillmentScriptResponse, error)
+	CreateFulfillmentScriptShort(params *CreateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*CreateFulfillmentScriptResponse, error)
+	DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFulfillmentScriptResponse, error)
+	UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFulfillmentScriptResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -43,7 +43,7 @@ type ClientService interface {
 ListFulfillmentScriptsShort list all fulfillment scripts
 [Not supported yet in AGS Shared Cloud] List all fulfillment scripts.
 */
-func (a *Client) ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*ListFulfillmentScriptsOK, error) {
+func (a *Client) ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParams, authInfo runtime.ClientAuthInfoWriter) (*ListFulfillmentScriptsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListFulfillmentScriptsParams()
@@ -81,7 +81,12 @@ func (a *Client) ListFulfillmentScriptsShort(params *ListFulfillmentScriptsParam
 	switch v := result.(type) {
 
 	case *ListFulfillmentScriptsOK:
-		return v, nil
+		response := &ListFulfillmentScriptsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -95,7 +100,7 @@ Other detail info:
 
   * Returns : get fulfillment script
 */
-func (a *Client) GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*GetFulfillmentScriptOK, error) {
+func (a *Client) GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*GetFulfillmentScriptResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetFulfillmentScriptParams()
@@ -133,9 +138,19 @@ func (a *Client) GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, a
 	switch v := result.(type) {
 
 	case *GetFulfillmentScriptOK:
-		return v, nil
+		response := &GetFulfillmentScriptResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetFulfillmentScriptNotFound:
-		return nil, v
+		response := &GetFulfillmentScriptResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -152,7 +167,7 @@ Fulfillment scripts are used for adding custom fulfillment logic based on ITEM_T
 Example for grantDays:
 `order && ((order.currency && order.currency.currencyCode) == 'LP' || order.isFree) ? 30 : -1`
 */
-func (a *Client) CreateFulfillmentScriptShort(params *CreateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*CreateFulfillmentScriptCreated, error) {
+func (a *Client) CreateFulfillmentScriptShort(params *CreateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*CreateFulfillmentScriptResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateFulfillmentScriptParams()
@@ -190,9 +205,19 @@ func (a *Client) CreateFulfillmentScriptShort(params *CreateFulfillmentScriptPar
 	switch v := result.(type) {
 
 	case *CreateFulfillmentScriptCreated:
-		return v, nil
+		response := &CreateFulfillmentScriptResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateFulfillmentScriptConflict:
-		return nil, v
+		response := &CreateFulfillmentScriptResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -203,7 +228,7 @@ func (a *Client) CreateFulfillmentScriptShort(params *CreateFulfillmentScriptPar
 DeleteFulfillmentScriptShort delete fulfillment script
  [Not supported yet in AGS Shared Cloud] Delete fulfillment script.
 */
-func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFulfillmentScriptNoContent, error) {
+func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteFulfillmentScriptResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteFulfillmentScriptParams()
@@ -241,7 +266,11 @@ func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptPar
 	switch v := result.(type) {
 
 	case *DeleteFulfillmentScriptNoContent:
-		return v, nil
+		response := &DeleteFulfillmentScriptResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -252,7 +281,7 @@ func (a *Client) DeleteFulfillmentScriptShort(params *DeleteFulfillmentScriptPar
 UpdateFulfillmentScriptShort update fulfillment script
  [Not supported yet in AGS Shared Cloud] Update fulfillment script.
 */
-func (a *Client) UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFulfillmentScriptOK, error) {
+func (a *Client) UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateFulfillmentScriptResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateFulfillmentScriptParams()
@@ -290,9 +319,19 @@ func (a *Client) UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptPar
 	switch v := result.(type) {
 
 	case *UpdateFulfillmentScriptOK:
-		return v, nil
+		response := &UpdateFulfillmentScriptResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateFulfillmentScriptBadRequest:
-		return nil, v
+		response := &UpdateFulfillmentScriptResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

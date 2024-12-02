@@ -30,13 +30,13 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QuerySectionsShort(params *QuerySectionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySectionsOK, error)
-	CreateSectionShort(params *CreateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSectionCreated, error)
-	PurgeExpiredSectionShort(params *PurgeExpiredSectionParams, authInfo runtime.ClientAuthInfoWriter) (*PurgeExpiredSectionNoContent, error)
-	GetSectionShort(params *GetSectionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionOK, error)
-	UpdateSectionShort(params *UpdateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionOK, error)
-	DeleteSectionShort(params *DeleteSectionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionNoContent, error)
-	PublicListActiveSectionsShort(params *PublicListActiveSectionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListActiveSectionsOK, error)
+	QuerySectionsShort(params *QuerySectionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySectionsResponse, error)
+	CreateSectionShort(params *CreateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSectionResponse, error)
+	PurgeExpiredSectionShort(params *PurgeExpiredSectionParams, authInfo runtime.ClientAuthInfoWriter) (*PurgeExpiredSectionResponse, error)
+	GetSectionShort(params *GetSectionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionResponse, error)
+	UpdateSectionShort(params *UpdateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionResponse, error)
+	DeleteSectionShort(params *DeleteSectionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionResponse, error)
+	PublicListActiveSectionsShort(params *PublicListActiveSectionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListActiveSectionsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,7 +49,7 @@ Other detail info:
 
   * Returns : paginated sections
 */
-func (a *Client) QuerySectionsShort(params *QuerySectionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySectionsOK, error) {
+func (a *Client) QuerySectionsShort(params *QuerySectionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySectionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQuerySectionsParams()
@@ -87,11 +87,26 @@ func (a *Client) QuerySectionsShort(params *QuerySectionsParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *QuerySectionsOK:
-		return v, nil
+		response := &QuerySectionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *QuerySectionsNotFound:
-		return nil, v
+		response := &QuerySectionsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *QuerySectionsUnprocessableEntity:
-		return nil, v
+		response := &QuerySectionsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -124,7 +139,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) CreateSectionShort(params *CreateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSectionCreated, error) {
+func (a *Client) CreateSectionShort(params *CreateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSectionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateSectionParams()
@@ -162,15 +177,40 @@ func (a *Client) CreateSectionShort(params *CreateSectionParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *CreateSectionCreated:
-		return v, nil
+		response := &CreateSectionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateSectionBadRequest:
-		return nil, v
+		response := &CreateSectionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSectionNotFound:
-		return nil, v
+		response := &CreateSectionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSectionConflict:
-		return nil, v
+		response := &CreateSectionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateSectionUnprocessableEntity:
-		return nil, v
+		response := &CreateSectionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,7 +221,7 @@ func (a *Client) CreateSectionShort(params *CreateSectionParams, authInfo runtim
 PurgeExpiredSectionShort purge expired section
 This API is used to purge expired section.
 */
-func (a *Client) PurgeExpiredSectionShort(params *PurgeExpiredSectionParams, authInfo runtime.ClientAuthInfoWriter) (*PurgeExpiredSectionNoContent, error) {
+func (a *Client) PurgeExpiredSectionShort(params *PurgeExpiredSectionParams, authInfo runtime.ClientAuthInfoWriter) (*PurgeExpiredSectionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPurgeExpiredSectionParams()
@@ -219,9 +259,18 @@ func (a *Client) PurgeExpiredSectionShort(params *PurgeExpiredSectionParams, aut
 	switch v := result.(type) {
 
 	case *PurgeExpiredSectionNoContent:
-		return v, nil
+		response := &PurgeExpiredSectionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PurgeExpiredSectionNotFound:
-		return nil, v
+		response := &PurgeExpiredSectionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -236,7 +285,7 @@ Other detail info:
 
   * Returns : section data
 */
-func (a *Client) GetSectionShort(params *GetSectionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionOK, error) {
+func (a *Client) GetSectionShort(params *GetSectionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSectionParams()
@@ -274,9 +323,19 @@ func (a *Client) GetSectionShort(params *GetSectionParams, authInfo runtime.Clie
 	switch v := result.(type) {
 
 	case *GetSectionOK:
-		return v, nil
+		response := &GetSectionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetSectionNotFound:
-		return nil, v
+		response := &GetSectionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -309,7 +368,7 @@ Other detail info:
 
     { "$data": "value" }
 */
-func (a *Client) UpdateSectionShort(params *UpdateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionOK, error) {
+func (a *Client) UpdateSectionShort(params *UpdateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSectionParams()
@@ -347,15 +406,40 @@ func (a *Client) UpdateSectionShort(params *UpdateSectionParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *UpdateSectionOK:
-		return v, nil
+		response := &UpdateSectionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateSectionBadRequest:
-		return nil, v
+		response := &UpdateSectionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSectionNotFound:
-		return nil, v
+		response := &UpdateSectionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSectionConflict:
-		return nil, v
+		response := &UpdateSectionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateSectionUnprocessableEntity:
-		return nil, v
+		response := &UpdateSectionResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -366,7 +450,7 @@ func (a *Client) UpdateSectionShort(params *UpdateSectionParams, authInfo runtim
 DeleteSectionShort delete a section
 This API is used to delete s section.
 */
-func (a *Client) DeleteSectionShort(params *DeleteSectionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionNoContent, error) {
+func (a *Client) DeleteSectionShort(params *DeleteSectionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSectionParams()
@@ -404,11 +488,25 @@ func (a *Client) DeleteSectionShort(params *DeleteSectionParams, authInfo runtim
 	switch v := result.(type) {
 
 	case *DeleteSectionNoContent:
-		return v, nil
+		response := &DeleteSectionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteSectionNotFound:
-		return nil, v
+		response := &DeleteSectionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteSectionConflict:
-		return nil, v
+		response := &DeleteSectionResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -425,7 +523,7 @@ Other detail info:
   *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store sections)
   *  Returns : active section contents
 */
-func (a *Client) PublicListActiveSectionsShort(params *PublicListActiveSectionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListActiveSectionsOK, error) {
+func (a *Client) PublicListActiveSectionsShort(params *PublicListActiveSectionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListActiveSectionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicListActiveSectionsParams()
@@ -463,9 +561,19 @@ func (a *Client) PublicListActiveSectionsShort(params *PublicListActiveSectionsP
 	switch v := result.(type) {
 
 	case *PublicListActiveSectionsOK:
-		return v, nil
+		response := &PublicListActiveSectionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *PublicListActiveSectionsNotFound:
-		return nil, v
+		response := &PublicListActiveSectionsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

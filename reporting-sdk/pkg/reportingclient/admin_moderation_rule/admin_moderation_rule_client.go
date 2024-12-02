@@ -30,12 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateModerationRuleShort(params *CreateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateModerationRuleCreated, error)
-	UpdateModerationRuleShort(params *UpdateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleOK, error)
-	DeleteModerationRuleShort(params *DeleteModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteModerationRuleNoContent, error)
-	UpdateModerationRuleStatusShort(params *UpdateModerationRuleStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleStatusNoContent, error)
-	GetModerationRulesShort(params *GetModerationRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRulesOK, error)
-	GetModerationRuleDetailsShort(params *GetModerationRuleDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRuleDetailsOK, error)
+	CreateModerationRuleShort(params *CreateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateModerationRuleResponse, error)
+	UpdateModerationRuleShort(params *UpdateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleResponse, error)
+	DeleteModerationRuleShort(params *DeleteModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteModerationRuleResponse, error)
+	UpdateModerationRuleStatusShort(params *UpdateModerationRuleStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleStatusResponse, error)
+	GetModerationRulesShort(params *GetModerationRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRulesResponse, error)
+	GetModerationRuleDetailsShort(params *GetModerationRuleDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRuleDetailsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -54,7 +54,7 @@ Supported Actions:
 * **banAccount**: Ban the user account
 * **deleteChat**: Delete chat
 */
-func (a *Client) CreateModerationRuleShort(params *CreateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateModerationRuleCreated, error) {
+func (a *Client) CreateModerationRuleShort(params *CreateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateModerationRuleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateModerationRuleParams()
@@ -92,13 +92,32 @@ func (a *Client) CreateModerationRuleShort(params *CreateModerationRuleParams, a
 	switch v := result.(type) {
 
 	case *CreateModerationRuleCreated:
-		return v, nil
+		response := &CreateModerationRuleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateModerationRuleBadRequest:
-		return nil, v
+		response := &CreateModerationRuleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateModerationRuleConflict:
-		return nil, v
+		response := &CreateModerationRuleResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateModerationRuleInternalServerError:
-		return nil, v
+		response := &CreateModerationRuleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -117,7 +136,7 @@ Supported Actions:
 * **banAccount**: Ban the user account
 * **deleteChat**: Delete chat
 */
-func (a *Client) UpdateModerationRuleShort(params *UpdateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleOK, error) {
+func (a *Client) UpdateModerationRuleShort(params *UpdateModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateModerationRuleParams()
@@ -155,15 +174,40 @@ func (a *Client) UpdateModerationRuleShort(params *UpdateModerationRuleParams, a
 	switch v := result.(type) {
 
 	case *UpdateModerationRuleOK:
-		return v, nil
+		response := &UpdateModerationRuleResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateModerationRuleBadRequest:
-		return nil, v
+		response := &UpdateModerationRuleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateModerationRuleNotFound:
-		return nil, v
+		response := &UpdateModerationRuleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateModerationRuleConflict:
-		return nil, v
+		response := &UpdateModerationRuleResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateModerationRuleInternalServerError:
-		return nil, v
+		response := &UpdateModerationRuleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,7 +218,7 @@ func (a *Client) UpdateModerationRuleShort(params *UpdateModerationRuleParams, a
 DeleteModerationRuleShort delete auto moderation rule
 This endpoint delete moderation rule.
 */
-func (a *Client) DeleteModerationRuleShort(params *DeleteModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteModerationRuleNoContent, error) {
+func (a *Client) DeleteModerationRuleShort(params *DeleteModerationRuleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteModerationRuleResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteModerationRuleParams()
@@ -212,11 +256,25 @@ func (a *Client) DeleteModerationRuleShort(params *DeleteModerationRuleParams, a
 	switch v := result.(type) {
 
 	case *DeleteModerationRuleNoContent:
-		return v, nil
+		response := &DeleteModerationRuleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteModerationRuleBadRequest:
-		return nil, v
+		response := &DeleteModerationRuleResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteModerationRuleInternalServerError:
-		return nil, v
+		response := &DeleteModerationRuleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -227,7 +285,7 @@ func (a *Client) DeleteModerationRuleShort(params *DeleteModerationRuleParams, a
 UpdateModerationRuleStatusShort enable/disable auto moderation rule
 This endpoint enable/disable moderation rule status.
 */
-func (a *Client) UpdateModerationRuleStatusShort(params *UpdateModerationRuleStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleStatusNoContent, error) {
+func (a *Client) UpdateModerationRuleStatusShort(params *UpdateModerationRuleStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateModerationRuleStatusResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateModerationRuleStatusParams()
@@ -265,13 +323,32 @@ func (a *Client) UpdateModerationRuleStatusShort(params *UpdateModerationRuleSta
 	switch v := result.(type) {
 
 	case *UpdateModerationRuleStatusNoContent:
-		return v, nil
+		response := &UpdateModerationRuleStatusResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateModerationRuleStatusBadRequest:
-		return nil, v
+		response := &UpdateModerationRuleStatusResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateModerationRuleStatusNotFound:
-		return nil, v
+		response := &UpdateModerationRuleStatusResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateModerationRuleStatusInternalServerError:
-		return nil, v
+		response := &UpdateModerationRuleStatusResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -282,7 +359,7 @@ func (a *Client) UpdateModerationRuleStatusShort(params *UpdateModerationRuleSta
 GetModerationRulesShort get auto moderation rules
 This endpoint get moderation rules.
 */
-func (a *Client) GetModerationRulesShort(params *GetModerationRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRulesOK, error) {
+func (a *Client) GetModerationRulesShort(params *GetModerationRulesParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRulesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetModerationRulesParams()
@@ -320,13 +397,33 @@ func (a *Client) GetModerationRulesShort(params *GetModerationRulesParams, authI
 	switch v := result.(type) {
 
 	case *GetModerationRulesOK:
-		return v, nil
+		response := &GetModerationRulesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetModerationRulesBadRequest:
-		return nil, v
+		response := &GetModerationRulesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetModerationRulesNotFound:
-		return nil, v
+		response := &GetModerationRulesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetModerationRulesInternalServerError:
-		return nil, v
+		response := &GetModerationRulesResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -337,7 +434,7 @@ func (a *Client) GetModerationRulesShort(params *GetModerationRulesParams, authI
 GetModerationRuleDetailsShort get auto moderation rule
 This endpoint get moderation rule.
 */
-func (a *Client) GetModerationRuleDetailsShort(params *GetModerationRuleDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRuleDetailsOK, error) {
+func (a *Client) GetModerationRuleDetailsShort(params *GetModerationRuleDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetModerationRuleDetailsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetModerationRuleDetailsParams()
@@ -375,11 +472,26 @@ func (a *Client) GetModerationRuleDetailsShort(params *GetModerationRuleDetailsP
 	switch v := result.(type) {
 
 	case *GetModerationRuleDetailsOK:
-		return v, nil
+		response := &GetModerationRuleDetailsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetModerationRuleDetailsNotFound:
-		return nil, v
+		response := &GetModerationRuleDetailsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetModerationRuleDetailsInternalServerError:
-		return nil, v
+		response := &GetModerationRuleDetailsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

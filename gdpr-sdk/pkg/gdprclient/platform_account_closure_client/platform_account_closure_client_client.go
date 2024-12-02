@@ -30,9 +30,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureClientOK, error)
-	AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdatePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureClientNoContent, error)
-	AdminDeletePlatformAccountClosureClientShort(params *AdminDeletePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformAccountClosureClientNoContent, error)
+	AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureClientResponse, error)
+	AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdatePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureClientResponse, error)
+	AdminDeletePlatformAccountClosureClientShort(params *AdminDeletePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformAccountClosureClientResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -42,7 +42,7 @@ AdminGetPlatformAccountClosureClientShort get platform account closure config
 Get platform account closure config.
 Scope: account
 */
-func (a *Client) AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureClientOK, error) {
+func (a *Client) AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetPlatformAccountClosureClientParams()
@@ -80,17 +80,47 @@ func (a *Client) AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatf
 	switch v := result.(type) {
 
 	case *AdminGetPlatformAccountClosureClientOK:
-		return v, nil
+		response := &AdminGetPlatformAccountClosureClientResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetPlatformAccountClosureClientBadRequest:
-		return nil, v
+		response := &AdminGetPlatformAccountClosureClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformAccountClosureClientUnauthorized:
-		return nil, v
+		response := &AdminGetPlatformAccountClosureClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformAccountClosureClientForbidden:
-		return nil, v
+		response := &AdminGetPlatformAccountClosureClientResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformAccountClosureClientNotFound:
-		return nil, v
+		response := &AdminGetPlatformAccountClosureClientResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetPlatformAccountClosureClientInternalServerError:
-		return nil, v
+		response := &AdminGetPlatformAccountClosureClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -102,7 +132,7 @@ AdminUpdatePlatformAccountClosureClientShort update platform account closure cli
 Update platform account closure client.
 Scope: account
 */
-func (a *Client) AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdatePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureClientNoContent, error) {
+func (a *Client) AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdatePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminUpdatePlatformAccountClosureClientParams()
@@ -140,15 +170,39 @@ func (a *Client) AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdat
 	switch v := result.(type) {
 
 	case *AdminUpdatePlatformAccountClosureClientNoContent:
-		return v, nil
+		response := &AdminUpdatePlatformAccountClosureClientResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminUpdatePlatformAccountClosureClientBadRequest:
-		return nil, v
+		response := &AdminUpdatePlatformAccountClosureClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformAccountClosureClientUnauthorized:
-		return nil, v
+		response := &AdminUpdatePlatformAccountClosureClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformAccountClosureClientForbidden:
-		return nil, v
+		response := &AdminUpdatePlatformAccountClosureClientResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminUpdatePlatformAccountClosureClientInternalServerError:
-		return nil, v
+		response := &AdminUpdatePlatformAccountClosureClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,7 +213,7 @@ func (a *Client) AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdat
 AdminDeletePlatformAccountClosureClientShort delete platform account closure client
 Delete platform account closure client.
 */
-func (a *Client) AdminDeletePlatformAccountClosureClientShort(params *AdminDeletePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformAccountClosureClientNoContent, error) {
+func (a *Client) AdminDeletePlatformAccountClosureClientShort(params *AdminDeletePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformAccountClosureClientResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminDeletePlatformAccountClosureClientParams()
@@ -197,17 +251,46 @@ func (a *Client) AdminDeletePlatformAccountClosureClientShort(params *AdminDelet
 	switch v := result.(type) {
 
 	case *AdminDeletePlatformAccountClosureClientNoContent:
-		return v, nil
+		response := &AdminDeletePlatformAccountClosureClientResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminDeletePlatformAccountClosureClientBadRequest:
-		return nil, v
+		response := &AdminDeletePlatformAccountClosureClientResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformAccountClosureClientUnauthorized:
-		return nil, v
+		response := &AdminDeletePlatformAccountClosureClientResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformAccountClosureClientForbidden:
-		return nil, v
+		response := &AdminDeletePlatformAccountClosureClientResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformAccountClosureClientNotFound:
-		return nil, v
+		response := &AdminDeletePlatformAccountClosureClientResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminDeletePlatformAccountClosureClientInternalServerError:
-		return nil, v
+		response := &AdminDeletePlatformAccountClosureClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

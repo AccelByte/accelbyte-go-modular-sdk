@@ -30,17 +30,17 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	QueryThirdPartySubscriptionShort(params *QueryThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartySubscriptionOK, error)
-	QueryUserThirdPartySubscriptionShort(params *QueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionOK, error)
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByGroupIDOK, error)
-	GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByProductIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByProductIDOK, error)
-	QueryUserThirdPartySubscriptionTransactionsShort(params *QueryUserThirdPartySubscriptionTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionTransactionsOK, error)
-	GetThirdPartySubscriptionDetailsShort(params *GetThirdPartySubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartySubscriptionDetailsOK, error)
-	GetSubscriptionHistoryShort(params *GetSubscriptionHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionHistoryOK, error)
-	SyncSubscriptionTransactionShort(params *SyncSubscriptionTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSubscriptionTransactionOK, error)
-	GetThirdPartyUserSubscriptionDetailsShort(params *GetThirdPartyUserSubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyUserSubscriptionDetailsOK, error)
-	SyncSubscriptionShort(params *SyncSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSubscriptionOK, error)
-	PublicQueryUserThirdPartySubscriptionShort(params *PublicQueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserThirdPartySubscriptionOK, error)
+	QueryThirdPartySubscriptionShort(params *QueryThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartySubscriptionResponse, error)
+	QueryUserThirdPartySubscriptionShort(params *QueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionResponse, error)
+	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByGroupIDResponse, error)
+	GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByProductIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByProductIDResponse, error)
+	QueryUserThirdPartySubscriptionTransactionsShort(params *QueryUserThirdPartySubscriptionTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionTransactionsResponse, error)
+	GetThirdPartySubscriptionDetailsShort(params *GetThirdPartySubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartySubscriptionDetailsResponse, error)
+	GetSubscriptionHistoryShort(params *GetSubscriptionHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionHistoryResponse, error)
+	SyncSubscriptionTransactionShort(params *SyncSubscriptionTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSubscriptionTransactionResponse, error)
+	GetThirdPartyUserSubscriptionDetailsShort(params *GetThirdPartyUserSubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyUserSubscriptionDetailsResponse, error)
+	SyncSubscriptionShort(params *SyncSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSubscriptionResponse, error)
+	PublicQueryUserThirdPartySubscriptionShort(params *PublicQueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserThirdPartySubscriptionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,7 +50,7 @@ QueryThirdPartySubscriptionShort query subscriptions.
 Query subscriptions, default sort by updatedAt Other detail info:
   * Returns :
 */
-func (a *Client) QueryThirdPartySubscriptionShort(params *QueryThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartySubscriptionOK, error) {
+func (a *Client) QueryThirdPartySubscriptionShort(params *QueryThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartySubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryThirdPartySubscriptionParams()
@@ -88,7 +88,12 @@ func (a *Client) QueryThirdPartySubscriptionShort(params *QueryThirdPartySubscri
 	switch v := result.(type) {
 
 	case *QueryThirdPartySubscriptionOK:
-		return v, nil
+		response := &QueryThirdPartySubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -100,7 +105,7 @@ QueryUserThirdPartySubscriptionShort query user subscription.
 Query user subscription, default sort by updatedAtOther detail info:
   * Returns :
 */
-func (a *Client) QueryUserThirdPartySubscriptionShort(params *QueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionOK, error) {
+func (a *Client) QueryUserThirdPartySubscriptionShort(params *QueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserThirdPartySubscriptionParams()
@@ -138,7 +143,12 @@ func (a *Client) QueryUserThirdPartySubscriptionShort(params *QueryUserThirdPart
 	switch v := result.(type) {
 
 	case *QueryUserThirdPartySubscriptionOK:
-		return v, nil
+		response := &QueryUserThirdPartySubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -149,7 +159,7 @@ func (a *Client) QueryUserThirdPartySubscriptionShort(params *QueryUserThirdPart
 GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort get user third party platform subscription ownership by subscription group id
 Get user third party subscription by subscription group id.
 */
-func (a *Client) GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByGroupIDOK, error) {
+func (a *Client) GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByGroupIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams()
@@ -187,7 +197,12 @@ func (a *Client) GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(params
 	switch v := result.(type) {
 
 	case *GetThirdPartyPlatformSubscriptionOwnershipByGroupIDOK:
-		return v, nil
+		response := &GetThirdPartyPlatformSubscriptionOwnershipByGroupIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -198,7 +213,7 @@ func (a *Client) GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(params
 GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort get user third party platform subscription ownership by subscription product id
 Get user third party subscription by subscription product id.
 */
-func (a *Client) GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByProductIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByProductIDOK, error) {
+func (a *Client) GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByProductIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByProductIDResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetThirdPartyPlatformSubscriptionOwnershipByProductIDParams()
@@ -236,7 +251,12 @@ func (a *Client) GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(para
 	switch v := result.(type) {
 
 	case *GetThirdPartyPlatformSubscriptionOwnershipByProductIDOK:
-		return v, nil
+		response := &GetThirdPartyPlatformSubscriptionOwnershipByProductIDResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -248,7 +268,7 @@ QueryUserThirdPartySubscriptionTransactionsShort admin query user subscription t
 Admin query user subscription transactions, default sort by startAt timeOther detail info:
   * Returns :
 */
-func (a *Client) QueryUserThirdPartySubscriptionTransactionsShort(params *QueryUserThirdPartySubscriptionTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionTransactionsOK, error) {
+func (a *Client) QueryUserThirdPartySubscriptionTransactionsShort(params *QueryUserThirdPartySubscriptionTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionTransactionsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewQueryUserThirdPartySubscriptionTransactionsParams()
@@ -286,7 +306,12 @@ func (a *Client) QueryUserThirdPartySubscriptionTransactionsShort(params *QueryU
 	switch v := result.(type) {
 
 	case *QueryUserThirdPartySubscriptionTransactionsOK:
-		return v, nil
+		response := &QueryUserThirdPartySubscriptionTransactionsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -298,7 +323,7 @@ GetThirdPartySubscriptionDetailsShort admin get user subscription transaction de
 Admin get user subscription details.Other detail info:
   * Returns :
 */
-func (a *Client) GetThirdPartySubscriptionDetailsShort(params *GetThirdPartySubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartySubscriptionDetailsOK, error) {
+func (a *Client) GetThirdPartySubscriptionDetailsShort(params *GetThirdPartySubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartySubscriptionDetailsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetThirdPartySubscriptionDetailsParams()
@@ -336,9 +361,19 @@ func (a *Client) GetThirdPartySubscriptionDetailsShort(params *GetThirdPartySubs
 	switch v := result.(type) {
 
 	case *GetThirdPartySubscriptionDetailsOK:
-		return v, nil
+		response := &GetThirdPartySubscriptionDetailsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetThirdPartySubscriptionDetailsNotFound:
-		return nil, v
+		response := &GetThirdPartySubscriptionDetailsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -349,7 +384,7 @@ func (a *Client) GetThirdPartySubscriptionDetailsShort(params *GetThirdPartySubs
 GetSubscriptionHistoryShort get user subscription transaction update history
 Get Subscription Transaction Update History
 */
-func (a *Client) GetSubscriptionHistoryShort(params *GetSubscriptionHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionHistoryOK, error) {
+func (a *Client) GetSubscriptionHistoryShort(params *GetSubscriptionHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionHistoryResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSubscriptionHistoryParams()
@@ -387,7 +422,12 @@ func (a *Client) GetSubscriptionHistoryShort(params *GetSubscriptionHistoryParam
 	switch v := result.(type) {
 
 	case *GetSubscriptionHistoryOK:
-		return v, nil
+		response := &GetSubscriptionHistoryResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -398,7 +438,7 @@ func (a *Client) GetSubscriptionHistoryShort(params *GetSubscriptionHistoryParam
 SyncSubscriptionTransactionShort sync subscription transaction
 Sync Subscription Status
 */
-func (a *Client) SyncSubscriptionTransactionShort(params *SyncSubscriptionTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSubscriptionTransactionOK, error) {
+func (a *Client) SyncSubscriptionTransactionShort(params *SyncSubscriptionTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSubscriptionTransactionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncSubscriptionTransactionParams()
@@ -436,11 +476,26 @@ func (a *Client) SyncSubscriptionTransactionShort(params *SyncSubscriptionTransa
 	switch v := result.(type) {
 
 	case *SyncSubscriptionTransactionOK:
-		return v, nil
+		response := &SyncSubscriptionTransactionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncSubscriptionTransactionBadRequest:
-		return nil, v
+		response := &SyncSubscriptionTransactionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncSubscriptionTransactionNotFound:
-		return nil, v
+		response := &SyncSubscriptionTransactionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -452,7 +507,7 @@ GetThirdPartyUserSubscriptionDetailsShort admin get user subscription details.
 Admin get user subscription details.Other detail info:
   * Returns :
 */
-func (a *Client) GetThirdPartyUserSubscriptionDetailsShort(params *GetThirdPartyUserSubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyUserSubscriptionDetailsOK, error) {
+func (a *Client) GetThirdPartyUserSubscriptionDetailsShort(params *GetThirdPartyUserSubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyUserSubscriptionDetailsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetThirdPartyUserSubscriptionDetailsParams()
@@ -490,9 +545,19 @@ func (a *Client) GetThirdPartyUserSubscriptionDetailsShort(params *GetThirdParty
 	switch v := result.(type) {
 
 	case *GetThirdPartyUserSubscriptionDetailsOK:
-		return v, nil
+		response := &GetThirdPartyUserSubscriptionDetailsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetThirdPartyUserSubscriptionDetailsNotFound:
-		return nil, v
+		response := &GetThirdPartyUserSubscriptionDetailsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -503,7 +568,7 @@ func (a *Client) GetThirdPartyUserSubscriptionDetailsShort(params *GetThirdParty
 SyncSubscriptionShort sync subscription status
 Sync Subscription Status
 */
-func (a *Client) SyncSubscriptionShort(params *SyncSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSubscriptionOK, error) {
+func (a *Client) SyncSubscriptionShort(params *SyncSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewSyncSubscriptionParams()
@@ -541,11 +606,26 @@ func (a *Client) SyncSubscriptionShort(params *SyncSubscriptionParams, authInfo 
 	switch v := result.(type) {
 
 	case *SyncSubscriptionOK:
-		return v, nil
+		response := &SyncSubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *SyncSubscriptionBadRequest:
-		return nil, v
+		response := &SyncSubscriptionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *SyncSubscriptionNotFound:
-		return nil, v
+		response := &SyncSubscriptionResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -557,7 +637,7 @@ PublicQueryUserThirdPartySubscriptionShort query user subscription.
 Query user subscription, default sort by updatedAtOther detail info:
   * Returns :
 */
-func (a *Client) PublicQueryUserThirdPartySubscriptionShort(params *PublicQueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserThirdPartySubscriptionOK, error) {
+func (a *Client) PublicQueryUserThirdPartySubscriptionShort(params *PublicQueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserThirdPartySubscriptionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicQueryUserThirdPartySubscriptionParams()
@@ -595,7 +675,12 @@ func (a *Client) PublicQueryUserThirdPartySubscriptionShort(params *PublicQueryU
 	switch v := result.(type) {
 
 	case *PublicQueryUserThirdPartySubscriptionOK:
-		return v, nil
+		response := &PublicQueryUserThirdPartySubscriptionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

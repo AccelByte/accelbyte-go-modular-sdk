@@ -30,22 +30,22 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetLootBoxPluginConfigShort(params *GetLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetLootBoxPluginConfigOK, error)
-	UpdateLootBoxPluginConfigShort(params *UpdateLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLootBoxPluginConfigOK, error)
-	DeleteLootBoxPluginConfigShort(params *DeleteLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLootBoxPluginConfigNoContent, error)
-	UplodLootBoxPluginConfigCertShort(params *UplodLootBoxPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UplodLootBoxPluginConfigCertOK, error)
-	GetLootBoxGrpcInfoShort(params *GetLootBoxGrpcInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetLootBoxGrpcInfoOK, error)
-	GetSectionPluginConfigShort(params *GetSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionPluginConfigOK, error)
-	UpdateSectionPluginConfigShort(params *UpdateSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionPluginConfigOK, error)
-	DeleteSectionPluginConfigShort(params *DeleteSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionPluginConfigNoContent, error)
-	UploadSectionPluginConfigCertShort(params *UploadSectionPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadSectionPluginConfigCertOK, error)
-	GetServicePluginConfigShort(params *GetServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetServicePluginConfigOK, error)
-	UpdateServicePluginConfigShort(params *UpdateServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServicePluginConfigOK, error)
-	DeleteServicePluginConfigShort(params *DeleteServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServicePluginConfigNoContent, error)
-	GetRevocationPluginConfigShort(params *GetRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationPluginConfigOK, error)
-	UpdateRevocationPluginConfigShort(params *UpdateRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRevocationPluginConfigOK, error)
-	DeleteRevocationPluginConfigShort(params *DeleteRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRevocationPluginConfigNoContent, error)
-	UploadRevocationPluginConfigCertShort(params *UploadRevocationPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertOK, error)
+	GetLootBoxPluginConfigShort(params *GetLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetLootBoxPluginConfigResponse, error)
+	UpdateLootBoxPluginConfigShort(params *UpdateLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLootBoxPluginConfigResponse, error)
+	DeleteLootBoxPluginConfigShort(params *DeleteLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLootBoxPluginConfigResponse, error)
+	UplodLootBoxPluginConfigCertShort(params *UplodLootBoxPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UplodLootBoxPluginConfigCertResponse, error)
+	GetLootBoxGrpcInfoShort(params *GetLootBoxGrpcInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetLootBoxGrpcInfoResponse, error)
+	GetSectionPluginConfigShort(params *GetSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionPluginConfigResponse, error)
+	UpdateSectionPluginConfigShort(params *UpdateSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionPluginConfigResponse, error)
+	DeleteSectionPluginConfigShort(params *DeleteSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionPluginConfigResponse, error)
+	UploadSectionPluginConfigCertShort(params *UploadSectionPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadSectionPluginConfigCertResponse, error)
+	GetServicePluginConfigShort(params *GetServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetServicePluginConfigResponse, error)
+	UpdateServicePluginConfigShort(params *UpdateServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServicePluginConfigResponse, error)
+	DeleteServicePluginConfigShort(params *DeleteServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServicePluginConfigResponse, error)
+	GetRevocationPluginConfigShort(params *GetRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationPluginConfigResponse, error)
+	UpdateRevocationPluginConfigShort(params *UpdateRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRevocationPluginConfigResponse, error)
+	DeleteRevocationPluginConfigShort(params *DeleteRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRevocationPluginConfigResponse, error)
+	UploadRevocationPluginConfigCertShort(params *UploadRevocationPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -54,7 +54,7 @@ type ClientService interface {
 GetLootBoxPluginConfigShort get lootbox plugin config
 Get lootbox plugin config.
 */
-func (a *Client) GetLootBoxPluginConfigShort(params *GetLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetLootBoxPluginConfigOK, error) {
+func (a *Client) GetLootBoxPluginConfigShort(params *GetLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetLootBoxPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLootBoxPluginConfigParams()
@@ -92,7 +92,12 @@ func (a *Client) GetLootBoxPluginConfigShort(params *GetLootBoxPluginConfigParam
 	switch v := result.(type) {
 
 	case *GetLootBoxPluginConfigOK:
-		return v, nil
+		response := &GetLootBoxPluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -104,7 +109,7 @@ UpdateLootBoxPluginConfigShort update lootbox plugin config
 Update lootbox plugin config. Other detail info:
   * Returns : updated service plugin config
 */
-func (a *Client) UpdateLootBoxPluginConfigShort(params *UpdateLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLootBoxPluginConfigOK, error) {
+func (a *Client) UpdateLootBoxPluginConfigShort(params *UpdateLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLootBoxPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateLootBoxPluginConfigParams()
@@ -142,9 +147,19 @@ func (a *Client) UpdateLootBoxPluginConfigShort(params *UpdateLootBoxPluginConfi
 	switch v := result.(type) {
 
 	case *UpdateLootBoxPluginConfigOK:
-		return v, nil
+		response := &UpdateLootBoxPluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateLootBoxPluginConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdateLootBoxPluginConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -155,7 +170,7 @@ func (a *Client) UpdateLootBoxPluginConfigShort(params *UpdateLootBoxPluginConfi
 DeleteLootBoxPluginConfigShort delete lootbox plugin config
 Delete service plugin config.
 */
-func (a *Client) DeleteLootBoxPluginConfigShort(params *DeleteLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLootBoxPluginConfigNoContent, error) {
+func (a *Client) DeleteLootBoxPluginConfigShort(params *DeleteLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLootBoxPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteLootBoxPluginConfigParams()
@@ -193,7 +208,11 @@ func (a *Client) DeleteLootBoxPluginConfigShort(params *DeleteLootBoxPluginConfi
 	switch v := result.(type) {
 
 	case *DeleteLootBoxPluginConfigNoContent:
-		return v, nil
+		response := &DeleteLootBoxPluginConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -205,7 +224,7 @@ UplodLootBoxPluginConfigCertShort upload lootbox plugin custom config tls cert
 Upload lootbox plugin custom config tls cert.Other detail info:
   * Returns : updated service plugin config
 */
-func (a *Client) UplodLootBoxPluginConfigCertShort(params *UplodLootBoxPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UplodLootBoxPluginConfigCertOK, error) {
+func (a *Client) UplodLootBoxPluginConfigCertShort(params *UplodLootBoxPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UplodLootBoxPluginConfigCertResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUplodLootBoxPluginConfigCertParams()
@@ -243,9 +262,19 @@ func (a *Client) UplodLootBoxPluginConfigCertShort(params *UplodLootBoxPluginCon
 	switch v := result.(type) {
 
 	case *UplodLootBoxPluginConfigCertOK:
-		return v, nil
+		response := &UplodLootBoxPluginConfigCertResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UplodLootBoxPluginConfigCertUnprocessableEntity:
-		return nil, v
+		response := &UplodLootBoxPluginConfigCertResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -256,7 +285,7 @@ func (a *Client) UplodLootBoxPluginConfigCertShort(params *UplodLootBoxPluginCon
 GetLootBoxGrpcInfoShort get lootbox plugin grpc info
 Get lootbox plugin gRPC info.
 */
-func (a *Client) GetLootBoxGrpcInfoShort(params *GetLootBoxGrpcInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetLootBoxGrpcInfoOK, error) {
+func (a *Client) GetLootBoxGrpcInfoShort(params *GetLootBoxGrpcInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetLootBoxGrpcInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetLootBoxGrpcInfoParams()
@@ -294,7 +323,12 @@ func (a *Client) GetLootBoxGrpcInfoShort(params *GetLootBoxGrpcInfoParams, authI
 	switch v := result.(type) {
 
 	case *GetLootBoxGrpcInfoOK:
-		return v, nil
+		response := &GetLootBoxGrpcInfoResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -305,7 +339,7 @@ func (a *Client) GetLootBoxGrpcInfoShort(params *GetLootBoxGrpcInfoParams, authI
 GetSectionPluginConfigShort get section plugin config
 Get section plugin config.
 */
-func (a *Client) GetSectionPluginConfigShort(params *GetSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionPluginConfigOK, error) {
+func (a *Client) GetSectionPluginConfigShort(params *GetSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetSectionPluginConfigParams()
@@ -343,7 +377,12 @@ func (a *Client) GetSectionPluginConfigShort(params *GetSectionPluginConfigParam
 	switch v := result.(type) {
 
 	case *GetSectionPluginConfigOK:
-		return v, nil
+		response := &GetSectionPluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -355,7 +394,7 @@ UpdateSectionPluginConfigShort update section plugin config
 Update section config. Other detail info:
   * Returns : updated service plugin config
 */
-func (a *Client) UpdateSectionPluginConfigShort(params *UpdateSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionPluginConfigOK, error) {
+func (a *Client) UpdateSectionPluginConfigShort(params *UpdateSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateSectionPluginConfigParams()
@@ -393,9 +432,19 @@ func (a *Client) UpdateSectionPluginConfigShort(params *UpdateSectionPluginConfi
 	switch v := result.(type) {
 
 	case *UpdateSectionPluginConfigOK:
-		return v, nil
+		response := &UpdateSectionPluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateSectionPluginConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdateSectionPluginConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -406,7 +455,7 @@ func (a *Client) UpdateSectionPluginConfigShort(params *UpdateSectionPluginConfi
 DeleteSectionPluginConfigShort delete section plugin config
 Delete section plugin config.
 */
-func (a *Client) DeleteSectionPluginConfigShort(params *DeleteSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionPluginConfigNoContent, error) {
+func (a *Client) DeleteSectionPluginConfigShort(params *DeleteSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteSectionPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteSectionPluginConfigParams()
@@ -444,7 +493,11 @@ func (a *Client) DeleteSectionPluginConfigShort(params *DeleteSectionPluginConfi
 	switch v := result.(type) {
 
 	case *DeleteSectionPluginConfigNoContent:
-		return v, nil
+		response := &DeleteSectionPluginConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -456,7 +509,7 @@ UploadSectionPluginConfigCertShort upload section plugin custom config tls cert
 Upload section plugin custom config tls cert.Other detail info:
   * Returns : updated service plugin config
 */
-func (a *Client) UploadSectionPluginConfigCertShort(params *UploadSectionPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadSectionPluginConfigCertOK, error) {
+func (a *Client) UploadSectionPluginConfigCertShort(params *UploadSectionPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadSectionPluginConfigCertResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadSectionPluginConfigCertParams()
@@ -494,9 +547,19 @@ func (a *Client) UploadSectionPluginConfigCertShort(params *UploadSectionPluginC
 	switch v := result.(type) {
 
 	case *UploadSectionPluginConfigCertOK:
-		return v, nil
+		response := &UploadSectionPluginConfigCertResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UploadSectionPluginConfigCertUnprocessableEntity:
-		return nil, v
+		response := &UploadSectionPluginConfigCertResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -507,7 +570,7 @@ func (a *Client) UploadSectionPluginConfigCertShort(params *UploadSectionPluginC
 GetServicePluginConfigShort get service plugin config
 Get service plugin config
 */
-func (a *Client) GetServicePluginConfigShort(params *GetServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetServicePluginConfigOK, error) {
+func (a *Client) GetServicePluginConfigShort(params *GetServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetServicePluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetServicePluginConfigParams()
@@ -545,7 +608,12 @@ func (a *Client) GetServicePluginConfigShort(params *GetServicePluginConfigParam
 	switch v := result.(type) {
 
 	case *GetServicePluginConfigOK:
-		return v, nil
+		response := &GetServicePluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -557,7 +625,7 @@ UpdateServicePluginConfigShort update service plugin config service
 Update catalog config. Other detail info:
   * Returns : updated service plugin config
 */
-func (a *Client) UpdateServicePluginConfigShort(params *UpdateServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServicePluginConfigOK, error) {
+func (a *Client) UpdateServicePluginConfigShort(params *UpdateServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServicePluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateServicePluginConfigParams()
@@ -595,9 +663,19 @@ func (a *Client) UpdateServicePluginConfigShort(params *UpdateServicePluginConfi
 	switch v := result.(type) {
 
 	case *UpdateServicePluginConfigOK:
-		return v, nil
+		response := &UpdateServicePluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateServicePluginConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdateServicePluginConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -608,7 +686,7 @@ func (a *Client) UpdateServicePluginConfigShort(params *UpdateServicePluginConfi
 DeleteServicePluginConfigShort delete service plugin config
 Delete service plugin config
 */
-func (a *Client) DeleteServicePluginConfigShort(params *DeleteServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServicePluginConfigNoContent, error) {
+func (a *Client) DeleteServicePluginConfigShort(params *DeleteServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteServicePluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteServicePluginConfigParams()
@@ -646,7 +724,11 @@ func (a *Client) DeleteServicePluginConfigShort(params *DeleteServicePluginConfi
 	switch v := result.(type) {
 
 	case *DeleteServicePluginConfigNoContent:
-		return v, nil
+		response := &DeleteServicePluginConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -657,7 +739,7 @@ func (a *Client) DeleteServicePluginConfigShort(params *DeleteServicePluginConfi
 GetRevocationPluginConfigShort get revocation plugin config
 Get revocation plugin config.
 */
-func (a *Client) GetRevocationPluginConfigShort(params *GetRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationPluginConfigOK, error) {
+func (a *Client) GetRevocationPluginConfigShort(params *GetRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetRevocationPluginConfigParams()
@@ -695,7 +777,12 @@ func (a *Client) GetRevocationPluginConfigShort(params *GetRevocationPluginConfi
 	switch v := result.(type) {
 
 	case *GetRevocationPluginConfigOK:
-		return v, nil
+		response := &GetRevocationPluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -707,7 +794,7 @@ UpdateRevocationPluginConfigShort update revocation plugin config
 Update revocation plugin config. Other detail info:
   * Returns : updated service plugin config
 */
-func (a *Client) UpdateRevocationPluginConfigShort(params *UpdateRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRevocationPluginConfigOK, error) {
+func (a *Client) UpdateRevocationPluginConfigShort(params *UpdateRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRevocationPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateRevocationPluginConfigParams()
@@ -745,9 +832,19 @@ func (a *Client) UpdateRevocationPluginConfigShort(params *UpdateRevocationPlugi
 	switch v := result.(type) {
 
 	case *UpdateRevocationPluginConfigOK:
-		return v, nil
+		response := &UpdateRevocationPluginConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateRevocationPluginConfigUnprocessableEntity:
-		return nil, v
+		response := &UpdateRevocationPluginConfigResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -758,7 +855,7 @@ func (a *Client) UpdateRevocationPluginConfigShort(params *UpdateRevocationPlugi
 DeleteRevocationPluginConfigShort delete revocation plugin config
 Delete service plugin config.
 */
-func (a *Client) DeleteRevocationPluginConfigShort(params *DeleteRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRevocationPluginConfigNoContent, error) {
+func (a *Client) DeleteRevocationPluginConfigShort(params *DeleteRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRevocationPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteRevocationPluginConfigParams()
@@ -796,7 +893,11 @@ func (a *Client) DeleteRevocationPluginConfigShort(params *DeleteRevocationPlugi
 	switch v := result.(type) {
 
 	case *DeleteRevocationPluginConfigNoContent:
-		return v, nil
+		response := &DeleteRevocationPluginConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -808,7 +909,7 @@ UploadRevocationPluginConfigCertShort upload revocation plugin custom config tls
 Upload revocation plugin custom config tls cert.Other detail info:
   * Returns : updated service plugin config
 */
-func (a *Client) UploadRevocationPluginConfigCertShort(params *UploadRevocationPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertOK, error) {
+func (a *Client) UploadRevocationPluginConfigCertShort(params *UploadRevocationPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUploadRevocationPluginConfigCertParams()
@@ -846,9 +947,19 @@ func (a *Client) UploadRevocationPluginConfigCertShort(params *UploadRevocationP
 	switch v := result.(type) {
 
 	case *UploadRevocationPluginConfigCertOK:
-		return v, nil
+		response := &UploadRevocationPluginConfigCertResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UploadRevocationPluginConfigCertUnprocessableEntity:
-		return nil, v
+		response := &UploadRevocationPluginConfigCertResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -9,7 +9,6 @@ package csm
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/notification_subscription"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *NotificationSubscriptionService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *NotificationSubscriptionService) GetNotificationSubscriberListV2Short(input *notification_subscription.GetNotificationSubscriberListV2Params) (*csmclientmodels.ApimodelGetNotificationSubscriberListResponse, error) {
+func (aaa *NotificationSubscriptionService) GetNotificationSubscriberListV2Short(input *notification_subscription.GetNotificationSubscriberListV2Params) (*notification_subscription.GetNotificationSubscriberListV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *NotificationSubscriptionService) GetNotificationSubscriberListV2Short
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *NotificationSubscriptionService) BulkSaveSubscriptionAppNotificationV2Short(input *notification_subscription.BulkSaveSubscriptionAppNotificationV2Params) (*csmclientmodels.ApimodelGetNotificationSubscriberListResponse, error) {
+func (aaa *NotificationSubscriptionService) BulkSaveSubscriptionAppNotificationV2Short(input *notification_subscription.BulkSaveSubscriptionAppNotificationV2Params) (*notification_subscription.BulkSaveSubscriptionAppNotificationV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *NotificationSubscriptionService) BulkSaveSubscriptionAppNotificationV
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *NotificationSubscriptionService) SubscribeAppNotificationV2Short(input *notification_subscription.SubscribeAppNotificationV2Params) (*csmclientmodels.ApimodelSubscribeNotificationResponse, error) {
+func (aaa *NotificationSubscriptionService) SubscribeAppNotificationV2Short(input *notification_subscription.SubscribeAppNotificationV2Params) (*notification_subscription.SubscribeAppNotificationV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *NotificationSubscriptionService) SubscribeAppNotificationV2Short(inpu
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *NotificationSubscriptionService) GetSubscriptionV2HandlerShort(input *notification_subscription.GetSubscriptionV2HandlerParams) (*csmclientmodels.ApimodelGetNotificationSubscriberStatusResponse, error) {
+func (aaa *NotificationSubscriptionService) GetSubscriptionV2HandlerShort(input *notification_subscription.GetSubscriptionV2HandlerParams) (*notification_subscription.GetSubscriptionV2HandlerResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *NotificationSubscriptionService) GetSubscriptionV2HandlerShort(input 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *NotificationSubscriptionService) SubscribeV2HandlerShort(input *notification_subscription.SubscribeV2HandlerParams) error {

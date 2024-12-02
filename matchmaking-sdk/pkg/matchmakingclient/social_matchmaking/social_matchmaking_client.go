@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	UpdatePlayTimeWeightShort(params *UpdatePlayTimeWeightParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlayTimeWeightOK, error)
+	UpdatePlayTimeWeightShort(params *UpdatePlayTimeWeightParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlayTimeWeightResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ Update a connection weight between player and playtime.
 
 This endpoint is intended to be called by admin for debugging purpose on social matchmaking rule.
 */
-func (a *Client) UpdatePlayTimeWeightShort(params *UpdatePlayTimeWeightParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlayTimeWeightOK, error) {
+func (a *Client) UpdatePlayTimeWeightShort(params *UpdatePlayTimeWeightParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlayTimeWeightResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdatePlayTimeWeightParams()
@@ -79,17 +79,47 @@ func (a *Client) UpdatePlayTimeWeightShort(params *UpdatePlayTimeWeightParams, a
 	switch v := result.(type) {
 
 	case *UpdatePlayTimeWeightOK:
-		return v, nil
+		response := &UpdatePlayTimeWeightResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdatePlayTimeWeightBadRequest:
-		return nil, v
+		response := &UpdatePlayTimeWeightResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePlayTimeWeightUnauthorized:
-		return nil, v
+		response := &UpdatePlayTimeWeightResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePlayTimeWeightForbidden:
-		return nil, v
+		response := &UpdatePlayTimeWeightResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePlayTimeWeightNotFound:
-		return nil, v
+		response := &UpdatePlayTimeWeightResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdatePlayTimeWeightInternalServerError:
-		return nil, v
+		response := &UpdatePlayTimeWeightResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

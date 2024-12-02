@@ -19,6 +19,81 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 )
 
+type PublicUpdateAttributeResponse struct {
+	socialclientmodels.ApiResponse
+	Data *socialclientmodels.GameProfileInfo
+
+	Error400 *socialclientmodels.ErrorEntity
+	Error401 *socialclientmodels.ErrorEntity
+	Error403 *socialclientmodels.ErrorEntity
+	Error404 *socialclientmodels.ErrorEntity
+	Error422 *socialclientmodels.ValidationErrorEntity
+	Error500 *socialclientmodels.ErrorEntity
+}
+
+func (m *PublicUpdateAttributeResponse) Unpack() (*socialclientmodels.GameProfileInfo, *socialclientmodels.ApiError) {
+	if !m.IsSuccess {
+		var errCode int
+		errCode = m.StatusCode
+
+		switch errCode {
+
+		case 400:
+			e, err := m.Error400.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 422:
+			e, err := m.Error422.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		default:
+			return nil, &socialclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+		}
+	}
+
+	return m.Data, nil
+}
+
 // PublicUpdateAttributeReader is a Reader for the PublicUpdateAttribute structure.
 type PublicUpdateAttributeReader struct {
 	formats strfmt.Registry

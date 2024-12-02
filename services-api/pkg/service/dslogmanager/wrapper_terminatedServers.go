@@ -11,7 +11,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclient/terminated_servers"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk/pkg/dslogmanagerclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -41,7 +40,7 @@ func (aaa *TerminatedServersService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *TerminatedServersService) ListTerminatedServersShort(input *terminated_servers.ListTerminatedServersParams) (*dslogmanagerclientmodels.ModelsListTerminatedServersResponse, error) {
+func (aaa *TerminatedServersService) ListTerminatedServersShort(input *terminated_servers.ListTerminatedServersParams) (*terminated_servers.ListTerminatedServersResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -68,10 +67,10 @@ func (aaa *TerminatedServersService) ListTerminatedServersShort(input *terminate
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TerminatedServersService) DownloadServerLogsShort(input *terminated_servers.DownloadServerLogsParams, writer io.Writer) (io.Writer, error) {
+func (aaa *TerminatedServersService) DownloadServerLogsShort(input *terminated_servers.DownloadServerLogsParams, writer io.Writer) (*terminated_servers.DownloadServerLogsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -98,10 +97,10 @@ func (aaa *TerminatedServersService) DownloadServerLogsShort(input *terminated_s
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *TerminatedServersService) CheckServerLogsShort(input *terminated_servers.CheckServerLogsParams) (*dslogmanagerclientmodels.ModelsLogFileStatus, error) {
+func (aaa *TerminatedServersService) CheckServerLogsShort(input *terminated_servers.CheckServerLogsParams) (*terminated_servers.CheckServerLogsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -128,5 +127,5 @@ func (aaa *TerminatedServersService) CheckServerLogsShort(input *terminated_serv
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

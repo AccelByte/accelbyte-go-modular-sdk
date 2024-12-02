@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_content"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 )
 
 type AdminContentService struct {
@@ -37,7 +36,7 @@ func (aaa *AdminContentService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AdminContentService) AdminUploadContentDirectShort(input *admin_content.AdminUploadContentDirectParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *AdminContentService) AdminUploadContentDirectShort(input *admin_content.AdminUploadContentDirectParams) (*admin_content.AdminUploadContentDirectResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *AdminContentService) AdminUploadContentDirectShort(input *admin_conte
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminContentService) AdminUploadContentS3Short(input *admin_content.AdminUploadContentS3Params) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *AdminContentService) AdminUploadContentS3Short(input *admin_content.AdminUploadContentS3Params) (*admin_content.AdminUploadContentS3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,10 +93,10 @@ func (aaa *AdminContentService) AdminUploadContentS3Short(input *admin_content.A
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *AdminContentService) SingleAdminUpdateContentS3Short(input *admin_content.SingleAdminUpdateContentS3Params) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *AdminContentService) SingleAdminUpdateContentS3Short(input *admin_content.SingleAdminUpdateContentS3Params) (*admin_content.SingleAdminUpdateContentS3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -124,10 +123,10 @@ func (aaa *AdminContentService) SingleAdminUpdateContentS3Short(input *admin_con
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminSearchChannelSpecificContentShort(input *admin_content.AdminSearchChannelSpecificContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *AdminContentService) AdminSearchChannelSpecificContentShort(input *admin_content.AdminSearchChannelSpecificContentParams) (*admin_content.AdminSearchChannelSpecificContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *AdminContentService) AdminSearchChannelSpecificContentShort(input *ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) SingleAdminUpdateContentDirectShort(input *admin_content.SingleAdminUpdateContentDirectParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *AdminContentService) SingleAdminUpdateContentDirectShort(input *admin_content.SingleAdminUpdateContentDirectParams) (*admin_content.SingleAdminUpdateContentDirectResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,7 +183,7 @@ func (aaa *AdminContentService) SingleAdminUpdateContentDirectShort(input *admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminContentService) SingleAdminDeleteContentShort(input *admin_content.SingleAdminDeleteContentParams) error {
@@ -217,7 +216,7 @@ func (aaa *AdminContentService) SingleAdminDeleteContentShort(input *admin_conte
 	return nil
 }
 
-func (aaa *AdminContentService) SingleAdminGetContentShort(input *admin_content.SingleAdminGetContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *AdminContentService) SingleAdminGetContentShort(input *admin_content.SingleAdminGetContentParams) (*admin_content.SingleAdminGetContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *AdminContentService) SingleAdminGetContentShort(input *admin_content.
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminGetContentBulkShort(input *admin_content.AdminGetContentBulkParams) ([]*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *AdminContentService) AdminGetContentBulkShort(input *admin_content.AdminGetContentBulkParams) (*admin_content.AdminGetContentBulkResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,10 +273,10 @@ func (aaa *AdminContentService) AdminGetContentBulkShort(input *admin_content.Ad
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminSearchContentShort(input *admin_content.AdminSearchContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *AdminContentService) AdminSearchContentShort(input *admin_content.AdminSearchContentParams) (*admin_content.AdminSearchContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -304,10 +303,10 @@ func (aaa *AdminContentService) AdminSearchContentShort(input *admin_content.Adm
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminGetContentBulkByShareCodesShort(input *admin_content.AdminGetContentBulkByShareCodesParams) ([]*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *AdminContentService) AdminGetContentBulkByShareCodesShort(input *admin_content.AdminGetContentBulkByShareCodesParams) (*admin_content.AdminGetContentBulkByShareCodesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *AdminContentService) AdminGetContentBulkByShareCodesShort(input *admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminGetUserContentByShareCodeShort(input *admin_content.AdminGetUserContentByShareCodeParams) (*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *AdminContentService) AdminGetUserContentByShareCodeShort(input *admin_content.AdminGetUserContentByShareCodeParams) (*admin_content.AdminGetUserContentByShareCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *AdminContentService) AdminGetUserContentByShareCodeShort(input *admin
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminGetSpecificContentShort(input *admin_content.AdminGetSpecificContentParams) (*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *AdminContentService) AdminGetSpecificContentShort(input *admin_content.AdminGetSpecificContentParams) (*admin_content.AdminGetSpecificContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,10 +393,10 @@ func (aaa *AdminContentService) AdminGetSpecificContentShort(input *admin_conten
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminDownloadContentPreviewShort(input *admin_content.AdminDownloadContentPreviewParams) (*ugcclientmodels.ModelsGetContentPreviewResponse, error) {
+func (aaa *AdminContentService) AdminDownloadContentPreviewShort(input *admin_content.AdminDownloadContentPreviewParams) (*admin_content.AdminDownloadContentPreviewResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -424,10 +423,10 @@ func (aaa *AdminContentService) AdminDownloadContentPreviewShort(input *admin_co
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) RollbackContentVersionShort(input *admin_content.RollbackContentVersionParams) (*ugcclientmodels.ModelsContentDownloadResponse, error) {
+func (aaa *AdminContentService) RollbackContentVersionShort(input *admin_content.RollbackContentVersionParams) (*admin_content.RollbackContentVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -454,10 +453,10 @@ func (aaa *AdminContentService) RollbackContentVersionShort(input *admin_content
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminUpdateScreenshotsShort(input *admin_content.AdminUpdateScreenshotsParams) (*ugcclientmodels.ModelsUpdateScreenshotResponse, error) {
+func (aaa *AdminContentService) AdminUpdateScreenshotsShort(input *admin_content.AdminUpdateScreenshotsParams) (*admin_content.AdminUpdateScreenshotsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -484,10 +483,10 @@ func (aaa *AdminContentService) AdminUpdateScreenshotsShort(input *admin_content
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminUploadContentScreenshotShort(input *admin_content.AdminUploadContentScreenshotParams) (*ugcclientmodels.ModelsCreateScreenshotResponse, error) {
+func (aaa *AdminContentService) AdminUploadContentScreenshotShort(input *admin_content.AdminUploadContentScreenshotParams) (*admin_content.AdminUploadContentScreenshotResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,7 +513,7 @@ func (aaa *AdminContentService) AdminUploadContentScreenshotShort(input *admin_c
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
 func (aaa *AdminContentService) AdminDeleteContentScreenshotShort(input *admin_content.AdminDeleteContentScreenshotParams) error {
@@ -547,7 +546,7 @@ func (aaa *AdminContentService) AdminDeleteContentScreenshotShort(input *admin_c
 	return nil
 }
 
-func (aaa *AdminContentService) ListContentVersionsShort(input *admin_content.ListContentVersionsParams) (*ugcclientmodels.ModelsListContentVersionsResponse, error) {
+func (aaa *AdminContentService) ListContentVersionsShort(input *admin_content.ListContentVersionsParams) (*admin_content.ListContentVersionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -574,10 +573,10 @@ func (aaa *AdminContentService) ListContentVersionsShort(input *admin_content.Li
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminUpdateContentS3ByShareCodeShort(input *admin_content.AdminUpdateContentS3ByShareCodeParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *AdminContentService) AdminUpdateContentS3ByShareCodeShort(input *admin_content.AdminUpdateContentS3ByShareCodeParams) (*admin_content.AdminUpdateContentS3ByShareCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -604,10 +603,10 @@ func (aaa *AdminContentService) AdminUpdateContentS3ByShareCodeShort(input *admi
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminUpdateContentS3Short(input *admin_content.AdminUpdateContentS3Params) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *AdminContentService) AdminUpdateContentS3Short(input *admin_content.AdminUpdateContentS3Params) (*admin_content.AdminUpdateContentS3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -634,7 +633,7 @@ func (aaa *AdminContentService) AdminUpdateContentS3Short(input *admin_content.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminContentService) DeleteContentByShareCodeShort(input *admin_content.DeleteContentByShareCodeParams) error {
@@ -667,7 +666,7 @@ func (aaa *AdminContentService) DeleteContentByShareCodeShort(input *admin_conte
 	return nil
 }
 
-func (aaa *AdminContentService) AdminUpdateContentDirectShort(input *admin_content.AdminUpdateContentDirectParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *AdminContentService) AdminUpdateContentDirectShort(input *admin_content.AdminUpdateContentDirectParams) (*admin_content.AdminUpdateContentDirectResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -694,7 +693,7 @@ func (aaa *AdminContentService) AdminUpdateContentDirectShort(input *admin_conte
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *AdminContentService) AdminDeleteContentShort(input *admin_content.AdminDeleteContentParams) error {
@@ -727,7 +726,7 @@ func (aaa *AdminContentService) AdminDeleteContentShort(input *admin_content.Adm
 	return nil
 }
 
-func (aaa *AdminContentService) AdminGetContentShort(input *admin_content.AdminGetContentParams) (*ugcclientmodels.ModelsPaginatedContentDownloadResponse, error) {
+func (aaa *AdminContentService) AdminGetContentShort(input *admin_content.AdminGetContentParams) (*admin_content.AdminGetContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -754,10 +753,10 @@ func (aaa *AdminContentService) AdminGetContentShort(input *admin_content.AdminG
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *AdminContentService) AdminHideUserContentShort(input *admin_content.AdminHideUserContentParams) (*ugcclientmodels.ModelsCreateContentResponse, error) {
+func (aaa *AdminContentService) AdminHideUserContentShort(input *admin_content.AdminHideUserContentParams) (*admin_content.AdminHideUserContentResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -784,5 +783,5 @@ func (aaa *AdminContentService) AdminHideUserContentShort(input *admin_content.A
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

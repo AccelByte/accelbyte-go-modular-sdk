@@ -30,8 +30,8 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMemberActiveSessionOK, error)
-	AdminReconcileMaxActiveSessionShort(params *AdminReconcileMaxActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReconcileMaxActiveSessionOK, error)
+	AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMemberActiveSessionResponse, error)
+	AdminReconcileMaxActiveSessionShort(params *AdminReconcileMaxActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReconcileMaxActiveSessionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -41,7 +41,7 @@ AdminGetMemberActiveSessionShort get member active session.
 
 Get Member Active Session.
 */
-func (a *Client) AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMemberActiveSessionOK, error) {
+func (a *Client) AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMemberActiveSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminGetMemberActiveSessionParams()
@@ -79,13 +79,33 @@ func (a *Client) AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSe
 	switch v := result.(type) {
 
 	case *AdminGetMemberActiveSessionOK:
-		return v, nil
+		response := &AdminGetMemberActiveSessionResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminGetMemberActiveSessionBadRequest:
-		return nil, v
+		response := &AdminGetMemberActiveSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMemberActiveSessionUnauthorized:
-		return nil, v
+		response := &AdminGetMemberActiveSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminGetMemberActiveSessionInternalServerError:
-		return nil, v
+		response := &AdminGetMemberActiveSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -97,7 +117,7 @@ AdminReconcileMaxActiveSessionShort reconcile max active session.
 
 Reconcile Max Active Session.
 */
-func (a *Client) AdminReconcileMaxActiveSessionShort(params *AdminReconcileMaxActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReconcileMaxActiveSessionOK, error) {
+func (a *Client) AdminReconcileMaxActiveSessionShort(params *AdminReconcileMaxActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReconcileMaxActiveSessionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAdminReconcileMaxActiveSessionParams()
@@ -135,13 +155,32 @@ func (a *Client) AdminReconcileMaxActiveSessionShort(params *AdminReconcileMaxAc
 	switch v := result.(type) {
 
 	case *AdminReconcileMaxActiveSessionOK:
-		return v, nil
+		response := &AdminReconcileMaxActiveSessionResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AdminReconcileMaxActiveSessionBadRequest:
-		return nil, v
+		response := &AdminReconcileMaxActiveSessionResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminReconcileMaxActiveSessionUnauthorized:
-		return nil, v
+		response := &AdminReconcileMaxActiveSessionResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AdminReconcileMaxActiveSessionInternalServerError:
-		return nil, v
+		response := &AdminReconcileMaxActiveSessionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

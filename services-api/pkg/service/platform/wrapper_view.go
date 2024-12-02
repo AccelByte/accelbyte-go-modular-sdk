@@ -9,7 +9,6 @@ package platform
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/view"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -39,7 +38,7 @@ func (aaa *ViewService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *ViewService) ListViewsShort(input *view.ListViewsParams) ([]*platformclientmodels.ListViewInfo, error) {
+func (aaa *ViewService) ListViewsShort(input *view.ListViewsParams) (*view.ListViewsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -66,10 +65,10 @@ func (aaa *ViewService) ListViewsShort(input *view.ListViewsParams) ([]*platform
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ViewService) CreateViewShort(input *view.CreateViewParams) (*platformclientmodels.FullViewInfo, error) {
+func (aaa *ViewService) CreateViewShort(input *view.CreateViewParams) (*view.CreateViewResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -96,10 +95,10 @@ func (aaa *ViewService) CreateViewShort(input *view.CreateViewParams) (*platform
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *ViewService) GetViewShort(input *view.GetViewParams) (*platformclientmodels.FullViewInfo, error) {
+func (aaa *ViewService) GetViewShort(input *view.GetViewParams) (*view.GetViewResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -126,10 +125,10 @@ func (aaa *ViewService) GetViewShort(input *view.GetViewParams) (*platformclient
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *ViewService) UpdateViewShort(input *view.UpdateViewParams) (*platformclientmodels.FullViewInfo, error) {
+func (aaa *ViewService) UpdateViewShort(input *view.UpdateViewParams) (*view.UpdateViewResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -156,7 +155,7 @@ func (aaa *ViewService) UpdateViewShort(input *view.UpdateViewParams) (*platform
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *ViewService) DeleteViewShort(input *view.DeleteViewParams) error {
@@ -189,7 +188,7 @@ func (aaa *ViewService) DeleteViewShort(input *view.DeleteViewParams) error {
 	return nil
 }
 
-func (aaa *ViewService) PublicListViewsShort(input *view.PublicListViewsParams) ([]*platformclientmodels.ViewInfo, error) {
+func (aaa *ViewService) PublicListViewsShort(input *view.PublicListViewsParams) (*view.PublicListViewsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -216,5 +215,5 @@ func (aaa *ViewService) PublicListViewsShort(input *view.PublicListViewsParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

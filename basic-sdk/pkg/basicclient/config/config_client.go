@@ -30,11 +30,11 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigCreated, error)
-	GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigOK, error)
-	DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigNoContent, error)
-	UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigOK, error)
-	GetPublisherConfigShort(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigOK, error)
+	CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigResponse, error)
+	GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigResponse, error)
+	DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigResponse, error)
+	UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigResponse, error)
+	GetPublisherConfigShort(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ Other detail info:
 
   * Returns : created config
 */
-func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigCreated, error) {
+func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewCreateConfigParams()
@@ -84,15 +84,40 @@ func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *CreateConfigCreated:
-		return v, nil
+		response := &CreateConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *CreateConfigBadRequest:
-		return nil, v
+		response := &CreateConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateConfigUnauthorized:
-		return nil, v
+		response := &CreateConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateConfigForbidden:
-		return nil, v
+		response := &CreateConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *CreateConfigConflict:
-		return nil, v
+		response := &CreateConfigResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -106,7 +131,7 @@ Other detail info:
 
   * Returns : config
 */
-func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigOK, error) {
+func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetConfigParams()
@@ -144,15 +169,40 @@ func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *GetConfigOK:
-		return v, nil
+		response := &GetConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetConfigBadRequest:
-		return nil, v
+		response := &GetConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetConfigUnauthorized:
-		return nil, v
+		response := &GetConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetConfigForbidden:
-		return nil, v
+		response := &GetConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetConfigNotFound:
-		return nil, v
+		response := &GetConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,7 +216,7 @@ Other detail info:
 
   * Returns : created config
 */
-func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigNoContent, error) {
+func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDeleteConfigParams()
@@ -204,15 +254,39 @@ func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *DeleteConfigNoContent:
-		return v, nil
+		response := &DeleteConfigResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *DeleteConfigBadRequest:
-		return nil, v
+		response := &DeleteConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteConfigUnauthorized:
-		return nil, v
+		response := &DeleteConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteConfigForbidden:
-		return nil, v
+		response := &DeleteConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *DeleteConfigNotFound:
-		return nil, v
+		response := &DeleteConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -226,7 +300,7 @@ Other detail info:
 
   * Returns : created config
 */
-func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigOK, error) {
+func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewUpdateConfigParams()
@@ -264,15 +338,40 @@ func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.
 	switch v := result.(type) {
 
 	case *UpdateConfigOK:
-		return v, nil
+		response := &UpdateConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *UpdateConfigBadRequest:
-		return nil, v
+		response := &UpdateConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateConfigUnauthorized:
-		return nil, v
+		response := &UpdateConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateConfigForbidden:
-		return nil, v
+		response := &UpdateConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *UpdateConfigNotFound:
-		return nil, v
+		response := &UpdateConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -287,7 +386,7 @@ Other detail info:
 
   * Returns : config
 */
-func (a *Client) GetPublisherConfigShort(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigOK, error) {
+func (a *Client) GetPublisherConfigShort(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetPublisherConfigParams()
@@ -325,15 +424,40 @@ func (a *Client) GetPublisherConfigShort(params *GetPublisherConfigParams, authI
 	switch v := result.(type) {
 
 	case *GetPublisherConfigOK:
-		return v, nil
+		response := &GetPublisherConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *GetPublisherConfigBadRequest:
-		return nil, v
+		response := &GetPublisherConfigResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublisherConfigUnauthorized:
-		return nil, v
+		response := &GetPublisherConfigResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublisherConfigForbidden:
-		return nil, v
+		response := &GetPublisherConfigResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *GetPublisherConfigNotFound:
-		return nil, v
+		response := &GetPublisherConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

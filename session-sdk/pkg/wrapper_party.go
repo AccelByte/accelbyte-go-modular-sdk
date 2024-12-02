@@ -12,7 +12,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/party"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 )
 
 type PartyService struct {
@@ -37,7 +36,7 @@ func (aaa *PartyService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PartyService) AdminQueryPartiesShort(input *party.AdminQueryPartiesParams) (*sessionclientmodels.ApimodelsPartyQueryResponse, error) {
+func (aaa *PartyService) AdminQueryPartiesShort(input *party.AdminQueryPartiesParams) (*party.AdminQueryPartiesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -64,10 +63,10 @@ func (aaa *PartyService) AdminQueryPartiesShort(input *party.AdminQueryPartiesPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) AdminDeleteBulkPartiesShort(input *party.AdminDeleteBulkPartiesParams) (*sessionclientmodels.ApimodelsDeleteBulkPartySessionsAPIResponse, error) {
+func (aaa *PartyService) AdminDeleteBulkPartiesShort(input *party.AdminDeleteBulkPartiesParams) (*party.AdminDeleteBulkPartiesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -94,7 +93,7 @@ func (aaa *PartyService) AdminDeleteBulkPartiesShort(input *party.AdminDeleteBul
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PartyService) AdminSyncNativeSessionShort(input *party.AdminSyncNativeSessionParams) error {
@@ -127,7 +126,7 @@ func (aaa *PartyService) AdminSyncNativeSessionShort(input *party.AdminSyncNativ
 	return nil
 }
 
-func (aaa *PartyService) PublicPartyJoinCodeShort(input *party.PublicPartyJoinCodeParams) (*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicPartyJoinCodeShort(input *party.PublicPartyJoinCodeParams) (*party.PublicPartyJoinCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -154,10 +153,10 @@ func (aaa *PartyService) PublicPartyJoinCodeShort(input *party.PublicPartyJoinCo
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicGetPartyShort(input *party.PublicGetPartyParams) (*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicGetPartyShort(input *party.PublicGetPartyParams) (*party.PublicGetPartyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -184,10 +183,10 @@ func (aaa *PartyService) PublicGetPartyShort(input *party.PublicGetPartyParams) 
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicUpdatePartyShort(input *party.PublicUpdatePartyParams) (*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicUpdatePartyShort(input *party.PublicUpdatePartyParams) (*party.PublicUpdatePartyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -214,10 +213,10 @@ func (aaa *PartyService) PublicUpdatePartyShort(input *party.PublicUpdatePartyPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicPatchUpdatePartyShort(input *party.PublicPatchUpdatePartyParams) (*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicPatchUpdatePartyShort(input *party.PublicPatchUpdatePartyParams) (*party.PublicPatchUpdatePartyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -244,10 +243,10 @@ func (aaa *PartyService) PublicPatchUpdatePartyShort(input *party.PublicPatchUpd
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicGeneratePartyCodeShort(input *party.PublicGeneratePartyCodeParams) (*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicGeneratePartyCodeShort(input *party.PublicGeneratePartyCodeParams) (*party.PublicGeneratePartyCodeResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -274,7 +273,7 @@ func (aaa *PartyService) PublicGeneratePartyCodeShort(input *party.PublicGenerat
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PartyService) PublicRevokePartyCodeShort(input *party.PublicRevokePartyCodeParams) error {
@@ -307,7 +306,7 @@ func (aaa *PartyService) PublicRevokePartyCodeShort(input *party.PublicRevokePar
 	return nil
 }
 
-func (aaa *PartyService) PublicPartyInviteShort(input *party.PublicPartyInviteParams) (*sessionclientmodels.ApimodelsSessionInviteResponse, error) {
+func (aaa *PartyService) PublicPartyInviteShort(input *party.PublicPartyInviteParams) (*party.PublicPartyInviteResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -334,10 +333,10 @@ func (aaa *PartyService) PublicPartyInviteShort(input *party.PublicPartyInvitePa
 		return nil, err
 	}
 
-	return created.GetPayload(), nil
+	return created, nil
 }
 
-func (aaa *PartyService) PublicPromotePartyLeaderShort(input *party.PublicPromotePartyLeaderParams) (*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicPromotePartyLeaderShort(input *party.PublicPromotePartyLeaderParams) (*party.PublicPromotePartyLeaderResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -364,10 +363,10 @@ func (aaa *PartyService) PublicPromotePartyLeaderShort(input *party.PublicPromot
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicPartyJoinShort(input *party.PublicPartyJoinParams) (*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicPartyJoinShort(input *party.PublicPartyJoinParams) (*party.PublicPartyJoinResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -394,7 +393,7 @@ func (aaa *PartyService) PublicPartyJoinShort(input *party.PublicPartyJoinParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
 func (aaa *PartyService) PublicPartyLeaveShort(input *party.PublicPartyLeaveParams) error {
@@ -487,7 +486,7 @@ func (aaa *PartyService) PublicPartyCancelShort(input *party.PublicPartyCancelPa
 	return nil
 }
 
-func (aaa *PartyService) PublicPartyKickShort(input *party.PublicPartyKickParams) (*sessionclientmodels.ApimodelsKickResponse, error) {
+func (aaa *PartyService) PublicPartyKickShort(input *party.PublicPartyKickParams) (*party.PublicPartyKickResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -514,10 +513,10 @@ func (aaa *PartyService) PublicPartyKickShort(input *party.PublicPartyKickParams
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicCreatePartyShort(input *party.PublicCreatePartyParams) (*sessionclientmodels.ApimodelsPartySessionResponse, error) {
+func (aaa *PartyService) PublicCreatePartyShort(input *party.PublicCreatePartyParams) (*party.PublicCreatePartyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -544,10 +543,10 @@ func (aaa *PartyService) PublicCreatePartyShort(input *party.PublicCreatePartyPa
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }
 
-func (aaa *PartyService) PublicQueryMyPartiesShort(input *party.PublicQueryMyPartiesParams) (*sessionclientmodels.ApimodelsPartyQueryResponse, error) {
+func (aaa *PartyService) PublicQueryMyPartiesShort(input *party.PublicQueryMyPartiesParams) (*party.PublicQueryMyPartiesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -574,5 +573,5 @@ func (aaa *PartyService) PublicQueryMyPartiesShort(input *party.PublicQueryMyPar
 		return nil, err
 	}
 
-	return ok.GetPayload(), nil
+	return ok, nil
 }

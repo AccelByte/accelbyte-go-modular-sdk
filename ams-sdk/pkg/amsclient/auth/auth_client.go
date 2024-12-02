@@ -30,7 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AuthCheckShort(params *AuthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*AuthCheckOK, error)
+	AuthCheckShort(params *AuthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*AuthCheckResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,7 +39,7 @@ type ClientService interface {
 AuthCheckShort checks if fleet commander can auth with ams
 Check if fleet commander is authorized to talk to AMS with this IAM
 */
-func (a *Client) AuthCheckShort(params *AuthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*AuthCheckOK, error) {
+func (a *Client) AuthCheckShort(params *AuthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*AuthCheckResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthCheckParams()
@@ -77,13 +77,32 @@ func (a *Client) AuthCheckShort(params *AuthCheckParams, authInfo runtime.Client
 	switch v := result.(type) {
 
 	case *AuthCheckOK:
-		return v, nil
+		response := &AuthCheckResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *AuthCheckUnauthorized:
-		return nil, v
+		response := &AuthCheckResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AuthCheckForbidden:
-		return nil, v
+		response := &AuthCheckResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *AuthCheckInternalServerError:
-		return nil, v
+		response := &AuthCheckResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

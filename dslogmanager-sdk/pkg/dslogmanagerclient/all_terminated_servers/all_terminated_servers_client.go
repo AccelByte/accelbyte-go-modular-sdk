@@ -31,9 +31,9 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	BatchDownloadServerLogsShort(params *BatchDownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*BatchDownloadServerLogsOK, error)
-	ListMetadataServersShort(params *ListMetadataServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListMetadataServersOK, error)
-	ListAllTerminatedServersShort(params *ListAllTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllTerminatedServersOK, error)
+	BatchDownloadServerLogsShort(params *BatchDownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*BatchDownloadServerLogsResponse, error)
+	ListMetadataServersShort(params *ListMetadataServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListMetadataServersResponse, error)
+	ListAllTerminatedServersShort(params *ListAllTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllTerminatedServersResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -46,7 +46,7 @@ Required scope: social
 
 This endpoint will download dedicated server's log file (.zip).
 */
-func (a *Client) BatchDownloadServerLogsShort(params *BatchDownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*BatchDownloadServerLogsOK, error) {
+func (a *Client) BatchDownloadServerLogsShort(params *BatchDownloadServerLogsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*BatchDownloadServerLogsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewBatchDownloadServerLogsParams()
@@ -84,11 +84,26 @@ func (a *Client) BatchDownloadServerLogsShort(params *BatchDownloadServerLogsPar
 	switch v := result.(type) {
 
 	case *BatchDownloadServerLogsOK:
-		return v, nil
+		response := &BatchDownloadServerLogsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *BatchDownloadServerLogsBadRequest:
-		return nil, v
+		response := &BatchDownloadServerLogsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *BatchDownloadServerLogsInternalServerError:
-		return nil, v
+		response := &BatchDownloadServerLogsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -105,7 +120,7 @@ This endpoint used to retrieve metadata servers in a namespace
 The namespace filter is will give result exact namespace response
 ```
 */
-func (a *Client) ListMetadataServersShort(params *ListMetadataServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListMetadataServersOK, error) {
+func (a *Client) ListMetadataServersShort(params *ListMetadataServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListMetadataServersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListMetadataServersParams()
@@ -143,13 +158,33 @@ func (a *Client) ListMetadataServersShort(params *ListMetadataServersParams, aut
 	switch v := result.(type) {
 
 	case *ListMetadataServersOK:
-		return v, nil
+		response := &ListMetadataServersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListMetadataServersBadRequest:
-		return nil, v
+		response := &ListMetadataServersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListMetadataServersUnauthorized:
-		return nil, v
+		response := &ListMetadataServersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListMetadataServersInternalServerError:
-		return nil, v
+		response := &ListMetadataServersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,7 +199,7 @@ Required permission: ADMIN:NAMESPACE:{namespace}:DSLM:SERVER [READ]
 This endpoint used to retrieve terminated servers in all namespace
 ```
 */
-func (a *Client) ListAllTerminatedServersShort(params *ListAllTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllTerminatedServersOK, error) {
+func (a *Client) ListAllTerminatedServersShort(params *ListAllTerminatedServersParams, authInfo runtime.ClientAuthInfoWriter) (*ListAllTerminatedServersResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewListAllTerminatedServersParams()
@@ -202,13 +237,33 @@ func (a *Client) ListAllTerminatedServersShort(params *ListAllTerminatedServersP
 	switch v := result.(type) {
 
 	case *ListAllTerminatedServersOK:
-		return v, nil
+		response := &ListAllTerminatedServersResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 	case *ListAllTerminatedServersBadRequest:
-		return nil, v
+		response := &ListAllTerminatedServersResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListAllTerminatedServersUnauthorized:
-		return nil, v
+		response := &ListAllTerminatedServersResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 	case *ListAllTerminatedServersInternalServerError:
-		return nil, v
+		response := &ListAllTerminatedServersResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
