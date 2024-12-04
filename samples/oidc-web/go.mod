@@ -2,13 +2,17 @@ module oidc-web
 
 go 1.18
 
-require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
+replace (
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../iam-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../services-api
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.3 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
+)
+
+require (
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922 // indirect
 	github.com/AccelByte/go-jose v2.1.4+incompatible // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
@@ -26,6 +30,7 @@ require (
 	github.com/go-openapi/strfmt v0.21.1 // indirect
 	github.com/go-openapi/swag v0.21.1 // indirect
 	github.com/go-openapi/validate v0.21.0 // indirect
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
