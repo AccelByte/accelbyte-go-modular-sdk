@@ -92,14 +92,14 @@ func (a *Client) AdminListClientAvailablePermissionsShort(params *AdminListClien
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListClientAvailablePermissionsForbidden:
 		response := &AdminListClientAvailablePermissionsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,14 +159,14 @@ func (a *Client) AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAvailablePermissionsByModuleForbidden:
 		response := &AdminUpdateAvailablePermissionsByModuleResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -226,14 +226,14 @@ func (a *Client) AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteCon
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteConfigPermissionsByGroupForbidden:
 		response := &AdminDeleteConfigPermissionsByGroupResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -294,14 +294,14 @@ func (a *Client) AdminListClientTemplatesShort(params *AdminListClientTemplatesP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListClientTemplatesForbidden:
 		response := &AdminListClientTemplatesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

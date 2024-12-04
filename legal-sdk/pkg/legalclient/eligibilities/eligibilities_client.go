@@ -91,14 +91,14 @@ func (a *Client) RetrieveEligibilitiesPublicShort(params *RetrieveEligibilitiesP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveEligibilitiesPublicNotFound:
 		response := &RetrieveEligibilitiesPublicResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -160,7 +160,7 @@ func (a *Client) RetrieveEligibilitiesPublicIndirectShort(params *RetrieveEligib
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

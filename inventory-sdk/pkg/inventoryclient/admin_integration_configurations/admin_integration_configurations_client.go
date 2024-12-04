@@ -96,14 +96,14 @@ func (a *Client) AdminListIntegrationConfigurationsShort(params *AdminListIntegr
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListIntegrationConfigurationsInternalServerError:
 		response := &AdminListIntegrationConfigurationsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,21 +168,21 @@ func (a *Client) AdminCreateIntegrationConfigurationShort(params *AdminCreateInt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateIntegrationConfigurationConflict:
 		response := &AdminCreateIntegrationConfigurationResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateIntegrationConfigurationInternalServerError:
 		response := &AdminCreateIntegrationConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -247,28 +247,28 @@ func (a *Client) AdminUpdateIntegrationConfigurationShort(params *AdminUpdateInt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateIntegrationConfigurationNotFound:
 		response := &AdminUpdateIntegrationConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateIntegrationConfigurationConflict:
 		response := &AdminUpdateIntegrationConfigurationResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateIntegrationConfigurationInternalServerError:
 		response := &AdminUpdateIntegrationConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -333,28 +333,28 @@ func (a *Client) AdminUpdateStatusIntegrationConfigurationShort(params *AdminUpd
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateStatusIntegrationConfigurationNotFound:
 		response := &AdminUpdateStatusIntegrationConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateStatusIntegrationConfigurationConflict:
 		response := &AdminUpdateStatusIntegrationConfigurationResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateStatusIntegrationConfigurationInternalServerError:
 		response := &AdminUpdateStatusIntegrationConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

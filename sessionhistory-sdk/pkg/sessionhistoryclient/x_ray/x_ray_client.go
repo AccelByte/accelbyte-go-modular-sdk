@@ -111,35 +111,35 @@ func (a *Client) QueryXrayMatchPoolShort(params *QueryXrayMatchPoolParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayMatchPoolUnauthorized:
 		response := &QueryXrayMatchPoolResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayMatchPoolForbidden:
 		response := &QueryXrayMatchPoolResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayMatchPoolNotFound:
 		response := &QueryXrayMatchPoolResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayMatchPoolInternalServerError:
 		response := &QueryXrayMatchPoolResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -200,35 +200,35 @@ func (a *Client) QueryDetailTickMatchPoolShort(params *QueryDetailTickMatchPoolP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolUnauthorized:
 		response := &QueryDetailTickMatchPoolResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolForbidden:
 		response := &QueryDetailTickMatchPoolResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolNotFound:
 		response := &QueryDetailTickMatchPoolResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolInternalServerError:
 		response := &QueryDetailTickMatchPoolResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -289,35 +289,35 @@ func (a *Client) QueryDetailTickMatchPoolMatchesShort(params *QueryDetailTickMat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolMatchesUnauthorized:
 		response := &QueryDetailTickMatchPoolMatchesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolMatchesForbidden:
 		response := &QueryDetailTickMatchPoolMatchesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolMatchesNotFound:
 		response := &QueryDetailTickMatchPoolMatchesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolMatchesInternalServerError:
 		response := &QueryDetailTickMatchPoolMatchesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -378,35 +378,35 @@ func (a *Client) QueryDetailTickMatchPoolTicketShort(params *QueryDetailTickMatc
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolTicketUnauthorized:
 		response := &QueryDetailTickMatchPoolTicketResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolTicketForbidden:
 		response := &QueryDetailTickMatchPoolTicketResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolTicketNotFound:
 		response := &QueryDetailTickMatchPoolTicketResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryDetailTickMatchPoolTicketInternalServerError:
 		response := &QueryDetailTickMatchPoolTicketResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -467,35 +467,35 @@ func (a *Client) QueryMatchHistoriesShort(params *QueryMatchHistoriesParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchHistoriesUnauthorized:
 		response := &QueryMatchHistoriesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchHistoriesForbidden:
 		response := &QueryMatchHistoriesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchHistoriesNotFound:
 		response := &QueryMatchHistoriesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchHistoriesInternalServerError:
 		response := &QueryMatchHistoriesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -556,35 +556,35 @@ func (a *Client) QueryMatchTicketHistoriesShort(params *QueryMatchTicketHistorie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchTicketHistoriesUnauthorized:
 		response := &QueryMatchTicketHistoriesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchTicketHistoriesForbidden:
 		response := &QueryMatchTicketHistoriesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchTicketHistoriesNotFound:
 		response := &QueryMatchTicketHistoriesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchTicketHistoriesInternalServerError:
 		response := &QueryMatchTicketHistoriesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -645,35 +645,35 @@ func (a *Client) QueryXrayMatchShort(params *QueryXrayMatchParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayMatchUnauthorized:
 		response := &QueryXrayMatchResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayMatchForbidden:
 		response := &QueryXrayMatchResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayMatchNotFound:
 		response := &QueryXrayMatchResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayMatchInternalServerError:
 		response := &QueryXrayMatchResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -734,35 +734,35 @@ func (a *Client) QueryAcquiringDSShort(params *QueryAcquiringDSParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryAcquiringDSUnauthorized:
 		response := &QueryAcquiringDSResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryAcquiringDSForbidden:
 		response := &QueryAcquiringDSResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryAcquiringDSNotFound:
 		response := &QueryAcquiringDSResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryAcquiringDSInternalServerError:
 		response := &QueryAcquiringDSResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -823,35 +823,35 @@ func (a *Client) QueryAcquiringDSWaitTimeAvgShort(params *QueryAcquiringDSWaitTi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryAcquiringDSWaitTimeAvgUnauthorized:
 		response := &QueryAcquiringDSWaitTimeAvgResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryAcquiringDSWaitTimeAvgForbidden:
 		response := &QueryAcquiringDSWaitTimeAvgResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryAcquiringDSWaitTimeAvgNotFound:
 		response := &QueryAcquiringDSWaitTimeAvgResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryAcquiringDSWaitTimeAvgInternalServerError:
 		response := &QueryAcquiringDSWaitTimeAvgResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -912,35 +912,35 @@ func (a *Client) QueryMatchLengthDurationpAvgShort(params *QueryMatchLengthDurat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchLengthDurationpAvgUnauthorized:
 		response := &QueryMatchLengthDurationpAvgResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchLengthDurationpAvgForbidden:
 		response := &QueryMatchLengthDurationpAvgResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchLengthDurationpAvgNotFound:
 		response := &QueryMatchLengthDurationpAvgResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchLengthDurationpAvgInternalServerError:
 		response := &QueryMatchLengthDurationpAvgResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1001,35 +1001,35 @@ func (a *Client) QueryMatchLengthDurationp99Short(params *QueryMatchLengthDurati
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchLengthDurationp99Unauthorized:
 		response := &QueryMatchLengthDurationp99Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchLengthDurationp99Forbidden:
 		response := &QueryMatchLengthDurationp99Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchLengthDurationp99NotFound:
 		response := &QueryMatchLengthDurationp99Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryMatchLengthDurationp99InternalServerError:
 		response := &QueryMatchLengthDurationp99Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1090,35 +1090,35 @@ func (a *Client) QueryTotalActiveSessionShort(params *QueryTotalActiveSessionPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalActiveSessionUnauthorized:
 		response := &QueryTotalActiveSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalActiveSessionForbidden:
 		response := &QueryTotalActiveSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalActiveSessionNotFound:
 		response := &QueryTotalActiveSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalActiveSessionInternalServerError:
 		response := &QueryTotalActiveSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1179,35 +1179,35 @@ func (a *Client) QueryTotalMatchmakingMatchShort(params *QueryTotalMatchmakingMa
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingMatchUnauthorized:
 		response := &QueryTotalMatchmakingMatchResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingMatchForbidden:
 		response := &QueryTotalMatchmakingMatchResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingMatchNotFound:
 		response := &QueryTotalMatchmakingMatchResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingMatchInternalServerError:
 		response := &QueryTotalMatchmakingMatchResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1268,35 +1268,35 @@ func (a *Client) QueryTotalPlayerPersessionShort(params *QueryTotalPlayerPersess
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalPlayerPersessionUnauthorized:
 		response := &QueryTotalPlayerPersessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalPlayerPersessionForbidden:
 		response := &QueryTotalPlayerPersessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalPlayerPersessionNotFound:
 		response := &QueryTotalPlayerPersessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalPlayerPersessionInternalServerError:
 		response := &QueryTotalPlayerPersessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1357,35 +1357,35 @@ func (a *Client) QueryTotalMatchmakingCanceledShort(params *QueryTotalMatchmakin
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingCanceledUnauthorized:
 		response := &QueryTotalMatchmakingCanceledResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingCanceledForbidden:
 		response := &QueryTotalMatchmakingCanceledResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingCanceledNotFound:
 		response := &QueryTotalMatchmakingCanceledResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingCanceledInternalServerError:
 		response := &QueryTotalMatchmakingCanceledResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1446,35 +1446,35 @@ func (a *Client) QueryTotalMatchmakingCreatedShort(params *QueryTotalMatchmaking
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingCreatedUnauthorized:
 		response := &QueryTotalMatchmakingCreatedResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingCreatedForbidden:
 		response := &QueryTotalMatchmakingCreatedResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingCreatedNotFound:
 		response := &QueryTotalMatchmakingCreatedResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingCreatedInternalServerError:
 		response := &QueryTotalMatchmakingCreatedResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1535,35 +1535,35 @@ func (a *Client) QueryTotalMatchmakingExpiredShort(params *QueryTotalMatchmaking
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingExpiredUnauthorized:
 		response := &QueryTotalMatchmakingExpiredResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingExpiredForbidden:
 		response := &QueryTotalMatchmakingExpiredResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingExpiredNotFound:
 		response := &QueryTotalMatchmakingExpiredResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingExpiredInternalServerError:
 		response := &QueryTotalMatchmakingExpiredResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1624,35 +1624,35 @@ func (a *Client) QueryTotalMatchmakingMatchTicketShort(params *QueryTotalMatchma
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingMatchTicketUnauthorized:
 		response := &QueryTotalMatchmakingMatchTicketResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingMatchTicketForbidden:
 		response := &QueryTotalMatchmakingMatchTicketResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingMatchTicketNotFound:
 		response := &QueryTotalMatchmakingMatchTicketResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryTotalMatchmakingMatchTicketInternalServerError:
 		response := &QueryTotalMatchmakingMatchTicketResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1736,28 +1736,28 @@ func (a *Client) CreateXrayTicketObservabilityShort(params *CreateXrayTicketObse
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateXrayTicketObservabilityUnauthorized:
 		response := &CreateXrayTicketObservabilityResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateXrayTicketObservabilityForbidden:
 		response := &CreateXrayTicketObservabilityResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateXrayTicketObservabilityInternalServerError:
 		response := &CreateXrayTicketObservabilityResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1841,28 +1841,28 @@ func (a *Client) CreateXrayBulkTicketObservabilityShort(params *CreateXrayBulkTi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateXrayBulkTicketObservabilityUnauthorized:
 		response := &CreateXrayBulkTicketObservabilityResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateXrayBulkTicketObservabilityForbidden:
 		response := &CreateXrayBulkTicketObservabilityResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateXrayBulkTicketObservabilityInternalServerError:
 		response := &CreateXrayBulkTicketObservabilityResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1923,35 +1923,35 @@ func (a *Client) QueryXrayTimelineByTicketIDShort(params *QueryXrayTimelineByTic
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayTimelineByTicketIDUnauthorized:
 		response := &QueryXrayTimelineByTicketIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayTimelineByTicketIDForbidden:
 		response := &QueryXrayTimelineByTicketIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayTimelineByTicketIDNotFound:
 		response := &QueryXrayTimelineByTicketIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayTimelineByTicketIDInternalServerError:
 		response := &QueryXrayTimelineByTicketIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2012,35 +2012,35 @@ func (a *Client) QueryXrayTimelineByUserIDShort(params *QueryXrayTimelineByUserI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayTimelineByUserIDUnauthorized:
 		response := &QueryXrayTimelineByUserIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayTimelineByUserIDForbidden:
 		response := &QueryXrayTimelineByUserIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayTimelineByUserIDNotFound:
 		response := &QueryXrayTimelineByUserIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryXrayTimelineByUserIDInternalServerError:
 		response := &QueryXrayTimelineByUserIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

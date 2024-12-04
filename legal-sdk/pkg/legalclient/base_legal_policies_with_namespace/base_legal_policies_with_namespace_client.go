@@ -159,21 +159,21 @@ func (a *Client) CreatePolicy1Short(params *CreatePolicy1Params, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePolicy1Conflict:
 		response := &CreatePolicy1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePolicy1UnprocessableEntity:
 		response := &CreatePolicy1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -234,7 +234,7 @@ func (a *Client) RetrieveSinglePolicy1Short(params *RetrieveSinglePolicy1Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -298,7 +298,7 @@ func (a *Client) DeleteBasePolicyShort(params *DeleteBasePolicyParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -367,7 +367,7 @@ func (a *Client) PartialUpdatePolicy1Short(params *PartialUpdatePolicy1Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -428,7 +428,7 @@ func (a *Client) RetrievePolicyCountry1Short(params *RetrievePolicyCountry1Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -489,7 +489,7 @@ func (a *Client) RetrieveAllPoliciesFromBasePolicyShort(params *RetrieveAllPolic
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -558,7 +558,7 @@ func (a *Client) CreatePolicyUnderBasePolicyShort(params *CreatePolicyUnderBaseP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

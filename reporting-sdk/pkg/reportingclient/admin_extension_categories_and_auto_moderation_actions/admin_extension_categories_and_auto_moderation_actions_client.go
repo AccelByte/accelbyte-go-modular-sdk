@@ -92,14 +92,14 @@ func (a *Client) AdminFindActionListShort(params *AdminFindActionListParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminFindActionListInternalServerError:
 		response := &AdminFindActionListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -160,14 +160,14 @@ func (a *Client) AdminCreateModActionShort(params *AdminCreateModActionParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateModActionInternalServerError:
 		response := &AdminCreateModActionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -228,14 +228,14 @@ func (a *Client) AdminFindExtensionCategoryListShort(params *AdminFindExtensionC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminFindExtensionCategoryListInternalServerError:
 		response := &AdminFindExtensionCategoryListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -296,14 +296,14 @@ func (a *Client) AdminCreateExtensionCategoryShort(params *AdminCreateExtensionC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateExtensionCategoryInternalServerError:
 		response := &AdminCreateExtensionCategoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

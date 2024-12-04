@@ -94,28 +94,28 @@ func (a *Client) GetResourcesLimitsShort(params *GetResourcesLimitsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetResourcesLimitsPaymentRequired:
 		response := &GetResourcesLimitsResponse{}
 		response.Error402 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetResourcesLimitsForbidden:
 		response := &GetResourcesLimitsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetResourcesLimitsInternalServerError:
 		response := &GetResourcesLimitsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

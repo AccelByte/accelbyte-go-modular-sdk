@@ -89,35 +89,35 @@ func (a *Client) AdminGetDSMCConfigurationDefaultShort(params *AdminGetDSMCConfi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDSMCConfigurationDefaultUnauthorized:
 		response := &AdminGetDSMCConfigurationDefaultResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDSMCConfigurationDefaultForbidden:
 		response := &AdminGetDSMCConfigurationDefaultResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDSMCConfigurationDefaultNotFound:
 		response := &AdminGetDSMCConfigurationDefaultResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDSMCConfigurationDefaultInternalServerError:
 		response := &AdminGetDSMCConfigurationDefaultResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

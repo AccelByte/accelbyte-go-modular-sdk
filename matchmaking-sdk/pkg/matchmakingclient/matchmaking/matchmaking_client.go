@@ -115,35 +115,35 @@ func (a *Client) GetAllChannelsHandlerShort(params *GetAllChannelsHandlerParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllChannelsHandlerUnauthorized:
 		response := &GetAllChannelsHandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllChannelsHandlerForbidden:
 		response := &GetAllChannelsHandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllChannelsHandlerConflict:
 		response := &GetAllChannelsHandlerResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllChannelsHandlerInternalServerError:
 		response := &GetAllChannelsHandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -217,35 +217,35 @@ func (a *Client) CreateChannelHandlerShort(params *CreateChannelHandlerParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateChannelHandlerUnauthorized:
 		response := &CreateChannelHandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateChannelHandlerForbidden:
 		response := &CreateChannelHandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateChannelHandlerConflict:
 		response := &CreateChannelHandlerResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateChannelHandlerInternalServerError:
 		response := &CreateChannelHandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -308,28 +308,28 @@ func (a *Client) GetMatchPoolMetricShort(params *GetMatchPoolMetricParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMatchPoolMetricForbidden:
 		response := &GetMatchPoolMetricResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMatchPoolMetricNotFound:
 		response := &GetMatchPoolMetricResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMatchPoolMetricInternalServerError:
 		response := &GetMatchPoolMetricResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -392,21 +392,21 @@ func (a *Client) DeleteChannelHandlerShort(params *DeleteChannelHandlerParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteChannelHandlerForbidden:
 		response := &DeleteChannelHandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteChannelHandlerInternalServerError:
 		response := &DeleteChannelHandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -469,28 +469,28 @@ func (a *Client) StoreMatchResultsShort(params *StoreMatchResultsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StoreMatchResultsUnauthorized:
 		response := &StoreMatchResultsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StoreMatchResultsForbidden:
 		response := &StoreMatchResultsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StoreMatchResultsInternalServerError:
 		response := &StoreMatchResultsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -555,35 +555,35 @@ func (a *Client) RebalanceShort(params *RebalanceParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RebalanceUnauthorized:
 		response := &RebalanceResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RebalanceForbidden:
 		response := &RebalanceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RebalanceNotFound:
 		response := &RebalanceResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RebalanceInternalServerError:
 		response := &RebalanceResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -653,28 +653,28 @@ func (a *Client) QueueSessionHandlerShort(params *QueueSessionHandlerParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueueSessionHandlerUnauthorized:
 		response := &QueueSessionHandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueueSessionHandlerForbidden:
 		response := &QueueSessionHandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueueSessionHandlerInternalServerError:
 		response := &QueueSessionHandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -737,35 +737,35 @@ func (a *Client) DequeueSessionHandlerShort(params *DequeueSessionHandlerParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DequeueSessionHandlerUnauthorized:
 		response := &DequeueSessionHandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DequeueSessionHandlerForbidden:
 		response := &DequeueSessionHandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DequeueSessionHandlerNotFound:
 		response := &DequeueSessionHandlerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DequeueSessionHandlerInternalServerError:
 		response := &DequeueSessionHandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -832,35 +832,35 @@ func (a *Client) QuerySessionHandlerShort(params *QuerySessionHandlerParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QuerySessionHandlerUnauthorized:
 		response := &QuerySessionHandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QuerySessionHandlerForbidden:
 		response := &QuerySessionHandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QuerySessionHandlerNotFound:
 		response := &QuerySessionHandlerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QuerySessionHandlerInternalServerError:
 		response := &QuerySessionHandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -921,35 +921,35 @@ func (a *Client) GetAllPartyInAllChannelShort(params *GetAllPartyInAllChannelPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPartyInAllChannelUnauthorized:
 		response := &GetAllPartyInAllChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPartyInAllChannelForbidden:
 		response := &GetAllPartyInAllChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPartyInAllChannelNotFound:
 		response := &GetAllPartyInAllChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPartyInAllChannelInternalServerError:
 		response := &GetAllPartyInAllChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1010,35 +1010,35 @@ func (a *Client) BulkGetSessionsShort(params *BulkGetSessionsParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetSessionsUnauthorized:
 		response := &BulkGetSessionsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetSessionsForbidden:
 		response := &BulkGetSessionsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetSessionsNotFound:
 		response := &BulkGetSessionsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetSessionsInternalServerError:
 		response := &BulkGetSessionsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1101,21 +1101,21 @@ func (a *Client) ExportChannelsShort(params *ExportChannelsParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportChannelsForbidden:
 		response := &ExportChannelsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportChannelsInternalServerError:
 		response := &ExportChannelsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1181,28 +1181,28 @@ func (a *Client) ImportChannelsShort(params *ImportChannelsParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportChannelsUnauthorized:
 		response := &ImportChannelsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportChannelsForbidden:
 		response := &ImportChannelsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportChannelsInternalServerError:
 		response := &ImportChannelsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1265,35 +1265,35 @@ func (a *Client) GetSingleMatchmakingChannelShort(params *GetSingleMatchmakingCh
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleMatchmakingChannelUnauthorized:
 		response := &GetSingleMatchmakingChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleMatchmakingChannelForbidden:
 		response := &GetSingleMatchmakingChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleMatchmakingChannelNotFound:
 		response := &GetSingleMatchmakingChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleMatchmakingChannelInternalServerError:
 		response := &GetSingleMatchmakingChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1355,35 +1355,35 @@ func (a *Client) UpdateMatchmakingChannelShort(params *UpdateMatchmakingChannelP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchmakingChannelUnauthorized:
 		response := &UpdateMatchmakingChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchmakingChannelForbidden:
 		response := &UpdateMatchmakingChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchmakingChannelNotFound:
 		response := &UpdateMatchmakingChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchmakingChannelInternalServerError:
 		response := &UpdateMatchmakingChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1444,35 +1444,35 @@ func (a *Client) GetAllPartyInChannelShort(params *GetAllPartyInChannelParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPartyInChannelUnauthorized:
 		response := &GetAllPartyInChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPartyInChannelForbidden:
 		response := &GetAllPartyInChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPartyInChannelNotFound:
 		response := &GetAllPartyInChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPartyInChannelInternalServerError:
 		response := &GetAllPartyInChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1535,35 +1535,35 @@ func (a *Client) GetAllSessionsInChannelShort(params *GetAllSessionsInChannelPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllSessionsInChannelUnauthorized:
 		response := &GetAllSessionsInChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllSessionsInChannelForbidden:
 		response := &GetAllSessionsInChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllSessionsInChannelNotFound:
 		response := &GetAllSessionsInChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllSessionsInChannelInternalServerError:
 		response := &GetAllSessionsInChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1623,35 +1623,35 @@ func (a *Client) AddUserIntoSessionInChannelShort(params *AddUserIntoSessionInCh
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserIntoSessionInChannelUnauthorized:
 		response := &AddUserIntoSessionInChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserIntoSessionInChannelForbidden:
 		response := &AddUserIntoSessionInChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserIntoSessionInChannelNotFound:
 		response := &AddUserIntoSessionInChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserIntoSessionInChannelInternalServerError:
 		response := &AddUserIntoSessionInChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1711,35 +1711,35 @@ func (a *Client) DeleteSessionInChannelShort(params *DeleteSessionInChannelParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSessionInChannelUnauthorized:
 		response := &DeleteSessionInChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSessionInChannelForbidden:
 		response := &DeleteSessionInChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSessionInChannelNotFound:
 		response := &DeleteSessionInChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSessionInChannelInternalServerError:
 		response := &DeleteSessionInChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1805,35 +1805,35 @@ func (a *Client) DeleteUserFromSessionInChannelShort(params *DeleteUserFromSessi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserFromSessionInChannelUnauthorized:
 		response := &DeleteUserFromSessionInChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserFromSessionInChannelForbidden:
 		response := &DeleteUserFromSessionInChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserFromSessionInChannelNotFound:
 		response := &DeleteUserFromSessionInChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserFromSessionInChannelInternalServerError:
 		response := &DeleteUserFromSessionInChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1895,35 +1895,35 @@ func (a *Client) GetStatDataShort(params *GetStatDataParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatDataUnauthorized:
 		response := &GetStatDataResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatDataForbidden:
 		response := &GetStatDataResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatDataNotFound:
 		response := &GetStatDataResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatDataInternalServerError:
 		response := &GetStatDataResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2006,35 +2006,35 @@ func (a *Client) SearchSessionsShort(params *SearchSessionsParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchSessionsUnauthorized:
 		response := &SearchSessionsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchSessionsForbidden:
 		response := &SearchSessionsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchSessionsNotFound:
 		response := &SearchSessionsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchSessionsInternalServerError:
 		response := &SearchSessionsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2119,35 +2119,35 @@ func (a *Client) GetSessionHistoryDetailedShort(params *GetSessionHistoryDetaile
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionHistoryDetailedUnauthorized:
 		response := &GetSessionHistoryDetailedResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionHistoryDetailedForbidden:
 		response := &GetSessionHistoryDetailedResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionHistoryDetailedNotFound:
 		response := &GetSessionHistoryDetailedResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionHistoryDetailedInternalServerError:
 		response := &GetSessionHistoryDetailedResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2208,35 +2208,35 @@ func (a *Client) PublicGetAllMatchmakingChannelShort(params *PublicGetAllMatchma
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAllMatchmakingChannelUnauthorized:
 		response := &PublicGetAllMatchmakingChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAllMatchmakingChannelForbidden:
 		response := &PublicGetAllMatchmakingChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAllMatchmakingChannelConflict:
 		response := &PublicGetAllMatchmakingChannelResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAllMatchmakingChannelInternalServerError:
 		response := &PublicGetAllMatchmakingChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2297,35 +2297,35 @@ func (a *Client) PublicGetSingleMatchmakingChannelShort(params *PublicGetSingleM
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetSingleMatchmakingChannelUnauthorized:
 		response := &PublicGetSingleMatchmakingChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetSingleMatchmakingChannelForbidden:
 		response := &PublicGetSingleMatchmakingChannelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetSingleMatchmakingChannelNotFound:
 		response := &PublicGetSingleMatchmakingChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetSingleMatchmakingChannelInternalServerError:
 		response := &PublicGetSingleMatchmakingChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2408,35 +2408,35 @@ func (a *Client) SearchSessionsV2Short(params *SearchSessionsV2Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchSessionsV2Unauthorized:
 		response := &SearchSessionsV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchSessionsV2Forbidden:
 		response := &SearchSessionsV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchSessionsV2NotFound:
 		response := &SearchSessionsV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchSessionsV2InternalServerError:
 		response := &SearchSessionsV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

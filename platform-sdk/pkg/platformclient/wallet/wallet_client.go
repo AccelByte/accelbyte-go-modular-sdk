@@ -340,21 +340,21 @@ func (a *Client) DebitUserWalletByCurrencyCodeShort(params *DebitUserWalletByCur
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DebitUserWalletByCurrencyCodeConflict:
 		response := &DebitUserWalletByCurrencyCodeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DebitUserWalletByCurrencyCodeUnprocessableEntity:
 		response := &DebitUserWalletByCurrencyCodeResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -418,7 +418,7 @@ func (a *Client) ListUserCurrencyTransactionsShort(params *ListUserCurrencyTrans
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -481,7 +481,7 @@ func (a *Client) CheckBalanceShort(params *CheckBalanceParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -541,21 +541,21 @@ func (a *Client) CheckWalletShort(params *CheckWalletParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CheckWalletConflict:
 		response := &CheckWalletResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CheckWalletUnprocessableEntity:
 		response := &CheckWalletResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -619,14 +619,14 @@ func (a *Client) CreditUserWalletShort(params *CreditUserWalletParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreditUserWalletUnprocessableEntity:
 		response := &CreditUserWalletResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -707,14 +707,14 @@ func (a *Client) DebitByWalletPlatformShort(params *DebitByWalletPlatformParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DebitByWalletPlatformUnprocessableEntity:
 		response := &DebitByWalletPlatformResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -775,14 +775,14 @@ func (a *Client) PayWithUserWalletShort(params *PayWithUserWalletParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PayWithUserWalletUnprocessableEntity:
 		response := &PayWithUserWalletResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -846,7 +846,7 @@ func (a *Client) GetUserWalletShort(params *GetUserWalletParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -907,28 +907,28 @@ func (a *Client) DebitUserWalletShort(params *DebitUserWalletParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DebitUserWalletNotFound:
 		response := &DebitUserWalletResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DebitUserWalletConflict:
 		response := &DebitUserWalletResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DebitUserWalletUnprocessableEntity:
 		response := &DebitUserWalletResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -988,14 +988,14 @@ func (a *Client) DisableUserWalletShort(params *DisableUserWalletParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserWalletConflict:
 		response := &DisableUserWalletResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1055,14 +1055,14 @@ func (a *Client) EnableUserWalletShort(params *EnableUserWalletParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableUserWalletConflict:
 		response := &EnableUserWalletResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1126,7 +1126,7 @@ func (a *Client) ListUserWalletTransactionsShort(params *ListUserWalletTransacti
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1247,7 +1247,7 @@ func (a *Client) BulkCreditShort(params *BulkCreditParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1311,7 +1311,7 @@ func (a *Client) BulkDebitShort(params *BulkDebitParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1375,7 +1375,7 @@ func (a *Client) GetWalletShort(params *GetWalletParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

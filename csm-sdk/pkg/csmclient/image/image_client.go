@@ -94,28 +94,28 @@ func (a *Client) GetAppImageListV1Short(params *GetAppImageListV1Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppImageListV1Forbidden:
 		response := &GetAppImageListV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppImageListV1NotFound:
 		response := &GetAppImageListV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppImageListV1InternalServerError:
 		response := &GetAppImageListV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -177,28 +177,28 @@ func (a *Client) DeleteAppImagesV1Short(params *DeleteAppImagesV1Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAppImagesV1Forbidden:
 		response := &DeleteAppImagesV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAppImagesV1NotFound:
 		response := &DeleteAppImagesV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAppImagesV1InternalServerError:
 		response := &DeleteAppImagesV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

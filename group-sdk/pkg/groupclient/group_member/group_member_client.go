@@ -115,35 +115,35 @@ func (a *Client) GetGroupMembersListAdminV1Short(params *GetGroupMembersListAdmi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupMembersListAdminV1Unauthorized:
 		response := &GetGroupMembersListAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupMembersListAdminV1Forbidden:
 		response := &GetGroupMembersListAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupMembersListAdminV1NotFound:
 		response := &GetGroupMembersListAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupMembersListAdminV1InternalServerError:
 		response := &GetGroupMembersListAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,42 +216,42 @@ func (a *Client) AcceptGroupInvitationPublicV1Short(params *AcceptGroupInvitatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV1Unauthorized:
 		response := &AcceptGroupInvitationPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV1Forbidden:
 		response := &AcceptGroupInvitationPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV1NotFound:
 		response := &AcceptGroupInvitationPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV1Conflict:
 		response := &AcceptGroupInvitationPublicV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV1InternalServerError:
 		response := &AcceptGroupInvitationPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -318,42 +318,42 @@ func (a *Client) RejectGroupInvitationPublicV1Short(params *RejectGroupInvitatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV1Unauthorized:
 		response := &RejectGroupInvitationPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV1Forbidden:
 		response := &RejectGroupInvitationPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV1NotFound:
 		response := &RejectGroupInvitationPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV1Conflict:
 		response := &RejectGroupInvitationPublicV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV1InternalServerError:
 		response := &RejectGroupInvitationPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -428,35 +428,35 @@ func (a *Client) JoinGroupV1Short(params *JoinGroupV1Params, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGroupV1Unauthorized:
 		response := &JoinGroupV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGroupV1Forbidden:
 		response := &JoinGroupV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGroupV1Conflict:
 		response := &JoinGroupV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGroupV1InternalServerError:
 		response := &JoinGroupV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -521,35 +521,35 @@ func (a *Client) CancelGroupJoinRequestV1Short(params *CancelGroupJoinRequestV1P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelGroupJoinRequestV1Unauthorized:
 		response := &CancelGroupJoinRequestV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelGroupJoinRequestV1Forbidden:
 		response := &CancelGroupJoinRequestV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelGroupJoinRequestV1NotFound:
 		response := &CancelGroupJoinRequestV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelGroupJoinRequestV1InternalServerError:
 		response := &CancelGroupJoinRequestV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -614,35 +614,35 @@ func (a *Client) GetGroupMembersListPublicV1Short(params *GetGroupMembersListPub
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupMembersListPublicV1Unauthorized:
 		response := &GetGroupMembersListPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupMembersListPublicV1Forbidden:
 		response := &GetGroupMembersListPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupMembersListPublicV1NotFound:
 		response := &GetGroupMembersListPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupMembersListPublicV1InternalServerError:
 		response := &GetGroupMembersListPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -709,35 +709,35 @@ func (a *Client) LeaveGroupPublicV1Short(params *LeaveGroupPublicV1Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGroupPublicV1Unauthorized:
 		response := &LeaveGroupPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGroupPublicV1Forbidden:
 		response := &LeaveGroupPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGroupPublicV1NotFound:
 		response := &LeaveGroupPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGroupPublicV1InternalServerError:
 		response := &LeaveGroupPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -810,35 +810,35 @@ func (a *Client) GetUserGroupInformationPublicV1Short(params *GetUserGroupInform
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupInformationPublicV1Unauthorized:
 		response := &GetUserGroupInformationPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupInformationPublicV1Forbidden:
 		response := &GetUserGroupInformationPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupInformationPublicV1NotFound:
 		response := &GetUserGroupInformationPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupInformationPublicV1InternalServerError:
 		response := &GetUserGroupInformationPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -919,42 +919,42 @@ func (a *Client) InviteGroupPublicV1Short(params *InviteGroupPublicV1Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV1Unauthorized:
 		response := &InviteGroupPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV1Forbidden:
 		response := &InviteGroupPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV1NotFound:
 		response := &InviteGroupPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV1Conflict:
 		response := &InviteGroupPublicV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV1InternalServerError:
 		response := &InviteGroupPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1025,42 +1025,42 @@ func (a *Client) AcceptGroupJoinRequestPublicV1Short(params *AcceptGroupJoinRequ
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV1Unauthorized:
 		response := &AcceptGroupJoinRequestPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV1Forbidden:
 		response := &AcceptGroupJoinRequestPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV1NotFound:
 		response := &AcceptGroupJoinRequestPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV1Conflict:
 		response := &AcceptGroupJoinRequestPublicV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV1InternalServerError:
 		response := &AcceptGroupJoinRequestPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1131,42 +1131,42 @@ func (a *Client) RejectGroupJoinRequestPublicV1Short(params *RejectGroupJoinRequ
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV1Unauthorized:
 		response := &RejectGroupJoinRequestPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV1Forbidden:
 		response := &RejectGroupJoinRequestPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV1NotFound:
 		response := &RejectGroupJoinRequestPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV1Conflict:
 		response := &RejectGroupJoinRequestPublicV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV1InternalServerError:
 		response := &RejectGroupJoinRequestPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1235,35 +1235,35 @@ func (a *Client) KickGroupMemberPublicV1Short(params *KickGroupMemberPublicV1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *KickGroupMemberPublicV1Unauthorized:
 		response := &KickGroupMemberPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *KickGroupMemberPublicV1Forbidden:
 		response := &KickGroupMemberPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *KickGroupMemberPublicV1NotFound:
 		response := &KickGroupMemberPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *KickGroupMemberPublicV1InternalServerError:
 		response := &KickGroupMemberPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1332,35 +1332,35 @@ func (a *Client) GetUserJoinedGroupInformationPublicV2Short(params *GetUserJoine
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserJoinedGroupInformationPublicV2Unauthorized:
 		response := &GetUserJoinedGroupInformationPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserJoinedGroupInformationPublicV2Forbidden:
 		response := &GetUserJoinedGroupInformationPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserJoinedGroupInformationPublicV2NotFound:
 		response := &GetUserJoinedGroupInformationPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserJoinedGroupInformationPublicV2InternalServerError:
 		response := &GetUserJoinedGroupInformationPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1421,28 +1421,28 @@ func (a *Client) AdminGetUserGroupStatusInformationV2Short(params *AdminGetUserG
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserGroupStatusInformationV2Forbidden:
 		response := &AdminGetUserGroupStatusInformationV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserGroupStatusInformationV2NotFound:
 		response := &AdminGetUserGroupStatusInformationV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserGroupStatusInformationV2InternalServerError:
 		response := &AdminGetUserGroupStatusInformationV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1515,42 +1515,42 @@ func (a *Client) AcceptGroupInvitationPublicV2Short(params *AcceptGroupInvitatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV2Unauthorized:
 		response := &AcceptGroupInvitationPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV2Forbidden:
 		response := &AcceptGroupInvitationPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV2NotFound:
 		response := &AcceptGroupInvitationPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV2Conflict:
 		response := &AcceptGroupInvitationPublicV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupInvitationPublicV2InternalServerError:
 		response := &AcceptGroupInvitationPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1617,42 +1617,42 @@ func (a *Client) RejectGroupInvitationPublicV2Short(params *RejectGroupInvitatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV2Unauthorized:
 		response := &RejectGroupInvitationPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV2Forbidden:
 		response := &RejectGroupInvitationPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV2NotFound:
 		response := &RejectGroupInvitationPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV2Conflict:
 		response := &RejectGroupInvitationPublicV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupInvitationPublicV2InternalServerError:
 		response := &RejectGroupInvitationPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1727,35 +1727,35 @@ func (a *Client) JoinGroupV2Short(params *JoinGroupV2Params, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGroupV2Unauthorized:
 		response := &JoinGroupV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGroupV2Forbidden:
 		response := &JoinGroupV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGroupV2Conflict:
 		response := &JoinGroupV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGroupV2InternalServerError:
 		response := &JoinGroupV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1822,35 +1822,35 @@ func (a *Client) LeaveGroupPublicV2Short(params *LeaveGroupPublicV2Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGroupPublicV2Unauthorized:
 		response := &LeaveGroupPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGroupPublicV2Forbidden:
 		response := &LeaveGroupPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGroupPublicV2NotFound:
 		response := &LeaveGroupPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGroupPublicV2InternalServerError:
 		response := &LeaveGroupPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1921,35 +1921,35 @@ func (a *Client) GetUserGroupInformationPublicV2Short(params *GetUserGroupInform
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupInformationPublicV2Unauthorized:
 		response := &GetUserGroupInformationPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupInformationPublicV2Forbidden:
 		response := &GetUserGroupInformationPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupInformationPublicV2NotFound:
 		response := &GetUserGroupInformationPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupInformationPublicV2InternalServerError:
 		response := &GetUserGroupInformationPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2030,42 +2030,42 @@ func (a *Client) InviteGroupPublicV2Short(params *InviteGroupPublicV2Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV2Unauthorized:
 		response := &InviteGroupPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV2Forbidden:
 		response := &InviteGroupPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV2NotFound:
 		response := &InviteGroupPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV2Conflict:
 		response := &InviteGroupPublicV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InviteGroupPublicV2InternalServerError:
 		response := &InviteGroupPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2134,35 +2134,35 @@ func (a *Client) CancelInvitationGroupMemberV2Short(params *CancelInvitationGrou
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelInvitationGroupMemberV2Unauthorized:
 		response := &CancelInvitationGroupMemberV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelInvitationGroupMemberV2Forbidden:
 		response := &CancelInvitationGroupMemberV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelInvitationGroupMemberV2NotFound:
 		response := &CancelInvitationGroupMemberV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelInvitationGroupMemberV2InternalServerError:
 		response := &CancelInvitationGroupMemberV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2233,42 +2233,42 @@ func (a *Client) AcceptGroupJoinRequestPublicV2Short(params *AcceptGroupJoinRequ
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV2Unauthorized:
 		response := &AcceptGroupJoinRequestPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV2Forbidden:
 		response := &AcceptGroupJoinRequestPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV2NotFound:
 		response := &AcceptGroupJoinRequestPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV2Conflict:
 		response := &AcceptGroupJoinRequestPublicV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptGroupJoinRequestPublicV2InternalServerError:
 		response := &AcceptGroupJoinRequestPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2339,42 +2339,42 @@ func (a *Client) RejectGroupJoinRequestPublicV2Short(params *RejectGroupJoinRequ
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV2Unauthorized:
 		response := &RejectGroupJoinRequestPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV2Forbidden:
 		response := &RejectGroupJoinRequestPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV2NotFound:
 		response := &RejectGroupJoinRequestPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV2Conflict:
 		response := &RejectGroupJoinRequestPublicV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectGroupJoinRequestPublicV2InternalServerError:
 		response := &RejectGroupJoinRequestPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2443,35 +2443,35 @@ func (a *Client) KickGroupMemberPublicV2Short(params *KickGroupMemberPublicV2Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *KickGroupMemberPublicV2Unauthorized:
 		response := &KickGroupMemberPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *KickGroupMemberPublicV2Forbidden:
 		response := &KickGroupMemberPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *KickGroupMemberPublicV2NotFound:
 		response := &KickGroupMemberPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *KickGroupMemberPublicV2InternalServerError:
 		response := &KickGroupMemberPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2540,28 +2540,28 @@ func (a *Client) GetUserGroupStatusInformationV2Short(params *GetUserGroupStatus
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupStatusInformationV2Forbidden:
 		response := &GetUserGroupStatusInformationV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupStatusInformationV2NotFound:
 		response := &GetUserGroupStatusInformationV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserGroupStatusInformationV2InternalServerError:
 		response := &GetUserGroupStatusInformationV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

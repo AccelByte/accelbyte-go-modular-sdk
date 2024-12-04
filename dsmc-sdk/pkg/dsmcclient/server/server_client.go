@@ -103,14 +103,14 @@ func (a *Client) ListServerClientShort(params *ListServerClientParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListServerClientInternalServerError:
 		response := &ListServerClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -175,14 +175,14 @@ func (a *Client) CountServerDetailedClientShort(params *CountServerDetailedClien
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CountServerDetailedClientInternalServerError:
 		response := &CountServerDetailedClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -252,28 +252,28 @@ func (a *Client) ServerHeartbeatShort(params *ServerHeartbeatParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ServerHeartbeatUnauthorized:
 		response := &ServerHeartbeatResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ServerHeartbeatNotFound:
 		response := &ServerHeartbeatResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ServerHeartbeatInternalServerError:
 		response := &ServerHeartbeatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -340,21 +340,21 @@ func (a *Client) DeregisterLocalServerShort(params *DeregisterLocalServerParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeregisterLocalServerUnauthorized:
 		response := &DeregisterLocalServerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeregisterLocalServerInternalServerError:
 		response := &DeregisterLocalServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -426,28 +426,28 @@ func (a *Client) RegisterLocalServerShort(params *RegisterLocalServerParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RegisterLocalServerUnauthorized:
 		response := &RegisterLocalServerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RegisterLocalServerConflict:
 		response := &RegisterLocalServerResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RegisterLocalServerInternalServerError:
 		response := &RegisterLocalServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -516,35 +516,35 @@ func (a *Client) RegisterServerShort(params *RegisterServerParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RegisterServerUnauthorized:
 		response := &RegisterServerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RegisterServerNotFound:
 		response := &RegisterServerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RegisterServerConflict:
 		response := &RegisterServerResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RegisterServerInternalServerError:
 		response := &RegisterServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -608,28 +608,28 @@ func (a *Client) ShutdownServerShort(params *ShutdownServerParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ShutdownServerUnauthorized:
 		response := &ShutdownServerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ShutdownServerNotFound:
 		response := &ShutdownServerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ShutdownServerInternalServerError:
 		response := &ShutdownServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -697,28 +697,28 @@ func (a *Client) GetServerSessionTimeoutShort(params *GetServerSessionTimeoutPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetServerSessionTimeoutUnauthorized:
 		response := &GetServerSessionTimeoutResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetServerSessionTimeoutNotFound:
 		response := &GetServerSessionTimeoutResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetServerSessionTimeoutInternalServerError:
 		response := &GetServerSessionTimeoutResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -786,28 +786,28 @@ func (a *Client) GetServerSessionShort(params *GetServerSessionParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetServerSessionUnauthorized:
 		response := &GetServerSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetServerSessionNotFound:
 		response := &GetServerSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetServerSessionInternalServerError:
 		response := &GetServerSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -91,14 +91,14 @@ func (a *Client) AdminListGlobalConfigurationShort(params *AdminListGlobalConfig
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListGlobalConfigurationForbidden:
 		response := &AdminListGlobalConfigurationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,14 +159,14 @@ func (a *Client) AdminUpdateGlobalConfigurationShort(params *AdminUpdateGlobalCo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGlobalConfigurationForbidden:
 		response := &AdminUpdateGlobalConfigurationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -227,14 +227,14 @@ func (a *Client) AdminDeleteGlobalConfigurationShort(params *AdminDeleteGlobalCo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteGlobalConfigurationForbidden:
 		response := &AdminDeleteGlobalConfigurationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

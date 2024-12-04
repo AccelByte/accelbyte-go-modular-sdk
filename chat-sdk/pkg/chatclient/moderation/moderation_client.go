@@ -91,35 +91,35 @@ func (a *Client) AdminGetChatSnapshotShort(params *AdminGetChatSnapshotParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChatSnapshotUnauthorized:
 		response := &AdminGetChatSnapshotResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChatSnapshotForbidden:
 		response := &AdminGetChatSnapshotResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChatSnapshotNotFound:
 		response := &AdminGetChatSnapshotResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChatSnapshotInternalServerError:
 		response := &AdminGetChatSnapshotResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -179,35 +179,35 @@ func (a *Client) AdminDeleteChatSnapshotShort(params *AdminDeleteChatSnapshotPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChatSnapshotUnauthorized:
 		response := &AdminDeleteChatSnapshotResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChatSnapshotForbidden:
 		response := &AdminDeleteChatSnapshotResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChatSnapshotNotFound:
 		response := &AdminDeleteChatSnapshotResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChatSnapshotInternalServerError:
 		response := &AdminDeleteChatSnapshotResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -268,35 +268,35 @@ func (a *Client) PublicGetChatSnapshotShort(params *PublicGetChatSnapshotParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetChatSnapshotUnauthorized:
 		response := &PublicGetChatSnapshotResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetChatSnapshotForbidden:
 		response := &PublicGetChatSnapshotResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetChatSnapshotNotFound:
 		response := &PublicGetChatSnapshotResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetChatSnapshotInternalServerError:
 		response := &PublicGetChatSnapshotResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

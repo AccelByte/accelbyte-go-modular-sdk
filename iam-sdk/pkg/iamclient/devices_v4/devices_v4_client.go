@@ -100,35 +100,35 @@ func (a *Client) AdminGetDevicesByUserV4Short(params *AdminGetDevicesByUserV4Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDevicesByUserV4Unauthorized:
 		response := &AdminGetDevicesByUserV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDevicesByUserV4Forbidden:
 		response := &AdminGetDevicesByUserV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDevicesByUserV4NotFound:
 		response := &AdminGetDevicesByUserV4Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDevicesByUserV4InternalServerError:
 		response := &AdminGetDevicesByUserV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -189,21 +189,21 @@ func (a *Client) AdminGetBannedDevicesV4Short(params *AdminGetBannedDevicesV4Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBannedDevicesV4Forbidden:
 		response := &AdminGetBannedDevicesV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBannedDevicesV4InternalServerError:
 		response := &AdminGetBannedDevicesV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -264,28 +264,28 @@ func (a *Client) AdminGetUserDeviceBansV4Short(params *AdminGetUserDeviceBansV4P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserDeviceBansV4Forbidden:
 		response := &AdminGetUserDeviceBansV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserDeviceBansV4NotFound:
 		response := &AdminGetUserDeviceBansV4Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserDeviceBansV4InternalServerError:
 		response := &AdminGetUserDeviceBansV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -345,35 +345,35 @@ func (a *Client) AdminBanDeviceV4Short(params *AdminBanDeviceV4Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanDeviceV4Unauthorized:
 		response := &AdminBanDeviceV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanDeviceV4Forbidden:
 		response := &AdminBanDeviceV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanDeviceV4Conflict:
 		response := &AdminBanDeviceV4Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanDeviceV4InternalServerError:
 		response := &AdminBanDeviceV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -434,35 +434,35 @@ func (a *Client) AdminGetDeviceBanV4Short(params *AdminGetDeviceBanV4Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceBanV4Unauthorized:
 		response := &AdminGetDeviceBanV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceBanV4Forbidden:
 		response := &AdminGetDeviceBanV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceBanV4NotFound:
 		response := &AdminGetDeviceBanV4Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceBanV4InternalServerError:
 		response := &AdminGetDeviceBanV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -522,42 +522,42 @@ func (a *Client) AdminUpdateDeviceBanV4Short(params *AdminUpdateDeviceBanV4Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateDeviceBanV4Unauthorized:
 		response := &AdminUpdateDeviceBanV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateDeviceBanV4Forbidden:
 		response := &AdminUpdateDeviceBanV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateDeviceBanV4NotFound:
 		response := &AdminUpdateDeviceBanV4Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateDeviceBanV4Conflict:
 		response := &AdminUpdateDeviceBanV4Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateDeviceBanV4InternalServerError:
 		response := &AdminUpdateDeviceBanV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -617,35 +617,35 @@ func (a *Client) AdminGenerateReportV4Short(params *AdminGenerateReportV4Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateReportV4Unauthorized:
 		response := &AdminGenerateReportV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateReportV4Forbidden:
 		response := &AdminGenerateReportV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateReportV4NotFound:
 		response := &AdminGenerateReportV4Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateReportV4InternalServerError:
 		response := &AdminGenerateReportV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -706,21 +706,21 @@ func (a *Client) AdminGetDeviceTypesV4Short(params *AdminGetDeviceTypesV4Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceTypesV4Forbidden:
 		response := &AdminGetDeviceTypesV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceTypesV4InternalServerError:
 		response := &AdminGetDeviceTypesV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -781,28 +781,28 @@ func (a *Client) AdminGetDeviceBansV4Short(params *AdminGetDeviceBansV4Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceBansV4Unauthorized:
 		response := &AdminGetDeviceBansV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceBansV4Forbidden:
 		response := &AdminGetDeviceBansV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDeviceBansV4InternalServerError:
 		response := &AdminGetDeviceBansV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -863,28 +863,28 @@ func (a *Client) AdminDecryptDeviceV4Short(params *AdminDecryptDeviceV4Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDecryptDeviceV4Unauthorized:
 		response := &AdminDecryptDeviceV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDecryptDeviceV4Forbidden:
 		response := &AdminDecryptDeviceV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDecryptDeviceV4InternalServerError:
 		response := &AdminDecryptDeviceV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -944,28 +944,28 @@ func (a *Client) AdminUnbanDeviceV4Short(params *AdminUnbanDeviceV4Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanDeviceV4Unauthorized:
 		response := &AdminUnbanDeviceV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanDeviceV4Forbidden:
 		response := &AdminUnbanDeviceV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanDeviceV4InternalServerError:
 		response := &AdminUnbanDeviceV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1026,28 +1026,28 @@ func (a *Client) AdminGetUsersByDeviceV4Short(params *AdminGetUsersByDeviceV4Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUsersByDeviceV4Unauthorized:
 		response := &AdminGetUsersByDeviceV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUsersByDeviceV4Forbidden:
 		response := &AdminGetUsersByDeviceV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUsersByDeviceV4InternalServerError:
 		response := &AdminGetUsersByDeviceV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

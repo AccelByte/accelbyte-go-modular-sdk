@@ -150,35 +150,35 @@ func (a *Client) AdminPutAdminGameRecordConcurrentHandlerV1Short(params *AdminPu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutAdminGameRecordConcurrentHandlerV1Unauthorized:
 		response := &AdminPutAdminGameRecordConcurrentHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutAdminGameRecordConcurrentHandlerV1Forbidden:
 		response := &AdminPutAdminGameRecordConcurrentHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutAdminGameRecordConcurrentHandlerV1PreconditionFailed:
 		response := &AdminPutAdminGameRecordConcurrentHandlerV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutAdminGameRecordConcurrentHandlerV1InternalServerError:
 		response := &AdminPutAdminGameRecordConcurrentHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -301,35 +301,35 @@ func (a *Client) AdminPutGameRecordConcurrentHandlerV1Short(params *AdminPutGame
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameRecordConcurrentHandlerV1Unauthorized:
 		response := &AdminPutGameRecordConcurrentHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameRecordConcurrentHandlerV1Forbidden:
 		response := &AdminPutGameRecordConcurrentHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameRecordConcurrentHandlerV1PreconditionFailed:
 		response := &AdminPutGameRecordConcurrentHandlerV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameRecordConcurrentHandlerV1InternalServerError:
 		response := &AdminPutGameRecordConcurrentHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -455,35 +455,35 @@ func (a *Client) AdminPutAdminPlayerRecordConcurrentHandlerV1Short(params *Admin
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutAdminPlayerRecordConcurrentHandlerV1Unauthorized:
 		response := &AdminPutAdminPlayerRecordConcurrentHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutAdminPlayerRecordConcurrentHandlerV1Forbidden:
 		response := &AdminPutAdminPlayerRecordConcurrentHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutAdminPlayerRecordConcurrentHandlerV1PreconditionFailed:
 		response := &AdminPutAdminPlayerRecordConcurrentHandlerV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutAdminPlayerRecordConcurrentHandlerV1InternalServerError:
 		response := &AdminPutAdminPlayerRecordConcurrentHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -614,35 +614,35 @@ func (a *Client) AdminPutPlayerRecordConcurrentHandlerV1Short(params *AdminPutPl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordConcurrentHandlerV1Unauthorized:
 		response := &AdminPutPlayerRecordConcurrentHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordConcurrentHandlerV1Forbidden:
 		response := &AdminPutPlayerRecordConcurrentHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordConcurrentHandlerV1PreconditionFailed:
 		response := &AdminPutPlayerRecordConcurrentHandlerV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordConcurrentHandlerV1InternalServerError:
 		response := &AdminPutPlayerRecordConcurrentHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -773,35 +773,35 @@ func (a *Client) AdminPutPlayerPublicRecordConcurrentHandlerV1Short(params *Admi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerPublicRecordConcurrentHandlerV1Unauthorized:
 		response := &AdminPutPlayerPublicRecordConcurrentHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerPublicRecordConcurrentHandlerV1Forbidden:
 		response := &AdminPutPlayerPublicRecordConcurrentHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerPublicRecordConcurrentHandlerV1PreconditionFailed:
 		response := &AdminPutPlayerPublicRecordConcurrentHandlerV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerPublicRecordConcurrentHandlerV1InternalServerError:
 		response := &AdminPutPlayerPublicRecordConcurrentHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

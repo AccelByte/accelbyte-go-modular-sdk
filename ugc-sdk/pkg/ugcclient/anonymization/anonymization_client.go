@@ -95,21 +95,21 @@ func (a *Client) AdminDeleteAllUserChannelsShort(params *AdminDeleteAllUserChann
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAllUserChannelsNotFound:
 		response := &AdminDeleteAllUserChannelsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAllUserChannelsInternalServerError:
 		response := &AdminDeleteAllUserChannelsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -169,21 +169,21 @@ func (a *Client) AdminDeleteAllUserContentsShort(params *AdminDeleteAllUserConte
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAllUserContentsNotFound:
 		response := &AdminDeleteAllUserContentsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAllUserContentsInternalServerError:
 		response := &AdminDeleteAllUserContentsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -243,21 +243,21 @@ func (a *Client) AdminDeleteAllUserGroupShort(params *AdminDeleteAllUserGroupPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAllUserGroupNotFound:
 		response := &AdminDeleteAllUserGroupResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAllUserGroupInternalServerError:
 		response := &AdminDeleteAllUserGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -317,21 +317,21 @@ func (a *Client) AdminDeleteAllUserStatesShort(params *AdminDeleteAllUserStatesP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAllUserStatesNotFound:
 		response := &AdminDeleteAllUserStatesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAllUserStatesInternalServerError:
 		response := &AdminDeleteAllUserStatesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -391,21 +391,21 @@ func (a *Client) DeleteAllUserChannelShort(params *DeleteAllUserChannelParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserChannelNotFound:
 		response := &DeleteAllUserChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserChannelInternalServerError:
 		response := &DeleteAllUserChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -465,21 +465,21 @@ func (a *Client) DeleteAllUserContentsShort(params *DeleteAllUserContentsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserContentsNotFound:
 		response := &DeleteAllUserContentsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserContentsInternalServerError:
 		response := &DeleteAllUserContentsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -539,21 +539,21 @@ func (a *Client) DeleteAllUserGroupShort(params *DeleteAllUserGroupParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserGroupNotFound:
 		response := &DeleteAllUserGroupResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserGroupInternalServerError:
 		response := &DeleteAllUserGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -613,21 +613,21 @@ func (a *Client) DeleteAllUserStatesShort(params *DeleteAllUserStatesParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserStatesUnauthorized:
 		response := &DeleteAllUserStatesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserStatesInternalServerError:
 		response := &DeleteAllUserStatesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

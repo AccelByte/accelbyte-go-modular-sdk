@@ -93,35 +93,35 @@ func (a *Client) GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatCycleItemsForbidden:
 		response := &GetUserStatCycleItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatCycleItemsNotFound:
 		response := &GetUserStatCycleItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatCycleItemsUnprocessableEntity:
 		response := &GetUserStatCycleItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatCycleItemsInternalServerError:
 		response := &GetUserStatCycleItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -184,35 +184,35 @@ func (a *Client) PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleIt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListMyStatCycleItemsForbidden:
 		response := &PublicListMyStatCycleItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListMyStatCycleItemsNotFound:
 		response := &PublicListMyStatCycleItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListMyStatCycleItemsUnprocessableEntity:
 		response := &PublicListMyStatCycleItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListMyStatCycleItemsInternalServerError:
 		response := &PublicListMyStatCycleItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -275,35 +275,35 @@ func (a *Client) GetUserStatCycleItems1Short(params *GetUserStatCycleItems1Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatCycleItems1Forbidden:
 		response := &GetUserStatCycleItems1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatCycleItems1NotFound:
 		response := &GetUserStatCycleItems1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatCycleItems1UnprocessableEntity:
 		response := &GetUserStatCycleItems1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatCycleItems1InternalServerError:
 		response := &GetUserStatCycleItems1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

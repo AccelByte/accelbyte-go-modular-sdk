@@ -105,28 +105,28 @@ func (a *Client) BulkGetPlayerRecordSizeHandlerV1Short(params *BulkGetPlayerReco
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetPlayerRecordSizeHandlerV1Unauthorized:
 		response := &BulkGetPlayerRecordSizeHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetPlayerRecordSizeHandlerV1Forbidden:
 		response := &BulkGetPlayerRecordSizeHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetPlayerRecordSizeHandlerV1InternalServerError:
 		response := &BulkGetPlayerRecordSizeHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -187,28 +187,28 @@ func (a *Client) ListPlayerRecordHandlerV1Short(params *ListPlayerRecordHandlerV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListPlayerRecordHandlerV1Unauthorized:
 		response := &ListPlayerRecordHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListPlayerRecordHandlerV1Forbidden:
 		response := &ListPlayerRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListPlayerRecordHandlerV1InternalServerError:
 		response := &ListPlayerRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -271,28 +271,28 @@ func (a *Client) AdminBulkPutPlayerRecordsByKeyHandlerV1Short(params *AdminBulkP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkPutPlayerRecordsByKeyHandlerV1Unauthorized:
 		response := &AdminBulkPutPlayerRecordsByKeyHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkPutPlayerRecordsByKeyHandlerV1Forbidden:
 		response := &AdminBulkPutPlayerRecordsByKeyHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkPutPlayerRecordsByKeyHandlerV1InternalServerError:
 		response := &AdminBulkPutPlayerRecordsByKeyHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -354,28 +354,28 @@ func (a *Client) AdminBulkGetPlayerRecordsByUserIDsHandlerV1Short(params *AdminB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkGetPlayerRecordsByUserIDsHandlerV1Unauthorized:
 		response := &AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkGetPlayerRecordsByUserIDsHandlerV1Forbidden:
 		response := &AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkGetPlayerRecordsByUserIDsHandlerV1InternalServerError:
 		response := &AdminBulkGetPlayerRecordsByUserIDsHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -436,28 +436,28 @@ func (a *Client) AdminRetrievePlayerRecordsShort(params *AdminRetrievePlayerReco
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRetrievePlayerRecordsUnauthorized:
 		response := &AdminRetrievePlayerRecordsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRetrievePlayerRecordsForbidden:
 		response := &AdminRetrievePlayerRecordsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRetrievePlayerRecordsInternalServerError:
 		response := &AdminRetrievePlayerRecordsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -520,21 +520,21 @@ func (a *Client) AdminPutPlayerRecordsHandlerV1Short(params *AdminPutPlayerRecor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordsHandlerV1Unauthorized:
 		response := &AdminPutPlayerRecordsHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordsHandlerV1Forbidden:
 		response := &AdminPutPlayerRecordsHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -596,35 +596,35 @@ func (a *Client) AdminGetPlayerRecordsHandlerV1Short(params *AdminGetPlayerRecor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordsHandlerV1Unauthorized:
 		response := &AdminGetPlayerRecordsHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordsHandlerV1Forbidden:
 		response := &AdminGetPlayerRecordsHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordsHandlerV1NotFound:
 		response := &AdminGetPlayerRecordsHandlerV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordsHandlerV1InternalServerError:
 		response := &AdminGetPlayerRecordsHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -685,28 +685,28 @@ func (a *Client) AdminGetPlayerRecordHandlerV1Short(params *AdminGetPlayerRecord
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordHandlerV1Forbidden:
 		response := &AdminGetPlayerRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordHandlerV1NotFound:
 		response := &AdminGetPlayerRecordHandlerV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordHandlerV1InternalServerError:
 		response := &AdminGetPlayerRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -824,28 +824,28 @@ func (a *Client) AdminPutPlayerRecordHandlerV1Short(params *AdminPutPlayerRecord
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordHandlerV1Unauthorized:
 		response := &AdminPutPlayerRecordHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordHandlerV1Forbidden:
 		response := &AdminPutPlayerRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerRecordHandlerV1InternalServerError:
 		response := &AdminPutPlayerRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -975,28 +975,28 @@ func (a *Client) AdminPostPlayerRecordHandlerV1Short(params *AdminPostPlayerReco
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostPlayerRecordHandlerV1Unauthorized:
 		response := &AdminPostPlayerRecordHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostPlayerRecordHandlerV1Forbidden:
 		response := &AdminPostPlayerRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostPlayerRecordHandlerV1InternalServerError:
 		response := &AdminPostPlayerRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1056,21 +1056,21 @@ func (a *Client) AdminDeletePlayerRecordHandlerV1Short(params *AdminDeletePlayer
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlayerRecordHandlerV1Forbidden:
 		response := &AdminDeletePlayerRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlayerRecordHandlerV1InternalServerError:
 		response := &AdminDeletePlayerRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1131,28 +1131,28 @@ func (a *Client) AdminGetPlayerPublicRecordHandlerV1Short(params *AdminGetPlayer
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerPublicRecordHandlerV1Forbidden:
 		response := &AdminGetPlayerPublicRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerPublicRecordHandlerV1NotFound:
 		response := &AdminGetPlayerPublicRecordHandlerV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerPublicRecordHandlerV1InternalServerError:
 		response := &AdminGetPlayerPublicRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1250,28 +1250,28 @@ func (a *Client) AdminPutPlayerPublicRecordHandlerV1Short(params *AdminPutPlayer
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerPublicRecordHandlerV1Unauthorized:
 		response := &AdminPutPlayerPublicRecordHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerPublicRecordHandlerV1Forbidden:
 		response := &AdminPutPlayerPublicRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutPlayerPublicRecordHandlerV1InternalServerError:
 		response := &AdminPutPlayerPublicRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1381,28 +1381,28 @@ func (a *Client) AdminPostPlayerPublicRecordHandlerV1Short(params *AdminPostPlay
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostPlayerPublicRecordHandlerV1Unauthorized:
 		response := &AdminPostPlayerPublicRecordHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostPlayerPublicRecordHandlerV1Forbidden:
 		response := &AdminPostPlayerPublicRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostPlayerPublicRecordHandlerV1InternalServerError:
 		response := &AdminPostPlayerPublicRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1472,35 +1472,35 @@ func (a *Client) AdminDeletePlayerPublicRecordHandlerV1Short(params *AdminDelete
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlayerPublicRecordHandlerV1Unauthorized:
 		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlayerPublicRecordHandlerV1Forbidden:
 		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlayerPublicRecordHandlerV1NotFound:
 		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlayerPublicRecordHandlerV1InternalServerError:
 		response := &AdminDeletePlayerPublicRecordHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1561,28 +1561,28 @@ func (a *Client) AdminGetPlayerRecordSizeHandlerV1Short(params *AdminGetPlayerRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordSizeHandlerV1Forbidden:
 		response := &AdminGetPlayerRecordSizeHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordSizeHandlerV1NotFound:
 		response := &AdminGetPlayerRecordSizeHandlerV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerRecordSizeHandlerV1InternalServerError:
 		response := &AdminGetPlayerRecordSizeHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

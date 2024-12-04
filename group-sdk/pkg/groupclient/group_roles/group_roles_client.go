@@ -102,28 +102,28 @@ func (a *Client) GetMemberRolesListAdminV1Short(params *GetMemberRolesListAdminV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListAdminV1Unauthorized:
 		response := &GetMemberRolesListAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListAdminV1Forbidden:
 		response := &GetMemberRolesListAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListAdminV1InternalServerError:
 		response := &GetMemberRolesListAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -196,28 +196,28 @@ func (a *Client) CreateMemberRoleAdminV1Short(params *CreateMemberRoleAdminV1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMemberRoleAdminV1Unauthorized:
 		response := &CreateMemberRoleAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMemberRoleAdminV1Forbidden:
 		response := &CreateMemberRoleAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMemberRoleAdminV1InternalServerError:
 		response := &CreateMemberRoleAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -280,35 +280,35 @@ func (a *Client) GetSingleMemberRoleAdminV1Short(params *GetSingleMemberRoleAdmi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleMemberRoleAdminV1Unauthorized:
 		response := &GetSingleMemberRoleAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleMemberRoleAdminV1Forbidden:
 		response := &GetSingleMemberRoleAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleMemberRoleAdminV1NotFound:
 		response := &GetSingleMemberRoleAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleMemberRoleAdminV1InternalServerError:
 		response := &GetSingleMemberRoleAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -370,35 +370,35 @@ func (a *Client) DeleteMemberRoleAdminV1Short(params *DeleteMemberRoleAdminV1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRoleAdminV1Unauthorized:
 		response := &DeleteMemberRoleAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRoleAdminV1Forbidden:
 		response := &DeleteMemberRoleAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRoleAdminV1NotFound:
 		response := &DeleteMemberRoleAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRoleAdminV1InternalServerError:
 		response := &DeleteMemberRoleAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -461,35 +461,35 @@ func (a *Client) UpdateMemberRoleAdminV1Short(params *UpdateMemberRoleAdminV1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRoleAdminV1Unauthorized:
 		response := &UpdateMemberRoleAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRoleAdminV1Forbidden:
 		response := &UpdateMemberRoleAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRoleAdminV1NotFound:
 		response := &UpdateMemberRoleAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRoleAdminV1InternalServerError:
 		response := &UpdateMemberRoleAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -562,35 +562,35 @@ func (a *Client) UpdateMemberRolePermissionAdminV1Short(params *UpdateMemberRole
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePermissionAdminV1Unauthorized:
 		response := &UpdateMemberRolePermissionAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePermissionAdminV1Forbidden:
 		response := &UpdateMemberRolePermissionAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePermissionAdminV1NotFound:
 		response := &UpdateMemberRolePermissionAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePermissionAdminV1InternalServerError:
 		response := &UpdateMemberRolePermissionAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -655,28 +655,28 @@ func (a *Client) GetMemberRolesListPublicV1Short(params *GetMemberRolesListPubli
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListPublicV1Unauthorized:
 		response := &GetMemberRolesListPublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListPublicV1Forbidden:
 		response := &GetMemberRolesListPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListPublicV1InternalServerError:
 		response := &GetMemberRolesListPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -741,35 +741,35 @@ func (a *Client) UpdateMemberRolePublicV1Short(params *UpdateMemberRolePublicV1P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePublicV1Unauthorized:
 		response := &UpdateMemberRolePublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePublicV1Forbidden:
 		response := &UpdateMemberRolePublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePublicV1NotFound:
 		response := &UpdateMemberRolePublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePublicV1InternalServerError:
 		response := &UpdateMemberRolePublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -833,42 +833,42 @@ func (a *Client) DeleteMemberRolePublicV1Short(params *DeleteMemberRolePublicV1P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV1Unauthorized:
 		response := &DeleteMemberRolePublicV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV1Forbidden:
 		response := &DeleteMemberRolePublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV1NotFound:
 		response := &DeleteMemberRolePublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV1UnprocessableEntity:
 		response := &DeleteMemberRolePublicV1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV1InternalServerError:
 		response := &DeleteMemberRolePublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -931,28 +931,28 @@ func (a *Client) GetMemberRolesListPublicV2Short(params *GetMemberRolesListPubli
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListPublicV2Unauthorized:
 		response := &GetMemberRolesListPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListPublicV2Forbidden:
 		response := &GetMemberRolesListPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMemberRolesListPublicV2InternalServerError:
 		response := &GetMemberRolesListPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1017,35 +1017,35 @@ func (a *Client) UpdateMemberRolePublicV2Short(params *UpdateMemberRolePublicV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePublicV2Unauthorized:
 		response := &UpdateMemberRolePublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePublicV2Forbidden:
 		response := &UpdateMemberRolePublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePublicV2NotFound:
 		response := &UpdateMemberRolePublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMemberRolePublicV2InternalServerError:
 		response := &UpdateMemberRolePublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1109,42 +1109,42 @@ func (a *Client) DeleteMemberRolePublicV2Short(params *DeleteMemberRolePublicV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV2Unauthorized:
 		response := &DeleteMemberRolePublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV2Forbidden:
 		response := &DeleteMemberRolePublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV2NotFound:
 		response := &DeleteMemberRolePublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV2UnprocessableEntity:
 		response := &DeleteMemberRolePublicV2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMemberRolePublicV2InternalServerError:
 		response := &DeleteMemberRolePublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

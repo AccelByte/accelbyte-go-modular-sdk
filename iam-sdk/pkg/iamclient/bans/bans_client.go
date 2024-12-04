@@ -98,14 +98,14 @@ func (a *Client) GetBansTypeShort(params *GetBansTypeParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBansTypeForbidden:
 		response := &GetBansTypeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,14 +168,14 @@ func (a *Client) GetListBanReasonShort(params *GetListBanReasonParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListBanReasonForbidden:
 		response := &GetListBanReasonResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -238,21 +238,21 @@ func (a *Client) AdminGetBansTypeV3Short(params *AdminGetBansTypeV3Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBansTypeV3Forbidden:
 		response := &AdminGetBansTypeV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBansTypeV3InternalServerError:
 		response := &AdminGetBansTypeV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -314,21 +314,21 @@ func (a *Client) AdminGetListBanReasonV3Short(params *AdminGetListBanReasonV3Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListBanReasonV3Forbidden:
 		response := &AdminGetListBanReasonV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListBanReasonV3InternalServerError:
 		response := &AdminGetListBanReasonV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -391,21 +391,21 @@ func (a *Client) AdminGetBannedUsersV3Short(params *AdminGetBannedUsersV3Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBannedUsersV3Forbidden:
 		response := &AdminGetBannedUsersV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBannedUsersV3InternalServerError:
 		response := &AdminGetBannedUsersV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -467,35 +467,35 @@ func (a *Client) AdminBanUserBulkV3Short(params *AdminBanUserBulkV3Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserBulkV3Unauthorized:
 		response := &AdminBanUserBulkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserBulkV3Forbidden:
 		response := &AdminBanUserBulkV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserBulkV3NotFound:
 		response := &AdminBanUserBulkV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserBulkV3InternalServerError:
 		response := &AdminBanUserBulkV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -557,35 +557,35 @@ func (a *Client) AdminUnbanUserBulkV3Short(params *AdminUnbanUserBulkV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanUserBulkV3Unauthorized:
 		response := &AdminUnbanUserBulkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanUserBulkV3Forbidden:
 		response := &AdminUnbanUserBulkV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanUserBulkV3NotFound:
 		response := &AdminUnbanUserBulkV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanUserBulkV3InternalServerError:
 		response := &AdminUnbanUserBulkV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -648,21 +648,21 @@ func (a *Client) AdminGetBansTypeWithNamespaceV3Short(params *AdminGetBansTypeWi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBansTypeWithNamespaceV3Forbidden:
 		response := &AdminGetBansTypeWithNamespaceV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBansTypeWithNamespaceV3InternalServerError:
 		response := &AdminGetBansTypeWithNamespaceV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

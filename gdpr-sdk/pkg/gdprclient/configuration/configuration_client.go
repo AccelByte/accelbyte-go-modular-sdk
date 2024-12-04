@@ -99,14 +99,14 @@ func (a *Client) GetAdminEmailConfigurationShort(params *GetAdminEmailConfigurat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminEmailConfigurationInternalServerError:
 		response := &GetAdminEmailConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,21 +167,21 @@ func (a *Client) UpdateAdminEmailConfigurationShort(params *UpdateAdminEmailConf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAdminEmailConfigurationUnauthorized:
 		response := &UpdateAdminEmailConfigurationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAdminEmailConfigurationInternalServerError:
 		response := &UpdateAdminEmailConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -242,21 +242,21 @@ func (a *Client) SaveAdminEmailConfigurationShort(params *SaveAdminEmailConfigur
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveAdminEmailConfigurationUnauthorized:
 		response := &SaveAdminEmailConfigurationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveAdminEmailConfigurationInternalServerError:
 		response := &SaveAdminEmailConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -317,35 +317,35 @@ func (a *Client) DeleteAdminEmailConfigurationShort(params *DeleteAdminEmailConf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAdminEmailConfigurationUnauthorized:
 		response := &DeleteAdminEmailConfigurationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAdminEmailConfigurationForbidden:
 		response := &DeleteAdminEmailConfigurationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAdminEmailConfigurationNotFound:
 		response := &DeleteAdminEmailConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAdminEmailConfigurationInternalServerError:
 		response := &DeleteAdminEmailConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -407,21 +407,21 @@ func (a *Client) AdminGetServicesConfigurationShort(params *AdminGetServicesConf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetServicesConfigurationNotFound:
 		response := &AdminGetServicesConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetServicesConfigurationInternalServerError:
 		response := &AdminGetServicesConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -483,21 +483,21 @@ func (a *Client) AdminUpdateServicesConfigurationShort(params *AdminUpdateServic
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateServicesConfigurationUnauthorized:
 		response := &AdminUpdateServicesConfigurationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateServicesConfigurationInternalServerError:
 		response := &AdminUpdateServicesConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -559,14 +559,14 @@ func (a *Client) AdminResetServicesConfigurationShort(params *AdminResetServices
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetServicesConfigurationInternalServerError:
 		response := &AdminResetServicesConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -628,21 +628,21 @@ func (a *Client) AdminGetPlatformAccountClosureServicesConfigurationShort(params
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformAccountClosureServicesConfigurationNotFound:
 		response := &AdminGetPlatformAccountClosureServicesConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformAccountClosureServicesConfigurationInternalServerError:
 		response := &AdminGetPlatformAccountClosureServicesConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -704,21 +704,21 @@ func (a *Client) AdminUpdatePlatformAccountClosureServicesConfigurationShort(par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformAccountClosureServicesConfigurationUnauthorized:
 		response := &AdminUpdatePlatformAccountClosureServicesConfigurationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformAccountClosureServicesConfigurationInternalServerError:
 		response := &AdminUpdatePlatformAccountClosureServicesConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -780,14 +780,14 @@ func (a *Client) AdminResetPlatformAccountClosureServicesConfigurationShort(para
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPlatformAccountClosureServicesConfigurationInternalServerError:
 		response := &AdminResetPlatformAccountClosureServicesConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -92,21 +92,21 @@ func (a *Client) DevelopmentServerConfigurationListShort(params *DevelopmentServ
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationListForbidden:
 		response := &DevelopmentServerConfigurationListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationListInternalServerError:
 		response := &DevelopmentServerConfigurationListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -169,28 +169,28 @@ func (a *Client) DevelopmentServerConfigurationCreateShort(params *DevelopmentSe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationCreateUnauthorized:
 		response := &DevelopmentServerConfigurationCreateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationCreateForbidden:
 		response := &DevelopmentServerConfigurationCreateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationCreateInternalServerError:
 		response := &DevelopmentServerConfigurationCreateResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -251,28 +251,28 @@ func (a *Client) DevelopmentServerConfigurationGetShort(params *DevelopmentServe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationGetForbidden:
 		response := &DevelopmentServerConfigurationGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationGetNotFound:
 		response := &DevelopmentServerConfigurationGetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationGetInternalServerError:
 		response := &DevelopmentServerConfigurationGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -332,28 +332,28 @@ func (a *Client) DevelopmentServerConfigurationDeleteShort(params *DevelopmentSe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationDeleteForbidden:
 		response := &DevelopmentServerConfigurationDeleteResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationDeleteNotFound:
 		response := &DevelopmentServerConfigurationDeleteResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DevelopmentServerConfigurationDeleteInternalServerError:
 		response := &DevelopmentServerConfigurationDeleteResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

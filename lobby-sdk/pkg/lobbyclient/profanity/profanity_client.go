@@ -101,35 +101,35 @@ func (a *Client) AdminDebugProfanityFiltersShort(params *AdminDebugProfanityFilt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDebugProfanityFiltersUnauthorized:
 		response := &AdminDebugProfanityFiltersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDebugProfanityFiltersForbidden:
 		response := &AdminDebugProfanityFiltersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDebugProfanityFiltersNotFound:
 		response := &AdminDebugProfanityFiltersResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDebugProfanityFiltersInternalServerError:
 		response := &AdminDebugProfanityFiltersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -190,35 +190,35 @@ func (a *Client) AdminGetProfanityListFiltersV1Short(params *AdminGetProfanityLi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityListFiltersV1Unauthorized:
 		response := &AdminGetProfanityListFiltersV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityListFiltersV1Forbidden:
 		response := &AdminGetProfanityListFiltersV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityListFiltersV1NotFound:
 		response := &AdminGetProfanityListFiltersV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityListFiltersV1InternalServerError:
 		response := &AdminGetProfanityListFiltersV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -278,35 +278,35 @@ func (a *Client) AdminAddProfanityFilterIntoListShort(params *AdminAddProfanityF
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddProfanityFilterIntoListUnauthorized:
 		response := &AdminAddProfanityFilterIntoListResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddProfanityFilterIntoListForbidden:
 		response := &AdminAddProfanityFilterIntoListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddProfanityFilterIntoListNotFound:
 		response := &AdminAddProfanityFilterIntoListResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddProfanityFilterIntoListInternalServerError:
 		response := &AdminAddProfanityFilterIntoListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -366,35 +366,35 @@ func (a *Client) AdminAddProfanityFiltersShort(params *AdminAddProfanityFiltersP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddProfanityFiltersUnauthorized:
 		response := &AdminAddProfanityFiltersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddProfanityFiltersForbidden:
 		response := &AdminAddProfanityFiltersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddProfanityFiltersNotFound:
 		response := &AdminAddProfanityFiltersResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddProfanityFiltersInternalServerError:
 		response := &AdminAddProfanityFiltersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -454,35 +454,35 @@ func (a *Client) AdminImportProfanityFiltersFromFileShort(params *AdminImportPro
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminImportProfanityFiltersFromFileUnauthorized:
 		response := &AdminImportProfanityFiltersFromFileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminImportProfanityFiltersFromFileForbidden:
 		response := &AdminImportProfanityFiltersFromFileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminImportProfanityFiltersFromFileNotFound:
 		response := &AdminImportProfanityFiltersFromFileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminImportProfanityFiltersFromFileInternalServerError:
 		response := &AdminImportProfanityFiltersFromFileResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -543,35 +543,35 @@ func (a *Client) AdminDeleteProfanityFilterShort(params *AdminDeleteProfanityFil
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteProfanityFilterUnauthorized:
 		response := &AdminDeleteProfanityFilterResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteProfanityFilterForbidden:
 		response := &AdminDeleteProfanityFilterResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteProfanityFilterNotFound:
 		response := &AdminDeleteProfanityFilterResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteProfanityFilterInternalServerError:
 		response := &AdminDeleteProfanityFilterResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -632,35 +632,35 @@ func (a *Client) AdminGetProfanityListsShort(params *AdminGetProfanityListsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityListsUnauthorized:
 		response := &AdminGetProfanityListsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityListsForbidden:
 		response := &AdminGetProfanityListsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityListsNotFound:
 		response := &AdminGetProfanityListsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityListsInternalServerError:
 		response := &AdminGetProfanityListsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -720,35 +720,35 @@ func (a *Client) AdminCreateProfanityListShort(params *AdminCreateProfanityListP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateProfanityListUnauthorized:
 		response := &AdminCreateProfanityListResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateProfanityListForbidden:
 		response := &AdminCreateProfanityListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateProfanityListNotFound:
 		response := &AdminCreateProfanityListResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateProfanityListInternalServerError:
 		response := &AdminCreateProfanityListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -808,35 +808,35 @@ func (a *Client) AdminUpdateProfanityListShort(params *AdminUpdateProfanityListP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateProfanityListUnauthorized:
 		response := &AdminUpdateProfanityListResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateProfanityListForbidden:
 		response := &AdminUpdateProfanityListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateProfanityListNotFound:
 		response := &AdminUpdateProfanityListResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateProfanityListInternalServerError:
 		response := &AdminUpdateProfanityListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -896,35 +896,35 @@ func (a *Client) AdminDeleteProfanityListShort(params *AdminDeleteProfanityListP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteProfanityListUnauthorized:
 		response := &AdminDeleteProfanityListResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteProfanityListForbidden:
 		response := &AdminDeleteProfanityListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteProfanityListNotFound:
 		response := &AdminDeleteProfanityListResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteProfanityListInternalServerError:
 		response := &AdminDeleteProfanityListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -985,35 +985,35 @@ func (a *Client) AdminGetProfanityRuleShort(params *AdminGetProfanityRuleParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityRuleUnauthorized:
 		response := &AdminGetProfanityRuleResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityRuleForbidden:
 		response := &AdminGetProfanityRuleResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityRuleNotFound:
 		response := &AdminGetProfanityRuleResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfanityRuleInternalServerError:
 		response := &AdminGetProfanityRuleResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1073,35 +1073,35 @@ func (a *Client) AdminSetProfanityRuleForNamespaceShort(params *AdminSetProfanit
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSetProfanityRuleForNamespaceUnauthorized:
 		response := &AdminSetProfanityRuleForNamespaceResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSetProfanityRuleForNamespaceForbidden:
 		response := &AdminSetProfanityRuleForNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSetProfanityRuleForNamespaceNotFound:
 		response := &AdminSetProfanityRuleForNamespaceResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSetProfanityRuleForNamespaceInternalServerError:
 		response := &AdminSetProfanityRuleForNamespaceResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1162,35 +1162,35 @@ func (a *Client) AdminVerifyMessageProfanityResponseShort(params *AdminVerifyMes
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyMessageProfanityResponseUnauthorized:
 		response := &AdminVerifyMessageProfanityResponseResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyMessageProfanityResponseForbidden:
 		response := &AdminVerifyMessageProfanityResponseResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyMessageProfanityResponseNotFound:
 		response := &AdminVerifyMessageProfanityResponseResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyMessageProfanityResponseInternalServerError:
 		response := &AdminVerifyMessageProfanityResponseResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

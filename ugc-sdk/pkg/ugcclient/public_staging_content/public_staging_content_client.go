@@ -92,28 +92,28 @@ func (a *Client) ListUserStagingContentsShort(params *ListUserStagingContentsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListUserStagingContentsUnauthorized:
 		response := &ListUserStagingContentsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListUserStagingContentsForbidden:
 		response := &ListUserStagingContentsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListUserStagingContentsInternalServerError:
 		response := &ListUserStagingContentsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,28 +174,28 @@ func (a *Client) GetUserStagingContentByIDShort(params *GetUserStagingContentByI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStagingContentByIDForbidden:
 		response := &GetUserStagingContentByIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStagingContentByIDNotFound:
 		response := &GetUserStagingContentByIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStagingContentByIDInternalServerError:
 		response := &GetUserStagingContentByIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -256,35 +256,35 @@ func (a *Client) UpdateStagingContentShort(params *UpdateStagingContentParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStagingContentUnauthorized:
 		response := &UpdateStagingContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStagingContentForbidden:
 		response := &UpdateStagingContentResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStagingContentNotFound:
 		response := &UpdateStagingContentResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStagingContentInternalServerError:
 		response := &UpdateStagingContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -344,28 +344,28 @@ func (a *Client) DeleteUserStagingContentByIDShort(params *DeleteUserStagingCont
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStagingContentByIDForbidden:
 		response := &DeleteUserStagingContentByIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStagingContentByIDNotFound:
 		response := &DeleteUserStagingContentByIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStagingContentByIDInternalServerError:
 		response := &DeleteUserStagingContentByIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

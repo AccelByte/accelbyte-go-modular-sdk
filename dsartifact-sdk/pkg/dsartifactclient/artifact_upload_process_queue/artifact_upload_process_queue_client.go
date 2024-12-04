@@ -102,14 +102,14 @@ func (a *Client) ListNodesIPAddressShort(params *ListNodesIPAddressParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListNodesIPAddressInternalServerError:
 		response := &ListNodesIPAddressResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -173,14 +173,14 @@ func (a *Client) DeleteNodeByIDShort(params *DeleteNodeByIDParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNodeByIDInternalServerError:
 		response := &DeleteNodeByIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -245,28 +245,28 @@ func (a *Client) ListQueueShort(params *ListQueueParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListQueueUnauthorized:
 		response := &ListQueueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListQueueNotFound:
 		response := &ListQueueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListQueueInternalServerError:
 		response := &ListQueueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -331,28 +331,28 @@ func (a *Client) GetActiveQueueShort(params *GetActiveQueueParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetActiveQueueUnauthorized:
 		response := &GetActiveQueueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetActiveQueueNotFound:
 		response := &GetActiveQueueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetActiveQueueInternalServerError:
 		response := &GetActiveQueueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -417,21 +417,21 @@ func (a *Client) SetActiveQueueShort(params *SetActiveQueueParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetActiveQueueUnauthorized:
 		response := &SetActiveQueueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetActiveQueueInternalServerError:
 		response := &SetActiveQueueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -495,21 +495,21 @@ func (a *Client) DeleteActiveQueueShort(params *DeleteActiveQueueParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteActiveQueueUnauthorized:
 		response := &DeleteActiveQueueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteActiveQueueInternalServerError:
 		response := &DeleteActiveQueueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -573,21 +573,21 @@ func (a *Client) ReportFailedUploadShort(params *ReportFailedUploadParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ReportFailedUploadUnauthorized:
 		response := &ReportFailedUploadResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ReportFailedUploadInternalServerError:
 		response := &ReportFailedUploadResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -651,14 +651,14 @@ func (a *Client) DeleteQueueShort(params *DeleteQueueParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteQueueInternalServerError:
 		response := &DeleteQueueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -723,21 +723,21 @@ func (a *Client) ListAllActiveQueueShort(params *ListAllActiveQueueParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListAllActiveQueueNotFound:
 		response := &ListAllActiveQueueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListAllActiveQueueInternalServerError:
 		response := &ListAllActiveQueueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -802,21 +802,21 @@ func (a *Client) ListAllQueueShort(params *ListAllQueueParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListAllQueueNotFound:
 		response := &ListAllQueueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListAllQueueInternalServerError:
 		response := &ListAllQueueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

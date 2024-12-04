@@ -105,14 +105,14 @@ func (a *Client) ListConfigShort(params *ListConfigParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListConfigInternalServerError:
 		response := &ListConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -245,21 +245,21 @@ func (a *Client) SaveConfigShort(params *SaveConfigParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveConfigUnauthorized:
 		response := &SaveConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveConfigInternalServerError:
 		response := &SaveConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -324,21 +324,21 @@ func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetConfigNotFound:
 		response := &GetConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetConfigInternalServerError:
 		response := &GetConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -431,28 +431,28 @@ func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateConfigUnauthorized:
 		response := &CreateConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateConfigConflict:
 		response := &CreateConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateConfigInternalServerError:
 		response := &CreateConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -518,28 +518,28 @@ func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteConfigUnauthorized:
 		response := &DeleteConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteConfigNotFound:
 		response := &DeleteConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteConfigInternalServerError:
 		response := &DeleteConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -633,28 +633,28 @@ func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateConfigUnauthorized:
 		response := &UpdateConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateConfigNotFound:
 		response := &UpdateConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateConfigInternalServerError:
 		response := &UpdateConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -718,14 +718,14 @@ func (a *Client) ClearCacheShort(params *ClearCacheParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ClearCacheInternalServerError:
 		response := &ClearCacheResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -790,35 +790,35 @@ func (a *Client) AddPortShort(params *AddPortParams, authInfo runtime.ClientAuth
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddPortUnauthorized:
 		response := &AddPortResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddPortNotFound:
 		response := &AddPortResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddPortConflict:
 		response := &AddPortResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddPortInternalServerError:
 		response := &AddPortResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -883,28 +883,28 @@ func (a *Client) DeletePortShort(params *DeletePortParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePortUnauthorized:
 		response := &DeletePortResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePortNotFound:
 		response := &DeletePortResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePortInternalServerError:
 		response := &DeletePortResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -969,28 +969,28 @@ func (a *Client) UpdatePortShort(params *UpdatePortParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePortUnauthorized:
 		response := &UpdatePortResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePortNotFound:
 		response := &UpdatePortResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePortInternalServerError:
 		response := &UpdatePortResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1055,28 +1055,28 @@ func (a *Client) ExportConfigV1Short(params *ExportConfigV1Params, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportConfigV1Forbidden:
 		response := &ExportConfigV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportConfigV1NotFound:
 		response := &ExportConfigV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportConfigV1InternalServerError:
 		response := &ExportConfigV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1143,35 +1143,35 @@ func (a *Client) ImportConfigV1Short(params *ImportConfigV1Params, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportConfigV1Unauthorized:
 		response := &ImportConfigV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportConfigV1Forbidden:
 		response := &ImportConfigV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportConfigV1NotFound:
 		response := &ImportConfigV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportConfigV1InternalServerError:
 		response := &ImportConfigV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

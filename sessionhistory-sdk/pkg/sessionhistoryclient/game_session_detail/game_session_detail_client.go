@@ -98,28 +98,28 @@ func (a *Client) AdminQueryGameSessionDetailShort(params *AdminQueryGameSessionD
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionDetailUnauthorized:
 		response := &AdminQueryGameSessionDetailResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionDetailForbidden:
 		response := &AdminQueryGameSessionDetailResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionDetailInternalServerError:
 		response := &AdminQueryGameSessionDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -180,35 +180,35 @@ func (a *Client) GetGameSessionDetailShort(params *GetGameSessionDetailParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionDetailUnauthorized:
 		response := &GetGameSessionDetailResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionDetailForbidden:
 		response := &GetGameSessionDetailResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionDetailNotFound:
 		response := &GetGameSessionDetailResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionDetailInternalServerError:
 		response := &GetGameSessionDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -269,28 +269,28 @@ func (a *Client) AdminQueryMatchmakingDetailShort(params *AdminQueryMatchmakingD
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryMatchmakingDetailUnauthorized:
 		response := &AdminQueryMatchmakingDetailResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryMatchmakingDetailForbidden:
 		response := &AdminQueryMatchmakingDetailResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryMatchmakingDetailInternalServerError:
 		response := &AdminQueryMatchmakingDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -351,28 +351,28 @@ func (a *Client) AdminGetMatchmakingDetailBySessionIDShort(params *AdminGetMatch
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchmakingDetailBySessionIDUnauthorized:
 		response := &AdminGetMatchmakingDetailBySessionIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchmakingDetailBySessionIDForbidden:
 		response := &AdminGetMatchmakingDetailBySessionIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchmakingDetailBySessionIDInternalServerError:
 		response := &AdminGetMatchmakingDetailBySessionIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -433,28 +433,28 @@ func (a *Client) AdminGetMatchmakingDetailByTicketIDShort(params *AdminGetMatchm
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchmakingDetailByTicketIDUnauthorized:
 		response := &AdminGetMatchmakingDetailByTicketIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchmakingDetailByTicketIDForbidden:
 		response := &AdminGetMatchmakingDetailByTicketIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchmakingDetailByTicketIDInternalServerError:
 		response := &AdminGetMatchmakingDetailByTicketIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -515,28 +515,28 @@ func (a *Client) AdminQueryPartyDetailShort(params *AdminQueryPartyDetailParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryPartyDetailUnauthorized:
 		response := &AdminQueryPartyDetailResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryPartyDetailForbidden:
 		response := &AdminQueryPartyDetailResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryPartyDetailInternalServerError:
 		response := &AdminQueryPartyDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -597,35 +597,35 @@ func (a *Client) GetPartyDetailShort(params *GetPartyDetailParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPartyDetailUnauthorized:
 		response := &GetPartyDetailResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPartyDetailForbidden:
 		response := &GetPartyDetailResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPartyDetailNotFound:
 		response := &GetPartyDetailResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPartyDetailInternalServerError:
 		response := &GetPartyDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -686,28 +686,28 @@ func (a *Client) AdminQueryTicketDetailShort(params *AdminQueryTicketDetailParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTicketDetailUnauthorized:
 		response := &AdminQueryTicketDetailResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTicketDetailForbidden:
 		response := &AdminQueryTicketDetailResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTicketDetailInternalServerError:
 		response := &AdminQueryTicketDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -768,28 +768,28 @@ func (a *Client) AdminTicketDetailGetByTicketIDShort(params *AdminTicketDetailGe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTicketDetailGetByTicketIDUnauthorized:
 		response := &AdminTicketDetailGetByTicketIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTicketDetailGetByTicketIDForbidden:
 		response := &AdminTicketDetailGetByTicketIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTicketDetailGetByTicketIDInternalServerError:
 		response := &AdminTicketDetailGetByTicketIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -850,35 +850,35 @@ func (a *Client) PublicQueryGameSessionMeShort(params *PublicQueryGameSessionMeP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryGameSessionMeUnauthorized:
 		response := &PublicQueryGameSessionMeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryGameSessionMeForbidden:
 		response := &PublicQueryGameSessionMeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryGameSessionMeTooManyRequests:
 		response := &PublicQueryGameSessionMeResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryGameSessionMeInternalServerError:
 		response := &PublicQueryGameSessionMeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

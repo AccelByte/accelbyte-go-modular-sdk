@@ -98,28 +98,28 @@ func (a *Client) AdminGetRecentPlayerShort(params *AdminGetRecentPlayerParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRecentPlayerUnauthorized:
 		response := &AdminGetRecentPlayerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRecentPlayerNotFound:
 		response := &AdminGetRecentPlayerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRecentPlayerInternalServerError:
 		response := &AdminGetRecentPlayerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -186,28 +186,28 @@ func (a *Client) AdminGetRecentTeamPlayerShort(params *AdminGetRecentTeamPlayerP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRecentTeamPlayerUnauthorized:
 		response := &AdminGetRecentTeamPlayerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRecentTeamPlayerNotFound:
 		response := &AdminGetRecentTeamPlayerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRecentTeamPlayerInternalServerError:
 		response := &AdminGetRecentTeamPlayerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -270,28 +270,28 @@ func (a *Client) PublicGetRecentPlayerShort(params *PublicGetRecentPlayerParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetRecentPlayerUnauthorized:
 		response := &PublicGetRecentPlayerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetRecentPlayerNotFound:
 		response := &PublicGetRecentPlayerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetRecentPlayerInternalServerError:
 		response := &PublicGetRecentPlayerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -354,28 +354,28 @@ func (a *Client) PublicGetRecentTeamPlayerShort(params *PublicGetRecentTeamPlaye
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetRecentTeamPlayerUnauthorized:
 		response := &PublicGetRecentTeamPlayerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetRecentTeamPlayerNotFound:
 		response := &PublicGetRecentTeamPlayerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetRecentTeamPlayerInternalServerError:
 		response := &PublicGetRecentTeamPlayerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

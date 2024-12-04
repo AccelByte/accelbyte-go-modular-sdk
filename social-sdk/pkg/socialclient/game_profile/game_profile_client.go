@@ -100,21 +100,21 @@ func (a *Client) GetUserProfilesShort(params *GetUserProfilesParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserProfilesForbidden:
 		response := &GetUserProfilesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserProfilesInternalServerError:
 		response := &GetUserProfilesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -177,28 +177,28 @@ func (a *Client) GetProfileShort(params *GetProfileParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetProfileForbidden:
 		response := &GetProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetProfileNotFound:
 		response := &GetProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetProfileInternalServerError:
 		response := &GetProfileResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -261,28 +261,28 @@ func (a *Client) PublicGetUserGameProfilesShort(params *PublicGetUserGameProfile
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserGameProfilesUnauthorized:
 		response := &PublicGetUserGameProfilesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserGameProfilesForbidden:
 		response := &PublicGetUserGameProfilesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserGameProfilesInternalServerError:
 		response := &PublicGetUserGameProfilesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -345,21 +345,21 @@ func (a *Client) PublicGetUserProfilesShort(params *PublicGetUserProfilesParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProfilesForbidden:
 		response := &PublicGetUserProfilesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProfilesInternalServerError:
 		response := &PublicGetUserProfilesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -422,35 +422,35 @@ func (a *Client) PublicCreateProfileShort(params *PublicCreateProfileParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateProfileUnauthorized:
 		response := &PublicCreateProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateProfileForbidden:
 		response := &PublicCreateProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateProfileUnprocessableEntity:
 		response := &PublicCreateProfileResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateProfileInternalServerError:
 		response := &PublicCreateProfileResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -513,28 +513,28 @@ func (a *Client) PublicGetProfileShort(params *PublicGetProfileParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileForbidden:
 		response := &PublicGetProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileNotFound:
 		response := &PublicGetProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileInternalServerError:
 		response := &PublicGetProfileResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -597,42 +597,42 @@ func (a *Client) PublicUpdateProfileShort(params *PublicUpdateProfileParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateProfileUnauthorized:
 		response := &PublicUpdateProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateProfileForbidden:
 		response := &PublicUpdateProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateProfileNotFound:
 		response := &PublicUpdateProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateProfileUnprocessableEntity:
 		response := &PublicUpdateProfileResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateProfileInternalServerError:
 		response := &PublicUpdateProfileResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -692,28 +692,28 @@ func (a *Client) PublicDeleteProfileShort(params *PublicDeleteProfileParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeleteProfileForbidden:
 		response := &PublicDeleteProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeleteProfileNotFound:
 		response := &PublicDeleteProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeleteProfileInternalServerError:
 		response := &PublicDeleteProfileResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -776,28 +776,28 @@ func (a *Client) PublicGetProfileAttributeShort(params *PublicGetProfileAttribut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileAttributeForbidden:
 		response := &PublicGetProfileAttributeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileAttributeNotFound:
 		response := &PublicGetProfileAttributeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileAttributeInternalServerError:
 		response := &PublicGetProfileAttributeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -860,42 +860,42 @@ func (a *Client) PublicUpdateAttributeShort(params *PublicUpdateAttributeParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateAttributeUnauthorized:
 		response := &PublicUpdateAttributeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateAttributeForbidden:
 		response := &PublicUpdateAttributeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateAttributeNotFound:
 		response := &PublicUpdateAttributeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateAttributeUnprocessableEntity:
 		response := &PublicUpdateAttributeResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateAttributeInternalServerError:
 		response := &PublicUpdateAttributeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -90,21 +90,21 @@ func (a *Client) UsersPresenceHandlerV1Short(params *UsersPresenceHandlerV1Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UsersPresenceHandlerV1Unauthorized:
 		response := &UsersPresenceHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UsersPresenceHandlerV1InternalServerError:
 		response := &UsersPresenceHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -165,21 +165,21 @@ func (a *Client) UsersPresenceHandlerV2Short(params *UsersPresenceHandlerV2Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UsersPresenceHandlerV2Unauthorized:
 		response := &UsersPresenceHandlerV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UsersPresenceHandlerV2InternalServerError:
 		response := &UsersPresenceHandlerV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

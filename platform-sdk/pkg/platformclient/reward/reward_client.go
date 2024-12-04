@@ -105,28 +105,28 @@ func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRewardNotFound:
 		response := &CreateRewardResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRewardConflict:
 		response := &CreateRewardResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRewardUnprocessableEntity:
 		response := &CreateRewardResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -191,7 +191,7 @@ func (a *Client) QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -305,14 +305,14 @@ func (a *Client) ImportRewardsShort(params *ImportRewardsParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportRewardsConflict:
 		response := &ImportRewardsResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -376,7 +376,7 @@ func (a *Client) GetRewardShort(params *GetRewardParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -441,21 +441,21 @@ func (a *Client) UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRewardNotFound:
 		response := &UpdateRewardResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRewardConflict:
 		response := &UpdateRewardResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -520,7 +520,7 @@ func (a *Client) DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -583,7 +583,7 @@ func (a *Client) CheckEventConditionShort(params *CheckEventConditionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -704,7 +704,7 @@ func (a *Client) GetRewardByCodeShort(params *GetRewardByCodeParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -769,7 +769,7 @@ func (a *Client) QueryRewards1Short(params *QueryRewards1Params, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -833,7 +833,7 @@ func (a *Client) GetReward1Short(params *GetReward1Params, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

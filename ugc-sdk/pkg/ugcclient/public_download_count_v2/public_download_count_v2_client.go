@@ -90,28 +90,28 @@ func (a *Client) PublicAddDownloadCountV2Short(params *PublicAddDownloadCountV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicAddDownloadCountV2NotFound:
 		response := &PublicAddDownloadCountV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicAddDownloadCountV2TooManyRequests:
 		response := &PublicAddDownloadCountV2Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicAddDownloadCountV2InternalServerError:
 		response := &PublicAddDownloadCountV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -172,21 +172,21 @@ func (a *Client) PublicListContentDownloaderV2Short(params *PublicListContentDow
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListContentDownloaderV2Unauthorized:
 		response := &PublicListContentDownloaderV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListContentDownloaderV2InternalServerError:
 		response := &PublicListContentDownloaderV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

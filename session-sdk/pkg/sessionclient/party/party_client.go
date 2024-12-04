@@ -106,21 +106,21 @@ func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryPartiesUnauthorized:
 		response := &AdminQueryPartiesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryPartiesInternalServerError:
 		response := &AdminQueryPartiesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,28 +181,28 @@ func (a *Client) AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteBulkPartiesUnauthorized:
 		response := &AdminDeleteBulkPartiesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteBulkPartiesForbidden:
 		response := &AdminDeleteBulkPartiesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteBulkPartiesInternalServerError:
 		response := &AdminDeleteBulkPartiesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -262,28 +262,28 @@ func (a *Client) AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncNativeSessionUnauthorized:
 		response := &AdminSyncNativeSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncNativeSessionForbidden:
 		response := &AdminSyncNativeSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncNativeSessionInternalServerError:
 		response := &AdminSyncNativeSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -344,35 +344,35 @@ func (a *Client) PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyJoinCodeUnauthorized:
 		response := &PublicPartyJoinCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyJoinCodeForbidden:
 		response := &PublicPartyJoinCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyJoinCodeNotFound:
 		response := &PublicPartyJoinCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyJoinCodeInternalServerError:
 		response := &PublicPartyJoinCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -433,21 +433,21 @@ func (a *Client) PublicGetPartyShort(params *PublicGetPartyParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPartyNotFound:
 		response := &PublicGetPartyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPartyInternalServerError:
 		response := &PublicGetPartyResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -518,42 +518,42 @@ func (a *Client) PublicUpdatePartyShort(params *PublicUpdatePartyParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePartyUnauthorized:
 		response := &PublicUpdatePartyResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePartyForbidden:
 		response := &PublicUpdatePartyResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePartyNotFound:
 		response := &PublicUpdatePartyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePartyConflict:
 		response := &PublicUpdatePartyResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePartyInternalServerError:
 		response := &PublicUpdatePartyResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -619,42 +619,42 @@ func (a *Client) PublicPatchUpdatePartyShort(params *PublicPatchUpdatePartyParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPatchUpdatePartyUnauthorized:
 		response := &PublicPatchUpdatePartyResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPatchUpdatePartyForbidden:
 		response := &PublicPatchUpdatePartyResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPatchUpdatePartyNotFound:
 		response := &PublicPatchUpdatePartyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPatchUpdatePartyConflict:
 		response := &PublicPatchUpdatePartyResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPatchUpdatePartyInternalServerError:
 		response := &PublicPatchUpdatePartyResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -715,35 +715,35 @@ func (a *Client) PublicGeneratePartyCodeShort(params *PublicGeneratePartyCodePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratePartyCodeUnauthorized:
 		response := &PublicGeneratePartyCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratePartyCodeForbidden:
 		response := &PublicGeneratePartyCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratePartyCodeNotFound:
 		response := &PublicGeneratePartyCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratePartyCodeInternalServerError:
 		response := &PublicGeneratePartyCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -803,35 +803,35 @@ func (a *Client) PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRevokePartyCodeUnauthorized:
 		response := &PublicRevokePartyCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRevokePartyCodeForbidden:
 		response := &PublicRevokePartyCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRevokePartyCodeNotFound:
 		response := &PublicRevokePartyCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRevokePartyCodeInternalServerError:
 		response := &PublicRevokePartyCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -904,28 +904,28 @@ func (a *Client) PublicPartyInviteShort(params *PublicPartyInviteParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyInviteUnauthorized:
 		response := &PublicPartyInviteResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyInviteNotFound:
 		response := &PublicPartyInviteResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyInviteInternalServerError:
 		response := &PublicPartyInviteResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -986,35 +986,35 @@ func (a *Client) PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPromotePartyLeaderUnauthorized:
 		response := &PublicPromotePartyLeaderResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPromotePartyLeaderForbidden:
 		response := &PublicPromotePartyLeaderResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPromotePartyLeaderNotFound:
 		response := &PublicPromotePartyLeaderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPromotePartyLeaderInternalServerError:
 		response := &PublicPromotePartyLeaderResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1075,35 +1075,35 @@ func (a *Client) PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyJoinUnauthorized:
 		response := &PublicPartyJoinResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyJoinForbidden:
 		response := &PublicPartyJoinResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyJoinNotFound:
 		response := &PublicPartyJoinResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyJoinInternalServerError:
 		response := &PublicPartyJoinResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1163,21 +1163,21 @@ func (a *Client) PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyLeaveNotFound:
 		response := &PublicPartyLeaveResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyLeaveInternalServerError:
 		response := &PublicPartyLeaveResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1237,35 +1237,35 @@ func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyRejectUnauthorized:
 		response := &PublicPartyRejectResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyRejectForbidden:
 		response := &PublicPartyRejectResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyRejectNotFound:
 		response := &PublicPartyRejectResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyRejectInternalServerError:
 		response := &PublicPartyRejectResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1325,35 +1325,35 @@ func (a *Client) PublicPartyCancelShort(params *PublicPartyCancelParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyCancelUnauthorized:
 		response := &PublicPartyCancelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyCancelForbidden:
 		response := &PublicPartyCancelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyCancelNotFound:
 		response := &PublicPartyCancelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyCancelInternalServerError:
 		response := &PublicPartyCancelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1414,35 +1414,35 @@ func (a *Client) PublicPartyKickShort(params *PublicPartyKickParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyKickUnauthorized:
 		response := &PublicPartyKickResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyKickForbidden:
 		response := &PublicPartyKickResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyKickNotFound:
 		response := &PublicPartyKickResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartyKickInternalServerError:
 		response := &PublicPartyKickResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1564,21 +1564,21 @@ func (a *Client) PublicCreatePartyShort(params *PublicCreatePartyParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreatePartyUnauthorized:
 		response := &PublicCreatePartyResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreatePartyInternalServerError:
 		response := &PublicCreatePartyResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1639,21 +1639,21 @@ func (a *Client) PublicQueryMyPartiesShort(params *PublicQueryMyPartiesParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryMyPartiesUnauthorized:
 		response := &PublicQueryMyPartiesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryMyPartiesInternalServerError:
 		response := &PublicQueryMyPartiesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

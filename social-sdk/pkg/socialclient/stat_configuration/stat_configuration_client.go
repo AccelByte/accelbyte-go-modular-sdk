@@ -101,21 +101,21 @@ func (a *Client) GetStatsShort(params *GetStatsParams, authInfo runtime.ClientAu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatsForbidden:
 		response := &GetStatsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatsInternalServerError:
 		response := &GetStatsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,49 +181,49 @@ func (a *Client) CreateStatShort(params *CreateStatParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStatUnauthorized:
 		response := &CreateStatResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStatForbidden:
 		response := &CreateStatResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStatNotFound:
 		response := &CreateStatResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStatConflict:
 		response := &CreateStatResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStatUnprocessableEntity:
 		response := &CreateStatResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStatInternalServerError:
 		response := &CreateStatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -284,21 +284,21 @@ func (a *Client) ExportStatsShort(params *ExportStatsParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportStatsForbidden:
 		response := &ExportStatsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportStatsInternalServerError:
 		response := &ExportStatsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -359,28 +359,28 @@ func (a *Client) ImportStatsShort(params *ImportStatsParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportStatsUnauthorized:
 		response := &ImportStatsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportStatsForbidden:
 		response := &ImportStatsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportStatsInternalServerError:
 		response := &ImportStatsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -443,21 +443,21 @@ func (a *Client) QueryStatsShort(params *QueryStatsParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryStatsForbidden:
 		response := &QueryStatsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryStatsInternalServerError:
 		response := &QueryStatsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -520,28 +520,28 @@ func (a *Client) GetStatShort(params *GetStatParams, authInfo runtime.ClientAuth
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatForbidden:
 		response := &GetStatResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatNotFound:
 		response := &GetStatResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatInternalServerError:
 		response := &GetStatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -601,28 +601,28 @@ func (a *Client) DeleteStatShort(params *DeleteStatParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteStatForbidden:
 		response := &DeleteStatResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteStatNotFound:
 		response := &DeleteStatResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteStatInternalServerError:
 		response := &DeleteStatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -688,42 +688,42 @@ func (a *Client) UpdateStatShort(params *UpdateStatParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStatUnauthorized:
 		response := &UpdateStatResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStatForbidden:
 		response := &UpdateStatResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStatNotFound:
 		response := &UpdateStatResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStatUnprocessableEntity:
 		response := &UpdateStatResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStatInternalServerError:
 		response := &UpdateStatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -783,35 +783,35 @@ func (a *Client) DeleteTiedStatShort(params *DeleteTiedStatParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTiedStatForbidden:
 		response := &DeleteTiedStatResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTiedStatNotFound:
 		response := &DeleteTiedStatResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTiedStatConflict:
 		response := &DeleteTiedStatResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTiedStatInternalServerError:
 		response := &DeleteTiedStatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -877,49 +877,49 @@ func (a *Client) CreateStat1Short(params *CreateStat1Params, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStat1Unauthorized:
 		response := &CreateStat1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStat1Forbidden:
 		response := &CreateStat1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStat1NotFound:
 		response := &CreateStat1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStat1Conflict:
 		response := &CreateStat1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStat1UnprocessableEntity:
 		response := &CreateStat1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStat1InternalServerError:
 		response := &CreateStat1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

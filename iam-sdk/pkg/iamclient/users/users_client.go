@@ -271,27 +271,27 @@ func (a *Client) CreateUserShort(params *CreateUserParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserUnauthorized:
 		response := &CreateUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserForbidden:
 		response := &CreateUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserConflict:
 		response := &CreateUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -361,33 +361,33 @@ func (a *Client) GetAdminUsersByRoleIDShort(params *GetAdminUsersByRoleIDParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminUsersByRoleIDUnauthorized:
 		response := &GetAdminUsersByRoleIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminUsersByRoleIDForbidden:
 		response := &GetAdminUsersByRoleIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminUsersByRoleIDNotFound:
 		response := &GetAdminUsersByRoleIDResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminUsersByRoleIDInternalServerError:
 		response := &GetAdminUsersByRoleIDResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -449,19 +449,19 @@ func (a *Client) GetUserByLoginIDShort(params *GetUserByLoginIDParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserByLoginIDNotFound:
 		response := &GetUserByLoginIDResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserByLoginIDInternalServerError:
 		response := &GetUserByLoginIDResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -527,27 +527,27 @@ func (a *Client) GetUserByPlatformUserIDShort(params *GetUserByPlatformUserIDPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserByPlatformUserIDUnauthorized:
 		response := &GetUserByPlatformUserIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserByPlatformUserIDForbidden:
 		response := &GetUserByPlatformUserIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserByPlatformUserIDNotFound:
 		response := &GetUserByPlatformUserIDResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -613,27 +613,27 @@ func (a *Client) ForgotPasswordShort(params *ForgotPasswordParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ForgotPasswordUnauthorized:
 		response := &ForgotPasswordResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ForgotPasswordForbidden:
 		response := &ForgotPasswordResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ForgotPasswordNotFound:
 		response := &ForgotPasswordResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -697,21 +697,21 @@ func (a *Client) GetUsersByLoginIdsShort(params *GetUsersByLoginIdsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUsersByLoginIdsUnauthorized:
 		response := &GetUsersByLoginIdsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUsersByLoginIdsForbidden:
 		response := &GetUsersByLoginIdsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -772,25 +772,25 @@ func (a *Client) ResetPasswordShort(params *ResetPasswordParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetPasswordForbidden:
 		response := &ResetPasswordResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetPasswordNotFound:
 		response := &ResetPasswordResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetPasswordInternalServerError:
 		response := &ResetPasswordResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -855,21 +855,21 @@ func (a *Client) SearchUserShort(params *SearchUserParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchUserUnauthorized:
 		response := &SearchUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchUserForbidden:
 		response := &SearchUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -934,13 +934,13 @@ func (a *Client) GetUserByUserIDShort(params *GetUserByUserIDParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserByUserIDInternalServerError:
 		response := &GetUserByUserIDResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1016,32 +1016,32 @@ func (a *Client) UpdateUserShort(params *UpdateUserParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserUnauthorized:
 		response := &UpdateUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserNotFound:
 		response := &UpdateUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserConflict:
 		response := &UpdateUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserInternalServerError:
 		response := &UpdateUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1103,20 +1103,20 @@ func (a *Client) DeleteUserShort(params *DeleteUserParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserForbidden:
 		response := &DeleteUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserNotFound:
 		response := &DeleteUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1178,33 +1178,33 @@ func (a *Client) BanUserShort(params *BanUserParams, authInfo runtime.ClientAuth
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BanUserUnauthorized:
 		response := &BanUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BanUserForbidden:
 		response := &BanUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BanUserNotFound:
 		response := &BanUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BanUserInternalServerError:
 		response := &BanUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1267,20 +1267,20 @@ func (a *Client) GetUserBanHistoryShort(params *GetUserBanHistoryParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserBanHistoryForbidden:
 		response := &GetUserBanHistoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserBanHistoryNotFound:
 		response := &GetUserBanHistoryResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1351,25 +1351,25 @@ func (a *Client) DisableUserBanShort(params *DisableUserBanParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserBanForbidden:
 		response := &DisableUserBanResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserBanNotFound:
 		response := &DisableUserBanResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserBanInternalServerError:
 		response := &DisableUserBanResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1432,25 +1432,25 @@ func (a *Client) EnableUserBanShort(params *EnableUserBanParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableUserBanForbidden:
 		response := &EnableUserBanResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableUserBanNotFound:
 		response := &EnableUserBanResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableUserBanInternalServerError:
 		response := &EnableUserBanResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1516,27 +1516,27 @@ func (a *Client) ListCrossNamespaceAccountLinkShort(params *ListCrossNamespaceAc
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListCrossNamespaceAccountLinkUnauthorized:
 		response := &ListCrossNamespaceAccountLinkResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListCrossNamespaceAccountLinkForbidden:
 		response := &ListCrossNamespaceAccountLinkResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListCrossNamespaceAccountLinkNotFound:
 		response := &ListCrossNamespaceAccountLinkResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1601,33 +1601,33 @@ func (a *Client) DisableUserShort(params *DisableUserParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserUnauthorized:
 		response := &DisableUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserForbidden:
 		response := &DisableUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserNotFound:
 		response := &DisableUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserInternalServerError:
 		response := &DisableUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1689,26 +1689,26 @@ func (a *Client) EnableUserShort(params *EnableUserParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableUserForbidden:
 		response := &EnableUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableUserNotFound:
 		response := &EnableUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableUserInternalServerError:
 		response := &EnableUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1771,20 +1771,20 @@ func (a *Client) GetUserInformationShort(params *GetUserInformationParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserInformationForbidden:
 		response := &GetUserInformationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserInformationNotFound:
 		response := &GetUserInformationResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1846,20 +1846,20 @@ func (a *Client) DeleteUserInformationShort(params *DeleteUserInformationParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserInformationForbidden:
 		response := &DeleteUserInformationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserInformationNotFound:
 		response := &DeleteUserInformationResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1929,20 +1929,20 @@ func (a *Client) GetUserLoginHistoriesShort(params *GetUserLoginHistoriesParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserLoginHistoriesForbidden:
 		response := &GetUserLoginHistoriesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserLoginHistoriesNotFound:
 		response := &GetUserLoginHistoriesResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2003,33 +2003,33 @@ func (a *Client) UpdatePasswordShort(params *UpdatePasswordParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePasswordUnauthorized:
 		response := &UpdatePasswordResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePasswordForbidden:
 		response := &UpdatePasswordResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePasswordNotFound:
 		response := &UpdatePasswordResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePasswordInternalServerError:
 		response := &UpdatePasswordResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2116,27 +2116,27 @@ func (a *Client) SaveUserPermissionShort(params *SaveUserPermissionParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveUserPermissionUnauthorized:
 		response := &SaveUserPermissionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveUserPermissionForbidden:
 		response := &SaveUserPermissionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveUserPermissionNotFound:
 		response := &SaveUserPermissionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2223,27 +2223,27 @@ func (a *Client) AddUserPermissionShort(params *AddUserPermissionParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserPermissionUnauthorized:
 		response := &AddUserPermissionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserPermissionForbidden:
 		response := &AddUserPermissionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserPermissionNotFound:
 		response := &AddUserPermissionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2305,27 +2305,27 @@ func (a *Client) DeleteUserPermissionShort(params *DeleteUserPermissionParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserPermissionUnauthorized:
 		response := &DeleteUserPermissionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserPermissionForbidden:
 		response := &DeleteUserPermissionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserPermissionNotFound:
 		response := &DeleteUserPermissionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2392,21 +2392,21 @@ func (a *Client) GetUserPlatformAccountsShort(params *GetUserPlatformAccountsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserPlatformAccountsUnauthorized:
 		response := &GetUserPlatformAccountsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserPlatformAccountsForbidden:
 		response := &GetUserPlatformAccountsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2474,27 +2474,27 @@ func (a *Client) GetUserMappingShort(params *GetUserMappingParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserMappingUnauthorized:
 		response := &GetUserMappingResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserMappingForbidden:
 		response := &GetUserMappingResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserMappingNotFound:
 		response := &GetUserMappingResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2565,21 +2565,21 @@ func (a *Client) GetUserJusticePlatformAccountShort(params *GetUserJusticePlatfo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserJusticePlatformAccountUnauthorized:
 		response := &GetUserJusticePlatformAccountResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserJusticePlatformAccountForbidden:
 		response := &GetUserJusticePlatformAccountResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2655,39 +2655,39 @@ func (a *Client) PlatformLinkShort(params *PlatformLinkParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformLinkUnauthorized:
 		response := &PlatformLinkResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformLinkForbidden:
 		response := &PlatformLinkResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformLinkNotFound:
 		response := &PlatformLinkResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformLinkConflict:
 		response := &PlatformLinkResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformLinkInternalServerError:
 		response := &PlatformLinkResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2763,33 +2763,33 @@ func (a *Client) PlatformUnlinkShort(params *PlatformUnlinkParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformUnlinkUnauthorized:
 		response := &PlatformUnlinkResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformUnlinkForbidden:
 		response := &PlatformUnlinkResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformUnlinkNotFound:
 		response := &PlatformUnlinkResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformUnlinkInternalServerError:
 		response := &PlatformUnlinkResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2855,27 +2855,27 @@ func (a *Client) GetPublisherUserShort(params *GetPublisherUserParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPublisherUserUnauthorized:
 		response := &GetPublisherUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPublisherUserForbidden:
 		response := &GetPublisherUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPublisherUserNotFound:
 		response := &GetPublisherUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2937,33 +2937,33 @@ func (a *Client) SaveUserRolesShort(params *SaveUserRolesParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveUserRolesUnauthorized:
 		response := &SaveUserRolesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveUserRolesForbidden:
 		response := &SaveUserRolesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveUserRolesNotFound:
 		response := &SaveUserRolesResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveUserRolesConflict:
 		response := &SaveUserRolesResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3025,31 +3025,31 @@ func (a *Client) AddUserRoleShort(params *AddUserRoleParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserRoleForbidden:
 		response := &AddUserRoleResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserRoleNotFound:
 		response := &AddUserRoleResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserRoleConflict:
 		response := &AddUserRoleResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddUserRoleInternalServerError:
 		response := &AddUserRoleResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3111,25 +3111,25 @@ func (a *Client) DeleteUserRoleShort(params *DeleteUserRoleParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRoleForbidden:
 		response := &DeleteUserRoleResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRoleNotFound:
 		response := &DeleteUserRoleResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRoleInternalServerError:
 		response := &DeleteUserRoleResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3193,20 +3193,20 @@ func (a *Client) UpgradeHeadlessAccountShort(params *UpgradeHeadlessAccountParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpgradeHeadlessAccountForbidden:
 		response := &UpgradeHeadlessAccountResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpgradeHeadlessAccountConflict:
 		response := &UpgradeHeadlessAccountResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3272,27 +3272,27 @@ func (a *Client) UpgradeHeadlessAccountWithVerificationCodeShort(params *Upgrade
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpgradeHeadlessAccountWithVerificationCodeUnauthorized:
 		response := &UpgradeHeadlessAccountWithVerificationCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpgradeHeadlessAccountWithVerificationCodeForbidden:
 		response := &UpgradeHeadlessAccountWithVerificationCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpgradeHeadlessAccountWithVerificationCodeConflict:
 		response := &UpgradeHeadlessAccountWithVerificationCodeResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3356,32 +3356,32 @@ func (a *Client) UserVerificationShort(params *UserVerificationParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserVerificationUnauthorized:
 		response := &UserVerificationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserVerificationForbidden:
 		response := &UserVerificationResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserVerificationNotFound:
 		response := &UserVerificationResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserVerificationInternalServerError:
 		response := &UserVerificationResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3451,44 +3451,44 @@ func (a *Client) SendVerificationCodeShort(params *SendVerificationCodeParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendVerificationCodeUnauthorized:
 		response := &SendVerificationCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendVerificationCodeForbidden:
 		response := &SendVerificationCodeResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendVerificationCodeNotFound:
 		response := &SendVerificationCodeResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendVerificationCodeConflict:
 		response := &SendVerificationCodeResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendVerificationCodeTooManyRequests:
 		response := &SendVerificationCodeResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendVerificationCodeInternalServerError:
 		response := &SendVerificationCodeResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3553,20 +3553,20 @@ func (a *Client) AdminGetAgeRestrictionStatusV2Short(params *AdminGetAgeRestrict
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAgeRestrictionStatusV2Forbidden:
 		response := &AdminGetAgeRestrictionStatusV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAgeRestrictionStatusV2NotFound:
 		response := &AdminGetAgeRestrictionStatusV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3629,27 +3629,27 @@ func (a *Client) AdminUpdateAgeRestrictionConfigV2Short(params *AdminUpdateAgeRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAgeRestrictionConfigV2Unauthorized:
 		response := &AdminUpdateAgeRestrictionConfigV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAgeRestrictionConfigV2Forbidden:
 		response := &AdminUpdateAgeRestrictionConfigV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAgeRestrictionConfigV2NotFound:
 		response := &AdminUpdateAgeRestrictionConfigV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3712,20 +3712,20 @@ func (a *Client) GetListCountryAgeRestrictionShort(params *GetListCountryAgeRest
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListCountryAgeRestrictionForbidden:
 		response := &GetListCountryAgeRestrictionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListCountryAgeRestrictionNotFound:
 		response := &GetListCountryAgeRestrictionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3788,27 +3788,27 @@ func (a *Client) UpdateCountryAgeRestrictionShort(params *UpdateCountryAgeRestri
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCountryAgeRestrictionUnauthorized:
 		response := &UpdateCountryAgeRestrictionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCountryAgeRestrictionForbidden:
 		response := &UpdateCountryAgeRestrictionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCountryAgeRestrictionNotFound:
 		response := &UpdateCountryAgeRestrictionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3871,21 +3871,21 @@ func (a *Client) AdminSearchUsersV2Short(params *AdminSearchUsersV2Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSearchUsersV2Unauthorized:
 		response := &AdminSearchUsersV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSearchUsersV2Forbidden:
 		response := &AdminSearchUsersV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3947,13 +3947,13 @@ func (a *Client) AdminGetUserByUserIDV2Short(params *AdminGetUserByUserIDV2Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByUserIDV2InternalServerError:
 		response := &AdminGetUserByUserIDV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4024,32 +4024,32 @@ func (a *Client) AdminUpdateUserV2Short(params *AdminUpdateUserV2Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV2Unauthorized:
 		response := &AdminUpdateUserV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV2NotFound:
 		response := &AdminUpdateUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV2Conflict:
 		response := &AdminUpdateUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV2InternalServerError:
 		response := &AdminUpdateUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4111,33 +4111,33 @@ func (a *Client) AdminBanUserV2Short(params *AdminBanUserV2Params, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserV2Unauthorized:
 		response := &AdminBanUserV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserV2Forbidden:
 		response := &AdminBanUserV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserV2NotFound:
 		response := &AdminBanUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserV2InternalServerError:
 		response := &AdminBanUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4200,20 +4200,20 @@ func (a *Client) AdminGetUserBanV2Short(params *AdminGetUserBanV2Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanV2Forbidden:
 		response := &AdminGetUserBanV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanV2NotFound:
 		response := &AdminGetUserBanV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4278,33 +4278,33 @@ func (a *Client) AdminDisableUserV2Short(params *AdminDisableUserV2Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDisableUserV2Unauthorized:
 		response := &AdminDisableUserV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDisableUserV2Forbidden:
 		response := &AdminDisableUserV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDisableUserV2NotFound:
 		response := &AdminDisableUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDisableUserV2InternalServerError:
 		response := &AdminDisableUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4366,26 +4366,26 @@ func (a *Client) AdminEnableUserV2Short(params *AdminEnableUserV2Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminEnableUserV2Forbidden:
 		response := &AdminEnableUserV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminEnableUserV2NotFound:
 		response := &AdminEnableUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminEnableUserV2InternalServerError:
 		response := &AdminEnableUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4446,33 +4446,33 @@ func (a *Client) AdminResetPasswordV2Short(params *AdminResetPasswordV2Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPasswordV2Unauthorized:
 		response := &AdminResetPasswordV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPasswordV2Forbidden:
 		response := &AdminResetPasswordV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPasswordV2NotFound:
 		response := &AdminResetPasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPasswordV2InternalServerError:
 		response := &AdminResetPasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4548,33 +4548,33 @@ func (a *Client) AdminDeletePlatformLinkV2Short(params *AdminDeletePlatformLinkV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformLinkV2Unauthorized:
 		response := &AdminDeletePlatformLinkV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformLinkV2Forbidden:
 		response := &AdminDeletePlatformLinkV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformLinkV2NotFound:
 		response := &AdminDeletePlatformLinkV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformLinkV2InternalServerError:
 		response := &AdminDeletePlatformLinkV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4636,27 +4636,27 @@ func (a *Client) AdminPutUserRolesV2Short(params *AdminPutUserRolesV2Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutUserRolesV2Unauthorized:
 		response := &AdminPutUserRolesV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutUserRolesV2Forbidden:
 		response := &AdminPutUserRolesV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutUserRolesV2NotFound:
 		response := &AdminPutUserRolesV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4718,33 +4718,33 @@ func (a *Client) AdminCreateUserRolesV2Short(params *AdminCreateUserRolesV2Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateUserRolesV2Unauthorized:
 		response := &AdminCreateUserRolesV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateUserRolesV2Forbidden:
 		response := &AdminCreateUserRolesV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateUserRolesV2NotFound:
 		response := &AdminCreateUserRolesV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateUserRolesV2Conflict:
 		response := &AdminCreateUserRolesV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4807,13 +4807,13 @@ func (a *Client) PublicGetCountryAgeRestrictionShort(params *PublicGetCountryAge
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetCountryAgeRestrictionNotFound:
 		response := &PublicGetCountryAgeRestrictionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4884,27 +4884,27 @@ func (a *Client) PublicCreateUserV2Short(params *PublicCreateUserV2Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserV2Unauthorized:
 		response := &PublicCreateUserV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserV2Forbidden:
 		response := &PublicCreateUserV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserV2Conflict:
 		response := &PublicCreateUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4968,25 +4968,25 @@ func (a *Client) PublicForgotPasswordV2Short(params *PublicForgotPasswordV2Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForgotPasswordV2NotFound:
 		response := &PublicForgotPasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForgotPasswordV2TooManyRequests:
 		response := &PublicForgotPasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForgotPasswordV2InternalServerError:
 		response := &PublicForgotPasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5047,25 +5047,25 @@ func (a *Client) PublicResetPasswordV2Short(params *PublicResetPasswordV2Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicResetPasswordV2Forbidden:
 		response := &PublicResetPasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicResetPasswordV2NotFound:
 		response := &PublicResetPasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicResetPasswordV2InternalServerError:
 		response := &PublicResetPasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5130,13 +5130,13 @@ func (a *Client) PublicGetUserByUserIDV2Short(params *PublicGetUserByUserIDV2Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserByUserIDV2InternalServerError:
 		response := &PublicGetUserByUserIDV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5206,32 +5206,32 @@ func (a *Client) PublicUpdateUserV2Short(params *PublicUpdateUserV2Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserV2Unauthorized:
 		response := &PublicUpdateUserV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserV2NotFound:
 		response := &PublicUpdateUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserV2Conflict:
 		response := &PublicUpdateUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserV2InternalServerError:
 		response := &PublicUpdateUserV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5294,20 +5294,20 @@ func (a *Client) PublicGetUserBanShort(params *PublicGetUserBanParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserBanForbidden:
 		response := &PublicGetUserBanResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserBanNotFound:
 		response := &PublicGetUserBanResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5368,33 +5368,33 @@ func (a *Client) PublicUpdatePasswordV2Short(params *PublicUpdatePasswordV2Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePasswordV2Unauthorized:
 		response := &PublicUpdatePasswordV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePasswordV2Forbidden:
 		response := &PublicUpdatePasswordV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePasswordV2NotFound:
 		response := &PublicUpdatePasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePasswordV2InternalServerError:
 		response := &PublicUpdatePasswordV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5459,13 +5459,13 @@ func (a *Client) GetListJusticePlatformAccountsShort(params *GetListJusticePlatf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListJusticePlatformAccountsNotFound:
 		response := &GetListJusticePlatformAccountsResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5541,39 +5541,39 @@ func (a *Client) PublicPlatformLinkV2Short(params *PublicPlatformLinkV2Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV2Unauthorized:
 		response := &PublicPlatformLinkV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV2Forbidden:
 		response := &PublicPlatformLinkV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV2NotFound:
 		response := &PublicPlatformLinkV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV2Conflict:
 		response := &PublicPlatformLinkV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV2InternalServerError:
 		response := &PublicPlatformLinkV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5650,33 +5650,33 @@ func (a *Client) PublicDeletePlatformLinkV2Short(params *PublicDeletePlatformLin
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeletePlatformLinkV2Unauthorized:
 		response := &PublicDeletePlatformLinkV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeletePlatformLinkV2Forbidden:
 		response := &PublicDeletePlatformLinkV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeletePlatformLinkV2NotFound:
 		response := &PublicDeletePlatformLinkV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeletePlatformLinkV2InternalServerError:
 		response := &PublicDeletePlatformLinkV2Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5751,21 +5751,21 @@ func (a *Client) ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListAdminsV3Forbidden:
 		response := &ListAdminsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListAdminsV3InternalServerError:
 		response := &ListAdminsV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5826,35 +5826,35 @@ func (a *Client) AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrict
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAgeRestrictionStatusV3Unauthorized:
 		response := &AdminGetAgeRestrictionStatusV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAgeRestrictionStatusV3Forbidden:
 		response := &AdminGetAgeRestrictionStatusV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAgeRestrictionStatusV3NotFound:
 		response := &AdminGetAgeRestrictionStatusV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAgeRestrictionStatusV3InternalServerError:
 		response := &AdminGetAgeRestrictionStatusV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5915,28 +5915,28 @@ func (a *Client) AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAgeRestrictionConfigV3Unauthorized:
 		response := &AdminUpdateAgeRestrictionConfigV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAgeRestrictionConfigV3Forbidden:
 		response := &AdminUpdateAgeRestrictionConfigV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAgeRestrictionConfigV3InternalServerError:
 		response := &AdminUpdateAgeRestrictionConfigV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -5997,28 +5997,28 @@ func (a *Client) AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListCountryAgeRestrictionV3Unauthorized:
 		response := &AdminGetListCountryAgeRestrictionV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListCountryAgeRestrictionV3Forbidden:
 		response := &AdminGetListCountryAgeRestrictionV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListCountryAgeRestrictionV3InternalServerError:
 		response := &AdminGetListCountryAgeRestrictionV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6079,35 +6079,35 @@ func (a *Client) AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCoun
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateCountryAgeRestrictionV3Unauthorized:
 		response := &AdminUpdateCountryAgeRestrictionV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateCountryAgeRestrictionV3Forbidden:
 		response := &AdminUpdateCountryAgeRestrictionV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateCountryAgeRestrictionV3NotFound:
 		response := &AdminUpdateCountryAgeRestrictionV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateCountryAgeRestrictionV3InternalServerError:
 		response := &AdminUpdateCountryAgeRestrictionV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6200,28 +6200,28 @@ func (a *Client) AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserID
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserIDByPlatformUserIDsV3Unauthorized:
 		response := &AdminListUserIDByPlatformUserIDsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserIDByPlatformUserIDsV3Forbidden:
 		response := &AdminListUserIDByPlatformUserIDsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserIDByPlatformUserIDsV3InternalServerError:
 		response := &AdminListUserIDByPlatformUserIDsV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6322,28 +6322,28 @@ func (a *Client) AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByPlatformUserIDV3Forbidden:
 		response := &AdminGetUserByPlatformUserIDV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByPlatformUserIDV3NotFound:
 		response := &AdminGetUserByPlatformUserIDV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByPlatformUserIDV3InternalServerError:
 		response := &AdminGetUserByPlatformUserIDV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6408,35 +6408,35 @@ func (a *Client) GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminUsersByRoleIDV3Unauthorized:
 		response := &GetAdminUsersByRoleIDV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminUsersByRoleIDV3Forbidden:
 		response := &GetAdminUsersByRoleIDV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminUsersByRoleIDV3NotFound:
 		response := &GetAdminUsersByRoleIDV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminUsersByRoleIDV3InternalServerError:
 		response := &GetAdminUsersByRoleIDV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6498,35 +6498,35 @@ func (a *Client) AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAd
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByEmailAddressV3Unauthorized:
 		response := &AdminGetUserByEmailAddressV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByEmailAddressV3Forbidden:
 		response := &AdminGetUserByEmailAddressV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByEmailAddressV3NotFound:
 		response := &AdminGetUserByEmailAddressV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByEmailAddressV3InternalServerError:
 		response := &AdminGetUserByEmailAddressV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6589,35 +6589,35 @@ func (a *Client) AdminBulkUpdateUsersV3Short(params *AdminBulkUpdateUsersV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateUsersV3Unauthorized:
 		response := &AdminBulkUpdateUsersV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateUsersV3Forbidden:
 		response := &AdminBulkUpdateUsersV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateUsersV3NotFound:
 		response := &AdminBulkUpdateUsersV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateUsersV3InternalServerError:
 		response := &AdminBulkUpdateUsersV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6679,35 +6679,35 @@ func (a *Client) AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBulkUserBanV3Unauthorized:
 		response := &AdminGetBulkUserBanV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBulkUserBanV3Forbidden:
 		response := &AdminGetBulkUserBanV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBulkUserBanV3NotFound:
 		response := &AdminGetBulkUserBanV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBulkUserBanV3InternalServerError:
 		response := &AdminGetBulkUserBanV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6769,28 +6769,28 @@ func (a *Client) AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserID
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserIDByUserIDsV3Unauthorized:
 		response := &AdminListUserIDByUserIDsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserIDByUserIDsV3Forbidden:
 		response := &AdminListUserIDByUserIDsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserIDByUserIDsV3InternalServerError:
 		response := &AdminListUserIDByUserIDsV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6853,14 +6853,14 @@ func (a *Client) AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatfor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkGetUsersPlatformInternalServerError:
 		response := &AdminBulkGetUsersPlatformResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -6926,49 +6926,49 @@ func (a *Client) AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminInviteUserV3Unauthorized:
 		response := &AdminInviteUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminInviteUserV3Forbidden:
 		response := &AdminInviteUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminInviteUserV3NotFound:
 		response := &AdminInviteUserV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminInviteUserV3Conflict:
 		response := &AdminInviteUserV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminInviteUserV3UnprocessableEntity:
 		response := &AdminInviteUserV3Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminInviteUserV3InternalServerError:
 		response := &AdminInviteUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7029,28 +7029,28 @@ func (a *Client) AdminQueryThirdPlatformLinkHistoryV3Short(params *AdminQueryThi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryThirdPlatformLinkHistoryV3Unauthorized:
 		response := &AdminQueryThirdPlatformLinkHistoryV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryThirdPlatformLinkHistoryV3Forbidden:
 		response := &AdminQueryThirdPlatformLinkHistoryV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryThirdPlatformLinkHistoryV3InternalServerError:
 		response := &AdminQueryThirdPlatformLinkHistoryV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7113,28 +7113,28 @@ func (a *Client) AdminListUsersV3Short(params *AdminListUsersV3Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUsersV3Unauthorized:
 		response := &AdminListUsersV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUsersV3Forbidden:
 		response := &AdminListUsersV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUsersV3InternalServerError:
 		response := &AdminListUsersV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7214,28 +7214,28 @@ func (a *Client) AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSearchUserV3Unauthorized:
 		response := &AdminSearchUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSearchUserV3Forbidden:
 		response := &AdminSearchUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSearchUserV3InternalServerError:
 		response := &AdminSearchUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7297,35 +7297,35 @@ func (a *Client) AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBulkUserByEmailAddressV3Unauthorized:
 		response := &AdminGetBulkUserByEmailAddressV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBulkUserByEmailAddressV3Forbidden:
 		response := &AdminGetBulkUserByEmailAddressV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBulkUserByEmailAddressV3NotFound:
 		response := &AdminGetBulkUserByEmailAddressV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetBulkUserByEmailAddressV3InternalServerError:
 		response := &AdminGetBulkUserByEmailAddressV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7386,35 +7386,35 @@ func (a *Client) AdminGetUserByUserIDV3Short(params *AdminGetUserByUserIDV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByUserIDV3Unauthorized:
 		response := &AdminGetUserByUserIDV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByUserIDV3Forbidden:
 		response := &AdminGetUserByUserIDV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByUserIDV3NotFound:
 		response := &AdminGetUserByUserIDV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserByUserIDV3InternalServerError:
 		response := &AdminGetUserByUserIDV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7485,42 +7485,42 @@ func (a *Client) AdminUpdateUserV3Short(params *AdminUpdateUserV3Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV3Unauthorized:
 		response := &AdminUpdateUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV3Forbidden:
 		response := &AdminUpdateUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV3NotFound:
 		response := &AdminUpdateUserV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV3Conflict:
 		response := &AdminUpdateUserV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserV3InternalServerError:
 		response := &AdminUpdateUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7582,35 +7582,35 @@ func (a *Client) AdminGetUserBanV3Short(params *AdminGetUserBanV3Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanV3Unauthorized:
 		response := &AdminGetUserBanV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanV3Forbidden:
 		response := &AdminGetUserBanV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanV3NotFound:
 		response := &AdminGetUserBanV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanV3InternalServerError:
 		response := &AdminGetUserBanV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7672,35 +7672,35 @@ func (a *Client) AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserV3Unauthorized:
 		response := &AdminBanUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserV3Forbidden:
 		response := &AdminBanUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserV3NotFound:
 		response := &AdminBanUserV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanUserV3InternalServerError:
 		response := &AdminBanUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7761,35 +7761,35 @@ func (a *Client) AdminGetUserBanSummaryV3Short(params *AdminGetUserBanSummaryV3P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanSummaryV3Unauthorized:
 		response := &AdminGetUserBanSummaryV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanSummaryV3Forbidden:
 		response := &AdminGetUserBanSummaryV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanSummaryV3NotFound:
 		response := &AdminGetUserBanSummaryV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserBanSummaryV3InternalServerError:
 		response := &AdminGetUserBanSummaryV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7853,35 +7853,35 @@ func (a *Client) AdminUpdateUserBanV3Short(params *AdminUpdateUserBanV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserBanV3Unauthorized:
 		response := &AdminUpdateUserBanV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserBanV3Forbidden:
 		response := &AdminUpdateUserBanV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserBanV3NotFound:
 		response := &AdminUpdateUserBanV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserBanV3InternalServerError:
 		response := &AdminUpdateUserBanV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -7954,42 +7954,42 @@ func (a *Client) AdminSendVerificationCodeV3Short(params *AdminSendVerificationC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendVerificationCodeV3Unauthorized:
 		response := &AdminSendVerificationCodeV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendVerificationCodeV3Forbidden:
 		response := &AdminSendVerificationCodeV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendVerificationCodeV3NotFound:
 		response := &AdminSendVerificationCodeV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendVerificationCodeV3Conflict:
 		response := &AdminSendVerificationCodeV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendVerificationCodeV3TooManyRequests:
 		response := &AdminSendVerificationCodeV3Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8051,35 +8051,35 @@ func (a *Client) AdminVerifyAccountV3Short(params *AdminVerifyAccountV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyAccountV3Unauthorized:
 		response := &AdminVerifyAccountV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyAccountV3Forbidden:
 		response := &AdminVerifyAccountV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyAccountV3NotFound:
 		response := &AdminVerifyAccountV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyAccountV3InternalServerError:
 		response := &AdminVerifyAccountV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8151,27 +8151,27 @@ func (a *Client) GetUserVerificationCodeShort(params *GetUserVerificationCodePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserVerificationCodeForbidden:
 		response := &GetUserVerificationCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserVerificationCodeNotFound:
 		response := &GetUserVerificationCodeResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserVerificationCodeInternalServerError:
 		response := &GetUserVerificationCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8232,28 +8232,28 @@ func (a *Client) AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionS
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserDeletionStatusV3Forbidden:
 		response := &AdminGetUserDeletionStatusV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserDeletionStatusV3NotFound:
 		response := &AdminGetUserDeletionStatusV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserDeletionStatusV3InternalServerError:
 		response := &AdminGetUserDeletionStatusV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8313,35 +8313,35 @@ func (a *Client) AdminUpdateUserDeletionStatusV3Short(params *AdminUpdateUserDel
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserDeletionStatusV3Unauthorized:
 		response := &AdminUpdateUserDeletionStatusV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserDeletionStatusV3Forbidden:
 		response := &AdminUpdateUserDeletionStatusV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserDeletionStatusV3NotFound:
 		response := &AdminUpdateUserDeletionStatusV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserDeletionStatusV3InternalServerError:
 		response := &AdminUpdateUserDeletionStatusV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8403,35 +8403,35 @@ func (a *Client) AdminListUserAllPlatformAccountsDistinctV3Short(params *AdminLi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserAllPlatformAccountsDistinctV3Unauthorized:
 		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserAllPlatformAccountsDistinctV3Forbidden:
 		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserAllPlatformAccountsDistinctV3NotFound:
 		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserAllPlatformAccountsDistinctV3InternalServerError:
 		response := &AdminListUserAllPlatformAccountsDistinctV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8503,42 +8503,42 @@ func (a *Client) AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadless
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpgradeHeadlessAccountV3Unauthorized:
 		response := &AdminUpgradeHeadlessAccountV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpgradeHeadlessAccountV3Forbidden:
 		response := &AdminUpgradeHeadlessAccountV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpgradeHeadlessAccountV3NotFound:
 		response := &AdminUpgradeHeadlessAccountV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpgradeHeadlessAccountV3Conflict:
 		response := &AdminUpgradeHeadlessAccountV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpgradeHeadlessAccountV3InternalServerError:
 		response := &AdminUpgradeHeadlessAccountV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8598,20 +8598,20 @@ func (a *Client) AdminDeleteUserInformationV3Short(params *AdminDeleteUserInform
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserInformationV3Forbidden:
 		response := &AdminDeleteUserInformationV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserInformationV3NotFound:
 		response := &AdminDeleteUserInformationV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8676,20 +8676,20 @@ func (a *Client) AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHist
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserLoginHistoriesV3Forbidden:
 		response := &AdminGetUserLoginHistoriesV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserLoginHistoriesV3NotFound:
 		response := &AdminGetUserLoginHistoriesV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8748,34 +8748,34 @@ func (a *Client) AdminResetPasswordV3Short(params *AdminResetPasswordV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPasswordV3Unauthorized:
 		response := &AdminResetPasswordV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPasswordV3Forbidden:
 		response := &AdminResetPasswordV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPasswordV3NotFound:
 		response := &AdminResetPasswordV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetPasswordV3InternalServerError:
 		response := &AdminResetPasswordV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8857,27 +8857,27 @@ func (a *Client) AdminUpdateUserPermissionV3Short(params *AdminUpdateUserPermiss
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserPermissionV3Unauthorized:
 		response := &AdminUpdateUserPermissionV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserPermissionV3Forbidden:
 		response := &AdminUpdateUserPermissionV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserPermissionV3NotFound:
 		response := &AdminUpdateUserPermissionV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -8959,27 +8959,27 @@ func (a *Client) AdminAddUserPermissionsV3Short(params *AdminAddUserPermissionsV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddUserPermissionsV3Unauthorized:
 		response := &AdminAddUserPermissionsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddUserPermissionsV3Forbidden:
 		response := &AdminAddUserPermissionsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddUserPermissionsV3NotFound:
 		response := &AdminAddUserPermissionsV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9039,27 +9039,27 @@ func (a *Client) AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPer
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserPermissionBulkV3Unauthorized:
 		response := &AdminDeleteUserPermissionBulkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserPermissionBulkV3Forbidden:
 		response := &AdminDeleteUserPermissionBulkV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserPermissionBulkV3NotFound:
 		response := &AdminDeleteUserPermissionBulkV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9119,27 +9119,27 @@ func (a *Client) AdminDeleteUserPermissionV3Short(params *AdminDeleteUserPermiss
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserPermissionV3Unauthorized:
 		response := &AdminDeleteUserPermissionV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserPermissionV3Forbidden:
 		response := &AdminDeleteUserPermissionV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserPermissionV3NotFound:
 		response := &AdminDeleteUserPermissionV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9241,35 +9241,35 @@ func (a *Client) AdminGetUserPlatformAccountsV3Short(params *AdminGetUserPlatfor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserPlatformAccountsV3Unauthorized:
 		response := &AdminGetUserPlatformAccountsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserPlatformAccountsV3Forbidden:
 		response := &AdminGetUserPlatformAccountsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserPlatformAccountsV3NotFound:
 		response := &AdminGetUserPlatformAccountsV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserPlatformAccountsV3InternalServerError:
 		response := &AdminGetUserPlatformAccountsV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9337,35 +9337,35 @@ func (a *Client) AdminListAllDistinctPlatformAccountsV3Short(params *AdminListAl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListAllDistinctPlatformAccountsV3Unauthorized:
 		response := &AdminListAllDistinctPlatformAccountsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListAllDistinctPlatformAccountsV3Forbidden:
 		response := &AdminListAllDistinctPlatformAccountsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListAllDistinctPlatformAccountsV3NotFound:
 		response := &AdminListAllDistinctPlatformAccountsV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListAllDistinctPlatformAccountsV3InternalServerError:
 		response := &AdminListAllDistinctPlatformAccountsV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9426,35 +9426,35 @@ func (a *Client) AdminGetListJusticePlatformAccountsShort(params *AdminGetListJu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListJusticePlatformAccountsUnauthorized:
 		response := &AdminGetListJusticePlatformAccountsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListJusticePlatformAccountsForbidden:
 		response := &AdminGetListJusticePlatformAccountsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListJusticePlatformAccountsNotFound:
 		response := &AdminGetListJusticePlatformAccountsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListJusticePlatformAccountsInternalServerError:
 		response := &AdminGetListJusticePlatformAccountsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9517,27 +9517,27 @@ func (a *Client) AdminGetUserMappingShort(params *AdminGetUserMappingParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserMappingUnauthorized:
 		response := &AdminGetUserMappingResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserMappingForbidden:
 		response := &AdminGetUserMappingResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserMappingNotFound:
 		response := &AdminGetUserMappingResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9598,35 +9598,35 @@ func (a *Client) AdminCreateJusticeUserShort(params *AdminCreateJusticeUserParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateJusticeUserUnauthorized:
 		response := &AdminCreateJusticeUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateJusticeUserForbidden:
 		response := &AdminCreateJusticeUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateJusticeUserNotFound:
 		response := &AdminCreateJusticeUserResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateJusticeUserInternalServerError:
 		response := &AdminCreateJusticeUserResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9689,35 +9689,35 @@ func (a *Client) AdminLinkPlatformAccountShort(params *AdminLinkPlatformAccountP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminLinkPlatformAccountUnauthorized:
 		response := &AdminLinkPlatformAccountResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminLinkPlatformAccountForbidden:
 		response := &AdminLinkPlatformAccountResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminLinkPlatformAccountConflict:
 		response := &AdminLinkPlatformAccountResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminLinkPlatformAccountInternalServerError:
 		response := &AdminLinkPlatformAccountResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9814,28 +9814,28 @@ func (a *Client) AdminGetUserLinkHistoriesV3Short(params *AdminGetUserLinkHistor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserLinkHistoriesV3Unauthorized:
 		response := &AdminGetUserLinkHistoriesV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserLinkHistoriesV3Forbidden:
 		response := &AdminGetUserLinkHistoriesV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserLinkHistoriesV3InternalServerError:
 		response := &AdminGetUserLinkHistoriesV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -9917,35 +9917,35 @@ func (a *Client) AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformUnlinkV3Unauthorized:
 		response := &AdminPlatformUnlinkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformUnlinkV3Forbidden:
 		response := &AdminPlatformUnlinkV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformUnlinkV3NotFound:
 		response := &AdminPlatformUnlinkV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformUnlinkV3InternalServerError:
 		response := &AdminPlatformUnlinkV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10048,28 +10048,28 @@ func (a *Client) AdminPlatformUnlinkAllV3Short(params *AdminPlatformUnlinkAllV3P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformUnlinkAllV3Unauthorized:
 		response := &AdminPlatformUnlinkAllV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformUnlinkAllV3NotFound:
 		response := &AdminPlatformUnlinkAllV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformUnlinkAllV3InternalServerError:
 		response := &AdminPlatformUnlinkAllV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10144,40 +10144,40 @@ func (a *Client) AdminPlatformLinkV3Short(params *AdminPlatformLinkV3Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformLinkV3Unauthorized:
 		response := &AdminPlatformLinkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformLinkV3Forbidden:
 		response := &AdminPlatformLinkV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformLinkV3NotFound:
 		response := &AdminPlatformLinkV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformLinkV3Conflict:
 		response := &AdminPlatformLinkV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPlatformLinkV3InternalServerError:
 		response := &AdminPlatformLinkV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10276,35 +10276,35 @@ func (a *Client) AdminDeleteUserLinkingHistoryByPlatformIDV3Short(params *AdminD
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3Unauthorized:
 		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3Forbidden:
 		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3NotFound:
 		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserLinkingHistoryByPlatformIDV3InternalServerError:
 		response := &AdminDeleteUserLinkingHistoryByPlatformIDV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10400,35 +10400,35 @@ func (a *Client) AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(params *Ad
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3Unauthorized:
 		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3Forbidden:
 		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3NotFound:
 		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserLinkingRestrictionByPlatformIDV3InternalServerError:
 		response := &AdminDeleteUserLinkingRestrictionByPlatformIDV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10516,35 +10516,35 @@ func (a *Client) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminG
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3Unauthorized:
 		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3Forbidden:
 		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3NotFound:
 		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError:
 		response := &AdminGetThirdPartyPlatformTokenLinkStatusV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10642,35 +10642,35 @@ func (a *Client) AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSing
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserSinglePlatformAccountUnauthorized:
 		response := &AdminGetUserSinglePlatformAccountResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserSinglePlatformAccountForbidden:
 		response := &AdminGetUserSinglePlatformAccountResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserSinglePlatformAccountNotFound:
 		response := &AdminGetUserSinglePlatformAccountResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserSinglePlatformAccountInternalServerError:
 		response := &AdminGetUserSinglePlatformAccountResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10730,27 +10730,27 @@ func (a *Client) AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserRolesV3Unauthorized:
 		response := &AdminDeleteUserRolesV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserRolesV3Forbidden:
 		response := &AdminDeleteUserRolesV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserRolesV3NotFound:
 		response := &AdminDeleteUserRolesV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10811,42 +10811,42 @@ func (a *Client) AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveUserRoleV3Unauthorized:
 		response := &AdminSaveUserRoleV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveUserRoleV3Forbidden:
 		response := &AdminSaveUserRoleV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveUserRoleV3NotFound:
 		response := &AdminSaveUserRoleV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveUserRoleV3UnprocessableEntity:
 		response := &AdminSaveUserRoleV3Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveUserRoleV3InternalServerError:
 		response := &AdminSaveUserRoleV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -10906,42 +10906,42 @@ func (a *Client) AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddUserRoleV3Unauthorized:
 		response := &AdminAddUserRoleV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddUserRoleV3Forbidden:
 		response := &AdminAddUserRoleV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddUserRoleV3NotFound:
 		response := &AdminAddUserRoleV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddUserRoleV3Conflict:
 		response := &AdminAddUserRoleV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddUserRoleV3InternalServerError:
 		response := &AdminAddUserRoleV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11002,35 +11002,35 @@ func (a *Client) AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserRoleV3Unauthorized:
 		response := &AdminDeleteUserRoleV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserRoleV3Forbidden:
 		response := &AdminDeleteUserRoleV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserRoleV3NotFound:
 		response := &AdminDeleteUserRoleV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserRoleV3InternalServerError:
 		response := &AdminDeleteUserRoleV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11095,35 +11095,35 @@ func (a *Client) AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserStatusV3Unauthorized:
 		response := &AdminUpdateUserStatusV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserStatusV3Forbidden:
 		response := &AdminUpdateUserStatusV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserStatusV3NotFound:
 		response := &AdminUpdateUserStatusV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserStatusV3InternalServerError:
 		response := &AdminUpdateUserStatusV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11191,42 +11191,42 @@ func (a *Client) AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateU
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTrustlyUpdateUserIdentityUnauthorized:
 		response := &AdminTrustlyUpdateUserIdentityResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTrustlyUpdateUserIdentityForbidden:
 		response := &AdminTrustlyUpdateUserIdentityResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTrustlyUpdateUserIdentityNotFound:
 		response := &AdminTrustlyUpdateUserIdentityResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTrustlyUpdateUserIdentityConflict:
 		response := &AdminTrustlyUpdateUserIdentityResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTrustlyUpdateUserIdentityInternalServerError:
 		response := &AdminTrustlyUpdateUserIdentityResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11290,42 +11290,42 @@ func (a *Client) AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVeri
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyUserWithoutVerificationCodeV3Unauthorized:
 		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyUserWithoutVerificationCodeV3Forbidden:
 		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyUserWithoutVerificationCodeV3NotFound:
 		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyUserWithoutVerificationCodeV3Conflict:
 		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminVerifyUserWithoutVerificationCodeV3InternalServerError:
 		response := &AdminVerifyUserWithoutVerificationCodeV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11387,14 +11387,14 @@ func (a *Client) AdminGetMyUserV3Short(params *AdminGetMyUserV3Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMyUserV3InternalServerError:
 		response := &AdminGetMyUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11455,13 +11455,13 @@ func (a *Client) PublicGetCountryAgeRestrictionV3Short(params *PublicGetCountryA
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetCountryAgeRestrictionV3NotFound:
 		response := &PublicGetCountryAgeRestrictionV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11552,28 +11552,28 @@ func (a *Client) PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUser
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListUserIDByPlatformUserIDsV3Unauthorized:
 		response := &PublicListUserIDByPlatformUserIDsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListUserIDByPlatformUserIDsV3Forbidden:
 		response := &PublicListUserIDByPlatformUserIDsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListUserIDByPlatformUserIDsV3InternalServerError:
 		response := &PublicListUserIDByPlatformUserIDsV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11674,28 +11674,28 @@ func (a *Client) PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPla
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserByPlatformUserIDV3Forbidden:
 		response := &PublicGetUserByPlatformUserIDV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserByPlatformUserIDV3NotFound:
 		response := &PublicGetUserByPlatformUserIDV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserByPlatformUserIDV3InternalServerError:
 		response := &PublicGetUserByPlatformUserIDV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11757,21 +11757,21 @@ func (a *Client) PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAsyncStatusForbidden:
 		response := &PublicGetAsyncStatusResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAsyncStatusInternalServerError:
 		response := &PublicGetAsyncStatusResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11880,35 +11880,35 @@ func (a *Client) PublicSearchUserV3Short(params *PublicSearchUserV3Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSearchUserV3Unauthorized:
 		response := &PublicSearchUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSearchUserV3NotFound:
 		response := &PublicSearchUserV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSearchUserV3TooManyRequests:
 		response := &PublicSearchUserV3Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSearchUserV3InternalServerError:
 		response := &PublicSearchUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -11978,42 +11978,42 @@ func (a *Client) PublicCreateUserV3Short(params *PublicCreateUserV3Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserV3Forbidden:
 		response := &PublicCreateUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserV3NotFound:
 		response := &PublicCreateUserV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserV3Conflict:
 		response := &PublicCreateUserV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserV3TooManyRequests:
 		response := &PublicCreateUserV3Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserV3InternalServerError:
 		response := &PublicCreateUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12084,20 +12084,20 @@ func (a *Client) CheckUserAvailabilityShort(params *CheckUserAvailabilityParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CheckUserAvailabilityNotFound:
 		response := &CheckUserAvailabilityResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CheckUserAvailabilityUnprocessableEntity:
 		response := &CheckUserAvailabilityResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12161,14 +12161,14 @@ func (a *Client) PublicBulkGetUsersShort(params *PublicBulkGetUsersParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkGetUsersInternalServerError:
 		response := &PublicBulkGetUsersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12231,21 +12231,21 @@ func (a *Client) PublicSendRegistrationCodeShort(params *PublicSendRegistrationC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendRegistrationCodeConflict:
 		response := &PublicSendRegistrationCodeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendRegistrationCodeTooManyRequests:
 		response := &PublicSendRegistrationCodeResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12305,7 +12305,7 @@ func (a *Client) PublicVerifyRegistrationCodeShort(params *PublicVerifyRegistrat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12369,21 +12369,21 @@ func (a *Client) PublicForgotPasswordV3Short(params *PublicForgotPasswordV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForgotPasswordV3NotFound:
 		response := &PublicForgotPasswordV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForgotPasswordV3TooManyRequests:
 		response := &PublicForgotPasswordV3Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12448,7 +12448,7 @@ func (a *Client) PublicValidateUserInputShort(params *PublicValidateUserInputPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12509,14 +12509,14 @@ func (a *Client) GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAdminInvitationV3InternalServerError:
 		response := &GetAdminInvitationV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12586,35 +12586,35 @@ func (a *Client) CreateUserFromInvitationV3Short(params *CreateUserFromInvitatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserFromInvitationV3Forbidden:
 		response := &CreateUserFromInvitationV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserFromInvitationV3NotFound:
 		response := &CreateUserFromInvitationV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserFromInvitationV3Conflict:
 		response := &CreateUserFromInvitationV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserFromInvitationV3InternalServerError:
 		response := &CreateUserFromInvitationV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12688,35 +12688,35 @@ func (a *Client) UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserV3Unauthorized:
 		response := &UpdateUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserV3Forbidden:
 		response := &UpdateUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserV3Conflict:
 		response := &UpdateUserV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserV3InternalServerError:
 		response := &UpdateUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12786,35 +12786,35 @@ func (a *Client) PublicPartialUpdateUserV3Short(params *PublicPartialUpdateUserV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartialUpdateUserV3Unauthorized:
 		response := &PublicPartialUpdateUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartialUpdateUserV3Forbidden:
 		response := &PublicPartialUpdateUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartialUpdateUserV3Conflict:
 		response := &PublicPartialUpdateUserV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPartialUpdateUserV3InternalServerError:
 		response := &PublicPartialUpdateUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12885,42 +12885,42 @@ func (a *Client) PublicSendVerificationCodeV3Short(params *PublicSendVerificatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendVerificationCodeV3Unauthorized:
 		response := &PublicSendVerificationCodeV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendVerificationCodeV3Forbidden:
 		response := &PublicSendVerificationCodeV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendVerificationCodeV3NotFound:
 		response := &PublicSendVerificationCodeV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendVerificationCodeV3Conflict:
 		response := &PublicSendVerificationCodeV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendVerificationCodeV3TooManyRequests:
 		response := &PublicSendVerificationCodeV3Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -12983,28 +12983,28 @@ func (a *Client) PublicUserVerificationV3Short(params *PublicUserVerificationV3P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUserVerificationV3Unauthorized:
 		response := &PublicUserVerificationV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUserVerificationV3Forbidden:
 		response := &PublicUserVerificationV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUserVerificationV3Conflict:
 		response := &PublicUserVerificationV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13076,42 +13076,42 @@ func (a *Client) PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadle
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpgradeHeadlessAccountV3Unauthorized:
 		response := &PublicUpgradeHeadlessAccountV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpgradeHeadlessAccountV3Forbidden:
 		response := &PublicUpgradeHeadlessAccountV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpgradeHeadlessAccountV3NotFound:
 		response := &PublicUpgradeHeadlessAccountV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpgradeHeadlessAccountV3Conflict:
 		response := &PublicUpgradeHeadlessAccountV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpgradeHeadlessAccountV3InternalServerError:
 		response := &PublicUpgradeHeadlessAccountV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13175,35 +13175,35 @@ func (a *Client) PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadless
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicVerifyHeadlessAccountV3Unauthorized:
 		response := &PublicVerifyHeadlessAccountV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicVerifyHeadlessAccountV3NotFound:
 		response := &PublicVerifyHeadlessAccountV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicVerifyHeadlessAccountV3Conflict:
 		response := &PublicVerifyHeadlessAccountV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicVerifyHeadlessAccountV3InternalServerError:
 		response := &PublicVerifyHeadlessAccountV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13263,28 +13263,28 @@ func (a *Client) PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePasswordV3Unauthorized:
 		response := &PublicUpdatePasswordV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePasswordV3TooManyRequests:
 		response := &PublicUpdatePasswordV3Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdatePasswordV3InternalServerError:
 		response := &PublicUpdatePasswordV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13345,35 +13345,35 @@ func (a *Client) PublicCreateJusticeUserShort(params *PublicCreateJusticeUserPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateJusticeUserUnauthorized:
 		response := &PublicCreateJusticeUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateJusticeUserForbidden:
 		response := &PublicCreateJusticeUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateJusticeUserNotFound:
 		response := &PublicCreateJusticeUserResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateJusticeUserInternalServerError:
 		response := &PublicCreateJusticeUserResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13459,35 +13459,35 @@ func (a *Client) PublicPlatformLinkV3Short(params *PublicPlatformLinkV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV3Unauthorized:
 		response := &PublicPlatformLinkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV3NotFound:
 		response := &PublicPlatformLinkV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV3Conflict:
 		response := &PublicPlatformLinkV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformLinkV3InternalServerError:
 		response := &PublicPlatformLinkV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13568,28 +13568,28 @@ func (a *Client) PublicPlatformUnlinkV3Short(params *PublicPlatformUnlinkV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformUnlinkV3Unauthorized:
 		response := &PublicPlatformUnlinkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformUnlinkV3NotFound:
 		response := &PublicPlatformUnlinkV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformUnlinkV3InternalServerError:
 		response := &PublicPlatformUnlinkV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13692,28 +13692,28 @@ func (a *Client) PublicPlatformUnlinkAllV3Short(params *PublicPlatformUnlinkAllV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformUnlinkAllV3Unauthorized:
 		response := &PublicPlatformUnlinkAllV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformUnlinkAllV3NotFound:
 		response := &PublicPlatformUnlinkAllV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPlatformUnlinkAllV3InternalServerError:
 		response := &PublicPlatformUnlinkAllV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13799,35 +13799,35 @@ func (a *Client) PublicForcePlatformLinkV3Short(params *PublicForcePlatformLinkV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForcePlatformLinkV3Unauthorized:
 		response := &PublicForcePlatformLinkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForcePlatformLinkV3NotFound:
 		response := &PublicForcePlatformLinkV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForcePlatformLinkV3Conflict:
 		response := &PublicForcePlatformLinkV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForcePlatformLinkV3InternalServerError:
 		response := &PublicForcePlatformLinkV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -13901,21 +13901,21 @@ func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicWebLinkPlatformUnauthorized:
 		response := &PublicWebLinkPlatformResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicWebLinkPlatformNotFound:
 		response := &PublicWebLinkPlatformResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14057,7 +14057,7 @@ func (a *Client) PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLin
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14138,21 +14138,21 @@ func (a *Client) PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatfo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUsersPlatformInfosV3Unauthorized:
 		response := &PublicGetUsersPlatformInfosV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUsersPlatformInfosV3InternalServerError:
 		response := &PublicGetUsersPlatformInfosV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14212,21 +14212,21 @@ func (a *Client) ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetPasswordV3Forbidden:
 		response := &ResetPasswordV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetPasswordV3NotFound:
 		response := &ResetPasswordV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14288,21 +14288,21 @@ func (a *Client) PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserByUserIDV3NotFound:
 		response := &PublicGetUserByUserIDV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserByUserIDV3InternalServerError:
 		response := &PublicGetUserByUserIDV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14369,35 +14369,35 @@ func (a *Client) PublicGetUserBanHistoryV3Short(params *PublicGetUserBanHistoryV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserBanHistoryV3Unauthorized:
 		response := &PublicGetUserBanHistoryV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserBanHistoryV3Forbidden:
 		response := &PublicGetUserBanHistoryV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserBanHistoryV3NotFound:
 		response := &PublicGetUserBanHistoryV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserBanHistoryV3InternalServerError:
 		response := &PublicGetUserBanHistoryV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14463,35 +14463,35 @@ func (a *Client) PublicListUserAllPlatformAccountsDistinctV3Short(params *Public
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListUserAllPlatformAccountsDistinctV3Unauthorized:
 		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListUserAllPlatformAccountsDistinctV3Forbidden:
 		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListUserAllPlatformAccountsDistinctV3NotFound:
 		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListUserAllPlatformAccountsDistinctV3InternalServerError:
 		response := &PublicListUserAllPlatformAccountsDistinctV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14556,28 +14556,28 @@ func (a *Client) PublicGetUserInformationV3Short(params *PublicGetUserInformatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserInformationV3Forbidden:
 		response := &PublicGetUserInformationV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserInformationV3NotFound:
 		response := &PublicGetUserInformationV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserInformationV3InternalServerError:
 		response := &PublicGetUserInformationV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14646,20 +14646,20 @@ func (a *Client) PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserLoginHistoriesV3Forbidden:
 		response := &PublicGetUserLoginHistoriesV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserLoginHistoriesV3NotFound:
 		response := &PublicGetUserLoginHistoriesV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14763,35 +14763,35 @@ func (a *Client) PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserPlatformAccountsV3Unauthorized:
 		response := &PublicGetUserPlatformAccountsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserPlatformAccountsV3Forbidden:
 		response := &PublicGetUserPlatformAccountsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserPlatformAccountsV3NotFound:
 		response := &PublicGetUserPlatformAccountsV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserPlatformAccountsV3InternalServerError:
 		response := &PublicGetUserPlatformAccountsV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14856,35 +14856,35 @@ func (a *Client) PublicListJusticePlatformAccountsV3Short(params *PublicListJust
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListJusticePlatformAccountsV3Unauthorized:
 		response := &PublicListJusticePlatformAccountsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListJusticePlatformAccountsV3Forbidden:
 		response := &PublicListJusticePlatformAccountsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListJusticePlatformAccountsV3NotFound:
 		response := &PublicListJusticePlatformAccountsV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListJusticePlatformAccountsV3InternalServerError:
 		response := &PublicListJusticePlatformAccountsV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14952,28 +14952,28 @@ func (a *Client) PublicLinkPlatformAccountShort(params *PublicLinkPlatformAccoun
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicLinkPlatformAccountUnauthorized:
 		response := &PublicLinkPlatformAccountResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicLinkPlatformAccountForbidden:
 		response := &PublicLinkPlatformAccountResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicLinkPlatformAccountInternalServerError:
 		response := &PublicLinkPlatformAccountResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -15039,28 +15039,28 @@ func (a *Client) PublicForceLinkPlatformWithProgressionShort(params *PublicForce
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForceLinkPlatformWithProgressionUnauthorized:
 		response := &PublicForceLinkPlatformWithProgressionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForceLinkPlatformWithProgressionForbidden:
 		response := &PublicForceLinkPlatformWithProgressionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicForceLinkPlatformWithProgressionInternalServerError:
 		response := &PublicForceLinkPlatformWithProgressionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -15122,27 +15122,27 @@ func (a *Client) PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPublisherUserV3Unauthorized:
 		response := &PublicGetPublisherUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPublisherUserV3Forbidden:
 		response := &PublicGetPublisherUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPublisherUserV3NotFound:
 		response := &PublicGetPublisherUserV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -15207,35 +15207,35 @@ func (a *Client) PublicValidateUserByUserIDAndPasswordV3Short(params *PublicVali
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicValidateUserByUserIDAndPasswordV3Unauthorized:
 		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicValidateUserByUserIDAndPasswordV3Forbidden:
 		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicValidateUserByUserIDAndPasswordV3NotFound:
 		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicValidateUserByUserIDAndPasswordV3InternalServerError:
 		response := &PublicValidateUserByUserIDAndPasswordV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -15315,14 +15315,14 @@ func (a *Client) PublicGetMyUserV3Short(params *PublicGetMyUserV3Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMyUserV3InternalServerError:
 		response := &PublicGetMyUserV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -15387,28 +15387,28 @@ func (a *Client) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(params *
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetLinkHeadlessAccountToMyAccountConflictV3Unauthorized:
 		response := &PublicGetLinkHeadlessAccountToMyAccountConflictV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetLinkHeadlessAccountToMyAccountConflictV3Forbidden:
 		response := &PublicGetLinkHeadlessAccountToMyAccountConflictV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetLinkHeadlessAccountToMyAccountConflictV3InternalServerError:
 		response := &PublicGetLinkHeadlessAccountToMyAccountConflictV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -15470,28 +15470,28 @@ func (a *Client) LinkHeadlessAccountToMyAccountV3Short(params *LinkHeadlessAccou
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LinkHeadlessAccountToMyAccountV3Unauthorized:
 		response := &LinkHeadlessAccountToMyAccountV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LinkHeadlessAccountToMyAccountV3Forbidden:
 		response := &LinkHeadlessAccountToMyAccountV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LinkHeadlessAccountToMyAccountV3InternalServerError:
 		response := &LinkHeadlessAccountToMyAccountV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -15553,28 +15553,28 @@ func (a *Client) PublicGetMyProfileAllowUpdateStatusV3Short(params *PublicGetMyP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMyProfileAllowUpdateStatusV3Unauthorized:
 		response := &PublicGetMyProfileAllowUpdateStatusV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMyProfileAllowUpdateStatusV3Forbidden:
 		response := &PublicGetMyProfileAllowUpdateStatusV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMyProfileAllowUpdateStatusV3InternalServerError:
 		response := &PublicGetMyProfileAllowUpdateStatusV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -15635,28 +15635,28 @@ func (a *Client) PublicSendVerificationLinkV3Short(params *PublicSendVerificatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendVerificationLinkV3Unauthorized:
 		response := &PublicSendVerificationLinkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendVerificationLinkV3Conflict:
 		response := &PublicSendVerificationLinkV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSendVerificationLinkV3TooManyRequests:
 		response := &PublicSendVerificationLinkV3Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

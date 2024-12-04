@@ -92,28 +92,28 @@ func (a *Client) AdminGetThirdPartyConfigShort(params *AdminGetThirdPartyConfigP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetThirdPartyConfigUnauthorized:
 		response := &AdminGetThirdPartyConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetThirdPartyConfigForbidden:
 		response := &AdminGetThirdPartyConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetThirdPartyConfigInternalServerError:
 		response := &AdminGetThirdPartyConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,28 +174,28 @@ func (a *Client) AdminUpdateThirdPartyConfigShort(params *AdminUpdateThirdPartyC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateThirdPartyConfigUnauthorized:
 		response := &AdminUpdateThirdPartyConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateThirdPartyConfigForbidden:
 		response := &AdminUpdateThirdPartyConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateThirdPartyConfigInternalServerError:
 		response := &AdminUpdateThirdPartyConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -256,35 +256,35 @@ func (a *Client) AdminCreateThirdPartyConfigShort(params *AdminCreateThirdPartyC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateThirdPartyConfigUnauthorized:
 		response := &AdminCreateThirdPartyConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateThirdPartyConfigForbidden:
 		response := &AdminCreateThirdPartyConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateThirdPartyConfigConflict:
 		response := &AdminCreateThirdPartyConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateThirdPartyConfigInternalServerError:
 		response := &AdminCreateThirdPartyConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -347,28 +347,28 @@ func (a *Client) AdminDeleteThirdPartyConfigShort(params *AdminDeleteThirdPartyC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteThirdPartyConfigUnauthorized:
 		response := &AdminDeleteThirdPartyConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteThirdPartyConfigForbidden:
 		response := &AdminDeleteThirdPartyConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteThirdPartyConfigInternalServerError:
 		response := &AdminDeleteThirdPartyConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

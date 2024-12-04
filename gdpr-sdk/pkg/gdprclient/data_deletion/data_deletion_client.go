@@ -99,35 +99,35 @@ func (a *Client) AdminGetListDeletionDataRequestShort(params *AdminGetListDeleti
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListDeletionDataRequestUnauthorized:
 		response := &AdminGetListDeletionDataRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListDeletionDataRequestForbidden:
 		response := &AdminGetListDeletionDataRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListDeletionDataRequestNotFound:
 		response := &AdminGetListDeletionDataRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListDeletionDataRequestInternalServerError:
 		response := &AdminGetListDeletionDataRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -189,28 +189,28 @@ func (a *Client) AdminGetUserAccountDeletionRequestShort(params *AdminGetUserAcc
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserAccountDeletionRequestForbidden:
 		response := &AdminGetUserAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserAccountDeletionRequestNotFound:
 		response := &AdminGetUserAccountDeletionRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserAccountDeletionRequestInternalServerError:
 		response := &AdminGetUserAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -272,35 +272,35 @@ func (a *Client) AdminSubmitUserAccountDeletionRequestShort(params *AdminSubmitU
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSubmitUserAccountDeletionRequestForbidden:
 		response := &AdminSubmitUserAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSubmitUserAccountDeletionRequestNotFound:
 		response := &AdminSubmitUserAccountDeletionRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSubmitUserAccountDeletionRequestConflict:
 		response := &AdminSubmitUserAccountDeletionRequestResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSubmitUserAccountDeletionRequestInternalServerError:
 		response := &AdminSubmitUserAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -361,35 +361,35 @@ func (a *Client) AdminCancelUserAccountDeletionRequestShort(params *AdminCancelU
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCancelUserAccountDeletionRequestUnauthorized:
 		response := &AdminCancelUserAccountDeletionRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCancelUserAccountDeletionRequestForbidden:
 		response := &AdminCancelUserAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCancelUserAccountDeletionRequestNotFound:
 		response := &AdminCancelUserAccountDeletionRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCancelUserAccountDeletionRequestInternalServerError:
 		response := &AdminCancelUserAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -455,42 +455,42 @@ func (a *Client) PublicSubmitUserAccountDeletionRequestShort(params *PublicSubmi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitUserAccountDeletionRequestUnauthorized:
 		response := &PublicSubmitUserAccountDeletionRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitUserAccountDeletionRequestForbidden:
 		response := &PublicSubmitUserAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitUserAccountDeletionRequestNotFound:
 		response := &PublicSubmitUserAccountDeletionRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitUserAccountDeletionRequestConflict:
 		response := &PublicSubmitUserAccountDeletionRequestResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitUserAccountDeletionRequestInternalServerError:
 		response := &PublicSubmitUserAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -552,28 +552,28 @@ func (a *Client) PublicCancelUserAccountDeletionRequestShort(params *PublicCance
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelUserAccountDeletionRequestForbidden:
 		response := &PublicCancelUserAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelUserAccountDeletionRequestNotFound:
 		response := &PublicCancelUserAccountDeletionRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelUserAccountDeletionRequestInternalServerError:
 		response := &PublicCancelUserAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -636,21 +636,21 @@ func (a *Client) PublicGetUserAccountDeletionStatusShort(params *PublicGetUserAc
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserAccountDeletionStatusForbidden:
 		response := &PublicGetUserAccountDeletionStatusResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserAccountDeletionStatusInternalServerError:
 		response := &PublicGetUserAccountDeletionStatusResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -716,42 +716,42 @@ func (a *Client) PublicSubmitMyAccountDeletionRequestShort(params *PublicSubmitM
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitMyAccountDeletionRequestUnauthorized:
 		response := &PublicSubmitMyAccountDeletionRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitMyAccountDeletionRequestForbidden:
 		response := &PublicSubmitMyAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitMyAccountDeletionRequestNotFound:
 		response := &PublicSubmitMyAccountDeletionRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitMyAccountDeletionRequestConflict:
 		response := &PublicSubmitMyAccountDeletionRequestResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubmitMyAccountDeletionRequestInternalServerError:
 		response := &PublicSubmitMyAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -812,28 +812,28 @@ func (a *Client) PublicCancelMyAccountDeletionRequestShort(params *PublicCancelM
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelMyAccountDeletionRequestForbidden:
 		response := &PublicCancelMyAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelMyAccountDeletionRequestNotFound:
 		response := &PublicCancelMyAccountDeletionRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelMyAccountDeletionRequestInternalServerError:
 		response := &PublicCancelMyAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -895,21 +895,21 @@ func (a *Client) PublicGetMyAccountDeletionStatusShort(params *PublicGetMyAccoun
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMyAccountDeletionStatusForbidden:
 		response := &PublicGetMyAccountDeletionStatusResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMyAccountDeletionStatusInternalServerError:
 		response := &PublicGetMyAccountDeletionStatusResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

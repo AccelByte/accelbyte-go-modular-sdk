@@ -144,21 +144,21 @@ func (a *Client) LogoutSSOClientShort(params *LogoutSSOClientParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LogoutSSOClientUnprocessableEntity:
 		response := &LogoutSSOClientResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LogoutSSOClientInternalServerError:
 		response := &LogoutSSOClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

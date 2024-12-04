@@ -15,15 +15,15 @@ type ApiError struct {
 	Message string
 }
 
+func (e *ApiError) IsAvailable() bool {
+	return e.Code != ""
+}
+
 type ApiResponse struct {
 	IsSuccess   bool
 	StatusCode  int
 	ContentType *string
 	Error       *ApiError
-}
-
-func (e *ApiError) IsAvailable() bool {
-	return e.Code != ""
 }
 
 func (e *ApiError) Error() string {

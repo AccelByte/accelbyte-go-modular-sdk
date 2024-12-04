@@ -89,35 +89,35 @@ func (a *Client) AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertific
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUploadXBoxCertificateUnauthorized:
 		response := &AdminUploadXBoxCertificateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUploadXBoxCertificateForbidden:
 		response := &AdminUploadXBoxCertificateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUploadXBoxCertificateNotFound:
 		response := &AdminUploadXBoxCertificateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUploadXBoxCertificateInternalServerError:
 		response := &AdminUploadXBoxCertificateResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

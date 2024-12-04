@@ -92,28 +92,28 @@ func (a *Client) SyncNativeBlockedUserShort(params *SyncNativeBlockedUserParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncNativeBlockedUserUnauthorized:
 		response := &SyncNativeBlockedUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncNativeBlockedUserForbidden:
 		response := &SyncNativeBlockedUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncNativeBlockedUserInternalServerError:
 		response := &SyncNativeBlockedUserResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

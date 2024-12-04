@@ -101,35 +101,35 @@ func (a *Client) AdminGetGlobalConfigShort(params *AdminGetGlobalConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGlobalConfigUnauthorized:
 		response := &AdminGetGlobalConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGlobalConfigForbidden:
 		response := &AdminGetGlobalConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGlobalConfigNotFound:
 		response := &AdminGetGlobalConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGlobalConfigInternalServerError:
 		response := &AdminGetGlobalConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -190,14 +190,14 @@ func (a *Client) AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGlobalConfigForbidden:
 		response := &AdminUpdateGlobalConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -258,14 +258,14 @@ func (a *Client) AdminDeleteGlobalConfigShort(params *AdminDeleteGlobalConfigPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteGlobalConfigForbidden:
 		response := &AdminDeleteGlobalConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -325,28 +325,28 @@ func (a *Client) FreeFormNotificationShort(params *FreeFormNotificationParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FreeFormNotificationUnauthorized:
 		response := &FreeFormNotificationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FreeFormNotificationForbidden:
 		response := &FreeFormNotificationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FreeFormNotificationNotFound:
 		response := &FreeFormNotificationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -411,28 +411,28 @@ func (a *Client) NotificationWithTemplateShort(params *NotificationWithTemplateP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *NotificationWithTemplateUnauthorized:
 		response := &NotificationWithTemplateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *NotificationWithTemplateForbidden:
 		response := &NotificationWithTemplateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *NotificationWithTemplateNotFound:
 		response := &NotificationWithTemplateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -493,28 +493,28 @@ func (a *Client) GetGameTemplateShort(params *GetGameTemplateParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameTemplateUnauthorized:
 		response := &GetGameTemplateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameTemplateForbidden:
 		response := &GetGameTemplateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameTemplateNotFound:
 		response := &GetGameTemplateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -578,28 +578,28 @@ func (a *Client) CreateTemplateShort(params *CreateTemplateParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateTemplateUnauthorized:
 		response := &CreateTemplateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateTemplateForbidden:
 		response := &CreateTemplateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateTemplateNotFound:
 		response := &CreateTemplateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -660,28 +660,28 @@ func (a *Client) GetSlugTemplateShort(params *GetSlugTemplateParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSlugTemplateUnauthorized:
 		response := &GetSlugTemplateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSlugTemplateForbidden:
 		response := &GetSlugTemplateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSlugTemplateNotFound:
 		response := &GetSlugTemplateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -741,28 +741,28 @@ func (a *Client) DeleteTemplateSlugShort(params *DeleteTemplateSlugParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateSlugUnauthorized:
 		response := &DeleteTemplateSlugResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateSlugForbidden:
 		response := &DeleteTemplateSlugResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateSlugNotFound:
 		response := &DeleteTemplateSlugResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -823,28 +823,28 @@ func (a *Client) GetLocalizationTemplateShort(params *GetLocalizationTemplatePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLocalizationTemplateUnauthorized:
 		response := &GetLocalizationTemplateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLocalizationTemplateForbidden:
 		response := &GetLocalizationTemplateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLocalizationTemplateNotFound:
 		response := &GetLocalizationTemplateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -904,28 +904,28 @@ func (a *Client) UpdateLocalizationTemplateShort(params *UpdateLocalizationTempl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateLocalizationTemplateUnauthorized:
 		response := &UpdateLocalizationTemplateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateLocalizationTemplateForbidden:
 		response := &UpdateLocalizationTemplateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateLocalizationTemplateNotFound:
 		response := &UpdateLocalizationTemplateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -985,28 +985,28 @@ func (a *Client) DeleteTemplateLocalizationShort(params *DeleteTemplateLocalizat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateLocalizationUnauthorized:
 		response := &DeleteTemplateLocalizationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateLocalizationForbidden:
 		response := &DeleteTemplateLocalizationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateLocalizationNotFound:
 		response := &DeleteTemplateLocalizationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1066,28 +1066,28 @@ func (a *Client) PublishTemplateShort(params *PublishTemplateParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishTemplateUnauthorized:
 		response := &PublishTemplateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishTemplateForbidden:
 		response := &PublishTemplateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishTemplateNotFound:
 		response := &PublishTemplateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -90,7 +90,7 @@ func (a *Client) ExportSeasonShort(params *ExportSeasonParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

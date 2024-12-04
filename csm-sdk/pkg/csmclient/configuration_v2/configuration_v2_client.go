@@ -101,35 +101,35 @@ func (a *Client) GetListOfSecretsV2Short(params *GetListOfSecretsV2Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfSecretsV2Unauthorized:
 		response := &GetListOfSecretsV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfSecretsV2Forbidden:
 		response := &GetListOfSecretsV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfSecretsV2NotFound:
 		response := &GetListOfSecretsV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfSecretsV2InternalServerError:
 		response := &GetListOfSecretsV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -198,28 +198,28 @@ func (a *Client) SaveSecretV2Short(params *SaveSecretV2Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveSecretV2Unauthorized:
 		response := &SaveSecretV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveSecretV2Forbidden:
 		response := &SaveSecretV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveSecretV2InternalServerError:
 		response := &SaveSecretV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -286,28 +286,28 @@ func (a *Client) UpdateSecretV2Short(params *UpdateSecretV2Params, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSecretV2Unauthorized:
 		response := &UpdateSecretV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSecretV2Forbidden:
 		response := &UpdateSecretV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSecretV2InternalServerError:
 		response := &UpdateSecretV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -369,28 +369,28 @@ func (a *Client) DeleteSecretV2Short(params *DeleteSecretV2Params, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSecretV2Forbidden:
 		response := &DeleteSecretV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSecretV2NotFound:
 		response := &DeleteSecretV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSecretV2InternalServerError:
 		response := &DeleteSecretV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -456,35 +456,35 @@ func (a *Client) GetListOfVariablesV2Short(params *GetListOfVariablesV2Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfVariablesV2Unauthorized:
 		response := &GetListOfVariablesV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfVariablesV2Forbidden:
 		response := &GetListOfVariablesV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfVariablesV2NotFound:
 		response := &GetListOfVariablesV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfVariablesV2InternalServerError:
 		response := &GetListOfVariablesV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -553,28 +553,28 @@ func (a *Client) SaveVariableV2Short(params *SaveVariableV2Params, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveVariableV2Unauthorized:
 		response := &SaveVariableV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveVariableV2Forbidden:
 		response := &SaveVariableV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SaveVariableV2InternalServerError:
 		response := &SaveVariableV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -641,28 +641,28 @@ func (a *Client) UpdateVariableV2Short(params *UpdateVariableV2Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateVariableV2Unauthorized:
 		response := &UpdateVariableV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateVariableV2Forbidden:
 		response := &UpdateVariableV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateVariableV2InternalServerError:
 		response := &UpdateVariableV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -724,28 +724,28 @@ func (a *Client) DeleteVariableV2Short(params *DeleteVariableV2Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteVariableV2Forbidden:
 		response := &DeleteVariableV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteVariableV2NotFound:
 		response := &DeleteVariableV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteVariableV2InternalServerError:
 		response := &DeleteVariableV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

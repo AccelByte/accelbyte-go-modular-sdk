@@ -96,7 +96,7 @@ func (a *Client) FleetListShort(params *FleetListParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -159,28 +159,28 @@ func (a *Client) FleetCreateShort(params *FleetCreateParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetCreateUnauthorized:
 		response := &FleetCreateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetCreateForbidden:
 		response := &FleetCreateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetCreateInternalServerError:
 		response := &FleetCreateResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -241,35 +241,35 @@ func (a *Client) FleetGetShort(params *FleetGetParams, authInfo runtime.ClientAu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetGetUnauthorized:
 		response := &FleetGetResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetGetForbidden:
 		response := &FleetGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetGetNotFound:
 		response := &FleetGetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetGetInternalServerError:
 		response := &FleetGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -331,35 +331,35 @@ func (a *Client) FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetUpdateUnauthorized:
 		response := &FleetUpdateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetUpdateForbidden:
 		response := &FleetUpdateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetUpdateNotFound:
 		response := &FleetUpdateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetUpdateInternalServerError:
 		response := &FleetUpdateResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -419,35 +419,35 @@ func (a *Client) FleetDeleteShort(params *FleetDeleteParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetDeleteUnauthorized:
 		response := &FleetDeleteResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetDeleteForbidden:
 		response := &FleetDeleteResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetDeleteNotFound:
 		response := &FleetDeleteResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetDeleteInternalServerError:
 		response := &FleetDeleteResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -508,35 +508,35 @@ func (a *Client) FleetServersShort(params *FleetServersParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServersUnauthorized:
 		response := &FleetServersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServersForbidden:
 		response := &FleetServersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServersNotFound:
 		response := &FleetServersResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServersInternalServerError:
 		response := &FleetServersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -597,35 +597,35 @@ func (a *Client) FleetClaimByIDShort(params *FleetClaimByIDParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetClaimByIDUnauthorized:
 		response := &FleetClaimByIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetClaimByIDForbidden:
 		response := &FleetClaimByIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetClaimByIDNotFound:
 		response := &FleetClaimByIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetClaimByIDInternalServerError:
 		response := &FleetClaimByIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -690,35 +690,35 @@ func (a *Client) FleetClaimByKeysShort(params *FleetClaimByKeysParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetClaimByKeysUnauthorized:
 		response := &FleetClaimByKeysResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetClaimByKeysForbidden:
 		response := &FleetClaimByKeysResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetClaimByKeysNotFound:
 		response := &FleetClaimByKeysResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetClaimByKeysInternalServerError:
 		response := &FleetClaimByKeysResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

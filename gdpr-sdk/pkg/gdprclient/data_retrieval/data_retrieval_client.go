@@ -98,35 +98,35 @@ func (a *Client) AdminGetListPersonalDataRequestShort(params *AdminGetListPerson
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListPersonalDataRequestUnauthorized:
 		response := &AdminGetListPersonalDataRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListPersonalDataRequestForbidden:
 		response := &AdminGetListPersonalDataRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListPersonalDataRequestNotFound:
 		response := &AdminGetListPersonalDataRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetListPersonalDataRequestInternalServerError:
 		response := &AdminGetListPersonalDataRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -188,21 +188,21 @@ func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPerso
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserPersonalDataRequestsUnauthorized:
 		response := &AdminGetUserPersonalDataRequestsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserPersonalDataRequestsInternalServerError:
 		response := &AdminGetUserPersonalDataRequestsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -267,35 +267,35 @@ func (a *Client) AdminRequestDataRetrievalShort(params *AdminRequestDataRetrieva
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRequestDataRetrievalUnauthorized:
 		response := &AdminRequestDataRetrievalResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRequestDataRetrievalNotFound:
 		response := &AdminRequestDataRetrievalResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRequestDataRetrievalTooManyRequests:
 		response := &AdminRequestDataRetrievalResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRequestDataRetrievalInternalServerError:
 		response := &AdminRequestDataRetrievalResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -356,28 +356,28 @@ func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUser
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCancelUserPersonalDataRequestNotFound:
 		response := &AdminCancelUserPersonalDataRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCancelUserPersonalDataRequestConflict:
 		response := &AdminCancelUserPersonalDataRequestResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCancelUserPersonalDataRequestInternalServerError:
 		response := &AdminCancelUserPersonalDataRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -442,28 +442,28 @@ func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonal
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGeneratePersonalDataURLUnauthorized:
 		response := &AdminGeneratePersonalDataURLResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGeneratePersonalDataURLNotFound:
 		response := &AdminGeneratePersonalDataURLResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGeneratePersonalDataURLInternalServerError:
 		response := &AdminGeneratePersonalDataURLResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -526,21 +526,21 @@ func (a *Client) PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPer
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserPersonalDataRequestsUnauthorized:
 		response := &PublicGetUserPersonalDataRequestsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserPersonalDataRequestsInternalServerError:
 		response := &PublicGetUserPersonalDataRequestsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -605,28 +605,28 @@ func (a *Client) PublicRequestDataRetrievalShort(params *PublicRequestDataRetrie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRequestDataRetrievalUnauthorized:
 		response := &PublicRequestDataRetrievalResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRequestDataRetrievalTooManyRequests:
 		response := &PublicRequestDataRetrievalResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRequestDataRetrievalInternalServerError:
 		response := &PublicRequestDataRetrievalResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -688,28 +688,28 @@ func (a *Client) PublicCancelUserPersonalDataRequestShort(params *PublicCancelUs
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelUserPersonalDataRequestNotFound:
 		response := &PublicCancelUserPersonalDataRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelUserPersonalDataRequestConflict:
 		response := &PublicCancelUserPersonalDataRequestResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelUserPersonalDataRequestInternalServerError:
 		response := &PublicCancelUserPersonalDataRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -775,28 +775,28 @@ func (a *Client) PublicGeneratePersonalDataURLShort(params *PublicGeneratePerson
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratePersonalDataURLUnauthorized:
 		response := &PublicGeneratePersonalDataURLResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratePersonalDataURLNotFound:
 		response := &PublicGeneratePersonalDataURLResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratePersonalDataURLInternalServerError:
 		response := &PublicGeneratePersonalDataURLResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

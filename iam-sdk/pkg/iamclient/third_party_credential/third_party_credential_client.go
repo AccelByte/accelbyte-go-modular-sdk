@@ -99,28 +99,28 @@ func (a *Client) RetrieveAllThirdPartyLoginPlatformCredentialV3Short(params *Ret
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllThirdPartyLoginPlatformCredentialV3Forbidden:
 		response := &RetrieveAllThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllThirdPartyLoginPlatformCredentialV3NotFound:
 		response := &RetrieveAllThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllThirdPartyLoginPlatformCredentialV3InternalServerError:
 		response := &RetrieveAllThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,28 +181,28 @@ func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Short(param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Forbidden:
 		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3NotFound:
 		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialV3InternalServerError:
 		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -263,28 +263,28 @@ func (a *Client) RetrieveThirdPartyLoginPlatformCredentialV3Short(params *Retrie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveThirdPartyLoginPlatformCredentialV3Forbidden:
 		response := &RetrieveThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveThirdPartyLoginPlatformCredentialV3NotFound:
 		response := &RetrieveThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveThirdPartyLoginPlatformCredentialV3InternalServerError:
 		response := &RetrieveThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -366,28 +366,28 @@ func (a *Client) AddThirdPartyLoginPlatformCredentialV3Short(params *AddThirdPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddThirdPartyLoginPlatformCredentialV3Unauthorized:
 		response := &AddThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddThirdPartyLoginPlatformCredentialV3Forbidden:
 		response := &AddThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddThirdPartyLoginPlatformCredentialV3InternalServerError:
 		response := &AddThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -447,28 +447,28 @@ func (a *Client) DeleteThirdPartyLoginPlatformCredentialV3Short(params *DeleteTh
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteThirdPartyLoginPlatformCredentialV3Forbidden:
 		response := &DeleteThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteThirdPartyLoginPlatformCredentialV3NotFound:
 		response := &DeleteThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteThirdPartyLoginPlatformCredentialV3InternalServerError:
 		response := &DeleteThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -550,35 +550,35 @@ func (a *Client) UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateTh
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateThirdPartyLoginPlatformCredentialV3Unauthorized:
 		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateThirdPartyLoginPlatformCredentialV3Forbidden:
 		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateThirdPartyLoginPlatformCredentialV3NotFound:
 		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateThirdPartyLoginPlatformCredentialV3InternalServerError:
 		response := &UpdateThirdPartyLoginPlatformCredentialV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -639,35 +639,35 @@ func (a *Client) UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateThirdPartyLoginPlatformDomainV3Unauthorized:
 		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateThirdPartyLoginPlatformDomainV3Forbidden:
 		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateThirdPartyLoginPlatformDomainV3NotFound:
 		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateThirdPartyLoginPlatformDomainV3InternalServerError:
 		response := &UpdateThirdPartyLoginPlatformDomainV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -727,35 +727,35 @@ func (a *Client) DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteThirdPartyLoginPlatformDomainV3Unauthorized:
 		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteThirdPartyLoginPlatformDomainV3Forbidden:
 		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteThirdPartyLoginPlatformDomainV3NotFound:
 		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteThirdPartyLoginPlatformDomainV3InternalServerError:
 		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -822,21 +822,21 @@ func (a *Client) AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(params *Ad
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCheckThirdPartyLoginPlatformAvailabilityV3Unauthorized:
 		response := &AdminCheckThirdPartyLoginPlatformAvailabilityV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCheckThirdPartyLoginPlatformAvailabilityV3Forbidden:
 		response := &AdminCheckThirdPartyLoginPlatformAvailabilityV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -897,28 +897,28 @@ func (a *Client) RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Forbidden:
 		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3NotFound:
 		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3InternalServerError:
 		response := &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -979,14 +979,14 @@ func (a *Client) RetrieveActiveOIDCClientsPublicV3Short(params *RetrieveActiveOI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveActiveOIDCClientsPublicV3InternalServerError:
 		response := &RetrieveActiveOIDCClientsPublicV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

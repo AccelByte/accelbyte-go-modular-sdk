@@ -92,21 +92,21 @@ func (a *Client) AdminGetTagShort(params *AdminGetTagParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetTagUnauthorized:
 		response := &AdminGetTagResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetTagInternalServerError:
 		response := &AdminGetTagResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,28 +167,28 @@ func (a *Client) AdminCreateTagShort(params *AdminCreateTagParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateTagUnauthorized:
 		response := &AdminCreateTagResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateTagConflict:
 		response := &AdminCreateTagResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateTagInternalServerError:
 		response := &AdminCreateTagResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -249,35 +249,35 @@ func (a *Client) AdminUpdateTagShort(params *AdminUpdateTagParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTagUnauthorized:
 		response := &AdminUpdateTagResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTagNotFound:
 		response := &AdminUpdateTagResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTagConflict:
 		response := &AdminUpdateTagResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTagInternalServerError:
 		response := &AdminUpdateTagResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -337,21 +337,21 @@ func (a *Client) AdminDeleteTagShort(params *AdminDeleteTagParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTagNotFound:
 		response := &AdminDeleteTagResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTagInternalServerError:
 		response := &AdminDeleteTagResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

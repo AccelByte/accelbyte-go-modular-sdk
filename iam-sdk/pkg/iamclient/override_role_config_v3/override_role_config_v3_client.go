@@ -94,28 +94,28 @@ func (a *Client) AdminGetRoleOverrideConfigV3Short(params *AdminGetRoleOverrideC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleOverrideConfigV3Unauthorized:
 		response := &AdminGetRoleOverrideConfigV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleOverrideConfigV3Forbidden:
 		response := &AdminGetRoleOverrideConfigV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleOverrideConfigV3InternalServerError:
 		response := &AdminGetRoleOverrideConfigV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -178,28 +178,28 @@ func (a *Client) AdminUpdateRoleOverrideConfigV3Short(params *AdminUpdateRoleOve
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateRoleOverrideConfigV3Unauthorized:
 		response := &AdminUpdateRoleOverrideConfigV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateRoleOverrideConfigV3Forbidden:
 		response := &AdminUpdateRoleOverrideConfigV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateRoleOverrideConfigV3InternalServerError:
 		response := &AdminUpdateRoleOverrideConfigV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -260,35 +260,35 @@ func (a *Client) AdminGetRoleSourceV3Short(params *AdminGetRoleSourceV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleSourceV3Unauthorized:
 		response := &AdminGetRoleSourceV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleSourceV3Forbidden:
 		response := &AdminGetRoleSourceV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleSourceV3NotFound:
 		response := &AdminGetRoleSourceV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleSourceV3InternalServerError:
 		response := &AdminGetRoleSourceV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -351,21 +351,21 @@ func (a *Client) AdminChangeRoleOverrideConfigStatusV3Short(params *AdminChangeR
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChangeRoleOverrideConfigStatusV3Forbidden:
 		response := &AdminChangeRoleOverrideConfigStatusV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChangeRoleOverrideConfigStatusV3InternalServerError:
 		response := &AdminChangeRoleOverrideConfigStatusV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -426,28 +426,28 @@ func (a *Client) AdminGetRoleNamespacePermissionV3Short(params *AdminGetRoleName
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleNamespacePermissionV3Forbidden:
 		response := &AdminGetRoleNamespacePermissionV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleNamespacePermissionV3NotFound:
 		response := &AdminGetRoleNamespacePermissionV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetRoleNamespacePermissionV3InternalServerError:
 		response := &AdminGetRoleNamespacePermissionV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

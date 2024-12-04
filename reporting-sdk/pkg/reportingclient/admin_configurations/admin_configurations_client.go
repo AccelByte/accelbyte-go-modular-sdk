@@ -91,7 +91,7 @@ func (a *Client) GetShort(params *GetParams, authInfo runtime.ClientAuthInfoWrit
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -154,14 +154,14 @@ func (a *Client) UpsertShort(params *UpsertParams, authInfo runtime.ClientAuthIn
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpsertInternalServerError:
 		response := &UpsertResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

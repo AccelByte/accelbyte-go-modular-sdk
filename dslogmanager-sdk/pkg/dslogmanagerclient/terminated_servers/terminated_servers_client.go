@@ -98,21 +98,21 @@ func (a *Client) ListTerminatedServersShort(params *ListTerminatedServersParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListTerminatedServersUnauthorized:
 		response := &ListTerminatedServersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListTerminatedServersInternalServerError:
 		response := &ListTerminatedServersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -177,14 +177,14 @@ func (a *Client) DownloadServerLogsShort(params *DownloadServerLogsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DownloadServerLogsInternalServerError:
 		response := &DownloadServerLogsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -249,14 +249,14 @@ func (a *Client) CheckServerLogsShort(params *CheckServerLogsParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CheckServerLogsInternalServerError:
 		response := &CheckServerLogsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

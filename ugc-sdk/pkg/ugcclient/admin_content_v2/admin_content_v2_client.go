@@ -113,21 +113,21 @@ func (a *Client) AdminGetContentByChannelIDV2Short(params *AdminGetContentByChan
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentByChannelIDV2Unauthorized:
 		response := &AdminGetContentByChannelIDV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentByChannelIDV2InternalServerError:
 		response := &AdminGetContentByChannelIDV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -188,35 +188,35 @@ func (a *Client) AdminCreateContentV2Short(params *AdminCreateContentV2Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateContentV2Unauthorized:
 		response := &AdminCreateContentV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateContentV2NotFound:
 		response := &AdminCreateContentV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateContentV2Conflict:
 		response := &AdminCreateContentV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateContentV2InternalServerError:
 		response := &AdminCreateContentV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -276,21 +276,21 @@ func (a *Client) AdminDeleteOfficialContentV2Short(params *AdminDeleteOfficialCo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteOfficialContentV2NotFound:
 		response := &AdminDeleteOfficialContentV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteOfficialContentV2InternalServerError:
 		response := &AdminDeleteOfficialContentV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -351,35 +351,35 @@ func (a *Client) AdminUpdateOfficialContentV2Short(params *AdminUpdateOfficialCo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateOfficialContentV2Unauthorized:
 		response := &AdminUpdateOfficialContentV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateOfficialContentV2NotFound:
 		response := &AdminUpdateOfficialContentV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateOfficialContentV2Conflict:
 		response := &AdminUpdateOfficialContentV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateOfficialContentV2InternalServerError:
 		response := &AdminUpdateOfficialContentV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -440,35 +440,35 @@ func (a *Client) AdminCopyContentShort(params *AdminCopyContentParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCopyContentUnauthorized:
 		response := &AdminCopyContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCopyContentForbidden:
 		response := &AdminCopyContentResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCopyContentNotFound:
 		response := &AdminCopyContentResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCopyContentInternalServerError:
 		response := &AdminCopyContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -529,35 +529,35 @@ func (a *Client) AdminUpdateOfficialContentFileLocationShort(params *AdminUpdate
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateOfficialContentFileLocationUnauthorized:
 		response := &AdminUpdateOfficialContentFileLocationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateOfficialContentFileLocationForbidden:
 		response := &AdminUpdateOfficialContentFileLocationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateOfficialContentFileLocationNotFound:
 		response := &AdminUpdateOfficialContentFileLocationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateOfficialContentFileLocationInternalServerError:
 		response := &AdminUpdateOfficialContentFileLocationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -618,28 +618,28 @@ func (a *Client) AdminGenerateOfficialContentUploadURLV2Short(params *AdminGener
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateOfficialContentUploadURLV2Unauthorized:
 		response := &AdminGenerateOfficialContentUploadURLV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateOfficialContentUploadURLV2NotFound:
 		response := &AdminGenerateOfficialContentUploadURLV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateOfficialContentUploadURLV2InternalServerError:
 		response := &AdminGenerateOfficialContentUploadURLV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -716,21 +716,21 @@ func (a *Client) AdminListContentV2Short(params *AdminListContentV2Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListContentV2Unauthorized:
 		response := &AdminListContentV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListContentV2InternalServerError:
 		response := &AdminListContentV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -791,28 +791,28 @@ func (a *Client) AdminBulkGetContentByIDsV2Short(params *AdminBulkGetContentByID
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkGetContentByIDsV2Unauthorized:
 		response := &AdminBulkGetContentByIDsV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkGetContentByIDsV2Forbidden:
 		response := &AdminBulkGetContentByIDsV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkGetContentByIDsV2InternalServerError:
 		response := &AdminBulkGetContentByIDsV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -873,28 +873,28 @@ func (a *Client) AdminGetContentBulkByShareCodesV2Short(params *AdminGetContentB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentBulkByShareCodesV2Unauthorized:
 		response := &AdminGetContentBulkByShareCodesV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentBulkByShareCodesV2Forbidden:
 		response := &AdminGetContentBulkByShareCodesV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentBulkByShareCodesV2InternalServerError:
 		response := &AdminGetContentBulkByShareCodesV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -955,21 +955,21 @@ func (a *Client) AdminGetContentByShareCodeV2Short(params *AdminGetContentByShar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentByShareCodeV2NotFound:
 		response := &AdminGetContentByShareCodeV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentByShareCodeV2InternalServerError:
 		response := &AdminGetContentByShareCodeV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1030,21 +1030,21 @@ func (a *Client) AdminGetContentByContentIDV2Short(params *AdminGetContentByCont
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentByContentIDV2NotFound:
 		response := &AdminGetContentByContentIDV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentByContentIDV2InternalServerError:
 		response := &AdminGetContentByContentIDV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1105,28 +1105,28 @@ func (a *Client) RollbackContentVersionV2Short(params *RollbackContentVersionV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RollbackContentVersionV2NotFound:
 		response := &RollbackContentVersionV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RollbackContentVersionV2UnprocessableEntity:
 		response := &RollbackContentVersionV2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RollbackContentVersionV2InternalServerError:
 		response := &RollbackContentVersionV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1187,35 +1187,35 @@ func (a *Client) AdminUpdateScreenshotsV2Short(params *AdminUpdateScreenshotsV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateScreenshotsV2Unauthorized:
 		response := &AdminUpdateScreenshotsV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateScreenshotsV2Forbidden:
 		response := &AdminUpdateScreenshotsV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateScreenshotsV2NotFound:
 		response := &AdminUpdateScreenshotsV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateScreenshotsV2InternalServerError:
 		response := &AdminUpdateScreenshotsV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1279,35 +1279,35 @@ func (a *Client) AdminUploadContentScreenshotV2Short(params *AdminUploadContentS
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUploadContentScreenshotV2Unauthorized:
 		response := &AdminUploadContentScreenshotV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUploadContentScreenshotV2Forbidden:
 		response := &AdminUploadContentScreenshotV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUploadContentScreenshotV2NotFound:
 		response := &AdminUploadContentScreenshotV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUploadContentScreenshotV2InternalServerError:
 		response := &AdminUploadContentScreenshotV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1367,35 +1367,35 @@ func (a *Client) AdminDeleteContentScreenshotV2Short(params *AdminDeleteContentS
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteContentScreenshotV2Unauthorized:
 		response := &AdminDeleteContentScreenshotV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteContentScreenshotV2Forbidden:
 		response := &AdminDeleteContentScreenshotV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteContentScreenshotV2NotFound:
 		response := &AdminDeleteContentScreenshotV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteContentScreenshotV2InternalServerError:
 		response := &AdminDeleteContentScreenshotV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1456,21 +1456,21 @@ func (a *Client) ListContentVersionsV2Short(params *ListContentVersionsV2Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListContentVersionsV2NotFound:
 		response := &ListContentVersionsV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListContentVersionsV2InternalServerError:
 		response := &ListContentVersionsV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1534,42 +1534,42 @@ func (a *Client) AdminUpdateContentByShareCodeV2Short(params *AdminUpdateContent
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentByShareCodeV2Unauthorized:
 		response := &AdminUpdateContentByShareCodeV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentByShareCodeV2Forbidden:
 		response := &AdminUpdateContentByShareCodeV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentByShareCodeV2NotFound:
 		response := &AdminUpdateContentByShareCodeV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentByShareCodeV2Conflict:
 		response := &AdminUpdateContentByShareCodeV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentByShareCodeV2InternalServerError:
 		response := &AdminUpdateContentByShareCodeV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1629,21 +1629,21 @@ func (a *Client) AdminDeleteContentByShareCodeV2Short(params *AdminDeleteContent
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteContentByShareCodeV2NotFound:
 		response := &AdminDeleteContentByShareCodeV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteContentByShareCodeV2InternalServerError:
 		response := &AdminDeleteContentByShareCodeV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1703,21 +1703,21 @@ func (a *Client) AdminDeleteUserContentV2Short(params *AdminDeleteUserContentV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserContentV2NotFound:
 		response := &AdminDeleteUserContentV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserContentV2InternalServerError:
 		response := &AdminDeleteUserContentV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1778,35 +1778,35 @@ func (a *Client) AdminUpdateUserContentV2Short(params *AdminUpdateUserContentV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserContentV2Unauthorized:
 		response := &AdminUpdateUserContentV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserContentV2NotFound:
 		response := &AdminUpdateUserContentV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserContentV2Conflict:
 		response := &AdminUpdateUserContentV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserContentV2InternalServerError:
 		response := &AdminUpdateUserContentV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1867,35 +1867,35 @@ func (a *Client) AdminUpdateUserContentFileLocationShort(params *AdminUpdateUser
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserContentFileLocationUnauthorized:
 		response := &AdminUpdateUserContentFileLocationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserContentFileLocationForbidden:
 		response := &AdminUpdateUserContentFileLocationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserContentFileLocationNotFound:
 		response := &AdminUpdateUserContentFileLocationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserContentFileLocationInternalServerError:
 		response := &AdminUpdateUserContentFileLocationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1956,28 +1956,28 @@ func (a *Client) AdminGenerateUserContentUploadURLV2Short(params *AdminGenerateU
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateUserContentUploadURLV2Unauthorized:
 		response := &AdminGenerateUserContentUploadURLV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateUserContentUploadURLV2NotFound:
 		response := &AdminGenerateUserContentUploadURLV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGenerateUserContentUploadURLV2InternalServerError:
 		response := &AdminGenerateUserContentUploadURLV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2038,21 +2038,21 @@ func (a *Client) AdminGetContentByUserIDV2Short(params *AdminGetContentByUserIDV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentByUserIDV2Unauthorized:
 		response := &AdminGetContentByUserIDV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetContentByUserIDV2InternalServerError:
 		response := &AdminGetContentByUserIDV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2113,35 +2113,35 @@ func (a *Client) AdminUpdateContentHideStatusV2Short(params *AdminUpdateContentH
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentHideStatusV2Unauthorized:
 		response := &AdminUpdateContentHideStatusV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentHideStatusV2Forbidden:
 		response := &AdminUpdateContentHideStatusV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentHideStatusV2NotFound:
 		response := &AdminUpdateContentHideStatusV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateContentHideStatusV2InternalServerError:
 		response := &AdminUpdateContentHideStatusV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -165,7 +165,7 @@ func (a *Client) GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -293,14 +293,14 @@ func (a *Client) PublicCreateUserNamespaceSlotShort(params *PublicCreateUserName
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserNamespaceSlotConflict:
 		response := &PublicCreateUserNamespaceSlotResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -368,7 +368,7 @@ func (a *Client) PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -436,14 +436,14 @@ func (a *Client) PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserName
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserNamespaceSlotNotFound:
 		response := &PublicUpdateUserNamespaceSlotResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -509,7 +509,7 @@ func (a *Client) PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserName
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -577,7 +577,7 @@ func (a *Client) PublicUpdateUserNamespaceSlotMetadataShort(params *PublicUpdate
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

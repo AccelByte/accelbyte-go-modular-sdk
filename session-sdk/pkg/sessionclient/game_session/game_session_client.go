@@ -115,28 +115,28 @@ func (a *Client) AdminQueryGameSessionsShort(params *AdminQueryGameSessionsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionsUnauthorized:
 		response := &AdminQueryGameSessionsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionsForbidden:
 		response := &AdminQueryGameSessionsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionsInternalServerError:
 		response := &AdminQueryGameSessionsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -216,28 +216,28 @@ func (a *Client) AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameS
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionsByAttributesUnauthorized:
 		response := &AdminQueryGameSessionsByAttributesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionsByAttributesForbidden:
 		response := &AdminQueryGameSessionsByAttributesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryGameSessionsByAttributesInternalServerError:
 		response := &AdminQueryGameSessionsByAttributesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -298,28 +298,28 @@ func (a *Client) AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSes
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteBulkGameSessionsUnauthorized:
 		response := &AdminDeleteBulkGameSessionsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteBulkGameSessionsForbidden:
 		response := &AdminDeleteBulkGameSessionsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteBulkGameSessionsInternalServerError:
 		response := &AdminDeleteBulkGameSessionsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -379,28 +379,28 @@ func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSetDSReadyUnauthorized:
 		response := &AdminSetDSReadyResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSetDSReadyForbidden:
 		response := &AdminSetDSReadyResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSetDSReadyInternalServerError:
 		response := &AdminSetDSReadyResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -460,35 +460,35 @@ func (a *Client) AdminKickGameSessionMemberShort(params *AdminKickGameSessionMem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminKickGameSessionMemberUnauthorized:
 		response := &AdminKickGameSessionMemberResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminKickGameSessionMemberForbidden:
 		response := &AdminKickGameSessionMemberResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminKickGameSessionMemberNotFound:
 		response := &AdminKickGameSessionMemberResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminKickGameSessionMemberInternalServerError:
 		response := &AdminKickGameSessionMemberResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -549,35 +549,35 @@ func (a *Client) AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGameSessionMemberUnauthorized:
 		response := &AdminUpdateGameSessionMemberResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGameSessionMemberForbidden:
 		response := &AdminUpdateGameSessionMemberResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGameSessionMemberNotFound:
 		response := &AdminUpdateGameSessionMemberResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGameSessionMemberInternalServerError:
 		response := &AdminUpdateGameSessionMemberResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -709,28 +709,28 @@ func (a *Client) CreateGameSessionShort(params *CreateGameSessionParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGameSessionUnauthorized:
 		response := &CreateGameSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGameSessionForbidden:
 		response := &CreateGameSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGameSessionInternalServerError:
 		response := &CreateGameSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -810,28 +810,28 @@ func (a *Client) PublicQueryGameSessionsByAttributesShort(params *PublicQueryGam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryGameSessionsByAttributesUnauthorized:
 		response := &PublicQueryGameSessionsByAttributesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryGameSessionsByAttributesForbidden:
 		response := &PublicQueryGameSessionsByAttributesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryGameSessionsByAttributesInternalServerError:
 		response := &PublicQueryGameSessionsByAttributesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -892,35 +892,35 @@ func (a *Client) PublicSessionJoinCodeShort(params *PublicSessionJoinCodeParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSessionJoinCodeUnauthorized:
 		response := &PublicSessionJoinCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSessionJoinCodeForbidden:
 		response := &PublicSessionJoinCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSessionJoinCodeNotFound:
 		response := &PublicSessionJoinCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSessionJoinCodeInternalServerError:
 		response := &PublicSessionJoinCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -993,35 +993,35 @@ func (a *Client) GetGameSessionByPodNameShort(params *GetGameSessionByPodNamePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionByPodNameUnauthorized:
 		response := &GetGameSessionByPodNameResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionByPodNameForbidden:
 		response := &GetGameSessionByPodNameResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionByPodNameNotFound:
 		response := &GetGameSessionByPodNameResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionByPodNameInternalServerError:
 		response := &GetGameSessionByPodNameResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1095,35 +1095,35 @@ func (a *Client) GetGameSessionShort(params *GetGameSessionParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionUnauthorized:
 		response := &GetGameSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionForbidden:
 		response := &GetGameSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionNotFound:
 		response := &GetGameSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameSessionInternalServerError:
 		response := &GetGameSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1189,42 +1189,42 @@ func (a *Client) UpdateGameSessionShort(params *UpdateGameSessionParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGameSessionUnauthorized:
 		response := &UpdateGameSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGameSessionForbidden:
 		response := &UpdateGameSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGameSessionNotFound:
 		response := &UpdateGameSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGameSessionConflict:
 		response := &UpdateGameSessionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGameSessionInternalServerError:
 		response := &UpdateGameSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1284,21 +1284,21 @@ func (a *Client) DeleteGameSessionShort(params *DeleteGameSessionParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameSessionForbidden:
 		response := &DeleteGameSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameSessionInternalServerError:
 		response := &DeleteGameSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1359,42 +1359,42 @@ func (a *Client) PatchUpdateGameSessionShort(params *PatchUpdateGameSessionParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PatchUpdateGameSessionUnauthorized:
 		response := &PatchUpdateGameSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PatchUpdateGameSessionForbidden:
 		response := &PatchUpdateGameSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PatchUpdateGameSessionNotFound:
 		response := &PatchUpdateGameSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PatchUpdateGameSessionConflict:
 		response := &PatchUpdateGameSessionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PatchUpdateGameSessionInternalServerError:
 		response := &PatchUpdateGameSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1455,28 +1455,28 @@ func (a *Client) UpdateGameSessionBackfillTicketIDShort(params *UpdateGameSessio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGameSessionBackfillTicketIDForbidden:
 		response := &UpdateGameSessionBackfillTicketIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGameSessionBackfillTicketIDNotFound:
 		response := &UpdateGameSessionBackfillTicketIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGameSessionBackfillTicketIDInternalServerError:
 		response := &UpdateGameSessionBackfillTicketIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1537,35 +1537,35 @@ func (a *Client) GameSessionGenerateCodeShort(params *GameSessionGenerateCodePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GameSessionGenerateCodeUnauthorized:
 		response := &GameSessionGenerateCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GameSessionGenerateCodeForbidden:
 		response := &GameSessionGenerateCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GameSessionGenerateCodeNotFound:
 		response := &GameSessionGenerateCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GameSessionGenerateCodeInternalServerError:
 		response := &GameSessionGenerateCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1625,35 +1625,35 @@ func (a *Client) PublicRevokeGameSessionCodeShort(params *PublicRevokeGameSessio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRevokeGameSessionCodeUnauthorized:
 		response := &PublicRevokeGameSessionCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRevokeGameSessionCodeForbidden:
 		response := &PublicRevokeGameSessionCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRevokeGameSessionCodeNotFound:
 		response := &PublicRevokeGameSessionCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRevokeGameSessionCodeInternalServerError:
 		response := &PublicRevokeGameSessionCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1725,28 +1725,28 @@ func (a *Client) PublicGameSessionInviteShort(params *PublicGameSessionInvitePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionInviteUnauthorized:
 		response := &PublicGameSessionInviteResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionInviteNotFound:
 		response := &PublicGameSessionInviteResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionInviteInternalServerError:
 		response := &PublicGameSessionInviteResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1807,35 +1807,35 @@ func (a *Client) JoinGameSessionShort(params *JoinGameSessionParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGameSessionUnauthorized:
 		response := &JoinGameSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGameSessionForbidden:
 		response := &JoinGameSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGameSessionNotFound:
 		response := &JoinGameSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *JoinGameSessionInternalServerError:
 		response := &JoinGameSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1908,35 +1908,35 @@ func (a *Client) PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPromoteGameSessionLeaderUnauthorized:
 		response := &PublicPromoteGameSessionLeaderResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPromoteGameSessionLeaderForbidden:
 		response := &PublicPromoteGameSessionLeaderResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPromoteGameSessionLeaderNotFound:
 		response := &PublicPromoteGameSessionLeaderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPromoteGameSessionLeaderInternalServerError:
 		response := &PublicPromoteGameSessionLeaderResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1996,35 +1996,35 @@ func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGameSessionUnauthorized:
 		response := &LeaveGameSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGameSessionForbidden:
 		response := &LeaveGameSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGameSessionNotFound:
 		response := &LeaveGameSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *LeaveGameSessionInternalServerError:
 		response := &LeaveGameSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2084,35 +2084,35 @@ func (a *Client) PublicKickGameSessionMemberShort(params *PublicKickGameSessionM
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicKickGameSessionMemberUnauthorized:
 		response := &PublicKickGameSessionMemberResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicKickGameSessionMemberForbidden:
 		response := &PublicKickGameSessionMemberResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicKickGameSessionMemberNotFound:
 		response := &PublicKickGameSessionMemberResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicKickGameSessionMemberInternalServerError:
 		response := &PublicKickGameSessionMemberResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2172,35 +2172,35 @@ func (a *Client) PublicGameSessionRejectShort(params *PublicGameSessionRejectPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionRejectUnauthorized:
 		response := &PublicGameSessionRejectResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionRejectForbidden:
 		response := &PublicGameSessionRejectResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionRejectNotFound:
 		response := &PublicGameSessionRejectResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionRejectInternalServerError:
 		response := &PublicGameSessionRejectResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2281,28 +2281,28 @@ func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionServerSecretUnauthorized:
 		response := &GetSessionServerSecretResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionServerSecretNotFound:
 		response := &GetSessionServerSecretResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionServerSecretInternalServerError:
 		response := &GetSessionServerSecretResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2363,28 +2363,28 @@ func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AppendTeamGameSessionForbidden:
 		response := &AppendTeamGameSessionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AppendTeamGameSessionNotFound:
 		response := &AppendTeamGameSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AppendTeamGameSessionInternalServerError:
 		response := &AppendTeamGameSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2444,35 +2444,35 @@ func (a *Client) PublicGameSessionCancelShort(params *PublicGameSessionCancelPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionCancelUnauthorized:
 		response := &PublicGameSessionCancelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionCancelForbidden:
 		response := &PublicGameSessionCancelResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionCancelNotFound:
 		response := &PublicGameSessionCancelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGameSessionCancelInternalServerError:
 		response := &PublicGameSessionCancelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2547,21 +2547,21 @@ func (a *Client) PublicQueryMyGameSessionsShort(params *PublicQueryMyGameSession
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryMyGameSessionsUnauthorized:
 		response := &PublicQueryMyGameSessionsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryMyGameSessionsInternalServerError:
 		response := &PublicQueryMyGameSessionsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

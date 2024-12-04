@@ -258,35 +258,35 @@ func (a *Client) CreatePaymentOrderByDedicatedShort(params *CreatePaymentOrderBy
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePaymentOrderByDedicatedForbidden:
 		response := &CreatePaymentOrderByDedicatedResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePaymentOrderByDedicatedNotFound:
 		response := &CreatePaymentOrderByDedicatedResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePaymentOrderByDedicatedConflict:
 		response := &CreatePaymentOrderByDedicatedResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePaymentOrderByDedicatedUnprocessableEntity:
 		response := &CreatePaymentOrderByDedicatedResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -496,21 +496,21 @@ func (a *Client) RefundPaymentOrderByDedicatedShort(params *RefundPaymentOrderBy
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RefundPaymentOrderByDedicatedConflict:
 		response := &RefundPaymentOrderByDedicatedResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RefundPaymentOrderByDedicatedUnprocessableEntity:
 		response := &RefundPaymentOrderByDedicatedResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

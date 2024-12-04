@@ -113,21 +113,21 @@ func (a *Client) GetAllDeploymentShort(params *GetAllDeploymentParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllDeploymentUnauthorized:
 		response := &GetAllDeploymentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllDeploymentInternalServerError:
 		response := &GetAllDeploymentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -192,28 +192,28 @@ func (a *Client) GetDeploymentShort(params *GetDeploymentParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentUnauthorized:
 		response := &GetDeploymentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentNotFound:
 		response := &GetDeploymentResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentInternalServerError:
 		response := &GetDeploymentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -278,28 +278,28 @@ func (a *Client) CreateDeploymentShort(params *CreateDeploymentParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentUnauthorized:
 		response := &CreateDeploymentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentConflict:
 		response := &CreateDeploymentResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentInternalServerError:
 		response := &CreateDeploymentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -363,28 +363,28 @@ func (a *Client) DeleteDeploymentShort(params *DeleteDeploymentParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentUnauthorized:
 		response := &DeleteDeploymentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentNotFound:
 		response := &DeleteDeploymentResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentInternalServerError:
 		response := &DeleteDeploymentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -449,35 +449,35 @@ func (a *Client) UpdateDeploymentShort(params *UpdateDeploymentParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDeploymentUnauthorized:
 		response := &UpdateDeploymentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDeploymentNotFound:
 		response := &UpdateDeploymentResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDeploymentUnprocessableEntity:
 		response := &UpdateDeploymentResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDeploymentInternalServerError:
 		response := &UpdateDeploymentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -542,35 +542,35 @@ func (a *Client) CreateRootRegionOverrideShort(params *CreateRootRegionOverrideP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRootRegionOverrideUnauthorized:
 		response := &CreateRootRegionOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRootRegionOverrideNotFound:
 		response := &CreateRootRegionOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRootRegionOverrideConflict:
 		response := &CreateRootRegionOverrideResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRootRegionOverrideInternalServerError:
 		response := &CreateRootRegionOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -635,28 +635,28 @@ func (a *Client) DeleteRootRegionOverrideShort(params *DeleteRootRegionOverrideP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteRootRegionOverrideUnauthorized:
 		response := &DeleteRootRegionOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteRootRegionOverrideNotFound:
 		response := &DeleteRootRegionOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteRootRegionOverrideInternalServerError:
 		response := &DeleteRootRegionOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -721,28 +721,28 @@ func (a *Client) UpdateRootRegionOverrideShort(params *UpdateRootRegionOverrideP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRootRegionOverrideUnauthorized:
 		response := &UpdateRootRegionOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRootRegionOverrideNotFound:
 		response := &UpdateRootRegionOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRootRegionOverrideInternalServerError:
 		response := &UpdateRootRegionOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -807,35 +807,35 @@ func (a *Client) CreateDeploymentOverrideShort(params *CreateDeploymentOverrideP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentOverrideUnauthorized:
 		response := &CreateDeploymentOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentOverrideNotFound:
 		response := &CreateDeploymentOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentOverrideConflict:
 		response := &CreateDeploymentOverrideResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentOverrideInternalServerError:
 		response := &CreateDeploymentOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -900,28 +900,28 @@ func (a *Client) DeleteDeploymentOverrideShort(params *DeleteDeploymentOverrideP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentOverrideUnauthorized:
 		response := &DeleteDeploymentOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentOverrideNotFound:
 		response := &DeleteDeploymentOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentOverrideInternalServerError:
 		response := &DeleteDeploymentOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -986,28 +986,28 @@ func (a *Client) UpdateDeploymentOverrideShort(params *UpdateDeploymentOverrideP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDeploymentOverrideUnauthorized:
 		response := &UpdateDeploymentOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDeploymentOverrideNotFound:
 		response := &UpdateDeploymentOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDeploymentOverrideInternalServerError:
 		response := &UpdateDeploymentOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1072,35 +1072,35 @@ func (a *Client) CreateOverrideRegionOverrideShort(params *CreateOverrideRegionO
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateOverrideRegionOverrideUnauthorized:
 		response := &CreateOverrideRegionOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateOverrideRegionOverrideNotFound:
 		response := &CreateOverrideRegionOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateOverrideRegionOverrideConflict:
 		response := &CreateOverrideRegionOverrideResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateOverrideRegionOverrideInternalServerError:
 		response := &CreateOverrideRegionOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1165,28 +1165,28 @@ func (a *Client) DeleteOverrideRegionOverrideShort(params *DeleteOverrideRegionO
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteOverrideRegionOverrideUnauthorized:
 		response := &DeleteOverrideRegionOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteOverrideRegionOverrideNotFound:
 		response := &DeleteOverrideRegionOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteOverrideRegionOverrideInternalServerError:
 		response := &DeleteOverrideRegionOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1251,28 +1251,28 @@ func (a *Client) UpdateOverrideRegionOverrideShort(params *UpdateOverrideRegionO
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateOverrideRegionOverrideUnauthorized:
 		response := &UpdateOverrideRegionOverrideResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateOverrideRegionOverrideNotFound:
 		response := &UpdateOverrideRegionOverrideResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateOverrideRegionOverrideInternalServerError:
 		response := &UpdateOverrideRegionOverrideResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1336,28 +1336,28 @@ func (a *Client) DeleteCreatingServerCountQueueShort(params *DeleteCreatingServe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteCreatingServerCountQueueUnauthorized:
 		response := &DeleteCreatingServerCountQueueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteCreatingServerCountQueueNotFound:
 		response := &DeleteCreatingServerCountQueueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteCreatingServerCountQueueInternalServerError:
 		response := &DeleteCreatingServerCountQueueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1424,21 +1424,21 @@ func (a *Client) GetAllDeploymentClientShort(params *GetAllDeploymentClientParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllDeploymentClientUnauthorized:
 		response := &GetAllDeploymentClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllDeploymentClientInternalServerError:
 		response := &GetAllDeploymentClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1503,28 +1503,28 @@ func (a *Client) GetDeploymentClientShort(params *GetDeploymentClientParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentClientUnauthorized:
 		response := &GetDeploymentClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentClientNotFound:
 		response := &GetDeploymentClientResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentClientInternalServerError:
 		response := &GetDeploymentClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1589,28 +1589,28 @@ func (a *Client) CreateDeploymentClientShort(params *CreateDeploymentClientParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentClientUnauthorized:
 		response := &CreateDeploymentClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentClientConflict:
 		response := &CreateDeploymentClientResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentClientInternalServerError:
 		response := &CreateDeploymentClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1674,28 +1674,28 @@ func (a *Client) DeleteDeploymentClientShort(params *DeleteDeploymentClientParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentClientUnauthorized:
 		response := &DeleteDeploymentClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentClientNotFound:
 		response := &DeleteDeploymentClientResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentClientInternalServerError:
 		response := &DeleteDeploymentClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -90,14 +90,14 @@ func (a *Client) AdminGetLogConfigShort(params *AdminGetLogConfigParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetLogConfigForbidden:
 		response := &AdminGetLogConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -158,14 +158,14 @@ func (a *Client) AdminPatchUpdateLogConfigShort(params *AdminPatchUpdateLogConfi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPatchUpdateLogConfigForbidden:
 		response := &AdminPatchUpdateLogConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

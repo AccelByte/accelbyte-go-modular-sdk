@@ -159,21 +159,21 @@ func (a *Client) FulfillItemShort(params *FulfillItemParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillItemNotFound:
 		response := &FulfillItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillItemConflict:
 		response := &FulfillItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -237,21 +237,21 @@ func (a *Client) RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RedeemCodeNotFound:
 		response := &RedeemCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RedeemCodeConflict:
 		response := &RedeemCodeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -315,14 +315,14 @@ func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PreCheckFulfillItemNotFound:
 		response := &PreCheckFulfillItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -385,21 +385,21 @@ func (a *Client) FulfillRewardsShort(params *FulfillRewardsParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillRewardsNotFound:
 		response := &FulfillRewardsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillRewardsConflict:
 		response := &FulfillRewardsResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -463,28 +463,28 @@ func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRedeemCodeNotFound:
 		response := &PublicRedeemCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRedeemCodeConflict:
 		response := &PublicRedeemCodeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicRedeemCodeTooManyRequests:
 		response := &PublicRedeemCodeResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -608,21 +608,21 @@ func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillRewardsV2NotFound:
 		response := &FulfillRewardsV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillRewardsV2Conflict:
 		response := &FulfillRewardsV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -687,21 +687,21 @@ func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillItemsNotFound:
 		response := &FulfillItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillItemsConflict:
 		response := &FulfillItemsResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -765,14 +765,14 @@ func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetryFulfillItemsConflict:
 		response := &RetryFulfillItemsResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -836,14 +836,14 @@ func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RevokeItemsConflict:
 		response := &RevokeItemsResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

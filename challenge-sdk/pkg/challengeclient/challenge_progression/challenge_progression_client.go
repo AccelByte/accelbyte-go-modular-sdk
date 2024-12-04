@@ -94,35 +94,35 @@ func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminEvaluateProgressUnauthorized:
 		response := &AdminEvaluateProgressResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminEvaluateProgressForbidden:
 		response := &AdminEvaluateProgressResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminEvaluateProgressNotFound:
 		response := &AdminEvaluateProgressResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminEvaluateProgressInternalServerError:
 		response := &AdminEvaluateProgressResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -184,42 +184,42 @@ func (a *Client) AdminGetUserProgressionShort(params *AdminGetUserProgressionPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserProgressionUnauthorized:
 		response := &AdminGetUserProgressionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserProgressionForbidden:
 		response := &AdminGetUserProgressionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserProgressionNotFound:
 		response := &AdminGetUserProgressionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserProgressionUnprocessableEntity:
 		response := &AdminGetUserProgressionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserProgressionInternalServerError:
 		response := &AdminGetUserProgressionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -280,21 +280,21 @@ func (a *Client) EvaluateMyProgressShort(params *EvaluateMyProgressParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EvaluateMyProgressForbidden:
 		response := &EvaluateMyProgressResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EvaluateMyProgressInternalServerError:
 		response := &EvaluateMyProgressResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -356,42 +356,42 @@ func (a *Client) PublicGetUserProgressionShort(params *PublicGetUserProgressionP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProgressionUnauthorized:
 		response := &PublicGetUserProgressionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProgressionForbidden:
 		response := &PublicGetUserProgressionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProgressionNotFound:
 		response := &PublicGetUserProgressionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProgressionUnprocessableEntity:
 		response := &PublicGetUserProgressionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProgressionInternalServerError:
 		response := &PublicGetUserProgressionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -453,35 +453,35 @@ func (a *Client) PublicGetPastUserProgressionShort(params *PublicGetPastUserProg
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPastUserProgressionUnauthorized:
 		response := &PublicGetPastUserProgressionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPastUserProgressionForbidden:
 		response := &PublicGetPastUserProgressionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPastUserProgressionNotFound:
 		response := &PublicGetPastUserProgressionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPastUserProgressionInternalServerError:
 		response := &PublicGetPastUserProgressionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

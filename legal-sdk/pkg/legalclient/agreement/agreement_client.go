@@ -96,7 +96,7 @@ func (a *Client) ChangePreferenceConsentShort(params *ChangePreferenceConsentPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -211,7 +211,7 @@ func (a *Client) RetrieveAllUsersByPolicyVersionShort(params *RetrieveAllUsersBy
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -271,7 +271,7 @@ func (a *Client) ChangePreferenceConsent1Short(params *ChangePreferenceConsent1P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -331,7 +331,7 @@ func (a *Client) AcceptVersionedPolicyShort(params *AcceptVersionedPolicyParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -392,7 +392,7 @@ func (a *Client) RetrieveAgreementsPublicShort(params *RetrieveAgreementsPublicP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -453,7 +453,7 @@ func (a *Client) BulkAcceptVersionedPolicyShort(params *BulkAcceptVersionedPolic
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -568,7 +568,7 @@ func (a *Client) IndirectBulkAcceptVersionedPolicy1Short(params *IndirectBulkAcc
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

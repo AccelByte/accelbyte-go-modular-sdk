@@ -155,14 +155,14 @@ func (a *Client) CreateCurrencyShort(params *CreateCurrencyParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateCurrencyUnprocessableEntity:
 		response := &CreateCurrencyResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -226,14 +226,14 @@ func (a *Client) UpdateCurrencyShort(params *UpdateCurrencyParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCurrencyUnprocessableEntity:
 		response := &UpdateCurrencyResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -297,7 +297,7 @@ func (a *Client) DeleteCurrencyShort(params *DeleteCurrencyParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -361,7 +361,7 @@ func (a *Client) GetCurrencyConfigShort(params *GetCurrencyConfigParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -425,7 +425,7 @@ func (a *Client) GetCurrencySummaryShort(params *GetCurrencySummaryParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -107,35 +107,35 @@ func (a *Client) GetUserFriendsUpdatedShort(params *GetUserFriendsUpdatedParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserFriendsUpdatedUnauthorized:
 		response := &GetUserFriendsUpdatedResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserFriendsUpdatedForbidden:
 		response := &GetUserFriendsUpdatedResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserFriendsUpdatedNotFound:
 		response := &GetUserFriendsUpdatedResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserFriendsUpdatedInternalServerError:
 		response := &GetUserFriendsUpdatedResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -196,35 +196,35 @@ func (a *Client) GetUserIncomingFriendsShort(params *GetUserIncomingFriendsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserIncomingFriendsUnauthorized:
 		response := &GetUserIncomingFriendsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserIncomingFriendsForbidden:
 		response := &GetUserIncomingFriendsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserIncomingFriendsNotFound:
 		response := &GetUserIncomingFriendsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserIncomingFriendsInternalServerError:
 		response := &GetUserIncomingFriendsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -285,35 +285,35 @@ func (a *Client) GetUserIncomingFriendsWithTimeShort(params *GetUserIncomingFrie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserIncomingFriendsWithTimeUnauthorized:
 		response := &GetUserIncomingFriendsWithTimeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserIncomingFriendsWithTimeForbidden:
 		response := &GetUserIncomingFriendsWithTimeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserIncomingFriendsWithTimeNotFound:
 		response := &GetUserIncomingFriendsWithTimeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserIncomingFriendsWithTimeInternalServerError:
 		response := &GetUserIncomingFriendsWithTimeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -374,35 +374,35 @@ func (a *Client) GetUserOutgoingFriendsShort(params *GetUserOutgoingFriendsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserOutgoingFriendsUnauthorized:
 		response := &GetUserOutgoingFriendsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserOutgoingFriendsForbidden:
 		response := &GetUserOutgoingFriendsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserOutgoingFriendsNotFound:
 		response := &GetUserOutgoingFriendsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserOutgoingFriendsInternalServerError:
 		response := &GetUserOutgoingFriendsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -463,35 +463,35 @@ func (a *Client) GetUserOutgoingFriendsWithTimeShort(params *GetUserOutgoingFrie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserOutgoingFriendsWithTimeUnauthorized:
 		response := &GetUserOutgoingFriendsWithTimeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserOutgoingFriendsWithTimeForbidden:
 		response := &GetUserOutgoingFriendsWithTimeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserOutgoingFriendsWithTimeNotFound:
 		response := &GetUserOutgoingFriendsWithTimeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserOutgoingFriendsWithTimeInternalServerError:
 		response := &GetUserOutgoingFriendsWithTimeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -552,35 +552,35 @@ func (a *Client) GetUserFriendsWithPlatformShort(params *GetUserFriendsWithPlatf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserFriendsWithPlatformUnauthorized:
 		response := &GetUserFriendsWithPlatformResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserFriendsWithPlatformForbidden:
 		response := &GetUserFriendsWithPlatformResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserFriendsWithPlatformNotFound:
 		response := &GetUserFriendsWithPlatformResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserFriendsWithPlatformInternalServerError:
 		response := &GetUserFriendsWithPlatformResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -642,42 +642,42 @@ func (a *Client) UserRequestFriendShort(params *UserRequestFriendParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRequestFriendUnauthorized:
 		response := &UserRequestFriendResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRequestFriendForbidden:
 		response := &UserRequestFriendResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRequestFriendNotFound:
 		response := &UserRequestFriendResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRequestFriendUnprocessableEntity:
 		response := &UserRequestFriendResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRequestFriendInternalServerError:
 		response := &UserRequestFriendResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -737,35 +737,35 @@ func (a *Client) UserAcceptFriendRequestShort(params *UserAcceptFriendRequestPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserAcceptFriendRequestUnauthorized:
 		response := &UserAcceptFriendRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserAcceptFriendRequestForbidden:
 		response := &UserAcceptFriendRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserAcceptFriendRequestNotFound:
 		response := &UserAcceptFriendRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserAcceptFriendRequestInternalServerError:
 		response := &UserAcceptFriendRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -825,35 +825,35 @@ func (a *Client) UserCancelFriendRequestShort(params *UserCancelFriendRequestPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserCancelFriendRequestUnauthorized:
 		response := &UserCancelFriendRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserCancelFriendRequestForbidden:
 		response := &UserCancelFriendRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserCancelFriendRequestNotFound:
 		response := &UserCancelFriendRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserCancelFriendRequestInternalServerError:
 		response := &UserCancelFriendRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -913,35 +913,35 @@ func (a *Client) UserRejectFriendRequestShort(params *UserRejectFriendRequestPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRejectFriendRequestUnauthorized:
 		response := &UserRejectFriendRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRejectFriendRequestForbidden:
 		response := &UserRejectFriendRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRejectFriendRequestNotFound:
 		response := &UserRejectFriendRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserRejectFriendRequestInternalServerError:
 		response := &UserRejectFriendRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1006,28 +1006,28 @@ func (a *Client) UserGetFriendshipStatusShort(params *UserGetFriendshipStatusPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserGetFriendshipStatusUnauthorized:
 		response := &UserGetFriendshipStatusResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserGetFriendshipStatusForbidden:
 		response := &UserGetFriendshipStatusResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserGetFriendshipStatusInternalServerError:
 		response := &UserGetFriendshipStatusResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1087,35 +1087,35 @@ func (a *Client) UserUnfriendRequestShort(params *UserUnfriendRequestParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserUnfriendRequestUnauthorized:
 		response := &UserUnfriendRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserUnfriendRequestForbidden:
 		response := &UserUnfriendRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserUnfriendRequestNotFound:
 		response := &UserUnfriendRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UserUnfriendRequestInternalServerError:
 		response := &UserUnfriendRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1175,28 +1175,28 @@ func (a *Client) AddFriendsWithoutConfirmationShort(params *AddFriendsWithoutCon
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddFriendsWithoutConfirmationUnauthorized:
 		response := &AddFriendsWithoutConfirmationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddFriendsWithoutConfirmationForbidden:
 		response := &AddFriendsWithoutConfirmationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddFriendsWithoutConfirmationInternalServerError:
 		response := &AddFriendsWithoutConfirmationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1257,28 +1257,28 @@ func (a *Client) BulkDeleteFriendsShort(params *BulkDeleteFriendsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkDeleteFriendsUnauthorized:
 		response := &BulkDeleteFriendsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkDeleteFriendsForbidden:
 		response := &BulkDeleteFriendsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkDeleteFriendsInternalServerError:
 		response := &BulkDeleteFriendsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1346,28 +1346,28 @@ func (a *Client) SyncNativeFriendsShort(params *SyncNativeFriendsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncNativeFriendsUnauthorized:
 		response := &SyncNativeFriendsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncNativeFriendsForbidden:
 		response := &SyncNativeFriendsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncNativeFriendsInternalServerError:
 		response := &SyncNativeFriendsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1428,28 +1428,28 @@ func (a *Client) GetListOfFriendsShort(params *GetListOfFriendsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfFriendsUnauthorized:
 		response := &GetListOfFriendsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfFriendsForbidden:
 		response := &GetListOfFriendsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfFriendsInternalServerError:
 		response := &GetListOfFriendsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1510,28 +1510,28 @@ func (a *Client) GetIncomingFriendRequestsShort(params *GetIncomingFriendRequest
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetIncomingFriendRequestsUnauthorized:
 		response := &GetIncomingFriendRequestsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetIncomingFriendRequestsForbidden:
 		response := &GetIncomingFriendRequestsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetIncomingFriendRequestsInternalServerError:
 		response := &GetIncomingFriendRequestsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1592,28 +1592,28 @@ func (a *Client) AdminListFriendsOfFriendsShort(params *AdminListFriendsOfFriend
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListFriendsOfFriendsUnauthorized:
 		response := &AdminListFriendsOfFriendsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListFriendsOfFriendsForbidden:
 		response := &AdminListFriendsOfFriendsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListFriendsOfFriendsInternalServerError:
 		response := &AdminListFriendsOfFriendsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1674,28 +1674,28 @@ func (a *Client) GetOutgoingFriendRequestsShort(params *GetOutgoingFriendRequest
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetOutgoingFriendRequestsUnauthorized:
 		response := &GetOutgoingFriendRequestsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetOutgoingFriendRequestsForbidden:
 		response := &GetOutgoingFriendRequestsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetOutgoingFriendRequestsInternalServerError:
 		response := &GetOutgoingFriendRequestsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

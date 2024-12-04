@@ -200,7 +200,7 @@ func (a *Client) UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -457,7 +457,7 @@ func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaym
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -846,7 +846,7 @@ func (a *Client) GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -910,7 +910,7 @@ func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -973,7 +973,7 @@ func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1037,7 +1037,7 @@ func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1101,7 +1101,7 @@ func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1165,7 +1165,7 @@ func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1228,7 +1228,7 @@ func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1292,7 +1292,7 @@ func (a *Client) UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1355,7 +1355,7 @@ func (a *Client) TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1419,7 +1419,7 @@ func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1482,7 +1482,7 @@ func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1546,7 +1546,7 @@ func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1609,7 +1609,7 @@ func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1673,7 +1673,7 @@ func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1737,7 +1737,7 @@ func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1801,7 +1801,7 @@ func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1865,7 +1865,7 @@ func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1929,7 +1929,7 @@ func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1993,7 +1993,7 @@ func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2135,21 +2135,21 @@ func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePaymentProviderConfigConflict:
 		response := &CreatePaymentProviderConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePaymentProviderConfigUnprocessableEntity:
 		response := &CreatePaymentProviderConfigResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2270,7 +2270,7 @@ func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaym
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2412,28 +2412,28 @@ func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePaymentProviderConfigNotFound:
 		response := &UpdatePaymentProviderConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePaymentProviderConfigConflict:
 		response := &UpdatePaymentProviderConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePaymentProviderConfigUnprocessableEntity:
 		response := &UpdatePaymentProviderConfigResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2496,7 +2496,7 @@ func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2631,14 +2631,14 @@ func (a *Client) UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePaymentTaxConfigUnprocessableEntity:
 		response := &UpdatePaymentTaxConfigResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

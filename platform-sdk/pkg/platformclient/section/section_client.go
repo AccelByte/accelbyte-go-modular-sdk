@@ -99,14 +99,14 @@ func (a *Client) QuerySectionsShort(params *QuerySectionsParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QuerySectionsUnprocessableEntity:
 		response := &QuerySectionsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -189,28 +189,28 @@ func (a *Client) CreateSectionShort(params *CreateSectionParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSectionNotFound:
 		response := &CreateSectionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSectionConflict:
 		response := &CreateSectionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSectionUnprocessableEntity:
 		response := &CreateSectionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -270,7 +270,7 @@ func (a *Client) PurgeExpiredSectionShort(params *PurgeExpiredSectionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -335,7 +335,7 @@ func (a *Client) GetSectionShort(params *GetSectionParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -418,28 +418,28 @@ func (a *Client) UpdateSectionShort(params *UpdateSectionParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSectionNotFound:
 		response := &UpdateSectionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSectionConflict:
 		response := &UpdateSectionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSectionUnprocessableEntity:
 		response := &UpdateSectionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -499,14 +499,14 @@ func (a *Client) DeleteSectionShort(params *DeleteSectionParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSectionConflict:
 		response := &DeleteSectionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -573,7 +573,7 @@ func (a *Client) PublicListActiveSectionsShort(params *PublicListActiveSectionsP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

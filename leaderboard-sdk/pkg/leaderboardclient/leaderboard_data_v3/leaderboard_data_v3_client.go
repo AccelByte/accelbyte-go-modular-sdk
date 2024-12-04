@@ -102,35 +102,35 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLead
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingAdminV3Unauthorized:
 		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingAdminV3Forbidden:
 		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingAdminV3NotFound:
 		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingAdminV3InternalServerError:
 		response := &GetAllTimeLeaderboardRankingAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -193,35 +193,35 @@ func (a *Client) GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurren
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentCycleLeaderboardRankingAdminV3Unauthorized:
 		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentCycleLeaderboardRankingAdminV3Forbidden:
 		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentCycleLeaderboardRankingAdminV3NotFound:
 		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentCycleLeaderboardRankingAdminV3InternalServerError:
 		response := &GetCurrentCycleLeaderboardRankingAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,28 +288,28 @@ func (a *Client) DeleteAllUserRankingByCycleIDAdminV3Short(params *DeleteAllUser
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserRankingByCycleIDAdminV3Forbidden:
 		response := &DeleteAllUserRankingByCycleIDAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserRankingByCycleIDAdminV3NotFound:
 		response := &DeleteAllUserRankingByCycleIDAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAllUserRankingByCycleIDAdminV3InternalServerError:
 		response := &DeleteAllUserRankingByCycleIDAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -373,28 +373,28 @@ func (a *Client) DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankin
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByCycleIDAdminV3Forbidden:
 		response := &DeleteUserRankingByCycleIDAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByCycleIDAdminV3NotFound:
 		response := &DeleteUserRankingByCycleIDAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByCycleIDAdminV3InternalServerError:
 		response := &DeleteUserRankingByCycleIDAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -461,28 +461,28 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUs
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByLeaderboardCodeAdminV3Forbidden:
 		response := &DeleteUserRankingByLeaderboardCodeAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByLeaderboardCodeAdminV3NotFound:
 		response := &DeleteUserRankingByLeaderboardCodeAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByLeaderboardCodeAdminV3InternalServerError:
 		response := &DeleteUserRankingByLeaderboardCodeAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -545,28 +545,28 @@ func (a *Client) GetUserRankingAdminV3Short(params *GetUserRankingAdminV3Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingAdminV3Forbidden:
 		response := &GetUserRankingAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingAdminV3NotFound:
 		response := &GetUserRankingAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingAdminV3InternalServerError:
 		response := &GetUserRankingAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -630,28 +630,28 @@ func (a *Client) DeleteUserRankingAdminV3Short(params *DeleteUserRankingAdminV3P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingAdminV3Forbidden:
 		response := &DeleteUserRankingAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingAdminV3NotFound:
 		response := &DeleteUserRankingAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingAdminV3InternalServerError:
 		response := &DeleteUserRankingAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -713,21 +713,21 @@ func (a *Client) DeleteUserRankingsAdminV3Short(params *DeleteUserRankingsAdminV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingsAdminV3Forbidden:
 		response := &DeleteUserRankingsAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingsAdminV3InternalServerError:
 		response := &DeleteUserRankingsAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -790,21 +790,21 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLea
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingPublicV3NotFound:
 		response := &GetAllTimeLeaderboardRankingPublicV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingPublicV3InternalServerError:
 		response := &GetAllTimeLeaderboardRankingPublicV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -867,21 +867,21 @@ func (a *Client) GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurre
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentCycleLeaderboardRankingPublicV3NotFound:
 		response := &GetCurrentCycleLeaderboardRankingPublicV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentCycleLeaderboardRankingPublicV3InternalServerError:
 		response := &GetCurrentCycleLeaderboardRankingPublicV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -944,35 +944,35 @@ func (a *Client) BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPub
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetUsersRankingPublicV3Unauthorized:
 		response := &BulkGetUsersRankingPublicV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetUsersRankingPublicV3Forbidden:
 		response := &BulkGetUsersRankingPublicV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetUsersRankingPublicV3NotFound:
 		response := &BulkGetUsersRankingPublicV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetUsersRankingPublicV3InternalServerError:
 		response := &BulkGetUsersRankingPublicV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1035,28 +1035,28 @@ func (a *Client) GetUserRankingPublicV3Short(params *GetUserRankingPublicV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingPublicV3Forbidden:
 		response := &GetUserRankingPublicV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingPublicV3NotFound:
 		response := &GetUserRankingPublicV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingPublicV3InternalServerError:
 		response := &GetUserRankingPublicV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

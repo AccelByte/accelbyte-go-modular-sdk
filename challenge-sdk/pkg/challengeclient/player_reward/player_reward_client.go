@@ -96,35 +96,35 @@ func (a *Client) AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUsersRewardsUnauthorized:
 		response := &AdminClaimUsersRewardsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUsersRewardsForbidden:
 		response := &AdminClaimUsersRewardsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUsersRewardsNotFound:
 		response := &AdminClaimUsersRewardsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUsersRewardsInternalServerError:
 		response := &AdminClaimUsersRewardsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -186,42 +186,42 @@ func (a *Client) AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewa
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsByGoalCodeUnauthorized:
 		response := &AdminClaimUserRewardsByGoalCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsByGoalCodeForbidden:
 		response := &AdminClaimUserRewardsByGoalCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsByGoalCodeNotFound:
 		response := &AdminClaimUserRewardsByGoalCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsByGoalCodeUnprocessableEntity:
 		response := &AdminClaimUserRewardsByGoalCodeResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsByGoalCodeInternalServerError:
 		response := &AdminClaimUserRewardsByGoalCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -283,21 +283,21 @@ func (a *Client) AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserRewardsForbidden:
 		response := &AdminGetUserRewardsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUserRewardsInternalServerError:
 		response := &AdminGetUserRewardsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -359,35 +359,35 @@ func (a *Client) AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsForbidden:
 		response := &AdminClaimUserRewardsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsNotFound:
 		response := &AdminClaimUserRewardsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsUnprocessableEntity:
 		response := &AdminClaimUserRewardsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminClaimUserRewardsInternalServerError:
 		response := &AdminClaimUserRewardsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -449,42 +449,42 @@ func (a *Client) PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsByGoalCodeUnauthorized:
 		response := &PublicClaimUserRewardsByGoalCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsByGoalCodeForbidden:
 		response := &PublicClaimUserRewardsByGoalCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsByGoalCodeNotFound:
 		response := &PublicClaimUserRewardsByGoalCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsByGoalCodeUnprocessableEntity:
 		response := &PublicClaimUserRewardsByGoalCodeResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsByGoalCodeInternalServerError:
 		response := &PublicClaimUserRewardsByGoalCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -546,21 +546,21 @@ func (a *Client) PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserRewardsForbidden:
 		response := &PublicGetUserRewardsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserRewardsInternalServerError:
 		response := &PublicGetUserRewardsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -622,35 +622,35 @@ func (a *Client) PublicClaimUserRewardsShort(params *PublicClaimUserRewardsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsForbidden:
 		response := &PublicClaimUserRewardsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsNotFound:
 		response := &PublicClaimUserRewardsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsUnprocessableEntity:
 		response := &PublicClaimUserRewardsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardsInternalServerError:
 		response := &PublicClaimUserRewardsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

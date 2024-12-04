@@ -95,21 +95,21 @@ func (a *Client) SingleAdminGetChannelShort(params *SingleAdminGetChannelParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SingleAdminGetChannelUnauthorized:
 		response := &SingleAdminGetChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SingleAdminGetChannelInternalServerError:
 		response := &SingleAdminGetChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -170,28 +170,28 @@ func (a *Client) AdminCreateChannelShort(params *AdminCreateChannelParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChannelUnauthorized:
 		response := &AdminCreateChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChannelConflict:
 		response := &AdminCreateChannelResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChannelInternalServerError:
 		response := &AdminCreateChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -252,28 +252,28 @@ func (a *Client) SingleAdminUpdateChannelShort(params *SingleAdminUpdateChannelP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SingleAdminUpdateChannelUnauthorized:
 		response := &SingleAdminUpdateChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SingleAdminUpdateChannelNotFound:
 		response := &SingleAdminUpdateChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SingleAdminUpdateChannelInternalServerError:
 		response := &SingleAdminUpdateChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -333,21 +333,21 @@ func (a *Client) SingleAdminDeleteChannelShort(params *SingleAdminDeleteChannelP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SingleAdminDeleteChannelNotFound:
 		response := &SingleAdminDeleteChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SingleAdminDeleteChannelInternalServerError:
 		response := &SingleAdminDeleteChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -408,21 +408,21 @@ func (a *Client) AdminGetChannelShort(params *AdminGetChannelParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChannelUnauthorized:
 		response := &AdminGetChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChannelInternalServerError:
 		response := &AdminGetChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -483,28 +483,28 @@ func (a *Client) AdminUpdateChannelShort(params *AdminUpdateChannelParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateChannelUnauthorized:
 		response := &AdminUpdateChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateChannelNotFound:
 		response := &AdminUpdateChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateChannelInternalServerError:
 		response := &AdminUpdateChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -564,21 +564,21 @@ func (a *Client) AdminDeleteChannelShort(params *AdminDeleteChannelParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChannelNotFound:
 		response := &AdminDeleteChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChannelInternalServerError:
 		response := &AdminDeleteChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

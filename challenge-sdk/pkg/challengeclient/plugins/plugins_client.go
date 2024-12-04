@@ -93,35 +93,35 @@ func (a *Client) AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAssignmentPluginUnauthorized:
 		response := &AdminGetAssignmentPluginResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAssignmentPluginForbidden:
 		response := &AdminGetAssignmentPluginResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAssignmentPluginNotFound:
 		response := &AdminGetAssignmentPluginResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAssignmentPluginInternalServerError:
 		response := &AdminGetAssignmentPluginResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -183,35 +183,35 @@ func (a *Client) AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAssignmentPluginUnauthorized:
 		response := &AdminUpdateAssignmentPluginResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAssignmentPluginForbidden:
 		response := &AdminUpdateAssignmentPluginResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAssignmentPluginNotFound:
 		response := &AdminUpdateAssignmentPluginResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAssignmentPluginInternalServerError:
 		response := &AdminUpdateAssignmentPluginResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -273,28 +273,28 @@ func (a *Client) AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateAssignmentPluginUnauthorized:
 		response := &AdminCreateAssignmentPluginResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateAssignmentPluginForbidden:
 		response := &AdminCreateAssignmentPluginResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateAssignmentPluginInternalServerError:
 		response := &AdminCreateAssignmentPluginResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -355,35 +355,35 @@ func (a *Client) AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAssignmentPluginUnauthorized:
 		response := &AdminDeleteAssignmentPluginResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAssignmentPluginForbidden:
 		response := &AdminDeleteAssignmentPluginResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAssignmentPluginNotFound:
 		response := &AdminDeleteAssignmentPluginResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAssignmentPluginInternalServerError:
 		response := &AdminDeleteAssignmentPluginResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

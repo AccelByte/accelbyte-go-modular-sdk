@@ -98,14 +98,14 @@ func (a *Client) QueryPassesShort(params *QueryPassesParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryPassesNotFound:
 		response := &QueryPassesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -170,28 +170,28 @@ func (a *Client) CreatePassShort(params *CreatePassParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePassNotFound:
 		response := &CreatePassResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePassConflict:
 		response := &CreatePassResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePassUnprocessableEntity:
 		response := &CreatePassResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -256,14 +256,14 @@ func (a *Client) GetPassShort(params *GetPassParams, authInfo runtime.ClientAuth
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPassNotFound:
 		response := &GetPassResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -323,21 +323,21 @@ func (a *Client) DeletePassShort(params *DeletePassParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePassNotFound:
 		response := &DeletePassResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePassConflict:
 		response := &DeletePassResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -402,28 +402,28 @@ func (a *Client) UpdatePassShort(params *UpdatePassParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePassNotFound:
 		response := &UpdatePassResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePassConflict:
 		response := &UpdatePassResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePassUnprocessableEntity:
 		response := &UpdatePassResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -488,7 +488,7 @@ func (a *Client) GrantUserPassShort(params *GrantUserPassParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

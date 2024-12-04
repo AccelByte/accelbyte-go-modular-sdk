@@ -90,14 +90,14 @@ func (a *Client) UnlockSteamUserAchievementShort(params *UnlockSteamUserAchievem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UnlockSteamUserAchievementNotFound:
 		response := &UnlockSteamUserAchievementResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -158,7 +158,7 @@ func (a *Client) GetXblUserAchievementsShort(params *GetXblUserAchievementsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -218,7 +218,7 @@ func (a *Client) UpdateXblUserAchievementShort(params *UpdateXblUserAchievementP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -174,28 +174,28 @@ func (a *Client) CreateCategoryShort(params *CreateCategoryParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateCategoryNotFound:
 		response := &CreateCategoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateCategoryConflict:
 		response := &CreateCategoryResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateCategoryUnprocessableEntity:
 		response := &CreateCategoryResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -318,7 +318,7 @@ func (a *Client) GetCategoryShort(params *GetCategoryParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -394,28 +394,28 @@ func (a *Client) UpdateCategoryShort(params *UpdateCategoryParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCategoryNotFound:
 		response := &UpdateCategoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCategoryConflict:
 		response := &UpdateCategoryResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCategoryUnprocessableEntity:
 		response := &UpdateCategoryResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -480,14 +480,14 @@ func (a *Client) DeleteCategoryShort(params *DeleteCategoryParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteCategoryConflict:
 		response := &DeleteCategoryResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -728,7 +728,7 @@ func (a *Client) DownloadCategoriesShort(params *DownloadCategoriesParams) (*Dow
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -794,7 +794,7 @@ func (a *Client) PublicGetCategoryShort(params *PublicGetCategoryParams) (*Publi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -151,7 +151,7 @@ func (a *Client) GenerateInvoiceSummaryShort(params *GenerateInvoiceSummaryParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

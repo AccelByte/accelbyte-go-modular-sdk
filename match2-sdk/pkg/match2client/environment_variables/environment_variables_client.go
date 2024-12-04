@@ -89,14 +89,14 @@ func (a *Client) EnvironmentVariableListShort(params *EnvironmentVariableListPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnvironmentVariableListForbidden:
 		response := &EnvironmentVariableListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

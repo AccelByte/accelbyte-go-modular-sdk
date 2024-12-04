@@ -92,21 +92,21 @@ func (a *Client) AdminGetTypeShort(params *AdminGetTypeParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetTypeUnauthorized:
 		response := &AdminGetTypeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetTypeInternalServerError:
 		response := &AdminGetTypeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,28 +167,28 @@ func (a *Client) AdminCreateTypeShort(params *AdminCreateTypeParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateTypeUnauthorized:
 		response := &AdminCreateTypeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateTypeConflict:
 		response := &AdminCreateTypeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateTypeInternalServerError:
 		response := &AdminCreateTypeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -249,35 +249,35 @@ func (a *Client) AdminUpdateTypeShort(params *AdminUpdateTypeParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTypeUnauthorized:
 		response := &AdminUpdateTypeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTypeNotFound:
 		response := &AdminUpdateTypeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTypeConflict:
 		response := &AdminUpdateTypeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTypeInternalServerError:
 		response := &AdminUpdateTypeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -337,21 +337,21 @@ func (a *Client) AdminDeleteTypeShort(params *AdminDeleteTypeParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTypeNotFound:
 		response := &AdminDeleteTypeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTypeInternalServerError:
 		response := &AdminDeleteTypeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

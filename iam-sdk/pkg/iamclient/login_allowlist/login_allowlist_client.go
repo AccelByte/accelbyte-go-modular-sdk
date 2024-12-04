@@ -90,21 +90,21 @@ func (a *Client) AdminGetLoginAllowlistV3Short(params *AdminGetLoginAllowlistV3P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetLoginAllowlistV3Forbidden:
 		response := &AdminGetLoginAllowlistV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetLoginAllowlistV3InternalServerError:
 		response := &AdminGetLoginAllowlistV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,28 +167,28 @@ func (a *Client) AdminUpdateLoginAllowlistV3Short(params *AdminUpdateLoginAllowl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateLoginAllowlistV3Unauthorized:
 		response := &AdminUpdateLoginAllowlistV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateLoginAllowlistV3Forbidden:
 		response := &AdminUpdateLoginAllowlistV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateLoginAllowlistV3InternalServerError:
 		response := &AdminUpdateLoginAllowlistV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

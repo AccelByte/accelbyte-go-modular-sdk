@@ -94,14 +94,14 @@ func (a *Client) AdminGetInputValidationsShort(params *AdminGetInputValidationsP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInputValidationsForbidden:
 		response := &AdminGetInputValidationsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -186,21 +186,21 @@ func (a *Client) AdminUpdateInputValidationsShort(params *AdminUpdateInputValida
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInputValidationsForbidden:
 		response := &AdminUpdateInputValidationsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInputValidationsNotFound:
 		response := &AdminUpdateInputValidationsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -260,21 +260,21 @@ func (a *Client) AdminResetInputValidationsShort(params *AdminResetInputValidati
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetInputValidationsForbidden:
 		response := &AdminResetInputValidationsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminResetInputValidationsNotFound:
 		response := &AdminResetInputValidationsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -335,14 +335,14 @@ func (a *Client) PublicGetInputValidationsShort(params *PublicGetInputValidation
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetInputValidationsInternalServerError:
 		response := &PublicGetInputValidationsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -402,14 +402,14 @@ func (a *Client) PublicGetInputValidationByFieldShort(params *PublicGetInputVali
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetInputValidationByFieldInternalServerError:
 		response := &PublicGetInputValidationByFieldResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

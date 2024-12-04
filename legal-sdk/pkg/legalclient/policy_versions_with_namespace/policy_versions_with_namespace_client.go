@@ -97,7 +97,7 @@ func (a *Client) DeletePolicyVersionShort(params *DeletePolicyVersionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -158,14 +158,14 @@ func (a *Client) UpdatePolicyVersion1Short(params *UpdatePolicyVersion1Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePolicyVersion1Conflict:
 		response := &UpdatePolicyVersion1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -225,14 +225,14 @@ func (a *Client) PublishPolicyVersion1Short(params *PublishPolicyVersion1Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishPolicyVersion1Conflict:
 		response := &PublishPolicyVersion1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -295,7 +295,7 @@ func (a *Client) UnpublishPolicyVersionShort(params *UnpublishPolicyVersionParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -356,7 +356,7 @@ func (a *Client) RetrieveSinglePolicyVersion1Short(params *RetrieveSinglePolicyV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -417,7 +417,7 @@ func (a *Client) CreatePolicyVersion1Short(params *CreatePolicyVersion1Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -92,28 +92,28 @@ func (a *Client) GetHiddenUsersV2Short(params *GetHiddenUsersV2Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetHiddenUsersV2Unauthorized:
 		response := &GetHiddenUsersV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetHiddenUsersV2Forbidden:
 		response := &GetHiddenUsersV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetHiddenUsersV2InternalServerError:
 		response := &GetHiddenUsersV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,28 +174,28 @@ func (a *Client) GetUserVisibilityStatusV2Short(params *GetUserVisibilityStatusV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserVisibilityStatusV2Unauthorized:
 		response := &GetUserVisibilityStatusV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserVisibilityStatusV2Forbidden:
 		response := &GetUserVisibilityStatusV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserVisibilityStatusV2InternalServerError:
 		response := &GetUserVisibilityStatusV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -256,28 +256,28 @@ func (a *Client) SetUserLeaderboardVisibilityStatusV2Short(params *SetUserLeader
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetUserLeaderboardVisibilityStatusV2Unauthorized:
 		response := &SetUserLeaderboardVisibilityStatusV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetUserLeaderboardVisibilityStatusV2Forbidden:
 		response := &SetUserLeaderboardVisibilityStatusV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetUserLeaderboardVisibilityStatusV2InternalServerError:
 		response := &SetUserLeaderboardVisibilityStatusV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -338,28 +338,28 @@ func (a *Client) SetUserVisibilityStatusV2Short(params *SetUserVisibilityStatusV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetUserVisibilityStatusV2Unauthorized:
 		response := &SetUserVisibilityStatusV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetUserVisibilityStatusV2Forbidden:
 		response := &SetUserVisibilityStatusV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetUserVisibilityStatusV2InternalServerError:
 		response := &SetUserVisibilityStatusV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

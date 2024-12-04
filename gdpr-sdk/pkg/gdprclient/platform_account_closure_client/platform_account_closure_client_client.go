@@ -92,35 +92,35 @@ func (a *Client) AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformAccountClosureClientUnauthorized:
 		response := &AdminGetPlatformAccountClosureClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformAccountClosureClientForbidden:
 		response := &AdminGetPlatformAccountClosureClientResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformAccountClosureClientNotFound:
 		response := &AdminGetPlatformAccountClosureClientResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformAccountClosureClientInternalServerError:
 		response := &AdminGetPlatformAccountClosureClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,28 +181,28 @@ func (a *Client) AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformAccountClosureClientUnauthorized:
 		response := &AdminUpdatePlatformAccountClosureClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformAccountClosureClientForbidden:
 		response := &AdminUpdatePlatformAccountClosureClientResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformAccountClosureClientInternalServerError:
 		response := &AdminUpdatePlatformAccountClosureClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -262,35 +262,35 @@ func (a *Client) AdminDeletePlatformAccountClosureClientShort(params *AdminDelet
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformAccountClosureClientUnauthorized:
 		response := &AdminDeletePlatformAccountClosureClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformAccountClosureClientForbidden:
 		response := &AdminDeletePlatformAccountClosureClientResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformAccountClosureClientNotFound:
 		response := &AdminDeletePlatformAccountClosureClientResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformAccountClosureClientInternalServerError:
 		response := &AdminDeletePlatformAccountClosureClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

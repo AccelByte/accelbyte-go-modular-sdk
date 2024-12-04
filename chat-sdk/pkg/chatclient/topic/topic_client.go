@@ -118,28 +118,28 @@ func (a *Client) AdminFilterChatMessageShort(params *AdminFilterChatMessageParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminFilterChatMessageUnauthorized:
 		response := &AdminFilterChatMessageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminFilterChatMessageForbidden:
 		response := &AdminFilterChatMessageResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminFilterChatMessageInternalServerError:
 		response := &AdminFilterChatMessageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -200,28 +200,28 @@ func (a *Client) AdminChatHistoryShort(params *AdminChatHistoryParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChatHistoryUnauthorized:
 		response := &AdminChatHistoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChatHistoryForbidden:
 		response := &AdminChatHistoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChatHistoryInternalServerError:
 		response := &AdminChatHistoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -336,28 +336,28 @@ func (a *Client) AdminTopicListShort(params *AdminTopicListParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicListUnauthorized:
 		response := &AdminTopicListResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicListForbidden:
 		response := &AdminTopicListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicListInternalServerError:
 		response := &AdminTopicListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -472,28 +472,28 @@ func (a *Client) AdminChannelTopicListShort(params *AdminChannelTopicListParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicListUnauthorized:
 		response := &AdminChannelTopicListResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicListForbidden:
 		response := &AdminChannelTopicListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicListInternalServerError:
 		response := &AdminChannelTopicListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -554,28 +554,28 @@ func (a *Client) AdminChannelTopicSummaryShort(params *AdminChannelTopicSummaryP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicSummaryUnauthorized:
 		response := &AdminChannelTopicSummaryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicSummaryForbidden:
 		response := &AdminChannelTopicSummaryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicSummaryInternalServerError:
 		response := &AdminChannelTopicSummaryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -636,28 +636,28 @@ func (a *Client) AdminQueryTopicLogShort(params *AdminQueryTopicLogParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTopicLogUnauthorized:
 		response := &AdminQueryTopicLogResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTopicLogForbidden:
 		response := &AdminQueryTopicLogResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTopicLogInternalServerError:
 		response := &AdminQueryTopicLogResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -826,28 +826,28 @@ func (a *Client) AdminBanTopicMembersShort(params *AdminBanTopicMembersParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanTopicMembersUnauthorized:
 		response := &AdminBanTopicMembersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanTopicMembersForbidden:
 		response := &AdminBanTopicMembersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBanTopicMembersInternalServerError:
 		response := &AdminBanTopicMembersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -908,35 +908,35 @@ func (a *Client) AdminChannelTopicInfoShort(params *AdminChannelTopicInfoParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicInfoUnauthorized:
 		response := &AdminChannelTopicInfoResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicInfoForbidden:
 		response := &AdminChannelTopicInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicInfoNotFound:
 		response := &AdminChannelTopicInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminChannelTopicInfoInternalServerError:
 		response := &AdminChannelTopicInfoResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -997,28 +997,28 @@ func (a *Client) AdminTopicChatHistoryShort(params *AdminTopicChatHistoryParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicChatHistoryUnauthorized:
 		response := &AdminTopicChatHistoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicChatHistoryForbidden:
 		response := &AdminTopicChatHistoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicChatHistoryInternalServerError:
 		response := &AdminTopicChatHistoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1079,28 +1079,28 @@ func (a *Client) AdminSendChatShort(params *AdminSendChatParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendChatUnauthorized:
 		response := &AdminSendChatResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendChatForbidden:
 		response := &AdminSendChatResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendChatInternalServerError:
 		response := &AdminSendChatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1160,28 +1160,28 @@ func (a *Client) AdminDeleteChatShort(params *AdminDeleteChatParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChatUnauthorized:
 		response := &AdminDeleteChatResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChatForbidden:
 		response := &AdminDeleteChatResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChatInternalServerError:
 		response := &AdminDeleteChatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1242,28 +1242,28 @@ func (a *Client) AdminTopicMembersShort(params *AdminTopicMembersParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicMembersUnauthorized:
 		response := &AdminTopicMembersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicMembersForbidden:
 		response := &AdminTopicMembersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicMembersInternalServerError:
 		response := &AdminTopicMembersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1324,28 +1324,28 @@ func (a *Client) AdminTopicShardsShort(params *AdminTopicShardsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicShardsUnauthorized:
 		response := &AdminTopicShardsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicShardsForbidden:
 		response := &AdminTopicShardsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminTopicShardsInternalServerError:
 		response := &AdminTopicShardsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1406,28 +1406,28 @@ func (a *Client) AdminUnbanTopicMembersShort(params *AdminUnbanTopicMembersParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanTopicMembersUnauthorized:
 		response := &AdminUnbanTopicMembersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanTopicMembersForbidden:
 		response := &AdminUnbanTopicMembersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnbanTopicMembersInternalServerError:
 		response := &AdminUnbanTopicMembersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1596,28 +1596,28 @@ func (a *Client) AdminQueryTopicShort(params *AdminQueryTopicParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTopicUnauthorized:
 		response := &AdminQueryTopicResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTopicForbidden:
 		response := &AdminQueryTopicResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryTopicInternalServerError:
 		response := &AdminQueryTopicResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1678,28 +1678,28 @@ func (a *Client) AdminQueryUsersTopicShort(params *AdminQueryUsersTopicParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryUsersTopicUnauthorized:
 		response := &AdminQueryUsersTopicResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryUsersTopicForbidden:
 		response := &AdminQueryUsersTopicResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryUsersTopicInternalServerError:
 		response := &AdminQueryUsersTopicResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1760,28 +1760,28 @@ func (a *Client) PublicGetMutedTopicsShort(params *PublicGetMutedTopicsParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMutedTopicsUnauthorized:
 		response := &PublicGetMutedTopicsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMutedTopicsForbidden:
 		response := &PublicGetMutedTopicsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetMutedTopicsInternalServerError:
 		response := &PublicGetMutedTopicsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1842,28 +1842,28 @@ func (a *Client) PublicTopicListShort(params *PublicTopicListParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicTopicListUnauthorized:
 		response := &PublicTopicListResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicTopicListForbidden:
 		response := &PublicTopicListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicTopicListInternalServerError:
 		response := &PublicTopicListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1924,28 +1924,28 @@ func (a *Client) PublicBanTopicMembersShort(params *PublicBanTopicMembersParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBanTopicMembersUnauthorized:
 		response := &PublicBanTopicMembersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBanTopicMembersForbidden:
 		response := &PublicBanTopicMembersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBanTopicMembersInternalServerError:
 		response := &PublicBanTopicMembersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2006,28 +2006,28 @@ func (a *Client) PublicChatHistoryShort(params *PublicChatHistoryParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicChatHistoryUnauthorized:
 		response := &PublicChatHistoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicChatHistoryForbidden:
 		response := &PublicChatHistoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicChatHistoryInternalServerError:
 		response := &PublicChatHistoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2087,28 +2087,28 @@ func (a *Client) PublicDeleteChatShort(params *PublicDeleteChatParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeleteChatUnauthorized:
 		response := &PublicDeleteChatResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeleteChatForbidden:
 		response := &PublicDeleteChatResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeleteChatInternalServerError:
 		response := &PublicDeleteChatResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2168,28 +2168,28 @@ func (a *Client) PublicMuteUserShort(params *PublicMuteUserParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicMuteUserUnauthorized:
 		response := &PublicMuteUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicMuteUserForbidden:
 		response := &PublicMuteUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicMuteUserInternalServerError:
 		response := &PublicMuteUserResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2250,28 +2250,28 @@ func (a *Client) PublicUnbanTopicMembersShort(params *PublicUnbanTopicMembersPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUnbanTopicMembersUnauthorized:
 		response := &PublicUnbanTopicMembersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUnbanTopicMembersForbidden:
 		response := &PublicUnbanTopicMembersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUnbanTopicMembersInternalServerError:
 		response := &PublicUnbanTopicMembersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2331,28 +2331,28 @@ func (a *Client) PublicUnmuteUserShort(params *PublicUnmuteUserParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUnmuteUserUnauthorized:
 		response := &PublicUnmuteUserResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUnmuteUserForbidden:
 		response := &PublicUnmuteUserResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUnmuteUserInternalServerError:
 		response := &PublicUnmuteUserResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -102,42 +102,42 @@ func (a *Client) CreateSessionShort(params *CreateSessionParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSessionUnauthorized:
 		response := &CreateSessionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSessionNotFound:
 		response := &CreateSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSessionConflict:
 		response := &CreateSessionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSessionInternalServerError:
 		response := &CreateSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSessionServiceUnavailable:
 		response := &CreateSessionResponse{}
 		response.Error503 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -201,42 +201,42 @@ func (a *Client) ClaimServerShort(params *ClaimServerParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ClaimServerNotFound:
 		response := &ClaimServerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ClaimServerConflict:
 		response := &ClaimServerResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ClaimServerTooEarly:
 		response := &ClaimServerResponse{}
 		response.Error425 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ClaimServerInternalServerError:
 		response := &ClaimServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ClaimServerServiceUnavailable:
 		response := &ClaimServerResponse{}
 		response.Error503 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -303,21 +303,21 @@ func (a *Client) GetSessionShort(params *GetSessionParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionNotFound:
 		response := &GetSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSessionInternalServerError:
 		response := &GetSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -381,28 +381,28 @@ func (a *Client) CancelSessionShort(params *CancelSessionParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelSessionNotFound:
 		response := &CancelSessionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelSessionUnprocessableEntity:
 		response := &CancelSessionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelSessionInternalServerError:
 		response := &CancelSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

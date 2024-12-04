@@ -108,28 +108,28 @@ func (a *Client) GetWorkerConfigShort(params *GetWorkerConfigParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetWorkerConfigUnauthorized:
 		response := &GetWorkerConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetWorkerConfigNotFound:
 		response := &GetWorkerConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetWorkerConfigInternalServerError:
 		response := &GetWorkerConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -193,28 +193,28 @@ func (a *Client) UpdateWorkerConfigShort(params *UpdateWorkerConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateWorkerConfigUnauthorized:
 		response := &UpdateWorkerConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateWorkerConfigNotFound:
 		response := &UpdateWorkerConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateWorkerConfigInternalServerError:
 		response := &UpdateWorkerConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -279,21 +279,21 @@ func (a *Client) CreateWorkerConfigShort(params *CreateWorkerConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateWorkerConfigUnauthorized:
 		response := &CreateWorkerConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateWorkerConfigInternalServerError:
 		response := &CreateWorkerConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -368,28 +368,28 @@ func (a *Client) AddBufferShort(params *AddBufferParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddBufferUnauthorized:
 		response := &AddBufferResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddBufferConflict:
 		response := &AddBufferResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddBufferInternalServerError:
 		response := &AddBufferResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -456,14 +456,14 @@ func (a *Client) ListServerShort(params *ListServerParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListServerInternalServerError:
 		response := &ListServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -528,14 +528,14 @@ func (a *Client) CountServerShort(params *CountServerParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CountServerInternalServerError:
 		response := &CountServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -600,14 +600,14 @@ func (a *Client) CountServerDetailedShort(params *CountServerDetailedParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CountServerDetailedInternalServerError:
 		response := &CountServerDetailedResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -672,14 +672,14 @@ func (a *Client) ListLocalServerShort(params *ListLocalServerParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListLocalServerInternalServerError:
 		response := &ListLocalServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -744,14 +744,14 @@ func (a *Client) DeleteLocalServerShort(params *DeleteLocalServerParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteLocalServerInternalServerError:
 		response := &DeleteLocalServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -816,21 +816,21 @@ func (a *Client) GetServerShort(params *GetServerParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetServerNotFound:
 		response := &GetServerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetServerInternalServerError:
 		response := &GetServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -894,21 +894,21 @@ func (a *Client) DeleteServerShort(params *DeleteServerParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteServerNotFound:
 		response := &DeleteServerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteServerInternalServerError:
 		response := &DeleteServerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -975,14 +975,14 @@ func (a *Client) ListSessionShort(params *ListSessionParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListSessionInternalServerError:
 		response := &ListSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1047,14 +1047,14 @@ func (a *Client) CountSessionShort(params *CountSessionParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CountSessionInternalServerError:
 		response := &CountSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1118,14 +1118,14 @@ func (a *Client) DeleteSessionShort(params *DeleteSessionParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSessionInternalServerError:
 		response := &DeleteSessionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1189,7 +1189,7 @@ func (a *Client) RunGhostCleanerRequestHandlerShort(params *RunGhostCleanerReque
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1256,7 +1256,7 @@ func (a *Client) RunZombieCleanerRequestHandlerShort(params *RunZombieCleanerReq
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

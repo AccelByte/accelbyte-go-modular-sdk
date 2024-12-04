@@ -156,21 +156,21 @@ func (a *Client) CreatePolicyShort(params *CreatePolicyParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePolicyNotFound:
 		response := &CreatePolicyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePolicyUnprocessableEntity:
 		response := &CreatePolicyResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -231,7 +231,7 @@ func (a *Client) RetrieveSinglePolicyShort(params *RetrieveSinglePolicyParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -300,14 +300,14 @@ func (a *Client) PartialUpdatePolicyShort(params *PartialUpdatePolicyParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PartialUpdatePolicyNotFound:
 		response := &PartialUpdatePolicyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -368,7 +368,7 @@ func (a *Client) RetrievePolicyCountryShort(params *RetrievePolicyCountryParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

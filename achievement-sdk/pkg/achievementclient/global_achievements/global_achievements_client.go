@@ -109,21 +109,21 @@ func (a *Client) AdminListGlobalAchievementsShort(params *AdminListGlobalAchieve
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListGlobalAchievementsUnauthorized:
 		response := &AdminListGlobalAchievementsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListGlobalAchievementsInternalServerError:
 		response := &AdminListGlobalAchievementsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -187,21 +187,21 @@ func (a *Client) AdminListGlobalAchievementContributorsShort(params *AdminListGl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListGlobalAchievementContributorsUnauthorized:
 		response := &AdminListGlobalAchievementContributorsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListGlobalAchievementContributorsInternalServerError:
 		response := &AdminListGlobalAchievementContributorsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -269,21 +269,21 @@ func (a *Client) ResetGlobalAchievementShort(params *ResetGlobalAchievementParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetGlobalAchievementForbidden:
 		response := &ResetGlobalAchievementResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetGlobalAchievementInternalServerError:
 		response := &ResetGlobalAchievementResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -347,21 +347,21 @@ func (a *Client) AdminListUserContributionsShort(params *AdminListUserContributi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserContributionsUnauthorized:
 		response := &AdminListUserContributionsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserContributionsInternalServerError:
 		response := &AdminListUserContributionsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -435,21 +435,21 @@ func (a *Client) PublicListGlobalAchievementsShort(params *PublicListGlobalAchie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListGlobalAchievementsUnauthorized:
 		response := &PublicListGlobalAchievementsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListGlobalAchievementsInternalServerError:
 		response := &PublicListGlobalAchievementsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -513,21 +513,21 @@ func (a *Client) ListGlobalAchievementContributorsShort(params *ListGlobalAchiev
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListGlobalAchievementContributorsUnauthorized:
 		response := &ListGlobalAchievementContributorsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListGlobalAchievementContributorsInternalServerError:
 		response := &ListGlobalAchievementContributorsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -591,21 +591,21 @@ func (a *Client) ListUserContributionsShort(params *ListUserContributionsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListUserContributionsUnauthorized:
 		response := &ListUserContributionsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListUserContributionsInternalServerError:
 		response := &ListUserContributionsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -678,21 +678,21 @@ func (a *Client) ClaimGlobalAchievementRewardShort(params *ClaimGlobalAchievemen
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ClaimGlobalAchievementRewardUnauthorized:
 		response := &ClaimGlobalAchievementRewardResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ClaimGlobalAchievementRewardInternalServerError:
 		response := &ClaimGlobalAchievementRewardResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

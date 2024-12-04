@@ -391,7 +391,7 @@ func (a *Client) GrantEntitlementsShort(params *GrantEntitlementsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -455,7 +455,7 @@ func (a *Client) RevokeEntitlementsShort(params *RevokeEntitlementsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -520,7 +520,7 @@ func (a *Client) GetEntitlementShort(params *GetEntitlementParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -641,7 +641,7 @@ func (a *Client) UpdatePlatformEntitlementConfigShort(params *UpdatePlatformEnti
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -777,14 +777,14 @@ func (a *Client) GrantUserEntitlementShort(params *GrantUserEntitlementParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GrantUserEntitlementUnprocessableEntity:
 		response := &GrantUserEntitlementResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -845,7 +845,7 @@ func (a *Client) GetUserAppEntitlementByAppIDShort(params *GetUserAppEntitlement
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1022,7 +1022,7 @@ func (a *Client) GetUserEntitlementByItemIDShort(params *GetUserEntitlementByIte
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1137,7 +1137,7 @@ func (a *Client) GetUserEntitlementBySkuShort(params *GetUserEntitlementBySkuPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1640,7 +1640,7 @@ func (a *Client) GetUserEntitlementShort(params *GetUserEntitlementParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1704,21 +1704,21 @@ func (a *Client) UpdateUserEntitlementShort(params *UpdateUserEntitlementParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserEntitlementConflict:
 		response := &UpdateUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserEntitlementUnprocessableEntity:
 		response := &UpdateUserEntitlementResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1782,21 +1782,21 @@ func (a *Client) ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ConsumeUserEntitlementNotFound:
 		response := &ConsumeUserEntitlementResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ConsumeUserEntitlementConflict:
 		response := &ConsumeUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1861,14 +1861,14 @@ func (a *Client) DisableUserEntitlementShort(params *DisableUserEntitlementParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableUserEntitlementConflict:
 		response := &DisableUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1932,14 +1932,14 @@ func (a *Client) EnableUserEntitlementShort(params *EnableUserEntitlementParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableUserEntitlementConflict:
 		response := &EnableUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2061,7 +2061,7 @@ func (a *Client) RevokeUserEntitlementShort(params *RevokeUserEntitlementParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2125,7 +2125,7 @@ func (a *Client) RevokeUserEntitlementByUseCountShort(params *RevokeUserEntitlem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2189,7 +2189,7 @@ func (a *Client) PreCheckRevokeUserEntitlementByUseCountShort(params *PreCheckRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2253,7 +2253,7 @@ func (a *Client) RevokeUseCountShort(params *RevokeUseCountParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2315,14 +2315,14 @@ func (a *Client) SellUserEntitlementShort(params *SellUserEntitlementParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SellUserEntitlementConflict:
 		response := &SellUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2802,7 +2802,7 @@ func (a *Client) PublicGetUserAppEntitlementByAppIDShort(params *PublicGetUserAp
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2979,7 +2979,7 @@ func (a *Client) PublicGetUserEntitlementByItemIDShort(params *PublicGetUserEnti
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3040,7 +3040,7 @@ func (a *Client) PublicGetUserEntitlementBySkuShort(params *PublicGetUserEntitle
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3433,7 +3433,7 @@ func (a *Client) PublicGetUserEntitlementShort(params *PublicGetUserEntitlementP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3497,21 +3497,21 @@ func (a *Client) PublicConsumeUserEntitlementShort(params *PublicConsumeUserEnti
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicConsumeUserEntitlementNotFound:
 		response := &PublicConsumeUserEntitlementResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicConsumeUserEntitlementConflict:
 		response := &PublicConsumeUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3573,14 +3573,14 @@ func (a *Client) PublicSellUserEntitlementShort(params *PublicSellUserEntitlemen
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSellUserEntitlementConflict:
 		response := &PublicSellUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3642,14 +3642,14 @@ func (a *Client) PublicSplitUserEntitlementShort(params *PublicSplitUserEntitlem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSplitUserEntitlementConflict:
 		response := &PublicSplitUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3711,14 +3711,14 @@ func (a *Client) PublicTransferUserEntitlementShort(params *PublicTransferUserEn
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicTransferUserEntitlementConflict:
 		response := &PublicTransferUserEntitlementResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

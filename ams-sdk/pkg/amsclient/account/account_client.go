@@ -93,28 +93,28 @@ func (a *Client) AdminAccountGetShort(params *AdminAccountGetParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountGetForbidden:
 		response := &AdminAccountGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountGetNotFound:
 		response := &AdminAccountGetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountGetInternalServerError:
 		response := &AdminAccountGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -175,21 +175,21 @@ func (a *Client) AdminAccountCreateShort(params *AdminAccountCreateParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountCreateForbidden:
 		response := &AdminAccountCreateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountCreateInternalServerError:
 		response := &AdminAccountCreateResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -252,28 +252,28 @@ func (a *Client) AdminAccountLinkTokenGetShort(params *AdminAccountLinkTokenGetP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountLinkTokenGetForbidden:
 		response := &AdminAccountLinkTokenGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountLinkTokenGetNotFound:
 		response := &AdminAccountLinkTokenGetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountLinkTokenGetInternalServerError:
 		response := &AdminAccountLinkTokenGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -336,21 +336,21 @@ func (a *Client) AdminAccountLinkShort(params *AdminAccountLinkParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountLinkForbidden:
 		response := &AdminAccountLinkResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAccountLinkInternalServerError:
 		response := &AdminAccountLinkResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -411,28 +411,28 @@ func (a *Client) AccountGetShort(params *AccountGetParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AccountGetForbidden:
 		response := &AccountGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AccountGetNotFound:
 		response := &AccountGetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AccountGetInternalServerError:
 		response := &AccountGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

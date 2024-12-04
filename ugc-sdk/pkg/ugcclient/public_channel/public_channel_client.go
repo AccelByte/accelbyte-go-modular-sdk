@@ -92,21 +92,21 @@ func (a *Client) GetChannelsShort(params *GetChannelsParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetChannelsUnauthorized:
 		response := &GetChannelsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetChannelsInternalServerError:
 		response := &GetChannelsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,21 +167,21 @@ func (a *Client) PublicCreateChannelShort(params *PublicCreateChannelParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateChannelUnauthorized:
 		response := &PublicCreateChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateChannelInternalServerError:
 		response := &PublicCreateChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -242,28 +242,28 @@ func (a *Client) UpdateChannelShort(params *UpdateChannelParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateChannelUnauthorized:
 		response := &UpdateChannelResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateChannelNotFound:
 		response := &UpdateChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateChannelInternalServerError:
 		response := &UpdateChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -323,21 +323,21 @@ func (a *Client) DeleteChannelShort(params *DeleteChannelParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteChannelNotFound:
 		response := &DeleteChannelResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteChannelInternalServerError:
 		response := &DeleteChannelResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -92,21 +92,21 @@ func (a *Client) MatchFunctionListShort(params *MatchFunctionListParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchFunctionListForbidden:
 		response := &MatchFunctionListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchFunctionListInternalServerError:
 		response := &MatchFunctionListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,35 +166,35 @@ func (a *Client) CreateMatchFunctionShort(params *CreateMatchFunctionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchFunctionUnauthorized:
 		response := &CreateMatchFunctionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchFunctionForbidden:
 		response := &CreateMatchFunctionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchFunctionConflict:
 		response := &CreateMatchFunctionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchFunctionInternalServerError:
 		response := &CreateMatchFunctionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -255,35 +255,35 @@ func (a *Client) UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchFunctionUnauthorized:
 		response := &UpdateMatchFunctionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchFunctionNotFound:
 		response := &UpdateMatchFunctionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchFunctionConflict:
 		response := &UpdateMatchFunctionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchFunctionInternalServerError:
 		response := &UpdateMatchFunctionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -343,28 +343,28 @@ func (a *Client) DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchFunctionForbidden:
 		response := &DeleteMatchFunctionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchFunctionNotFound:
 		response := &DeleteMatchFunctionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchFunctionInternalServerError:
 		response := &DeleteMatchFunctionResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -96,28 +96,28 @@ func (a *Client) GeneratedUploadURLShort(params *GeneratedUploadURLParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GeneratedUploadURLUnauthorized:
 		response := &GeneratedUploadURLResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GeneratedUploadURLForbidden:
 		response := &GeneratedUploadURLResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GeneratedUploadURLInternalServerError:
 		response := &GeneratedUploadURLResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -184,35 +184,35 @@ func (a *Client) GeneratedUserUploadContentURLShort(params *GeneratedUserUploadC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GeneratedUserUploadContentURLUnauthorized:
 		response := &GeneratedUserUploadContentURLResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GeneratedUserUploadContentURLForbidden:
 		response := &GeneratedUserUploadContentURLResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GeneratedUserUploadContentURLConflict:
 		response := &GeneratedUserUploadContentURLResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GeneratedUserUploadContentURLInternalServerError:
 		response := &GeneratedUserUploadContentURLResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -277,28 +277,28 @@ func (a *Client) PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratedUploadURLUnauthorized:
 		response := &PublicGeneratedUploadURLResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratedUploadURLForbidden:
 		response := &PublicGeneratedUploadURLResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratedUploadURLInternalServerError:
 		response := &PublicGeneratedUploadURLResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -367,35 +367,35 @@ func (a *Client) PublicGeneratedUserUploadContentURLShort(params *PublicGenerate
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratedUserUploadContentURLUnauthorized:
 		response := &PublicGeneratedUserUploadContentURLResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratedUserUploadContentURLForbidden:
 		response := &PublicGeneratedUserUploadContentURLResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratedUserUploadContentURLConflict:
 		response := &PublicGeneratedUserUploadContentURLResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGeneratedUserUploadContentURLInternalServerError:
 		response := &PublicGeneratedUserUploadContentURLResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -92,28 +92,28 @@ func (a *Client) AdminGetProfileUpdateStrategyV3Short(params *AdminGetProfileUpd
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfileUpdateStrategyV3Unauthorized:
 		response := &AdminGetProfileUpdateStrategyV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfileUpdateStrategyV3Forbidden:
 		response := &AdminGetProfileUpdateStrategyV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetProfileUpdateStrategyV3InternalServerError:
 		response := &AdminGetProfileUpdateStrategyV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -176,28 +176,28 @@ func (a *Client) AdminUpdateProfileUpdateStrategyV3Short(params *AdminUpdateProf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateProfileUpdateStrategyV3Unauthorized:
 		response := &AdminUpdateProfileUpdateStrategyV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateProfileUpdateStrategyV3Forbidden:
 		response := &AdminUpdateProfileUpdateStrategyV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateProfileUpdateStrategyV3InternalServerError:
 		response := &AdminUpdateProfileUpdateStrategyV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -259,28 +259,28 @@ func (a *Client) PublicGetProfileUpdateStrategyV3Short(params *PublicGetProfileU
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileUpdateStrategyV3Unauthorized:
 		response := &PublicGetProfileUpdateStrategyV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileUpdateStrategyV3Forbidden:
 		response := &PublicGetProfileUpdateStrategyV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetProfileUpdateStrategyV3InternalServerError:
 		response := &PublicGetProfileUpdateStrategyV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

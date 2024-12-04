@@ -113,7 +113,7 @@ func (a *Client) QueryOrdersShort(params *QueryOrdersParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -234,7 +234,7 @@ func (a *Client) GetOrderShort(params *GetOrderParams, authInfo runtime.ClientAu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -295,21 +295,21 @@ func (a *Client) RefundOrderShort(params *RefundOrderParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RefundOrderConflict:
 		response := &RefundOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RefundOrderUnprocessableEntity:
 		response := &RefundOrderResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -451,35 +451,35 @@ func (a *Client) AdminCreateUserOrderShort(params *AdminCreateUserOrderParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateUserOrderForbidden:
 		response := &AdminCreateUserOrderResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateUserOrderNotFound:
 		response := &AdminCreateUserOrderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateUserOrderConflict:
 		response := &AdminCreateUserOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateUserOrderUnprocessableEntity:
 		response := &AdminCreateUserOrderResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -600,7 +600,7 @@ func (a *Client) GetUserOrderShort(params *GetUserOrderParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -664,21 +664,21 @@ func (a *Client) UpdateUserOrderStatusShort(params *UpdateUserOrderStatusParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserOrderStatusConflict:
 		response := &UpdateUserOrderStatusResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserOrderStatusUnprocessableEntity:
 		response := &UpdateUserOrderStatusResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -742,21 +742,21 @@ func (a *Client) FulfillUserOrderShort(params *FulfillUserOrderParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillUserOrderNotFound:
 		response := &FulfillUserOrderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FulfillUserOrderConflict:
 		response := &FulfillUserOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -932,7 +932,7 @@ func (a *Client) ProcessUserOrderNotificationShort(params *ProcessUserOrderNotif
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -996,14 +996,14 @@ func (a *Client) DownloadUserOrderReceiptShort(params *DownloadUserOrderReceiptP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DownloadUserOrderReceiptConflict:
 		response := &DownloadUserOrderReceiptResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1144,35 +1144,35 @@ func (a *Client) PublicCreateUserOrderShort(params *PublicCreateUserOrderParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserOrderForbidden:
 		response := &PublicCreateUserOrderResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserOrderNotFound:
 		response := &PublicCreateUserOrderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserOrderConflict:
 		response := &PublicCreateUserOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserOrderUnprocessableEntity:
 		response := &PublicCreateUserOrderResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1235,35 +1235,35 @@ func (a *Client) PublicPreviewOrderPriceShort(params *PublicPreviewOrderPricePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPreviewOrderPriceForbidden:
 		response := &PublicPreviewOrderPriceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPreviewOrderPriceNotFound:
 		response := &PublicPreviewOrderPriceResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPreviewOrderPriceConflict:
 		response := &PublicPreviewOrderPriceResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicPreviewOrderPriceUnprocessableEntity:
 		response := &PublicPreviewOrderPriceResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1327,7 +1327,7 @@ func (a *Client) PublicGetUserOrderShort(params *PublicGetUserOrderParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1391,14 +1391,14 @@ func (a *Client) PublicCancelUserOrderShort(params *PublicCancelUserOrderParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelUserOrderConflict:
 		response := &PublicCancelUserOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1519,14 +1519,14 @@ func (a *Client) PublicDownloadUserOrderReceiptShort(params *PublicDownloadUserO
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDownloadUserOrderReceiptConflict:
 		response := &PublicDownloadUserOrderReceiptResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

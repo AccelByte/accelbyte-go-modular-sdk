@@ -171,28 +171,28 @@ func (a *Client) AuthenticationWithPlatformLinkV3Short(params *AuthenticationWit
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AuthenticationWithPlatformLinkV3Unauthorized:
 		response := &AuthenticationWithPlatformLinkV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AuthenticationWithPlatformLinkV3Forbidden:
 		response := &AuthenticationWithPlatformLinkV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AuthenticationWithPlatformLinkV3Conflict:
 		response := &AuthenticationWithPlatformLinkV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -255,21 +255,21 @@ func (a *Client) GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GenerateTokenByNewHeadlessAccountV3Unauthorized:
 		response := &GenerateTokenByNewHeadlessAccountV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GenerateTokenByNewHeadlessAccountV3NotFound:
 		response := &GenerateTokenByNewHeadlessAccountV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -779,28 +779,28 @@ func (a *Client) PlatformTokenRefreshV3Short(params *PlatformTokenRefreshV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenRefreshV3Unauthorized:
 		response := &PlatformTokenRefreshV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenRefreshV3Forbidden:
 		response := &PlatformTokenRefreshV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenRefreshV3ServiceUnavailable:
 		response := &PlatformTokenRefreshV3Response{}
 		response.Error503 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

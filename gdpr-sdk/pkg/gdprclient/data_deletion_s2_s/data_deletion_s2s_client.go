@@ -100,28 +100,28 @@ func (a *Client) S2SGetListFinishedAccountDeletionRequestShort(params *S2SGetLis
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGetListFinishedAccountDeletionRequestUnauthorized:
 		response := &S2SGetListFinishedAccountDeletionRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGetListFinishedAccountDeletionRequestForbidden:
 		response := &S2SGetListFinishedAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGetListFinishedAccountDeletionRequestInternalServerError:
 		response := &S2SGetListFinishedAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -194,35 +194,35 @@ func (a *Client) S2SSubmitUserAccountDeletionRequestShort(params *S2SSubmitUserA
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SSubmitUserAccountDeletionRequestForbidden:
 		response := &S2SSubmitUserAccountDeletionRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SSubmitUserAccountDeletionRequestNotFound:
 		response := &S2SSubmitUserAccountDeletionRequestResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SSubmitUserAccountDeletionRequestConflict:
 		response := &S2SSubmitUserAccountDeletionRequestResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SSubmitUserAccountDeletionRequestInternalServerError:
 		response := &S2SSubmitUserAccountDeletionRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

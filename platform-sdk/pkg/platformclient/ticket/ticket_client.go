@@ -96,7 +96,7 @@ func (a *Client) GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -156,14 +156,14 @@ func (a *Client) DecreaseTicketSaleShort(params *DecreaseTicketSaleParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DecreaseTicketSaleUnprocessableEntity:
 		response := &DecreaseTicketSaleResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -227,7 +227,7 @@ func (a *Client) GetTicketBoothIDShort(params *GetTicketBoothIDParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -291,14 +291,14 @@ func (a *Client) IncreaseTicketSaleShort(params *IncreaseTicketSaleParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *IncreaseTicketSaleUnprocessableEntity:
 		response := &IncreaseTicketSaleResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -362,21 +362,21 @@ func (a *Client) AcquireUserTicketShort(params *AcquireUserTicketParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcquireUserTicketConflict:
 		response := &AcquireUserTicketResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcquireUserTicketUnprocessableEntity:
 		response := &AcquireUserTicketResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

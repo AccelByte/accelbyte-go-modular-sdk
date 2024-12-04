@@ -105,35 +105,35 @@ func (a *Client) AdminGetPlatformCredentialsShort(params *AdminGetPlatformCreden
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformCredentialsUnauthorized:
 		response := &AdminGetPlatformCredentialsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformCredentialsForbidden:
 		response := &AdminGetPlatformCredentialsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformCredentialsNotFound:
 		response := &AdminGetPlatformCredentialsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlatformCredentialsInternalServerError:
 		response := &AdminGetPlatformCredentialsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -199,35 +199,35 @@ func (a *Client) AdminUpdatePlatformCredentialsShort(params *AdminUpdatePlatform
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformCredentialsUnauthorized:
 		response := &AdminUpdatePlatformCredentialsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformCredentialsForbidden:
 		response := &AdminUpdatePlatformCredentialsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformCredentialsNotFound:
 		response := &AdminUpdatePlatformCredentialsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePlatformCredentialsInternalServerError:
 		response := &AdminUpdatePlatformCredentialsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -287,35 +287,35 @@ func (a *Client) AdminDeletePlatformCredentialsShort(params *AdminDeletePlatform
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformCredentialsUnauthorized:
 		response := &AdminDeletePlatformCredentialsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformCredentialsForbidden:
 		response := &AdminDeletePlatformCredentialsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformCredentialsNotFound:
 		response := &AdminDeletePlatformCredentialsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformCredentialsInternalServerError:
 		response := &AdminDeletePlatformCredentialsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -375,35 +375,35 @@ func (a *Client) AdminDeletePlatformCredentialsByPlatformIDShort(params *AdminDe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformCredentialsByPlatformIDUnauthorized:
 		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformCredentialsByPlatformIDForbidden:
 		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformCredentialsByPlatformIDNotFound:
 		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeletePlatformCredentialsByPlatformIDInternalServerError:
 		response := &AdminDeletePlatformCredentialsByPlatformIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -473,35 +473,35 @@ func (a *Client) AdminSyncPlatformCredentialsShort(params *AdminSyncPlatformCred
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncPlatformCredentialsUnauthorized:
 		response := &AdminSyncPlatformCredentialsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncPlatformCredentialsForbidden:
 		response := &AdminSyncPlatformCredentialsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncPlatformCredentialsNotFound:
 		response := &AdminSyncPlatformCredentialsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncPlatformCredentialsInternalServerError:
 		response := &AdminSyncPlatformCredentialsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

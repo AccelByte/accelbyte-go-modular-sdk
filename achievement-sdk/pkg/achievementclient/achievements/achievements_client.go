@@ -100,28 +100,28 @@ func (a *Client) AdminListAchievementsShort(params *AdminListAchievementsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListAchievementsUnauthorized:
 		response := &AdminListAchievementsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListAchievementsNotFound:
 		response := &AdminListAchievementsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListAchievementsInternalServerError:
 		response := &AdminListAchievementsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -199,28 +199,28 @@ func (a *Client) AdminCreateNewAchievementShort(params *AdminCreateNewAchievemen
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateNewAchievementUnauthorized:
 		response := &AdminCreateNewAchievementResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateNewAchievementTooManyRequests:
 		response := &AdminCreateNewAchievementResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateNewAchievementInternalServerError:
 		response := &AdminCreateNewAchievementResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,21 +288,21 @@ func (a *Client) ExportAchievementsShort(params *ExportAchievementsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportAchievementsForbidden:
 		response := &ExportAchievementsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportAchievementsInternalServerError:
 		response := &ExportAchievementsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -371,28 +371,28 @@ func (a *Client) ImportAchievementsShort(params *ImportAchievementsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportAchievementsForbidden:
 		response := &ImportAchievementsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportAchievementsTooManyRequests:
 		response := &ImportAchievementsResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportAchievementsInternalServerError:
 		response := &ImportAchievementsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -456,28 +456,28 @@ func (a *Client) AdminGetAchievementShort(params *AdminGetAchievementParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAchievementUnauthorized:
 		response := &AdminGetAchievementResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAchievementNotFound:
 		response := &AdminGetAchievementResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAchievementInternalServerError:
 		response := &AdminGetAchievementResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -541,28 +541,28 @@ func (a *Client) AdminUpdateAchievementShort(params *AdminUpdateAchievementParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAchievementUnauthorized:
 		response := &AdminUpdateAchievementResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAchievementNotFound:
 		response := &AdminUpdateAchievementResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAchievementInternalServerError:
 		response := &AdminUpdateAchievementResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -625,28 +625,28 @@ func (a *Client) AdminDeleteAchievementShort(params *AdminDeleteAchievementParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAchievementUnauthorized:
 		response := &AdminDeleteAchievementResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAchievementNotFound:
 		response := &AdminDeleteAchievementResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteAchievementInternalServerError:
 		response := &AdminDeleteAchievementResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -709,28 +709,28 @@ func (a *Client) AdminUpdateAchievementListOrderShort(params *AdminUpdateAchieve
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAchievementListOrderUnauthorized:
 		response := &AdminUpdateAchievementListOrderResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAchievementListOrderNotFound:
 		response := &AdminUpdateAchievementListOrderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateAchievementListOrderInternalServerError:
 		response := &AdminUpdateAchievementListOrderResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -794,28 +794,28 @@ func (a *Client) PublicListAchievementsShort(params *PublicListAchievementsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListAchievementsUnauthorized:
 		response := &PublicListAchievementsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListAchievementsNotFound:
 		response := &PublicListAchievementsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListAchievementsInternalServerError:
 		response := &PublicListAchievementsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -879,28 +879,28 @@ func (a *Client) PublicGetAchievementShort(params *PublicGetAchievementParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAchievementUnauthorized:
 		response := &PublicGetAchievementResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAchievementNotFound:
 		response := &PublicGetAchievementResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetAchievementInternalServerError:
 		response := &PublicGetAchievementResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

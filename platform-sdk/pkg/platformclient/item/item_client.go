@@ -195,21 +195,21 @@ func (a *Client) CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateItemTypeConfigConflict:
 		response := &CreateItemTypeConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateItemTypeConfigUnprocessableEntity:
 		response := &CreateItemTypeConfigResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -274,7 +274,7 @@ func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -339,7 +339,7 @@ func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -402,21 +402,21 @@ func (a *Client) UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateItemTypeConfigConflict:
 		response := &UpdateItemTypeConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateItemTypeConfigUnprocessableEntity:
 		response := &UpdateItemTypeConfigResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -476,7 +476,7 @@ func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -543,28 +543,28 @@ func (a *Client) SyncInGameItemShort(params *SyncInGameItemParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncInGameItemNotFound:
 		response := &SyncInGameItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncInGameItemConflict:
 		response := &SyncInGameItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncInGameItemUnprocessableEntity:
 		response := &SyncInGameItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -860,28 +860,28 @@ func (a *Client) CreateItemShort(params *CreateItemParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateItemNotFound:
 		response := &CreateItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateItemConflict:
 		response := &CreateItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateItemUnprocessableEntity:
 		response := &CreateItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -946,7 +946,7 @@ func (a *Client) GetItemByAppIDShort(params *GetItemByAppIDParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1011,14 +1011,14 @@ func (a *Client) QueryItemsShort(params *QueryItemsParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryItemsUnprocessableEntity:
 		response := &QueryItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1141,7 +1141,7 @@ func (a *Client) GetItemsShort(params *GetItemsParams, authInfo runtime.ClientAu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1206,7 +1206,7 @@ func (a *Client) GetItemBySkuShort(params *GetItemBySkuParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1271,7 +1271,7 @@ func (a *Client) GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1332,7 +1332,7 @@ func (a *Client) GetEstimatedPriceShort(params *GetEstimatedPriceParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1397,7 +1397,7 @@ func (a *Client) GetItemIDBySkuShort(params *GetItemIDBySkuParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1520,7 +1520,7 @@ func (a *Client) BulkGetLocaleItemsShort(params *BulkGetLocaleItemsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1584,7 +1584,7 @@ func (a *Client) GetAvailablePredicateTypesShort(params *GetAvailablePredicateTy
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1645,7 +1645,7 @@ func (a *Client) ValidateItemPurchaseConditionShort(params *ValidateItemPurchase
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1705,28 +1705,28 @@ func (a *Client) BulkUpdateRegionDataShort(params *BulkUpdateRegionDataParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateRegionDataNotFound:
 		response := &BulkUpdateRegionDataResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateRegionDataConflict:
 		response := &BulkUpdateRegionDataResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateRegionDataUnprocessableEntity:
 		response := &BulkUpdateRegionDataResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1791,7 +1791,7 @@ func (a *Client) SearchItemsShort(params *SearchItemsParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1856,14 +1856,14 @@ func (a *Client) QueryUncategorizedItemsShort(params *QueryUncategorizedItemsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryUncategorizedItemsUnprocessableEntity:
 		response := &QueryUncategorizedItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1928,7 +1928,7 @@ func (a *Client) GetItemShort(params *GetItemParams, authInfo runtime.ClientAuth
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2226,28 +2226,28 @@ func (a *Client) UpdateItemShort(params *UpdateItemParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateItemNotFound:
 		response := &UpdateItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateItemConflict:
 		response := &UpdateItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateItemUnprocessableEntity:
 		response := &UpdateItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2311,7 +2311,7 @@ func (a *Client) DeleteItemShort(params *DeleteItemParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2375,7 +2375,7 @@ func (a *Client) AcquireItemShort(params *AcquireItemParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2585,21 +2585,21 @@ func (a *Client) UpdateAppShort(params *UpdateAppParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppConflict:
 		response := &UpdateAppResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppUnprocessableEntity:
 		response := &UpdateAppResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2663,14 +2663,14 @@ func (a *Client) DisableItemShort(params *DisableItemParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DisableItemConflict:
 		response := &DisableItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2734,7 +2734,7 @@ func (a *Client) GetItemDynamicDataShort(params *GetItemDynamicDataParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2798,14 +2798,14 @@ func (a *Client) EnableItemShort(params *EnableItemParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *EnableItemConflict:
 		response := &EnableItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2869,14 +2869,14 @@ func (a *Client) FeatureItemShort(params *FeatureItemParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FeatureItemConflict:
 		response := &FeatureItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2940,14 +2940,14 @@ func (a *Client) DefeatureItemShort(params *DefeatureItemParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DefeatureItemConflict:
 		response := &DefeatureItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3012,7 +3012,7 @@ func (a *Client) GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3073,28 +3073,28 @@ func (a *Client) UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseCond
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateItemPurchaseConditionNotFound:
 		response := &UpdateItemPurchaseConditionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateItemPurchaseConditionConflict:
 		response := &UpdateItemPurchaseConditionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateItemPurchaseConditionUnprocessableEntity:
 		response := &UpdateItemPurchaseConditionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3154,14 +3154,14 @@ func (a *Client) ReturnItemShort(params *ReturnItemParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ReturnItemUnprocessableEntity:
 		response := &ReturnItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3228,7 +3228,7 @@ func (a *Client) PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3295,14 +3295,14 @@ func (a *Client) PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryItemsUnprocessableEntity:
 		response := &PublicQueryItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3369,7 +3369,7 @@ func (a *Client) PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3430,7 +3430,7 @@ func (a *Client) PublicGetEstimatedPriceShort(params *PublicGetEstimatedPricePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3497,7 +3497,7 @@ func (a *Client) PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3558,7 +3558,7 @@ func (a *Client) PublicValidateItemPurchaseConditionShort(params *PublicValidate
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3625,7 +3625,7 @@ func (a *Client) PublicSearchItemsShort(params *PublicSearchItemsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3691,7 +3691,7 @@ func (a *Client) PublicGetAppShort(params *PublicGetAppParams) (*PublicGetAppRes
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3755,7 +3755,7 @@ func (a *Client) PublicGetItemDynamicDataShort(params *PublicGetItemDynamicDataP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3822,7 +3822,7 @@ func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3891,14 +3891,14 @@ func (a *Client) QueryItemsV2Short(params *QueryItemsV2Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryItemsV2UnprocessableEntity:
 		response := &QueryItemsV2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

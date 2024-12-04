@@ -90,28 +90,28 @@ func (a *Client) AdminGetConfigsShort(params *AdminGetConfigsParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigsUnauthorized:
 		response := &AdminGetConfigsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigsForbidden:
 		response := &AdminGetConfigsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigsInternalServerError:
 		response := &AdminGetConfigsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,28 +174,28 @@ func (a *Client) AdminUpdateConfigShort(params *AdminUpdateConfigParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigUnauthorized:
 		response := &AdminUpdateConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigForbidden:
 		response := &AdminUpdateConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigInternalServerError:
 		response := &AdminUpdateConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

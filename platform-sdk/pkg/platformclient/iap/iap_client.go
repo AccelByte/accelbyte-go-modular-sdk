@@ -747,7 +747,7 @@ func (a *Client) GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -809,21 +809,21 @@ func (a *Client) UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateIAPItemConfigConflict:
 		response := &UpdateIAPItemConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateIAPItemConfigUnprocessableEntity:
 		response := &UpdateIAPItemConfigResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1160,7 +1160,7 @@ func (a *Client) UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPCon
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1442,7 +1442,7 @@ func (a *Client) UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1889,7 +1889,7 @@ func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2176,21 +2176,21 @@ func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MockFulfillIAPItemNotFound:
 		response := &MockFulfillIAPItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MockFulfillIAPItemConflict:
 		response := &MockFulfillIAPItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2251,7 +2251,7 @@ func (a *Client) GetAppleConfigVersionShort(params *GetAppleConfigVersionParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2312,7 +2312,7 @@ func (a *Client) GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2373,7 +2373,7 @@ func (a *Client) SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2434,21 +2434,21 @@ func (a *Client) PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPIte
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicFulfillAppleIAPItemNotFound:
 		response := &PublicFulfillAppleIAPItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicFulfillAppleIAPItemConflict:
 		response := &PublicFulfillAppleIAPItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2510,14 +2510,14 @@ func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncEpicGamesInventoryNotFound:
 		response := &SyncEpicGamesInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2579,21 +2579,21 @@ func (a *Client) PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicFulfillGoogleIAPItemNotFound:
 		response := &PublicFulfillGoogleIAPItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicFulfillGoogleIAPItemConflict:
 		response := &PublicFulfillGoogleIAPItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2655,14 +2655,14 @@ func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsuma
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncOculusConsumableEntitlementsNotFound:
 		response := &SyncOculusConsumableEntitlementsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2724,14 +2724,14 @@ func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePla
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicReconcilePlayStationStoreNotFound:
 		response := &PublicReconcilePlayStationStoreResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2793,14 +2793,14 @@ func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(p
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicReconcilePlayStationStoreWithMultipleServiceLabelsNotFound:
 		response := &PublicReconcilePlayStationStoreWithMultipleServiceLabelsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2861,14 +2861,14 @@ func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncSteamInventoryNotFound:
 		response := &SyncSteamInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2929,7 +2929,7 @@ func (a *Client) SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitle
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2991,14 +2991,14 @@ func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncXboxInventoryNotFound:
 		response := &SyncXboxInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3059,21 +3059,21 @@ func (a *Client) V2PublicFulfillAppleIAPItemShort(params *V2PublicFulfillAppleIA
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *V2PublicFulfillAppleIAPItemNotFound:
 		response := &V2PublicFulfillAppleIAPItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *V2PublicFulfillAppleIAPItemConflict:
 		response := &V2PublicFulfillAppleIAPItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

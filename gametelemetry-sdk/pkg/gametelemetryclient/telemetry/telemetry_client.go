@@ -91,7 +91,7 @@ func (a *Client) GetNamespacesGameTelemetryV1AdminNamespacesGetShort(params *Get
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -153,14 +153,14 @@ func (a *Client) GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetShort(
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetUnprocessableEntity:
 		response := &GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

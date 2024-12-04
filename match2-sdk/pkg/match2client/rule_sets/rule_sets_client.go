@@ -93,21 +93,21 @@ func (a *Client) RuleSetListShort(params *RuleSetListParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RuleSetListForbidden:
 		response := &RuleSetListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RuleSetListInternalServerError:
 		response := &RuleSetListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,35 +174,35 @@ func (a *Client) CreateRuleSetShort(params *CreateRuleSetParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRuleSetUnauthorized:
 		response := &CreateRuleSetResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRuleSetForbidden:
 		response := &CreateRuleSetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRuleSetConflict:
 		response := &CreateRuleSetResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRuleSetInternalServerError:
 		response := &CreateRuleSetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -263,21 +263,21 @@ func (a *Client) RuleSetDetailsShort(params *RuleSetDetailsParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RuleSetDetailsForbidden:
 		response := &RuleSetDetailsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RuleSetDetailsInternalServerError:
 		response := &RuleSetDetailsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -342,35 +342,35 @@ func (a *Client) UpdateRuleSetShort(params *UpdateRuleSetParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRuleSetUnauthorized:
 		response := &UpdateRuleSetResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRuleSetForbidden:
 		response := &UpdateRuleSetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRuleSetNotFound:
 		response := &UpdateRuleSetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRuleSetInternalServerError:
 		response := &UpdateRuleSetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -430,28 +430,28 @@ func (a *Client) DeleteRuleSetShort(params *DeleteRuleSetParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteRuleSetForbidden:
 		response := &DeleteRuleSetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteRuleSetNotFound:
 		response := &DeleteRuleSetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteRuleSetInternalServerError:
 		response := &DeleteRuleSetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

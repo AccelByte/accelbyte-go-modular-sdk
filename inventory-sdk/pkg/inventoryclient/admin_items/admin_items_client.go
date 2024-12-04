@@ -102,14 +102,14 @@ func (a *Client) AdminListItemsShort(params *AdminListItemsParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListItemsInternalServerError:
 		response := &AdminListItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -173,21 +173,21 @@ func (a *Client) AdminGetInventoryItemShort(params *AdminGetInventoryItemParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInventoryItemNotFound:
 		response := &AdminGetInventoryItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInventoryItemInternalServerError:
 		response := &AdminGetInventoryItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -251,21 +251,21 @@ func (a *Client) AdminConsumeUserItemShort(params *AdminConsumeUserItemParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminConsumeUserItemNotFound:
 		response := &AdminConsumeUserItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminConsumeUserItemInternalServerError:
 		response := &AdminConsumeUserItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -330,21 +330,21 @@ func (a *Client) AdminBulkUpdateMyItemsShort(params *AdminBulkUpdateMyItemsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateMyItemsNotFound:
 		response := &AdminBulkUpdateMyItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateMyItemsInternalServerError:
 		response := &AdminBulkUpdateMyItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -415,35 +415,35 @@ func (a *Client) AdminSaveItemToInventoryShort(params *AdminSaveItemToInventoryP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveItemToInventoryUnauthorized:
 		response := &AdminSaveItemToInventoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveItemToInventoryForbidden:
 		response := &AdminSaveItemToInventoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveItemToInventoryNotFound:
 		response := &AdminSaveItemToInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveItemToInventoryInternalServerError:
 		response := &AdminSaveItemToInventoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -507,21 +507,21 @@ func (a *Client) AdminBulkRemoveItemsShort(params *AdminBulkRemoveItemsParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkRemoveItemsNotFound:
 		response := &AdminBulkRemoveItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkRemoveItemsInternalServerError:
 		response := &AdminBulkRemoveItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -593,42 +593,42 @@ func (a *Client) AdminBulkSaveItemToInventoryShort(params *AdminBulkSaveItemToIn
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemToInventoryUnauthorized:
 		response := &AdminBulkSaveItemToInventoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemToInventoryForbidden:
 		response := &AdminBulkSaveItemToInventoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemToInventoryNotFound:
 		response := &AdminBulkSaveItemToInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemToInventoryUnprocessableEntity:
 		response := &AdminBulkSaveItemToInventoryResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemToInventoryInternalServerError:
 		response := &AdminBulkSaveItemToInventoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -701,14 +701,14 @@ func (a *Client) AdminSaveItemShort(params *AdminSaveItemParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveItemInternalServerError:
 		response := &AdminSaveItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -787,42 +787,42 @@ func (a *Client) AdminBulkSaveItemShort(params *AdminBulkSaveItemParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemUnauthorized:
 		response := &AdminBulkSaveItemResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemForbidden:
 		response := &AdminBulkSaveItemResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemNotFound:
 		response := &AdminBulkSaveItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemUnprocessableEntity:
 		response := &AdminBulkSaveItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkSaveItemInternalServerError:
 		response := &AdminBulkSaveItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -885,35 +885,35 @@ func (a *Client) AdminSyncUserEntitlementsShort(params *AdminSyncUserEntitlement
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncUserEntitlementsUnauthorized:
 		response := &AdminSyncUserEntitlementsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncUserEntitlementsForbidden:
 		response := &AdminSyncUserEntitlementsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncUserEntitlementsNotFound:
 		response := &AdminSyncUserEntitlementsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncUserEntitlementsInternalServerError:
 		response := &AdminSyncUserEntitlementsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

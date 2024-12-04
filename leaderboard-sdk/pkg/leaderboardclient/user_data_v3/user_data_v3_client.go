@@ -91,21 +91,21 @@ func (a *Client) GetUserLeaderboardRankingsAdminV3Short(params *GetUserLeaderboa
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserLeaderboardRankingsAdminV3Forbidden:
 		response := &GetUserLeaderboardRankingsAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserLeaderboardRankingsAdminV3InternalServerError:
 		response := &GetUserLeaderboardRankingsAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -97,7 +97,7 @@ func (a *Client) ListTicketsShort(params *ListTicketsParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -160,7 +160,7 @@ func (a *Client) TicketStatisticShort(params *TicketStatisticParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -221,14 +221,14 @@ func (a *Client) GetTicketDetailShort(params *GetTicketDetailParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTicketDetailInternalServerError:
 		response := &GetTicketDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,14 +288,14 @@ func (a *Client) DeleteTicketShort(params *DeleteTicketParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTicketInternalServerError:
 		response := &DeleteTicketResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -356,7 +356,7 @@ func (a *Client) GetReportsByTicketShort(params *GetReportsByTicketParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -417,7 +417,7 @@ func (a *Client) UpdateTicketResolutionsShort(params *UpdateTicketResolutionsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

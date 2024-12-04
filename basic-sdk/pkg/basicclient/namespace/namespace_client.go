@@ -105,14 +105,14 @@ func (a *Client) GetNamespacesShort(params *GetNamespacesParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNamespacesForbidden:
 		response := &GetNamespacesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -188,28 +188,28 @@ func (a *Client) CreateNamespaceShort(params *CreateNamespaceParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNamespaceUnauthorized:
 		response := &CreateNamespaceResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNamespaceForbidden:
 		response := &CreateNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNamespaceConflict:
 		response := &CreateNamespaceResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -275,28 +275,28 @@ func (a *Client) GetNamespaceShort(params *GetNamespaceParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNamespaceUnauthorized:
 		response := &GetNamespaceResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNamespaceForbidden:
 		response := &GetNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNamespaceNotFound:
 		response := &GetNamespaceResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -361,35 +361,35 @@ func (a *Client) DeleteNamespaceShort(params *DeleteNamespaceParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNamespaceUnauthorized:
 		response := &DeleteNamespaceResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNamespaceForbidden:
 		response := &DeleteNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNamespaceNotFound:
 		response := &DeleteNamespaceResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNamespaceConflict:
 		response := &DeleteNamespaceResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -463,35 +463,35 @@ func (a *Client) UpdateNamespaceShort(params *UpdateNamespaceParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateNamespaceUnauthorized:
 		response := &UpdateNamespaceResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateNamespaceForbidden:
 		response := &UpdateNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateNamespaceNotFound:
 		response := &UpdateNamespaceResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateNamespaceConflict:
 		response := &UpdateNamespaceResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -557,14 +557,14 @@ func (a *Client) GetChildNamespacesShort(params *GetChildNamespacesParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetChildNamespacesForbidden:
 		response := &GetChildNamespacesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -628,14 +628,14 @@ func (a *Client) GetNamespaceContextShort(params *GetNamespaceContextParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNamespaceContextForbidden:
 		response := &GetNamespaceContextResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -701,14 +701,14 @@ func (a *Client) GetGameNamespacesShort(params *GetGameNamespacesParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGameNamespacesForbidden:
 		response := &GetGameNamespacesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -773,28 +773,28 @@ func (a *Client) GetNamespacePublisherShort(params *GetNamespacePublisherParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNamespacePublisherUnauthorized:
 		response := &GetNamespacePublisherResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNamespacePublisherForbidden:
 		response := &GetNamespacePublisherResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNamespacePublisherNotFound:
 		response := &GetNamespacePublisherResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -859,35 +859,35 @@ func (a *Client) ChangeNamespaceStatusShort(params *ChangeNamespaceStatusParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ChangeNamespaceStatusUnauthorized:
 		response := &ChangeNamespaceStatusResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ChangeNamespaceStatusForbidden:
 		response := &ChangeNamespaceStatusResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ChangeNamespaceStatusNotFound:
 		response := &ChangeNamespaceStatusResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ChangeNamespaceStatusConflict:
 		response := &ChangeNamespaceStatusResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -952,7 +952,7 @@ func (a *Client) PublicGetNamespacesShort(params *PublicGetNamespacesParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1015,7 +1015,7 @@ func (a *Client) GetNamespace1Short(params *GetNamespace1Params) (*GetNamespace1
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1080,28 +1080,28 @@ func (a *Client) PublicGetNamespacePublisherShort(params *PublicGetNamespacePubl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetNamespacePublisherUnauthorized:
 		response := &PublicGetNamespacePublisherResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetNamespacePublisherForbidden:
 		response := &PublicGetNamespacePublisherResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetNamespacePublisherNotFound:
 		response := &PublicGetNamespacePublisherResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

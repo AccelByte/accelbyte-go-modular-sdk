@@ -115,7 +115,7 @@ func (a *Client) QuerySeasonsShort(params *QuerySeasonsParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -180,21 +180,21 @@ func (a *Client) CreateSeasonShort(params *CreateSeasonParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSeasonNotFound:
 		response := &CreateSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateSeasonUnprocessableEntity:
 		response := &CreateSeasonResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -259,14 +259,14 @@ func (a *Client) GetCurrentSeasonShort(params *GetCurrentSeasonParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentSeasonNotFound:
 		response := &GetCurrentSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -331,14 +331,14 @@ func (a *Client) BulkGetUserSeasonProgressionShort(params *BulkGetUserSeasonProg
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetUserSeasonProgressionNotFound:
 		response := &BulkGetUserSeasonProgressionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -403,14 +403,14 @@ func (a *Client) GetSeasonShort(params *GetSeasonParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSeasonNotFound:
 		response := &GetSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -470,21 +470,21 @@ func (a *Client) DeleteSeasonShort(params *DeleteSeasonParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSeasonNotFound:
 		response := &DeleteSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSeasonConflict:
 		response := &DeleteSeasonResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -549,28 +549,28 @@ func (a *Client) UpdateSeasonShort(params *UpdateSeasonParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSeasonNotFound:
 		response := &UpdateSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSeasonConflict:
 		response := &UpdateSeasonResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSeasonUnprocessableEntity:
 		response := &UpdateSeasonResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -635,21 +635,21 @@ func (a *Client) CloneSeasonShort(params *CloneSeasonParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CloneSeasonNotFound:
 		response := &CloneSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CloneSeasonUnprocessableEntity:
 		response := &CloneSeasonResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -714,14 +714,14 @@ func (a *Client) GetFullSeasonShort(params *GetFullSeasonParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetFullSeasonNotFound:
 		response := &GetFullSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -786,21 +786,21 @@ func (a *Client) PublishSeasonShort(params *PublishSeasonParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishSeasonNotFound:
 		response := &PublishSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishSeasonConflict:
 		response := &PublishSeasonResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -865,21 +865,21 @@ func (a *Client) RetireSeasonShort(params *RetireSeasonParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetireSeasonNotFound:
 		response := &RetireSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetireSeasonConflict:
 		response := &RetireSeasonResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -944,21 +944,21 @@ func (a *Client) UnpublishSeasonShort(params *UnpublishSeasonParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UnpublishSeasonNotFound:
 		response := &UnpublishSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UnpublishSeasonConflict:
 		response := &UnpublishSeasonResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1023,7 +1023,7 @@ func (a *Client) GetUserParticipatedSeasonsShort(params *GetUserParticipatedSeas
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1088,7 +1088,7 @@ func (a *Client) ExistsAnyPassByPassCodesShort(params *ExistsAnyPassByPassCodesP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1153,14 +1153,14 @@ func (a *Client) GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeas
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentUserSeasonProgressionNotFound:
 		response := &GetCurrentUserSeasonProgressionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1220,21 +1220,21 @@ func (a *Client) CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CheckSeasonPurchasableNotFound:
 		response := &CheckSeasonPurchasableResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CheckSeasonPurchasableConflict:
 		response := &CheckSeasonPurchasableResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1294,7 +1294,7 @@ func (a *Client) ResetUserSeasonShort(params *ResetUserSeasonParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1360,7 +1360,7 @@ func (a *Client) QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1426,7 +1426,7 @@ func (a *Client) QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHisto
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1491,14 +1491,14 @@ func (a *Client) GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserSeasonNotFound:
 		response := &GetUserSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1562,14 +1562,14 @@ func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetCurrentSeasonNotFound:
 		response := &PublicGetCurrentSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1634,14 +1634,14 @@ func (a *Client) PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSea
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetCurrentUserSeasonNotFound:
 		response := &PublicGetCurrentUserSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1706,14 +1706,14 @@ func (a *Client) PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserSeasonNotFound:
 		response := &PublicGetUserSeasonResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

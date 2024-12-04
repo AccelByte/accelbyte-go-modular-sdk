@@ -101,28 +101,28 @@ func (a *Client) BulkGetPlayerPublicBinaryRecordsV1Short(params *BulkGetPlayerPu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetPlayerPublicBinaryRecordsV1Unauthorized:
 		response := &BulkGetPlayerPublicBinaryRecordsV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetPlayerPublicBinaryRecordsV1Forbidden:
 		response := &BulkGetPlayerPublicBinaryRecordsV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetPlayerPublicBinaryRecordsV1InternalServerError:
 		response := &BulkGetPlayerPublicBinaryRecordsV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -183,28 +183,28 @@ func (a *Client) ListMyBinaryRecordsV1Short(params *ListMyBinaryRecordsV1Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListMyBinaryRecordsV1Unauthorized:
 		response := &ListMyBinaryRecordsV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListMyBinaryRecordsV1Forbidden:
 		response := &ListMyBinaryRecordsV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListMyBinaryRecordsV1InternalServerError:
 		response := &ListMyBinaryRecordsV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -266,28 +266,28 @@ func (a *Client) BulkGetMyBinaryRecordV1Short(params *BulkGetMyBinaryRecordV1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetMyBinaryRecordV1Unauthorized:
 		response := &BulkGetMyBinaryRecordV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetMyBinaryRecordV1Forbidden:
 		response := &BulkGetMyBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetMyBinaryRecordV1InternalServerError:
 		response := &BulkGetMyBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -359,35 +359,35 @@ func (a *Client) PostPlayerBinaryRecordV1Short(params *PostPlayerBinaryRecordV1P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PostPlayerBinaryRecordV1Unauthorized:
 		response := &PostPlayerBinaryRecordV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PostPlayerBinaryRecordV1Forbidden:
 		response := &PostPlayerBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PostPlayerBinaryRecordV1Conflict:
 		response := &PostPlayerBinaryRecordV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PostPlayerBinaryRecordV1InternalServerError:
 		response := &PostPlayerBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -448,28 +448,28 @@ func (a *Client) ListOtherPlayerPublicBinaryRecordsV1Short(params *ListOtherPlay
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListOtherPlayerPublicBinaryRecordsV1Unauthorized:
 		response := &ListOtherPlayerPublicBinaryRecordsV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListOtherPlayerPublicBinaryRecordsV1Forbidden:
 		response := &ListOtherPlayerPublicBinaryRecordsV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListOtherPlayerPublicBinaryRecordsV1InternalServerError:
 		response := &ListOtherPlayerPublicBinaryRecordsV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -531,28 +531,28 @@ func (a *Client) BulkGetOtherPlayerPublicBinaryRecordsV1Short(params *BulkGetOth
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetOtherPlayerPublicBinaryRecordsV1Unauthorized:
 		response := &BulkGetOtherPlayerPublicBinaryRecordsV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetOtherPlayerPublicBinaryRecordsV1Forbidden:
 		response := &BulkGetOtherPlayerPublicBinaryRecordsV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetOtherPlayerPublicBinaryRecordsV1InternalServerError:
 		response := &BulkGetOtherPlayerPublicBinaryRecordsV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -614,28 +614,28 @@ func (a *Client) GetPlayerBinaryRecordV1Short(params *GetPlayerBinaryRecordV1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerBinaryRecordV1Forbidden:
 		response := &GetPlayerBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerBinaryRecordV1NotFound:
 		response := &GetPlayerBinaryRecordV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerBinaryRecordV1InternalServerError:
 		response := &GetPlayerBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -696,35 +696,35 @@ func (a *Client) PutPlayerBinaryRecordV1Short(params *PutPlayerBinaryRecordV1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerBinaryRecordV1Unauthorized:
 		response := &PutPlayerBinaryRecordV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerBinaryRecordV1Forbidden:
 		response := &PutPlayerBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerBinaryRecordV1NotFound:
 		response := &PutPlayerBinaryRecordV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerBinaryRecordV1InternalServerError:
 		response := &PutPlayerBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -784,35 +784,35 @@ func (a *Client) DeletePlayerBinaryRecordV1Short(params *DeletePlayerBinaryRecor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePlayerBinaryRecordV1Unauthorized:
 		response := &DeletePlayerBinaryRecordV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePlayerBinaryRecordV1Forbidden:
 		response := &DeletePlayerBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePlayerBinaryRecordV1NotFound:
 		response := &DeletePlayerBinaryRecordV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePlayerBinaryRecordV1InternalServerError:
 		response := &DeletePlayerBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -873,35 +873,35 @@ func (a *Client) PutPlayerBinaryRecorMetadataV1Short(params *PutPlayerBinaryReco
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerBinaryRecorMetadataV1Unauthorized:
 		response := &PutPlayerBinaryRecorMetadataV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerBinaryRecorMetadataV1Forbidden:
 		response := &PutPlayerBinaryRecorMetadataV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerBinaryRecorMetadataV1NotFound:
 		response := &PutPlayerBinaryRecorMetadataV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerBinaryRecorMetadataV1InternalServerError:
 		response := &PutPlayerBinaryRecorMetadataV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -966,35 +966,35 @@ func (a *Client) PostPlayerBinaryPresignedURLV1Short(params *PostPlayerBinaryPre
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PostPlayerBinaryPresignedURLV1Unauthorized:
 		response := &PostPlayerBinaryPresignedURLV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PostPlayerBinaryPresignedURLV1Forbidden:
 		response := &PostPlayerBinaryPresignedURLV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PostPlayerBinaryPresignedURLV1NotFound:
 		response := &PostPlayerBinaryPresignedURLV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PostPlayerBinaryPresignedURLV1InternalServerError:
 		response := &PostPlayerBinaryPresignedURLV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1056,28 +1056,28 @@ func (a *Client) GetPlayerPublicBinaryRecordsV1Short(params *GetPlayerPublicBina
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerPublicBinaryRecordsV1Forbidden:
 		response := &GetPlayerPublicBinaryRecordsV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerPublicBinaryRecordsV1NotFound:
 		response := &GetPlayerPublicBinaryRecordsV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerPublicBinaryRecordsV1InternalServerError:
 		response := &GetPlayerPublicBinaryRecordsV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

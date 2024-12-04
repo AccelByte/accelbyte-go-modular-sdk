@@ -105,28 +105,28 @@ func (a *Client) AdminQueryPlayerAttributesShort(params *AdminQueryPlayerAttribu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryPlayerAttributesUnauthorized:
 		response := &AdminQueryPlayerAttributesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryPlayerAttributesNotFound:
 		response := &AdminQueryPlayerAttributesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminQueryPlayerAttributesInternalServerError:
 		response := &AdminQueryPlayerAttributesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -198,28 +198,28 @@ func (a *Client) AdminGetPlayerAttributesShort(params *AdminGetPlayerAttributesP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerAttributesUnauthorized:
 		response := &AdminGetPlayerAttributesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerAttributesNotFound:
 		response := &AdminGetPlayerAttributesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPlayerAttributesInternalServerError:
 		response := &AdminGetPlayerAttributesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -280,28 +280,28 @@ func (a *Client) PublicGetBulkPlayerCurrentPlatformShort(params *PublicGetBulkPl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetBulkPlayerCurrentPlatformUnauthorized:
 		response := &PublicGetBulkPlayerCurrentPlatformResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetBulkPlayerCurrentPlatformNotFound:
 		response := &PublicGetBulkPlayerCurrentPlatformResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetBulkPlayerCurrentPlatformInternalServerError:
 		response := &PublicGetBulkPlayerCurrentPlatformResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -373,28 +373,28 @@ func (a *Client) PublicGetPlayerAttributesShort(params *PublicGetPlayerAttribute
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPlayerAttributesUnauthorized:
 		response := &PublicGetPlayerAttributesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPlayerAttributesNotFound:
 		response := &PublicGetPlayerAttributesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPlayerAttributesInternalServerError:
 		response := &PublicGetPlayerAttributesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -466,21 +466,21 @@ func (a *Client) PublicStorePlayerAttributesShort(params *PublicStorePlayerAttri
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicStorePlayerAttributesUnauthorized:
 		response := &PublicStorePlayerAttributesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicStorePlayerAttributesInternalServerError:
 		response := &PublicStorePlayerAttributesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -540,28 +540,28 @@ func (a *Client) PublicDeletePlayerAttributesShort(params *PublicDeletePlayerAtt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeletePlayerAttributesUnauthorized:
 		response := &PublicDeletePlayerAttributesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeletePlayerAttributesNotFound:
 		response := &PublicDeletePlayerAttributesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeletePlayerAttributesInternalServerError:
 		response := &PublicDeletePlayerAttributesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

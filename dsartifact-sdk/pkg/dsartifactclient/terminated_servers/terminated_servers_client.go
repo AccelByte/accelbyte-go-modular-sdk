@@ -93,21 +93,21 @@ func (a *Client) ListTerminatedServersWithNamespaceShort(params *ListTerminatedS
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListTerminatedServersWithNamespaceUnauthorized:
 		response := &ListTerminatedServersWithNamespaceResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListTerminatedServersWithNamespaceInternalServerError:
 		response := &ListTerminatedServersWithNamespaceResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

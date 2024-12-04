@@ -116,21 +116,21 @@ func (a *Client) SendMultipleUsersFreeformNotificationV1AdminShort(params *SendM
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendMultipleUsersFreeformNotificationV1AdminUnauthorized:
 		response := &SendMultipleUsersFreeformNotificationV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendMultipleUsersFreeformNotificationV1AdminForbidden:
 		response := &SendMultipleUsersFreeformNotificationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -192,28 +192,28 @@ func (a *Client) SendUsersFreeformNotificationV1AdminShort(params *SendUsersFree
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendUsersFreeformNotificationV1AdminUnauthorized:
 		response := &SendUsersFreeformNotificationV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendUsersFreeformNotificationV1AdminForbidden:
 		response := &SendUsersFreeformNotificationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendUsersFreeformNotificationV1AdminNotFound:
 		response := &SendUsersFreeformNotificationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -273,28 +273,28 @@ func (a *Client) SendPartyFreeformNotificationV1AdminShort(params *SendPartyFree
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendPartyFreeformNotificationV1AdminUnauthorized:
 		response := &SendPartyFreeformNotificationV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendPartyFreeformNotificationV1AdminForbidden:
 		response := &SendPartyFreeformNotificationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendPartyFreeformNotificationV1AdminNotFound:
 		response := &SendPartyFreeformNotificationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -359,28 +359,28 @@ func (a *Client) SendPartyTemplatedNotificationV1AdminShort(params *SendPartyTem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendPartyTemplatedNotificationV1AdminUnauthorized:
 		response := &SendPartyTemplatedNotificationV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendPartyTemplatedNotificationV1AdminForbidden:
 		response := &SendPartyTemplatedNotificationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendPartyTemplatedNotificationV1AdminNotFound:
 		response := &SendPartyTemplatedNotificationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -443,35 +443,35 @@ func (a *Client) GetAllNotificationTemplatesV1AdminShort(params *GetAllNotificat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllNotificationTemplatesV1AdminUnauthorized:
 		response := &GetAllNotificationTemplatesV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllNotificationTemplatesV1AdminForbidden:
 		response := &GetAllNotificationTemplatesV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllNotificationTemplatesV1AdminNotFound:
 		response := &GetAllNotificationTemplatesV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllNotificationTemplatesV1AdminInternalServerError:
 		response := &GetAllNotificationTemplatesV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -537,35 +537,35 @@ func (a *Client) CreateNotificationTemplateV1AdminShort(params *CreateNotificati
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNotificationTemplateV1AdminUnauthorized:
 		response := &CreateNotificationTemplateV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNotificationTemplateV1AdminForbidden:
 		response := &CreateNotificationTemplateV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNotificationTemplateV1AdminNotFound:
 		response := &CreateNotificationTemplateV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNotificationTemplateV1AdminConflict:
 		response := &CreateNotificationTemplateV1AdminResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -632,28 +632,28 @@ func (a *Client) SendUsersTemplatedNotificationV1AdminShort(params *SendUsersTem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendUsersTemplatedNotificationV1AdminUnauthorized:
 		response := &SendUsersTemplatedNotificationV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendUsersTemplatedNotificationV1AdminForbidden:
 		response := &SendUsersTemplatedNotificationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendUsersTemplatedNotificationV1AdminNotFound:
 		response := &SendUsersTemplatedNotificationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -716,28 +716,28 @@ func (a *Client) GetTemplateSlugLocalizationsTemplateV1AdminShort(params *GetTem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTemplateSlugLocalizationsTemplateV1AdminUnauthorized:
 		response := &GetTemplateSlugLocalizationsTemplateV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTemplateSlugLocalizationsTemplateV1AdminForbidden:
 		response := &GetTemplateSlugLocalizationsTemplateV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTemplateSlugLocalizationsTemplateV1AdminNotFound:
 		response := &GetTemplateSlugLocalizationsTemplateV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -799,28 +799,28 @@ func (a *Client) DeleteNotificationTemplateSlugV1AdminShort(params *DeleteNotifi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNotificationTemplateSlugV1AdminUnauthorized:
 		response := &DeleteNotificationTemplateSlugV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNotificationTemplateSlugV1AdminForbidden:
 		response := &DeleteNotificationTemplateSlugV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNotificationTemplateSlugV1AdminNotFound:
 		response := &DeleteNotificationTemplateSlugV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -883,28 +883,28 @@ func (a *Client) GetSingleTemplateLocalizationV1AdminShort(params *GetSingleTemp
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleTemplateLocalizationV1AdminForbidden:
 		response := &GetSingleTemplateLocalizationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleTemplateLocalizationV1AdminNotFound:
 		response := &GetSingleTemplateLocalizationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSingleTemplateLocalizationV1AdminInternalServerError:
 		response := &GetSingleTemplateLocalizationV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -966,35 +966,35 @@ func (a *Client) UpdateTemplateLocalizationV1AdminShort(params *UpdateTemplateLo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateTemplateLocalizationV1AdminUnauthorized:
 		response := &UpdateTemplateLocalizationV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateTemplateLocalizationV1AdminForbidden:
 		response := &UpdateTemplateLocalizationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateTemplateLocalizationV1AdminNotFound:
 		response := &UpdateTemplateLocalizationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateTemplateLocalizationV1AdminInternalServerError:
 		response := &UpdateTemplateLocalizationV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1056,28 +1056,28 @@ func (a *Client) DeleteTemplateLocalizationV1AdminShort(params *DeleteTemplateLo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateLocalizationV1AdminForbidden:
 		response := &DeleteTemplateLocalizationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateLocalizationV1AdminNotFound:
 		response := &DeleteTemplateLocalizationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTemplateLocalizationV1AdminInternalServerError:
 		response := &DeleteTemplateLocalizationV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1139,28 +1139,28 @@ func (a *Client) PublishTemplateLocalizationV1AdminShort(params *PublishTemplate
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishTemplateLocalizationV1AdminForbidden:
 		response := &PublishTemplateLocalizationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishTemplateLocalizationV1AdminNotFound:
 		response := &PublishTemplateLocalizationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishTemplateLocalizationV1AdminInternalServerError:
 		response := &PublishTemplateLocalizationV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1223,28 +1223,28 @@ func (a *Client) GetAllNotificationTopicsV1AdminShort(params *GetAllNotification
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllNotificationTopicsV1AdminForbidden:
 		response := &GetAllNotificationTopicsV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllNotificationTopicsV1AdminNotFound:
 		response := &GetAllNotificationTopicsV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllNotificationTopicsV1AdminInternalServerError:
 		response := &GetAllNotificationTopicsV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1309,21 +1309,21 @@ func (a *Client) CreateNotificationTopicV1AdminShort(params *CreateNotificationT
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNotificationTopicV1AdminUnauthorized:
 		response := &CreateNotificationTopicV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateNotificationTopicV1AdminForbidden:
 		response := &CreateNotificationTopicV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1386,28 +1386,28 @@ func (a *Client) GetNotificationTopicV1AdminShort(params *GetNotificationTopicV1
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNotificationTopicV1AdminForbidden:
 		response := &GetNotificationTopicV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNotificationTopicV1AdminNotFound:
 		response := &GetNotificationTopicV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNotificationTopicV1AdminInternalServerError:
 		response := &GetNotificationTopicV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1472,35 +1472,35 @@ func (a *Client) UpdateNotificationTopicV1AdminShort(params *UpdateNotificationT
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateNotificationTopicV1AdminUnauthorized:
 		response := &UpdateNotificationTopicV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateNotificationTopicV1AdminForbidden:
 		response := &UpdateNotificationTopicV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateNotificationTopicV1AdminNotFound:
 		response := &UpdateNotificationTopicV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateNotificationTopicV1AdminInternalServerError:
 		response := &UpdateNotificationTopicV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1565,28 +1565,28 @@ func (a *Client) DeleteNotificationTopicV1AdminShort(params *DeleteNotificationT
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNotificationTopicV1AdminForbidden:
 		response := &DeleteNotificationTopicV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNotificationTopicV1AdminNotFound:
 		response := &DeleteNotificationTopicV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteNotificationTopicV1AdminInternalServerError:
 		response := &DeleteNotificationTopicV1AdminResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1647,28 +1647,28 @@ func (a *Client) SendSpecificUserFreeformNotificationV1AdminShort(params *SendSp
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendSpecificUserFreeformNotificationV1AdminUnauthorized:
 		response := &SendSpecificUserFreeformNotificationV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendSpecificUserFreeformNotificationV1AdminForbidden:
 		response := &SendSpecificUserFreeformNotificationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendSpecificUserFreeformNotificationV1AdminNotFound:
 		response := &SendSpecificUserFreeformNotificationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1735,28 +1735,28 @@ func (a *Client) SendSpecificUserTemplatedNotificationV1AdminShort(params *SendS
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendSpecificUserTemplatedNotificationV1AdminUnauthorized:
 		response := &SendSpecificUserTemplatedNotificationV1AdminResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendSpecificUserTemplatedNotificationV1AdminForbidden:
 		response := &SendSpecificUserTemplatedNotificationV1AdminResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendSpecificUserTemplatedNotificationV1AdminNotFound:
 		response := &SendSpecificUserTemplatedNotificationV1AdminResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1819,35 +1819,35 @@ func (a *Client) GetMyNotificationsShort(params *GetMyNotificationsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyNotificationsUnauthorized:
 		response := &GetMyNotificationsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyNotificationsForbidden:
 		response := &GetMyNotificationsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyNotificationsNotFound:
 		response := &GetMyNotificationsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyNotificationsInternalServerError:
 		response := &GetMyNotificationsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1908,28 +1908,28 @@ func (a *Client) GetTopicByNamespaceShort(params *GetTopicByNamespaceParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTopicByNamespaceForbidden:
 		response := &GetTopicByNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTopicByNamespaceNotFound:
 		response := &GetTopicByNamespaceResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTopicByNamespaceInternalServerError:
 		response := &GetTopicByNamespaceResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1992,28 +1992,28 @@ func (a *Client) CreateTopicShort(params *CreateTopicParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateTopicUnauthorized:
 		response := &CreateTopicResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateTopicForbidden:
 		response := &CreateTopicResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateTopicConflict:
 		response := &CreateTopicResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2074,28 +2074,28 @@ func (a *Client) GetTopicByTopicNameShort(params *GetTopicByTopicNameParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTopicByTopicNameForbidden:
 		response := &GetTopicByTopicNameResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTopicByTopicNameNotFound:
 		response := &GetTopicByTopicNameResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTopicByTopicNameInternalServerError:
 		response := &GetTopicByTopicNameResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2158,28 +2158,28 @@ func (a *Client) UpdateTopicByTopicNameShort(params *UpdateTopicByTopicNameParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateTopicByTopicNameForbidden:
 		response := &UpdateTopicByTopicNameResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateTopicByTopicNameNotFound:
 		response := &UpdateTopicByTopicNameResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateTopicByTopicNameInternalServerError:
 		response := &UpdateTopicByTopicNameResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2242,28 +2242,28 @@ func (a *Client) DeleteTopicByTopicNameShort(params *DeleteTopicByTopicNameParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTopicByTopicNameForbidden:
 		response := &DeleteTopicByTopicNameResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTopicByTopicNameNotFound:
 		response := &DeleteTopicByTopicNameResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteTopicByTopicNameInternalServerError:
 		response := &DeleteTopicByTopicNameResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2323,28 +2323,28 @@ func (a *Client) FreeFormNotificationByUserIDShort(params *FreeFormNotificationB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FreeFormNotificationByUserIDUnauthorized:
 		response := &FreeFormNotificationByUserIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FreeFormNotificationByUserIDForbidden:
 		response := &FreeFormNotificationByUserIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FreeFormNotificationByUserIDNotFound:
 		response := &FreeFormNotificationByUserIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2409,28 +2409,28 @@ func (a *Client) NotificationWithTemplateByUserIDShort(params *NotificationWithT
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *NotificationWithTemplateByUserIDUnauthorized:
 		response := &NotificationWithTemplateByUserIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *NotificationWithTemplateByUserIDForbidden:
 		response := &NotificationWithTemplateByUserIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *NotificationWithTemplateByUserIDNotFound:
 		response := &NotificationWithTemplateByUserIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

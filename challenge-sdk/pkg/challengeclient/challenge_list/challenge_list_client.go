@@ -91,21 +91,21 @@ func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetChallengesForbidden:
 		response := &GetChallengesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetChallengesInternalServerError:
 		response := &GetChallengesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,28 +167,28 @@ func (a *Client) PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetScheduledGoalsForbidden:
 		response := &PublicGetScheduledGoalsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetScheduledGoalsNotFound:
 		response := &PublicGetScheduledGoalsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetScheduledGoalsInternalServerError:
 		response := &PublicGetScheduledGoalsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

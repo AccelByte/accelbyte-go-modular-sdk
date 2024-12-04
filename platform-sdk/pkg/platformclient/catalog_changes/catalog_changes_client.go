@@ -159,14 +159,14 @@ func (a *Client) PublishAllShort(params *PublishAllParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishAllNotFound:
 		response := &PublishAllResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -231,21 +231,21 @@ func (a *Client) PublishSelectedShort(params *PublishSelectedParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishSelectedNotFound:
 		response := &PublishSelectedResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublishSelectedConflict:
 		response := &PublishSelectedResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -305,7 +305,7 @@ func (a *Client) SelectAllRecordsShort(params *SelectAllRecordsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -365,7 +365,7 @@ func (a *Client) SelectAllRecordsByCriteriaShort(params *SelectAllRecordsByCrite
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -483,7 +483,7 @@ func (a *Client) UnselectAllRecordsShort(params *UnselectAllRecordsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -543,7 +543,7 @@ func (a *Client) SelectRecordShort(params *SelectRecordParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -603,14 +603,14 @@ func (a *Client) UnselectRecordShort(params *UnselectRecordParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UnselectRecordConflict:
 		response := &UnselectRecordResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

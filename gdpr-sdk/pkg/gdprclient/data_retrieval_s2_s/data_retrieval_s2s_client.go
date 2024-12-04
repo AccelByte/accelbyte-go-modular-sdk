@@ -102,28 +102,28 @@ func (a *Client) S2SGetListFinishedPersonalDataRequestShort(params *S2SGetListFi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGetListFinishedPersonalDataRequestUnauthorized:
 		response := &S2SGetListFinishedPersonalDataRequestResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGetListFinishedPersonalDataRequestForbidden:
 		response := &S2SGetListFinishedPersonalDataRequestResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGetListFinishedPersonalDataRequestInternalServerError:
 		response := &S2SGetListFinishedPersonalDataRequestResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -190,21 +190,21 @@ func (a *Client) S2SGetDataRequestByRequestIDShort(params *S2SGetDataRequestByRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGetDataRequestByRequestIDNotFound:
 		response := &S2SGetDataRequestByRequestIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGetDataRequestByRequestIDInternalServerError:
 		response := &S2SGetDataRequestByRequestIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -276,28 +276,28 @@ func (a *Client) S2SRequestDataRetrievalShort(params *S2SRequestDataRetrievalPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SRequestDataRetrievalUnauthorized:
 		response := &S2SRequestDataRetrievalResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SRequestDataRetrievalNotFound:
 		response := &S2SRequestDataRetrievalResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SRequestDataRetrievalInternalServerError:
 		response := &S2SRequestDataRetrievalResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -365,28 +365,28 @@ func (a *Client) S2SGeneratePersonalDataURLShort(params *S2SGeneratePersonalData
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGeneratePersonalDataURLUnauthorized:
 		response := &S2SGeneratePersonalDataURLResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGeneratePersonalDataURLNotFound:
 		response := &S2SGeneratePersonalDataURLResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *S2SGeneratePersonalDataURLInternalServerError:
 		response := &S2SGeneratePersonalDataURLResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

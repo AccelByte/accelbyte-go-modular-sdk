@@ -127,21 +127,21 @@ func (a *Client) SearchChannelSpecificContentShort(params *SearchChannelSpecific
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchChannelSpecificContentUnauthorized:
 		response := &SearchChannelSpecificContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SearchChannelSpecificContentInternalServerError:
 		response := &SearchChannelSpecificContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -222,21 +222,21 @@ func (a *Client) PublicSearchContentShort(params *PublicSearchContentParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSearchContentUnauthorized:
 		response := &PublicSearchContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSearchContentInternalServerError:
 		response := &PublicSearchContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -298,21 +298,21 @@ func (a *Client) PublicGetContentBulkShort(params *PublicGetContentBulkParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetContentBulkUnauthorized:
 		response := &PublicGetContentBulkResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetContentBulkInternalServerError:
 		response := &PublicGetContentBulkResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -374,28 +374,28 @@ func (a *Client) PublicGetContentBulkByShareCodesShort(params *PublicGetContentB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetContentBulkByShareCodesUnauthorized:
 		response := &PublicGetContentBulkByShareCodesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetContentBulkByShareCodesForbidden:
 		response := &PublicGetContentBulkByShareCodesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetContentBulkByShareCodesInternalServerError:
 		response := &PublicGetContentBulkByShareCodesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -456,21 +456,21 @@ func (a *Client) PublicDownloadContentByShareCodeShort(params *PublicDownloadCon
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDownloadContentByShareCodeNotFound:
 		response := &PublicDownloadContentByShareCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDownloadContentByShareCodeInternalServerError:
 		response := &PublicDownloadContentByShareCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -531,21 +531,21 @@ func (a *Client) PublicDownloadContentByContentIDShort(params *PublicDownloadCon
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDownloadContentByContentIDNotFound:
 		response := &PublicDownloadContentByContentIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDownloadContentByContentIDInternalServerError:
 		response := &PublicDownloadContentByContentIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -610,21 +610,21 @@ func (a *Client) PublicDownloadContentPreviewShort(params *PublicDownloadContent
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDownloadContentPreviewNotFound:
 		response := &PublicDownloadContentPreviewResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDownloadContentPreviewInternalServerError:
 		response := &PublicDownloadContentPreviewResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -687,28 +687,28 @@ func (a *Client) CreateContentDirectShort(params *CreateContentDirectParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateContentDirectUnauthorized:
 		response := &CreateContentDirectResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateContentDirectForbidden:
 		response := &CreateContentDirectResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateContentDirectInternalServerError:
 		response := &CreateContentDirectResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -777,28 +777,28 @@ func (a *Client) CreateContentS3Short(params *CreateContentS3Params, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateContentS3Unauthorized:
 		response := &CreateContentS3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateContentS3Forbidden:
 		response := &CreateContentS3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateContentS3InternalServerError:
 		response := &CreateContentS3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -872,42 +872,42 @@ func (a *Client) PublicUpdateContentByShareCodeShort(params *PublicUpdateContent
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateContentByShareCodeUnauthorized:
 		response := &PublicUpdateContentByShareCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateContentByShareCodeForbidden:
 		response := &PublicUpdateContentByShareCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateContentByShareCodeNotFound:
 		response := &PublicUpdateContentByShareCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateContentByShareCodeConflict:
 		response := &PublicUpdateContentByShareCodeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateContentByShareCodeInternalServerError:
 		response := &PublicUpdateContentByShareCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -976,35 +976,35 @@ func (a *Client) UpdateContentS3Short(params *UpdateContentS3Params, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentS3Unauthorized:
 		response := &UpdateContentS3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentS3Forbidden:
 		response := &UpdateContentS3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentS3NotFound:
 		response := &UpdateContentS3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentS3InternalServerError:
 		response := &UpdateContentS3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1064,21 +1064,21 @@ func (a *Client) PublicDeleteContentByShareCodeShort(params *PublicDeleteContent
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeleteContentByShareCodeNotFound:
 		response := &PublicDeleteContentByShareCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicDeleteContentByShareCodeInternalServerError:
 		response := &PublicDeleteContentByShareCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1141,35 +1141,35 @@ func (a *Client) UpdateContentDirectShort(params *UpdateContentDirectParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentDirectUnauthorized:
 		response := &UpdateContentDirectResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentDirectForbidden:
 		response := &UpdateContentDirectResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentDirectNotFound:
 		response := &UpdateContentDirectResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentDirectInternalServerError:
 		response := &UpdateContentDirectResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1229,21 +1229,21 @@ func (a *Client) DeleteContentShort(params *DeleteContentParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteContentNotFound:
 		response := &DeleteContentResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteContentInternalServerError:
 		response := &DeleteContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1310,42 +1310,42 @@ func (a *Client) UpdateContentShareCodeShort(params *UpdateContentShareCodeParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentShareCodeUnauthorized:
 		response := &UpdateContentShareCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentShareCodeForbidden:
 		response := &UpdateContentShareCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentShareCodeNotFound:
 		response := &UpdateContentShareCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentShareCodeConflict:
 		response := &UpdateContentShareCodeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentShareCodeInternalServerError:
 		response := &UpdateContentShareCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1406,21 +1406,21 @@ func (a *Client) PublicGetUserContentShort(params *PublicGetUserContentParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserContentUnauthorized:
 		response := &PublicGetUserContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserContentInternalServerError:
 		response := &PublicGetUserContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1481,35 +1481,35 @@ func (a *Client) UpdateScreenshotsShort(params *UpdateScreenshotsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateScreenshotsUnauthorized:
 		response := &UpdateScreenshotsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateScreenshotsForbidden:
 		response := &UpdateScreenshotsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateScreenshotsNotFound:
 		response := &UpdateScreenshotsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateScreenshotsInternalServerError:
 		response := &UpdateScreenshotsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1574,35 +1574,35 @@ func (a *Client) UploadContentScreenshotShort(params *UploadContentScreenshotPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UploadContentScreenshotUnauthorized:
 		response := &UploadContentScreenshotResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UploadContentScreenshotForbidden:
 		response := &UploadContentScreenshotResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UploadContentScreenshotNotFound:
 		response := &UploadContentScreenshotResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UploadContentScreenshotInternalServerError:
 		response := &UploadContentScreenshotResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1662,35 +1662,35 @@ func (a *Client) DeleteContentScreenshotShort(params *DeleteContentScreenshotPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteContentScreenshotUnauthorized:
 		response := &DeleteContentScreenshotResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteContentScreenshotForbidden:
 		response := &DeleteContentScreenshotResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteContentScreenshotNotFound:
 		response := &DeleteContentScreenshotResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteContentScreenshotInternalServerError:
 		response := &DeleteContentScreenshotResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

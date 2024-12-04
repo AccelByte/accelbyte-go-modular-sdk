@@ -93,28 +93,28 @@ func (a *Client) RetrieveAllSSOLoginPlatformCredentialV3Short(params *RetrieveAl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllSSOLoginPlatformCredentialV3Forbidden:
 		response := &RetrieveAllSSOLoginPlatformCredentialV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllSSOLoginPlatformCredentialV3NotFound:
 		response := &RetrieveAllSSOLoginPlatformCredentialV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveAllSSOLoginPlatformCredentialV3InternalServerError:
 		response := &RetrieveAllSSOLoginPlatformCredentialV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -175,35 +175,35 @@ func (a *Client) RetrieveSSOLoginPlatformCredentialShort(params *RetrieveSSOLogi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveSSOLoginPlatformCredentialUnauthorized:
 		response := &RetrieveSSOLoginPlatformCredentialResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveSSOLoginPlatformCredentialForbidden:
 		response := &RetrieveSSOLoginPlatformCredentialResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveSSOLoginPlatformCredentialNotFound:
 		response := &RetrieveSSOLoginPlatformCredentialResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveSSOLoginPlatformCredentialInternalServerError:
 		response := &RetrieveSSOLoginPlatformCredentialResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -271,28 +271,28 @@ func (a *Client) AddSSOLoginPlatformCredentialShort(params *AddSSOLoginPlatformC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddSSOLoginPlatformCredentialUnauthorized:
 		response := &AddSSOLoginPlatformCredentialResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddSSOLoginPlatformCredentialForbidden:
 		response := &AddSSOLoginPlatformCredentialResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddSSOLoginPlatformCredentialInternalServerError:
 		response := &AddSSOLoginPlatformCredentialResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -352,35 +352,35 @@ func (a *Client) DeleteSSOLoginPlatformCredentialV3Short(params *DeleteSSOLoginP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSSOLoginPlatformCredentialV3Unauthorized:
 		response := &DeleteSSOLoginPlatformCredentialV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSSOLoginPlatformCredentialV3Forbidden:
 		response := &DeleteSSOLoginPlatformCredentialV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSSOLoginPlatformCredentialV3NotFound:
 		response := &DeleteSSOLoginPlatformCredentialV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSSOLoginPlatformCredentialV3InternalServerError:
 		response := &DeleteSSOLoginPlatformCredentialV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -441,35 +441,35 @@ func (a *Client) UpdateSSOPlatformCredentialShort(params *UpdateSSOPlatformCrede
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSSOPlatformCredentialUnauthorized:
 		response := &UpdateSSOPlatformCredentialResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSSOPlatformCredentialForbidden:
 		response := &UpdateSSOPlatformCredentialResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSSOPlatformCredentialNotFound:
 		response := &UpdateSSOPlatformCredentialResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateSSOPlatformCredentialInternalServerError:
 		response := &UpdateSSOPlatformCredentialResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

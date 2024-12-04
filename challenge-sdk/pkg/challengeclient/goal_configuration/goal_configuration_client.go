@@ -94,28 +94,28 @@ func (a *Client) AdminGetGoalsShort(params *AdminGetGoalsParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGoalsForbidden:
 		response := &AdminGetGoalsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGoalsNotFound:
 		response := &AdminGetGoalsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGoalsInternalServerError:
 		response := &AdminGetGoalsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -209,49 +209,49 @@ func (a *Client) AdminCreateGoalShort(params *AdminCreateGoalParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateGoalUnauthorized:
 		response := &AdminCreateGoalResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateGoalForbidden:
 		response := &AdminCreateGoalResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateGoalNotFound:
 		response := &AdminCreateGoalResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateGoalConflict:
 		response := &AdminCreateGoalResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateGoalUnprocessableEntity:
 		response := &AdminCreateGoalResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateGoalInternalServerError:
 		response := &AdminCreateGoalResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -313,28 +313,28 @@ func (a *Client) AdminGetGoalShort(params *AdminGetGoalParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGoalForbidden:
 		response := &AdminGetGoalResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGoalNotFound:
 		response := &AdminGetGoalResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGoalInternalServerError:
 		response := &AdminGetGoalResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -423,28 +423,28 @@ func (a *Client) AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGoalsNotFound:
 		response := &AdminUpdateGoalsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGoalsUnprocessableEntity:
 		response := &AdminUpdateGoalsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateGoalsInternalServerError:
 		response := &AdminUpdateGoalsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -505,21 +505,21 @@ func (a *Client) AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteGoalNotFound:
 		response := &AdminDeleteGoalResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteGoalInternalServerError:
 		response := &AdminDeleteGoalResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

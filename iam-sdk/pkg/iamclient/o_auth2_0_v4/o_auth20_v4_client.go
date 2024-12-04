@@ -109,28 +109,28 @@ func (a *Client) AuthenticationWithPlatformLinkV4Short(params *AuthenticationWit
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AuthenticationWithPlatformLinkV4Unauthorized:
 		response := &AuthenticationWithPlatformLinkV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AuthenticationWithPlatformLinkV4Forbidden:
 		response := &AuthenticationWithPlatformLinkV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AuthenticationWithPlatformLinkV4Conflict:
 		response := &AuthenticationWithPlatformLinkV4Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -200,21 +200,21 @@ func (a *Client) GenerateTokenByNewHeadlessAccountV4Short(params *GenerateTokenB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GenerateTokenByNewHeadlessAccountV4Unauthorized:
 		response := &GenerateTokenByNewHeadlessAccountV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GenerateTokenByNewHeadlessAccountV4NotFound:
 		response := &GenerateTokenByNewHeadlessAccountV4Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -285,7 +285,7 @@ func (a *Client) Verify2FACodeV4Short(params *Verify2FACodeV4Params, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -425,28 +425,28 @@ func (a *Client) PlatformTokenGrantV4Short(params *PlatformTokenGrantV4Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenGrantV4Unauthorized:
 		response := &PlatformTokenGrantV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenGrantV4Forbidden:
 		response := &PlatformTokenGrantV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenGrantV4ServiceUnavailable:
 		response := &PlatformTokenGrantV4Response{}
 		response.Error503 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -539,28 +539,28 @@ func (a *Client) SimultaneousLoginV4Short(params *SimultaneousLoginV4Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SimultaneousLoginV4Unauthorized:
 		response := &SimultaneousLoginV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SimultaneousLoginV4Conflict:
 		response := &SimultaneousLoginV4Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SimultaneousLoginV4InternalServerError:
 		response := &SimultaneousLoginV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -683,28 +683,28 @@ func (a *Client) TokenGrantV4Short(params *TokenGrantV4Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenGrantV4Unauthorized:
 		response := &TokenGrantV4Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenGrantV4Forbidden:
 		response := &TokenGrantV4Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenGrantV4TooManyRequests:
 		response := &TokenGrantV4Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

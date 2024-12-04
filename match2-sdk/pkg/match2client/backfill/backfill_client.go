@@ -94,42 +94,42 @@ func (a *Client) CreateBackfillShort(params *CreateBackfillParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateBackfillUnauthorized:
 		response := &CreateBackfillResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateBackfillForbidden:
 		response := &CreateBackfillResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateBackfillNotFound:
 		response := &CreateBackfillResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateBackfillConflict:
 		response := &CreateBackfillResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateBackfillInternalServerError:
 		response := &CreateBackfillResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -190,35 +190,35 @@ func (a *Client) GetBackfillProposalShort(params *GetBackfillProposalParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBackfillProposalUnauthorized:
 		response := &GetBackfillProposalResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBackfillProposalForbidden:
 		response := &GetBackfillProposalResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBackfillProposalNotFound:
 		response := &GetBackfillProposalResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBackfillProposalInternalServerError:
 		response := &GetBackfillProposalResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -279,35 +279,35 @@ func (a *Client) GetBackfillShort(params *GetBackfillParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBackfillUnauthorized:
 		response := &GetBackfillResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBackfillForbidden:
 		response := &GetBackfillResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBackfillNotFound:
 		response := &GetBackfillResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetBackfillInternalServerError:
 		response := &GetBackfillResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -367,28 +367,28 @@ func (a *Client) DeleteBackfillShort(params *DeleteBackfillParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteBackfillForbidden:
 		response := &DeleteBackfillResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteBackfillNotFound:
 		response := &DeleteBackfillResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteBackfillInternalServerError:
 		response := &DeleteBackfillResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -451,35 +451,35 @@ func (a *Client) AcceptBackfillShort(params *AcceptBackfillParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptBackfillUnauthorized:
 		response := &AcceptBackfillResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptBackfillForbidden:
 		response := &AcceptBackfillResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptBackfillNotFound:
 		response := &AcceptBackfillResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AcceptBackfillInternalServerError:
 		response := &AcceptBackfillResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -539,35 +539,35 @@ func (a *Client) RejectBackfillShort(params *RejectBackfillParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectBackfillUnauthorized:
 		response := &RejectBackfillResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectBackfillForbidden:
 		response := &RejectBackfillResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectBackfillNotFound:
 		response := &RejectBackfillResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RejectBackfillInternalServerError:
 		response := &RejectBackfillResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

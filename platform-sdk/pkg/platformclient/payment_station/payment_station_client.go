@@ -157,21 +157,21 @@ func (a *Client) PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPaymentURLForbidden:
 		response := &PublicGetPaymentURLResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPaymentURLNotFound:
 		response := &PublicGetPaymentURLResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -234,7 +234,7 @@ func (a *Client) PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -297,14 +297,14 @@ func (a *Client) PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPayment
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUnpaidPaymentOrderConflict:
 		response := &PublicGetUnpaidPaymentOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -367,21 +367,21 @@ func (a *Client) PayShort(params *PayParams) (*PayResponse, error) {
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PayNotFound:
 		response := &PayResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PayConflict:
 		response := &PayResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -444,7 +444,7 @@ func (a *Client) PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPayme
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -699,14 +699,14 @@ func (a *Client) GetPaymentTaxValueShort(params *GetPaymentTaxValueParams) (*Get
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPaymentTaxValueNotFound:
 		response := &GetPaymentTaxValueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

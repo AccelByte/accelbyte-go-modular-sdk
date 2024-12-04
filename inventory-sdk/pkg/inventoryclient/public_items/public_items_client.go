@@ -96,21 +96,21 @@ func (a *Client) PublicConsumeMyItemShort(params *PublicConsumeMyItemParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicConsumeMyItemNotFound:
 		response := &PublicConsumeMyItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicConsumeMyItemInternalServerError:
 		response := &PublicConsumeMyItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -173,14 +173,14 @@ func (a *Client) PublicListItemsShort(params *PublicListItemsParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListItemsInternalServerError:
 		response := &PublicListItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -242,21 +242,21 @@ func (a *Client) PublicBulkUpdateMyItemsShort(params *PublicBulkUpdateMyItemsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkUpdateMyItemsNotFound:
 		response := &PublicBulkUpdateMyItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkUpdateMyItemsInternalServerError:
 		response := &PublicBulkUpdateMyItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -318,21 +318,21 @@ func (a *Client) PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkRemoveMyItemsNotFound:
 		response := &PublicBulkRemoveMyItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkRemoveMyItemsInternalServerError:
 		response := &PublicBulkRemoveMyItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -394,14 +394,14 @@ func (a *Client) PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicMoveMyItemsInternalServerError:
 		response := &PublicMoveMyItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -463,21 +463,21 @@ func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetItemNotFound:
 		response := &PublicGetItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetItemInternalServerError:
 		response := &PublicGetItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

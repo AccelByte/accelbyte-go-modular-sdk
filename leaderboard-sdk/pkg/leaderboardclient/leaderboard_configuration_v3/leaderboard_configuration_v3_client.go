@@ -99,28 +99,28 @@ func (a *Client) GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboard
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationsAdminV3Unauthorized:
 		response := &GetLeaderboardConfigurationsAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationsAdminV3Forbidden:
 		response := &GetLeaderboardConfigurationsAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationsAdminV3InternalServerError:
 		response := &GetLeaderboardConfigurationsAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -209,35 +209,35 @@ func (a *Client) CreateLeaderboardConfigurationAdminV3Short(params *CreateLeader
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateLeaderboardConfigurationAdminV3Unauthorized:
 		response := &CreateLeaderboardConfigurationAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateLeaderboardConfigurationAdminV3Forbidden:
 		response := &CreateLeaderboardConfigurationAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateLeaderboardConfigurationAdminV3Conflict:
 		response := &CreateLeaderboardConfigurationAdminV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateLeaderboardConfigurationAdminV3InternalServerError:
 		response := &CreateLeaderboardConfigurationAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -300,28 +300,28 @@ func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteBulkLeaderboardConfigurationAdminV3Unauthorized:
 		response := &DeleteBulkLeaderboardConfigurationAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteBulkLeaderboardConfigurationAdminV3Forbidden:
 		response := &DeleteBulkLeaderboardConfigurationAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteBulkLeaderboardConfigurationAdminV3InternalServerError:
 		response := &DeleteBulkLeaderboardConfigurationAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -384,35 +384,35 @@ func (a *Client) GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationAdminV3Unauthorized:
 		response := &GetLeaderboardConfigurationAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationAdminV3Forbidden:
 		response := &GetLeaderboardConfigurationAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationAdminV3NotFound:
 		response := &GetLeaderboardConfigurationAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationAdminV3InternalServerError:
 		response := &GetLeaderboardConfigurationAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -501,42 +501,42 @@ func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeader
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateLeaderboardConfigurationAdminV3Unauthorized:
 		response := &UpdateLeaderboardConfigurationAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateLeaderboardConfigurationAdminV3Forbidden:
 		response := &UpdateLeaderboardConfigurationAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateLeaderboardConfigurationAdminV3NotFound:
 		response := &UpdateLeaderboardConfigurationAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateLeaderboardConfigurationAdminV3Conflict:
 		response := &UpdateLeaderboardConfigurationAdminV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateLeaderboardConfigurationAdminV3InternalServerError:
 		response := &UpdateLeaderboardConfigurationAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -598,35 +598,35 @@ func (a *Client) DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeader
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteLeaderboardConfigurationAdminV3Unauthorized:
 		response := &DeleteLeaderboardConfigurationAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteLeaderboardConfigurationAdminV3Forbidden:
 		response := &DeleteLeaderboardConfigurationAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteLeaderboardConfigurationAdminV3NotFound:
 		response := &DeleteLeaderboardConfigurationAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteLeaderboardConfigurationAdminV3InternalServerError:
 		response := &DeleteLeaderboardConfigurationAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -703,35 +703,35 @@ func (a *Client) HardDeleteLeaderboardAdminV3Short(params *HardDeleteLeaderboard
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *HardDeleteLeaderboardAdminV3Unauthorized:
 		response := &HardDeleteLeaderboardAdminV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *HardDeleteLeaderboardAdminV3Forbidden:
 		response := &HardDeleteLeaderboardAdminV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *HardDeleteLeaderboardAdminV3NotFound:
 		response := &HardDeleteLeaderboardAdminV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *HardDeleteLeaderboardAdminV3InternalServerError:
 		response := &HardDeleteLeaderboardAdminV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -794,28 +794,28 @@ func (a *Client) GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationsPublicV3Unauthorized:
 		response := &GetLeaderboardConfigurationsPublicV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationsPublicV3Forbidden:
 		response := &GetLeaderboardConfigurationsPublicV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationsPublicV3InternalServerError:
 		response := &GetLeaderboardConfigurationsPublicV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -878,35 +878,35 @@ func (a *Client) GetLeaderboardConfigurationPublicV3Short(params *GetLeaderboard
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationPublicV3Unauthorized:
 		response := &GetLeaderboardConfigurationPublicV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationPublicV3Forbidden:
 		response := &GetLeaderboardConfigurationPublicV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationPublicV3NotFound:
 		response := &GetLeaderboardConfigurationPublicV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLeaderboardConfigurationPublicV3InternalServerError:
 		response := &GetLeaderboardConfigurationPublicV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

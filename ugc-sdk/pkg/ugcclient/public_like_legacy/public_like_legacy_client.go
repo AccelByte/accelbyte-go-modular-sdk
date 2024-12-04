@@ -106,21 +106,21 @@ func (a *Client) GetLikedContentShort(params *GetLikedContentParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLikedContentUnauthorized:
 		response := &GetLikedContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLikedContentInternalServerError:
 		response := &GetLikedContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -181,28 +181,28 @@ func (a *Client) UpdateContentLikeStatusShort(params *UpdateContentLikeStatusPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentLikeStatusUnauthorized:
 		response := &UpdateContentLikeStatusResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentLikeStatusNotFound:
 		response := &UpdateContentLikeStatusResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentLikeStatusInternalServerError:
 		response := &UpdateContentLikeStatusResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

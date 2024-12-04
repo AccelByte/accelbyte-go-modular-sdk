@@ -99,35 +99,35 @@ func (a *Client) GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppListV2Unauthorized:
 		response := &GetAppListV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppListV2Forbidden:
 		response := &GetAppListV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppListV2NotFound:
 		response := &GetAppListV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppListV2InternalServerError:
 		response := &GetAppListV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -214,28 +214,28 @@ func (a *Client) GetAppV2Short(params *GetAppV2Params, authInfo runtime.ClientAu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppV2Forbidden:
 		response := &GetAppV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppV2NotFound:
 		response := &GetAppV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAppV2InternalServerError:
 		response := &GetAppV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -322,42 +322,42 @@ func (a *Client) CreateAppV2Short(params *CreateAppV2Params, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateAppV2Unauthorized:
 		response := &CreateAppV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateAppV2Forbidden:
 		response := &CreateAppV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateAppV2NotFound:
 		response := &CreateAppV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateAppV2Conflict:
 		response := &CreateAppV2Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateAppV2InternalServerError:
 		response := &CreateAppV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -422,35 +422,35 @@ func (a *Client) DeleteAppV2Short(params *DeleteAppV2Params, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAppV2Unauthorized:
 		response := &DeleteAppV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAppV2Forbidden:
 		response := &DeleteAppV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAppV2NotFound:
 		response := &DeleteAppV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAppV2InternalServerError:
 		response := &DeleteAppV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -513,35 +513,35 @@ func (a *Client) UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppV2Unauthorized:
 		response := &UpdateAppV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppV2Forbidden:
 		response := &UpdateAppV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppV2NotFound:
 		response := &UpdateAppV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppV2InternalServerError:
 		response := &UpdateAppV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -604,35 +604,35 @@ func (a *Client) UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppResourcesV2Unauthorized:
 		response := &UpdateAppResourcesV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppResourcesV2Forbidden:
 		response := &UpdateAppResourcesV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppResourcesV2NotFound:
 		response := &UpdateAppResourcesV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppResourcesV2InternalServerError:
 		response := &UpdateAppResourcesV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -694,35 +694,35 @@ func (a *Client) UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppRes
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppResourcesResourceLimitFormV2Unauthorized:
 		response := &UpdateAppResourcesResourceLimitFormV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppResourcesResourceLimitFormV2Forbidden:
 		response := &UpdateAppResourcesResourceLimitFormV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppResourcesResourceLimitFormV2NotFound:
 		response := &UpdateAppResourcesResourceLimitFormV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateAppResourcesResourceLimitFormV2InternalServerError:
 		response := &UpdateAppResourcesResourceLimitFormV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -784,35 +784,35 @@ func (a *Client) StartAppV2Short(params *StartAppV2Params, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StartAppV2Unauthorized:
 		response := &StartAppV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StartAppV2Forbidden:
 		response := &StartAppV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StartAppV2NotFound:
 		response := &StartAppV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StartAppV2InternalServerError:
 		response := &StartAppV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -874,35 +874,35 @@ func (a *Client) StopAppV2Short(params *StopAppV2Params, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StopAppV2Unauthorized:
 		response := &StopAppV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StopAppV2Forbidden:
 		response := &StopAppV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StopAppV2NotFound:
 		response := &StopAppV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *StopAppV2InternalServerError:
 		response := &StopAppV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -103,21 +103,21 @@ func (a *Client) CreateModerationRuleShort(params *CreateModerationRuleParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateModerationRuleConflict:
 		response := &CreateModerationRuleResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateModerationRuleInternalServerError:
 		response := &CreateModerationRuleResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -186,28 +186,28 @@ func (a *Client) UpdateModerationRuleShort(params *UpdateModerationRuleParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateModerationRuleNotFound:
 		response := &UpdateModerationRuleResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateModerationRuleConflict:
 		response := &UpdateModerationRuleResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateModerationRuleInternalServerError:
 		response := &UpdateModerationRuleResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -267,14 +267,14 @@ func (a *Client) DeleteModerationRuleShort(params *DeleteModerationRuleParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteModerationRuleInternalServerError:
 		response := &DeleteModerationRuleResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -334,21 +334,21 @@ func (a *Client) UpdateModerationRuleStatusShort(params *UpdateModerationRuleSta
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateModerationRuleStatusNotFound:
 		response := &UpdateModerationRuleStatusResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateModerationRuleStatusInternalServerError:
 		response := &UpdateModerationRuleStatusResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -409,21 +409,21 @@ func (a *Client) GetModerationRulesShort(params *GetModerationRulesParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetModerationRulesNotFound:
 		response := &GetModerationRulesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetModerationRulesInternalServerError:
 		response := &GetModerationRulesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -484,14 +484,14 @@ func (a *Client) GetModerationRuleDetailsShort(params *GetModerationRuleDetailsP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetModerationRuleDetailsInternalServerError:
 		response := &GetModerationRuleDetailsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

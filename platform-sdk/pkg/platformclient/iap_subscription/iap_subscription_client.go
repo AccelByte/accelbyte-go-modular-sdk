@@ -373,7 +373,7 @@ func (a *Client) GetThirdPartySubscriptionDetailsShort(params *GetThirdPartySubs
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -488,14 +488,14 @@ func (a *Client) SyncSubscriptionTransactionShort(params *SyncSubscriptionTransa
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncSubscriptionTransactionNotFound:
 		response := &SyncSubscriptionTransactionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -557,7 +557,7 @@ func (a *Client) GetThirdPartyUserSubscriptionDetailsShort(params *GetThirdParty
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -618,14 +618,14 @@ func (a *Client) SyncSubscriptionShort(params *SyncSubscriptionParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncSubscriptionNotFound:
 		response := &SyncSubscriptionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -94,7 +94,7 @@ func (a *Client) DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -154,7 +154,7 @@ func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -214,7 +214,7 @@ func (a *Client) SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

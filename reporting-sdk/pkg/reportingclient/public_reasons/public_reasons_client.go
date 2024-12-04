@@ -90,7 +90,7 @@ func (a *Client) PublicListReasonGroupsShort(params *PublicListReasonGroupsParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -150,14 +150,14 @@ func (a *Client) PublicGetReasonsShort(params *PublicGetReasonsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetReasonsInternalServerError:
 		response := &PublicGetReasonsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

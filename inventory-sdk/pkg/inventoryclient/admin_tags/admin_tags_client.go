@@ -95,14 +95,14 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListTagsInternalServerError:
 		response := &AdminListTagsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,21 +168,21 @@ func (a *Client) AdminCreateTagShort(params *AdminCreateTagParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateTagConflict:
 		response := &AdminCreateTagResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateTagInternalServerError:
 		response := &AdminCreateTagResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -246,14 +246,14 @@ func (a *Client) AdminDeleteTagShort(params *AdminDeleteTagParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTagInternalServerError:
 		response := &AdminDeleteTagResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

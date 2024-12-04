@@ -103,14 +103,14 @@ func (a *Client) GetCountriesShort(params *GetCountriesParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCountriesUnauthorized:
 		response := &GetCountriesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -175,28 +175,28 @@ func (a *Client) GetCountryGroupsShort(params *GetCountryGroupsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCountryGroupsUnauthorized:
 		response := &GetCountryGroupsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCountryGroupsForbidden:
 		response := &GetCountryGroupsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCountryGroupsNotFound:
 		response := &GetCountryGroupsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -262,28 +262,28 @@ func (a *Client) AddCountryGroupShort(params *AddCountryGroupParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddCountryGroupUnauthorized:
 		response := &AddCountryGroupResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddCountryGroupForbidden:
 		response := &AddCountryGroupResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddCountryGroupConflict:
 		response := &AddCountryGroupResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -351,28 +351,28 @@ func (a *Client) UpdateCountryGroupShort(params *UpdateCountryGroupParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCountryGroupUnauthorized:
 		response := &UpdateCountryGroupResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCountryGroupForbidden:
 		response := &UpdateCountryGroupResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCountryGroupNotFound:
 		response := &UpdateCountryGroupResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -432,28 +432,28 @@ func (a *Client) DeleteCountryGroupShort(params *DeleteCountryGroupParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteCountryGroupUnauthorized:
 		response := &DeleteCountryGroupResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteCountryGroupForbidden:
 		response := &DeleteCountryGroupResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteCountryGroupNotFound:
 		response := &DeleteCountryGroupResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -518,14 +518,14 @@ func (a *Client) GetLanguagesShort(params *GetLanguagesParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLanguagesUnauthorized:
 		response := &GetLanguagesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -590,14 +590,14 @@ func (a *Client) GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTimeZonesUnauthorized:
 		response := &GetTimeZonesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -713,7 +713,7 @@ func (a *Client) PublicGetCountriesShort(params *PublicGetCountriesParams) (*Pub
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -776,7 +776,7 @@ func (a *Client) PublicGetLanguagesShort(params *PublicGetLanguagesParams) (*Pub
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -839,7 +839,7 @@ func (a *Client) PublicGetTimeZonesShort(params *PublicGetTimeZonesParams) (*Pub
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

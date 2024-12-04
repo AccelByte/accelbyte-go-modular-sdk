@@ -159,7 +159,7 @@ func (a *Client) UpdateLootBoxPluginConfigShort(params *UpdateLootBoxPluginConfi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -274,7 +274,7 @@ func (a *Client) UplodLootBoxPluginConfigCertShort(params *UplodLootBoxPluginCon
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -444,7 +444,7 @@ func (a *Client) UpdateSectionPluginConfigShort(params *UpdateSectionPluginConfi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -559,7 +559,7 @@ func (a *Client) UploadSectionPluginConfigCertShort(params *UploadSectionPluginC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -675,7 +675,7 @@ func (a *Client) UpdateServicePluginConfigShort(params *UpdateServicePluginConfi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -844,7 +844,7 @@ func (a *Client) UpdateRevocationPluginConfigShort(params *UpdateRevocationPlugi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -959,7 +959,7 @@ func (a *Client) UploadRevocationPluginConfigCertShort(params *UploadRevocationP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

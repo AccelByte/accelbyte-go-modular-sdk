@@ -271,7 +271,7 @@ func (a *Client) GetPaymentOrderShort(params *GetPaymentOrderParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -335,21 +335,21 @@ func (a *Client) ChargePaymentOrderShort(params *ChargePaymentOrderParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ChargePaymentOrderNotFound:
 		response := &ChargePaymentOrderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ChargePaymentOrderConflict:
 		response := &ChargePaymentOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -413,14 +413,14 @@ func (a *Client) SimulatePaymentOrderNotificationShort(params *SimulatePaymentOr
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SimulatePaymentOrderNotificationNotFound:
 		response := &SimulatePaymentOrderNotificationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -484,7 +484,7 @@ func (a *Client) GetPaymentOrderChargeStatusShort(params *GetPaymentOrderChargeS
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -567,35 +567,35 @@ func (a *Client) CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserPaymentOrderForbidden:
 		response := &CreateUserPaymentOrderResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserPaymentOrderNotFound:
 		response := &CreateUserPaymentOrderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserPaymentOrderConflict:
 		response := &CreateUserPaymentOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserPaymentOrderUnprocessableEntity:
 		response := &CreateUserPaymentOrderResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -656,21 +656,21 @@ func (a *Client) RefundUserPaymentOrderShort(params *RefundUserPaymentOrderParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RefundUserPaymentOrderConflict:
 		response := &RefundUserPaymentOrderResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RefundUserPaymentOrderUnprocessableEntity:
 		response := &RefundUserPaymentOrderResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

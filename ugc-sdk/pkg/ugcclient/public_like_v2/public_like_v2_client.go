@@ -90,21 +90,21 @@ func (a *Client) PublicListContentLikeV2Short(params *PublicListContentLikeV2Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListContentLikeV2Unauthorized:
 		response := &PublicListContentLikeV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListContentLikeV2InternalServerError:
 		response := &PublicListContentLikeV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -165,35 +165,35 @@ func (a *Client) UpdateContentLikeStatusV2Short(params *UpdateContentLikeStatusV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentLikeStatusV2Unauthorized:
 		response := &UpdateContentLikeStatusV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentLikeStatusV2NotFound:
 		response := &UpdateContentLikeStatusV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentLikeStatusV2TooManyRequests:
 		response := &UpdateContentLikeStatusV2Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateContentLikeStatusV2InternalServerError:
 		response := &UpdateContentLikeStatusV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

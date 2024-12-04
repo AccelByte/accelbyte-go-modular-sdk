@@ -97,28 +97,28 @@ func (a *Client) ArtifactGetShort(params *ArtifactGetParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactGetUnauthorized:
 		response := &ArtifactGetResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactGetForbidden:
 		response := &ArtifactGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactGetInternalServerError:
 		response := &ArtifactGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -178,28 +178,28 @@ func (a *Client) ArtifactBulkDeleteShort(params *ArtifactBulkDeleteParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactBulkDeleteUnauthorized:
 		response := &ArtifactBulkDeleteResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactBulkDeleteForbidden:
 		response := &ArtifactBulkDeleteResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactBulkDeleteInternalServerError:
 		response := &ArtifactBulkDeleteResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -260,21 +260,21 @@ func (a *Client) ArtifactUsageGetShort(params *ArtifactUsageGetParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactUsageGetForbidden:
 		response := &ArtifactUsageGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactUsageGetInternalServerError:
 		response := &ArtifactUsageGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -334,35 +334,35 @@ func (a *Client) ArtifactDeleteShort(params *ArtifactDeleteParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactDeleteUnauthorized:
 		response := &ArtifactDeleteResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactDeleteForbidden:
 		response := &ArtifactDeleteResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactDeleteNotFound:
 		response := &ArtifactDeleteResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactDeleteInternalServerError:
 		response := &ArtifactDeleteResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -423,35 +423,35 @@ func (a *Client) ArtifactGetURLShort(params *ArtifactGetURLParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactGetURLUnauthorized:
 		response := &ArtifactGetURLResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactGetURLForbidden:
 		response := &ArtifactGetURLResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactGetURLNotFound:
 		response := &ArtifactGetURLResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ArtifactGetURLInternalServerError:
 		response := &ArtifactGetURLResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -512,35 +512,35 @@ func (a *Client) FleetArtifactSamplingRulesGetShort(params *FleetArtifactSamplin
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetArtifactSamplingRulesGetUnauthorized:
 		response := &FleetArtifactSamplingRulesGetResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetArtifactSamplingRulesGetForbidden:
 		response := &FleetArtifactSamplingRulesGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetArtifactSamplingRulesGetNotFound:
 		response := &FleetArtifactSamplingRulesGetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetArtifactSamplingRulesGetInternalServerError:
 		response := &FleetArtifactSamplingRulesGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -601,35 +601,35 @@ func (a *Client) FleetArtifactSamplingRulesSetShort(params *FleetArtifactSamplin
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetArtifactSamplingRulesSetUnauthorized:
 		response := &FleetArtifactSamplingRulesSetResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetArtifactSamplingRulesSetForbidden:
 		response := &FleetArtifactSamplingRulesSetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetArtifactSamplingRulesSetNotFound:
 		response := &FleetArtifactSamplingRulesSetResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetArtifactSamplingRulesSetInternalServerError:
 		response := &FleetArtifactSamplingRulesSetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -91,21 +91,21 @@ func (a *Client) AnonymizeUserProfileShort(params *AnonymizeUserProfileParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AnonymizeUserProfileUnauthorized:
 		response := &AnonymizeUserProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AnonymizeUserProfileForbidden:
 		response := &AnonymizeUserProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

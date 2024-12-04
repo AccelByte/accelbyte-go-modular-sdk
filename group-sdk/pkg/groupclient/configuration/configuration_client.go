@@ -98,35 +98,35 @@ func (a *Client) ListGroupConfigurationAdminV1Short(params *ListGroupConfigurati
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListGroupConfigurationAdminV1Unauthorized:
 		response := &ListGroupConfigurationAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListGroupConfigurationAdminV1Forbidden:
 		response := &ListGroupConfigurationAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListGroupConfigurationAdminV1NotFound:
 		response := &ListGroupConfigurationAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListGroupConfigurationAdminV1InternalServerError:
 		response := &ListGroupConfigurationAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -197,35 +197,35 @@ func (a *Client) CreateGroupConfigurationAdminV1Short(params *CreateGroupConfigu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGroupConfigurationAdminV1Unauthorized:
 		response := &CreateGroupConfigurationAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGroupConfigurationAdminV1Forbidden:
 		response := &CreateGroupConfigurationAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGroupConfigurationAdminV1Conflict:
 		response := &CreateGroupConfigurationAdminV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGroupConfigurationAdminV1InternalServerError:
 		response := &CreateGroupConfigurationAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -294,28 +294,28 @@ func (a *Client) InitiateGroupConfigurationAdminV1Short(params *InitiateGroupCon
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InitiateGroupConfigurationAdminV1Forbidden:
 		response := &InitiateGroupConfigurationAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InitiateGroupConfigurationAdminV1Conflict:
 		response := &InitiateGroupConfigurationAdminV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InitiateGroupConfigurationAdminV1InternalServerError:
 		response := &InitiateGroupConfigurationAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -378,35 +378,35 @@ func (a *Client) GetGroupConfigurationAdminV1Short(params *GetGroupConfiguration
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupConfigurationAdminV1Unauthorized:
 		response := &GetGroupConfigurationAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupConfigurationAdminV1Forbidden:
 		response := &GetGroupConfigurationAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupConfigurationAdminV1NotFound:
 		response := &GetGroupConfigurationAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupConfigurationAdminV1InternalServerError:
 		response := &GetGroupConfigurationAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -468,35 +468,35 @@ func (a *Client) DeleteGroupConfigurationV1Short(params *DeleteGroupConfiguratio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupConfigurationV1Unauthorized:
 		response := &DeleteGroupConfigurationV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupConfigurationV1Forbidden:
 		response := &DeleteGroupConfigurationV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupConfigurationV1NotFound:
 		response := &DeleteGroupConfigurationV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupConfigurationV1InternalServerError:
 		response := &DeleteGroupConfigurationV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -559,35 +559,35 @@ func (a *Client) UpdateGroupConfigurationAdminV1Short(params *UpdateGroupConfigu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupConfigurationAdminV1Unauthorized:
 		response := &UpdateGroupConfigurationAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupConfigurationAdminV1Forbidden:
 		response := &UpdateGroupConfigurationAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupConfigurationAdminV1NotFound:
 		response := &UpdateGroupConfigurationAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupConfigurationAdminV1InternalServerError:
 		response := &UpdateGroupConfigurationAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -650,35 +650,35 @@ func (a *Client) UpdateGroupConfigurationGlobalRuleAdminV1Short(params *UpdateGr
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupConfigurationGlobalRuleAdminV1Unauthorized:
 		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupConfigurationGlobalRuleAdminV1Forbidden:
 		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupConfigurationGlobalRuleAdminV1NotFound:
 		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupConfigurationGlobalRuleAdminV1InternalServerError:
 		response := &UpdateGroupConfigurationGlobalRuleAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -741,35 +741,35 @@ func (a *Client) DeleteGroupConfigurationGlobalRuleAdminV1Short(params *DeleteGr
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupConfigurationGlobalRuleAdminV1Unauthorized:
 		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupConfigurationGlobalRuleAdminV1Forbidden:
 		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupConfigurationGlobalRuleAdminV1NotFound:
 		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupConfigurationGlobalRuleAdminV1InternalServerError:
 		response := &DeleteGroupConfigurationGlobalRuleAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

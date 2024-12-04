@@ -118,28 +118,28 @@ func (a *Client) GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserProfileInfoByPublicIDUnauthorized:
 		response := &GetUserProfileInfoByPublicIDResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserProfileInfoByPublicIDForbidden:
 		response := &GetUserProfileInfoByPublicIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserProfileInfoByPublicIDNotFound:
 		response := &GetUserProfileInfoByPublicIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -205,7 +205,7 @@ func (a *Client) AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserPro
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -270,28 +270,28 @@ func (a *Client) GetUserProfileInfoShort(params *GetUserProfileInfoParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserProfileInfoUnauthorized:
 		response := &GetUserProfileInfoResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserProfileInfoForbidden:
 		response := &GetUserProfileInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserProfileInfoNotFound:
 		response := &GetUserProfileInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -356,28 +356,28 @@ func (a *Client) UpdateUserProfileShort(params *UpdateUserProfileParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserProfileUnauthorized:
 		response := &UpdateUserProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserProfileForbidden:
 		response := &UpdateUserProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserProfileNotFound:
 		response := &UpdateUserProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -442,28 +442,28 @@ func (a *Client) DeleteUserProfileShort(params *DeleteUserProfileParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserProfileUnauthorized:
 		response := &DeleteUserProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserProfileForbidden:
 		response := &DeleteUserProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserProfileNotFound:
 		response := &DeleteUserProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -528,21 +528,21 @@ func (a *Client) GetCustomAttributesInfoShort(params *GetCustomAttributesInfoPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCustomAttributesInfoForbidden:
 		response := &GetCustomAttributesInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCustomAttributesInfoNotFound:
 		response := &GetCustomAttributesInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -608,28 +608,28 @@ func (a *Client) UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttrib
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCustomAttributesPartiallyUnauthorized:
 		response := &UpdateCustomAttributesPartiallyResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCustomAttributesPartiallyForbidden:
 		response := &UpdateCustomAttributesPartiallyResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCustomAttributesPartiallyNotFound:
 		response := &UpdateCustomAttributesPartiallyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -694,21 +694,21 @@ func (a *Client) GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAtt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPrivateCustomAttributesInfoForbidden:
 		response := &GetPrivateCustomAttributesInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPrivateCustomAttributesInfoNotFound:
 		response := &GetPrivateCustomAttributesInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -774,28 +774,28 @@ func (a *Client) UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePriva
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePrivateCustomAttributesPartiallyUnauthorized:
 		response := &UpdatePrivateCustomAttributesPartiallyResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePrivateCustomAttributesPartiallyForbidden:
 		response := &UpdatePrivateCustomAttributesPartiallyResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePrivateCustomAttributesPartiallyNotFound:
 		response := &UpdatePrivateCustomAttributesPartiallyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -860,28 +860,28 @@ func (a *Client) UpdateUserProfileStatusShort(params *UpdateUserProfileStatusPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserProfileStatusUnauthorized:
 		response := &UpdateUserProfileStatusResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserProfileStatusForbidden:
 		response := &UpdateUserProfileStatusResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserProfileStatusNotFound:
 		response := &UpdateUserProfileStatusResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -945,7 +945,7 @@ func (a *Client) PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1008,7 +1008,7 @@ func (a *Client) PublicBulkGetUserProfilePublicInfoShort(params *PublicBulkGetUs
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1071,14 +1071,14 @@ func (a *Client) PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserPr
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProfileInfoByPublicIDNotFound:
 		response := &PublicGetUserProfileInfoByPublicIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1149,28 +1149,28 @@ func (a *Client) GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyProfileInfoUnauthorized:
 		response := &GetMyProfileInfoResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyProfileInfoForbidden:
 		response := &GetMyProfileInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyProfileInfoNotFound:
 		response := &GetMyProfileInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1241,28 +1241,28 @@ func (a *Client) UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMyProfileUnauthorized:
 		response := &UpdateMyProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMyProfileForbidden:
 		response := &UpdateMyProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMyProfileNotFound:
 		response := &UpdateMyProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1334,35 +1334,35 @@ func (a *Client) CreateMyProfileShort(params *CreateMyProfileParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMyProfileUnauthorized:
 		response := &CreateMyProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMyProfileForbidden:
 		response := &CreateMyProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMyProfileNotFound:
 		response := &CreateMyProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMyProfileConflict:
 		response := &CreateMyProfileResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1427,21 +1427,21 @@ func (a *Client) GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCusto
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyPrivateCustomAttributesInfoForbidden:
 		response := &GetMyPrivateCustomAttributesInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyPrivateCustomAttributesInfoNotFound:
 		response := &GetMyPrivateCustomAttributesInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1507,28 +1507,28 @@ func (a *Client) UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMyPrivateCustomAttributesPartiallyUnauthorized:
 		response := &UpdateMyPrivateCustomAttributesPartiallyResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMyPrivateCustomAttributesPartiallyForbidden:
 		response := &UpdateMyPrivateCustomAttributesPartiallyResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMyPrivateCustomAttributesPartiallyNotFound:
 		response := &UpdateMyPrivateCustomAttributesPartiallyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1593,14 +1593,14 @@ func (a *Client) GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyZipCodeForbidden:
 		response := &GetMyZipCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1665,21 +1665,21 @@ func (a *Client) UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMyZipCodeUnauthorized:
 		response := &UpdateMyZipCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMyZipCodeForbidden:
 		response := &UpdateMyZipCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1744,28 +1744,28 @@ func (a *Client) PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProfileInfoUnauthorized:
 		response := &PublicGetUserProfileInfoResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProfileInfoForbidden:
 		response := &PublicGetUserProfileInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProfileInfoNotFound:
 		response := &PublicGetUserProfileInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1832,28 +1832,28 @@ func (a *Client) PublicUpdateUserProfileShort(params *PublicUpdateUserProfilePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserProfileUnauthorized:
 		response := &PublicUpdateUserProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserProfileForbidden:
 		response := &PublicUpdateUserProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserProfileNotFound:
 		response := &PublicUpdateUserProfileResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1920,28 +1920,28 @@ func (a *Client) PublicCreateUserProfileShort(params *PublicCreateUserProfilePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserProfileUnauthorized:
 		response := &PublicCreateUserProfileResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserProfileForbidden:
 		response := &PublicCreateUserProfileResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserProfileConflict:
 		response := &PublicCreateUserProfileResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2005,7 +2005,7 @@ func (a *Client) PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttri
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2071,28 +2071,28 @@ func (a *Client) PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdate
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateCustomAttributesPartiallyUnauthorized:
 		response := &PublicUpdateCustomAttributesPartiallyResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateCustomAttributesPartiallyForbidden:
 		response := &PublicUpdateCustomAttributesPartiallyResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateCustomAttributesPartiallyNotFound:
 		response := &PublicUpdateCustomAttributesPartiallyResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2156,14 +2156,14 @@ func (a *Client) PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfil
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetUserProfilePublicInfoNotFound:
 		response := &PublicGetUserProfilePublicInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2228,28 +2228,28 @@ func (a *Client) PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserProfileStatusUnauthorized:
 		response := &PublicUpdateUserProfileStatusResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserProfileStatusForbidden:
 		response := &PublicUpdateUserProfileStatusResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateUserProfileStatusNotFound:
 		response := &PublicUpdateUserProfileStatusResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

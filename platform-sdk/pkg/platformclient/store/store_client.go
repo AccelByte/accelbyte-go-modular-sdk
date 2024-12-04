@@ -166,7 +166,7 @@ func (a *Client) UpdateCatalogConfigShort(params *UpdateCatalogConfigParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -289,14 +289,14 @@ func (a *Client) CreateStoreShort(params *CreateStoreParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateStoreUnprocessableEntity:
 		response := &CreateStoreResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -469,21 +469,21 @@ func (a *Client) ExportStoreByCSVShort(params *ExportStoreByCSVParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportStoreByCSVNotFound:
 		response := &ExportStoreByCSVResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ExportStoreByCSVConflict:
 		response := &ExportStoreByCSVResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -546,14 +546,14 @@ func (a *Client) ImportStoreShort(params *ImportStoreParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportStoreNotFound:
 		response := &ImportStoreResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -618,7 +618,7 @@ func (a *Client) GetPublishedStoreShort(params *GetPublishedStoreParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -681,7 +681,7 @@ func (a *Client) DeletePublishedStoreShort(params *DeletePublishedStoreParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -746,7 +746,7 @@ func (a *Client) GetPublishedStoreBackupShort(params *GetPublishedStoreBackupPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -811,7 +811,7 @@ func (a *Client) RollbackPublishedStoreShort(params *RollbackPublishedStoreParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -876,7 +876,7 @@ func (a *Client) GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -941,21 +941,21 @@ func (a *Client) UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStoreConflict:
 		response := &UpdateStoreResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateStoreUnprocessableEntity:
 		response := &UpdateStoreResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1019,14 +1019,14 @@ func (a *Client) DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteStoreConflict:
 		response := &DeleteStoreResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1091,14 +1091,14 @@ func (a *Client) CloneStoreShort(params *CloneStoreParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CloneStoreNotFound:
 		response := &CloneStoreResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1161,7 +1161,7 @@ func (a *Client) ExportStoreShort(params *ExportStoreParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1222,7 +1222,7 @@ func (a *Client) QueryImportHistoryShort(params *QueryImportHistoryParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1283,21 +1283,21 @@ func (a *Client) ImportStoreByCSVShort(params *ImportStoreByCSVParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportStoreByCSVNotFound:
 		response := &ImportStoreByCSVResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportStoreByCSVConflict:
 		response := &ImportStoreByCSVResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1417,14 +1417,14 @@ func (a *Client) ImportStore1Short(params *ImportStore1Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImportStore1NotFound:
 		response := &ImportStore1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1485,7 +1485,7 @@ func (a *Client) ExportStore1Short(params *ExportStore1Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

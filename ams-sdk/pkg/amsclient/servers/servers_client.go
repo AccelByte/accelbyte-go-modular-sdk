@@ -92,28 +92,28 @@ func (a *Client) FleetServerHistoryShort(params *FleetServerHistoryParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerHistoryUnauthorized:
 		response := &FleetServerHistoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerHistoryForbidden:
 		response := &FleetServerHistoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerHistoryInternalServerError:
 		response := &FleetServerHistoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,28 +174,28 @@ func (a *Client) FleetServerInfoShort(params *FleetServerInfoParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerInfoForbidden:
 		response := &FleetServerInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerInfoNotFound:
 		response := &FleetServerInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerInfoInternalServerError:
 		response := &FleetServerInfoResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -256,28 +256,28 @@ func (a *Client) FleetServerConnectionInfoShort(params *FleetServerConnectionInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerConnectionInfoForbidden:
 		response := &FleetServerConnectionInfoResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerConnectionInfoNotFound:
 		response := &FleetServerConnectionInfoResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *FleetServerConnectionInfoInternalServerError:
 		response := &FleetServerConnectionInfoResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -338,28 +338,28 @@ func (a *Client) ServerHistoryShort(params *ServerHistoryParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ServerHistoryUnauthorized:
 		response := &ServerHistoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ServerHistoryForbidden:
 		response := &ServerHistoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ServerHistoryInternalServerError:
 		response := &ServerHistoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

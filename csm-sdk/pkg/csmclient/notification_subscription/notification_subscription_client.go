@@ -105,28 +105,28 @@ func (a *Client) GetNotificationSubscriberListV2Short(params *GetNotificationSub
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNotificationSubscriberListV2Forbidden:
 		response := &GetNotificationSubscriberListV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNotificationSubscriberListV2NotFound:
 		response := &GetNotificationSubscriberListV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetNotificationSubscriberListV2InternalServerError:
 		response := &GetNotificationSubscriberListV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -197,28 +197,28 @@ func (a *Client) BulkSaveSubscriptionAppNotificationV2Short(params *BulkSaveSubs
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkSaveSubscriptionAppNotificationV2Forbidden:
 		response := &BulkSaveSubscriptionAppNotificationV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkSaveSubscriptionAppNotificationV2NotFound:
 		response := &BulkSaveSubscriptionAppNotificationV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkSaveSubscriptionAppNotificationV2InternalServerError:
 		response := &BulkSaveSubscriptionAppNotificationV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -289,28 +289,28 @@ func (a *Client) SubscribeAppNotificationV2Short(params *SubscribeAppNotificatio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SubscribeAppNotificationV2Forbidden:
 		response := &SubscribeAppNotificationV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SubscribeAppNotificationV2NotFound:
 		response := &SubscribeAppNotificationV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SubscribeAppNotificationV2InternalServerError:
 		response := &SubscribeAppNotificationV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -373,28 +373,28 @@ func (a *Client) GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSubscriptionV2HandlerForbidden:
 		response := &GetSubscriptionV2HandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSubscriptionV2HandlerNotFound:
 		response := &GetSubscriptionV2HandlerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetSubscriptionV2HandlerInternalServerError:
 		response := &GetSubscriptionV2HandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -462,28 +462,28 @@ func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SubscribeV2HandlerForbidden:
 		response := &SubscribeV2HandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SubscribeV2HandlerNotFound:
 		response := &SubscribeV2HandlerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SubscribeV2HandlerInternalServerError:
 		response := &SubscribeV2HandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -545,28 +545,28 @@ func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UnsubscribeV2HandlerForbidden:
 		response := &UnsubscribeV2HandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UnsubscribeV2HandlerNotFound:
 		response := &UnsubscribeV2HandlerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UnsubscribeV2HandlerInternalServerError:
 		response := &UnsubscribeV2HandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -628,28 +628,28 @@ func (a *Client) DeleteSubscriptionAppNotificationByUserIDV2Short(params *Delete
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSubscriptionAppNotificationByUserIDV2Forbidden:
 		response := &DeleteSubscriptionAppNotificationByUserIDV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSubscriptionAppNotificationByUserIDV2NotFound:
 		response := &DeleteSubscriptionAppNotificationByUserIDV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSubscriptionAppNotificationByUserIDV2InternalServerError:
 		response := &DeleteSubscriptionAppNotificationByUserIDV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -711,28 +711,28 @@ func (a *Client) DeleteSubscriptionAppNotificationV2Short(params *DeleteSubscrip
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSubscriptionAppNotificationV2Forbidden:
 		response := &DeleteSubscriptionAppNotificationV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSubscriptionAppNotificationV2NotFound:
 		response := &DeleteSubscriptionAppNotificationV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteSubscriptionAppNotificationV2InternalServerError:
 		response := &DeleteSubscriptionAppNotificationV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

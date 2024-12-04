@@ -91,35 +91,35 @@ func (a *Client) UpdatePlayTimeWeightShort(params *UpdatePlayTimeWeightParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePlayTimeWeightUnauthorized:
 		response := &UpdatePlayTimeWeightResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePlayTimeWeightForbidden:
 		response := &UpdatePlayTimeWeightResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePlayTimeWeightNotFound:
 		response := &UpdatePlayTimeWeightResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePlayTimeWeightInternalServerError:
 		response := &UpdatePlayTimeWeightResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

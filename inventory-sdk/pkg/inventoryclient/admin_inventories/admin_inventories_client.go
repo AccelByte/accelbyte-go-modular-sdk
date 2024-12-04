@@ -99,14 +99,14 @@ func (a *Client) AdminListInventoriesShort(params *AdminListInventoriesParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListInventoriesInternalServerError:
 		response := &AdminListInventoriesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -173,14 +173,14 @@ func (a *Client) AdminCreateInventoryShort(params *AdminCreateInventoryParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateInventoryInternalServerError:
 		response := &AdminCreateInventoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -244,21 +244,21 @@ func (a *Client) AdminGetInventoryShort(params *AdminGetInventoryParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInventoryNotFound:
 		response := &AdminGetInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInventoryInternalServerError:
 		response := &AdminGetInventoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -325,21 +325,21 @@ func (a *Client) AdminUpdateInventoryShort(params *AdminUpdateInventoryParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInventoryNotFound:
 		response := &AdminUpdateInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInventoryInternalServerError:
 		response := &AdminUpdateInventoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -403,21 +403,21 @@ func (a *Client) DeleteInventoryShort(params *DeleteInventoryParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteInventoryNotFound:
 		response := &DeleteInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteInventoryInternalServerError:
 		response := &DeleteInventoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -484,35 +484,35 @@ func (a *Client) AdminUpdateUserInventoriesByInventoryCodeShort(params *AdminUpd
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserInventoriesByInventoryCodeUnauthorized:
 		response := &AdminUpdateUserInventoriesByInventoryCodeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserInventoriesByInventoryCodeForbidden:
 		response := &AdminUpdateUserInventoriesByInventoryCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserInventoriesByInventoryCodeNotFound:
 		response := &AdminUpdateUserInventoriesByInventoryCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateUserInventoriesByInventoryCodeInternalServerError:
 		response := &AdminUpdateUserInventoriesByInventoryCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -575,28 +575,28 @@ func (a *Client) AdminPurchasableShort(params *AdminPurchasableParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPurchasableNotFound:
 		response := &AdminPurchasableResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPurchasableConflict:
 		response := &AdminPurchasableResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPurchasableInternalServerError:
 		response := &AdminPurchasableResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

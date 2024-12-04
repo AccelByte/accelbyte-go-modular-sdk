@@ -95,28 +95,28 @@ func (a *Client) AdminListGameBinaryRecordsV1Short(params *AdminListGameBinaryRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListGameBinaryRecordsV1Unauthorized:
 		response := &AdminListGameBinaryRecordsV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListGameBinaryRecordsV1Forbidden:
 		response := &AdminListGameBinaryRecordsV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListGameBinaryRecordsV1InternalServerError:
 		response := &AdminListGameBinaryRecordsV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -188,35 +188,35 @@ func (a *Client) AdminPostGameBinaryRecordV1Short(params *AdminPostGameBinaryRec
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostGameBinaryRecordV1Unauthorized:
 		response := &AdminPostGameBinaryRecordV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostGameBinaryRecordV1Forbidden:
 		response := &AdminPostGameBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostGameBinaryRecordV1Conflict:
 		response := &AdminPostGameBinaryRecordV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostGameBinaryRecordV1InternalServerError:
 		response := &AdminPostGameBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -277,28 +277,28 @@ func (a *Client) AdminGetGameBinaryRecordV1Short(params *AdminGetGameBinaryRecor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGameBinaryRecordV1Forbidden:
 		response := &AdminGetGameBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGameBinaryRecordV1NotFound:
 		response := &AdminGetGameBinaryRecordV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetGameBinaryRecordV1InternalServerError:
 		response := &AdminGetGameBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -359,35 +359,35 @@ func (a *Client) AdminPutGameBinaryRecordV1Short(params *AdminPutGameBinaryRecor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameBinaryRecordV1Unauthorized:
 		response := &AdminPutGameBinaryRecordV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameBinaryRecordV1Forbidden:
 		response := &AdminPutGameBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameBinaryRecordV1NotFound:
 		response := &AdminPutGameBinaryRecordV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameBinaryRecordV1InternalServerError:
 		response := &AdminPutGameBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -447,35 +447,35 @@ func (a *Client) AdminDeleteGameBinaryRecordV1Short(params *AdminDeleteGameBinar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteGameBinaryRecordV1Unauthorized:
 		response := &AdminDeleteGameBinaryRecordV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteGameBinaryRecordV1Forbidden:
 		response := &AdminDeleteGameBinaryRecordV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteGameBinaryRecordV1NotFound:
 		response := &AdminDeleteGameBinaryRecordV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteGameBinaryRecordV1InternalServerError:
 		response := &AdminDeleteGameBinaryRecordV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -536,35 +536,35 @@ func (a *Client) AdminPutGameBinaryRecorMetadataV1Short(params *AdminPutGameBina
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameBinaryRecorMetadataV1Unauthorized:
 		response := &AdminPutGameBinaryRecorMetadataV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameBinaryRecorMetadataV1Forbidden:
 		response := &AdminPutGameBinaryRecorMetadataV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameBinaryRecorMetadataV1NotFound:
 		response := &AdminPutGameBinaryRecorMetadataV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPutGameBinaryRecorMetadataV1InternalServerError:
 		response := &AdminPutGameBinaryRecorMetadataV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -629,35 +629,35 @@ func (a *Client) AdminPostGameBinaryPresignedURLV1Short(params *AdminPostGameBin
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostGameBinaryPresignedURLV1Unauthorized:
 		response := &AdminPostGameBinaryPresignedURLV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostGameBinaryPresignedURLV1Forbidden:
 		response := &AdminPostGameBinaryPresignedURLV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostGameBinaryPresignedURLV1NotFound:
 		response := &AdminPostGameBinaryPresignedURLV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostGameBinaryPresignedURLV1InternalServerError:
 		response := &AdminPostGameBinaryPresignedURLV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

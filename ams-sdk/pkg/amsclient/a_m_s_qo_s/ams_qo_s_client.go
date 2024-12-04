@@ -107,28 +107,28 @@ func (a *Client) QoSRegionsGetShort(params *QoSRegionsGetParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QoSRegionsGetUnauthorized:
 		response := &QoSRegionsGetResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QoSRegionsGetForbidden:
 		response := &QoSRegionsGetResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QoSRegionsGetInternalServerError:
 		response := &QoSRegionsGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -191,35 +191,35 @@ func (a *Client) QoSRegionsUpdateShort(params *QoSRegionsUpdateParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QoSRegionsUpdateUnauthorized:
 		response := &QoSRegionsUpdateResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QoSRegionsUpdateForbidden:
 		response := &QoSRegionsUpdateResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QoSRegionsUpdateNotFound:
 		response := &QoSRegionsUpdateResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QoSRegionsUpdateInternalServerError:
 		response := &QoSRegionsUpdateResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -201,21 +201,21 @@ func (a *Client) AdminGetAllConfigV1Short(params *AdminGetAllConfigV1Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAllConfigV1Forbidden:
 		response := &AdminGetAllConfigV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAllConfigV1InternalServerError:
 		response := &AdminGetAllConfigV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -276,21 +276,21 @@ func (a *Client) AdminGetConfigV1Short(params *AdminGetConfigV1Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigV1Forbidden:
 		response := &AdminGetConfigV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigV1InternalServerError:
 		response := &AdminGetConfigV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -351,21 +351,21 @@ func (a *Client) AdminPatchConfigV1Short(params *AdminPatchConfigV1Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPatchConfigV1Forbidden:
 		response := &AdminPatchConfigV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPatchConfigV1InternalServerError:
 		response := &AdminPatchConfigV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

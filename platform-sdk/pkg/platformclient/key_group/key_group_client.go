@@ -156,14 +156,14 @@ func (a *Client) CreateKeyGroupShort(params *CreateKeyGroupParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateKeyGroupUnprocessableEntity:
 		response := &CreateKeyGroupResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -227,7 +227,7 @@ func (a *Client) GetKeyGroupByBoothNameShort(params *GetKeyGroupByBoothNameParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -291,7 +291,7 @@ func (a *Client) GetKeyGroupShort(params *GetKeyGroupParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -355,21 +355,21 @@ func (a *Client) UpdateKeyGroupShort(params *UpdateKeyGroupParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateKeyGroupConflict:
 		response := &UpdateKeyGroupResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateKeyGroupUnprocessableEntity:
 		response := &UpdateKeyGroupResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -433,7 +433,7 @@ func (a *Client) GetKeyGroupDynamicShort(params *GetKeyGroupDynamicParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -555,14 +555,14 @@ func (a *Client) UploadKeysShort(params *UploadKeysParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UploadKeysNotFound:
 		response := &UploadKeysResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

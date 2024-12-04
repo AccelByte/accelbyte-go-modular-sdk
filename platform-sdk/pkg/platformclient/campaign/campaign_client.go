@@ -166,21 +166,21 @@ func (a *Client) CreateCampaignShort(params *CreateCampaignParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateCampaignConflict:
 		response := &CreateCampaignResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateCampaignUnprocessableEntity:
 		response := &CreateCampaignResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -244,7 +244,7 @@ func (a *Client) GetCampaignShort(params *GetCampaignParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -308,21 +308,21 @@ func (a *Client) UpdateCampaignShort(params *UpdateCampaignParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCampaignConflict:
 		response := &UpdateCampaignResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateCampaignUnprocessableEntity:
 		response := &UpdateCampaignResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -383,7 +383,7 @@ func (a *Client) RenameBatchShort(params *RenameBatchParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -504,7 +504,7 @@ func (a *Client) GetCampaignDynamicShort(params *GetCampaignDynamicParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -626,21 +626,21 @@ func (a *Client) CreateCodesShort(params *CreateCodesParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateCodesConflict:
 		response := &CreateCodesResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateCodesUnprocessableEntity:
 		response := &CreateCodesResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -935,14 +935,14 @@ func (a *Client) GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuth
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCodeConflict:
 		response := &GetCodeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1008,7 +1008,7 @@ func (a *Client) DisableCodeShort(params *DisableCodeParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1072,7 +1072,7 @@ func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1136,21 +1136,21 @@ func (a *Client) ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ApplyUserRedemptionConflict:
 		response := &ApplyUserRedemptionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ApplyUserRedemptionUnprocessableEntity:
 		response := &ApplyUserRedemptionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

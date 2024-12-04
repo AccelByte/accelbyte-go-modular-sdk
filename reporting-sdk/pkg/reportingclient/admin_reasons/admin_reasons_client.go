@@ -101,7 +101,7 @@ func (a *Client) AdminListReasonGroupsShort(params *AdminListReasonGroupsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -164,21 +164,21 @@ func (a *Client) CreateReasonGroupShort(params *CreateReasonGroupParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateReasonGroupConflict:
 		response := &CreateReasonGroupResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateReasonGroupInternalServerError:
 		response := &CreateReasonGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -238,14 +238,14 @@ func (a *Client) GetReasonGroupShort(params *GetReasonGroupParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetReasonGroupInternalServerError:
 		response := &GetReasonGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -305,7 +305,7 @@ func (a *Client) DeleteReasonGroupShort(params *DeleteReasonGroupParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -367,21 +367,21 @@ func (a *Client) UpdateReasonGroupShort(params *UpdateReasonGroupParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateReasonGroupConflict:
 		response := &UpdateReasonGroupResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateReasonGroupInternalServerError:
 		response := &UpdateReasonGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -442,14 +442,14 @@ func (a *Client) AdminGetReasonsShort(params *AdminGetReasonsParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetReasonsInternalServerError:
 		response := &AdminGetReasonsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -510,21 +510,21 @@ func (a *Client) CreateReasonShort(params *CreateReasonParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateReasonConflict:
 		response := &CreateReasonResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateReasonInternalServerError:
 		response := &CreateReasonResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -585,7 +585,7 @@ func (a *Client) AdminGetAllReasonsShort(params *AdminGetAllReasonsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -646,14 +646,14 @@ func (a *Client) AdminGetUnusedReasonsShort(params *AdminGetUnusedReasonsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetUnusedReasonsInternalServerError:
 		response := &AdminGetUnusedReasonsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -714,14 +714,14 @@ func (a *Client) AdminGetReasonShort(params *AdminGetReasonParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetReasonInternalServerError:
 		response := &AdminGetReasonResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -781,7 +781,7 @@ func (a *Client) DeleteReasonShort(params *DeleteReasonParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -842,21 +842,21 @@ func (a *Client) UpdateReasonShort(params *UpdateReasonParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateReasonConflict:
 		response := &UpdateReasonResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateReasonInternalServerError:
 		response := &UpdateReasonResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

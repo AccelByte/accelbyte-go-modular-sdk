@@ -134,28 +134,28 @@ func (a *Client) BulkFetchStatItemsShort(params *BulkFetchStatItemsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchStatItemsForbidden:
 		response := &BulkFetchStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchStatItemsUnprocessableEntity:
 		response := &BulkFetchStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchStatItemsInternalServerError:
 		response := &BulkFetchStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -218,35 +218,35 @@ func (a *Client) BulkIncUserStatItemShort(params *BulkIncUserStatItemParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemUnauthorized:
 		response := &BulkIncUserStatItemResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemForbidden:
 		response := &BulkIncUserStatItemResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemUnprocessableEntity:
 		response := &BulkIncUserStatItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemInternalServerError:
 		response := &BulkIncUserStatItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -307,35 +307,35 @@ func (a *Client) BulkIncUserStatItemValueShort(params *BulkIncUserStatItemValueP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValueUnauthorized:
 		response := &BulkIncUserStatItemValueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValueForbidden:
 		response := &BulkIncUserStatItemValueResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValueUnprocessableEntity:
 		response := &BulkIncUserStatItemValueResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValueInternalServerError:
 		response := &BulkIncUserStatItemValueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -398,35 +398,35 @@ func (a *Client) BulkFetchOrDefaultStatItemsShort(params *BulkFetchOrDefaultStat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchOrDefaultStatItemsForbidden:
 		response := &BulkFetchOrDefaultStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchOrDefaultStatItemsNotFound:
 		response := &BulkFetchOrDefaultStatItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchOrDefaultStatItemsUnprocessableEntity:
 		response := &BulkFetchOrDefaultStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchOrDefaultStatItemsInternalServerError:
 		response := &BulkFetchOrDefaultStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -491,35 +491,35 @@ func (a *Client) BulkResetUserStatItemShort(params *BulkResetUserStatItemParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItemUnauthorized:
 		response := &BulkResetUserStatItemResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItemForbidden:
 		response := &BulkResetUserStatItemResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItemUnprocessableEntity:
 		response := &BulkResetUserStatItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItemInternalServerError:
 		response := &BulkResetUserStatItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -582,21 +582,21 @@ func (a *Client) GetStatItemsShort(params *GetStatItemsParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatItemsForbidden:
 		response := &GetStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetStatItemsInternalServerError:
 		response := &GetStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -659,28 +659,28 @@ func (a *Client) GetUserStatItemsShort(params *GetUserStatItemsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatItemsForbidden:
 		response := &GetUserStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatItemsUnprocessableEntity:
 		response := &GetUserStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserStatItemsInternalServerError:
 		response := &GetUserStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -743,35 +743,35 @@ func (a *Client) BulkCreateUserStatItemsShort(params *BulkCreateUserStatItemsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreateUserStatItemsUnauthorized:
 		response := &BulkCreateUserStatItemsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreateUserStatItemsForbidden:
 		response := &BulkCreateUserStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreateUserStatItemsUnprocessableEntity:
 		response := &BulkCreateUserStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreateUserStatItemsInternalServerError:
 		response := &BulkCreateUserStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -834,35 +834,35 @@ func (a *Client) BulkIncUserStatItem1Short(params *BulkIncUserStatItem1Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItem1Unauthorized:
 		response := &BulkIncUserStatItem1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItem1Forbidden:
 		response := &BulkIncUserStatItem1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItem1UnprocessableEntity:
 		response := &BulkIncUserStatItem1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItem1InternalServerError:
 		response := &BulkIncUserStatItem1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -925,35 +925,35 @@ func (a *Client) BulkIncUserStatItemValue1Short(params *BulkIncUserStatItemValue
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValue1Unauthorized:
 		response := &BulkIncUserStatItemValue1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValue1Forbidden:
 		response := &BulkIncUserStatItemValue1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValue1UnprocessableEntity:
 		response := &BulkIncUserStatItemValue1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValue1InternalServerError:
 		response := &BulkIncUserStatItemValue1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1016,35 +1016,35 @@ func (a *Client) BulkResetUserStatItem1Short(params *BulkResetUserStatItem1Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem1Unauthorized:
 		response := &BulkResetUserStatItem1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem1Forbidden:
 		response := &BulkResetUserStatItem1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem1UnprocessableEntity:
 		response := &BulkResetUserStatItem1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem1InternalServerError:
 		response := &BulkResetUserStatItem1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1106,42 +1106,42 @@ func (a *Client) CreateUserStatItemShort(params *CreateUserStatItemParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserStatItemForbidden:
 		response := &CreateUserStatItemResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserStatItemNotFound:
 		response := &CreateUserStatItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserStatItemConflict:
 		response := &CreateUserStatItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserStatItemUnprocessableEntity:
 		response := &CreateUserStatItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateUserStatItemInternalServerError:
 		response := &CreateUserStatItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1204,35 +1204,35 @@ func (a *Client) DeleteUserStatItemsShort(params *DeleteUserStatItemsParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItemsForbidden:
 		response := &DeleteUserStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItemsNotFound:
 		response := &DeleteUserStatItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItemsUnprocessableEntity:
 		response := &DeleteUserStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItemsInternalServerError:
 		response := &DeleteUserStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1295,49 +1295,49 @@ func (a *Client) IncUserStatItemValueShort(params *IncUserStatItemValueParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *IncUserStatItemValueUnauthorized:
 		response := &IncUserStatItemValueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *IncUserStatItemValueForbidden:
 		response := &IncUserStatItemValueResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *IncUserStatItemValueNotFound:
 		response := &IncUserStatItemValueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *IncUserStatItemValueConflict:
 		response := &IncUserStatItemValueResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *IncUserStatItemValueUnprocessableEntity:
 		response := &IncUserStatItemValueResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *IncUserStatItemValueInternalServerError:
 		response := &IncUserStatItemValueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1402,42 +1402,42 @@ func (a *Client) ResetUserStatItemValueShort(params *ResetUserStatItemValueParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValueUnauthorized:
 		response := &ResetUserStatItemValueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValueForbidden:
 		response := &ResetUserStatItemValueResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValueNotFound:
 		response := &ResetUserStatItemValueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValueUnprocessableEntity:
 		response := &ResetUserStatItemValueResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValueInternalServerError:
 		response := &ResetUserStatItemValueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1500,28 +1500,28 @@ func (a *Client) BulkFetchStatItems1Short(params *BulkFetchStatItems1Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchStatItems1Forbidden:
 		response := &BulkFetchStatItems1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchStatItems1UnprocessableEntity:
 		response := &BulkFetchStatItems1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchStatItems1InternalServerError:
 		response := &BulkFetchStatItems1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1584,35 +1584,35 @@ func (a *Client) PublicBulkIncUserStatItemShort(params *PublicBulkIncUserStatIte
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItemUnauthorized:
 		response := &PublicBulkIncUserStatItemResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItemForbidden:
 		response := &PublicBulkIncUserStatItemResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItemUnprocessableEntity:
 		response := &PublicBulkIncUserStatItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItemInternalServerError:
 		response := &PublicBulkIncUserStatItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1675,35 +1675,35 @@ func (a *Client) PublicBulkIncUserStatItemValueShort(params *PublicBulkIncUserSt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItemValueUnauthorized:
 		response := &PublicBulkIncUserStatItemValueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItemValueForbidden:
 		response := &PublicBulkIncUserStatItemValueResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItemValueUnprocessableEntity:
 		response := &PublicBulkIncUserStatItemValueResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItemValueInternalServerError:
 		response := &PublicBulkIncUserStatItemValueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1768,35 +1768,35 @@ func (a *Client) BulkResetUserStatItem2Short(params *BulkResetUserStatItem2Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem2Unauthorized:
 		response := &BulkResetUserStatItem2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem2Forbidden:
 		response := &BulkResetUserStatItem2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem2UnprocessableEntity:
 		response := &BulkResetUserStatItem2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem2InternalServerError:
 		response := &BulkResetUserStatItem2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1859,28 +1859,28 @@ func (a *Client) PublicListMyStatItemsShort(params *PublicListMyStatItemsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListMyStatItemsForbidden:
 		response := &PublicListMyStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListMyStatItemsUnprocessableEntity:
 		response := &PublicListMyStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListMyStatItemsInternalServerError:
 		response := &PublicListMyStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1946,28 +1946,28 @@ func (a *Client) PublicListAllMyStatItemsShort(params *PublicListAllMyStatItemsP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListAllMyStatItemsForbidden:
 		response := &PublicListAllMyStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListAllMyStatItemsNotFound:
 		response := &PublicListAllMyStatItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListAllMyStatItemsUnprocessableEntity:
 		response := &PublicListAllMyStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2030,28 +2030,28 @@ func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItemsForbidden:
 		response := &PublicQueryUserStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItemsUnprocessableEntity:
 		response := &PublicQueryUserStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItemsInternalServerError:
 		response := &PublicQueryUserStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2114,35 +2114,35 @@ func (a *Client) PublicBulkCreateUserStatItemsShort(params *PublicBulkCreateUser
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkCreateUserStatItemsUnauthorized:
 		response := &PublicBulkCreateUserStatItemsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkCreateUserStatItemsForbidden:
 		response := &PublicBulkCreateUserStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkCreateUserStatItemsUnprocessableEntity:
 		response := &PublicBulkCreateUserStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkCreateUserStatItemsInternalServerError:
 		response := &PublicBulkCreateUserStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2208,42 +2208,42 @@ func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems1Unauthorized:
 		response := &PublicQueryUserStatItems1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems1Forbidden:
 		response := &PublicQueryUserStatItems1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems1NotFound:
 		response := &PublicQueryUserStatItems1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems1UnprocessableEntity:
 		response := &PublicQueryUserStatItems1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems1InternalServerError:
 		response := &PublicQueryUserStatItems1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2306,35 +2306,35 @@ func (a *Client) PublicBulkIncUserStatItem1Short(params *PublicBulkIncUserStatIt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItem1Unauthorized:
 		response := &PublicBulkIncUserStatItem1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItem1Forbidden:
 		response := &PublicBulkIncUserStatItem1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItem1UnprocessableEntity:
 		response := &PublicBulkIncUserStatItem1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkIncUserStatItem1InternalServerError:
 		response := &PublicBulkIncUserStatItem1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2397,35 +2397,35 @@ func (a *Client) BulkIncUserStatItemValue2Short(params *BulkIncUserStatItemValue
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValue2Unauthorized:
 		response := &BulkIncUserStatItemValue2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValue2Forbidden:
 		response := &BulkIncUserStatItemValue2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValue2UnprocessableEntity:
 		response := &BulkIncUserStatItemValue2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkIncUserStatItemValue2InternalServerError:
 		response := &BulkIncUserStatItemValue2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2488,35 +2488,35 @@ func (a *Client) BulkResetUserStatItem3Short(params *BulkResetUserStatItem3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem3Unauthorized:
 		response := &BulkResetUserStatItem3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem3Forbidden:
 		response := &BulkResetUserStatItem3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem3UnprocessableEntity:
 		response := &BulkResetUserStatItem3Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItem3InternalServerError:
 		response := &BulkResetUserStatItem3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2578,42 +2578,42 @@ func (a *Client) PublicCreateUserStatItemShort(params *PublicCreateUserStatItemP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserStatItemForbidden:
 		response := &PublicCreateUserStatItemResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserStatItemNotFound:
 		response := &PublicCreateUserStatItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserStatItemConflict:
 		response := &PublicCreateUserStatItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserStatItemUnprocessableEntity:
 		response := &PublicCreateUserStatItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCreateUserStatItemInternalServerError:
 		response := &PublicCreateUserStatItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2675,35 +2675,35 @@ func (a *Client) DeleteUserStatItems1Short(params *DeleteUserStatItems1Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItems1Forbidden:
 		response := &DeleteUserStatItems1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItems1NotFound:
 		response := &DeleteUserStatItems1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItems1UnprocessableEntity:
 		response := &DeleteUserStatItems1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItems1InternalServerError:
 		response := &DeleteUserStatItems1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2766,49 +2766,49 @@ func (a *Client) PublicIncUserStatItemShort(params *PublicIncUserStatItemParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemUnauthorized:
 		response := &PublicIncUserStatItemResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemForbidden:
 		response := &PublicIncUserStatItemResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemNotFound:
 		response := &PublicIncUserStatItemResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemConflict:
 		response := &PublicIncUserStatItemResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemUnprocessableEntity:
 		response := &PublicIncUserStatItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemInternalServerError:
 		response := &PublicIncUserStatItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2871,49 +2871,49 @@ func (a *Client) PublicIncUserStatItemValueShort(params *PublicIncUserStatItemVa
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemValueUnauthorized:
 		response := &PublicIncUserStatItemValueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemValueForbidden:
 		response := &PublicIncUserStatItemValueResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemValueNotFound:
 		response := &PublicIncUserStatItemValueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemValueConflict:
 		response := &PublicIncUserStatItemValueResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemValueUnprocessableEntity:
 		response := &PublicIncUserStatItemValueResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicIncUserStatItemValueInternalServerError:
 		response := &PublicIncUserStatItemValueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -2978,42 +2978,42 @@ func (a *Client) ResetUserStatItemValue1Short(params *ResetUserStatItemValue1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValue1Unauthorized:
 		response := &ResetUserStatItemValue1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValue1Forbidden:
 		response := &ResetUserStatItemValue1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValue1NotFound:
 		response := &ResetUserStatItemValue1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValue1UnprocessableEntity:
 		response := &ResetUserStatItemValue1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ResetUserStatItemValue1InternalServerError:
 		response := &ResetUserStatItemValue1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3082,35 +3082,35 @@ func (a *Client) BulkUpdateUserStatItemV2Short(params *BulkUpdateUserStatItemV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItemV2Unauthorized:
 		response := &BulkUpdateUserStatItemV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItemV2Forbidden:
 		response := &BulkUpdateUserStatItemV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItemV2UnprocessableEntity:
 		response := &BulkUpdateUserStatItemV2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItemV2InternalServerError:
 		response := &BulkUpdateUserStatItemV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3173,35 +3173,35 @@ func (a *Client) BulkFetchOrDefaultStatItems1Short(params *BulkFetchOrDefaultSta
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchOrDefaultStatItems1Forbidden:
 		response := &BulkFetchOrDefaultStatItems1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchOrDefaultStatItems1NotFound:
 		response := &BulkFetchOrDefaultStatItems1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchOrDefaultStatItems1UnprocessableEntity:
 		response := &BulkFetchOrDefaultStatItems1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkFetchOrDefaultStatItems1InternalServerError:
 		response := &BulkFetchOrDefaultStatItems1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3267,42 +3267,42 @@ func (a *Client) AdminListUsersStatItemsShort(params *AdminListUsersStatItemsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUsersStatItemsUnauthorized:
 		response := &AdminListUsersStatItemsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUsersStatItemsForbidden:
 		response := &AdminListUsersStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUsersStatItemsNotFound:
 		response := &AdminListUsersStatItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUsersStatItemsUnprocessableEntity:
 		response := &AdminListUsersStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUsersStatItemsInternalServerError:
 		response := &AdminListUsersStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3374,35 +3374,35 @@ func (a *Client) BulkUpdateUserStatItemShort(params *BulkUpdateUserStatItemParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItemUnauthorized:
 		response := &BulkUpdateUserStatItemResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItemForbidden:
 		response := &BulkUpdateUserStatItemResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItemUnprocessableEntity:
 		response := &BulkUpdateUserStatItemResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItemInternalServerError:
 		response := &BulkUpdateUserStatItemResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3468,28 +3468,28 @@ func (a *Client) BulkGetOrDefaultByUserIDShort(params *BulkGetOrDefaultByUserIDP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetOrDefaultByUserIDForbidden:
 		response := &BulkGetOrDefaultByUserIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetOrDefaultByUserIDUnprocessableEntity:
 		response := &BulkGetOrDefaultByUserIDResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkGetOrDefaultByUserIDInternalServerError:
 		response := &BulkGetOrDefaultByUserIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3552,35 +3552,35 @@ func (a *Client) BulkResetUserStatItemValuesShort(params *BulkResetUserStatItemV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItemValuesUnauthorized:
 		response := &BulkResetUserStatItemValuesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItemValuesForbidden:
 		response := &BulkResetUserStatItemValuesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItemValuesUnprocessableEntity:
 		response := &BulkResetUserStatItemValuesResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkResetUserStatItemValuesInternalServerError:
 		response := &BulkResetUserStatItemValuesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3646,35 +3646,35 @@ func (a *Client) DeleteUserStatItems2Short(params *DeleteUserStatItems2Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItems2Forbidden:
 		response := &DeleteUserStatItems2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItems2NotFound:
 		response := &DeleteUserStatItems2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItems2UnprocessableEntity:
 		response := &DeleteUserStatItems2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserStatItems2InternalServerError:
 		response := &DeleteUserStatItems2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3746,49 +3746,49 @@ func (a *Client) UpdateUserStatItemValueShort(params *UpdateUserStatItemValuePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValueUnauthorized:
 		response := &UpdateUserStatItemValueResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValueForbidden:
 		response := &UpdateUserStatItemValueResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValueNotFound:
 		response := &UpdateUserStatItemValueResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValueConflict:
 		response := &UpdateUserStatItemValueResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValueUnprocessableEntity:
 		response := &UpdateUserStatItemValueResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValueInternalServerError:
 		response := &UpdateUserStatItemValueResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3857,35 +3857,35 @@ func (a *Client) BulkUpdateUserStatItem1Short(params *BulkUpdateUserStatItem1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItem1Unauthorized:
 		response := &BulkUpdateUserStatItem1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItem1Forbidden:
 		response := &BulkUpdateUserStatItem1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItem1UnprocessableEntity:
 		response := &BulkUpdateUserStatItem1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItem1InternalServerError:
 		response := &BulkUpdateUserStatItem1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3951,42 +3951,42 @@ func (a *Client) PublicQueryUserStatItems2Short(params *PublicQueryUserStatItems
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems2Unauthorized:
 		response := &PublicQueryUserStatItems2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems2Forbidden:
 		response := &PublicQueryUserStatItems2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems2NotFound:
 		response := &PublicQueryUserStatItems2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems2UnprocessableEntity:
 		response := &PublicQueryUserStatItems2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicQueryUserStatItems2InternalServerError:
 		response := &PublicQueryUserStatItems2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4058,35 +4058,35 @@ func (a *Client) BulkUpdateUserStatItem2Short(params *BulkUpdateUserStatItem2Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItem2Unauthorized:
 		response := &BulkUpdateUserStatItem2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItem2Forbidden:
 		response := &BulkUpdateUserStatItem2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItem2UnprocessableEntity:
 		response := &BulkUpdateUserStatItem2Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkUpdateUserStatItem2InternalServerError:
 		response := &BulkUpdateUserStatItem2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -4158,49 +4158,49 @@ func (a *Client) UpdateUserStatItemValue1Short(params *UpdateUserStatItemValue1P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValue1Unauthorized:
 		response := &UpdateUserStatItemValue1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValue1Forbidden:
 		response := &UpdateUserStatItemValue1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValue1NotFound:
 		response := &UpdateUserStatItemValue1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValue1Conflict:
 		response := &UpdateUserStatItemValue1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValue1UnprocessableEntity:
 		response := &UpdateUserStatItemValue1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserStatItemValue1InternalServerError:
 		response := &UpdateUserStatItemValue1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

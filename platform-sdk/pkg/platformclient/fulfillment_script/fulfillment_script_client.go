@@ -150,7 +150,7 @@ func (a *Client) GetFulfillmentScriptShort(params *GetFulfillmentScriptParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -217,7 +217,7 @@ func (a *Client) CreateFulfillmentScriptShort(params *CreateFulfillmentScriptPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -331,7 +331,7 @@ func (a *Client) UpdateFulfillmentScriptShort(params *UpdateFulfillmentScriptPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

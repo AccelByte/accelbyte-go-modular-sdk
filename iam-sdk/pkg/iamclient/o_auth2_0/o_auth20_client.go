@@ -122,21 +122,21 @@ func (a *Client) AdminRetrieveUserThirdPartyPlatformTokenV3Short(params *AdminRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRetrieveUserThirdPartyPlatformTokenV3Forbidden:
 		response := &AdminRetrieveUserThirdPartyPlatformTokenV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRetrieveUserThirdPartyPlatformTokenV3NotFound:
 		response := &AdminRetrieveUserThirdPartyPlatformTokenV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -199,21 +199,21 @@ func (a *Client) RevokeUserV3Short(params *RevokeUserV3Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RevokeUserV3Unauthorized:
 		response := &RevokeUserV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RevokeUserV3Forbidden:
 		response := &RevokeUserV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -357,14 +357,14 @@ func (a *Client) TokenIntrospectionV3Short(params *TokenIntrospectionV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenIntrospectionV3Unauthorized:
 		response := &TokenIntrospectionV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -486,35 +486,35 @@ func (a *Client) SendMFAAuthenticationCodeShort(params *SendMFAAuthenticationCod
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendMFAAuthenticationCodeForbidden:
 		response := &SendMFAAuthenticationCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendMFAAuthenticationCodeNotFound:
 		response := &SendMFAAuthenticationCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendMFAAuthenticationCodeTooManyRequests:
 		response := &SendMFAAuthenticationCodeResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SendMFAAuthenticationCodeInternalServerError:
 		response := &SendMFAAuthenticationCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -579,21 +579,21 @@ func (a *Client) Change2FAMethodShort(params *Change2FAMethodParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *Change2FAMethodTooManyRequests:
 		response := &Change2FAMethodResponse{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *Change2FAMethodInternalServerError:
 		response := &Change2FAMethodResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -657,7 +657,7 @@ func (a *Client) Verify2FACodeShort(params *Verify2FACodeParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -738,21 +738,21 @@ func (a *Client) RetrieveUserThirdPartyPlatformTokenV3Short(params *RetrieveUser
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveUserThirdPartyPlatformTokenV3Forbidden:
 		response := &RetrieveUserThirdPartyPlatformTokenV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveUserThirdPartyPlatformTokenV3NotFound:
 		response := &RetrieveUserThirdPartyPlatformTokenV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -965,28 +965,28 @@ func (a *Client) PlatformTokenGrantV3Short(params *PlatformTokenGrantV3Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenGrantV3Unauthorized:
 		response := &PlatformTokenGrantV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenGrantV3Forbidden:
 		response := &PlatformTokenGrantV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenGrantV3ServiceUnavailable:
 		response := &PlatformTokenGrantV3Response{}
 		response.Error503 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1050,7 +1050,7 @@ func (a *Client) GetRevocationListV3Short(params *GetRevocationListV3Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1112,14 +1112,14 @@ func (a *Client) TokenRevocationV3Short(params *TokenRevocationV3Params, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenRevocationV3Unauthorized:
 		response := &TokenRevocationV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1205,28 +1205,28 @@ func (a *Client) SimultaneousLoginV3Short(params *SimultaneousLoginV3Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SimultaneousLoginV3Unauthorized:
 		response := &SimultaneousLoginV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SimultaneousLoginV3Conflict:
 		response := &SimultaneousLoginV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SimultaneousLoginV3InternalServerError:
 		response := &SimultaneousLoginV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1340,28 +1340,28 @@ func (a *Client) TokenGrantV3Short(params *TokenGrantV3Params, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenGrantV3Unauthorized:
 		response := &TokenGrantV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenGrantV3Forbidden:
 		response := &TokenGrantV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenGrantV3TooManyRequests:
 		response := &TokenGrantV3Response{}
 		response.Error429 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1421,7 +1421,7 @@ func (a *Client) VerifyTokenV3Short(params *VerifyTokenV3Params, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

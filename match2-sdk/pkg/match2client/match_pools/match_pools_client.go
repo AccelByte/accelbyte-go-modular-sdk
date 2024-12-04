@@ -97,21 +97,21 @@ func (a *Client) MatchPoolListShort(params *MatchPoolListParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchPoolListForbidden:
 		response := &MatchPoolListResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchPoolListInternalServerError:
 		response := &MatchPoolListResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -189,35 +189,35 @@ func (a *Client) CreateMatchPoolShort(params *CreateMatchPoolParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchPoolUnauthorized:
 		response := &CreateMatchPoolResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchPoolForbidden:
 		response := &CreateMatchPoolResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchPoolConflict:
 		response := &CreateMatchPoolResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchPoolInternalServerError:
 		response := &CreateMatchPoolResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -278,21 +278,21 @@ func (a *Client) MatchPoolDetailsShort(params *MatchPoolDetailsParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchPoolDetailsForbidden:
 		response := &MatchPoolDetailsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchPoolDetailsInternalServerError:
 		response := &MatchPoolDetailsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -368,35 +368,35 @@ func (a *Client) UpdateMatchPoolShort(params *UpdateMatchPoolParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchPoolUnauthorized:
 		response := &UpdateMatchPoolResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchPoolForbidden:
 		response := &UpdateMatchPoolResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchPoolNotFound:
 		response := &UpdateMatchPoolResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateMatchPoolInternalServerError:
 		response := &UpdateMatchPoolResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -456,28 +456,28 @@ func (a *Client) DeleteMatchPoolShort(params *DeleteMatchPoolParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchPoolForbidden:
 		response := &DeleteMatchPoolResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchPoolNotFound:
 		response := &DeleteMatchPoolResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchPoolInternalServerError:
 		response := &DeleteMatchPoolResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -540,28 +540,28 @@ func (a *Client) MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchPoolMetricForbidden:
 		response := &MatchPoolMetricResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchPoolMetricNotFound:
 		response := &MatchPoolMetricResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchPoolMetricInternalServerError:
 		response := &MatchPoolMetricResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -622,28 +622,28 @@ func (a *Client) GetPlayerMetricShort(params *GetPlayerMetricParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerMetricForbidden:
 		response := &GetPlayerMetricResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerMetricNotFound:
 		response := &GetPlayerMetricResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPlayerMetricInternalServerError:
 		response := &GetPlayerMetricResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -706,28 +706,28 @@ func (a *Client) AdminGetMatchPoolTicketsShort(params *AdminGetMatchPoolTicketsP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchPoolTicketsForbidden:
 		response := &AdminGetMatchPoolTicketsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchPoolTicketsNotFound:
 		response := &AdminGetMatchPoolTicketsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetMatchPoolTicketsInternalServerError:
 		response := &AdminGetMatchPoolTicketsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -788,28 +788,28 @@ func (a *Client) PublicGetPlayerMetricShort(params *PublicGetPlayerMetricParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPlayerMetricForbidden:
 		response := &PublicGetPlayerMetricResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPlayerMetricNotFound:
 		response := &PublicGetPlayerMetricResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetPlayerMetricInternalServerError:
 		response := &PublicGetPlayerMetricResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

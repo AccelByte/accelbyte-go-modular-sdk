@@ -97,14 +97,14 @@ func (a *Client) AdminListInventoryConfigurationsShort(params *AdminListInventor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListInventoryConfigurationsInternalServerError:
 		response := &AdminListInventoryConfigurationsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -169,21 +169,21 @@ func (a *Client) AdminCreateInventoryConfigurationShort(params *AdminCreateInven
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateInventoryConfigurationConflict:
 		response := &AdminCreateInventoryConfigurationResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateInventoryConfigurationInternalServerError:
 		response := &AdminCreateInventoryConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -247,21 +247,21 @@ func (a *Client) AdminGetInventoryConfigurationShort(params *AdminGetInventoryCo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInventoryConfigurationNotFound:
 		response := &AdminGetInventoryConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInventoryConfigurationInternalServerError:
 		response := &AdminGetInventoryConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -326,28 +326,28 @@ func (a *Client) AdminUpdateInventoryConfigurationShort(params *AdminUpdateInven
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInventoryConfigurationNotFound:
 		response := &AdminUpdateInventoryConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInventoryConfigurationConflict:
 		response := &AdminUpdateInventoryConfigurationResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInventoryConfigurationInternalServerError:
 		response := &AdminUpdateInventoryConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -411,21 +411,21 @@ func (a *Client) AdminDeleteInventoryConfigurationShort(params *AdminDeleteInven
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteInventoryConfigurationNotFound:
 		response := &AdminDeleteInventoryConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteInventoryConfigurationInternalServerError:
 		response := &AdminDeleteInventoryConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

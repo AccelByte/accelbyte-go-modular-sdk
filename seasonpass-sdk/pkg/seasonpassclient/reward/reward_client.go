@@ -99,14 +99,14 @@ func (a *Client) QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *QueryRewardsNotFound:
 		response := &QueryRewardsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -171,28 +171,28 @@ func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRewardNotFound:
 		response := &CreateRewardResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRewardConflict:
 		response := &CreateRewardResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRewardUnprocessableEntity:
 		response := &CreateRewardResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -257,14 +257,14 @@ func (a *Client) GetRewardShort(params *GetRewardParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetRewardNotFound:
 		response := &GetRewardResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -326,21 +326,21 @@ func (a *Client) DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteRewardNotFound:
 		response := &DeleteRewardResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteRewardConflict:
 		response := &DeleteRewardResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -405,28 +405,28 @@ func (a *Client) UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRewardNotFound:
 		response := &UpdateRewardResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRewardConflict:
 		response := &UpdateRewardResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateRewardUnprocessableEntity:
 		response := &UpdateRewardResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -491,21 +491,21 @@ func (a *Client) PublicClaimUserRewardShort(params *PublicClaimUserRewardParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardNotFound:
 		response := &PublicClaimUserRewardResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicClaimUserRewardConflict:
 		response := &PublicClaimUserRewardResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -570,14 +570,14 @@ func (a *Client) PublicBulkClaimUserRewardsShort(params *PublicBulkClaimUserRewa
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicBulkClaimUserRewardsNotFound:
 		response := &PublicBulkClaimUserRewardsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

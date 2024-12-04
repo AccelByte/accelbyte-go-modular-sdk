@@ -92,21 +92,21 @@ func (a *Client) AdminGetCountryListV3Short(params *AdminGetCountryListV3Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetCountryListV3Forbidden:
 		response := &AdminGetCountryListV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetCountryListV3InternalServerError:
 		response := &AdminGetCountryListV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -167,21 +167,21 @@ func (a *Client) AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklis
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetCountryBlacklistV3Forbidden:
 		response := &AdminGetCountryBlacklistV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetCountryBlacklistV3InternalServerError:
 		response := &AdminGetCountryBlacklistV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -241,28 +241,28 @@ func (a *Client) AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklis
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddCountryBlacklistV3Unauthorized:
 		response := &AdminAddCountryBlacklistV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddCountryBlacklistV3Forbidden:
 		response := &AdminAddCountryBlacklistV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddCountryBlacklistV3InternalServerError:
 		response := &AdminAddCountryBlacklistV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -323,7 +323,7 @@ func (a *Client) PublicGetCountryListV3Short(params *PublicGetCountryListV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

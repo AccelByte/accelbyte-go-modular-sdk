@@ -89,21 +89,21 @@ func (a *Client) BulkCreatePSNEventShort(params *BulkCreatePSNEventParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreatePSNEventForbidden:
 		response := &BulkCreatePSNEventResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreatePSNEventInternalServerError:
 		response := &BulkCreatePSNEventResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

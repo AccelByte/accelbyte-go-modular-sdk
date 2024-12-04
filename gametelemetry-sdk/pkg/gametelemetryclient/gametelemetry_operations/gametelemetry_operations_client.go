@@ -141,21 +141,21 @@ func (a *Client) ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostShort(para
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInternalServerError:
 		response := &ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInsufficientStorage:
 		response := &ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostResponse{}
 		response.Error507 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -221,21 +221,21 @@ func (a *Client) ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlay
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetUnprocessableEntity:
 		response := &ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetInternalServerError:
 		response := &ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -299,21 +299,21 @@ func (a *Client) ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutUnprocessableEntity:
 		response := &ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutInternalServerError:
 		response := &ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

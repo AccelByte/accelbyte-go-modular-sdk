@@ -95,14 +95,14 @@ func (a *Client) AdminGetConfigValueV3Short(params *AdminGetConfigValueV3Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigValueV3InternalServerError:
 		response := &AdminGetConfigValueV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -172,14 +172,14 @@ func (a *Client) PublicGetConfigValueV3Short(params *PublicGetConfigValueV3Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetConfigValueV3InternalServerError:
 		response := &PublicGetConfigValueV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -101,28 +101,28 @@ func (a *Client) AdminGetInboxCategoriesShort(params *AdminGetInboxCategoriesPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxCategoriesUnauthorized:
 		response := &AdminGetInboxCategoriesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxCategoriesForbidden:
 		response := &AdminGetInboxCategoriesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxCategoriesInternalServerError:
 		response := &AdminGetInboxCategoriesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -183,28 +183,28 @@ func (a *Client) AdminAddInboxCategoryShort(params *AdminAddInboxCategoryParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddInboxCategoryUnauthorized:
 		response := &AdminAddInboxCategoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddInboxCategoryForbidden:
 		response := &AdminAddInboxCategoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddInboxCategoryInternalServerError:
 		response := &AdminAddInboxCategoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -264,28 +264,28 @@ func (a *Client) AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteInboxCategoryUnauthorized:
 		response := &AdminDeleteInboxCategoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteInboxCategoryForbidden:
 		response := &AdminDeleteInboxCategoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteInboxCategoryInternalServerError:
 		response := &AdminDeleteInboxCategoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -345,28 +345,28 @@ func (a *Client) AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInboxCategoryUnauthorized:
 		response := &AdminUpdateInboxCategoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInboxCategoryForbidden:
 		response := &AdminUpdateInboxCategoryResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInboxCategoryInternalServerError:
 		response := &AdminUpdateInboxCategoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -427,35 +427,35 @@ func (a *Client) AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetCategorySchemaUnauthorized:
 		response := &AdminGetCategorySchemaResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetCategorySchemaForbidden:
 		response := &AdminGetCategorySchemaResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetCategorySchemaNotFound:
 		response := &AdminGetCategorySchemaResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetCategorySchemaInternalServerError:
 		response := &AdminGetCategorySchemaResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -515,28 +515,28 @@ func (a *Client) AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessagePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteInboxMessageUnauthorized:
 		response := &AdminDeleteInboxMessageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteInboxMessageForbidden:
 		response := &AdminDeleteInboxMessageResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteInboxMessageInternalServerError:
 		response := &AdminDeleteInboxMessageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -597,28 +597,28 @@ func (a *Client) AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxMessagesUnauthorized:
 		response := &AdminGetInboxMessagesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxMessagesForbidden:
 		response := &AdminGetInboxMessagesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxMessagesInternalServerError:
 		response := &AdminGetInboxMessagesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -679,28 +679,28 @@ func (a *Client) AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveInboxMessageUnauthorized:
 		response := &AdminSaveInboxMessageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveInboxMessageForbidden:
 		response := &AdminSaveInboxMessageResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSaveInboxMessageInternalServerError:
 		response := &AdminSaveInboxMessageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -761,28 +761,28 @@ func (a *Client) AdminUnsendInboxMessageShort(params *AdminUnsendInboxMessagePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnsendInboxMessageUnauthorized:
 		response := &AdminUnsendInboxMessageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnsendInboxMessageForbidden:
 		response := &AdminUnsendInboxMessageResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUnsendInboxMessageInternalServerError:
 		response := &AdminUnsendInboxMessageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -843,28 +843,28 @@ func (a *Client) AdminGetInboxUsersShort(params *AdminGetInboxUsersParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxUsersUnauthorized:
 		response := &AdminGetInboxUsersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxUsersForbidden:
 		response := &AdminGetInboxUsersResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxUsersInternalServerError:
 		response := &AdminGetInboxUsersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -924,28 +924,28 @@ func (a *Client) AdminUpdateInboxMessageShort(params *AdminUpdateInboxMessagePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInboxMessageUnauthorized:
 		response := &AdminUpdateInboxMessageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInboxMessageForbidden:
 		response := &AdminUpdateInboxMessageResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateInboxMessageInternalServerError:
 		response := &AdminUpdateInboxMessageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1006,28 +1006,28 @@ func (a *Client) AdminSendInboxMessageShort(params *AdminSendInboxMessageParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendInboxMessageUnauthorized:
 		response := &AdminSendInboxMessageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendInboxMessageForbidden:
 		response := &AdminSendInboxMessageResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSendInboxMessageInternalServerError:
 		response := &AdminSendInboxMessageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1088,28 +1088,28 @@ func (a *Client) AdminGetInboxStatsShort(params *AdminGetInboxStatsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxStatsUnauthorized:
 		response := &AdminGetInboxStatsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxStatsForbidden:
 		response := &AdminGetInboxStatsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetInboxStatsInternalServerError:
 		response := &AdminGetInboxStatsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

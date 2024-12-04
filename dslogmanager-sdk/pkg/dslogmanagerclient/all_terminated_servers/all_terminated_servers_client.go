@@ -96,14 +96,14 @@ func (a *Client) BatchDownloadServerLogsShort(params *BatchDownloadServerLogsPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BatchDownloadServerLogsInternalServerError:
 		response := &BatchDownloadServerLogsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -170,21 +170,21 @@ func (a *Client) ListMetadataServersShort(params *ListMetadataServersParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListMetadataServersUnauthorized:
 		response := &ListMetadataServersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListMetadataServersInternalServerError:
 		response := &ListMetadataServersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -249,21 +249,21 @@ func (a *Client) ListAllTerminatedServersShort(params *ListAllTerminatedServersP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListAllTerminatedServersUnauthorized:
 		response := &ListAllTerminatedServersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListAllTerminatedServersInternalServerError:
 		response := &ListAllTerminatedServersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -93,21 +93,21 @@ func (a *Client) GetFollowedContentShort(params *GetFollowedContentParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetFollowedContentUnauthorized:
 		response := &GetFollowedContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetFollowedContentInternalServerError:
 		response := &GetFollowedContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -168,21 +168,21 @@ func (a *Client) GetFollowedUsersShort(params *GetFollowedUsersParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetFollowedUsersUnauthorized:
 		response := &GetFollowedUsersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetFollowedUsersInternalServerError:
 		response := &GetFollowedUsersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -243,21 +243,21 @@ func (a *Client) UpdateUserFollowStatusShort(params *UpdateUserFollowStatusParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserFollowStatusUnauthorized:
 		response := &UpdateUserFollowStatusResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserFollowStatusInternalServerError:
 		response := &UpdateUserFollowStatusResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -317,21 +317,21 @@ func (a *Client) GetPublicFollowersShort(params *GetPublicFollowersParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPublicFollowersUnauthorized:
 		response := &GetPublicFollowersResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPublicFollowersInternalServerError:
 		response := &GetPublicFollowersResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -391,21 +391,21 @@ func (a *Client) GetPublicFollowingShort(params *GetPublicFollowingParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPublicFollowingUnauthorized:
 		response := &GetPublicFollowingResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPublicFollowingInternalServerError:
 		response := &GetPublicFollowingResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

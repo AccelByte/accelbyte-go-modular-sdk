@@ -115,21 +115,21 @@ func (a *Client) UpdateImageShort(params *UpdateImageParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateImageUnauthorized:
 		response := &UpdateImageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateImageInternalServerError:
 		response := &UpdateImageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -202,35 +202,35 @@ func (a *Client) CreateImageShort(params *CreateImageParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateImageUnauthorized:
 		response := &CreateImageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateImageNotFound:
 		response := &CreateImageResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateImageConflict:
 		response := &CreateImageResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateImageInternalServerError:
 		response := &CreateImageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -304,28 +304,28 @@ func (a *Client) CreateImagePatchShort(params *CreateImagePatchParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateImagePatchUnauthorized:
 		response := &CreateImagePatchResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateImagePatchConflict:
 		response := &CreateImagePatchResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateImagePatchInternalServerError:
 		response := &CreateImagePatchResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -392,21 +392,21 @@ func (a *Client) ListImagesShort(params *ListImagesParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListImagesUnauthorized:
 		response := &ListImagesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListImagesInternalServerError:
 		response := &ListImagesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -472,35 +472,35 @@ func (a *Client) DeleteImageShort(params *DeleteImageParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteImageUnauthorized:
 		response := &DeleteImageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteImageNotFound:
 		response := &DeleteImageResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteImageUnprocessableEntity:
 		response := &DeleteImageResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteImageInternalServerError:
 		response := &DeleteImageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -565,21 +565,21 @@ func (a *Client) GetImageLimitShort(params *GetImageLimitParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetImageLimitUnauthorized:
 		response := &GetImageLimitResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetImageLimitInternalServerError:
 		response := &GetImageLimitResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -643,35 +643,35 @@ func (a *Client) DeleteImagePatchShort(params *DeleteImagePatchParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteImagePatchUnauthorized:
 		response := &DeleteImagePatchResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteImagePatchNotFound:
 		response := &DeleteImagePatchResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteImagePatchUnprocessableEntity:
 		response := &DeleteImagePatchResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteImagePatchInternalServerError:
 		response := &DeleteImagePatchResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -736,21 +736,21 @@ func (a *Client) GetImageDetailShort(params *GetImageDetailParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetImageDetailNotFound:
 		response := &GetImageDetailResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetImageDetailInternalServerError:
 		response := &GetImageDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -817,14 +817,14 @@ func (a *Client) GetImagePatchesShort(params *GetImagePatchesParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetImagePatchesInternalServerError:
 		response := &GetImagePatchesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -889,21 +889,21 @@ func (a *Client) GetImagePatchDetailShort(params *GetImagePatchDetailParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetImagePatchDetailNotFound:
 		response := &GetImagePatchDetailResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetImagePatchDetailInternalServerError:
 		response := &GetImagePatchDetailResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -968,21 +968,21 @@ func (a *Client) GetRepositoryShort(params *GetRepositoryParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetRepositoryNotFound:
 		response := &GetRepositoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetRepositoryInternalServerError:
 		response := &GetRepositoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1053,21 +1053,21 @@ func (a *Client) CreateRepositoryShort(params *CreateRepositoryParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRepositoryUnauthorized:
 		response := &CreateRepositoryResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateRepositoryInternalServerError:
 		response := &CreateRepositoryResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1134,21 +1134,21 @@ func (a *Client) ListImagesClientShort(params *ListImagesClientParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListImagesClientUnauthorized:
 		response := &ListImagesClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ListImagesClientInternalServerError:
 		response := &ListImagesClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1213,21 +1213,21 @@ func (a *Client) ImageLimitClientShort(params *ImageLimitClientParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImageLimitClientUnauthorized:
 		response := &ImageLimitClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImageLimitClientInternalServerError:
 		response := &ImageLimitClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1292,21 +1292,21 @@ func (a *Client) ImageDetailClientShort(params *ImageDetailClientParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImageDetailClientNotFound:
 		response := &ImageDetailClientResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *ImageDetailClientInternalServerError:
 		response := &ImageDetailClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

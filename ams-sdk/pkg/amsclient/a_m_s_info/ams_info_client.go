@@ -91,21 +91,21 @@ func (a *Client) InfoRegionsShort(params *InfoRegionsParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InfoRegionsForbidden:
 		response := &InfoRegionsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InfoRegionsInternalServerError:
 		response := &InfoRegionsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,21 +166,21 @@ func (a *Client) InfoSupportedInstancesShort(params *InfoSupportedInstancesParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InfoSupportedInstancesForbidden:
 		response := &InfoSupportedInstancesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InfoSupportedInstancesInternalServerError:
 		response := &InfoSupportedInstancesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

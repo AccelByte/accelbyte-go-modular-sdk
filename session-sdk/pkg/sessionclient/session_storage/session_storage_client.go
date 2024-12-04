@@ -95,28 +95,28 @@ func (a *Client) AdminReadSessionStorageShort(params *AdminReadSessionStoragePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminReadSessionStorageUnauthorized:
 		response := &AdminReadSessionStorageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminReadSessionStorageNotFound:
 		response := &AdminReadSessionStorageResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminReadSessionStorageInternalServerError:
 		response := &AdminReadSessionStorageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -178,28 +178,28 @@ func (a *Client) AdminDeleteUserSessionStorageShort(params *AdminDeleteUserSessi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserSessionStorageUnauthorized:
 		response := &AdminDeleteUserSessionStorageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserSessionStorageNotFound:
 		response := &AdminDeleteUserSessionStorageResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteUserSessionStorageInternalServerError:
 		response := &AdminDeleteUserSessionStorageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -262,28 +262,28 @@ func (a *Client) AdminReadUserSessionStorageShort(params *AdminReadUserSessionSt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminReadUserSessionStorageUnauthorized:
 		response := &AdminReadUserSessionStorageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminReadUserSessionStorageNotFound:
 		response := &AdminReadUserSessionStorageResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminReadUserSessionStorageInternalServerError:
 		response := &AdminReadUserSessionStorageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -355,35 +355,35 @@ func (a *Client) PublicUpdateInsertSessionStorageLeaderShort(params *PublicUpdat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateInsertSessionStorageLeaderUnauthorized:
 		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateInsertSessionStorageLeaderForbidden:
 		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateInsertSessionStorageLeaderNotFound:
 		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateInsertSessionStorageLeaderInternalServerError:
 		response := &PublicUpdateInsertSessionStorageLeaderResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -455,35 +455,35 @@ func (a *Client) PublicUpdateInsertSessionStorageShort(params *PublicUpdateInser
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateInsertSessionStorageUnauthorized:
 		response := &PublicUpdateInsertSessionStorageResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateInsertSessionStorageForbidden:
 		response := &PublicUpdateInsertSessionStorageResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateInsertSessionStorageNotFound:
 		response := &PublicUpdateInsertSessionStorageResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicUpdateInsertSessionStorageInternalServerError:
 		response := &PublicUpdateInsertSessionStorageResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

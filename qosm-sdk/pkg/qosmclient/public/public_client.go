@@ -106,7 +106,7 @@ func (a *Client) ListServerPerNamespaceShort(params *ListServerPerNamespaceParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -183,7 +183,7 @@ func (a *Client) ListServerShort(params *ListServerParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

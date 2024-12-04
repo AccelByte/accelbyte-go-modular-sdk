@@ -95,21 +95,21 @@ func (a *Client) UpdateServerConfigShort(params *UpdateServerConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateServerConfigNotFound:
 		response := &UpdateServerConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateServerConfigInternalServerError:
 		response := &UpdateServerConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,7 +174,7 @@ func (a *Client) DeleteServerShort(params *DeleteServerParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -239,21 +239,21 @@ func (a *Client) SetServerAliasShort(params *SetServerAliasParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetServerAliasNotFound:
 		response := &SetServerAliasResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SetServerAliasInternalServerError:
 		response := &SetServerAliasResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

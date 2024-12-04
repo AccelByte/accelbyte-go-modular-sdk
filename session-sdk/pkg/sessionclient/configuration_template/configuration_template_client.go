@@ -99,35 +99,35 @@ func (a *Client) AdminGetConfigurationAlertV1Short(params *AdminGetConfiguration
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigurationAlertV1Unauthorized:
 		response := &AdminGetConfigurationAlertV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigurationAlertV1Forbidden:
 		response := &AdminGetConfigurationAlertV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigurationAlertV1NotFound:
 		response := &AdminGetConfigurationAlertV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigurationAlertV1InternalServerError:
 		response := &AdminGetConfigurationAlertV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -191,35 +191,35 @@ func (a *Client) AdminUpdateConfigurationAlertV1Short(params *AdminUpdateConfigu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigurationAlertV1Unauthorized:
 		response := &AdminUpdateConfigurationAlertV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigurationAlertV1Forbidden:
 		response := &AdminUpdateConfigurationAlertV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigurationAlertV1NotFound:
 		response := &AdminUpdateConfigurationAlertV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigurationAlertV1InternalServerError:
 		response := &AdminUpdateConfigurationAlertV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -283,42 +283,42 @@ func (a *Client) AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationAlertV1Unauthorized:
 		response := &AdminCreateConfigurationAlertV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationAlertV1Forbidden:
 		response := &AdminCreateConfigurationAlertV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationAlertV1NotFound:
 		response := &AdminCreateConfigurationAlertV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationAlertV1Conflict:
 		response := &AdminCreateConfigurationAlertV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationAlertV1InternalServerError:
 		response := &AdminCreateConfigurationAlertV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -378,28 +378,28 @@ func (a *Client) AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteConfigurationAlertV1Unauthorized:
 		response := &AdminDeleteConfigurationAlertV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteConfigurationAlertV1Forbidden:
 		response := &AdminDeleteConfigurationAlertV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteConfigurationAlertV1InternalServerError:
 		response := &AdminDeleteConfigurationAlertV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -518,35 +518,35 @@ func (a *Client) AdminCreateConfigurationTemplateV1Short(params *AdminCreateConf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationTemplateV1Unauthorized:
 		response := &AdminCreateConfigurationTemplateV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationTemplateV1Forbidden:
 		response := &AdminCreateConfigurationTemplateV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationTemplateV1Conflict:
 		response := &AdminCreateConfigurationTemplateV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateConfigurationTemplateV1InternalServerError:
 		response := &AdminCreateConfigurationTemplateV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -607,28 +607,28 @@ func (a *Client) AdminGetAllConfigurationTemplatesV1Short(params *AdminGetAllCon
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAllConfigurationTemplatesV1Unauthorized:
 		response := &AdminGetAllConfigurationTemplatesV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAllConfigurationTemplatesV1Forbidden:
 		response := &AdminGetAllConfigurationTemplatesV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetAllConfigurationTemplatesV1InternalServerError:
 		response := &AdminGetAllConfigurationTemplatesV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -689,35 +689,35 @@ func (a *Client) AdminGetConfigurationTemplateV1Short(params *AdminGetConfigurat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigurationTemplateV1Unauthorized:
 		response := &AdminGetConfigurationTemplateV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigurationTemplateV1Forbidden:
 		response := &AdminGetConfigurationTemplateV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigurationTemplateV1NotFound:
 		response := &AdminGetConfigurationTemplateV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetConfigurationTemplateV1InternalServerError:
 		response := &AdminGetConfigurationTemplateV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -835,35 +835,35 @@ func (a *Client) AdminUpdateConfigurationTemplateV1Short(params *AdminUpdateConf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigurationTemplateV1Unauthorized:
 		response := &AdminUpdateConfigurationTemplateV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigurationTemplateV1Forbidden:
 		response := &AdminUpdateConfigurationTemplateV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigurationTemplateV1NotFound:
 		response := &AdminUpdateConfigurationTemplateV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateConfigurationTemplateV1InternalServerError:
 		response := &AdminUpdateConfigurationTemplateV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -923,28 +923,28 @@ func (a *Client) AdminDeleteConfigurationTemplateV1Short(params *AdminDeleteConf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteConfigurationTemplateV1Unauthorized:
 		response := &AdminDeleteConfigurationTemplateV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteConfigurationTemplateV1Forbidden:
 		response := &AdminDeleteConfigurationTemplateV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteConfigurationTemplateV1InternalServerError:
 		response := &AdminDeleteConfigurationTemplateV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1005,35 +1005,35 @@ func (a *Client) AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfiguratio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDSMCConfigurationUnauthorized:
 		response := &AdminGetDSMCConfigurationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDSMCConfigurationForbidden:
 		response := &AdminGetDSMCConfigurationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDSMCConfigurationNotFound:
 		response := &AdminGetDSMCConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetDSMCConfigurationInternalServerError:
 		response := &AdminGetDSMCConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1094,35 +1094,35 @@ func (a *Client) AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurat
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncDSMCConfigurationUnauthorized:
 		response := &AdminSyncDSMCConfigurationResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncDSMCConfigurationForbidden:
 		response := &AdminSyncDSMCConfigurationResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncDSMCConfigurationNotFound:
 		response := &AdminSyncDSMCConfigurationResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSyncDSMCConfigurationInternalServerError:
 		response := &AdminSyncDSMCConfigurationResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

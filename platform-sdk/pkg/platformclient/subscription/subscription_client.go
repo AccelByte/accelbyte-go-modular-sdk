@@ -344,21 +344,21 @@ func (a *Client) PlatformSubscribeSubscriptionShort(params *PlatformSubscribeSub
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformSubscribeSubscriptionNotFound:
 		response := &PlatformSubscribeSubscriptionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformSubscribeSubscriptionUnprocessableEntity:
 		response := &PlatformSubscribeSubscriptionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -480,7 +480,7 @@ func (a *Client) GetUserSubscriptionShort(params *GetUserSubscriptionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -599,14 +599,14 @@ func (a *Client) CancelSubscriptionShort(params *CancelSubscriptionParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CancelSubscriptionConflict:
 		response := &CancelSubscriptionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -671,7 +671,7 @@ func (a *Client) GrantDaysToSubscriptionShort(params *GrantDaysToSubscriptionPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -790,7 +790,7 @@ func (a *Client) ProcessUserSubscriptionNotificationShort(params *ProcessUserSub
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -915,35 +915,35 @@ func (a *Client) PublicSubscribeSubscriptionShort(params *PublicSubscribeSubscri
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubscribeSubscriptionForbidden:
 		response := &PublicSubscribeSubscriptionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubscribeSubscriptionNotFound:
 		response := &PublicSubscribeSubscriptionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubscribeSubscriptionConflict:
 		response := &PublicSubscribeSubscriptionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSubscribeSubscriptionUnprocessableEntity:
 		response := &PublicSubscribeSubscriptionResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1065,7 +1065,7 @@ func (a *Client) PublicGetUserSubscriptionShort(params *PublicGetUserSubscriptio
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1130,21 +1130,21 @@ func (a *Client) PublicChangeSubscriptionBillingAccountShort(params *PublicChang
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicChangeSubscriptionBillingAccountNotFound:
 		response := &PublicChangeSubscriptionBillingAccountResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicChangeSubscriptionBillingAccountConflict:
 		response := &PublicChangeSubscriptionBillingAccountResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1209,14 +1209,14 @@ func (a *Client) PublicCancelSubscriptionShort(params *PublicCancelSubscriptionP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicCancelSubscriptionConflict:
 		response := &PublicCancelSubscriptionResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

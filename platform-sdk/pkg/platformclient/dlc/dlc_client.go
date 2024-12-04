@@ -104,7 +104,7 @@ func (a *Client) GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -166,21 +166,21 @@ func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDLCItemConfigConflict:
 		response := &UpdateDLCItemConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateDLCItemConfigUnprocessableEntity:
 		response := &UpdateDLCItemConfigResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -294,7 +294,7 @@ func (a *Client) GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -374,7 +374,7 @@ func (a *Client) UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigPar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -603,7 +603,7 @@ func (a *Client) GeDLCDurableRewardShortMapShort(params *GeDLCDurableRewardShort
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -663,14 +663,14 @@ func (a *Client) SyncEpicGameDLCShort(params *SyncEpicGameDLCParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncEpicGameDLCNotFound:
 		response := &SyncEpicGameDLCResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -730,14 +730,14 @@ func (a *Client) SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncOculusDLCNotFound:
 		response := &SyncOculusDLCResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -798,14 +798,14 @@ func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventor
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSyncPsnDLCInventoryNotFound:
 		response := &PublicSyncPsnDLCInventoryResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -866,14 +866,14 @@ func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsNotFound:
 		response := &PublicSyncPsnDLCInventoryWithMultipleServiceLabelsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -933,14 +933,14 @@ func (a *Client) SyncSteamDLCShort(params *SyncSteamDLCParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncSteamDLCNotFound:
 		response := &SyncSteamDLCResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1000,14 +1000,14 @@ func (a *Client) SyncXboxDLCShort(params *SyncXboxDLCParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *SyncXboxDLCNotFound:
 		response := &SyncXboxDLCResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

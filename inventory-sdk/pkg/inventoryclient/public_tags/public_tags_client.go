@@ -91,14 +91,14 @@ func (a *Client) PublicListTagsShort(params *PublicListTagsParams, authInfo runt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListTagsInternalServerError:
 		response := &PublicListTagsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

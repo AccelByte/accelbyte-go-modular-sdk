@@ -112,14 +112,14 @@ func (a *Client) GetClientsShort(params *GetClientsParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetClientsForbidden:
 		response := &GetClientsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -182,27 +182,27 @@ func (a *Client) CreateClientShort(params *CreateClientParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateClientUnauthorized:
 		response := &CreateClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateClientForbidden:
 		response := &CreateClientResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateClientConflict:
 		response := &CreateClientResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -265,20 +265,20 @@ func (a *Client) GetClientShort(params *GetClientParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetClientForbidden:
 		response := &GetClientResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetClientNotFound:
 		response := &GetClientResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -341,27 +341,27 @@ func (a *Client) UpdateClientShort(params *UpdateClientParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientUnauthorized:
 		response := &UpdateClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientForbidden:
 		response := &UpdateClientResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientNotFound:
 		response := &UpdateClientResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -423,20 +423,20 @@ func (a *Client) DeleteClientShort(params *DeleteClientParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteClientForbidden:
 		response := &DeleteClientResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteClientNotFound:
 		response := &DeleteClientResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -498,27 +498,27 @@ func (a *Client) UpdateClientPermissionShort(params *UpdateClientPermissionParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientPermissionUnauthorized:
 		response := &UpdateClientPermissionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientPermissionForbidden:
 		response := &UpdateClientPermissionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientPermissionNotFound:
 		response := &UpdateClientPermissionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -580,27 +580,27 @@ func (a *Client) AddClientPermissionShort(params *AddClientPermissionParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddClientPermissionUnauthorized:
 		response := &AddClientPermissionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddClientPermissionForbidden:
 		response := &AddClientPermissionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AddClientPermissionNotFound:
 		response := &AddClientPermissionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -662,27 +662,27 @@ func (a *Client) DeleteClientPermissionShort(params *DeleteClientPermissionParam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteClientPermissionUnauthorized:
 		response := &DeleteClientPermissionResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteClientPermissionForbidden:
 		response := &DeleteClientPermissionResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteClientPermissionNotFound:
 		response := &DeleteClientPermissionResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -744,27 +744,27 @@ func (a *Client) UpdateClientSecretShort(params *UpdateClientSecretParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientSecretUnauthorized:
 		response := &UpdateClientSecretResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientSecretForbidden:
 		response := &UpdateClientSecretResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateClientSecretNotFound:
 		response := &UpdateClientSecretResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -827,14 +827,14 @@ func (a *Client) GetClientsbyNamespaceShort(params *GetClientsbyNamespaceParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetClientsbyNamespaceForbidden:
 		response := &GetClientsbyNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -897,27 +897,27 @@ func (a *Client) CreateClientByNamespaceShort(params *CreateClientByNamespacePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateClientByNamespaceUnauthorized:
 		response := &CreateClientByNamespaceResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateClientByNamespaceForbidden:
 		response := &CreateClientByNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateClientByNamespaceConflict:
 		response := &CreateClientByNamespaceResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -979,20 +979,20 @@ func (a *Client) DeleteClientByNamespaceShort(params *DeleteClientByNamespacePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteClientByNamespaceForbidden:
 		response := &DeleteClientByNamespaceResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteClientByNamespaceNotFound:
 		response := &DeleteClientByNamespaceResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1053,21 +1053,21 @@ func (a *Client) AdminGetClientsByNamespaceV3Short(params *AdminGetClientsByName
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetClientsByNamespaceV3Unauthorized:
 		response := &AdminGetClientsByNamespaceV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetClientsByNamespaceV3Forbidden:
 		response := &AdminGetClientsByNamespaceV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1158,28 +1158,28 @@ func (a *Client) AdminBulkUpdateClientsV3Short(params *AdminBulkUpdateClientsV3P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateClientsV3Unauthorized:
 		response := &AdminBulkUpdateClientsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateClientsV3Forbidden:
 		response := &AdminBulkUpdateClientsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminBulkUpdateClientsV3NotFound:
 		response := &AdminBulkUpdateClientsV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1278,28 +1278,28 @@ func (a *Client) AdminCreateClientV3Short(params *AdminCreateClientV3Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateClientV3Unauthorized:
 		response := &AdminCreateClientV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateClientV3Forbidden:
 		response := &AdminCreateClientV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateClientV3Conflict:
 		response := &AdminCreateClientV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1360,28 +1360,28 @@ func (a *Client) AdminGetClientsbyNamespacebyIDV3Short(params *AdminGetClientsby
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetClientsbyNamespacebyIDV3Unauthorized:
 		response := &AdminGetClientsbyNamespacebyIDV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetClientsbyNamespacebyIDV3Forbidden:
 		response := &AdminGetClientsbyNamespacebyIDV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetClientsbyNamespacebyIDV3NotFound:
 		response := &AdminGetClientsbyNamespacebyIDV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1441,35 +1441,35 @@ func (a *Client) AdminDeleteClientV3Short(params *AdminDeleteClientV3Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteClientV3Unauthorized:
 		response := &AdminDeleteClientV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteClientV3Forbidden:
 		response := &AdminDeleteClientV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteClientV3NotFound:
 		response := &AdminDeleteClientV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteClientV3Conflict:
 		response := &AdminDeleteClientV3Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1561,28 +1561,28 @@ func (a *Client) AdminUpdateClientV3Short(params *AdminUpdateClientV3Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientV3Unauthorized:
 		response := &AdminUpdateClientV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientV3Forbidden:
 		response := &AdminUpdateClientV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientV3NotFound:
 		response := &AdminUpdateClientV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1644,28 +1644,28 @@ func (a *Client) AdminUpdateClientPermissionV3Short(params *AdminUpdateClientPer
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientPermissionV3Unauthorized:
 		response := &AdminUpdateClientPermissionV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientPermissionV3Forbidden:
 		response := &AdminUpdateClientPermissionV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientPermissionV3NotFound:
 		response := &AdminUpdateClientPermissionV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1727,28 +1727,28 @@ func (a *Client) AdminAddClientPermissionsV3Short(params *AdminAddClientPermissi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddClientPermissionsV3Unauthorized:
 		response := &AdminAddClientPermissionsV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddClientPermissionsV3Forbidden:
 		response := &AdminAddClientPermissionsV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminAddClientPermissionsV3NotFound:
 		response := &AdminAddClientPermissionsV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1810,28 +1810,28 @@ func (a *Client) AdminDeleteClientPermissionV3Short(params *AdminDeleteClientPer
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteClientPermissionV3Unauthorized:
 		response := &AdminDeleteClientPermissionV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteClientPermissionV3Forbidden:
 		response := &AdminDeleteClientPermissionV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteClientPermissionV3NotFound:
 		response := &AdminDeleteClientPermissionV3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1891,27 +1891,27 @@ func (a *Client) AdminUpdateClientSecretV3Short(params *AdminUpdateClientSecretV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientSecretV3Unauthorized:
 		response := &AdminUpdateClientSecretV3Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientSecretV3Forbidden:
 		response := &AdminUpdateClientSecretV3Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateClientSecretV3NotFound:
 		response := &AdminUpdateClientSecretV3Response{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -93,7 +93,7 @@ func (a *Client) ListReportsShort(params *ListReportsParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -161,21 +161,21 @@ func (a *Client) AdminSubmitReportShort(params *AdminSubmitReportParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSubmitReportConflict:
 		response := &AdminSubmitReportResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminSubmitReportInternalServerError:
 		response := &AdminSubmitReportResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

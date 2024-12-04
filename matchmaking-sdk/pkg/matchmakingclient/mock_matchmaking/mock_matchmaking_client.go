@@ -95,35 +95,35 @@ func (a *Client) CleanAllMocksShort(params *CleanAllMocksParams, authInfo runtim
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CleanAllMocksUnauthorized:
 		response := &CleanAllMocksResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CleanAllMocksForbidden:
 		response := &CleanAllMocksResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CleanAllMocksNotFound:
 		response := &CleanAllMocksResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CleanAllMocksInternalServerError:
 		response := &CleanAllMocksResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -185,35 +185,35 @@ func (a *Client) GetAllMockMatchesShort(params *GetAllMockMatchesParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllMockMatchesUnauthorized:
 		response := &GetAllMockMatchesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllMockMatchesForbidden:
 		response := &GetAllMockMatchesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllMockMatchesNotFound:
 		response := &GetAllMockMatchesResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllMockMatchesInternalServerError:
 		response := &GetAllMockMatchesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -275,35 +275,35 @@ func (a *Client) GetMockMatchesByTimestampShort(params *GetMockMatchesByTimestam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMockMatchesByTimestampUnauthorized:
 		response := &GetMockMatchesByTimestampResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMockMatchesByTimestampForbidden:
 		response := &GetMockMatchesByTimestampResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMockMatchesByTimestampNotFound:
 		response := &GetMockMatchesByTimestampResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMockMatchesByTimestampInternalServerError:
 		response := &GetMockMatchesByTimestampResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -365,35 +365,35 @@ func (a *Client) GetAllMockTicketsShort(params *GetAllMockTicketsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllMockTicketsUnauthorized:
 		response := &GetAllMockTicketsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllMockTicketsForbidden:
 		response := &GetAllMockTicketsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllMockTicketsNotFound:
 		response := &GetAllMockTicketsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllMockTicketsInternalServerError:
 		response := &GetAllMockTicketsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -457,35 +457,35 @@ func (a *Client) CreateMockTicketsShort(params *CreateMockTicketsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMockTicketsUnauthorized:
 		response := &CreateMockTicketsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMockTicketsForbidden:
 		response := &CreateMockTicketsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMockTicketsNotFound:
 		response := &CreateMockTicketsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMockTicketsInternalServerError:
 		response := &CreateMockTicketsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -547,35 +547,35 @@ func (a *Client) BulkCreateMockTicketsShort(params *BulkCreateMockTicketsParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreateMockTicketsUnauthorized:
 		response := &BulkCreateMockTicketsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreateMockTicketsForbidden:
 		response := &BulkCreateMockTicketsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreateMockTicketsNotFound:
 		response := &BulkCreateMockTicketsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *BulkCreateMockTicketsInternalServerError:
 		response := &BulkCreateMockTicketsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -637,35 +637,35 @@ func (a *Client) GetMockTicketsByTimestampShort(params *GetMockTicketsByTimestam
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMockTicketsByTimestampUnauthorized:
 		response := &GetMockTicketsByTimestampResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMockTicketsByTimestampForbidden:
 		response := &GetMockTicketsByTimestampResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMockTicketsByTimestampNotFound:
 		response := &GetMockTicketsByTimestampResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMockTicketsByTimestampInternalServerError:
 		response := &GetMockTicketsByTimestampResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

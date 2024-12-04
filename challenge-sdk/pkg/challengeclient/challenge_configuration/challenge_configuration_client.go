@@ -98,21 +98,21 @@ func (a *Client) AdminGetChallengesShort(params *AdminGetChallengesParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChallengesForbidden:
 		response := &AdminGetChallengesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChallengesInternalServerError:
 		response := &AdminGetChallengesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -198,42 +198,42 @@ func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChallengeUnauthorized:
 		response := &AdminCreateChallengeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChallengeForbidden:
 		response := &AdminCreateChallengeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChallengeConflict:
 		response := &AdminCreateChallengeResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChallengeUnprocessableEntity:
 		response := &AdminCreateChallengeResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChallengeInternalServerError:
 		response := &AdminCreateChallengeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -296,21 +296,21 @@ func (a *Client) AdminGetActiveChallengesShort(params *AdminGetActiveChallengesP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetActiveChallengesForbidden:
 		response := &AdminGetActiveChallengesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetActiveChallengesInternalServerError:
 		response := &AdminGetActiveChallengesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -372,28 +372,28 @@ func (a *Client) AdminGetChallengeShort(params *AdminGetChallengeParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChallengeForbidden:
 		response := &AdminGetChallengeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChallengeNotFound:
 		response := &AdminGetChallengeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetChallengeInternalServerError:
 		response := &AdminGetChallengeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -478,42 +478,42 @@ func (a *Client) AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateChallengeUnauthorized:
 		response := &AdminUpdateChallengeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateChallengeForbidden:
 		response := &AdminUpdateChallengeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateChallengeNotFound:
 		response := &AdminUpdateChallengeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateChallengeUnprocessableEntity:
 		response := &AdminUpdateChallengeResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateChallengeInternalServerError:
 		response := &AdminUpdateChallengeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -575,35 +575,35 @@ func (a *Client) AdminDeleteChallengeShort(params *AdminDeleteChallengeParams, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChallengeUnauthorized:
 		response := &AdminDeleteChallengeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChallengeForbidden:
 		response := &AdminDeleteChallengeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChallengeNotFound:
 		response := &AdminDeleteChallengeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteChallengeInternalServerError:
 		response := &AdminDeleteChallengeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -665,28 +665,28 @@ func (a *Client) AdminGetPeriodsShort(params *AdminGetPeriodsParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPeriodsForbidden:
 		response := &AdminGetPeriodsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPeriodsNotFound:
 		response := &AdminGetPeriodsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetPeriodsInternalServerError:
 		response := &AdminGetPeriodsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -750,35 +750,35 @@ func (a *Client) AdminRandomizeChallengeShort(params *AdminRandomizeChallengePar
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRandomizeChallengeUnauthorized:
 		response := &AdminRandomizeChallengeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRandomizeChallengeForbidden:
 		response := &AdminRandomizeChallengeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRandomizeChallengeNotFound:
 		response := &AdminRandomizeChallengeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminRandomizeChallengeInternalServerError:
 		response := &AdminRandomizeChallengeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -840,35 +840,35 @@ func (a *Client) AdminDeleteTiedChallengeShort(params *AdminDeleteTiedChallengeP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTiedChallengeUnauthorized:
 		response := &AdminDeleteTiedChallengeResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTiedChallengeForbidden:
 		response := &AdminDeleteTiedChallengeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTiedChallengeNotFound:
 		response := &AdminDeleteTiedChallengeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTiedChallengeInternalServerError:
 		response := &AdminDeleteTiedChallengeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -939,35 +939,35 @@ func (a *Client) AdminUpdateTiedChallengeScheduleShort(params *AdminUpdateTiedCh
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTiedChallengeScheduleUnauthorized:
 		response := &AdminUpdateTiedChallengeScheduleResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTiedChallengeScheduleForbidden:
 		response := &AdminUpdateTiedChallengeScheduleResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTiedChallengeScheduleNotFound:
 		response := &AdminUpdateTiedChallengeScheduleResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdateTiedChallengeScheduleInternalServerError:
 		response := &AdminUpdateTiedChallengeScheduleResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

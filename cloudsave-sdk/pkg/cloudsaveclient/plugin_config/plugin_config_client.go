@@ -94,28 +94,28 @@ func (a *Client) GetPluginConfigShort(params *GetPluginConfigParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPluginConfigForbidden:
 		response := &GetPluginConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPluginConfigNotFound:
 		response := &GetPluginConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPluginConfigInternalServerError:
 		response := &GetPluginConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -178,35 +178,35 @@ func (a *Client) CreatePluginConfigShort(params *CreatePluginConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePluginConfigUnauthorized:
 		response := &CreatePluginConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePluginConfigForbidden:
 		response := &CreatePluginConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePluginConfigConflict:
 		response := &CreatePluginConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePluginConfigInternalServerError:
 		response := &CreatePluginConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -268,28 +268,28 @@ func (a *Client) DeletePluginConfigShort(params *DeletePluginConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePluginConfigForbidden:
 		response := &DeletePluginConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePluginConfigNotFound:
 		response := &DeletePluginConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePluginConfigInternalServerError:
 		response := &DeletePluginConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -352,35 +352,35 @@ func (a *Client) UpdatePluginConfigShort(params *UpdatePluginConfigParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePluginConfigUnauthorized:
 		response := &UpdatePluginConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePluginConfigForbidden:
 		response := &UpdatePluginConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePluginConfigNotFound:
 		response := &UpdatePluginConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePluginConfigInternalServerError:
 		response := &UpdatePluginConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -95,21 +95,21 @@ func (a *Client) GetGroupsShort(params *GetGroupsParams, authInfo runtime.Client
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupsUnauthorized:
 		response := &GetGroupsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupsInternalServerError:
 		response := &GetGroupsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -170,21 +170,21 @@ func (a *Client) CreateGroupShort(params *CreateGroupParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGroupUnauthorized:
 		response := &CreateGroupResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateGroupInternalServerError:
 		response := &CreateGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -245,21 +245,21 @@ func (a *Client) GetGroupShort(params *GetGroupParams, authInfo runtime.ClientAu
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupNotFound:
 		response := &GetGroupResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupInternalServerError:
 		response := &GetGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -320,28 +320,28 @@ func (a *Client) UpdateGroupShort(params *UpdateGroupParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupUnauthorized:
 		response := &UpdateGroupResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupNotFound:
 		response := &UpdateGroupResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateGroupInternalServerError:
 		response := &UpdateGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -401,21 +401,21 @@ func (a *Client) DeleteGroupShort(params *DeleteGroupParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupNotFound:
 		response := &DeleteGroupResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGroupInternalServerError:
 		response := &DeleteGroupResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -476,28 +476,28 @@ func (a *Client) GetGroupContentShort(params *GetGroupContentParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupContentUnauthorized:
 		response := &GetGroupContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupContentNotFound:
 		response := &GetGroupContentResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGroupContentInternalServerError:
 		response := &GetGroupContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -558,28 +558,28 @@ func (a *Client) PublicGetGroupContentsV2Short(params *PublicGetGroupContentsV2P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetGroupContentsV2Unauthorized:
 		response := &PublicGetGroupContentsV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetGroupContentsV2NotFound:
 		response := &PublicGetGroupContentsV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicGetGroupContentsV2InternalServerError:
 		response := &PublicGetGroupContentsV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

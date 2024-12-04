@@ -92,21 +92,21 @@ func (a *Client) GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItemsForbidden:
 		response := &GetGlobalStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItemsInternalServerError:
 		response := &GetGlobalStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -169,28 +169,28 @@ func (a *Client) GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemBySta
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItemByStatCodeForbidden:
 		response := &GetGlobalStatItemByStatCodeResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItemByStatCodeNotFound:
 		response := &GetGlobalStatItemByStatCodeResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItemByStatCodeInternalServerError:
 		response := &GetGlobalStatItemByStatCodeResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -253,21 +253,21 @@ func (a *Client) GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItems1Forbidden:
 		response := &GetGlobalStatItems1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItems1InternalServerError:
 		response := &GetGlobalStatItems1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -330,28 +330,28 @@ func (a *Client) GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemBySt
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItemByStatCode1Forbidden:
 		response := &GetGlobalStatItemByStatCode1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItemByStatCode1NotFound:
 		response := &GetGlobalStatItemByStatCode1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetGlobalStatItemByStatCode1InternalServerError:
 		response := &GetGlobalStatItemByStatCode1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

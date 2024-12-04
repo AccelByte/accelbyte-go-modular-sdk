@@ -105,35 +105,35 @@ func (a *Client) CreateDeploymentV1Short(params *CreateDeploymentV1Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentV1Unauthorized:
 		response := &CreateDeploymentV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentV1Forbidden:
 		response := &CreateDeploymentV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentV1NotFound:
 		response := &CreateDeploymentV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateDeploymentV1InternalServerError:
 		response := &CreateDeploymentV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -200,28 +200,28 @@ func (a *Client) GetListOfDeploymentV1Short(params *GetListOfDeploymentV1Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfDeploymentV1Unauthorized:
 		response := &GetListOfDeploymentV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfDeploymentV1Forbidden:
 		response := &GetListOfDeploymentV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetListOfDeploymentV1InternalServerError:
 		response := &GetListOfDeploymentV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -288,28 +288,28 @@ func (a *Client) GetDeploymentV1Short(params *GetDeploymentV1Params, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentV1Forbidden:
 		response := &GetDeploymentV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentV1NotFound:
 		response := &GetDeploymentV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetDeploymentV1InternalServerError:
 		response := &GetDeploymentV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -375,28 +375,28 @@ func (a *Client) DeleteDeploymentV1Short(params *DeleteDeploymentV1Params, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentV1Forbidden:
 		response := &DeleteDeploymentV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentV1NotFound:
 		response := &DeleteDeploymentV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteDeploymentV1InternalServerError:
 		response := &DeleteDeploymentV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

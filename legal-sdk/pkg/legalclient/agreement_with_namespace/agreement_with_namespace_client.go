@@ -201,7 +201,7 @@ func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -263,7 +263,7 @@ func (a *Client) DownloadExportedAgreementsInCSVShort(params *DownloadExportedAg
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -327,21 +327,21 @@ func (a *Client) InitiateExportAgreementsToCSVShort(params *InitiateExportAgreem
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InitiateExportAgreementsToCSVNotFound:
 		response := &InitiateExportAgreementsToCSVResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *InitiateExportAgreementsToCSVConflict:
 		response := &InitiateExportAgreementsToCSVResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

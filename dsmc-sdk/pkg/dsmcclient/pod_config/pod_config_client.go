@@ -101,14 +101,14 @@ func (a *Client) GetLowestInstanceSpecShort(params *GetLowestInstanceSpecParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetLowestInstanceSpecInternalServerError:
 		response := &GetLowestInstanceSpecResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -175,21 +175,21 @@ func (a *Client) GetAllPodConfigShort(params *GetAllPodConfigParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPodConfigUnauthorized:
 		response := &GetAllPodConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPodConfigInternalServerError:
 		response := &GetAllPodConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -254,28 +254,28 @@ func (a *Client) GetPodConfigShort(params *GetPodConfigParams, authInfo runtime.
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPodConfigUnauthorized:
 		response := &GetPodConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPodConfigNotFound:
 		response := &GetPodConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetPodConfigInternalServerError:
 		response := &GetPodConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -340,28 +340,28 @@ func (a *Client) CreatePodConfigShort(params *CreatePodConfigParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePodConfigUnauthorized:
 		response := &CreatePodConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePodConfigConflict:
 		response := &CreatePodConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePodConfigInternalServerError:
 		response := &CreatePodConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -425,35 +425,35 @@ func (a *Client) DeletePodConfigShort(params *DeletePodConfigParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePodConfigUnauthorized:
 		response := &DeletePodConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePodConfigNotFound:
 		response := &DeletePodConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePodConfigConflict:
 		response := &DeletePodConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePodConfigInternalServerError:
 		response := &DeletePodConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -518,35 +518,35 @@ func (a *Client) UpdatePodConfigShort(params *UpdatePodConfigParams, authInfo ru
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePodConfigUnauthorized:
 		response := &UpdatePodConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePodConfigNotFound:
 		response := &UpdatePodConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePodConfigConflict:
 		response := &UpdatePodConfigResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdatePodConfigInternalServerError:
 		response := &UpdatePodConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -613,21 +613,21 @@ func (a *Client) GetAllPodConfigClientShort(params *GetAllPodConfigClientParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPodConfigClientUnauthorized:
 		response := &GetAllPodConfigClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllPodConfigClientInternalServerError:
 		response := &GetAllPodConfigClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -692,28 +692,28 @@ func (a *Client) CreatePodConfigClientShort(params *CreatePodConfigClientParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePodConfigClientUnauthorized:
 		response := &CreatePodConfigClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePodConfigClientConflict:
 		response := &CreatePodConfigClientResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreatePodConfigClientInternalServerError:
 		response := &CreatePodConfigClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -777,35 +777,35 @@ func (a *Client) DeletePodConfigClientShort(params *DeletePodConfigClientParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePodConfigClientUnauthorized:
 		response := &DeletePodConfigClientResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePodConfigClientNotFound:
 		response := &DeletePodConfigClientResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePodConfigClientConflict:
 		response := &DeletePodConfigClientResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeletePodConfigClientInternalServerError:
 		response := &DeletePodConfigClientResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

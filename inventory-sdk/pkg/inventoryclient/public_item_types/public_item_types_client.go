@@ -91,14 +91,14 @@ func (a *Client) PublicListItemTypesShort(params *PublicListItemTypesParams, aut
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PublicListItemTypesInternalServerError:
 		response := &PublicListItemTypesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

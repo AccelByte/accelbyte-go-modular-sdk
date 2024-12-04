@@ -104,35 +104,35 @@ func (a *Client) AdminCreateChainingOperationsShort(params *AdminCreateChainingO
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChainingOperationsUnauthorized:
 		response := &AdminCreateChainingOperationsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChainingOperationsForbidden:
 		response := &AdminCreateChainingOperationsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChainingOperationsNotFound:
 		response := &AdminCreateChainingOperationsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminCreateChainingOperationsInternalServerError:
 		response := &AdminCreateChainingOperationsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

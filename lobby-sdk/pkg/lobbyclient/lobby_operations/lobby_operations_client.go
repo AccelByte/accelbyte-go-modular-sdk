@@ -91,42 +91,42 @@ func (a *Client) AdminUpdatePartyAttributesV1Short(params *AdminUpdatePartyAttri
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePartyAttributesV1Unauthorized:
 		response := &AdminUpdatePartyAttributesV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePartyAttributesV1Forbidden:
 		response := &AdminUpdatePartyAttributesV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePartyAttributesV1NotFound:
 		response := &AdminUpdatePartyAttributesV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePartyAttributesV1PreconditionFailed:
 		response := &AdminUpdatePartyAttributesV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminUpdatePartyAttributesV1InternalServerError:
 		response := &AdminUpdatePartyAttributesV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -186,42 +186,42 @@ func (a *Client) AdminJoinPartyV1Short(params *AdminJoinPartyV1Params, authInfo 
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminJoinPartyV1Unauthorized:
 		response := &AdminJoinPartyV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminJoinPartyV1Forbidden:
 		response := &AdminJoinPartyV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminJoinPartyV1NotFound:
 		response := &AdminJoinPartyV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminJoinPartyV1PreconditionFailed:
 		response := &AdminJoinPartyV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminJoinPartyV1InternalServerError:
 		response := &AdminJoinPartyV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -282,7 +282,7 @@ func (a *Client) PublicGetMessagesShort(params *PublicGetMessagesParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

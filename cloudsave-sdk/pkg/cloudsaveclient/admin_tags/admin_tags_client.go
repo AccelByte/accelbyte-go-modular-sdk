@@ -93,28 +93,28 @@ func (a *Client) AdminListTagsHandlerV1Short(params *AdminListTagsHandlerV1Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListTagsHandlerV1Unauthorized:
 		response := &AdminListTagsHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListTagsHandlerV1Forbidden:
 		response := &AdminListTagsHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListTagsHandlerV1InternalServerError:
 		response := &AdminListTagsHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -176,35 +176,35 @@ func (a *Client) AdminPostTagHandlerV1Short(params *AdminPostTagHandlerV1Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostTagHandlerV1Unauthorized:
 		response := &AdminPostTagHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostTagHandlerV1Forbidden:
 		response := &AdminPostTagHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostTagHandlerV1Conflict:
 		response := &AdminPostTagHandlerV1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminPostTagHandlerV1InternalServerError:
 		response := &AdminPostTagHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -266,28 +266,28 @@ func (a *Client) AdminDeleteTagHandlerV1Short(params *AdminDeleteTagHandlerV1Par
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTagHandlerV1Forbidden:
 		response := &AdminDeleteTagHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTagHandlerV1NotFound:
 		response := &AdminDeleteTagHandlerV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminDeleteTagHandlerV1InternalServerError:
 		response := &AdminDeleteTagHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

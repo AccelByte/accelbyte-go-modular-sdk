@@ -129,42 +129,42 @@ func (a *Client) CreateMatchTicketShort(params *CreateMatchTicketParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchTicketUnauthorized:
 		response := &CreateMatchTicketResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchTicketForbidden:
 		response := &CreateMatchTicketResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchTicketNotFound:
 		response := &CreateMatchTicketResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchTicketConflict:
 		response := &CreateMatchTicketResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateMatchTicketInternalServerError:
 		response := &CreateMatchTicketResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -225,21 +225,21 @@ func (a *Client) GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyMatchTicketsForbidden:
 		response := &GetMyMatchTicketsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetMyMatchTicketsInternalServerError:
 		response := &GetMyMatchTicketsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -300,28 +300,28 @@ func (a *Client) MatchTicketDetailsShort(params *MatchTicketDetailsParams, authI
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchTicketDetailsForbidden:
 		response := &MatchTicketDetailsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchTicketDetailsNotFound:
 		response := &MatchTicketDetailsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *MatchTicketDetailsInternalServerError:
 		response := &MatchTicketDetailsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -381,35 +381,35 @@ func (a *Client) DeleteMatchTicketShort(params *DeleteMatchTicketParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchTicketForbidden:
 		response := &DeleteMatchTicketResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchTicketNotFound:
 		response := &DeleteMatchTicketResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchTicketNotAcceptable:
 		response := &DeleteMatchTicketResponse{}
 		response.Error406 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteMatchTicketInternalServerError:
 		response := &DeleteMatchTicketResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

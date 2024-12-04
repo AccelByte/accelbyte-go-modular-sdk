@@ -133,35 +133,35 @@ func (a *Client) PutGameRecordConcurrentHandlerV1Short(params *PutGameRecordConc
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutGameRecordConcurrentHandlerV1Unauthorized:
 		response := &PutGameRecordConcurrentHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutGameRecordConcurrentHandlerV1Forbidden:
 		response := &PutGameRecordConcurrentHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutGameRecordConcurrentHandlerV1PreconditionFailed:
 		response := &PutGameRecordConcurrentHandlerV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutGameRecordConcurrentHandlerV1InternalServerError:
 		response := &PutGameRecordConcurrentHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -271,35 +271,35 @@ func (a *Client) PutPlayerRecordConcurrentHandlerV1Short(params *PutPlayerRecord
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerRecordConcurrentHandlerV1Unauthorized:
 		response := &PutPlayerRecordConcurrentHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerRecordConcurrentHandlerV1Forbidden:
 		response := &PutPlayerRecordConcurrentHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerRecordConcurrentHandlerV1PreconditionFailed:
 		response := &PutPlayerRecordConcurrentHandlerV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerRecordConcurrentHandlerV1InternalServerError:
 		response := &PutPlayerRecordConcurrentHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -409,35 +409,35 @@ func (a *Client) PutPlayerPublicRecordConcurrentHandlerV1Short(params *PutPlayer
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerPublicRecordConcurrentHandlerV1Unauthorized:
 		response := &PutPlayerPublicRecordConcurrentHandlerV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerPublicRecordConcurrentHandlerV1Forbidden:
 		response := &PutPlayerPublicRecordConcurrentHandlerV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerPublicRecordConcurrentHandlerV1PreconditionFailed:
 		response := &PutPlayerPublicRecordConcurrentHandlerV1Response{}
 		response.Error412 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PutPlayerPublicRecordConcurrentHandlerV1InternalServerError:
 		response := &PutPlayerPublicRecordConcurrentHandlerV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

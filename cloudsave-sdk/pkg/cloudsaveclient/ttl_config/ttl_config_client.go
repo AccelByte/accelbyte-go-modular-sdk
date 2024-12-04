@@ -92,35 +92,35 @@ func (a *Client) DeleteAdminGameRecordTTLConfigShort(params *DeleteAdminGameReco
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAdminGameRecordTTLConfigUnauthorized:
 		response := &DeleteAdminGameRecordTTLConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAdminGameRecordTTLConfigForbidden:
 		response := &DeleteAdminGameRecordTTLConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAdminGameRecordTTLConfigNotFound:
 		response := &DeleteAdminGameRecordTTLConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteAdminGameRecordTTLConfigInternalServerError:
 		response := &DeleteAdminGameRecordTTLConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -182,35 +182,35 @@ func (a *Client) DeleteGameBinaryRecordTTLConfigShort(params *DeleteGameBinaryRe
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameBinaryRecordTTLConfigUnauthorized:
 		response := &DeleteGameBinaryRecordTTLConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameBinaryRecordTTLConfigForbidden:
 		response := &DeleteGameBinaryRecordTTLConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameBinaryRecordTTLConfigNotFound:
 		response := &DeleteGameBinaryRecordTTLConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameBinaryRecordTTLConfigInternalServerError:
 		response := &DeleteGameBinaryRecordTTLConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -272,35 +272,35 @@ func (a *Client) DeleteGameRecordTTLConfigShort(params *DeleteGameRecordTTLConfi
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameRecordTTLConfigUnauthorized:
 		response := &DeleteGameRecordTTLConfigResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameRecordTTLConfigForbidden:
 		response := &DeleteGameRecordTTLConfigResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameRecordTTLConfigNotFound:
 		response := &DeleteGameRecordTTLConfigResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteGameRecordTTLConfigInternalServerError:
 		response := &DeleteGameRecordTTLConfigResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

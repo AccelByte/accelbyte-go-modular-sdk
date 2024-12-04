@@ -100,7 +100,7 @@ func (a *Client) DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -215,14 +215,14 @@ func (a *Client) CreateLocalizedPolicyVersion1Short(params *CreateLocalizedPolic
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateLocalizedPolicyVersion1Conflict:
 		response := &CreateLocalizedPolicyVersion1Response{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -283,7 +283,7 @@ func (a *Client) RetrieveSingleLocalizedPolicyVersion1Short(params *RetrieveSing
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -344,7 +344,7 @@ func (a *Client) UpdateLocalizedPolicyVersion1Short(params *UpdateLocalizedPolic
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -405,7 +405,7 @@ func (a *Client) RequestPresignedURL1Short(params *RequestPresignedURL1Params, a
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -519,14 +519,14 @@ func (a *Client) RetrieveSingleLocalizedPolicyVersion3Short(params *RetrieveSing
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RetrieveSingleLocalizedPolicyVersion3NotFound:
 		response := &RetrieveSingleLocalizedPolicyVersion3Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

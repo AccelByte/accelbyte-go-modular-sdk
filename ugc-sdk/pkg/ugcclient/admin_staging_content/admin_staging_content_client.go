@@ -92,28 +92,28 @@ func (a *Client) AdminListStagingContentsShort(params *AdminListStagingContentsP
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListStagingContentsUnauthorized:
 		response := &AdminListStagingContentsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListStagingContentsForbidden:
 		response := &AdminListStagingContentsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListStagingContentsInternalServerError:
 		response := &AdminListStagingContentsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -174,28 +174,28 @@ func (a *Client) AdminGetStagingContentByIDShort(params *AdminGetStagingContentB
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetStagingContentByIDForbidden:
 		response := &AdminGetStagingContentByIDResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetStagingContentByIDNotFound:
 		response := &AdminGetStagingContentByIDResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetStagingContentByIDInternalServerError:
 		response := &AdminGetStagingContentByIDResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -256,35 +256,35 @@ func (a *Client) AdminApproveStagingContentShort(params *AdminApproveStagingCont
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminApproveStagingContentUnauthorized:
 		response := &AdminApproveStagingContentResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminApproveStagingContentForbidden:
 		response := &AdminApproveStagingContentResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminApproveStagingContentNotFound:
 		response := &AdminApproveStagingContentResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminApproveStagingContentInternalServerError:
 		response := &AdminApproveStagingContentResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -345,28 +345,28 @@ func (a *Client) AdminListUserStagingContentsShort(params *AdminListUserStagingC
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserStagingContentsUnauthorized:
 		response := &AdminListUserStagingContentsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserStagingContentsForbidden:
 		response := &AdminListUserStagingContentsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminListUserStagingContentsInternalServerError:
 		response := &AdminListUserStagingContentsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

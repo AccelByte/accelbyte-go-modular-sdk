@@ -251,14 +251,14 @@ func (a *Client) PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHa
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *PlatformTokenRequestHandlerUnauthorized:
 		response := &PlatformTokenRequestHandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -322,7 +322,7 @@ func (a *Client) RevokeUserShort(params *RevokeUserParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -387,7 +387,7 @@ func (a *Client) GetRevocationListShort(params *GetRevocationListParams, authInf
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -451,13 +451,13 @@ func (a *Client) RevokeTokenShort(params *RevokeTokenParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RevokeTokenUnauthorized:
 		response := &RevokeTokenResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -522,13 +522,13 @@ func (a *Client) RevokeAUserShort(params *RevokeAUserParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *RevokeAUserUnauthorized:
 		response := &RevokeAUserResponse{}
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -662,14 +662,14 @@ func (a *Client) TokenGrantShort(params *TokenGrantParams, authInfo runtime.Clie
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *TokenGrantUnauthorized:
 		response := &TokenGrantResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -734,7 +734,7 @@ func (a *Client) VerifyTokenShort(params *VerifyTokenParams, authInfo runtime.Cl
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

@@ -111,35 +111,35 @@ func (a *Client) AdminGetArchivedLeaderboardRankingDataV1HandlerShort(params *Ad
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetArchivedLeaderboardRankingDataV1HandlerUnauthorized:
 		response := &AdminGetArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetArchivedLeaderboardRankingDataV1HandlerForbidden:
 		response := &AdminGetArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetArchivedLeaderboardRankingDataV1HandlerNotFound:
 		response := &AdminGetArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *AdminGetArchivedLeaderboardRankingDataV1HandlerInternalServerError:
 		response := &AdminGetArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -202,28 +202,28 @@ func (a *Client) CreateArchivedLeaderboardRankingDataV1HandlerShort(params *Crea
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateArchivedLeaderboardRankingDataV1HandlerUnauthorized:
 		response := &CreateArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateArchivedLeaderboardRankingDataV1HandlerForbidden:
 		response := &CreateArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *CreateArchivedLeaderboardRankingDataV1HandlerInternalServerError:
 		response := &CreateArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -286,35 +286,35 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV1Short(params *GetAllTimeLead
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingAdminV1Unauthorized:
 		response := &GetAllTimeLeaderboardRankingAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingAdminV1Forbidden:
 		response := &GetAllTimeLeaderboardRankingAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingAdminV1NotFound:
 		response := &GetAllTimeLeaderboardRankingAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingAdminV1InternalServerError:
 		response := &GetAllTimeLeaderboardRankingAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -377,35 +377,35 @@ func (a *Client) GetCurrentMonthLeaderboardRankingAdminV1Short(params *GetCurren
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentMonthLeaderboardRankingAdminV1Unauthorized:
 		response := &GetCurrentMonthLeaderboardRankingAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentMonthLeaderboardRankingAdminV1Forbidden:
 		response := &GetCurrentMonthLeaderboardRankingAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentMonthLeaderboardRankingAdminV1NotFound:
 		response := &GetCurrentMonthLeaderboardRankingAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentMonthLeaderboardRankingAdminV1InternalServerError:
 		response := &GetCurrentMonthLeaderboardRankingAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -472,28 +472,28 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV1Short(params *DeleteUs
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByLeaderboardCodeAdminV1Forbidden:
 		response := &DeleteUserRankingByLeaderboardCodeAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByLeaderboardCodeAdminV1NotFound:
 		response := &DeleteUserRankingByLeaderboardCodeAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingByLeaderboardCodeAdminV1InternalServerError:
 		response := &DeleteUserRankingByLeaderboardCodeAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -556,35 +556,35 @@ func (a *Client) GetCurrentSeasonLeaderboardRankingAdminV1Short(params *GetCurre
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentSeasonLeaderboardRankingAdminV1Unauthorized:
 		response := &GetCurrentSeasonLeaderboardRankingAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentSeasonLeaderboardRankingAdminV1Forbidden:
 		response := &GetCurrentSeasonLeaderboardRankingAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentSeasonLeaderboardRankingAdminV1NotFound:
 		response := &GetCurrentSeasonLeaderboardRankingAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentSeasonLeaderboardRankingAdminV1InternalServerError:
 		response := &GetCurrentSeasonLeaderboardRankingAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -647,35 +647,35 @@ func (a *Client) GetTodayLeaderboardRankingAdminV1Short(params *GetTodayLeaderbo
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTodayLeaderboardRankingAdminV1Unauthorized:
 		response := &GetTodayLeaderboardRankingAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTodayLeaderboardRankingAdminV1Forbidden:
 		response := &GetTodayLeaderboardRankingAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTodayLeaderboardRankingAdminV1NotFound:
 		response := &GetTodayLeaderboardRankingAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTodayLeaderboardRankingAdminV1InternalServerError:
 		response := &GetTodayLeaderboardRankingAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -738,28 +738,28 @@ func (a *Client) GetUserRankingAdminV1Short(params *GetUserRankingAdminV1Params,
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingAdminV1Forbidden:
 		response := &GetUserRankingAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingAdminV1NotFound:
 		response := &GetUserRankingAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingAdminV1InternalServerError:
 		response := &GetUserRankingAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -834,35 +834,35 @@ func (a *Client) UpdateUserPointAdminV1Short(params *UpdateUserPointAdminV1Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserPointAdminV1Unauthorized:
 		response := &UpdateUserPointAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserPointAdminV1Forbidden:
 		response := &UpdateUserPointAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserPointAdminV1NotFound:
 		response := &UpdateUserPointAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *UpdateUserPointAdminV1InternalServerError:
 		response := &UpdateUserPointAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -926,28 +926,28 @@ func (a *Client) DeleteUserRankingAdminV1Short(params *DeleteUserRankingAdminV1P
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingAdminV1Forbidden:
 		response := &DeleteUserRankingAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingAdminV1NotFound:
 		response := &DeleteUserRankingAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingAdminV1InternalServerError:
 		response := &DeleteUserRankingAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1010,35 +1010,35 @@ func (a *Client) GetCurrentWeekLeaderboardRankingAdminV1Short(params *GetCurrent
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentWeekLeaderboardRankingAdminV1Unauthorized:
 		response := &GetCurrentWeekLeaderboardRankingAdminV1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentWeekLeaderboardRankingAdminV1Forbidden:
 		response := &GetCurrentWeekLeaderboardRankingAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentWeekLeaderboardRankingAdminV1NotFound:
 		response := &GetCurrentWeekLeaderboardRankingAdminV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentWeekLeaderboardRankingAdminV1InternalServerError:
 		response := &GetCurrentWeekLeaderboardRankingAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1100,21 +1100,21 @@ func (a *Client) DeleteUserRankingsAdminV1Short(params *DeleteUserRankingsAdminV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingsAdminV1Forbidden:
 		response := &DeleteUserRankingsAdminV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingsAdminV1InternalServerError:
 		response := &DeleteUserRankingsAdminV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1175,21 +1175,21 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV1Short(params *GetAllTimeLea
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingPublicV1NotFound:
 		response := &GetAllTimeLeaderboardRankingPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingPublicV1InternalServerError:
 		response := &GetAllTimeLeaderboardRankingPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1250,35 +1250,35 @@ func (a *Client) GetArchivedLeaderboardRankingDataV1HandlerShort(params *GetArch
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetArchivedLeaderboardRankingDataV1HandlerUnauthorized:
 		response := &GetArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetArchivedLeaderboardRankingDataV1HandlerForbidden:
 		response := &GetArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetArchivedLeaderboardRankingDataV1HandlerNotFound:
 		response := &GetArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetArchivedLeaderboardRankingDataV1HandlerInternalServerError:
 		response := &GetArchivedLeaderboardRankingDataV1HandlerResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1341,21 +1341,21 @@ func (a *Client) GetCurrentMonthLeaderboardRankingPublicV1Short(params *GetCurre
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentMonthLeaderboardRankingPublicV1NotFound:
 		response := &GetCurrentMonthLeaderboardRankingPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentMonthLeaderboardRankingPublicV1InternalServerError:
 		response := &GetCurrentMonthLeaderboardRankingPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1418,21 +1418,21 @@ func (a *Client) GetCurrentSeasonLeaderboardRankingPublicV1Short(params *GetCurr
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentSeasonLeaderboardRankingPublicV1NotFound:
 		response := &GetCurrentSeasonLeaderboardRankingPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentSeasonLeaderboardRankingPublicV1InternalServerError:
 		response := &GetCurrentSeasonLeaderboardRankingPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1495,21 +1495,21 @@ func (a *Client) GetTodayLeaderboardRankingPublicV1Short(params *GetTodayLeaderb
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTodayLeaderboardRankingPublicV1NotFound:
 		response := &GetTodayLeaderboardRankingPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetTodayLeaderboardRankingPublicV1InternalServerError:
 		response := &GetTodayLeaderboardRankingPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1572,28 +1572,28 @@ func (a *Client) GetUserRankingPublicV1Short(params *GetUserRankingPublicV1Param
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingPublicV1Forbidden:
 		response := &GetUserRankingPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingPublicV1NotFound:
 		response := &GetUserRankingPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetUserRankingPublicV1InternalServerError:
 		response := &GetUserRankingPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1657,28 +1657,28 @@ func (a *Client) DeleteUserRankingPublicV1Short(params *DeleteUserRankingPublicV
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingPublicV1Forbidden:
 		response := &DeleteUserRankingPublicV1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingPublicV1NotFound:
 		response := &DeleteUserRankingPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *DeleteUserRankingPublicV1InternalServerError:
 		response := &DeleteUserRankingPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1741,21 +1741,21 @@ func (a *Client) GetCurrentWeekLeaderboardRankingPublicV1Short(params *GetCurren
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentWeekLeaderboardRankingPublicV1NotFound:
 		response := &GetCurrentWeekLeaderboardRankingPublicV1Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetCurrentWeekLeaderboardRankingPublicV1InternalServerError:
 		response := &GetCurrentWeekLeaderboardRankingPublicV1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -1816,35 +1816,35 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV2Short(params *GetAllTimeLea
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingPublicV2Unauthorized:
 		response := &GetAllTimeLeaderboardRankingPublicV2Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingPublicV2Forbidden:
 		response := &GetAllTimeLeaderboardRankingPublicV2Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingPublicV2NotFound:
 		response := &GetAllTimeLeaderboardRankingPublicV2Response{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 	case *GetAllTimeLeaderboardRankingPublicV2InternalServerError:
 		response := &GetAllTimeLeaderboardRankingPublicV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
-		return response, nil
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
