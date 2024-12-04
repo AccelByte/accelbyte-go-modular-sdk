@@ -218,7 +218,7 @@ func TestIntegrationChallengePlayerRewards(t *testing.T) {
 	if errGet != nil {
 		assert.FailNow(t, errGet.Error())
 	} else {
-		for _, reward := range rewards.Data {
+		for _, reward := range rewards.Data.Data {
 			t.Logf("Reward for userId: %v, goal code %v", *reward.UserID, *reward.GoalCode)
 		}
 	}

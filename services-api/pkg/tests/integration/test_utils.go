@@ -36,7 +36,7 @@ func LoginUser(t *testing.T) *iam.OAuth20Service {
 	} else if accessToken == nil { //lint:ignore SA5011 possible nil pointer dereference
 		t.Fatal(fmt.Errorf("empty access token: %w", err))
 	} else {
-		errStore := oAuth20Service.TokenRepository.Store(*accessToken)
+		errStore := oAuth20Service.TokenRepository.Store(*accessToken.Data)
 		if errStore != nil {
 			t.Fatal(fmt.Errorf("store token failed: %w", err))
 		}

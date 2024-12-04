@@ -226,10 +226,10 @@ func TestIntegrationPlayerRecordHandlerV1(t *testing.T) {
 			UserID:    userID,
 		}
 
-		okGet, errGet := publicPlayerRecordService.GetPlayerPublicRecordHandlerV1Short(inputRecord)
+		okGetRecord, errGetRecord := publicPlayerRecordService.GetPlayerPublicRecordHandlerV1Short(inputRecord)
 
 		// Assert
-		assert.NotNil(t, errGet, "err should not be nil")
-		assert.Nil(t, okGet, "err should be nil")
+		assert.NotNil(t, errGetRecord, "err should not be nil")
+		assert.Nil(t, okGetRecord, "data should be nil, this is intentional")
 	}()
 }

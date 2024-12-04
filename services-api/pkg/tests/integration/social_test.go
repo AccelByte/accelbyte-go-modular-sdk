@@ -235,7 +235,7 @@ func TestIntegrationStatItem(t *testing.T) {
 	inputCreate := &user_statistic.CreateUserStatItemParams{
 		Namespace: integration.NamespaceTest,
 		StatCode:  statCodeSocial,
-		UserID:    *user.UserID,
+		UserID:    *user.Data.UserID,
 	}
 
 	errCreate := userStatisticService.CreateUserStatItemShort(inputCreate)
@@ -247,7 +247,7 @@ func TestIntegrationStatItem(t *testing.T) {
 	// CASE Get user item
 	inputGet := &user_statistic.GetUserStatItemsParams{
 		Namespace: integration.NamespaceTest,
-		UserID:    *user.UserID,
+		UserID:    *user.Data.UserID,
 		StatCodes: &statCodeSocial,
 	}
 
@@ -263,7 +263,7 @@ func TestIntegrationStatItem(t *testing.T) {
 		Body:      &socialclientmodels.StatItemInc{Inc: float64(4)},
 		Namespace: integration.NamespaceTest,
 		StatCode:  statCodeSocial,
-		UserID:    *user.UserID,
+		UserID:    *user.Data.UserID,
 	}
 
 	inc, errInc := userStatisticService.IncUserStatItemValueShort(inputInc)
@@ -277,7 +277,7 @@ func TestIntegrationStatItem(t *testing.T) {
 	inputDelete := &user_statistic.DeleteUserStatItemsParams{
 		Namespace: integration.NamespaceTest,
 		StatCode:  statCodeSocial,
-		UserID:    *user.UserID,
+		UserID:    *user.Data.UserID,
 	}
 
 	errDelete := userStatisticService.DeleteUserStatItemsShort(inputDelete)

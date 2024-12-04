@@ -347,5 +347,5 @@ func getSessionID(t *testing.T, memberID string) string {
 
 	partyID = *created.Data.ID
 
-	return *created.ID
+	return *created.Data.ID
 }

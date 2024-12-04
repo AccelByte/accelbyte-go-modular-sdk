@@ -126,66 +126,68 @@ func TestIntegrationAmsFleet(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, errCreated, "err should be nil")
-	assert.NotNil(t, created, "should not be nil")
-	t.Logf("fleetId: %v", *created.Data.ID)
+	assert.NotNil(t, created.Data, "should not be nil")
+	if created.Data != nil {
+		t.Logf("fleetId: %v", *created.Data.ID)
 
-	// CASE Get Fleet
-	inputGet := &fleets.FleetGetParams{
-		FleetID:   *created.Data.ID,
-		Namespace: integration.NamespaceTest,
-	}
-	get, errGet := fleetService.FleetGetShort(inputGet)
-	if errGet != nil {
-		assert.FailNow(t, errGet.Error())
+		// CASE Get Fleet
+		inputGet := &fleets.FleetGetParams{
+			FleetID:   *created.Data.ID,
+			Namespace: integration.NamespaceTest,
+		}
+		get, errGet := fleetService.FleetGetShort(inputGet)
+		if errGet != nil {
+			assert.FailNow(t, errGet.Error())
 
-		return
-	}
-	// ESAC
+			return
+		}
+		// ESAC
 
-	// Assert
-	assert.Nil(t, errGet, "err should be nil")
-	assert.NotNil(t, get, "should not be nil")
+		// Assert
+		assert.Nil(t, errGet, "err should be nil")
+		assert.NotNil(t, get, "should not be nil")
 
-	// CASE Update Fleet
-	inputUpdate := &fleets.FleetUpdateParams{
-		Body: &amsclientmodels.APIFleetParameters{
-			Active:    &defaultBool,
-			ClaimKeys: claimKeys,
-			ImageDeploymentProfile: &amsclientmodels.APIImageDeploymentProfile{
-				ImageID: &imageId,
+		// CASE Update Fleet
+		inputUpdate := &fleets.FleetUpdateParams{
+			Body: &amsclientmodels.APIFleetParameters{
+				Active:    &defaultBool,
+				ClaimKeys: claimKeys,
+				ImageDeploymentProfile: &amsclientmodels.APIImageDeploymentProfile{
+					ImageID: &imageId,
+				},
+				Name:    &fleetNameUpdate,
+				Regions: fleetRegions,
 			},
-			Name:    &fleetNameUpdate,
-			Regions: fleetRegions,
-		},
-		FleetID:   *created.Data.ID,
-		Namespace: integration.NamespaceTest,
+			FleetID:   *created.Data.ID,
+			Namespace: integration.NamespaceTest,
+		}
+		errUpdated := fleetService.FleetUpdateShort(inputUpdate)
+		if errUpdated != nil {
+			assert.FailNow(t, errUpdated.Error())
+
+			return
+		}
+		// ESAC
+
+		// Assert
+		assert.Nil(t, errUpdated, "err should be nil")
+
+		// CASE Delete Fleet
+		inputDelete := &fleets.FleetDeleteParams{
+			FleetID:   *created.Data.ID,
+			Namespace: integration.NamespaceTest,
+		}
+		errDelete := fleetService.FleetDeleteShort(inputDelete)
+		if errDelete != nil {
+			assert.FailNow(t, errDelete.Error())
+
+			return
+		}
+		// ESAC
+
+		// Assert
+		assert.Nil(t, errDelete, "err should be nil")
 	}
-	errUpdated := fleetService.FleetUpdateShort(inputUpdate)
-	if errUpdated != nil {
-		assert.FailNow(t, errUpdated.Error())
-
-		return
-	}
-	// ESAC
-
-	// Assert
-	assert.Nil(t, errUpdated, "err should be nil")
-
-	// CASE Delete Fleet
-	inputDelete := &fleets.FleetDeleteParams{
-		FleetID:   *created.Data.ID,
-		Namespace: integration.NamespaceTest,
-	}
-	errDelete := fleetService.FleetDeleteShort(inputDelete)
-	if errDelete != nil {
-		assert.FailNow(t, errDelete.Error())
-
-		return
-	}
-	// ESAC
-
-	// Assert
-	assert.Nil(t, errDelete, "err should be nil")
 }
 
 func TestIntegrationInfoRegions(t *testing.T) {
@@ -209,7 +211,7 @@ func TestIntegrationInfoRegions(t *testing.T) {
 	// Assert
 	assert.Nil(t, errInfo, "err should be nil")
 	assert.NotNil(t, info, "should not be nil")
-	t.Logf("regions: %v", info.Regions)
+	t.Logf("regions: %v", info.Data.Regions)
 }
 
 func TestIntegrationInfoSupportedInstances(t *testing.T) {
@@ -233,5 +235,5 @@ func TestIntegrationInfoSupportedInstances(t *testing.T) {
 	// Assert
 	assert.Nil(t, errInfo, "err should be nil")
 	assert.NotNil(t, info, "should not be nil")
-	t.Logf("available instances type: %v", info.AvailableInstanceTypes)
+	t.Logf("available instances type: %v", info.Data.AvailableInstanceTypes)
 }

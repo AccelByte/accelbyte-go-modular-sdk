@@ -114,7 +114,7 @@ func TestIntegrationGroupConfiguration(t *testing.T) {
 		if errCreate != nil {
 			assert.FailNow(t, errCreate.Error())
 		} else {
-			groupConfigName := *created.Name
+			groupConfigName := *created.Data.Name
 			t.Logf("GroupConfig: %v created", groupConfigName)
 		}
 		// ESAC
@@ -123,7 +123,7 @@ func TestIntegrationGroupConfiguration(t *testing.T) {
 		assert.Nil(t, errCreate, "err should be nil")
 		assert.NotNil(t, created, "response should not be nil")
 
-		defer deleteGroupConfiguration(t, *created.ConfigurationCode)
+		defer deleteGroupConfiguration(t, *created.Data.ConfigurationCode)
 	}
 }
 
@@ -156,9 +156,9 @@ func TestIntegrationGroup(t *testing.T) {
 	getUserGroup, errGetUserGroup := groupMemberService.GetUserGroupInformationPublicV2Short(inputGetUserGroup)
 
 	if errGetUserGroup == nil {
-		for _, data := range getUserGroup.Data.Data {
+		for _, d := range getUserGroup.Data.Data {
 			inputLeave := &group_member.LeaveGroupPublicV2Params{
-				GroupID:   *data.GroupID,
+				GroupID:   *d.GroupID,
 				Namespace: namespace,
 			}
 			_, leaveGroupErr := groupMemberService.LeaveGroupPublicV2Short(inputLeave)

@@ -91,7 +91,7 @@ func TestIntegrationExtendApp(t *testing.T) {
 
 	// Assert
 	assert.NoError(t, err, "should not return an error")
-	assert.Equal(t, extendAppName, *app.AppName)
+	assert.Equal(t, extendAppName, *app.Data.AppName)
 }
 
 func TestIntegrationSecretVariable(t *testing.T) {
@@ -127,7 +127,7 @@ func TestIntegrationSecretVariable(t *testing.T) {
 	})
 	// ESAC
 
-	secretConfigID = *secret.ConfigID
+	secretConfigID = *secret.Data.ConfigID
 
 	// Assert
 	assert.NoError(t, err, "should not return an error")
@@ -137,7 +137,7 @@ func TestIntegrationSecretVariable(t *testing.T) {
 	updatedSecret, err := csmConfigService.UpdateSecretV2Short(&configuration_v2.UpdateSecretV2Params{
 		Namespace: namespace,
 		App:       extendAppName,
-		ConfigID:  *secret.ConfigID,
+		ConfigID:  *secret.Data.ConfigID,
 		Body: &csmclientmodels.ApimodelUpdateConfigurationV2Request{
 			ApplyMask: true,
 			Value:     &updatedSecretValue,
@@ -180,7 +180,7 @@ func TestIntegrationEnvironmentVariable(t *testing.T) {
 	})
 	// ESAC
 
-	envVarConfigID = *envVar.ConfigID
+	envVarConfigID = *envVar.Data.ConfigID
 
 	// Assert
 	assert.NoError(t, err, "should not return an error")
@@ -190,7 +190,7 @@ func TestIntegrationEnvironmentVariable(t *testing.T) {
 	updatedVariable, err := csmConfigService.UpdateVariableV2Short(&configuration_v2.UpdateVariableV2Params{
 		Namespace: namespace,
 		App:       extendAppName,
-		ConfigID:  *envVar.ConfigID,
+		ConfigID:  *envVar.Data.ConfigID,
 		Body: &csmclientmodels.ApimodelUpdateConfigurationV2Request{
 			ApplyMask: true,
 			Value:     &updatedEnvVarValue,

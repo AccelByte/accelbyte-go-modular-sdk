@@ -53,7 +53,7 @@ func TestIntegrationAdminGetUserPersonalDataRequest(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, err, "err should be nil")
-	assert.NotNil(t, get, "should not be nil")
+	assert.NotNil(t, get.Data, "should not be nil")
 }
 
 func TestIntegrationSaveAdminEmailConfiguration(t *testing.T) {
@@ -90,8 +90,6 @@ func TestIntegrationAdminListDataRetrieval(t *testing.T) {
 	input := &configuration.GetAdminEmailConfigurationParams{
 		Namespace: integration.NamespaceTest,
 	}
-
-	gdprConfigurationService.TokenRepository.Store(input)
 
 	ok, err := gdprConfigurationService.GetAdminEmailConfigurationShort(input)
 	// ESAC
