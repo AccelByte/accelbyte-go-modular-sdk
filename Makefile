@@ -37,7 +37,10 @@ lint-mod-tidy:
 	find -type f -iname go.mod -not -path "*/.justice-codegen-sdk/*" -exec dirname {} \; | while read DIRECTORY; do \
 		echo "# $$DIRECTORY"; \
 		docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ -e GOCACHE=/data/.cache/go-build $(GOLANG_DOCKER_IMAGE) \
-				sh -c "cd $$DIRECTORY && go mod tidy || touch /data/lint.err"; \
+				sh -c "cd $$DIRECTORY && \
+					go get golang.org/x/crypto@v0.31.0 && \
+					go get golang.org/x/net@v0.33.0 && \
+					go mod tidy || touch /data/lint-mod-tidy.err"; \
 	done
 	[ ! -f lint-mod-tidy.err ] || (rm lint-mod-tidy.err && exit 1)
 
