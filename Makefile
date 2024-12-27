@@ -159,7 +159,6 @@ version_module:
 	echo $${VERSION_NEW} > $(SERVICE)-sdk/pkg/version.txt && \
 	if [ $(SERVICE) = "iam" ]; then \
 		echo $${VERSION_NEW} > services-api/pkg/service/iam/version.txt; \
-		sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/go.mod; \
 	fi && \
 	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
 	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod && \
