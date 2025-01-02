@@ -48,7 +48,7 @@ type ClientService interface {
 /*
 QueryThirdPartySubscriptionShort query subscriptions.
 Query subscriptions, default sort by updatedAt Other detail info:
-  * Returns :
+              * Returns :
 */
 func (a *Client) QueryThirdPartySubscriptionShort(params *QueryThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartySubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -103,7 +103,7 @@ func (a *Client) QueryThirdPartySubscriptionShort(params *QueryThirdPartySubscri
 /*
 QueryUserThirdPartySubscriptionShort query user subscription.
 Query user subscription, default sort by updatedAtOther detail info:
-  * Returns :
+              * Returns :
 */
 func (a *Client) QueryUserThirdPartySubscriptionShort(params *QueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -266,7 +266,7 @@ func (a *Client) GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(para
 /*
 QueryUserThirdPartySubscriptionTransactionsShort admin query user subscription transactions.
 Admin query user subscription transactions, default sort by startAt timeOther detail info:
-  * Returns :
+              * Returns :
 */
 func (a *Client) QueryUserThirdPartySubscriptionTransactionsShort(params *QueryUserThirdPartySubscriptionTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionTransactionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -321,7 +321,7 @@ func (a *Client) QueryUserThirdPartySubscriptionTransactionsShort(params *QueryU
 /*
 GetThirdPartySubscriptionDetailsShort admin get user subscription transaction details.
 Admin get user subscription details.Other detail info:
-  * Returns :
+              * Returns :
 */
 func (a *Client) GetThirdPartySubscriptionDetailsShort(params *GetThirdPartySubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartySubscriptionDetailsResponse, error) {
 	// TODO: Validate the params before sending
@@ -505,7 +505,7 @@ func (a *Client) SyncSubscriptionTransactionShort(params *SyncSubscriptionTransa
 /*
 GetThirdPartyUserSubscriptionDetailsShort admin get user subscription details.
 Admin get user subscription details.Other detail info:
-  * Returns :
+              * Returns :
 */
 func (a *Client) GetThirdPartyUserSubscriptionDetailsShort(params *GetThirdPartyUserSubscriptionDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyUserSubscriptionDetailsResponse, error) {
 	// TODO: Validate the params before sending
@@ -635,7 +635,7 @@ func (a *Client) SyncSubscriptionShort(params *SyncSubscriptionParams, authInfo 
 /*
 PublicQueryUserThirdPartySubscriptionShort query user subscription.
 Query user subscription, default sort by updatedAtOther detail info:
-  * Returns :
+              * Returns :
 */
 func (a *Client) PublicQueryUserThirdPartySubscriptionShort(params *PublicQueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserThirdPartySubscriptionResponse, error) {
 	// TODO: Validate the params before sending

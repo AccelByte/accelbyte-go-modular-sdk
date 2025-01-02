@@ -341,8 +341,9 @@ func (a *Client) PublicBulkRemoveMyItemsShort(params *PublicBulkRemoveMyItemsPar
 
 /*
 PublicMoveMyItemsShort to move items between my inventories
-
 Move items between inventories that is owned by the same user.
+
+For Ecommerce items, the *qty* is *useCount*. For example, moving 2 of an item's *qty* will move 2 of the entitlement's *useCount*.
 */
 func (a *Client) PublicMoveMyItemsShort(params *PublicMoveMyItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicMoveMyItemsResponse, error) {
 	// TODO: Validate the params before sending

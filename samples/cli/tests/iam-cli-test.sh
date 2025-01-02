@@ -32,7 +32,7 @@ eval_tap() {
 }
 
 echo "TAP version 13"
-echo "1..418"
+echo "1..425"
 
 #- 1 Login
 samples/cli/sample-apps login \
@@ -378,15 +378,15 @@ eval_tap $? 108 'AdminListClientAvailablePermissions' test.out
 
 #- 109 AdminUpdateAvailablePermissionsByModule
 samples/cli/sample-apps Iam adminUpdateAvailablePermissionsByModule \
-    --forceDelete 'false' \
-    --body '{"modules": [{"docLink": "dVadUgPG", "groups": [{"group": "o4vARCm8", "groupId": "dbfZ52NO", "permissions": [{"allowedActions": [16, 14, 37], "resource": "UlihcO24"}, {"allowedActions": [52, 19, 41], "resource": "8l2iemDv"}, {"allowedActions": [10, 31, 26], "resource": "Mt79lhNR"}]}, {"group": "1cXsgnUS", "groupId": "7S7agzmc", "permissions": [{"allowedActions": [91, 5, 95], "resource": "ido5ZEPD"}, {"allowedActions": [79, 38, 38], "resource": "PCB2yuaw"}, {"allowedActions": [96, 66, 29], "resource": "7IPf4gKw"}]}, {"group": "9kI9BwDI", "groupId": "spXf5qjm", "permissions": [{"allowedActions": [81, 40, 62], "resource": "xXoias38"}, {"allowedActions": [92, 91, 27], "resource": "GjnPLLOO"}, {"allowedActions": [2, 61, 82], "resource": "slopLNBQ"}]}], "module": "3NPcCxUR", "moduleId": "qchfoREH"}, {"docLink": "fjiNEgyU", "groups": [{"group": "X2kWTGX2", "groupId": "uD4aG1tp", "permissions": [{"allowedActions": [39, 30, 21], "resource": "HcrjqgXq"}, {"allowedActions": [67, 42, 8], "resource": "FxQmSlYd"}, {"allowedActions": [80, 8, 3], "resource": "OraajWIK"}]}, {"group": "EifqTlui", "groupId": "PCinqj1K", "permissions": [{"allowedActions": [71, 87, 62], "resource": "NsQYgwKA"}, {"allowedActions": [35, 76, 87], "resource": "XJ8VrsBV"}, {"allowedActions": [91, 91, 57], "resource": "4NWh0Xfs"}]}, {"group": "TmSKAk8f", "groupId": "WdnEfVMB", "permissions": [{"allowedActions": [4, 91, 17], "resource": "guZgqWOq"}, {"allowedActions": [97, 11, 0], "resource": "wT6cZnw5"}, {"allowedActions": [61, 5, 31], "resource": "4EDaMaHv"}]}], "module": "NZVHfOJT", "moduleId": "j0gXXHDx"}, {"docLink": "jTtRYxRs", "groups": [{"group": "O4ZgZCli", "groupId": "uFfi9lZa", "permissions": [{"allowedActions": [100, 22, 9], "resource": "fiL1zVVk"}, {"allowedActions": [72, 59, 93], "resource": "VQE1kexS"}, {"allowedActions": [55, 96, 77], "resource": "E0w0n2yj"}]}, {"group": "oEgBdd1A", "groupId": "s52DrexQ", "permissions": [{"allowedActions": [90, 24, 75], "resource": "zKBvyR6a"}, {"allowedActions": [21, 95, 0], "resource": "SAoky7Ld"}, {"allowedActions": [53, 93, 15], "resource": "dHWZpAzR"}]}, {"group": "b6oT7U0d", "groupId": "Gjl5Z2SY", "permissions": [{"allowedActions": [19, 76, 50], "resource": "FJm1YCWW"}, {"allowedActions": [59, 47, 94], "resource": "NZ3OAyCV"}, {"allowedActions": [83, 15, 6], "resource": "L1IM8oMO"}]}], "module": "ckxTOx9G", "moduleId": "o5EWs8uc"}]}' \
+    --forceDelete 'true' \
+    --body '{"modules": [{"docLink": "ZPhceTcF", "groups": [{"group": "TAb4ILb4", "groupId": "89u9LoJ7", "permissions": [{"allowedActions": [89, 52, 84], "resource": "Fv2qj7NM"}, {"allowedActions": [29, 92, 13], "resource": "dn6fp6Ze"}, {"allowedActions": [24, 42, 30], "resource": "X6Hq1yXw"}]}, {"group": "ElPhm2RF", "groupId": "684YLfoj", "permissions": [{"allowedActions": [79, 18, 46], "resource": "F7Vxve6F"}, {"allowedActions": [7, 61, 68], "resource": "LOoEVbdf"}, {"allowedActions": [89, 89, 21], "resource": "CqNkjgma"}]}, {"group": "utbzxl7k", "groupId": "WXCt7BaA", "permissions": [{"allowedActions": [56, 86, 38], "resource": "gOqQS9zt"}, {"allowedActions": [89, 58, 28], "resource": "bxNiwmRU"}, {"allowedActions": [8, 7, 13], "resource": "UuNSuDGw"}]}], "module": "u5hneAaP", "moduleId": "eEplereI"}, {"docLink": "V0G1Lczn", "groups": [{"group": "ibxfln6P", "groupId": "lfwjzfb7", "permissions": [{"allowedActions": [35, 90, 42], "resource": "PkWEtQBI"}, {"allowedActions": [7, 88, 75], "resource": "XN3CZyih"}, {"allowedActions": [77, 46, 89], "resource": "TY7xe8k8"}]}, {"group": "Li3zL04F", "groupId": "kw0xClwR", "permissions": [{"allowedActions": [15, 58, 99], "resource": "M88tGAK4"}, {"allowedActions": [20, 85, 92], "resource": "7AozelxR"}, {"allowedActions": [34, 76, 46], "resource": "ohaQA1z3"}]}, {"group": "RwHvmzOW", "groupId": "vILwHqlw", "permissions": [{"allowedActions": [96, 90, 72], "resource": "B9SXJoSf"}, {"allowedActions": [38, 50, 14], "resource": "Ys13TFJz"}, {"allowedActions": [0, 97, 31], "resource": "ENeO1kCn"}]}], "module": "PaHJRYLS", "moduleId": "jBGoOEie"}, {"docLink": "z3RTk8KH", "groups": [{"group": "3UayudCt", "groupId": "T1sS6Zyz", "permissions": [{"allowedActions": [11, 32, 21], "resource": "2Kab3Y0K"}, {"allowedActions": [79, 5, 0], "resource": "w74JI6TP"}, {"allowedActions": [55, 63, 74], "resource": "4PkjNOsk"}]}, {"group": "iUJWRW8a", "groupId": "BGal8plZ", "permissions": [{"allowedActions": [9, 72, 15], "resource": "vTvbyEsx"}, {"allowedActions": [88, 62, 17], "resource": "nCpVnt1m"}, {"allowedActions": [77, 97, 41], "resource": "9Ss6wOKu"}]}, {"group": "rF50Iezr", "groupId": "mVxmOhD9", "permissions": [{"allowedActions": [99, 24, 45], "resource": "SQgFenVF"}, {"allowedActions": [64, 17, 13], "resource": "UXaNeWoU"}, {"allowedActions": [100, 48, 3], "resource": "2q39rCN0"}]}], "module": "fVlPEYxH", "moduleId": "fhVvNdW9"}]}' \
     > test.out 2>&1
 eval_tap $? 109 'AdminUpdateAvailablePermissionsByModule' test.out
 
 #- 110 AdminDeleteConfigPermissionsByGroup
 samples/cli/sample-apps Iam adminDeleteConfigPermissionsByGroup \
     --forceDelete 'true' \
-    --body '{"groupId": "xOjquszJ", "moduleId": "mqbBfSeB"}' \
+    --body '{"groupId": "JeghRf4R", "moduleId": "CW2WPdYw"}' \
     > test.out 2>&1
 eval_tap $? 110 'AdminDeleteConfigPermissionsByGroup' test.out
 
@@ -402,26 +402,26 @@ eval_tap $? 112 'AdminGetInputValidations' test.out
 
 #- 113 AdminUpdateInputValidations
 samples/cli/sample-apps Iam adminUpdateInputValidations \
-    --body '[{"field": "tmvWoTQL", "validation": {"allowAllSpecialCharacters": false, "allowDigit": false, "allowLetter": false, "allowSpace": true, "allowUnicode": true, "avatarConfig": {"allowedPrefixes": ["QXqLD2Hs", "hTNtYtkV", "rzxm4d3b"], "preferRegex": true, "regex": "dNJs42ib"}, "blockedWord": ["AXLjqO78", "rSjrFPcM", "eY3jvwhb"], "description": [{"language": "IEZeyRCz", "message": ["6Kzt4cld", "5LY9Ehgo", "TALDkgau"]}, {"language": "a79yXou0", "message": ["vEle5NuW", "80IHMlMS", "5OypoKm4"]}, {"language": "b0F9F6Ez", "message": ["CEz59piZ", "BglbaiOI", "ztpdDpzL"]}], "isCustomRegex": false, "letterCase": "eDmHqPhS", "maxLength": 10, "maxRepeatingAlphaNum": 68, "maxRepeatingSpecialCharacter": 59, "minCharType": 20, "minLength": 89, "profanityFilter": "mTTrnnS5", "regex": "pM9FiTY1", "specialCharacterLocation": "FF3leSeZ", "specialCharacters": ["5JMP2Bwt", "eJylAMA4", "ztvrKtk8"]}}, {"field": "APl0RQjV", "validation": {"allowAllSpecialCharacters": true, "allowDigit": true, "allowLetter": true, "allowSpace": true, "allowUnicode": true, "avatarConfig": {"allowedPrefixes": ["xzpSrE8p", "yEP8xIie", "V4aWXuoz"], "preferRegex": false, "regex": "Qbel4plW"}, "blockedWord": ["1tj7S53p", "DUlCChu6", "ocXiJpz7"], "description": [{"language": "IKVeJk6V", "message": ["FKYojnAA", "kneuundB", "DhlaRR1b"]}, {"language": "ydacxCAp", "message": ["UhvWmYel", "Cf6xZssQ", "uANHAHwn"]}, {"language": "lDRznDTP", "message": ["NwNgpkmc", "TYeoiJWD", "tBU2wGvf"]}], "isCustomRegex": true, "letterCase": "dBBqrLoV", "maxLength": 15, "maxRepeatingAlphaNum": 23, "maxRepeatingSpecialCharacter": 23, "minCharType": 13, "minLength": 88, "profanityFilter": "hJ1dy6l7", "regex": "ePtbuTLj", "specialCharacterLocation": "0XEk53LU", "specialCharacters": ["5SsqEydb", "8lHCvmx8", "QGcPtLjt"]}}, {"field": "tKa986Mx", "validation": {"allowAllSpecialCharacters": false, "allowDigit": true, "allowLetter": true, "allowSpace": true, "allowUnicode": true, "avatarConfig": {"allowedPrefixes": ["FH1QLgIV", "zfQA3VKe", "9GvKGg3K"], "preferRegex": false, "regex": "GYGFQKrf"}, "blockedWord": ["qcdSWEtW", "5EiabFhL", "PpQlAC8q"], "description": [{"language": "e028agPT", "message": ["uQwXhKIz", "oPE1cPwL", "g3ccc212"]}, {"language": "fFFfVzT7", "message": ["Y3DKSX3U", "0m2CYjBS", "iho7k6NJ"]}, {"language": "pCFDMLLI", "message": ["zvKoXoT0", "JwOa0i73", "IA8wOmuc"]}], "isCustomRegex": true, "letterCase": "lVpCfkW7", "maxLength": 28, "maxRepeatingAlphaNum": 25, "maxRepeatingSpecialCharacter": 43, "minCharType": 63, "minLength": 89, "profanityFilter": "RNL97esf", "regex": "5uVRDq3z", "specialCharacterLocation": "hN9MGgqD", "specialCharacters": ["v3IEq7rP", "SslXBSoY", "HH2n2uAg"]}}]' \
+    --body '[{"field": "tPbWcbbx", "validation": {"allowAllSpecialCharacters": true, "allowDigit": false, "allowLetter": true, "allowSpace": false, "allowUnicode": false, "avatarConfig": {"allowedPrefixes": ["FlKb88NJ", "4tdx83bd", "RSLw6KWJ"], "preferRegex": false, "regex": "zhDPBCZQ"}, "blockedWord": ["d08wQchu", "k88a9O7m", "PbTEywlu"], "description": [{"language": "Pl75oq1B", "message": ["rCL4Qo9R", "sgGz0Ll1", "m8PV7ulR"]}, {"language": "zjKrJhFM", "message": ["wqE7IIg4", "xl7wh8kk", "OIUf1Bc6"]}, {"language": "l0WzEMo4", "message": ["oq3Y4Bot", "Bf0913TQ", "NeGjQQdi"]}], "isCustomRegex": true, "letterCase": "5BTD2Ihk", "maxLength": 83, "maxRepeatingAlphaNum": 12, "maxRepeatingSpecialCharacter": 43, "minCharType": 28, "minLength": 73, "profanityFilter": "44WVYZ5N", "regex": "lXGQiz1M", "specialCharacterLocation": "d91BTVsC", "specialCharacters": ["GLPa6eu7", "yR1WYOH4", "aoLYRgZ4"]}}, {"field": "aDRGWDEY", "validation": {"allowAllSpecialCharacters": false, "allowDigit": true, "allowLetter": true, "allowSpace": false, "allowUnicode": true, "avatarConfig": {"allowedPrefixes": ["khZX0ftX", "wMocGDiy", "mLc8JeUB"], "preferRegex": false, "regex": "j6iWo93V"}, "blockedWord": ["hSHrRgF9", "V4vzCP00", "es9vQGSM"], "description": [{"language": "RpfJ3xHU", "message": ["Yxs6aQim", "OhnzKU1Y", "ZyJHrOrU"]}, {"language": "iijK8UNe", "message": ["WxKwdx5R", "AISZ9uze", "JrkvIro3"]}, {"language": "SVWNKNXK", "message": ["htJGdRPF", "YJFrZjmc", "tnChnWIC"]}], "isCustomRegex": true, "letterCase": "HnpH5JWz", "maxLength": 58, "maxRepeatingAlphaNum": 34, "maxRepeatingSpecialCharacter": 66, "minCharType": 68, "minLength": 49, "profanityFilter": "V7Lsokcp", "regex": "TOomYMi1", "specialCharacterLocation": "U3uCZk3v", "specialCharacters": ["NqCYaYVG", "LJNWOk1Y", "lcChTzhd"]}}, {"field": "1lRonZti", "validation": {"allowAllSpecialCharacters": false, "allowDigit": true, "allowLetter": false, "allowSpace": true, "allowUnicode": true, "avatarConfig": {"allowedPrefixes": ["OtYA1tY7", "LPBZttT6", "PAwcv6Vp"], "preferRegex": false, "regex": "eKRPRP0O"}, "blockedWord": ["vTGyRHms", "fvzvd3yO", "W0jOnw7X"], "description": [{"language": "Lv3YVCzX", "message": ["7MzDUL2o", "TypYAUwl", "WR9Gy4b2"]}, {"language": "kyLXcTGB", "message": ["iIrGyvuz", "fwbyK9Wl", "Qt7ijxFk"]}, {"language": "Aj7NqHYB", "message": ["2zPFyx95", "Lly9SHgM", "StrVgeaD"]}], "isCustomRegex": true, "letterCase": "8oTxkNw2", "maxLength": 59, "maxRepeatingAlphaNum": 42, "maxRepeatingSpecialCharacter": 66, "minCharType": 4, "minLength": 20, "profanityFilter": "OCUxPfgT", "regex": "9E8baAIn", "specialCharacterLocation": "goKuKNWT", "specialCharacters": ["cjLS1nxM", "fARqglGE", "Am0a2CA5"]}}]' \
     > test.out 2>&1
 eval_tap $? 113 'AdminUpdateInputValidations' test.out
 
 #- 114 AdminResetInputValidations
 samples/cli/sample-apps Iam adminResetInputValidations \
-    --field '6SvWjaLu' \
+    --field 'vQkDeYbi' \
     > test.out 2>&1
 eval_tap $? 114 'AdminResetInputValidations' test.out
 
 #- 115 ListAdminsV3
 samples/cli/sample-apps Iam listAdminsV3 \
     --namespace $AB_NAMESPACE \
-    --after 'VbeffdCh' \
-    --before 'Hkhwtmu7' \
-    --endDate '4Nsqm08T' \
-    --limit '6' \
-    --query 'sJV8tX4W' \
-    --roleId '7lcoV1ha' \
-    --startDate 'h2JQMyuq' \
+    --after 'OlGwzpN7' \
+    --before '1SQSdQZO' \
+    --endDate 'JGtsJVxs' \
+    --limit '36' \
+    --query 'wiJZjs0U' \
+    --roleId 'QUYZHyGO' \
+    --startDate 'd2FniC8j' \
     > test.out 2>&1
 eval_tap $? 115 'ListAdminsV3' test.out
 
@@ -434,7 +434,7 @@ eval_tap $? 116 'AdminGetAgeRestrictionStatusV3' test.out
 #- 117 AdminUpdateAgeRestrictionConfigV3
 samples/cli/sample-apps Iam adminUpdateAgeRestrictionConfigV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"ageRestriction": 84, "enable": true}' \
+    --body '{"ageRestriction": 60, "enable": true}' \
     > test.out 2>&1
 eval_tap $? 117 'AdminUpdateAgeRestrictionConfigV3' test.out
 
@@ -446,9 +446,9 @@ eval_tap $? 118 'AdminGetListCountryAgeRestrictionV3' test.out
 
 #- 119 AdminUpdateCountryAgeRestrictionV3
 samples/cli/sample-apps Iam adminUpdateCountryAgeRestrictionV3 \
-    --countryCode 'juR2Q2ut' \
+    --countryCode 'Zs86MXqc' \
     --namespace $AB_NAMESPACE \
-    --body '{"ageRestriction": 17}' \
+    --body '{"ageRestriction": 47}' \
     > test.out 2>&1
 eval_tap $? 119 'AdminUpdateCountryAgeRestrictionV3' test.out
 
@@ -456,23 +456,23 @@ eval_tap $? 119 'AdminUpdateCountryAgeRestrictionV3' test.out
 samples/cli/sample-apps Iam adminGetBannedUsersV3 \
     --namespace $AB_NAMESPACE \
     --activeOnly 'false' \
-    --banType 'crw56G3o' \
-    --limit '58' \
-    --offset '23' \
+    --banType 'T2CqDmXt' \
+    --limit '27' \
+    --offset '47' \
     > test.out 2>&1
 eval_tap $? 120 'AdminGetBannedUsersV3' test.out
 
 #- 121 AdminBanUserBulkV3
 samples/cli/sample-apps Iam adminBanUserBulkV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"ban": "rLPLI7g5", "comment": "d2SCaAQs", "endDate": "tvjL2XOi", "reason": "RCuJ8AWr", "skipNotif": true, "userIds": ["dYCqg4ha", "YJvVHXUv", "SpKHM71x"]}' \
+    --body '{"ban": "eWern3Se", "comment": "OdpoJWyv", "endDate": "ECk4Msnt", "reason": "O5QtR12Z", "skipNotif": false, "userIds": ["IG9jpUes", "CAuSJpsi", "T5KLPR4x"]}' \
     > test.out 2>&1
 eval_tap $? 121 'AdminBanUserBulkV3' test.out
 
 #- 122 AdminUnbanUserBulkV3
 samples/cli/sample-apps Iam adminUnbanUserBulkV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"bans": [{"banId": "euEfwiVr", "userId": "QsQL5JY8"}, {"banId": "gueea617", "userId": "k49AWqQI"}, {"banId": "GXxVEsYG", "userId": "EIbtLwMd"}]}' \
+    --body '{"bans": [{"banId": "31d5YjYx", "userId": "Z6HEjRCH"}, {"banId": "RCBnnWJD", "userId": "T7r0oq6g"}, {"banId": "rvTb2dXk", "userId": "vUAdwJsS"}]}' \
     > test.out 2>&1
 eval_tap $? 122 'AdminUnbanUserBulkV3' test.out
 
@@ -485,79 +485,79 @@ eval_tap $? 123 'AdminGetBansTypeWithNamespaceV3' test.out
 #- 124 AdminGetClientsByNamespaceV3
 samples/cli/sample-apps Iam adminGetClientsByNamespaceV3 \
     --namespace $AB_NAMESPACE \
-    --clientId 'ewPCbY46' \
-    --clientName 'ri0YKHow' \
-    --clientType 'vtqJ1yeV' \
-    --limit '71' \
-    --offset '93' \
-    --skipLoginQueue 'false' \
+    --clientId 'WTN6I7gq' \
+    --clientName 'bRuR1aSq' \
+    --clientType 'iscl9c21' \
+    --limit '20' \
+    --offset '35' \
+    --skipLoginQueue 'true' \
     > test.out 2>&1
 eval_tap $? 124 'AdminGetClientsByNamespaceV3' test.out
 
 #- 125 AdminBulkUpdateClientsV3
 samples/cli/sample-apps Iam adminBulkUpdateClientsV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"clientIds": ["duIW4LYB", "dKzPQCoE", "eZOf9prX"], "clientUpdateRequest": {"audiences": ["71UnW5p6", "rA7J3qSq", "chHbTPD4"], "baseUri": "YWMbT6Ix", "clientName": "JollCtgJ", "clientPermissions": [{"action": 91, "resource": "c6vZkLK4", "schedAction": 67, "schedCron": "hVEOzoN2", "schedRange": ["DW9GG6As", "VT5PrT28", "BA3wM8eg"]}, {"action": 13, "resource": "3p0pmTnA", "schedAction": 57, "schedCron": "YqnjJ7oZ", "schedRange": ["zVONiIQJ", "DLuwZsgw", "9b0ISp7o"]}, {"action": 74, "resource": "VFKEvXUu", "schedAction": 45, "schedCron": "5NUPmtYj", "schedRange": ["nkuQ0uHh", "l55KYjrp", "sWwlBy4Y"]}], "clientPlatform": "YnBINjLK", "deletable": false, "description": "vOgQjao9", "modulePermissions": [{"moduleId": "lk2Wi4m8", "selectedGroups": [{"groupId": "696mEwAQ", "selectedActions": [2, 77, 75]}, {"groupId": "g3X3LnhV", "selectedActions": [97, 97, 96]}, {"groupId": "CjYFlROt", "selectedActions": [6, 22, 27]}]}, {"moduleId": "l61tlo0l", "selectedGroups": [{"groupId": "ChQjZkdF", "selectedActions": [10, 63, 63]}, {"groupId": "Kf9ID2UV", "selectedActions": [73, 61, 16]}, {"groupId": "7ugbabvs", "selectedActions": [93, 89, 6]}]}, {"moduleId": "XkKjLkGs", "selectedGroups": [{"groupId": "80ZAzXtz", "selectedActions": [71, 20, 86]}, {"groupId": "17rouzSK", "selectedActions": [38, 26, 9]}, {"groupId": "TUlvY4Am", "selectedActions": [45, 58, 6]}]}], "namespace": "BKIQeLNy", "oauthAccessTokenExpiration": 22, "oauthAccessTokenExpirationTimeUnit": "g1f8OVru", "oauthRefreshTokenExpiration": 7, "oauthRefreshTokenExpirationTimeUnit": "YudFcnkz", "redirectUri": "QCyVXfFE", "scopes": ["12Agobka", "vDjLZEJa", "Cp2dWQCQ"], "skipLoginQueue": true, "twoFactorEnabled": false}}' \
+    --body '{"clientIds": ["eLJAPnBN", "zYCkyqLi", "r3qLa4aH"], "clientUpdateRequest": {"audiences": ["roJMKl96", "Q0C55Ixx", "J4uYigUD"], "baseUri": "iXlOZ4HW", "clientName": "zK88BRHN", "clientPermissions": [{"action": 83, "resource": "zZjkRCfZ", "schedAction": 76, "schedCron": "HXyPCIqB", "schedRange": ["dTfIEag3", "XJTGUARC", "J5oEfpQO"]}, {"action": 94, "resource": "BbodxWxU", "schedAction": 42, "schedCron": "bVMD8Yaf", "schedRange": ["p9AdvGWJ", "vhBIXfKH", "g5ulH5MP"]}, {"action": 30, "resource": "h00IWja7", "schedAction": 58, "schedCron": "7MmysHUw", "schedRange": ["kihnnwlD", "GMOo9F8y", "IiLluvr6"]}], "clientPlatform": "b3jYRHcm", "deletable": false, "description": "5CC0kMAc", "modulePermissions": [{"moduleId": "teq4eYk9", "selectedGroups": [{"groupId": "jI7uSYPs", "selectedActions": [31, 57, 26]}, {"groupId": "xSh53uMZ", "selectedActions": [18, 46, 61]}, {"groupId": "JXxZ9dKI", "selectedActions": [6, 37, 26]}]}, {"moduleId": "hUrHAb60", "selectedGroups": [{"groupId": "FdjQe72I", "selectedActions": [1, 94, 98]}, {"groupId": "7HvPKx2v", "selectedActions": [23, 7, 49]}, {"groupId": "ygBZ9hOj", "selectedActions": [58, 26, 72]}]}, {"moduleId": "Sr3TJrdZ", "selectedGroups": [{"groupId": "gUhdVulR", "selectedActions": [12, 50, 84]}, {"groupId": "rOn4DLBI", "selectedActions": [26, 79, 17]}, {"groupId": "9NoUlXU5", "selectedActions": [67, 13, 4]}]}], "namespace": "2tyFFR8B", "oauthAccessTokenExpiration": 25, "oauthAccessTokenExpirationTimeUnit": "P9Tc2gUu", "oauthRefreshTokenExpiration": 63, "oauthRefreshTokenExpirationTimeUnit": "3nz4ErYx", "redirectUri": "XwKc1B61", "scopes": ["PfpKrYOC", "Wwpmh8L1", "odw4yOM9"], "skipLoginQueue": false, "twoFactorEnabled": true}}' \
     > test.out 2>&1
 eval_tap $? 125 'AdminBulkUpdateClientsV3' test.out
 
 #- 126 AdminCreateClientV3
 samples/cli/sample-apps Iam adminCreateClientV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"audiences": ["xU139mOY", "NlWob2zO", "v6FTah2e"], "baseUri": "RuN7ElIk", "clientId": "zcl5Jaz8", "clientName": "QvKFl1Rs", "clientPermissions": [{"action": 5, "resource": "CCIAC4FA", "schedAction": 28, "schedCron": "Gmo0mmOC", "schedRange": ["uJOw0Olo", "kylhj8r3", "7StDlBoR"]}, {"action": 40, "resource": "1uqKoMx7", "schedAction": 7, "schedCron": "LdGTFlMd", "schedRange": ["g1XX0XeT", "cxd3dc4U", "CmB5TkxF"]}, {"action": 0, "resource": "3ZlOkrEi", "schedAction": 81, "schedCron": "P4P6sa8F", "schedRange": ["3xAIvkUs", "9W088AN6", "UiIQM2l7"]}], "clientPlatform": "zv6DVY5u", "deletable": true, "description": "cCjCFoUZ", "modulePermissions": [{"moduleId": "zol4xrY4", "selectedGroups": [{"groupId": "GWFfopEt", "selectedActions": [37, 70, 68]}, {"groupId": "iXnp50YL", "selectedActions": [48, 47, 39]}, {"groupId": "IagcPoH9", "selectedActions": [0, 73, 72]}]}, {"moduleId": "1hXTCBvq", "selectedGroups": [{"groupId": "qbuLEuhy", "selectedActions": [41, 68, 38]}, {"groupId": "pDG7aWio", "selectedActions": [52, 86, 84]}, {"groupId": "zLICJpXA", "selectedActions": [72, 89, 14]}]}, {"moduleId": "N1h15BXw", "selectedGroups": [{"groupId": "ILj6OdQK", "selectedActions": [94, 40, 37]}, {"groupId": "LX6PC89y", "selectedActions": [5, 57, 56]}, {"groupId": "7dYhcbLe", "selectedActions": [15, 72, 9]}]}], "namespace": "Hlg1ri5u", "oauthAccessTokenExpiration": 61, "oauthAccessTokenExpirationTimeUnit": "wWSIJroq", "oauthClientType": "CfZed905", "oauthRefreshTokenExpiration": 61, "oauthRefreshTokenExpirationTimeUnit": "PNXate6u", "parentNamespace": "v4PKSNfK", "redirectUri": "nnOasrg0", "scopes": ["WymmTY0L", "5wTXkco5", "kUb68q6P"], "secret": "cbYu66Jt", "skipLoginQueue": false, "twoFactorEnabled": false}' \
+    --body '{"audiences": ["bdMUKkj1", "x5Th92fZ", "wRXHfS10"], "baseUri": "6VPXAoML", "clientId": "LIR1PBVP", "clientName": "qCYuJ2Lf", "clientPermissions": [{"action": 67, "resource": "1evZn86Q", "schedAction": 9, "schedCron": "T71gVtpa", "schedRange": ["zpHEIVrN", "Qd9S3Y9a", "SSFUfHvZ"]}, {"action": 83, "resource": "NuuzzYnz", "schedAction": 55, "schedCron": "NtFqIs33", "schedRange": ["3g3yyUp9", "hNpNRc5u", "iBtTEZdp"]}, {"action": 39, "resource": "OQ314sP4", "schedAction": 30, "schedCron": "S9ZW8IlF", "schedRange": ["fKJOkDTR", "UScbiUgl", "aJNknAAj"]}], "clientPlatform": "NWvflift", "deletable": false, "description": "IMW4DuDc", "modulePermissions": [{"moduleId": "ZXCxjZhw", "selectedGroups": [{"groupId": "WynF8xPQ", "selectedActions": [2, 56, 38]}, {"groupId": "1akLaHI2", "selectedActions": [63, 94, 45]}, {"groupId": "u6QufK8y", "selectedActions": [9, 42, 13]}]}, {"moduleId": "eEue8nfE", "selectedGroups": [{"groupId": "FnU0Ywag", "selectedActions": [92, 41, 1]}, {"groupId": "Cr5tXywi", "selectedActions": [39, 9, 56]}, {"groupId": "lE4oTUYE", "selectedActions": [30, 2, 91]}]}, {"moduleId": "bURQFoRE", "selectedGroups": [{"groupId": "ghuiuc7x", "selectedActions": [96, 12, 21]}, {"groupId": "XLp15fSv", "selectedActions": [69, 31, 100]}, {"groupId": "mhXby3f2", "selectedActions": [73, 54, 11]}]}], "namespace": "i6BT5sU6", "oauthAccessTokenExpiration": 55, "oauthAccessTokenExpirationTimeUnit": "2h8hUz03", "oauthClientType": "SOw6Q4pd", "oauthRefreshTokenExpiration": 50, "oauthRefreshTokenExpirationTimeUnit": "vzLRajrs", "parentNamespace": "VA7lPuY9", "redirectUri": "AC8XZUWE", "scopes": ["NC7hEF7V", "TDPtwxma", "cJwlPOuD"], "secret": "2nn7xkwa", "skipLoginQueue": true, "twoFactorEnabled": true}' \
     > test.out 2>&1
 eval_tap $? 126 'AdminCreateClientV3' test.out
 
 #- 127 AdminGetClientsbyNamespacebyIDV3
 samples/cli/sample-apps Iam adminGetClientsbyNamespacebyIDV3 \
-    --clientId '28CyufGL' \
+    --clientId 'FVU9t5Jh' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 127 'AdminGetClientsbyNamespacebyIDV3' test.out
 
 #- 128 AdminDeleteClientV3
 samples/cli/sample-apps Iam adminDeleteClientV3 \
-    --clientId 'Kvn6EgFa' \
+    --clientId '8xyPwYV4' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 128 'AdminDeleteClientV3' test.out
 
 #- 129 AdminUpdateClientV3
 samples/cli/sample-apps Iam adminUpdateClientV3 \
-    --clientId 'l0Z8m3Oy' \
+    --clientId 'qi0LxMQI' \
     --namespace $AB_NAMESPACE \
-    --body '{"audiences": ["4iDvqx3W", "hI4OiNEV", "yXKENda7"], "baseUri": "dkxnKAOL", "clientName": "faFi4S5T", "clientPermissions": [{"action": 87, "resource": "99rRMsb9", "schedAction": 39, "schedCron": "7Px4ig9w", "schedRange": ["NFt8fPfP", "wd31MfBI", "9xI0Xwdl"]}, {"action": 93, "resource": "rujwHbB2", "schedAction": 63, "schedCron": "T2jrXnlr", "schedRange": ["K4emvBXV", "neH3PhVg", "kHadIqd3"]}, {"action": 2, "resource": "CY6Lrum1", "schedAction": 80, "schedCron": "63WUvYJu", "schedRange": ["GgOW8lKL", "NhyZwSPX", "AO6FuIQC"]}], "clientPlatform": "5LSPTM8J", "deletable": true, "description": "yX9UMfb7", "modulePermissions": [{"moduleId": "uGIiSMrj", "selectedGroups": [{"groupId": "vFZ2WP2l", "selectedActions": [52, 1, 79]}, {"groupId": "IJC9qMDu", "selectedActions": [16, 96, 12]}, {"groupId": "W72699Wk", "selectedActions": [41, 21, 45]}]}, {"moduleId": "I5cSeMPP", "selectedGroups": [{"groupId": "URE8kchR", "selectedActions": [25, 37, 75]}, {"groupId": "Pp7mc7wh", "selectedActions": [11, 92, 12]}, {"groupId": "jYqiXF6M", "selectedActions": [63, 1, 77]}]}, {"moduleId": "W8CmPtWM", "selectedGroups": [{"groupId": "JP37rPxO", "selectedActions": [1, 30, 13]}, {"groupId": "zD2HTv64", "selectedActions": [28, 31, 10]}, {"groupId": "nxnMaXkq", "selectedActions": [62, 12, 95]}]}], "namespace": "tG0AfOVl", "oauthAccessTokenExpiration": 73, "oauthAccessTokenExpirationTimeUnit": "8I2yjusG", "oauthRefreshTokenExpiration": 52, "oauthRefreshTokenExpirationTimeUnit": "mLX8bBtZ", "redirectUri": "o2iarKJ9", "scopes": ["gZHYRWUy", "LmnWA1v1", "cjwoYq1C"], "skipLoginQueue": true, "twoFactorEnabled": false}' \
+    --body '{"audiences": ["7GFhyrYf", "Wa4Fl5yr", "mRwtxAjc"], "baseUri": "Pnag0dCc", "clientName": "ludv1BLr", "clientPermissions": [{"action": 85, "resource": "eoZbIjMT", "schedAction": 38, "schedCron": "2u343qEw", "schedRange": ["a6wimmRQ", "GcAWlbCR", "SNSEEvdM"]}, {"action": 86, "resource": "xhjJUs4v", "schedAction": 89, "schedCron": "KOHVN4v1", "schedRange": ["2cPuZTNi", "tPFIRE0r", "NMEaoDIz"]}, {"action": 58, "resource": "SyFQRFPc", "schedAction": 57, "schedCron": "q5TthM7D", "schedRange": ["QOb14eGG", "2jtnbPBO", "oes2iWlR"]}], "clientPlatform": "C1wkvnCp", "deletable": false, "description": "zKsLcavb", "modulePermissions": [{"moduleId": "pfCNx41w", "selectedGroups": [{"groupId": "xQDOVsDq", "selectedActions": [92, 45, 62]}, {"groupId": "uYFvyVeo", "selectedActions": [42, 85, 89]}, {"groupId": "ETyTlidW", "selectedActions": [100, 83, 27]}]}, {"moduleId": "hgGRAI99", "selectedGroups": [{"groupId": "cCALmBXm", "selectedActions": [36, 69, 93]}, {"groupId": "hG17Bl2V", "selectedActions": [50, 93, 3]}, {"groupId": "tlvwiWKX", "selectedActions": [19, 14, 37]}]}, {"moduleId": "M2wnGIPR", "selectedGroups": [{"groupId": "6Oubt1Bg", "selectedActions": [68, 81, 9]}, {"groupId": "qWyImgLB", "selectedActions": [29, 65, 55]}, {"groupId": "rpqsDO0X", "selectedActions": [48, 56, 22]}]}], "namespace": "uArZhDSJ", "oauthAccessTokenExpiration": 34, "oauthAccessTokenExpirationTimeUnit": "zqbZMw6T", "oauthRefreshTokenExpiration": 13, "oauthRefreshTokenExpirationTimeUnit": "6DmAXNhc", "redirectUri": "Ryttcf5P", "scopes": ["nfYfdbP5", "yuPM6qX0", "giDTSHMg"], "skipLoginQueue": false, "twoFactorEnabled": false}' \
     > test.out 2>&1
 eval_tap $? 129 'AdminUpdateClientV3' test.out
 
 #- 130 AdminUpdateClientPermissionV3
 samples/cli/sample-apps Iam adminUpdateClientPermissionV3 \
-    --clientId 'pO6OXDSg' \
+    --clientId 'jSmUxLVQ' \
     --namespace $AB_NAMESPACE \
-    --body '{"permissions": [{"action": 60, "resource": "FBMnjpEX"}, {"action": 23, "resource": "Y0RxJxn0"}, {"action": 28, "resource": "hapKYhf9"}]}' \
+    --body '{"permissions": [{"action": 75, "resource": "prRfp5sc"}, {"action": 6, "resource": "BZnYw2Ia"}, {"action": 58, "resource": "5Hqt3gQy"}]}' \
     > test.out 2>&1
 eval_tap $? 130 'AdminUpdateClientPermissionV3' test.out
 
 #- 131 AdminAddClientPermissionsV3
 samples/cli/sample-apps Iam adminAddClientPermissionsV3 \
-    --clientId 'aKxdOJ7K' \
+    --clientId 'UEz8rgUl' \
     --namespace $AB_NAMESPACE \
-    --body '{"permissions": [{"action": 16, "resource": "iPH6jEa6"}, {"action": 33, "resource": "Rqn19q9f"}, {"action": 18, "resource": "vwVwa8gC"}]}' \
+    --body '{"permissions": [{"action": 65, "resource": "33OsGYIJ"}, {"action": 33, "resource": "2BvOwGqU"}, {"action": 20, "resource": "5VaPfzDH"}]}' \
     > test.out 2>&1
 eval_tap $? 131 'AdminAddClientPermissionsV3' test.out
 
 #- 132 AdminDeleteClientPermissionV3
 samples/cli/sample-apps Iam adminDeleteClientPermissionV3 \
-    --action '58' \
-    --clientId 'TxXsJc0I' \
+    --action '30' \
+    --clientId 'locLCZYO' \
     --namespace $AB_NAMESPACE \
-    --resource 'BrYZtvS8' \
+    --resource 'Kdx7IP6b' \
     > test.out 2>&1
 eval_tap $? 132 'AdminDeleteClientPermissionV3' test.out
 
 #- 133 AdminGetConfigValueV3
 samples/cli/sample-apps Iam adminGetConfigValueV3 \
-    --configKey '1uXMIqqv' \
+    --configKey 'zJhJ9P3l' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 133 'AdminGetConfigValueV3' test.out
@@ -578,7 +578,7 @@ eval_tap $? 135 'AdminGetCountryBlacklistV3' test.out
 #- 136 AdminAddCountryBlacklistV3
 samples/cli/sample-apps Iam adminAddCountryBlacklistV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"blacklist": ["4CSOQbX6", "BPuQWCj7", "tjdLEFnL"]}' \
+    --body '{"blacklist": ["p7aJTJpm", "Y0Da6avS", "Wt5OBLWr"]}' \
     > test.out 2>&1
 eval_tap $? 136 'AdminAddCountryBlacklistV3' test.out
 
@@ -591,7 +591,7 @@ eval_tap $? 137 'AdminGetLoginAllowlistV3' test.out
 #- 138 AdminUpdateLoginAllowlistV3
 samples/cli/sample-apps Iam adminUpdateLoginAllowlistV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"active": true, "roleIds": ["ZwdUJLuf", "sHauci3O", "n6T0BqGP"]}' \
+    --body '{"active": true, "roleIds": ["r2B6JRp3", "IVkABzE2", "MsaPx8To"]}' \
     > test.out 2>&1
 eval_tap $? 138 'AdminUpdateLoginAllowlistV3' test.out
 
@@ -610,124 +610,124 @@ eval_tap $? 140 'RetrieveAllActiveThirdPartyLoginPlatformCredentialV3' test.out
 #- 141 RetrieveAllSSOLoginPlatformCredentialV3
 samples/cli/sample-apps Iam retrieveAllSSOLoginPlatformCredentialV3 \
     --namespace $AB_NAMESPACE \
-    --limit '8' \
-    --offset '48' \
+    --limit '11' \
+    --offset '30' \
     > test.out 2>&1
 eval_tap $? 141 'RetrieveAllSSOLoginPlatformCredentialV3' test.out
 
 #- 142 RetrieveThirdPartyLoginPlatformCredentialV3
 samples/cli/sample-apps Iam retrieveThirdPartyLoginPlatformCredentialV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'NGaRPfDv' \
+    --platformId 'PvjoMK22' \
     > test.out 2>&1
 eval_tap $? 142 'RetrieveThirdPartyLoginPlatformCredentialV3' test.out
 
 #- 143 AddThirdPartyLoginPlatformCredentialV3
 samples/cli/sample-apps Iam addThirdPartyLoginPlatformCredentialV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'Jx9XrHhm' \
-    --body '{"ACSURL": "TqBxQMBE", "AWSCognitoRegion": "9eSRWNtu", "AWSCognitoUserPool": "lCWtYk1n", "AllowedClients": ["aAJ350yb", "TlkynGkc", "sLQSYtt4"], "AppId": "8QapPfxg", "AuthorizationEndpoint": "iIk5hSx5", "ClientId": "mTWdhJJD", "EmptyStrFieldList": ["ySxmMDRm", "aJVljL3W", "X83jYdu1"], "EnableServerLicenseValidation": false, "Environment": "gnxmZoXy", "FederationMetadataURL": "4uGmaQdv", "GenericOauthFlow": true, "IncludePUID": true, "IsActive": false, "Issuer": "SXAVthqu", "JWKSEndpoint": "h4ip6ko4", "KeyID": "nWrg23he", "LogoURL": "q8RmuYzQ", "NetflixCertificates": {"encryptedPrivateKey": "86eSoKIg", "encryptedPrivateKeyName": "BwhOz0gv", "publicCertificate": "AeiiNZHj", "publicCertificateName": "A5KvhiBG", "rootCertificate": "PEhDh3tD", "rootCertificateName": "SaiyiRDV"}, "OrganizationId": "0nUsjzMV", "PlatformName": "dL8RpiyA", "RedirectUri": "cYDet61f", "RegisteredDomains": [{"affectedClientIDs": ["zbHi990X", "gM54IFEF", "PAHZGw8y"], "domain": "7Y9Z6WEU", "namespaces": ["OvseUJ1l", "Ye5PJwtj", "ZCJrYfRd"], "roleId": "wYFlFkAt"}, {"affectedClientIDs": ["yswZVALy", "uxArWXT2", "cY4H3Jy3"], "domain": "Xq4EzIgi", "namespaces": ["Jumh5Qj2", "ODTUksV6", "sFxAX6mz"], "roleId": "ChqRLc6k"}, {"affectedClientIDs": ["ILbZ9Db8", "rMUai5BZ", "Soi3TGPF"], "domain": "Bgznqdbq", "namespaces": ["tECiwelL", "h0PNI51M", "27f6ImpP"], "roleId": "OABEeP7h"}], "Secret": "pHtbu9bN", "TeamID": "nsUvZTOj", "TokenAuthenticationType": "yQzsZdxp", "TokenClaimsMapping": {"ZWJEd6gV": "E8dDbT9t", "9ft8pYmV": "i7dZbTdB", "hx2X27NL": "qLi0LEhn"}, "TokenEndpoint": "jcZJXOmC", "UserInfoEndpoint": "gvFU710K", "UserInfoHTTPMethod": "ewPOyVgZ", "scopes": ["hoYMplBH", "m2Zk6Lfe", "hgaq70i2"]}' \
+    --platformId 'dKlPkWkT' \
+    --body '{"ACSURL": "pwJ2NPDo", "AWSCognitoRegion": "x6pAp5ZD", "AWSCognitoUserPool": "6CDDwU86", "AllowedClients": ["aRAKDCGH", "nas7Y8cv", "AJc4eVCy"], "AppId": "wadpKYFC", "AuthorizationEndpoint": "fQnr0YJb", "ClientId": "LmKW1sUF", "EmptyStrFieldList": ["huLL8W9b", "Jk6Gzicw", "yI2yLX2s"], "EnableServerLicenseValidation": false, "Environment": "mpDgNlj9", "FederationMetadataURL": "UunCPRJi", "GenericOauthFlow": true, "IncludePUID": true, "IsActive": false, "Issuer": "XS3srEn9", "JWKSEndpoint": "4V9hV8Uw", "KeyID": "vWBBFpKM", "LogoURL": "yh5QTuMe", "NetflixCertificates": {"encryptedPrivateKey": "Xdlhh7ER", "encryptedPrivateKeyName": "GiDyz9bq", "publicCertificate": "T8XgWkzU", "publicCertificateName": "zt9nwoFx", "rootCertificate": "rjTk4SEL", "rootCertificateName": "HMGxJc4e"}, "OrganizationId": "BEftWQy5", "PlatformName": "UYyHtXhe", "RedirectUri": "z4qI4yJn", "RegisteredDomains": [{"affectedClientIDs": ["vSUuqnol", "nxabGVBI", "AWb20ae2"], "domain": "jtnh35NH", "namespaces": ["MaMyrtQy", "kmRAGqNQ", "vZJ8Uvwp"], "roleId": "yy2B4qBi"}, {"affectedClientIDs": ["y7TqxyAb", "Rgq5XX6K", "nqBxor0r"], "domain": "4yPOZrpW", "namespaces": ["C9L52qHN", "BXvsetJY", "o13YxC89"], "roleId": "Sz9P6EBR"}, {"affectedClientIDs": ["GmfNcFDR", "axiwjgdH", "2ZMUqTlx"], "domain": "Uifh3gRg", "namespaces": ["8WUI9Rie", "W2yTF8zI", "HBmzaOX6"], "roleId": "NISAh7pG"}], "Secret": "IV5NtoOQ", "TeamID": "nwNgFt2K", "TokenAuthenticationType": "lp2dqd74", "TokenClaimsMapping": {"prGoTsFL": "2ZSOy2HC", "j3pObUtO": "YD4nZA2C", "35TUptsL": "hikdXvU4"}, "TokenEndpoint": "R7fkhAEq", "UserInfoEndpoint": "ALhbcQIg", "UserInfoHTTPMethod": "FGmZtli2", "scopes": ["mzqemyqI", "lcuhqvpp", "UgIDMUY7"]}' \
     > test.out 2>&1
 eval_tap $? 143 'AddThirdPartyLoginPlatformCredentialV3' test.out
 
 #- 144 DeleteThirdPartyLoginPlatformCredentialV3
 samples/cli/sample-apps Iam deleteThirdPartyLoginPlatformCredentialV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'OZ48aX4R' \
+    --platformId 'cSAbtUy7' \
     > test.out 2>&1
 eval_tap $? 144 'DeleteThirdPartyLoginPlatformCredentialV3' test.out
 
 #- 145 UpdateThirdPartyLoginPlatformCredentialV3
 samples/cli/sample-apps Iam updateThirdPartyLoginPlatformCredentialV3 \
     --namespace $AB_NAMESPACE \
-    --platformId '8U1sfidX' \
-    --body '{"ACSURL": "qNfSTomO", "AWSCognitoRegion": "lkeQ9qAO", "AWSCognitoUserPool": "FMrJOQYe", "AllowedClients": ["DVGLEtf3", "z4yRAK96", "EvhxR9df"], "AppId": "o8TGELlM", "AuthorizationEndpoint": "0VevxoLp", "ClientId": "aplytllK", "EmptyStrFieldList": ["mAg8HbYe", "lgCbVvof", "iQRGOvqS"], "EnableServerLicenseValidation": true, "Environment": "Bum3MCbK", "FederationMetadataURL": "eZ3FcRlh", "GenericOauthFlow": false, "IncludePUID": true, "IsActive": false, "Issuer": "qsJW7zGF", "JWKSEndpoint": "hUnwB4sZ", "KeyID": "4HEc3Be8", "LogoURL": "tyHA7tkc", "NetflixCertificates": {"encryptedPrivateKey": "KVLeDamp", "encryptedPrivateKeyName": "Soz3ozgp", "publicCertificate": "pjlRHhhf", "publicCertificateName": "EflRPB2x", "rootCertificate": "DOUlaVOr", "rootCertificateName": "U9WEPRRa"}, "OrganizationId": "zDs13Hpu", "PlatformName": "VfjBFLaZ", "RedirectUri": "7lIJac3Z", "RegisteredDomains": [{"affectedClientIDs": ["Ukz1qRB1", "chiAz87U", "FDjnXd3p"], "domain": "Pn7nSIr7", "namespaces": ["3iofXu2i", "p9XBb3od", "P0SNDwk0"], "roleId": "SrIsSeYn"}, {"affectedClientIDs": ["s9rF6C3Y", "oi4re1B7", "t3q1qEyq"], "domain": "61JosHSf", "namespaces": ["QdaK8oP2", "dl0DHMWn", "YjrxUqWH"], "roleId": "xPCboopF"}, {"affectedClientIDs": ["RmUle3U8", "ysg0ZhUH", "o31hvkQw"], "domain": "7hncSnId", "namespaces": ["ZdCdcAN2", "9UhsIRvD", "PDQxhg27"], "roleId": "3IVljCKF"}], "Secret": "gsTnpIRm", "TeamID": "ill3DRRN", "TokenAuthenticationType": "RHsOsQrl", "TokenClaimsMapping": {"RfWwhsxc": "8VON0JLu", "dZwSgMOR": "tixHxkIX", "QVzJ4uZb": "b61rdiNg"}, "TokenEndpoint": "3s9ooinX", "UserInfoEndpoint": "qQ6LNqmp", "UserInfoHTTPMethod": "eCoi9MOl", "scopes": ["zzSdbbwe", "mADZPszY", "A8X48yxZ"]}' \
+    --platformId 'WHk1lBf9' \
+    --body '{"ACSURL": "MEWPu8H7", "AWSCognitoRegion": "8qKllPSA", "AWSCognitoUserPool": "ZLRQzYJQ", "AllowedClients": ["SwIfuuqp", "GpqyFFCq", "5wX7PbLi"], "AppId": "Qo2thDv3", "AuthorizationEndpoint": "FubDPAfk", "ClientId": "ZphpJU4C", "EmptyStrFieldList": ["lyGROKKW", "6Pmo5a6e", "Wo4zgAeC"], "EnableServerLicenseValidation": false, "Environment": "EInkqIdn", "FederationMetadataURL": "Dte3soQ3", "GenericOauthFlow": false, "IncludePUID": false, "IsActive": true, "Issuer": "xSiLT9s0", "JWKSEndpoint": "mboSbExY", "KeyID": "z7s71Plk", "LogoURL": "VIfQFm2c", "NetflixCertificates": {"encryptedPrivateKey": "mAw9GAxp", "encryptedPrivateKeyName": "KkfJoKSe", "publicCertificate": "gRLaZfha", "publicCertificateName": "srtx7OZM", "rootCertificate": "JiGVXcxJ", "rootCertificateName": "EPGwmqEC"}, "OrganizationId": "swVUNMkC", "PlatformName": "tEWdTHdC", "RedirectUri": "gMLArRGF", "RegisteredDomains": [{"affectedClientIDs": ["MfUlOLyE", "XDlnAHJy", "u9ytvTA1"], "domain": "8A0x4G1L", "namespaces": ["8SPtRP52", "PceVoHyo", "mWMKXqMD"], "roleId": "ma4Jnw4w"}, {"affectedClientIDs": ["67nkfxq9", "yJ0BzdXY", "YXUgrYJF"], "domain": "FgM0Ik2y", "namespaces": ["jwgqxZSn", "Vc98LuHS", "y7fTJewW"], "roleId": "zH1yqoKA"}, {"affectedClientIDs": ["w0iAA8wi", "RoZkF19x", "gGQcnrJU"], "domain": "ufValv2q", "namespaces": ["mG3CiiuI", "tD5P8vtK", "8Ys4l2VI"], "roleId": "bPKB5pBR"}], "Secret": "yuBPDzt3", "TeamID": "NazQ1T04", "TokenAuthenticationType": "JapcHY1t", "TokenClaimsMapping": {"DAobxm8y": "tjUDZI2R", "da54mthk": "JIeOw2Rs", "xOIeMa3s": "Hx2XdaES"}, "TokenEndpoint": "m7xpgxNu", "UserInfoEndpoint": "4Ppwihe6", "UserInfoHTTPMethod": "QZxmVbSd", "scopes": ["RLI6ByUi", "8xup59hB", "OikcbQQw"]}' \
     > test.out 2>&1
 eval_tap $? 145 'UpdateThirdPartyLoginPlatformCredentialV3' test.out
 
 #- 146 UpdateThirdPartyLoginPlatformDomainV3
 samples/cli/sample-apps Iam updateThirdPartyLoginPlatformDomainV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'j2XCn53P' \
-    --body '{"affectedClientIDs": ["HsZV1p0j", "jFDYKuIw", "vdOyR75F"], "assignedNamespaces": ["UpmuZUPh", "jsooQjeN", "1Pl4j7pK"], "domain": "SW3dWgQF", "roleId": "0LFO3G6k"}' \
+    --platformId 'cGmXml9G' \
+    --body '{"affectedClientIDs": ["krgcFVp8", "iceAgs8O", "6Tiq7pvZ"], "assignedNamespaces": ["nhA2YGwb", "T9qTGIT7", "K8duYTy6"], "domain": "C8ZUByGg", "roleId": "Rfm5Gnyo"}' \
     > test.out 2>&1
 eval_tap $? 146 'UpdateThirdPartyLoginPlatformDomainV3' test.out
 
 #- 147 DeleteThirdPartyLoginPlatformDomainV3
 samples/cli/sample-apps Iam deleteThirdPartyLoginPlatformDomainV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'qIz2prQi' \
-    --body '{"domain": "YqFNpmFP"}' \
+    --platformId 'BEjD0wWy' \
+    --body '{"domain": "XL3wHNMJ"}' \
     > test.out 2>&1
 eval_tap $? 147 'DeleteThirdPartyLoginPlatformDomainV3' test.out
 
 #- 148 RetrieveSSOLoginPlatformCredential
 samples/cli/sample-apps Iam retrieveSSOLoginPlatformCredential \
     --namespace $AB_NAMESPACE \
-    --platformId '2xCgh04e' \
+    --platformId 'JQnk0ukT' \
     > test.out 2>&1
 eval_tap $? 148 'RetrieveSSOLoginPlatformCredential' test.out
 
 #- 149 AddSSOLoginPlatformCredential
 samples/cli/sample-apps Iam addSSOLoginPlatformCredential \
     --namespace $AB_NAMESPACE \
-    --platformId '2Cb8D9IX' \
-    --body '{"acsUrl": "YJ4ffK1e", "apiKey": "7T1gL2pL", "appId": "tq4Yms6j", "federationMetadataUrl": "P36H0zGl", "isActive": false, "redirectUri": "sbZK926w", "secret": "D5Ky3l4h", "ssoUrl": "NGoDvMYW"}' \
+    --platformId 'fahNIxsx' \
+    --body '{"acsUrl": "cezgY3GU", "apiKey": "p3SCkuaR", "appId": "7VZiivAh", "federationMetadataUrl": "QoAei8wG", "isActive": false, "redirectUri": "FL5uzyvI", "secret": "qGC4MZ2I", "ssoUrl": "p6JygLU8"}' \
     > test.out 2>&1
 eval_tap $? 149 'AddSSOLoginPlatformCredential' test.out
 
 #- 150 DeleteSSOLoginPlatformCredentialV3
 samples/cli/sample-apps Iam deleteSSOLoginPlatformCredentialV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'CmRodUfV' \
+    --platformId '5oAvmL4g' \
     > test.out 2>&1
 eval_tap $? 150 'DeleteSSOLoginPlatformCredentialV3' test.out
 
 #- 151 UpdateSSOPlatformCredential
 samples/cli/sample-apps Iam updateSSOPlatformCredential \
     --namespace $AB_NAMESPACE \
-    --platformId 'GeR9EIvg' \
-    --body '{"acsUrl": "2g5z7LWD", "apiKey": "Bkt0Yan5", "appId": "4KoXEhRB", "federationMetadataUrl": "AxEn5gsF", "isActive": false, "redirectUri": "bel0GxUt", "secret": "stVLxk48", "ssoUrl": "VFOshSQD"}' \
+    --platformId 'tc5WUWzT' \
+    --body '{"acsUrl": "kn8u5mfm", "apiKey": "6hyvV82H", "appId": "8G17hFfU", "federationMetadataUrl": "6yky9Tp1", "isActive": false, "redirectUri": "q9dnn98Q", "secret": "n8coawk6", "ssoUrl": "CVLbmnby"}' \
     > test.out 2>&1
 eval_tap $? 151 'UpdateSSOPlatformCredential' test.out
 
 #- 152 AdminListUserIDByPlatformUserIDsV3
 samples/cli/sample-apps Iam adminListUserIDByPlatformUserIDsV3 \
     --namespace $AB_NAMESPACE \
-    --platformId '2mGqA2f1' \
-    --rawPID 'true' \
-    --rawPUID 'true' \
-    --body '{"platformUserIds": ["CVeq0g3a", "klIrKssy", "nBB2JHgq"]}' \
+    --platformId '8JzOmY8e' \
+    --rawPID 'false' \
+    --rawPUID 'false' \
+    --body '{"platformUserIds": ["5PHbhcR8", "RwkARLYE", "e58tIXKe"]}' \
     > test.out 2>&1
 eval_tap $? 152 'AdminListUserIDByPlatformUserIDsV3' test.out
 
 #- 153 AdminGetUserByPlatformUserIDV3
 samples/cli/sample-apps Iam adminGetUserByPlatformUserIDV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'cTrQChTj' \
-    --platformUserId 'iumOBx6N' \
+    --platformId '40RGFSXS' \
+    --platformUserId '7weBtqRZ' \
     > test.out 2>&1
 eval_tap $? 153 'AdminGetUserByPlatformUserIDV3' test.out
 
 #- 154 AdminGetProfileUpdateStrategyV3
 samples/cli/sample-apps Iam adminGetProfileUpdateStrategyV3 \
     --namespace $AB_NAMESPACE \
-    --field 'username' \
+    --field 'display_name' \
     > test.out 2>&1
 eval_tap $? 154 'AdminGetProfileUpdateStrategyV3' test.out
 
 #- 155 AdminUpdateProfileUpdateStrategyV3
 samples/cli/sample-apps Iam adminUpdateProfileUpdateStrategyV3 \
     --namespace $AB_NAMESPACE \
-    --field 'dob' \
-    --body '{"config": {"minimumAllowedInterval": 80}, "type": "VOKq6Are"}' \
+    --field 'username' \
+    --body '{"config": {"minimumAllowedInterval": 89}, "type": "rWTSf0u2"}' \
     > test.out 2>&1
 eval_tap $? 155 'AdminUpdateProfileUpdateStrategyV3' test.out
 
 #- 156 AdminGetRoleOverrideConfigV3
 samples/cli/sample-apps Iam adminGetRoleOverrideConfigV3 \
     --namespace $AB_NAMESPACE \
-    --identity 'VIEW_ONLY' \
+    --identity 'USER' \
     > test.out 2>&1
 eval_tap $? 156 'AdminGetRoleOverrideConfigV3' test.out
 
@@ -735,14 +735,14 @@ eval_tap $? 156 'AdminGetRoleOverrideConfigV3' test.out
 samples/cli/sample-apps Iam adminUpdateRoleOverrideConfigV3 \
     --namespace $AB_NAMESPACE \
     --identity 'USER' \
-    --body '{"additions": [{"actions": [24, 45, 11], "resource": "Va2iG4z3"}, {"actions": [26, 98, 70], "resource": "xFD7VuaP"}, {"actions": [24, 76, 13], "resource": "9mLrPyct"}], "exclusions": [{"actions": [89, 48, 44], "resource": "uyYOyR7S"}, {"actions": [93, 58, 60], "resource": "ibAGpnmj"}, {"actions": [46, 64, 23], "resource": "nWJTYYyI"}], "overrides": [{"actions": [76, 78, 3], "resource": "eLJXURLb"}, {"actions": [6, 70, 30], "resource": "Tz1nTcDk"}, {"actions": [88, 72, 36], "resource": "3WOxfKTC"}], "replacements": [{"replacement": {"actions": [88, 65, 45], "resource": "JuhMwHxA"}, "target": "yFO1kJHu"}, {"replacement": {"actions": [54, 93, 17], "resource": "miNvQcEE"}, "target": "17Nx0OSM"}, {"replacement": {"actions": [67, 13, 71], "resource": "Mp2lbuAQ"}, "target": "vgLcB8OK"}]}' \
+    --body '{"additions": [{"actions": [14, 26, 92], "resource": "27PuxCDh"}, {"actions": [85, 5, 45], "resource": "zO1lYXso"}, {"actions": [15, 75, 29], "resource": "ccAo6vuz"}], "exclusions": [{"actions": [23, 5, 68], "resource": "EpOoscdn"}, {"actions": [70, 52, 27], "resource": "3CKjm3nx"}, {"actions": [100, 82, 48], "resource": "ckH2yhoM"}], "overrides": [{"actions": [61, 77, 53], "resource": "ZxvQcXAJ"}, {"actions": [34, 88, 50], "resource": "1uNZqFUo"}, {"actions": [66, 11, 51], "resource": "699G4KVn"}], "replacements": [{"replacement": {"actions": [51, 31, 62], "resource": "Bhfl3PX6"}, "target": "whnFkB8k"}, {"replacement": {"actions": [2, 96, 41], "resource": "tHDCf0ZC"}, "target": "51CXxGqH"}, {"replacement": {"actions": [6, 73, 4], "resource": "0ghjr3Rv"}, "target": "BsFXU1oa"}]}' \
     > test.out 2>&1
 eval_tap $? 157 'AdminUpdateRoleOverrideConfigV3' test.out
 
 #- 158 AdminGetRoleSourceV3
 samples/cli/sample-apps Iam adminGetRoleSourceV3 \
     --namespace $AB_NAMESPACE \
-    --identity 'USER' \
+    --identity 'GAME_ADMIN' \
     > test.out 2>&1
 eval_tap $? 158 'AdminGetRoleSourceV3' test.out
 
@@ -750,332 +750,332 @@ eval_tap $? 158 'AdminGetRoleSourceV3' test.out
 samples/cli/sample-apps Iam adminChangeRoleOverrideConfigStatusV3 \
     --namespace $AB_NAMESPACE \
     --identity 'USER' \
-    --body '{"active": true}' \
+    --body '{"active": false}' \
     > test.out 2>&1
 eval_tap $? 159 'AdminChangeRoleOverrideConfigStatusV3' test.out
 
 #- 160 AdminGetRoleNamespacePermissionV3
 samples/cli/sample-apps Iam adminGetRoleNamespacePermissionV3 \
     --namespace $AB_NAMESPACE \
-    --roleId 'wHM4Agwh' \
+    --roleId 'Ou3jgPcV' \
     > test.out 2>&1
 eval_tap $? 160 'AdminGetRoleNamespacePermissionV3' test.out
 
 #- 161 GetAdminUsersByRoleIdV3
 samples/cli/sample-apps Iam getAdminUsersByRoleIdV3 \
     --namespace $AB_NAMESPACE \
-    --roleId 'TAvjZSas' \
-    --after '82' \
-    --before '39' \
-    --limit '6' \
+    --roleId '3vR5zjHt' \
+    --after '2' \
+    --before '49' \
+    --limit '4' \
     > test.out 2>&1
 eval_tap $? 161 'GetAdminUsersByRoleIdV3' test.out
 
 #- 162 AdminGetUserByEmailAddressV3
 samples/cli/sample-apps Iam adminGetUserByEmailAddressV3 \
     --namespace $AB_NAMESPACE \
-    --emailAddress 'Yy0gngFw' \
+    --emailAddress 'pON8S4mt' \
     > test.out 2>&1
 eval_tap $? 162 'AdminGetUserByEmailAddressV3' test.out
 
 #- 163 AdminBulkUpdateUsersV3
 samples/cli/sample-apps Iam adminBulkUpdateUsersV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"updateRequest": {"skipLoginQueue": true}, "userIds": ["wHKldihk", "CfzIYU4L", "2kWUyFcR"]}' \
+    --body '{"updateRequest": {"skipLoginQueue": true}, "userIds": ["xSFn6tHb", "b60INGNI", "y6qj3Hfi"]}' \
     > test.out 2>&1
 eval_tap $? 163 'AdminBulkUpdateUsersV3' test.out
 
 #- 164 AdminGetBulkUserBanV3
 samples/cli/sample-apps Iam adminGetBulkUserBanV3 \
     --namespace $AB_NAMESPACE \
-    --activeOnly 'true' \
-    --banType 'fi2Z68QY' \
-    --body '{"bulkUserId": ["GJqPKLhU", "LQyyJS80", "A4P16vta"]}' \
+    --activeOnly 'false' \
+    --banType 'aHaK6fI0' \
+    --body '{"bulkUserId": ["vb1bfhAK", "ZloPjcot", "CwfCfrlO"]}' \
     > test.out 2>&1
 eval_tap $? 164 'AdminGetBulkUserBanV3' test.out
 
 #- 165 AdminListUserIDByUserIDsV3
 samples/cli/sample-apps Iam adminListUserIDByUserIDsV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"userIds": ["PCJ8R0SF", "HDOPddTf", "NayF8DMh"]}' \
+    --body '{"userIds": ["zxlO87O0", "wbIyaBPG", "Cq7CfExG"]}' \
     > test.out 2>&1
 eval_tap $? 165 'AdminListUserIDByUserIDsV3' test.out
 
 #- 166 AdminBulkGetUsersPlatform
 samples/cli/sample-apps Iam adminBulkGetUsersPlatform \
     --namespace $AB_NAMESPACE \
-    --body '{"userIds": ["mxsmh6Fh", "HQMseP8q", "G0fOPnyN"]}' \
+    --body '{"userIds": ["9Z7hIwBB", "QIVMa1Vd", "H4GTBNG9"]}' \
     > test.out 2>&1
 eval_tap $? 166 'AdminBulkGetUsersPlatform' test.out
 
 #- 167 AdminInviteUserV3
 samples/cli/sample-apps Iam adminInviteUserV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"emailAddresses": ["dmAi7UEy", "TEy9capC", "qck7qf7R"], "isAdmin": true, "languageTag": "908O8gq3", "namespace": "SxZM4L95", "roles": ["twwYWPMu", "01alHwPu", "CbEOcIk4"]}' \
+    --body '{"emailAddresses": ["k1zh36jE", "jEmNu6pr", "2lN49lvB"], "isAdmin": true, "languageTag": "fEpzyvCt", "namespace": "RIwPQTR9", "roles": ["YbZIco11", "oQ8rqkjU", "0a74L151"]}' \
     > test.out 2>&1
 eval_tap $? 167 'AdminInviteUserV3' test.out
 
 #- 168 AdminQueryThirdPlatformLinkHistoryV3
 samples/cli/sample-apps Iam adminQueryThirdPlatformLinkHistoryV3 \
     --namespace $AB_NAMESPACE \
-    --limit '100' \
-    --offset '62' \
-    --platformUserId 'RYVSv993' \
-    --platformId 'Lj1xHDNu' \
+    --limit '88' \
+    --offset '97' \
+    --platformUserId 'suWHJm7J' \
+    --platformId '1qMycqbp' \
     > test.out 2>&1
 eval_tap $? 168 'AdminQueryThirdPlatformLinkHistoryV3' test.out
 
 #- 169 AdminListUsersV3
 samples/cli/sample-apps Iam adminListUsersV3 \
     --namespace $AB_NAMESPACE \
-    --limit '84' \
-    --offset '98' \
+    --limit '35' \
+    --offset '31' \
     > test.out 2>&1
 eval_tap $? 169 'AdminListUsersV3' test.out
 
 #- 170 AdminSearchUserV3
 samples/cli/sample-apps Iam adminSearchUserV3 \
     --namespace $AB_NAMESPACE \
-    --by 'lQg2swvP' \
-    --endDate 'LSKe0ZC5' \
-    --includeTotal 'false' \
-    --limit '31' \
-    --offset '73' \
-    --platformBy 'pMM8NLmz' \
-    --platformId 'MGijTx8z' \
-    --query 'QdZ0sdh9' \
-    --roleIds '4aFo94mx' \
+    --by 'HuRO2Pui' \
+    --endDate 'MDFirlEf' \
+    --includeTotal 'true' \
+    --limit '21' \
+    --offset '23' \
+    --platformBy 'rnELHN6U' \
+    --platformId 'G8pOt6mS' \
+    --query 'PP7gvAtK' \
+    --roleIds 'f9KCJtLX' \
     --skipLoginQueue 'false' \
-    --startDate 'srbRrifs' \
-    --testAccount 'true' \
+    --startDate 'y647qqw7' \
+    --testAccount 'false' \
     > test.out 2>&1
 eval_tap $? 170 'AdminSearchUserV3' test.out
 
 #- 171 AdminGetBulkUserByEmailAddressV3
 samples/cli/sample-apps Iam adminGetBulkUserByEmailAddressV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"listEmailAddressRequest": ["55QmxRWh", "r6pbJUOt", "2CjdU7dm"]}' \
+    --body '{"listEmailAddressRequest": ["kzUIppwz", "xJ7oTn9b", "o3embG8c"]}' \
     > test.out 2>&1
 eval_tap $? 171 'AdminGetBulkUserByEmailAddressV3' test.out
 
 #- 172 AdminGetUserByUserIdV3
 samples/cli/sample-apps Iam adminGetUserByUserIdV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'kduZOxW3' \
+    --userId 'b9NkYk58' \
     > test.out 2>&1
 eval_tap $? 172 'AdminGetUserByUserIdV3' test.out
 
 #- 173 AdminUpdateUserV3
 samples/cli/sample-apps Iam adminUpdateUserV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'ihBNvPKq' \
-    --body '{"avatarUrl": "EO5sSrYN", "country": "X2PcEOJq", "dateOfBirth": "RkQWIEzq", "displayName": "yBp8jqSZ", "languageTag": "9eM2qdsV", "skipLoginQueue": false, "uniqueDisplayName": "G0zzxhAa", "userName": "gjBxIy2Y"}' \
+    --userId 'mbp96B4g' \
+    --body '{"avatarUrl": "F4E9jTB9", "country": "N8aomNIm", "dateOfBirth": "jQQSYLA3", "displayName": "9rTE6ug8", "languageTag": "6YQIz4Bg", "skipLoginQueue": true, "uniqueDisplayName": "ndlYmdoA", "userName": "9iFFbcZd"}' \
     > test.out 2>&1
 eval_tap $? 173 'AdminUpdateUserV3' test.out
 
 #- 174 AdminGetUserBanV3
 samples/cli/sample-apps Iam adminGetUserBanV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'UQh1So0n' \
+    --userId '0L2SnkMb' \
     --activeOnly 'true' \
-    --after 'sXeSm3MR' \
-    --before 'MunVQPEp' \
-    --limit '75' \
+    --after 'aY3p91Hj' \
+    --before '5ZcJhO6C' \
+    --limit '44' \
     > test.out 2>&1
 eval_tap $? 174 'AdminGetUserBanV3' test.out
 
 #- 175 AdminBanUserV3
 samples/cli/sample-apps Iam adminBanUserV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'HLF2ZlkM' \
-    --body '{"ban": "ffYkAnuc", "comment": "0N9vuXCv", "endDate": "ZXcBtybQ", "reason": "nVA6i0TS", "skipNotif": true}' \
+    --userId 'TZOgRTAj' \
+    --body '{"ban": "QwEhhJLM", "comment": "0Hresn1d", "endDate": "fZGJEqJY", "reason": "dG9l85Xd", "skipNotif": true}' \
     > test.out 2>&1
 eval_tap $? 175 'AdminBanUserV3' test.out
 
 #- 176 AdminGetUserBanSummaryV3
 samples/cli/sample-apps Iam adminGetUserBanSummaryV3 \
     --namespace $AB_NAMESPACE \
-    --userId '9jNyNElj' \
+    --userId '5uv3P8Gt' \
     > test.out 2>&1
 eval_tap $? 176 'AdminGetUserBanSummaryV3' test.out
 
 #- 177 AdminUpdateUserBanV3
 samples/cli/sample-apps Iam adminUpdateUserBanV3 \
-    --banId '8WK2Ia87' \
+    --banId '5bIN4MmO' \
     --namespace $AB_NAMESPACE \
-    --userId 'lcGcGgDO' \
-    --body '{"enabled": true, "skipNotif": false}' \
+    --userId 'EporpUxO' \
+    --body '{"enabled": false, "skipNotif": false}' \
     > test.out 2>&1
 eval_tap $? 177 'AdminUpdateUserBanV3' test.out
 
 #- 178 AdminSendVerificationCodeV3
 samples/cli/sample-apps Iam adminSendVerificationCodeV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'eUa7CY0j' \
-    --body '{"context": "QVxBgSl4", "emailAddress": "3Mcrsdkq", "languageTag": "QVM3FKxv"}' \
+    --userId 'b02fvO1D' \
+    --body '{"context": "jGPFx2EX", "emailAddress": "iunY9v45", "languageTag": "BWHaKdbP", "upgradeToken": "c6YTN1ni"}' \
     > test.out 2>&1
 eval_tap $? 178 'AdminSendVerificationCodeV3' test.out
 
 #- 179 AdminVerifyAccountV3
 samples/cli/sample-apps Iam adminVerifyAccountV3 \
     --namespace $AB_NAMESPACE \
-    --userId '5hBe4E3B' \
-    --body '{"Code": "9o3HLQB5", "ContactType": "x4sn2GkQ", "LanguageTag": "OqZZTPEa", "validateOnly": true}' \
+    --userId 'fwnmBE53' \
+    --body '{"Code": "zaxsqEzj", "ContactType": "C12JZspS", "LanguageTag": "Amfu9dSa", "validateOnly": true}' \
     > test.out 2>&1
 eval_tap $? 179 'AdminVerifyAccountV3' test.out
 
 #- 180 GetUserVerificationCode
 samples/cli/sample-apps Iam getUserVerificationCode \
     --namespace $AB_NAMESPACE \
-    --userId 'I3aOEtwX' \
+    --userId 'G8XGYayg' \
     > test.out 2>&1
 eval_tap $? 180 'GetUserVerificationCode' test.out
 
 #- 181 AdminGetUserDeletionStatusV3
 samples/cli/sample-apps Iam adminGetUserDeletionStatusV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'O1HBzDYc' \
+    --userId '5eeu4Ntn' \
     > test.out 2>&1
 eval_tap $? 181 'AdminGetUserDeletionStatusV3' test.out
 
 #- 182 AdminUpdateUserDeletionStatusV3
 samples/cli/sample-apps Iam adminUpdateUserDeletionStatusV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'RjLBWO6Z' \
-    --body '{"deletionDate": 28, "enabled": true}' \
+    --userId 'E1bLCWh8' \
+    --body '{"deletionDate": 29, "enabled": false}' \
     > test.out 2>&1
 eval_tap $? 182 'AdminUpdateUserDeletionStatusV3' test.out
 
 #- 183 AdminListUserAllPlatformAccountsDistinctV3
 samples/cli/sample-apps Iam adminListUserAllPlatformAccountsDistinctV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'ckQXdDqX' \
+    --userId 'YMWvuNiH' \
     > test.out 2>&1
 eval_tap $? 183 'AdminListUserAllPlatformAccountsDistinctV3' test.out
 
 #- 184 AdminUpgradeHeadlessAccountV3
 samples/cli/sample-apps Iam adminUpgradeHeadlessAccountV3 \
     --namespace $AB_NAMESPACE \
-    --userId '9tlHbZob' \
-    --body '{"code": "RfRAqPHs", "country": "Udtqe4LI", "dateOfBirth": "DSDLvcy3", "displayName": "R7Zijv6w", "emailAddress": "jF9sRafE", "password": "DFvYXyHE", "uniqueDisplayName": "45zvUKnQ", "validateOnly": true}' \
+    --userId 'C9TgSjm9' \
+    --body '{"code": "BUtcQvQU", "country": "oa04pV8V", "dateOfBirth": "X6phaPSE", "displayName": "noSsFqNM", "emailAddress": "6U43Y7nL", "password": "GaLNp8ef", "uniqueDisplayName": "6FFDdL05", "validateOnly": true}' \
     > test.out 2>&1
 eval_tap $? 184 'AdminUpgradeHeadlessAccountV3' test.out
 
 #- 185 AdminDeleteUserInformationV3
 samples/cli/sample-apps Iam adminDeleteUserInformationV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'MOMYzQg2' \
+    --userId 'hHtgFa5y' \
     > test.out 2>&1
 eval_tap $? 185 'AdminDeleteUserInformationV3' test.out
 
 #- 186 AdminGetUserLoginHistoriesV3
 samples/cli/sample-apps Iam adminGetUserLoginHistoriesV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'KjtEGk5U' \
-    --after '0.7865870131876892' \
-    --before '0.11467325887894608' \
-    --limit '12' \
+    --userId 'PbGd9TC9' \
+    --after '0.5639492915108205' \
+    --before '0.6068419874541502' \
+    --limit '62' \
     > test.out 2>&1
 eval_tap $? 186 'AdminGetUserLoginHistoriesV3' test.out
 
 #- 187 AdminResetPasswordV3
 samples/cli/sample-apps Iam adminResetPasswordV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'egngeopy' \
-    --body '{"languageTag": "ULYUc7zD", "mfaToken": "wVbSDi3T", "newPassword": "Pw3f0z7j", "oldPassword": "S8399fkl"}' \
+    --userId 'E2xKEue0' \
+    --body '{"languageTag": "sacS9o1j", "mfaToken": "smR9dN7m", "newPassword": "owcxw9xc", "oldPassword": "eJ0aKME1"}' \
     > test.out 2>&1
 eval_tap $? 187 'AdminResetPasswordV3' test.out
 
 #- 188 AdminUpdateUserPermissionV3
 samples/cli/sample-apps Iam adminUpdateUserPermissionV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'pVNwZ0wp' \
-    --body '{"Permissions": [{"Action": 96, "Resource": "YmfVX9OJ", "SchedAction": 83, "SchedCron": "beP7eBlE", "SchedRange": ["DTUXJ1Rd", "ttVQU9L4", "6TGmMQcH"]}, {"Action": 36, "Resource": "QH8MdNk0", "SchedAction": 5, "SchedCron": "t1zYhHR3", "SchedRange": ["3RzztFJY", "kWRyATJq", "Q5oRNP0u"]}, {"Action": 52, "Resource": "v1optnVh", "SchedAction": 91, "SchedCron": "Sd3z81yC", "SchedRange": ["F4mgdV4o", "3XmAIefj", "nES2YJqP"]}]}' \
+    --userId 'UhP3o8ce' \
+    --body '{"Permissions": [{"Action": 82, "Resource": "Bz9Iezyg", "SchedAction": 8, "SchedCron": "8JXOadZ8", "SchedRange": ["NC9pL3NK", "m8L5Moje", "UYhHuIw3"]}, {"Action": 4, "Resource": "O5CFShBm", "SchedAction": 2, "SchedCron": "8ddqro7p", "SchedRange": ["7ASiXe3c", "JbyJpeK0", "EzwMn1b4"]}, {"Action": 38, "Resource": "VC0PrlTp", "SchedAction": 69, "SchedCron": "s8I4Oonf", "SchedRange": ["UfA2ynXR", "mVGLXVng", "S4GwwZbv"]}]}' \
     > test.out 2>&1
 eval_tap $? 188 'AdminUpdateUserPermissionV3' test.out
 
 #- 189 AdminAddUserPermissionsV3
 samples/cli/sample-apps Iam adminAddUserPermissionsV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'ns7ebuYa' \
-    --body '{"Permissions": [{"Action": 42, "Resource": "j6s4aRIa", "SchedAction": 29, "SchedCron": "KgOOOlUn", "SchedRange": ["BxsJnc4p", "dPBla5mM", "7AJkP3Vu"]}, {"Action": 78, "Resource": "n5QkgVZl", "SchedAction": 21, "SchedCron": "zDJqfmyY", "SchedRange": ["XkjyHMXl", "i1EnNtCQ", "WIlTvQxn"]}, {"Action": 61, "Resource": "odo1ujHl", "SchedAction": 9, "SchedCron": "M10s8iNF", "SchedRange": ["rKFVo9bj", "Zp6eTdDC", "Y5xZEkjL"]}]}' \
+    --userId 'wwQADDxy' \
+    --body '{"Permissions": [{"Action": 15, "Resource": "3fEiJZtM", "SchedAction": 26, "SchedCron": "6Y5jYqrM", "SchedRange": ["knVgN5I0", "xMQ9bo4E", "tXbI53st"]}, {"Action": 34, "Resource": "yw2t0uQa", "SchedAction": 71, "SchedCron": "ebaIKhch", "SchedRange": ["6Dm0CiPW", "WjTNnjmI", "3sBKZAC2"]}, {"Action": 36, "Resource": "pjTSH0x6", "SchedAction": 95, "SchedCron": "YzcjBs6C", "SchedRange": ["vnkGprgt", "xYPqmXdl", "U0uJieDv"]}]}' \
     > test.out 2>&1
 eval_tap $? 189 'AdminAddUserPermissionsV3' test.out
 
 #- 190 AdminDeleteUserPermissionBulkV3
 samples/cli/sample-apps Iam adminDeleteUserPermissionBulkV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'mTlSbGxO' \
-    --body '[{"Action": 64, "Resource": "UnDv7d8l"}, {"Action": 3, "Resource": "4gaPLLPa"}, {"Action": 79, "Resource": "NVTWQYeS"}]' \
+    --userId 'ESlr2xg8' \
+    --body '[{"Action": 53, "Resource": "qup8bpdX"}, {"Action": 88, "Resource": "rBXadmtO"}, {"Action": 49, "Resource": "MUGl3ziY"}]' \
     > test.out 2>&1
 eval_tap $? 190 'AdminDeleteUserPermissionBulkV3' test.out
 
 #- 191 AdminDeleteUserPermissionV3
 samples/cli/sample-apps Iam adminDeleteUserPermissionV3 \
-    --action '40' \
+    --action '83' \
     --namespace $AB_NAMESPACE \
-    --resource 'bsTgkR1O' \
-    --userId 'UkP68z51' \
+    --resource 'CRvn7N83' \
+    --userId 'Iw0NN3HC' \
     > test.out 2>&1
 eval_tap $? 191 'AdminDeleteUserPermissionV3' test.out
 
 #- 192 AdminGetUserPlatformAccountsV3
 samples/cli/sample-apps Iam adminGetUserPlatformAccountsV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'ZNvRdJSk' \
-    --after 'vbV3T9i2' \
-    --before 'MDlCMLbq' \
-    --limit '24' \
-    --platformId 'Io6spcSF' \
-    --targetNamespace 'a7FRDhNK' \
+    --userId 'f3worGcc' \
+    --after 'HCwVC5V9' \
+    --before 'tAs9a7Dc' \
+    --limit '49' \
+    --platformId 'muNlhwed' \
+    --targetNamespace 'S5pp5Sak' \
     > test.out 2>&1
 eval_tap $? 192 'AdminGetUserPlatformAccountsV3' test.out
 
 #- 193 AdminListAllDistinctPlatformAccountsV3
 samples/cli/sample-apps Iam adminListAllDistinctPlatformAccountsV3 \
     --namespace $AB_NAMESPACE \
-    --userId '0BrgjAkq' \
-    --status 'LwkY9ovs' \
+    --userId 'Uxdr16Mz' \
+    --status 'HXSROzoS' \
     > test.out 2>&1
 eval_tap $? 193 'AdminListAllDistinctPlatformAccountsV3' test.out
 
 #- 194 AdminGetListJusticePlatformAccounts
 samples/cli/sample-apps Iam adminGetListJusticePlatformAccounts \
     --namespace $AB_NAMESPACE \
-    --userId 'iXOeKS9p' \
+    --userId 'F0QSkgu3' \
     > test.out 2>&1
 eval_tap $? 194 'AdminGetListJusticePlatformAccounts' test.out
 
 #- 195 AdminGetUserMapping
 samples/cli/sample-apps Iam adminGetUserMapping \
     --namespace $AB_NAMESPACE \
-    --targetNamespace 'y1Xi9ZPr' \
-    --userId 'di9tTyg8' \
+    --targetNamespace 'uCOpaLkq' \
+    --userId 'SrRhoslg' \
     > test.out 2>&1
 eval_tap $? 195 'AdminGetUserMapping' test.out
 
 #- 196 AdminCreateJusticeUser
 samples/cli/sample-apps Iam adminCreateJusticeUser \
     --namespace $AB_NAMESPACE \
-    --targetNamespace '02w3k6nS' \
-    --userId 'PAJ0mI5T' \
+    --targetNamespace 'g1F1iPnD' \
+    --userId 'rSrA9XBj' \
     > test.out 2>&1
 eval_tap $? 196 'AdminCreateJusticeUser' test.out
 
 #- 197 AdminLinkPlatformAccount
 samples/cli/sample-apps Iam adminLinkPlatformAccount \
     --namespace $AB_NAMESPACE \
-    --userId '5pP0IW9Q' \
-    --skipConflict 'false' \
-    --body '{"platformId": "gHoEuKGx", "platformUserId": "t41Vynoy"}' \
+    --userId 'Gfer50AQ' \
+    --skipConflict 'true' \
+    --body '{"platformId": "KMaPRwbZ", "platformUserId": "YpujPGwD"}' \
     > test.out 2>&1
 eval_tap $? 197 'AdminLinkPlatformAccount' test.out
 
 #- 198 AdminGetUserLinkHistoriesV3
 samples/cli/sample-apps Iam adminGetUserLinkHistoriesV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'sv8p4ESH' \
-    --platformId 'mE4dKN04' \
+    --userId 'uSJsQyIs' \
+    --platformId 'w5A2Fc1O' \
     > test.out 2>&1
 eval_tap $? 198 'AdminGetUserLinkHistoriesV3' test.out
 
@@ -1085,17 +1085,17 @@ eval_tap 0 199 'AdminPlatformUnlinkV3 # SKIP deprecated' test.out
 #- 200 AdminPlatformUnlinkAllV3
 samples/cli/sample-apps Iam adminPlatformUnlinkAllV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'TSf4WxVE' \
-    --userId 'IyiA8Qn3' \
+    --platformId '5XHpp9cF' \
+    --userId '4N15YUct' \
     > test.out 2>&1
 eval_tap $? 200 'AdminPlatformUnlinkAllV3' test.out
 
 #- 201 AdminPlatformLinkV3
 samples/cli/sample-apps Iam adminPlatformLinkV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'wfwORjVP' \
-    --userId 'HbNkqRVg' \
-    --ticket 'SDQqXoby' \
+    --platformId 'wPow9bAW' \
+    --userId 'Z5f3vHbU' \
+    --ticket 'AcnOanx8' \
     > test.out 2>&1
 eval_tap $? 201 'AdminPlatformLinkV3' test.out
 
@@ -1105,25 +1105,25 @@ eval_tap 0 202 'AdminDeleteUserLinkingHistoryByPlatformIDV3 # SKIP deprecated' t
 #- 203 AdminDeleteUserLinkingRestrictionByPlatformIDV3
 samples/cli/sample-apps Iam adminDeleteUserLinkingRestrictionByPlatformIDV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'UVpHqcnU' \
-    --userId '8AXgysbH' \
+    --platformId 'uK31ujn7' \
+    --userId 'RBBkJRb3' \
     > test.out 2>&1
 eval_tap $? 203 'AdminDeleteUserLinkingRestrictionByPlatformIDV3' test.out
 
 #- 204 AdminGetThirdPartyPlatformTokenLinkStatusV3
 samples/cli/sample-apps Iam adminGetThirdPartyPlatformTokenLinkStatusV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'jFW6cHP9' \
-    --userId 'O3BEcnc3' \
-    --platformToken '8Q56szBy' \
+    --platformId 'ahzpMO5Z' \
+    --userId 'yfoJmTZE' \
+    --platformToken '4gclzseL' \
     > test.out 2>&1
 eval_tap $? 204 'AdminGetThirdPartyPlatformTokenLinkStatusV3' test.out
 
 #- 205 AdminGetUserSinglePlatformAccount
 samples/cli/sample-apps Iam adminGetUserSinglePlatformAccount \
     --namespace $AB_NAMESPACE \
-    --platformId '2ET4EqxC' \
-    --userId 'rH3S3gDd' \
+    --platformId 'SPjC97tv' \
+    --userId 'MPGFJnrq' \
     --crossNamespace 'false' \
     > test.out 2>&1
 eval_tap $? 205 'AdminGetUserSinglePlatformAccount' test.out
@@ -1131,160 +1131,160 @@ eval_tap $? 205 'AdminGetUserSinglePlatformAccount' test.out
 #- 206 AdminDeleteUserRolesV3
 samples/cli/sample-apps Iam adminDeleteUserRolesV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'U3JF3gPT' \
-    --body '["03PTOYQn", "hJmMw2PR", "pgp1SvB4"]' \
+    --userId 'gIA6z5CE' \
+    --body '["AzgZ1rM1", "CsAU2wJD", "mZ2pNQlp"]' \
     > test.out 2>&1
 eval_tap $? 206 'AdminDeleteUserRolesV3' test.out
 
 #- 207 AdminSaveUserRoleV3
 samples/cli/sample-apps Iam adminSaveUserRoleV3 \
     --namespace $AB_NAMESPACE \
-    --userId '5NBXRHop' \
-    --body '[{"namespace": "j9px73Eq", "roleId": "S6W7OPF5"}, {"namespace": "yRwca4eY", "roleId": "vmVtmQWd"}, {"namespace": "t4ywzUg0", "roleId": "2q55SFVp"}]' \
+    --userId 'MWEuWIzU' \
+    --body '[{"namespace": "9qySx2B8", "roleId": "45ivIbyr"}, {"namespace": "S3wsgsQV", "roleId": "2qM1voSg"}, {"namespace": "JrOc9N3W", "roleId": "2sCPoQUs"}]' \
     > test.out 2>&1
 eval_tap $? 207 'AdminSaveUserRoleV3' test.out
 
 #- 208 AdminAddUserRoleV3
 samples/cli/sample-apps Iam adminAddUserRoleV3 \
     --namespace $AB_NAMESPACE \
-    --roleId 'O3HRyXcs' \
-    --userId 'ivhy2Wuq' \
+    --roleId 'JZE6VljN' \
+    --userId '5jkeDCm8' \
     > test.out 2>&1
 eval_tap $? 208 'AdminAddUserRoleV3' test.out
 
 #- 209 AdminDeleteUserRoleV3
 samples/cli/sample-apps Iam adminDeleteUserRoleV3 \
     --namespace $AB_NAMESPACE \
-    --roleId 'vZ1W5Tg0' \
-    --userId 'Xk3Dw8tk' \
+    --roleId 'jW1CFKiB' \
+    --userId 'wAu9UvsF' \
     > test.out 2>&1
 eval_tap $? 209 'AdminDeleteUserRoleV3' test.out
 
 #- 210 AdminUpdateUserStatusV3
 samples/cli/sample-apps Iam adminUpdateUserStatusV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'Zw8lTZtr' \
-    --body '{"enabled": false, "reason": "pCHXK9rm"}' \
+    --userId 'NJKhbTxo' \
+    --body '{"enabled": false, "reason": "Fn1aWwfy"}' \
     > test.out 2>&1
 eval_tap $? 210 'AdminUpdateUserStatusV3' test.out
 
 #- 211 AdminTrustlyUpdateUserIdentity
 samples/cli/sample-apps Iam adminTrustlyUpdateUserIdentity \
     --namespace $AB_NAMESPACE \
-    --userId 'cMiztt75' \
-    --body '{"emailAddress": "xKwbyOjc", "password": "9qJui0bc"}' \
+    --userId 'vS7bkPsm' \
+    --body '{"emailAddress": "PIKJ5iZR", "password": "4SW3uqN4"}' \
     > test.out 2>&1
 eval_tap $? 211 'AdminTrustlyUpdateUserIdentity' test.out
 
 #- 212 AdminVerifyUserWithoutVerificationCodeV3
 samples/cli/sample-apps Iam adminVerifyUserWithoutVerificationCodeV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'SjOr9TWL' \
+    --userId 'DIBSF59W' \
     > test.out 2>&1
 eval_tap $? 212 'AdminVerifyUserWithoutVerificationCodeV3' test.out
 
 #- 213 AdminUpdateClientSecretV3
 samples/cli/sample-apps Iam adminUpdateClientSecretV3 \
-    --clientId 'bp5oCfjB' \
+    --clientId 'ChfNFdOP' \
     --namespace $AB_NAMESPACE \
-    --body '{"newSecret": "csdZCoFz"}' \
+    --body '{"newSecret": "KJS1R7Tp"}' \
     > test.out 2>&1
 eval_tap $? 213 'AdminUpdateClientSecretV3' test.out
 
 #- 214 AdminCheckThirdPartyLoginPlatformAvailabilityV3
 samples/cli/sample-apps Iam adminCheckThirdPartyLoginPlatformAvailabilityV3 \
-    --platformId 'LJDj9tVR' \
+    --platformId '4GavAFjx' \
     > test.out 2>&1
 eval_tap $? 214 'AdminCheckThirdPartyLoginPlatformAvailabilityV3' test.out
 
 #- 215 AdminGetRolesV3
 samples/cli/sample-apps Iam adminGetRolesV3 \
-    --after 'FjElQY2M' \
-    --before 'XUhUSJgp' \
-    --isWildcard 'true' \
-    --limit '28' \
+    --after 'uOD48QhP' \
+    --before 'N35iiaVT' \
+    --isWildcard 'false' \
+    --limit '98' \
     > test.out 2>&1
 eval_tap $? 215 'AdminGetRolesV3' test.out
 
 #- 216 AdminCreateRoleV3
 samples/cli/sample-apps Iam adminCreateRoleV3 \
-    --body '{"adminRole": true, "deletable": true, "isWildcard": true, "managers": [{"displayName": "NLYWiD9W", "namespace": "6RhsKxzb", "userId": "2eL1UVV9"}, {"displayName": "PUkisl68", "namespace": "fOkXBDXc", "userId": "jgcqQBnX"}, {"displayName": "TbEj7UdH", "namespace": "h7NyJPDG", "userId": "SzYVgjxm"}], "members": [{"displayName": "VR0qbLJ1", "namespace": "3VcDOZJG", "userId": "Qihftu9o"}, {"displayName": "doudrSU8", "namespace": "LBY5ITLg", "userId": "fAkYAeyr"}, {"displayName": "wl0mMXZk", "namespace": "6BegrBrJ", "userId": "KE8LUKs7"}], "permissions": [{"action": 0, "resource": "oBM8TtWK", "schedAction": 98, "schedCron": "X1UqXb7e", "schedRange": ["GyKPvl0J", "RP6TBjgM", "4OzNTbSV"]}, {"action": 68, "resource": "E01shq4R", "schedAction": 92, "schedCron": "3yYO9TDJ", "schedRange": ["uDZePQkJ", "Zd5Cupxm", "UTXqk09W"]}, {"action": 99, "resource": "rtqhllUi", "schedAction": 37, "schedCron": "2x1SDwWk", "schedRange": ["gRYKNljh", "fER8rEFG", "Ns7v2nGn"]}], "roleName": "sw5S7RX7"}' \
+    --body '{"adminRole": false, "deletable": false, "isWildcard": false, "managers": [{"displayName": "z6et8UGn", "namespace": "ZflUxcsH", "userId": "YBHT8M4U"}, {"displayName": "Z3lsZS4D", "namespace": "34NMKICd", "userId": "O5wTGGjf"}, {"displayName": "Mjwnb1rB", "namespace": "aO2ypdd7", "userId": "hzzyBveU"}], "members": [{"displayName": "8uuch1LQ", "namespace": "VVVEcZW0", "userId": "5KagUHVA"}, {"displayName": "3WKCuA8F", "namespace": "3foQuRFv", "userId": "WArvDkPO"}, {"displayName": "XzdCmDk4", "namespace": "cxhkZKDo", "userId": "ffrzQP2K"}], "permissions": [{"action": 15, "resource": "XXG9pP6e", "schedAction": 100, "schedCron": "RcEt7Q8B", "schedRange": ["JsHe5bVn", "NgrSZfY8", "hyQXy6ka"]}, {"action": 11, "resource": "AjmStZpp", "schedAction": 35, "schedCron": "1gT8GiZe", "schedRange": ["bg1MSN6A", "vjjqYZOd", "AY1Oi576"]}, {"action": 48, "resource": "vUTxevJv", "schedAction": 90, "schedCron": "yQSip68l", "schedRange": ["ledz0ni6", "r5JZ0Nvh", "TkCjW9Lr"]}], "roleName": "NyjXUDn2"}' \
     > test.out 2>&1
 eval_tap $? 216 'AdminCreateRoleV3' test.out
 
 #- 217 AdminGetRoleV3
 samples/cli/sample-apps Iam adminGetRoleV3 \
-    --roleId 'H5JqEgCn' \
+    --roleId 'QRwAewc5' \
     > test.out 2>&1
 eval_tap $? 217 'AdminGetRoleV3' test.out
 
 #- 218 AdminDeleteRoleV3
 samples/cli/sample-apps Iam adminDeleteRoleV3 \
-    --roleId 'yilSpcNc' \
+    --roleId 'vCIxjTk7' \
     > test.out 2>&1
 eval_tap $? 218 'AdminDeleteRoleV3' test.out
 
 #- 219 AdminUpdateRoleV3
 samples/cli/sample-apps Iam adminUpdateRoleV3 \
-    --roleId '3t4eWdoD' \
-    --body '{"deletable": false, "isWildcard": true, "roleName": "FfmFxS99"}' \
+    --roleId 'XwJoQDqZ' \
+    --body '{"deletable": false, "isWildcard": false, "roleName": "LE3eRekz"}' \
     > test.out 2>&1
 eval_tap $? 219 'AdminUpdateRoleV3' test.out
 
 #- 220 AdminGetRoleAdminStatusV3
 samples/cli/sample-apps Iam adminGetRoleAdminStatusV3 \
-    --roleId 'eInIlsx4' \
+    --roleId 'Cerqg85k' \
     > test.out 2>&1
 eval_tap $? 220 'AdminGetRoleAdminStatusV3' test.out
 
 #- 221 AdminUpdateAdminRoleStatusV3
 samples/cli/sample-apps Iam adminUpdateAdminRoleStatusV3 \
-    --roleId 'VDFqKKr3' \
+    --roleId 'S5NjQ24M' \
     > test.out 2>&1
 eval_tap $? 221 'AdminUpdateAdminRoleStatusV3' test.out
 
 #- 222 AdminRemoveRoleAdminV3
 samples/cli/sample-apps Iam adminRemoveRoleAdminV3 \
-    --roleId 'ucwiuJ00' \
+    --roleId 'zMmUwHfx' \
     > test.out 2>&1
 eval_tap $? 222 'AdminRemoveRoleAdminV3' test.out
 
 #- 223 AdminGetRoleManagersV3
 samples/cli/sample-apps Iam adminGetRoleManagersV3 \
-    --roleId 'PVllXVOz' \
-    --after 'r817VxK7' \
-    --before 'x3kZ6a4y' \
-    --limit '73' \
+    --roleId '6fbsuLaR' \
+    --after 'YoxZOu3m' \
+    --before 'xopkXCCG' \
+    --limit '81' \
     > test.out 2>&1
 eval_tap $? 223 'AdminGetRoleManagersV3' test.out
 
 #- 224 AdminAddRoleManagersV3
 samples/cli/sample-apps Iam adminAddRoleManagersV3 \
-    --roleId 'Gwlwk3Fw' \
-    --body '{"managers": [{"displayName": "ElCKGpk8", "namespace": "KkRuJqhU", "userId": "8whkyD60"}, {"displayName": "bZ4L9iOF", "namespace": "LFUSJ4nR", "userId": "2jh6P1MX"}, {"displayName": "NK82AqBk", "namespace": "3SCu0JTx", "userId": "sPVy0pd5"}]}' \
+    --roleId 'IIWMTmVB' \
+    --body '{"managers": [{"displayName": "cfH2fGy1", "namespace": "20O1h1Ki", "userId": "yb75zIqw"}, {"displayName": "zyCzLncI", "namespace": "e5VVUxE7", "userId": "KTdWyaYI"}, {"displayName": "tihxmiKL", "namespace": "6ZRAv37I", "userId": "vmH3xpAN"}]}' \
     > test.out 2>&1
 eval_tap $? 224 'AdminAddRoleManagersV3' test.out
 
 #- 225 AdminRemoveRoleManagersV3
 samples/cli/sample-apps Iam adminRemoveRoleManagersV3 \
-    --roleId 'Hbrt7lgu' \
-    --body '{"managers": [{"displayName": "4LWxH3zd", "namespace": "HQzyK66b", "userId": "RPO0vH6f"}, {"displayName": "pA8Yw7MC", "namespace": "lasdDorN", "userId": "mOXXfgur"}, {"displayName": "PjUVOK4p", "namespace": "nF3aIXRx", "userId": "oqRVFbQE"}]}' \
+    --roleId '7OXI2gOv' \
+    --body '{"managers": [{"displayName": "r7XopkzJ", "namespace": "hp9mXmav", "userId": "Ls4gFLIe"}, {"displayName": "G7nbHvTX", "namespace": "cuw3Y93s", "userId": "7BHfgSbP"}, {"displayName": "g80ejOCL", "namespace": "Zf1hlQUO", "userId": "llePoIj6"}]}' \
     > test.out 2>&1
 eval_tap $? 225 'AdminRemoveRoleManagersV3' test.out
 
 #- 226 AdminGetRoleMembersV3
 samples/cli/sample-apps Iam adminGetRoleMembersV3 \
-    --roleId 'sv1axVv3' \
-    --after 'E20YKg6s' \
-    --before 'YHNl3uu4' \
-    --limit '79' \
+    --roleId 'yvBl0mmJ' \
+    --after 'S6CZknTp' \
+    --before 'CTVN1bWU' \
+    --limit '6' \
     > test.out 2>&1
 eval_tap $? 226 'AdminGetRoleMembersV3' test.out
 
 #- 227 AdminAddRoleMembersV3
 samples/cli/sample-apps Iam adminAddRoleMembersV3 \
-    --roleId 'nSCPcdAK' \
-    --body '{"members": [{"displayName": "uvCAsPob", "namespace": "NVjEsVsA", "userId": "lbeSdET6"}, {"displayName": "0U1p9fEN", "namespace": "vLqyPU8z", "userId": "G4tIhtr9"}, {"displayName": "MzkkpRsI", "namespace": "DcUQAawZ", "userId": "EnZSYPAS"}]}' \
+    --roleId 'HG7KMKn1' \
+    --body '{"members": [{"displayName": "ZbHTkdcv", "namespace": "dxfDcPSs", "userId": "8EcUKEcg"}, {"displayName": "gt3BQGjt", "namespace": "POBmF0vR", "userId": "f5QeKCp5"}, {"displayName": "Qp1JdVBW", "namespace": "5Xqxbuh9", "userId": "Ek2PNvqc"}]}' \
     > test.out 2>&1
 eval_tap $? 227 'AdminAddRoleMembersV3' test.out
 
@@ -1293,30 +1293,30 @@ eval_tap 0 228 'AdminRemoveRoleMembersV3 # SKIP deprecated' test.out
 
 #- 229 AdminUpdateRolePermissionsV3
 samples/cli/sample-apps Iam adminUpdateRolePermissionsV3 \
-    --roleId 'x4KkDE9Z' \
-    --body '{"permissions": [{"action": 31, "resource": "GDwYUtXW", "schedAction": 89, "schedCron": "kY2Djtyo", "schedRange": ["uDOSGsKW", "0s4oxnhu", "Uu2FcQua"]}, {"action": 67, "resource": "hszZhVOV", "schedAction": 63, "schedCron": "XRNRi4pH", "schedRange": ["0ZC1c7wP", "7MIHsY8O", "Q9KjDnCt"]}, {"action": 100, "resource": "jQOQ8ejB", "schedAction": 31, "schedCron": "JaybbrFM", "schedRange": ["5WPoyJxF", "a4j7RaVp", "t6h2SQwh"]}]}' \
+    --roleId 'kEJD9mXO' \
+    --body '{"permissions": [{"action": 88, "resource": "2NiwkIzO", "schedAction": 27, "schedCron": "bpS0v5df", "schedRange": ["cOXgYvXB", "9ipBYvvc", "d8dE5Fy8"]}, {"action": 38, "resource": "LZLyHbHa", "schedAction": 63, "schedCron": "5KDKO8Bw", "schedRange": ["QouRML9E", "jH3pebF6", "ibPBFR0f"]}, {"action": 72, "resource": "SQHi9LsL", "schedAction": 25, "schedCron": "QOrv6amL", "schedRange": ["UscEd16W", "xBof2Mqv", "iABYaHhK"]}]}' \
     > test.out 2>&1
 eval_tap $? 229 'AdminUpdateRolePermissionsV3' test.out
 
 #- 230 AdminAddRolePermissionsV3
 samples/cli/sample-apps Iam adminAddRolePermissionsV3 \
-    --roleId 'W4OLgnYW' \
-    --body '{"permissions": [{"action": 48, "resource": "LphBBJCW", "schedAction": 8, "schedCron": "bALTuIxY", "schedRange": ["ZDZzBFTg", "jn85CHYB", "cZlieYIf"]}, {"action": 15, "resource": "LquBrWyc", "schedAction": 98, "schedCron": "SurRTTUE", "schedRange": ["quWQ9Bi5", "nu5PiIAb", "58mHtVeK"]}, {"action": 83, "resource": "7wtdNJXD", "schedAction": 54, "schedCron": "BC6AuAx1", "schedRange": ["nYaeqwT5", "UHj5dYNC", "yx9yRgn7"]}]}' \
+    --roleId 'iKRUt5EX' \
+    --body '{"permissions": [{"action": 59, "resource": "o8RKvfIt", "schedAction": 66, "schedCron": "1r6EMAQU", "schedRange": ["MhVn85Pg", "rOD7oyzO", "JGxJ140c"]}, {"action": 5, "resource": "bsOJbr69", "schedAction": 68, "schedCron": "0XtKECEN", "schedRange": ["qMd4XaY4", "LsKnVdqk", "fT26fWhz"]}, {"action": 85, "resource": "WNiwfxKb", "schedAction": 60, "schedCron": "gXuX1N0L", "schedRange": ["DlLBkiAu", "CDYksJy9", "8hkoncAI"]}]}' \
     > test.out 2>&1
 eval_tap $? 230 'AdminAddRolePermissionsV3' test.out
 
 #- 231 AdminDeleteRolePermissionsV3
 samples/cli/sample-apps Iam adminDeleteRolePermissionsV3 \
-    --roleId '2wKTjATA' \
-    --body '["DC8Ugfb6", "sUDpWsXn", "IdfK57he"]' \
+    --roleId 'p7FR486m' \
+    --body '["a9dm0Z18", "a7s4utNv", "ZmvSNhIc"]' \
     > test.out 2>&1
 eval_tap $? 231 'AdminDeleteRolePermissionsV3' test.out
 
 #- 232 AdminDeleteRolePermissionV3
 samples/cli/sample-apps Iam adminDeleteRolePermissionV3 \
-    --action '12' \
-    --resource 'Ain2Z8Sy' \
-    --roleId 'NrLRxUav' \
+    --action '55' \
+    --resource 'Eyy2NzRC' \
+    --roleId 'm9oPRYhf' \
     > test.out 2>&1
 eval_tap $? 232 'AdminDeleteRolePermissionV3' test.out
 
@@ -1327,1340 +1327,1397 @@ eval_tap $? 233 'AdminGetMyUserV3' test.out
 
 #- 234 UserAuthenticationV3
 samples/cli/sample-apps Iam userAuthenticationV3 \
-    --clientId 'TAnzQIfn' \
+    --clientId 'q0LKhvDV' \
     --extendExp 'true' \
-    --redirectUri 'nZSW4cPW' \
-    --password 'I7vQIAxY' \
-    --requestId 'ombnUJP3' \
-    --userName 'j9klOnPB' \
+    --redirectUri '1h8lRVw2' \
+    --password '6AGla3AP' \
+    --requestId 'NKdwSAcR' \
+    --userName 'LXw1muG2' \
     > test.out 2>&1
 eval_tap $? 234 'UserAuthenticationV3' test.out
 
 #- 235 AuthenticationWithPlatformLinkV3
 samples/cli/sample-apps Iam authenticationWithPlatformLinkV3 \
     --extendExp 'true' \
-    --clientId '9EtJnHMs' \
-    --linkingToken 'MlN4K5IR' \
-    --password 'CLfSN2kO' \
-    --username 'm85APsqG' \
+    --clientId 'LwbwDqbX' \
+    --linkingToken 'pjPJtsdm' \
+    --password 'YPtTv3a7' \
+    --username 'yonSLB0W' \
     > test.out 2>&1
 eval_tap $? 235 'AuthenticationWithPlatformLinkV3' test.out
 
-#- 236 GenerateTokenByNewHeadlessAccountV3
+#- 236 AuthenticateAndLinkForwardV3
+samples/cli/sample-apps Iam authenticateAndLinkForwardV3 \
+    --extendExp 'false' \
+    --clientId '2Y8TR6qi' \
+    --linkingToken 'plKlSJwC' \
+    --password '69X8R5jM' \
+    --username 'T47UXUAA' \
+    > test.out 2>&1
+eval_tap $? 236 'AuthenticateAndLinkForwardV3' test.out
+
+#- 237 GenerateTokenByNewHeadlessAccountV3
 samples/cli/sample-apps Iam generateTokenByNewHeadlessAccountV3 \
-    --additionalData '6k9MGhNB' \
+    --additionalData 's8j19FDC' \
     --extendExp 'true' \
-    --linkingToken 'HG5pt3QV' \
+    --linkingToken 'tTC3wrZb' \
     > test.out 2>&1
-eval_tap $? 236 'GenerateTokenByNewHeadlessAccountV3' test.out
+eval_tap $? 237 'GenerateTokenByNewHeadlessAccountV3' test.out
 
-#- 237 RequestOneTimeLinkingCodeV3
+#- 238 RequestOneTimeLinkingCodeV3
 samples/cli/sample-apps Iam requestOneTimeLinkingCodeV3 \
-    --platformId 'FQV1u0yY' \
+    --redirectUri 'NDVwXnNL' \
+    --state 'eehOSJEh' \
+    --platformId '8hnT7LkE' \
     > test.out 2>&1
-eval_tap $? 237 'RequestOneTimeLinkingCodeV3' test.out
+eval_tap $? 238 'RequestOneTimeLinkingCodeV3' test.out
 
-#- 238 ValidateOneTimeLinkingCodeV3
+#- 239 ValidateOneTimeLinkingCodeV3
 samples/cli/sample-apps Iam validateOneTimeLinkingCodeV3 \
-    --oneTimeLinkCode 'efpzE4xZ' \
+    --oneTimeLinkCode 'SzCEC7Hf' \
     > test.out 2>&1
-eval_tap $? 238 'ValidateOneTimeLinkingCodeV3' test.out
+eval_tap $? 239 'ValidateOneTimeLinkingCodeV3' test.out
 
-#- 239 RequestTokenByOneTimeLinkCodeResponseV3
+#- 240 RequestTokenByOneTimeLinkCodeResponseV3
 samples/cli/sample-apps Iam requestTokenByOneTimeLinkCodeResponseV3 \
-    --additionalData 'H0XBIIUO' \
-    --isTransient 'false' \
-    --clientId 'YDVDmFlu' \
-    --oneTimeLinkCode 'WKw7CR8j' \
+    --additionalData 'yWfgjRtd' \
+    --isTransient 'true' \
+    --clientId '2J7zXD52' \
+    --oneTimeLinkCode 'uqd4r8I9' \
     > test.out 2>&1
-eval_tap $? 239 'RequestTokenByOneTimeLinkCodeResponseV3' test.out
+eval_tap $? 240 'RequestTokenByOneTimeLinkCodeResponseV3' test.out
 
-#- 240 GetCountryLocationV3
+#- 241 GetCountryLocationV3
 samples/cli/sample-apps Iam getCountryLocationV3 \
     > test.out 2>&1
-eval_tap $? 240 'GetCountryLocationV3' test.out
+eval_tap $? 241 'GetCountryLocationV3' test.out
 
-#- 241 Logout
+#- 242 Logout
 samples/cli/sample-apps Iam logout \
     > test.out 2>&1
-eval_tap $? 241 'Logout' test.out
+eval_tap $? 242 'Logout' test.out
 
-#- 242 RequestTokenExchangeCodeV3
+#- 243 RequestTokenExchangeCodeV3
 samples/cli/sample-apps Iam requestTokenExchangeCodeV3 \
     --namespace $AB_NAMESPACE \
-    --codeChallenge 'iPWlN25u' \
+    --codeChallenge 'cQVBwY0i' \
     --codeChallengeMethod 'plain' \
-    --clientId 'LHtNyanP' \
+    --clientId 'A0t8iggc' \
     > test.out 2>&1
-eval_tap $? 242 'RequestTokenExchangeCodeV3' test.out
+eval_tap $? 243 'RequestTokenExchangeCodeV3' test.out
 
-#- 243 AdminRetrieveUserThirdPartyPlatformTokenV3
+#- 244 AdminRetrieveUserThirdPartyPlatformTokenV3
 samples/cli/sample-apps Iam adminRetrieveUserThirdPartyPlatformTokenV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'jXhzjJb2' \
-    --userId 'EWPhrrMz' \
-    --platformUserId 'zDggrwN0' \
+    --platformId '5s9p9KcU' \
+    --userId 'lQhByX1U' \
+    --platformUserId 'HW7Kdd3c' \
     > test.out 2>&1
-eval_tap $? 243 'AdminRetrieveUserThirdPartyPlatformTokenV3' test.out
+eval_tap $? 244 'AdminRetrieveUserThirdPartyPlatformTokenV3' test.out
 
-#- 244 RevokeUserV3
+#- 245 RevokeUserV3
 samples/cli/sample-apps Iam revokeUserV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'CmcsWNUe' \
+    --userId 'xugnNpsv' \
     --includeGameNamespace 'true' \
     > test.out 2>&1
-eval_tap $? 244 'RevokeUserV3' test.out
+eval_tap $? 245 'RevokeUserV3' test.out
 
-#- 245 AuthorizeV3
+#- 246 AuthorizeV3
 samples/cli/sample-apps Iam authorizeV3 \
-    --codeChallenge 't5q7LWDn' \
+    --blockedPlatformId 'r6tvdJlt' \
+    --codeChallenge 'n9Qxiatv' \
     --codeChallengeMethod 'S256' \
-    --createHeadless 'false' \
-    --oneTimeLinkCode 'Fyl4VFFW' \
-    --redirectUri 'lLjymMwZ' \
-    --scope 'mssFd6KY' \
-    --state 'b3fA2Wlc' \
-    --targetAuthPage 'gyTyVg2V' \
+    --createHeadless 'true' \
+    --loginWebBased 'false' \
+    --nonce '9xPxdFv2' \
+    --oneTimeLinkCode 'FyYu0SeE' \
+    --redirectUri '16bEOikJ' \
+    --scope 'XZdW4yug' \
+    --state 'jg78cN3I' \
+    --targetAuthPage 'EUbk8L1Y' \
     --useRedirectUriAsLoginUrlWhenLocked 'false' \
-    --clientId 'pkAAPjU6' \
+    --clientId 'EEfOx0px' \
     --responseType 'code' \
     > test.out 2>&1
-eval_tap $? 245 'AuthorizeV3' test.out
+eval_tap $? 246 'AuthorizeV3' test.out
 
-#- 246 TokenIntrospectionV3
+#- 247 TokenIntrospectionV3
 samples/cli/sample-apps Iam tokenIntrospectionV3 \
-    --token 'QuWvrtXF' \
+    --token 'vTF3so0N' \
     > test.out 2>&1
-eval_tap $? 246 'TokenIntrospectionV3' test.out
+eval_tap $? 247 'TokenIntrospectionV3' test.out
 
-#- 247 GetJWKSV3
+#- 248 GetJWKSV3
 samples/cli/sample-apps Iam getJWKSV3 \
     > test.out 2>&1
-eval_tap $? 247 'GetJWKSV3' test.out
+eval_tap $? 248 'GetJWKSV3' test.out
 
-#- 248 SendMFAAuthenticationCode
+#- 249 SendMFAAuthenticationCode
 samples/cli/sample-apps Iam sendMFAAuthenticationCode \
-    --clientId '1Wo75IrS' \
-    --factor '42x7BzZz' \
-    --mfaToken '4O4PfVUW' \
+    --clientId '7AwjZoku' \
+    --factor 'W1uz8gwG' \
+    --mfaToken '9G57tFEe' \
     > test.out 2>&1
-eval_tap $? 248 'SendMFAAuthenticationCode' test.out
+eval_tap $? 249 'SendMFAAuthenticationCode' test.out
 
-#- 249 Change2faMethod
+#- 250 Change2faMethod
 samples/cli/sample-apps Iam change2faMethod \
-    --factor 'MgfXtBAT' \
-    --mfaToken '10jjMvAR' \
+    --factor 'Bz2JXymD' \
+    --mfaToken 'qbfQC18Z' \
     > test.out 2>&1
-eval_tap $? 249 'Change2faMethod' test.out
+eval_tap $? 250 'Change2faMethod' test.out
 
-#- 250 Verify2faCode
+#- 251 Verify2faCode
 samples/cli/sample-apps Iam verify2faCode \
-    --code 'JmqHj3QP' \
-    --factor 'DLr0cpNo' \
-    --mfaToken '5v9GZY1V' \
+    --code 'sEdHVacz' \
+    --factor 'a5NTmWZf' \
+    --mfaToken 'ODgyuiIY' \
     --rememberDevice 'true' \
     > test.out 2>&1
-eval_tap $? 250 'Verify2faCode' test.out
+eval_tap $? 251 'Verify2faCode' test.out
 
-#- 251 RetrieveUserThirdPartyPlatformTokenV3
+#- 252 Verify2faCodeForward
+samples/cli/sample-apps Iam verify2faCodeForward \
+    --defaultFactor 'ifpaUNCQ' \
+    --factors 'M92V3UBn' \
+    --rememberDevice 'true' \
+    --clientId '2iHhH6ZA' \
+    --code '73jqyXm6' \
+    --factor 'OWruFnBu' \
+    --mfaToken '3bxvUhgh' \
+    > test.out 2>&1
+eval_tap $? 252 'Verify2faCodeForward' test.out
+
+#- 253 RetrieveUserThirdPartyPlatformTokenV3
 samples/cli/sample-apps Iam retrieveUserThirdPartyPlatformTokenV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'KICt81Az' \
-    --userId 'MI4XHntm' \
+    --platformId '4S8qciO8' \
+    --userId 'rdgayamh' \
     > test.out 2>&1
-eval_tap $? 251 'RetrieveUserThirdPartyPlatformTokenV3' test.out
+eval_tap $? 253 'RetrieveUserThirdPartyPlatformTokenV3' test.out
 
-#- 252 AuthCodeRequestV3
+#- 254 AuthCodeRequestV3
 samples/cli/sample-apps Iam authCodeRequestV3 \
-    --platformId 'ttVHgkFx' \
-    --clientId 'rZZ7OFDj' \
-    --redirectUri 'ANA5k7zc' \
-    --requestId 'gSmkCCeA' \
+    --platformId 'Akr651jR' \
+    --clientId '5wbWNgX2' \
+    --redirectUri 'hvGlCfmS' \
+    --requestId 'Hf5cCYY3' \
     > test.out 2>&1
-eval_tap $? 252 'AuthCodeRequestV3' test.out
+eval_tap $? 254 'AuthCodeRequestV3' test.out
 
-#- 253 PlatformTokenGrantV3
+#- 255 PlatformTokenGrantV3
 samples/cli/sample-apps Iam platformTokenGrantV3 \
-    --platformId 'afbbYByB' \
-    --additionalData 'ALyDrl0z' \
-    --clientId 'AAfbGQdI' \
+    --platformId 'p0E1wTWy' \
+    --additionalData 'FnKqMY3g' \
+    --clientId 'ST9g4gWw' \
     --createHeadless 'false' \
-    --deviceId 'OqLGhTXt' \
-    --macAddress '3xMJvOkX' \
-    --platformToken 'am7Nz0jZ' \
-    --serviceLabel '0.46442365626302484' \
-    --skipSetCookie 'true' \
+    --deviceId 'U2dCmcoe' \
+    --macAddress 'X9pSZLUz' \
+    --platformToken 'X0fGRHCG' \
+    --serviceLabel '0.17706330459397635' \
+    --skipSetCookie 'false' \
     > test.out 2>&1
-eval_tap $? 253 'PlatformTokenGrantV3' test.out
+eval_tap $? 255 'PlatformTokenGrantV3' test.out
 
-#- 254 GetRevocationListV3
+#- 256 GetRevocationListV3
 samples/cli/sample-apps Iam getRevocationListV3 \
     > test.out 2>&1
-eval_tap $? 254 'GetRevocationListV3' test.out
+eval_tap $? 256 'GetRevocationListV3' test.out
 
-#- 255 TokenRevocationV3
+#- 257 TokenRevocationV3
 samples/cli/sample-apps Iam tokenRevocationV3 \
-    --token 'yjzV99fW' \
+    --token 'JvzzF77C' \
     > test.out 2>&1
-eval_tap $? 255 'TokenRevocationV3' test.out
+eval_tap $? 257 'TokenRevocationV3' test.out
 
-#- 256 SimultaneousLoginV3
+#- 258 SimultaneousLoginV3
 samples/cli/sample-apps Iam simultaneousLoginV3 \
-    --simultaneousPlatform 'KvUfCofW' \
-    --simultaneousTicket 'FqXBEjQj' \
+    --simultaneousPlatform 'MKhZMhYx' \
+    --simultaneousTicket '7vAGUBVZ' \
     --nativePlatform 'steam' \
-    --nativePlatformTicket 'b8vveop0' \
+    --nativePlatformTicket '6P8ffEiT' \
     > test.out 2>&1
-eval_tap $? 256 'SimultaneousLoginV3' test.out
+eval_tap $? 258 'SimultaneousLoginV3' test.out
 
-#- 257 TokenGrantV3
+#- 259 TokenGrantV3
 samples/cli/sample-apps Iam tokenGrantV3 \
-    --additionalData 'ypAMaf5r' \
-    --clientId 'RVDc3gUj' \
-    --clientSecret 'tTVM8omQ' \
-    --code 'nEfrMxNr' \
-    --codeVerifier 'vJN9yYCh' \
-    --extendNamespace '7YL8V15f' \
-    --extendExp 'false' \
-    --password '5ojJXjoe' \
-    --redirectUri 'PxjinJp0' \
-    --refreshToken '62tVRemf' \
-    --username 'h0b2s0cL' \
+    --additionalData 'BHWCYnt3' \
+    --clientId 'c3T0Ib1P' \
+    --clientSecret 'CZrZVeY4' \
+    --code 'aLOVXRYY' \
+    --codeVerifier 'E2bE0YTA' \
+    --extendNamespace 'JNDuUmTE' \
+    --extendExp 'true' \
+    --password 'ZvMwlEj9' \
+    --redirectUri 'OdPCBRa3' \
+    --refreshToken 'apVtCQXk' \
+    --username 'ua51M0V6' \
     --grantType 'password' \
     > test.out 2>&1
-eval_tap $? 257 'TokenGrantV3' test.out
+eval_tap $? 259 'TokenGrantV3' test.out
 
-#- 258 VerifyTokenV3
+#- 260 VerifyTokenV3
 samples/cli/sample-apps Iam verifyTokenV3 \
-    --token 's2YNwsJM' \
+    --token '5SRWWoXm' \
     > test.out 2>&1
-eval_tap $? 258 'VerifyTokenV3' test.out
+eval_tap $? 260 'VerifyTokenV3' test.out
 
-#- 259 PlatformAuthenticationV3
+#- 261 PlatformAuthenticationV3
 samples/cli/sample-apps Iam platformAuthenticationV3 \
-    --platformId 'JJnHyGCD' \
-    --code 'QWST6mxv' \
-    --error '8AStcjZQ' \
-    --openidAssocHandle 'fPYbKC4m' \
-    --openidClaimedId '5Zv9ADho' \
-    --openidIdentity 'DAJ3pcAP' \
-    --openidMode 'VHjGLvIi' \
-    --openidNs 'A26ELNMF' \
-    --openidOpEndpoint 'PYM9G2Yv' \
-    --openidResponseNonce 'UkORM2hI' \
-    --openidReturnTo 'YO187fnx' \
-    --openidSig 'sOLDAukO' \
-    --openidSigned 'Fn3e79Ef' \
-    --state 'ECraHW6H' \
+    --platformId 'GnLw63zY' \
+    --code '37i3eWmY' \
+    --error 'V6Lu2v8y' \
+    --openidAssocHandle 'XeqrdZP2' \
+    --openidClaimedId '5viXB6ER' \
+    --openidIdentity 'TTQRQLlz' \
+    --openidMode 'lL9pU1iK' \
+    --openidNs 'XBO9rdri' \
+    --openidOpEndpoint 'BqDYprH8' \
+    --openidResponseNonce 'M33qhTfv' \
+    --openidReturnTo 'uKuhL2KM' \
+    --openidSig 'arpZuQ3U' \
+    --openidSigned 'TWk3My6y' \
+    --state 'fPWmnKTM' \
     > test.out 2>&1
-eval_tap $? 259 'PlatformAuthenticationV3' test.out
+eval_tap $? 261 'PlatformAuthenticationV3' test.out
 
-#- 260 PlatformTokenRefreshV3
+#- 262 PlatformTokenRefreshV3
 samples/cli/sample-apps Iam platformTokenRefreshV3 \
-    --platformId 'izfqxGvG' \
-    --platformToken 'SSQkiskV' \
+    --platformId 'qfTMSOCK' \
+    --platformToken '9EfodR6x' \
     > test.out 2>&1
-eval_tap $? 260 'PlatformTokenRefreshV3' test.out
+eval_tap $? 262 'PlatformTokenRefreshV3' test.out
 
-#- 261 PublicGetInputValidations
+#- 263 PublicGetInputValidations
 samples/cli/sample-apps Iam publicGetInputValidations \
-    --defaultOnEmpty 'true' \
-    --languageCode 'GYMIZtXi' \
+    --defaultOnEmpty 'false' \
+    --languageCode 'n039Po42' \
     > test.out 2>&1
-eval_tap $? 261 'PublicGetInputValidations' test.out
+eval_tap $? 263 'PublicGetInputValidations' test.out
 
-#- 262 PublicGetInputValidationByField
+#- 264 PublicGetInputValidationByField
 samples/cli/sample-apps Iam publicGetInputValidationByField \
-    --field 'qNOLqXzO' \
+    --field 'zzng4VUB' \
     > test.out 2>&1
-eval_tap $? 262 'PublicGetInputValidationByField' test.out
+eval_tap $? 264 'PublicGetInputValidationByField' test.out
 
-#- 263 PublicGetCountryAgeRestrictionV3
+#- 265 PublicGetCountryAgeRestrictionV3
 samples/cli/sample-apps Iam publicGetCountryAgeRestrictionV3 \
-    --countryCode 'ZCdqcxQG' \
+    --countryCode '0NZTaYjH' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 263 'PublicGetCountryAgeRestrictionV3' test.out
+eval_tap $? 265 'PublicGetCountryAgeRestrictionV3' test.out
 
-#- 264 PublicGetConfigValueV3
+#- 266 PublicGetConfigValueV3
 samples/cli/sample-apps Iam publicGetConfigValueV3 \
-    --configKey '1i3VNbOR' \
+    --configKey 'XRTY25lH' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 264 'PublicGetConfigValueV3' test.out
+eval_tap $? 266 'PublicGetConfigValueV3' test.out
 
-#- 265 PublicGetCountryListV3
+#- 267 PublicGetCountryListV3
 samples/cli/sample-apps Iam publicGetCountryListV3 \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 265 'PublicGetCountryListV3' test.out
+eval_tap $? 267 'PublicGetCountryListV3' test.out
 
-#- 266 RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3
+#- 268 RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3
 samples/cli/sample-apps Iam retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3 \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 266 'RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3' test.out
+eval_tap $? 268 'RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3' test.out
 
-#- 267 RetrieveActiveOIDCClientsPublicV3
+#- 269 RetrieveActiveOIDCClientsPublicV3
 samples/cli/sample-apps Iam retrieveActiveOIDCClientsPublicV3 \
     --namespace $AB_NAMESPACE \
-    --clientId 'QQtR8YjW' \
+    --clientId 'cXnaNSG9' \
     > test.out 2>&1
-eval_tap $? 267 'RetrieveActiveOIDCClientsPublicV3' test.out
+eval_tap $? 269 'RetrieveActiveOIDCClientsPublicV3' test.out
 
-#- 268 PublicListUserIDByPlatformUserIDsV3
-eval_tap 0 268 'PublicListUserIDByPlatformUserIDsV3 # SKIP deprecated' test.out
+#- 270 PublicListUserIDByPlatformUserIDsV3
+eval_tap 0 270 'PublicListUserIDByPlatformUserIDsV3 # SKIP deprecated' test.out
 
-#- 269 PublicGetUserByPlatformUserIDV3
+#- 271 PublicGetUserByPlatformUserIDV3
 samples/cli/sample-apps Iam publicGetUserByPlatformUserIDV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'JYIJMEkX' \
-    --platformUserId 'grQt4Fkw' \
+    --platformId '70bytssJ' \
+    --platformUserId 'ef3OhLOz' \
     > test.out 2>&1
-eval_tap $? 269 'PublicGetUserByPlatformUserIDV3' test.out
+eval_tap $? 271 'PublicGetUserByPlatformUserIDV3' test.out
 
-#- 270 PublicGetProfileUpdateStrategyV3
+#- 272 PublicGetProfileUpdateStrategyV3
 samples/cli/sample-apps Iam publicGetProfileUpdateStrategyV3 \
     --namespace $AB_NAMESPACE \
     --field 'display_name' \
     > test.out 2>&1
-eval_tap $? 270 'PublicGetProfileUpdateStrategyV3' test.out
+eval_tap $? 272 'PublicGetProfileUpdateStrategyV3' test.out
 
-#- 271 PublicGetAsyncStatus
+#- 273 PublicGetAsyncStatus
 samples/cli/sample-apps Iam publicGetAsyncStatus \
     --namespace $AB_NAMESPACE \
-    --requestId '3keVMLQk' \
+    --requestId 'QKb26niB' \
     > test.out 2>&1
-eval_tap $? 271 'PublicGetAsyncStatus' test.out
+eval_tap $? 273 'PublicGetAsyncStatus' test.out
 
-#- 272 PublicSearchUserV3
+#- 274 PublicSearchUserV3
 samples/cli/sample-apps Iam publicSearchUserV3 \
     --namespace $AB_NAMESPACE \
-    --by 'ZicZNh4A' \
-    --limit '32' \
-    --offset '54' \
-    --platformBy 't9t46Blu' \
-    --platformId 'suDRqtOo' \
-    --query 'jefMZRYc' \
+    --by '5NphjYED' \
+    --limit '0' \
+    --offset '12' \
+    --platformBy 'upv7j1s1' \
+    --platformId 'NK5YSipW' \
+    --query 'QSJJXysf' \
     > test.out 2>&1
-eval_tap $? 272 'PublicSearchUserV3' test.out
+eval_tap $? 274 'PublicSearchUserV3' test.out
 
-#- 273 PublicCreateUserV3
+#- 275 PublicCreateUserV3
 samples/cli/sample-apps Iam publicCreateUserV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"PasswordMD5Sum": "pt8TLmSv", "acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "YOd5mQGK", "policyId": "SuAEX39U", "policyVersionId": "HqaupfMk"}, {"isAccepted": true, "localizedPolicyVersionId": "TkfliP8M", "policyId": "Km5D2jGf", "policyVersionId": "RoLOeJlq"}, {"isAccepted": true, "localizedPolicyVersionId": "xRidW3jP", "policyId": "8KMMxGdw", "policyVersionId": "G1vu6zJg"}], "authType": "3eLribIq", "code": "Hul5zbjz", "country": "4dmCB5JZ", "dateOfBirth": "JA0kqwKP", "displayName": "RRLlYH3V", "emailAddress": "fyYbEc96", "password": "qisjlylW", "reachMinimumAge": false, "uniqueDisplayName": "liztt2Lb"}' \
+    --body '{"PasswordMD5Sum": "p00bkhGD", "acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "c7QoCQ8L", "policyId": "DEY4gm5m", "policyVersionId": "cSuOhOTX"}, {"isAccepted": false, "localizedPolicyVersionId": "fsWVqnXA", "policyId": "fb2RWAeC", "policyVersionId": "2Yd5aohB"}, {"isAccepted": true, "localizedPolicyVersionId": "FKWpd4Ej", "policyId": "58u4SCIN", "policyVersionId": "P8hKGiOj"}], "authType": "EorO1HsS", "code": "6lxbRi31", "country": "fsXQm84H", "dateOfBirth": "FvIDK7ry", "displayName": "xYBC6RGP", "emailAddress": "mBBaepXa", "password": "r2yGw8ml", "reachMinimumAge": false, "uniqueDisplayName": "3IXTB0KE"}' \
     > test.out 2>&1
-eval_tap $? 273 'PublicCreateUserV3' test.out
+eval_tap $? 275 'PublicCreateUserV3' test.out
 
-#- 274 CheckUserAvailability
+#- 276 CheckUserAvailability
 samples/cli/sample-apps Iam checkUserAvailability \
     --namespace $AB_NAMESPACE \
-    --field 'Jf9bEyGz' \
-    --query 'wqMbwupu' \
+    --field 'uVajoC2Z' \
+    --query '8ZiYdqIL' \
     > test.out 2>&1
-eval_tap $? 274 'CheckUserAvailability' test.out
+eval_tap $? 276 'CheckUserAvailability' test.out
 
-#- 275 PublicBulkGetUsers
+#- 277 PublicBulkGetUsers
 samples/cli/sample-apps Iam publicBulkGetUsers \
     --namespace $AB_NAMESPACE \
-    --body '{"userIds": ["WI69j5EQ", "2CXXhP1d", "wmhj2FIE"]}' \
+    --body '{"userIds": ["Yv3aVIS4", "vhJ5qzQC", "SPVUgxKR"]}' \
     > test.out 2>&1
-eval_tap $? 275 'PublicBulkGetUsers' test.out
+eval_tap $? 277 'PublicBulkGetUsers' test.out
 
-#- 276 PublicSendRegistrationCode
+#- 278 PublicSendRegistrationCode
 samples/cli/sample-apps Iam publicSendRegistrationCode \
     --namespace $AB_NAMESPACE \
-    --body '{"emailAddress": "kzgUbat6", "languageTag": "F5P4r3uI"}' \
+    --body '{"emailAddress": "rZMIjbst", "languageTag": "vmbkEWad"}' \
     > test.out 2>&1
-eval_tap $? 276 'PublicSendRegistrationCode' test.out
+eval_tap $? 278 'PublicSendRegistrationCode' test.out
 
-#- 277 PublicVerifyRegistrationCode
+#- 279 PublicVerifyRegistrationCode
 samples/cli/sample-apps Iam publicVerifyRegistrationCode \
     --namespace $AB_NAMESPACE \
-    --body '{"code": "AtWaFSkU", "emailAddress": "7ZBTaqNW"}' \
+    --body '{"code": "Y8CT0oNG", "emailAddress": "M5JJCtWv"}' \
     > test.out 2>&1
-eval_tap $? 277 'PublicVerifyRegistrationCode' test.out
+eval_tap $? 279 'PublicVerifyRegistrationCode' test.out
 
-#- 278 PublicForgotPasswordV3
+#- 280 PublicForgotPasswordV3
 samples/cli/sample-apps Iam publicForgotPasswordV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"emailAddress": "k0P0UPVZ", "languageTag": "8QV8pg3h"}' \
+    --body '{"emailAddress": "Inyupr7M", "languageTag": "xfImHT63"}' \
     > test.out 2>&1
-eval_tap $? 278 'PublicForgotPasswordV3' test.out
+eval_tap $? 280 'PublicForgotPasswordV3' test.out
 
-#- 279 PublicValidateUserInput
+#- 281 PublicValidateUserInput
 samples/cli/sample-apps Iam publicValidateUserInput \
     --namespace $AB_NAMESPACE \
-    --body '{"displayName": "lRBm61lH", "password": "Uc6vc6U5", "uniqueDisplayName": "kdux12vO", "username": "JeSNXtFo"}' \
+    --body '{"displayName": "618vnH5S", "password": "rXoJ6Yoq", "uniqueDisplayName": "rnT4ugdO", "username": "17HLmCQp"}' \
     > test.out 2>&1
-eval_tap $? 279 'PublicValidateUserInput' test.out
+eval_tap $? 281 'PublicValidateUserInput' test.out
 
-#- 280 GetAdminInvitationV3
+#- 282 GetAdminInvitationV3
 samples/cli/sample-apps Iam getAdminInvitationV3 \
-    --invitationId 'soff4rBR' \
+    --invitationId 'hHGSswSQ' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 280 'GetAdminInvitationV3' test.out
+eval_tap $? 282 'GetAdminInvitationV3' test.out
 
-#- 281 CreateUserFromInvitationV3
+#- 283 CreateUserFromInvitationV3
 samples/cli/sample-apps Iam createUserFromInvitationV3 \
-    --invitationId 'PzkqBNNI' \
+    --invitationId 'gSbUWDDN' \
     --namespace $AB_NAMESPACE \
-    --body '{"PasswordMD5Sum": "VV7FSxtl", "acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "LfJSmmDt", "policyId": "EOo7nXwe", "policyVersionId": "L0Gj4b3f"}, {"isAccepted": true, "localizedPolicyVersionId": "CdFmAOsc", "policyId": "YoJwL80O", "policyVersionId": "h3RxmzN4"}, {"isAccepted": false, "localizedPolicyVersionId": "o2SZ0Ygj", "policyId": "QnvJcpdN", "policyVersionId": "Eenw7qBn"}], "authType": "Zrtj4s26", "code": "a2owG7Zl", "country": "9x1Zl93v", "dateOfBirth": "KRxBY9UD", "displayName": "2sJP5Jey", "emailAddress": "W7Bri8op", "password": "x8HIybcW", "reachMinimumAge": true, "uniqueDisplayName": "i30oalSZ"}' \
+    --body '{"PasswordMD5Sum": "yPE6xbq1", "acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "4Qy7LpXx", "policyId": "rSiu36BU", "policyVersionId": "yhCccQ1t"}, {"isAccepted": true, "localizedPolicyVersionId": "JFaS45WQ", "policyId": "PVtiXBnd", "policyVersionId": "Icu6qOoW"}, {"isAccepted": false, "localizedPolicyVersionId": "IwkaUFTj", "policyId": "QMF7zMKR", "policyVersionId": "NG8NvOC1"}], "authType": "d7LzIzRj", "code": "ktq7oiTq", "country": "ml2t3YmV", "dateOfBirth": "Jd9zroKE", "displayName": "z3qM3AFN", "emailAddress": "9IZTj1vf", "password": "4QV5352v", "reachMinimumAge": true, "uniqueDisplayName": "61oOYOy4"}' \
     > test.out 2>&1
-eval_tap $? 281 'CreateUserFromInvitationV3' test.out
+eval_tap $? 283 'CreateUserFromInvitationV3' test.out
 
-#- 282 UpdateUserV3
+#- 284 UpdateUserV3
 samples/cli/sample-apps Iam updateUserV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"avatarUrl": "ijIjk2FA", "country": "zULWfRrv", "dateOfBirth": "6WbFAURQ", "displayName": "SKiIK8tg", "languageTag": "k1Fugh3c", "uniqueDisplayName": "uetUhjra", "userName": "pr27qmjx"}' \
+    --body '{"avatarUrl": "BNE27Hsq", "country": "picZHwOH", "dateOfBirth": "OKcuyvOM", "displayName": "ZqLIkiJj", "languageTag": "GQ2VRsBo", "uniqueDisplayName": "wljX2wfj", "userName": "kQPuDX79"}' \
     > test.out 2>&1
-eval_tap $? 282 'UpdateUserV3' test.out
+eval_tap $? 284 'UpdateUserV3' test.out
 
-#- 283 PublicPartialUpdateUserV3
+#- 285 PublicPartialUpdateUserV3
 samples/cli/sample-apps Iam publicPartialUpdateUserV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"avatarUrl": "tIcFyiEz", "country": "ep66p9Kk", "dateOfBirth": "t583v4e2", "displayName": "Uq6fWGL8", "languageTag": "i7LicLJ2", "uniqueDisplayName": "ur8eXOjp", "userName": "aAxWZhHk"}' \
+    --body '{"avatarUrl": "cMNjSSQY", "country": "Kqn5pmWj", "dateOfBirth": "zcqbZtnw", "displayName": "iX8EL8Pa", "languageTag": "jkU44GeG", "uniqueDisplayName": "2P2sTxdW", "userName": "Z5sKsDV3"}' \
     > test.out 2>&1
-eval_tap $? 283 'PublicPartialUpdateUserV3' test.out
+eval_tap $? 285 'PublicPartialUpdateUserV3' test.out
 
-#- 284 PublicSendVerificationCodeV3
+#- 286 PublicSendVerificationCodeV3
 samples/cli/sample-apps Iam publicSendVerificationCodeV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"context": "dqeCj6bp", "emailAddress": "KcJI6q5k", "languageTag": "Se4Y58WV"}' \
+    --body '{"context": "agaaDh6J", "emailAddress": "zm12PWnI", "languageTag": "tfgEaH6v", "upgradeToken": "HWaVXxj7"}' \
     > test.out 2>&1
-eval_tap $? 284 'PublicSendVerificationCodeV3' test.out
+eval_tap $? 286 'PublicSendVerificationCodeV3' test.out
 
-#- 285 PublicUserVerificationV3
+#- 287 PublicUserVerificationV3
 samples/cli/sample-apps Iam publicUserVerificationV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"code": "7YMmEHRJ", "contactType": "6bgdMm67", "languageTag": "b0s5eZOG", "validateOnly": true}' \
+    --body '{"code": "CnJDW817", "contactType": "u9FxZpTO", "languageTag": "SDJc2ypX", "validateOnly": false}' \
     > test.out 2>&1
-eval_tap $? 285 'PublicUserVerificationV3' test.out
+eval_tap $? 287 'PublicUserVerificationV3' test.out
 
-#- 286 PublicUpgradeHeadlessAccountV3
+#- 288 PublicUpgradeHeadlessAccountV3
 samples/cli/sample-apps Iam publicUpgradeHeadlessAccountV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"code": "DoswGx3Z", "country": "n9IYmsj1", "dateOfBirth": "VxMdD66l", "displayName": "8C6v7NzM", "emailAddress": "CdKoTUvZ", "password": "UerT2jQX", "uniqueDisplayName": "ks41CGrM", "validateOnly": false}' \
+    --body '{"code": "nkLa7bRq", "country": "b9edar9N", "dateOfBirth": "hxaMks7u", "displayName": "OzjSiVi4", "emailAddress": "DXc0w76c", "password": "6fDdnQoe", "uniqueDisplayName": "fCJ0uBpF", "validateOnly": false}' \
     > test.out 2>&1
-eval_tap $? 286 'PublicUpgradeHeadlessAccountV3' test.out
+eval_tap $? 288 'PublicUpgradeHeadlessAccountV3' test.out
 
-#- 287 PublicVerifyHeadlessAccountV3
+#- 289 PublicVerifyHeadlessAccountV3
 samples/cli/sample-apps Iam publicVerifyHeadlessAccountV3 \
     --namespace $AB_NAMESPACE \
-    --needVerificationCode 'true' \
-    --body '{"emailAddress": "kmmmkBXS", "password": "jMxIlJnb"}' \
+    --needVerificationCode 'false' \
+    --body '{"emailAddress": "PE5xqXHq", "password": "VLeb9pvp"}' \
     > test.out 2>&1
-eval_tap $? 287 'PublicVerifyHeadlessAccountV3' test.out
+eval_tap $? 289 'PublicVerifyHeadlessAccountV3' test.out
 
-#- 288 PublicUpdatePasswordV3
+#- 290 PublicUpdatePasswordV3
 samples/cli/sample-apps Iam publicUpdatePasswordV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"languageTag": "9kIg0d7T", "mfaToken": "xtom24zj", "newPassword": "bpNHiUWJ", "oldPassword": "GD3qJtwD"}' \
+    --body '{"languageTag": "ttR2Ldhc", "mfaToken": "pUmeclFI", "newPassword": "i2yzBIcw", "oldPassword": "H7fkDm8l"}' \
     > test.out 2>&1
-eval_tap $? 288 'PublicUpdatePasswordV3' test.out
+eval_tap $? 290 'PublicUpdatePasswordV3' test.out
 
-#- 289 PublicCreateJusticeUser
+#- 291 PublicCreateJusticeUser
 samples/cli/sample-apps Iam publicCreateJusticeUser \
     --namespace $AB_NAMESPACE \
-    --targetNamespace 'c6114MZi' \
+    --targetNamespace '0hREYqjy' \
     > test.out 2>&1
-eval_tap $? 289 'PublicCreateJusticeUser' test.out
+eval_tap $? 291 'PublicCreateJusticeUser' test.out
 
-#- 290 PublicPlatformLinkV3
+#- 292 PublicPlatformLinkV3
 samples/cli/sample-apps Iam publicPlatformLinkV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'XKAFwpVb' \
-    --redirectUri 'qJqS2EnM' \
-    --ticket 'AgaqxyJd' \
+    --platformId 'dgAN1FcO' \
+    --redirectUri 'hqXGLGON' \
+    --ticket 'QRlhIesB' \
     > test.out 2>&1
-eval_tap $? 290 'PublicPlatformLinkV3' test.out
+eval_tap $? 292 'PublicPlatformLinkV3' test.out
 
-#- 291 PublicPlatformUnlinkV3
-eval_tap 0 291 'PublicPlatformUnlinkV3 # SKIP deprecated' test.out
+#- 293 PublicPlatformUnlinkV3
+eval_tap 0 293 'PublicPlatformUnlinkV3 # SKIP deprecated' test.out
 
-#- 292 PublicPlatformUnlinkAllV3
+#- 294 PublicPlatformUnlinkAllV3
 samples/cli/sample-apps Iam publicPlatformUnlinkAllV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'oPBaLtT9' \
+    --platformId 'S3R7Ydsn' \
     > test.out 2>&1
-eval_tap $? 292 'PublicPlatformUnlinkAllV3' test.out
+eval_tap $? 294 'PublicPlatformUnlinkAllV3' test.out
 
-#- 293 PublicForcePlatformLinkV3
+#- 295 PublicForcePlatformLinkV3
 samples/cli/sample-apps Iam publicForcePlatformLinkV3 \
     --namespace $AB_NAMESPACE \
-    --platformId 'Xk0zkQ10' \
-    --ticket '1YofbbJH' \
+    --platformId 'dOUH0ABm' \
+    --ticket '7QBUXwIL' \
     > test.out 2>&1
-eval_tap $? 293 'PublicForcePlatformLinkV3' test.out
+eval_tap $? 295 'PublicForcePlatformLinkV3' test.out
 
-#- 294 PublicWebLinkPlatform
+#- 296 PublicWebLinkPlatform
 samples/cli/sample-apps Iam publicWebLinkPlatform \
     --namespace $AB_NAMESPACE \
-    --platformId 'BAfzbSwj' \
-    --clientId 'dNQI5MJt' \
-    --redirectUri 'ndRdJj5p' \
+    --platformId 'k1VhGfbx' \
+    --clientId 'yHUuEXuT' \
+    --redirectUri 'TIWG8Sni' \
     > test.out 2>&1
-eval_tap $? 294 'PublicWebLinkPlatform' test.out
+eval_tap $? 296 'PublicWebLinkPlatform' test.out
 
-#- 295 PublicWebLinkPlatformEstablish
+#- 297 PublicWebLinkPlatformEstablish
 samples/cli/sample-apps Iam publicWebLinkPlatformEstablish \
     --namespace $AB_NAMESPACE \
-    --platformId 'kzeOZyHU' \
-    --code 'r3446h7T' \
-    --state '0bjtZTzf' \
+    --platformId 'cSY3aZC1' \
+    --code 'C8UFTy6A' \
+    --state '3etBbQ2E' \
     > test.out 2>&1
-eval_tap $? 295 'PublicWebLinkPlatformEstablish' test.out
+eval_tap $? 297 'PublicWebLinkPlatformEstablish' test.out
 
-#- 296 PublicProcessWebLinkPlatformV3
+#- 298 PublicProcessWebLinkPlatformV3
 samples/cli/sample-apps Iam publicProcessWebLinkPlatformV3 \
     --namespace $AB_NAMESPACE \
-    --platformId '1qVWDBCf' \
-    --code '5iqZY5jF' \
-    --state 'MftoUG6k' \
+    --platformId 'hZiXh6Fo' \
+    --code 'bzka7f53' \
+    --state '1hNmxNo0' \
     > test.out 2>&1
-eval_tap $? 296 'PublicProcessWebLinkPlatformV3' test.out
+eval_tap $? 298 'PublicProcessWebLinkPlatformV3' test.out
 
-#- 297 PublicGetUsersPlatformInfosV3
+#- 299 PublicGetUsersPlatformInfosV3
 samples/cli/sample-apps Iam publicGetUsersPlatformInfosV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"platformId": "5bLdj9nr", "userIds": ["Vj2lVYP2", "oq27DUyI", "PvlIsSlp"]}' \
+    --body '{"platformId": "lQyj8Bgz", "userIds": ["girGr1qr", "xS9Ity01", "XUeyfUTZ"]}' \
     > test.out 2>&1
-eval_tap $? 297 'PublicGetUsersPlatformInfosV3' test.out
+eval_tap $? 299 'PublicGetUsersPlatformInfosV3' test.out
 
-#- 298 ResetPasswordV3
+#- 300 ResetPasswordV3
 samples/cli/sample-apps Iam resetPasswordV3 \
     --namespace $AB_NAMESPACE \
-    --body '{"clientId": "ZQA5T7GQ", "code": "dhsF6t8t", "emailAddress": "CCUVr7Oa", "languageTag": "9KWJNXge", "newPassword": "EeUSt9NU"}' \
+    --body '{"clientId": "SCIurxOm", "code": "5S2e75fG", "emailAddress": "7b3aonmj", "languageTag": "geRm8UFN", "newPassword": "1rPzwaci"}' \
     > test.out 2>&1
-eval_tap $? 298 'ResetPasswordV3' test.out
+eval_tap $? 300 'ResetPasswordV3' test.out
 
-#- 299 PublicGetUserByUserIdV3
-eval_tap 0 299 'PublicGetUserByUserIdV3 # SKIP deprecated' test.out
+#- 301 PublicGetUserByUserIdV3
+eval_tap 0 301 'PublicGetUserByUserIdV3 # SKIP deprecated' test.out
 
-#- 300 PublicGetUserBanHistoryV3
+#- 302 PublicGetUserBanHistoryV3
 samples/cli/sample-apps Iam publicGetUserBanHistoryV3 \
     --namespace $AB_NAMESPACE \
-    --userId 't48zviHq' \
+    --userId 'LPzOimJt' \
     --activeOnly 'false' \
-    --after 'tKXeche3' \
-    --before 'HM5kXze5' \
-    --limit '69' \
+    --after 'fRZi1MQs' \
+    --before 'xMrZHO04' \
+    --limit '49' \
     > test.out 2>&1
-eval_tap $? 300 'PublicGetUserBanHistoryV3' test.out
+eval_tap $? 302 'PublicGetUserBanHistoryV3' test.out
 
-#- 301 PublicListUserAllPlatformAccountsDistinctV3
+#- 303 PublicListUserAllPlatformAccountsDistinctV3
 samples/cli/sample-apps Iam publicListUserAllPlatformAccountsDistinctV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'wusJMzoq' \
+    --userId 'Hp2AX5kS' \
     > test.out 2>&1
-eval_tap $? 301 'PublicListUserAllPlatformAccountsDistinctV3' test.out
+eval_tap $? 303 'PublicListUserAllPlatformAccountsDistinctV3' test.out
 
-#- 302 PublicGetUserInformationV3
+#- 304 PublicGetUserInformationV3
 samples/cli/sample-apps Iam publicGetUserInformationV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'g6pue2Jj' \
+    --userId 'DxOdSUYU' \
     > test.out 2>&1
-eval_tap $? 302 'PublicGetUserInformationV3' test.out
+eval_tap $? 304 'PublicGetUserInformationV3' test.out
 
-#- 303 PublicGetUserLoginHistoriesV3
+#- 305 PublicGetUserLoginHistoriesV3
 samples/cli/sample-apps Iam publicGetUserLoginHistoriesV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'C0RkEFOe' \
-    --after '0.023903946715876367' \
-    --before '0.7785835749893544' \
-    --limit '14' \
+    --userId 'iaYiPYex' \
+    --after '0.9843654274411168' \
+    --before '0.10336241915507427' \
+    --limit '13' \
     > test.out 2>&1
-eval_tap $? 303 'PublicGetUserLoginHistoriesV3' test.out
+eval_tap $? 305 'PublicGetUserLoginHistoriesV3' test.out
 
-#- 304 PublicGetUserPlatformAccountsV3
+#- 306 PublicGetUserPlatformAccountsV3
 samples/cli/sample-apps Iam publicGetUserPlatformAccountsV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'ryqQViLm' \
-    --after 'lkF2SwHZ' \
-    --before 'yxXpystu' \
-    --limit '100' \
-    --platformId 'O4iQrgUo' \
+    --userId 'y5o449EV' \
+    --after 'BGA4JIRj' \
+    --before 'q09c6ak0' \
+    --limit '31' \
+    --platformId 'SmVtY5Yn' \
     > test.out 2>&1
-eval_tap $? 304 'PublicGetUserPlatformAccountsV3' test.out
+eval_tap $? 306 'PublicGetUserPlatformAccountsV3' test.out
 
-#- 305 PublicListJusticePlatformAccountsV3
+#- 307 PublicListJusticePlatformAccountsV3
 samples/cli/sample-apps Iam publicListJusticePlatformAccountsV3 \
     --namespace $AB_NAMESPACE \
-    --userId '3OeNkCTE' \
+    --userId 'IV5AKvrI' \
     > test.out 2>&1
-eval_tap $? 305 'PublicListJusticePlatformAccountsV3' test.out
+eval_tap $? 307 'PublicListJusticePlatformAccountsV3' test.out
 
-#- 306 PublicLinkPlatformAccount
+#- 308 PublicLinkPlatformAccount
 samples/cli/sample-apps Iam publicLinkPlatformAccount \
     --namespace $AB_NAMESPACE \
-    --userId 'ykM34cB0' \
-    --body '{"platformId": "sWA2Pxx9", "platformUserId": "Nkm2ZfXM"}' \
+    --userId 'aOVzMAPD' \
+    --body '{"platformId": "hmtVxemK", "platformUserId": "WFupw8Ce"}' \
     > test.out 2>&1
-eval_tap $? 306 'PublicLinkPlatformAccount' test.out
+eval_tap $? 308 'PublicLinkPlatformAccount' test.out
 
-#- 307 PublicForceLinkPlatformWithProgression
+#- 309 PublicForceLinkPlatformWithProgression
 samples/cli/sample-apps Iam publicForceLinkPlatformWithProgression \
     --namespace $AB_NAMESPACE \
-    --userId 'zedpfk4j' \
-    --body '{"chosenNamespaces": ["b20m1ODM", "dZxRVx8I", "0LbYSmAo"], "requestId": "8FjYVIPc"}' \
+    --userId 'UPbEb0Fs' \
+    --body '{"chosenNamespaces": ["aU6VeO9T", "KcGdMHMX", "4yV4Q98J"], "requestId": "i8AxxnoJ"}' \
     > test.out 2>&1
-eval_tap $? 307 'PublicForceLinkPlatformWithProgression' test.out
+eval_tap $? 309 'PublicForceLinkPlatformWithProgression' test.out
 
-#- 308 PublicGetPublisherUserV3
+#- 310 PublicGetPublisherUserV3
 samples/cli/sample-apps Iam publicGetPublisherUserV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'sG9CmXH1' \
+    --userId 'X8ipGDhT' \
     > test.out 2>&1
-eval_tap $? 308 'PublicGetPublisherUserV3' test.out
+eval_tap $? 310 'PublicGetPublisherUserV3' test.out
 
-#- 309 PublicValidateUserByUserIDAndPasswordV3
+#- 311 PublicValidateUserByUserIDAndPasswordV3
 samples/cli/sample-apps Iam publicValidateUserByUserIDAndPasswordV3 \
     --namespace $AB_NAMESPACE \
-    --userId 'TP4BXexN' \
-    --password 'VXUQ3cLX' \
+    --userId 'eIQiPo08' \
+    --password '5mKOv8H2' \
     > test.out 2>&1
-eval_tap $? 309 'PublicValidateUserByUserIDAndPasswordV3' test.out
+eval_tap $? 311 'PublicValidateUserByUserIDAndPasswordV3' test.out
 
-#- 310 PublicGetRolesV3
+#- 312 PublicGetRolesV3
 samples/cli/sample-apps Iam publicGetRolesV3 \
-    --after 'qzUgyi4R' \
-    --before 'BGefVPcH' \
-    --isWildcard 'false' \
-    --limit '14' \
+    --after 'Kuo2E5Xl' \
+    --before 'cIsDR3WY' \
+    --isWildcard 'true' \
+    --limit '67' \
     > test.out 2>&1
-eval_tap $? 310 'PublicGetRolesV3' test.out
+eval_tap $? 312 'PublicGetRolesV3' test.out
 
-#- 311 PublicGetRoleV3
+#- 313 PublicGetRoleV3
 samples/cli/sample-apps Iam publicGetRoleV3 \
-    --roleId 'fUQ6T7vL' \
+    --roleId 'moskhOYz' \
     > test.out 2>&1
-eval_tap $? 311 'PublicGetRoleV3' test.out
+eval_tap $? 313 'PublicGetRoleV3' test.out
 
-#- 312 PublicGetMyUserV3
+#- 314 PublicGetMyUserV3
 samples/cli/sample-apps Iam publicGetMyUserV3 \
     --includeAllPlatforms 'false' \
     > test.out 2>&1
-eval_tap $? 312 'PublicGetMyUserV3' test.out
+eval_tap $? 314 'PublicGetMyUserV3' test.out
 
-#- 313 PublicGetLinkHeadlessAccountToMyAccountConflictV3
+#- 315 PublicSendCodeForwardV3
+samples/cli/sample-apps Iam publicSendCodeForwardV3 \
+    --body '{"context": "DjURklE8", "emailAddress": "ESsJsKid", "languageTag": "6ZXQwnmG", "upgradeToken": "NnTXIwPe"}' \
+    > test.out 2>&1
+eval_tap $? 315 'PublicSendCodeForwardV3' test.out
+
+#- 316 PublicGetLinkHeadlessAccountToMyAccountConflictV3
 samples/cli/sample-apps Iam publicGetLinkHeadlessAccountToMyAccountConflictV3 \
-    --oneTimeLinkCode 'Qyt7MLSi' \
+    --oneTimeLinkCode 'lD5Ef2Bf' \
     > test.out 2>&1
-eval_tap $? 313 'PublicGetLinkHeadlessAccountToMyAccountConflictV3' test.out
+eval_tap $? 316 'PublicGetLinkHeadlessAccountToMyAccountConflictV3' test.out
 
-#- 314 LinkHeadlessAccountToMyAccountV3
+#- 317 LinkHeadlessAccountToMyAccountV3
 samples/cli/sample-apps Iam linkHeadlessAccountToMyAccountV3 \
-    --body '{"chosenNamespaces": ["m5Z1vx7e", "HzHI5byO", "z8zdNlmj"], "oneTimeLinkCode": "r2zzGVYh"}' \
+    --body '{"chosenNamespaces": ["oJzyKCEG", "ABTXyPwo", "hjRJCfuO"], "oneTimeLinkCode": "gXjJrBi8"}' \
     > test.out 2>&1
-eval_tap $? 314 'LinkHeadlessAccountToMyAccountV3' test.out
+eval_tap $? 317 'LinkHeadlessAccountToMyAccountV3' test.out
 
-#- 315 PublicGetMyProfileAllowUpdateStatusV3
+#- 318 PublicGetMyRedirectionAfterLinkV3
+samples/cli/sample-apps Iam publicGetMyRedirectionAfterLinkV3 \
+    --oneTimeLinkCode '7GWUq1XF' \
+    > test.out 2>&1
+eval_tap $? 318 'PublicGetMyRedirectionAfterLinkV3' test.out
+
+#- 319 PublicGetMyProfileAllowUpdateStatusV3
 samples/cli/sample-apps Iam publicGetMyProfileAllowUpdateStatusV3 \
     > test.out 2>&1
-eval_tap $? 315 'PublicGetMyProfileAllowUpdateStatusV3' test.out
+eval_tap $? 319 'PublicGetMyProfileAllowUpdateStatusV3' test.out
 
-#- 316 PublicSendVerificationLinkV3
+#- 320 PublicSendVerificationLinkV3
 samples/cli/sample-apps Iam publicSendVerificationLinkV3 \
-    --body '{"languageTag": "eJ4lyRkg"}' \
+    --body '{"languageTag": "DNL89HZJ"}' \
     > test.out 2>&1
-eval_tap $? 316 'PublicSendVerificationLinkV3' test.out
+eval_tap $? 320 'PublicSendVerificationLinkV3' test.out
 
-#- 317 PublicVerifyUserByLinkV3
+#- 321 PublicGetOpenidUserInfoV3
+samples/cli/sample-apps Iam publicGetOpenidUserInfoV3 \
+    > test.out 2>&1
+eval_tap $? 321 'PublicGetOpenidUserInfoV3' test.out
+
+#- 322 PublicVerifyUserByLinkV3
 samples/cli/sample-apps Iam publicVerifyUserByLinkV3 \
-    --code 'muycIyYx' \
+    --code 'wUideAPI' \
     > test.out 2>&1
-eval_tap $? 317 'PublicVerifyUserByLinkV3' test.out
+eval_tap $? 322 'PublicVerifyUserByLinkV3' test.out
 
-#- 318 PlatformAuthenticateSAMLV3Handler
+#- 323 PlatformAuthenticateSAMLV3Handler
 samples/cli/sample-apps Iam platformAuthenticateSAMLV3Handler \
-    --platformId 'lg33z4wl' \
-    --code 'vC1kxiwi' \
-    --error 'cPw5Us24' \
-    --state 'NqCuWoWB' \
+    --platformId 'dWwWukzh' \
+    --code '453McPpV' \
+    --error 'h4cVnNRR' \
+    --state 'pw6pIY0g' \
     > test.out 2>&1
-eval_tap $? 318 'PlatformAuthenticateSAMLV3Handler' test.out
+eval_tap $? 323 'PlatformAuthenticateSAMLV3Handler' test.out
 
-#- 319 LoginSSOClient
+#- 324 LoginSSOClient
 samples/cli/sample-apps Iam loginSSOClient \
-    --platformId 'eDLfefce' \
-    --payload 'wAjlxbIl' \
+    --platformId 'r4rBpQDm' \
+    --payload 'ugeDC2vi' \
     > test.out 2>&1
-eval_tap $? 319 'LoginSSOClient' test.out
+eval_tap $? 324 'LoginSSOClient' test.out
 
-#- 320 LogoutSSOClient
+#- 325 LogoutSSOClient
 samples/cli/sample-apps Iam logoutSSOClient \
-    --platformId 'gXYllEIp' \
+    --platformId '9wb5IYps' \
     > test.out 2>&1
-eval_tap $? 320 'LogoutSSOClient' test.out
+eval_tap $? 325 'LogoutSSOClient' test.out
 
-#- 321 RequestTargetTokenResponseV3
+#- 326 RequestTargetTokenResponseV3
 samples/cli/sample-apps Iam requestTargetTokenResponseV3 \
-    --additionalData 'NwbvnAot' \
-    --code 'avl03H7F' \
+    --additionalData 'wHeGbXbw' \
+    --code 'xxxBjh2T' \
     > test.out 2>&1
-eval_tap $? 321 'RequestTargetTokenResponseV3' test.out
+eval_tap $? 326 'RequestTargetTokenResponseV3' test.out
 
-#- 322 AdminListInvitationHistoriesV4
+#- 327 UpgradeAndAuthenticateForwardV3
+samples/cli/sample-apps Iam upgradeAndAuthenticateForwardV3 \
+    --clientId '5n7ageKm' \
+    --upgradeSuccessToken 'xy6995R6' \
+    > test.out 2>&1
+eval_tap $? 327 'UpgradeAndAuthenticateForwardV3' test.out
+
+#- 328 AdminListInvitationHistoriesV4
 samples/cli/sample-apps Iam adminListInvitationHistoriesV4 \
-    --limit '68' \
-    --namespace 'CLnYWLiU' \
-    --offset '41' \
+    --limit '61' \
+    --namespace 'SX0rIU2G' \
+    --offset '95' \
     > test.out 2>&1
-eval_tap $? 322 'AdminListInvitationHistoriesV4' test.out
+eval_tap $? 328 'AdminListInvitationHistoriesV4' test.out
 
-#- 323 AdminGetDevicesByUserV4
+#- 329 AdminGetDevicesByUserV4
 samples/cli/sample-apps Iam adminGetDevicesByUserV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'gW33OTRk' \
+    --userId 'yNlDHGaG' \
     > test.out 2>&1
-eval_tap $? 323 'AdminGetDevicesByUserV4' test.out
+eval_tap $? 329 'AdminGetDevicesByUserV4' test.out
 
-#- 324 AdminGetBannedDevicesV4
+#- 330 AdminGetBannedDevicesV4
 samples/cli/sample-apps Iam adminGetBannedDevicesV4 \
     --namespace $AB_NAMESPACE \
-    --deviceType 'wwABJQxL' \
-    --endDate 'hb9IZNXG' \
-    --limit '48' \
-    --offset '40' \
-    --startDate 'WOW9Cfxs' \
+    --deviceType 'IYcztEi4' \
+    --endDate 'sCknod5r' \
+    --limit '45' \
+    --offset '84' \
+    --startDate 'gW5wVtlr' \
     > test.out 2>&1
-eval_tap $? 324 'AdminGetBannedDevicesV4' test.out
+eval_tap $? 330 'AdminGetBannedDevicesV4' test.out
 
-#- 325 AdminGetUserDeviceBansV4
+#- 331 AdminGetUserDeviceBansV4
 samples/cli/sample-apps Iam adminGetUserDeviceBansV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'qYQolHPN' \
+    --userId 'YyQcatUR' \
     > test.out 2>&1
-eval_tap $? 325 'AdminGetUserDeviceBansV4' test.out
+eval_tap $? 331 'AdminGetUserDeviceBansV4' test.out
 
-#- 326 AdminBanDeviceV4
+#- 332 AdminBanDeviceV4
 samples/cli/sample-apps Iam adminBanDeviceV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"comment": "lRW9mWbF", "deviceId": "AkdxAXvQ", "deviceType": "GnDAk4H0", "enabled": true, "endDate": "1ZbK0prc", "ext": {"q0s4XEmj": {}, "WQpqrX5V": {}, "rBkHNECs": {}}, "reason": "MyC2icb3"}' \
+    --body '{"comment": "qiqraJOw", "deviceId": "uSPkL2s8", "deviceType": "Rmvhofci", "enabled": false, "endDate": "UcjvNIYt", "ext": {"Pa0yc650": {}, "LDGHihkZ": {}, "zCw0tmzX": {}}, "reason": "QPUXhieM"}' \
     > test.out 2>&1
-eval_tap $? 326 'AdminBanDeviceV4' test.out
+eval_tap $? 332 'AdminBanDeviceV4' test.out
 
-#- 327 AdminGetDeviceBanV4
+#- 333 AdminGetDeviceBanV4
 samples/cli/sample-apps Iam adminGetDeviceBanV4 \
-    --banId 'kf2qThnt' \
+    --banId 'Rh1jWxdY' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 327 'AdminGetDeviceBanV4' test.out
+eval_tap $? 333 'AdminGetDeviceBanV4' test.out
 
-#- 328 AdminUpdateDeviceBanV4
+#- 334 AdminUpdateDeviceBanV4
 samples/cli/sample-apps Iam adminUpdateDeviceBanV4 \
-    --banId 'd6ipFAnC' \
+    --banId 'fkn9MOBt' \
     --namespace $AB_NAMESPACE \
-    --body '{"enabled": false}' \
+    --body '{"enabled": true}' \
     > test.out 2>&1
-eval_tap $? 328 'AdminUpdateDeviceBanV4' test.out
+eval_tap $? 334 'AdminUpdateDeviceBanV4' test.out
 
-#- 329 AdminGenerateReportV4
+#- 335 AdminGenerateReportV4
 samples/cli/sample-apps Iam adminGenerateReportV4 \
     --namespace $AB_NAMESPACE \
-    --endDate 'YZhxmxeo' \
-    --startDate '7sL7YwOs' \
-    --deviceType 'EQwvdx3T' \
+    --endDate 'tmMdHp2c' \
+    --startDate 'lOJGcWjG' \
+    --deviceType 'AbLbuKql' \
     > test.out 2>&1
-eval_tap $? 329 'AdminGenerateReportV4' test.out
+eval_tap $? 335 'AdminGenerateReportV4' test.out
 
-#- 330 AdminGetDeviceTypesV4
+#- 336 AdminGetDeviceTypesV4
 samples/cli/sample-apps Iam adminGetDeviceTypesV4 \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 330 'AdminGetDeviceTypesV4' test.out
+eval_tap $? 336 'AdminGetDeviceTypesV4' test.out
 
-#- 331 AdminGetDeviceBansV4
+#- 337 AdminGetDeviceBansV4
 samples/cli/sample-apps Iam adminGetDeviceBansV4 \
-    --deviceId 'Yd3X3b7Y' \
+    --deviceId 'wHx1IFBn' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 331 'AdminGetDeviceBansV4' test.out
+eval_tap $? 337 'AdminGetDeviceBansV4' test.out
 
-#- 332 AdminDecryptDeviceV4
-eval_tap 0 332 'AdminDecryptDeviceV4 # SKIP deprecated' test.out
+#- 338 AdminDecryptDeviceV4
+eval_tap 0 338 'AdminDecryptDeviceV4 # SKIP deprecated' test.out
 
-#- 333 AdminUnbanDeviceV4
+#- 339 AdminUnbanDeviceV4
 samples/cli/sample-apps Iam adminUnbanDeviceV4 \
-    --deviceId 'bWoEltYd' \
+    --deviceId 'lHHjL5vM' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 333 'AdminUnbanDeviceV4' test.out
+eval_tap $? 339 'AdminUnbanDeviceV4' test.out
 
-#- 334 AdminGetUsersByDeviceV4
+#- 340 AdminGetUsersByDeviceV4
 samples/cli/sample-apps Iam adminGetUsersByDeviceV4 \
-    --deviceId '3a9I4Yn7' \
+    --deviceId 'jBLVDN9Y' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 334 'AdminGetUsersByDeviceV4' test.out
+eval_tap $? 340 'AdminGetUsersByDeviceV4' test.out
 
-#- 335 AdminGetNamespaceInvitationHistoryV4
+#- 341 AdminGetNamespaceInvitationHistoryV4
 samples/cli/sample-apps Iam adminGetNamespaceInvitationHistoryV4 \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 335 'AdminGetNamespaceInvitationHistoryV4' test.out
+eval_tap $? 341 'AdminGetNamespaceInvitationHistoryV4' test.out
 
-#- 336 AdminGetNamespaceUserInvitationHistoryV4
+#- 342 AdminGetNamespaceUserInvitationHistoryV4
 samples/cli/sample-apps Iam adminGetNamespaceUserInvitationHistoryV4 \
     --namespace $AB_NAMESPACE \
-    --limit '73' \
-    --offset '74' \
+    --limit '51' \
+    --offset '42' \
     > test.out 2>&1
-eval_tap $? 336 'AdminGetNamespaceUserInvitationHistoryV4' test.out
+eval_tap $? 342 'AdminGetNamespaceUserInvitationHistoryV4' test.out
 
-#- 337 AdminCreateTestUsersV4
+#- 343 AdminCreateTestUsersV4
 samples/cli/sample-apps Iam adminCreateTestUsersV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"count": 33, "userInfo": {"country": "ZZ1Apb2g"}}' \
+    --body '{"count": 49, "userInfo": {"country": "d94IMLNz"}}' \
     > test.out 2>&1
-eval_tap $? 337 'AdminCreateTestUsersV4' test.out
+eval_tap $? 343 'AdminCreateTestUsersV4' test.out
 
-#- 338 AdminCreateUserV4
+#- 344 AdminCreateUserV4
 samples/cli/sample-apps Iam adminCreateUserV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "wJ6jndwU", "policyId": "rTGbWjE0", "policyVersionId": "RUT3ZGLK"}, {"isAccepted": false, "localizedPolicyVersionId": "tO91ioFK", "policyId": "pcZamz93", "policyVersionId": "bjhb4f6P"}, {"isAccepted": true, "localizedPolicyVersionId": "8RBjo1CC", "policyId": "v9ECBhsN", "policyVersionId": "xufnAQXi"}], "authType": "EMAILPASSWD", "code": "p5qc94pO", "country": "XDyfgOF2", "dateOfBirth": "G6kUdt5T", "displayName": "bW17Vy1f", "emailAddress": "00oXKRwm", "password": "0RGk2oj2", "passwordMD5Sum": "4hNCq7Us", "reachMinimumAge": true, "uniqueDisplayName": "TabJ6FEs", "username": "HjQoe24y"}' \
+    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "Vrewew6q", "policyId": "9LfOpeIu", "policyVersionId": "S5XvZyzQ"}, {"isAccepted": true, "localizedPolicyVersionId": "dt5Gpc8s", "policyId": "UhcHOVNb", "policyVersionId": "4Ds3TgPF"}, {"isAccepted": true, "localizedPolicyVersionId": "lUahLz6G", "policyId": "2FanbuD5", "policyVersionId": "467XiIff"}], "authType": "EMAILPASSWD", "code": "AIcA3VuW", "country": "FO88oGXQ", "dateOfBirth": "953lEFj9", "displayName": "E6vzrIps", "emailAddress": "gOoHT5WJ", "password": "dL5mMN2h", "passwordMD5Sum": "UrfuOuqk", "reachMinimumAge": true, "uniqueDisplayName": "0eVLdqJc", "username": "9RZ6BS3E"}' \
     > test.out 2>&1
-eval_tap $? 338 'AdminCreateUserV4' test.out
+eval_tap $? 344 'AdminCreateUserV4' test.out
 
-#- 339 AdminBulkUpdateUserAccountTypeV4
+#- 345 AdminBulkUpdateUserAccountTypeV4
 samples/cli/sample-apps Iam adminBulkUpdateUserAccountTypeV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"testAccount": true, "userIds": ["jSLA02Lr", "G1hvTSiZ", "cx5Flw3L"]}' \
+    --body '{"testAccount": true, "userIds": ["gpUGn12Z", "RLh5DITh", "UV6fJdEq"]}' \
     > test.out 2>&1
-eval_tap $? 339 'AdminBulkUpdateUserAccountTypeV4' test.out
+eval_tap $? 345 'AdminBulkUpdateUserAccountTypeV4' test.out
 
-#- 340 AdminBulkCheckValidUserIDV4
+#- 346 AdminBulkCheckValidUserIDV4
 samples/cli/sample-apps Iam adminBulkCheckValidUserIDV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"userIds": ["jWwleqiI", "vqICRMsJ", "LrcAoWlp"]}' \
+    --body '{"userIds": ["WXY9w5VF", "PCyyfpIF", "89ntAffj"]}' \
     > test.out 2>&1
-eval_tap $? 340 'AdminBulkCheckValidUserIDV4' test.out
+eval_tap $? 346 'AdminBulkCheckValidUserIDV4' test.out
 
-#- 341 AdminUpdateUserV4
+#- 347 AdminUpdateUserV4
 samples/cli/sample-apps Iam adminUpdateUserV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'TO4kROvR' \
-    --body '{"avatarUrl": "MqNrlDbC", "country": "geiSVw3J", "dateOfBirth": "JmXIlOi5", "displayName": "LbE9b9vD", "languageTag": "vytHeXZx", "skipLoginQueue": false, "uniqueDisplayName": "QdUvRENa", "userName": "xUSTxiYf"}' \
+    --userId 'ybZBLkae' \
+    --body '{"avatarUrl": "Um8wklI7", "country": "1JRq24qE", "dateOfBirth": "vHhVzB2j", "displayName": "5KZIDwsG", "languageTag": "QSlOzEk8", "skipLoginQueue": false, "uniqueDisplayName": "DesVwlwf", "userName": "UL9NVVor"}' \
     > test.out 2>&1
-eval_tap $? 341 'AdminUpdateUserV4' test.out
+eval_tap $? 347 'AdminUpdateUserV4' test.out
 
-#- 342 AdminUpdateUserEmailAddressV4
+#- 348 AdminUpdateUserEmailAddressV4
 samples/cli/sample-apps Iam adminUpdateUserEmailAddressV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'FRxqDukw' \
-    --body '{"code": "hKxNIwhZ", "emailAddress": "u46iYiPb"}' \
+    --userId 'NPiwYnnd' \
+    --body '{"code": "MfoFtZXk", "emailAddress": "gduvnUh0"}' \
     > test.out 2>&1
-eval_tap $? 342 'AdminUpdateUserEmailAddressV4' test.out
+eval_tap $? 348 'AdminUpdateUserEmailAddressV4' test.out
 
-#- 343 AdminDisableUserMFAV4
+#- 349 AdminDisableUserMFAV4
 samples/cli/sample-apps Iam adminDisableUserMFAV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'ixann5VK' \
-    --body '{"factor": "RtDCfji9", "mfaToken": "yb300ipS"}' \
+    --userId 'ej8njgpz' \
+    --body '{"factor": "3X7XjfeM", "mfaToken": "nQs9CFgH"}' \
     > test.out 2>&1
-eval_tap $? 343 'AdminDisableUserMFAV4' test.out
+eval_tap $? 349 'AdminDisableUserMFAV4' test.out
 
-#- 344 AdminGetUserMFAStatusV4
+#- 350 AdminGetUserMFAStatusV4
 samples/cli/sample-apps Iam adminGetUserMFAStatusV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'RSdX4Ufi' \
+    --userId 'ChJB0I44' \
     > test.out 2>&1
-eval_tap $? 344 'AdminGetUserMFAStatusV4' test.out
+eval_tap $? 350 'AdminGetUserMFAStatusV4' test.out
 
-#- 345 AdminListUserRolesV4
+#- 351 AdminListUserRolesV4
 samples/cli/sample-apps Iam adminListUserRolesV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'ea5xUXpX' \
+    --userId '8VbI9Pkz' \
     > test.out 2>&1
-eval_tap $? 345 'AdminListUserRolesV4' test.out
+eval_tap $? 351 'AdminListUserRolesV4' test.out
 
-#- 346 AdminUpdateUserRoleV4
+#- 352 AdminUpdateUserRoleV4
 samples/cli/sample-apps Iam adminUpdateUserRoleV4 \
     --namespace $AB_NAMESPACE \
-    --userId '4x2615lv' \
-    --body '{"assignedNamespaces": ["eZi6Mqf5", "vwlsPDLA", "ZdeSQj9b"], "roleId": "2FH4UEk1"}' \
+    --userId 'L9PsIQrz' \
+    --body '{"assignedNamespaces": ["jeiQ6dWo", "PIwg9Jvb", "XzQQNaZy"], "roleId": "US5nXFZi"}' \
     > test.out 2>&1
-eval_tap $? 346 'AdminUpdateUserRoleV4' test.out
+eval_tap $? 352 'AdminUpdateUserRoleV4' test.out
 
-#- 347 AdminAddUserRoleV4
+#- 353 AdminAddUserRoleV4
 samples/cli/sample-apps Iam adminAddUserRoleV4 \
     --namespace $AB_NAMESPACE \
-    --userId '5XrFeLrm' \
-    --body '{"assignedNamespaces": ["4NVO5vYA", "6xIDOekw", "hoYYhrO0"], "roleId": "wMLiWQHR"}' \
+    --userId 'Ta61JgGc' \
+    --body '{"assignedNamespaces": ["n5HcfKXJ", "2W9oKv6o", "UcEecOrI"], "roleId": "CxoM0Rdo"}' \
     > test.out 2>&1
-eval_tap $? 347 'AdminAddUserRoleV4' test.out
+eval_tap $? 353 'AdminAddUserRoleV4' test.out
 
-#- 348 AdminRemoveUserRoleV4
+#- 354 AdminRemoveUserRoleV4
 samples/cli/sample-apps Iam adminRemoveUserRoleV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'kNj2P4wO' \
-    --body '{"assignedNamespaces": ["6EUfh0nx", "6D63JEXb", "oRoVIyA9"], "roleId": "KoYFnQNy"}' \
+    --userId 'nDFz6PYP' \
+    --body '{"assignedNamespaces": ["Jf5fDsnI", "vcmAkKce", "PObwktO0"], "roleId": "xyHRv3pO"}' \
     > test.out 2>&1
-eval_tap $? 348 'AdminRemoveUserRoleV4' test.out
+eval_tap $? 354 'AdminRemoveUserRoleV4' test.out
 
-#- 349 AdminGetRolesV4
+#- 355 AdminGetRolesV4
 samples/cli/sample-apps Iam adminGetRolesV4 \
     --adminRole 'false' \
     --isWildcard 'false' \
-    --limit '48' \
-    --offset '98' \
+    --limit '6' \
+    --offset '15' \
     > test.out 2>&1
-eval_tap $? 349 'AdminGetRolesV4' test.out
+eval_tap $? 355 'AdminGetRolesV4' test.out
 
-#- 350 AdminCreateRoleV4
+#- 356 AdminCreateRoleV4
 samples/cli/sample-apps Iam adminCreateRoleV4 \
-    --body '{"adminRole": true, "deletable": false, "isWildcard": true, "roleName": "nWzTvB5y"}' \
+    --body '{"adminRole": true, "deletable": false, "isWildcard": false, "roleName": "ssxycsE2"}' \
     > test.out 2>&1
-eval_tap $? 350 'AdminCreateRoleV4' test.out
+eval_tap $? 356 'AdminCreateRoleV4' test.out
 
-#- 351 AdminGetRoleV4
+#- 357 AdminGetRoleV4
 samples/cli/sample-apps Iam adminGetRoleV4 \
-    --roleId 'j8hzjjzV' \
+    --roleId 'FnXhal8P' \
     > test.out 2>&1
-eval_tap $? 351 'AdminGetRoleV4' test.out
+eval_tap $? 357 'AdminGetRoleV4' test.out
 
-#- 352 AdminDeleteRoleV4
+#- 358 AdminDeleteRoleV4
 samples/cli/sample-apps Iam adminDeleteRoleV4 \
-    --roleId 'Coss4dVG' \
+    --roleId 'Vweifghu' \
     > test.out 2>&1
-eval_tap $? 352 'AdminDeleteRoleV4' test.out
+eval_tap $? 358 'AdminDeleteRoleV4' test.out
 
-#- 353 AdminUpdateRoleV4
+#- 359 AdminUpdateRoleV4
 samples/cli/sample-apps Iam adminUpdateRoleV4 \
-    --roleId 'wgYVaggy' \
-    --body '{"adminRole": true, "deletable": true, "isWildcard": false, "roleName": "gDj0b9br"}' \
+    --roleId 'obNOlvZ7' \
+    --body '{"adminRole": true, "deletable": false, "isWildcard": true, "roleName": "zMTVHwl1"}' \
     > test.out 2>&1
-eval_tap $? 353 'AdminUpdateRoleV4' test.out
+eval_tap $? 359 'AdminUpdateRoleV4' test.out
 
-#- 354 AdminUpdateRolePermissionsV4
+#- 360 AdminUpdateRolePermissionsV4
 samples/cli/sample-apps Iam adminUpdateRolePermissionsV4 \
-    --roleId 'bmy3TVa8' \
-    --body '{"permissions": [{"action": 30, "resource": "XvWdCbht", "schedAction": 15, "schedCron": "2sGAaatH", "schedRange": ["FUAhT53L", "7McwStXF", "586lnK96"]}, {"action": 21, "resource": "VPs6o00R", "schedAction": 81, "schedCron": "ZXoupuWS", "schedRange": ["e1iWURZx", "LAVPAwj8", "gTizPdcI"]}, {"action": 20, "resource": "4L1bxAdD", "schedAction": 35, "schedCron": "u8Uu3ou8", "schedRange": ["hDAIrZ2u", "G72pGZWZ", "LhHYhGaE"]}]}' \
+    --roleId 'sZSlw1jp' \
+    --body '{"permissions": [{"action": 45, "resource": "DphXa0oR", "schedAction": 22, "schedCron": "lnFzQwbD", "schedRange": ["8G2jAiq0", "vW95MufC", "KbIguFnV"]}, {"action": 23, "resource": "Za9EROCO", "schedAction": 32, "schedCron": "vpW9EjZl", "schedRange": ["JDKEBWG4", "jOACMidK", "LIfmD9Dg"]}, {"action": 2, "resource": "plDTnsfc", "schedAction": 2, "schedCron": "WeSwXr07", "schedRange": ["T2MfiK3D", "hBEtX0pV", "Z2Vz3B2J"]}]}' \
     > test.out 2>&1
-eval_tap $? 354 'AdminUpdateRolePermissionsV4' test.out
+eval_tap $? 360 'AdminUpdateRolePermissionsV4' test.out
 
-#- 355 AdminAddRolePermissionsV4
+#- 361 AdminAddRolePermissionsV4
 samples/cli/sample-apps Iam adminAddRolePermissionsV4 \
-    --roleId 'iR2OZYcu' \
-    --body '{"permissions": [{"action": 100, "resource": "1iEJ53cH", "schedAction": 92, "schedCron": "2wRHYQhD", "schedRange": ["SsaotR5X", "KcpbUd4y", "qIqXSR7f"]}, {"action": 60, "resource": "8wogMVTq", "schedAction": 31, "schedCron": "p2wIA6tj", "schedRange": ["kP6vKW1n", "hNzDFsy1", "a1jenbSq"]}, {"action": 15, "resource": "EH5jcfpW", "schedAction": 86, "schedCron": "mJDwrNhE", "schedRange": ["eF9dmnqi", "yHOorcIv", "OfroqqJ5"]}]}' \
+    --roleId 'J08a1OL9' \
+    --body '{"permissions": [{"action": 39, "resource": "8jWuCmJ9", "schedAction": 42, "schedCron": "p2uMls3Q", "schedRange": ["JwJEY9Mb", "8L26TvFs", "mcEFvwII"]}, {"action": 23, "resource": "vh4BY1Tp", "schedAction": 89, "schedCron": "nlJ099Ju", "schedRange": ["tnZQupe2", "BZ3oNXMk", "tX3QqhgH"]}, {"action": 38, "resource": "9SwZEGDh", "schedAction": 51, "schedCron": "s0Py0mGa", "schedRange": ["SZ804ukT", "kse8R1nD", "Q4XUFiiF"]}]}' \
     > test.out 2>&1
-eval_tap $? 355 'AdminAddRolePermissionsV4' test.out
+eval_tap $? 361 'AdminAddRolePermissionsV4' test.out
 
-#- 356 AdminDeleteRolePermissionsV4
+#- 362 AdminDeleteRolePermissionsV4
 samples/cli/sample-apps Iam adminDeleteRolePermissionsV4 \
-    --roleId 'JkYGWqbF' \
-    --body '["RO7Y4vwa", "Fi14fF62", "706fzBG8"]' \
+    --roleId '59HiQh1H' \
+    --body '["L9efKlEZ", "T4iaRsb0", "zGwQVxLg"]' \
     > test.out 2>&1
-eval_tap $? 356 'AdminDeleteRolePermissionsV4' test.out
+eval_tap $? 362 'AdminDeleteRolePermissionsV4' test.out
 
-#- 357 AdminListAssignedUsersV4
+#- 363 AdminListAssignedUsersV4
 samples/cli/sample-apps Iam adminListAssignedUsersV4 \
-    --roleId 'NqbhJJz0' \
-    --after 'jYdDbDpN' \
-    --before 'dv9HxFiA' \
-    --limit '33' \
+    --roleId 'HawhhU2k' \
+    --after 'cmwMDqpt' \
+    --before 'zEgAAJUO' \
+    --limit '92' \
     > test.out 2>&1
-eval_tap $? 357 'AdminListAssignedUsersV4' test.out
+eval_tap $? 363 'AdminListAssignedUsersV4' test.out
 
-#- 358 AdminAssignUserToRoleV4
+#- 364 AdminAssignUserToRoleV4
 samples/cli/sample-apps Iam adminAssignUserToRoleV4 \
-    --roleId 'TWeWkZI2' \
-    --body '{"assignedNamespaces": ["hrqO9He7", "zzdDFJkK", "dUnahPdw"], "namespace": "EZuAa1fc", "userId": "o8f9saMp"}' \
+    --roleId 's4roWZpd' \
+    --body '{"assignedNamespaces": ["Pp3DJU9f", "DuOASTlr", "FJqluIeN"], "namespace": "hqNioxsu", "userId": "VbmDTqcx"}' \
     > test.out 2>&1
-eval_tap $? 358 'AdminAssignUserToRoleV4' test.out
+eval_tap $? 364 'AdminAssignUserToRoleV4' test.out
 
-#- 359 AdminRevokeUserFromRoleV4
+#- 365 AdminRevokeUserFromRoleV4
 samples/cli/sample-apps Iam adminRevokeUserFromRoleV4 \
-    --roleId 'BQeIfk0j' \
-    --body '{"namespace": "I2rVUuzA", "userId": "MQBeUCss"}' \
+    --roleId 'qHaDPuCX' \
+    --body '{"namespace": "hzYSwB1E", "userId": "YFHbDael"}' \
     > test.out 2>&1
-eval_tap $? 359 'AdminRevokeUserFromRoleV4' test.out
+eval_tap $? 365 'AdminRevokeUserFromRoleV4' test.out
 
-#- 360 AdminInviteUserNewV4
+#- 366 AdminInviteUserNewV4
 samples/cli/sample-apps Iam adminInviteUserNewV4 \
-    --body '{"assignedNamespaces": ["qLfu1HXl", "oO6CXP5q", "LW87nG89"], "emailAddresses": ["gbFtfmzm", "svV2rVHQ", "Wl42al1F"], "isAdmin": false, "isNewStudio": false, "languageTag": "yfEjRHbk", "namespace": "dSLBB56R", "roleId": "DSIG2VEh"}' \
+    --body '{"assignedNamespaces": ["8SaMNZCz", "Dubj6cEw", "ro3zThTr"], "emailAddresses": ["jDgohI98", "Q9jgrgdf", "1Mz51Smv"], "isAdmin": false, "isNewStudio": false, "languageTag": "g7WGMfZp", "namespace": "WX4lLMzT", "roleId": "6fFDsv4G"}' \
     > test.out 2>&1
-eval_tap $? 360 'AdminInviteUserNewV4' test.out
+eval_tap $? 366 'AdminInviteUserNewV4' test.out
 
-#- 361 AdminUpdateMyUserV4
+#- 367 AdminUpdateMyUserV4
 samples/cli/sample-apps Iam adminUpdateMyUserV4 \
-    --body '{"avatarUrl": "zJ51IkiK", "country": "1nTaKKPz", "dateOfBirth": "hlriYnDv", "displayName": "if6J9i6u", "languageTag": "aQ2ieUtH", "skipLoginQueue": true, "uniqueDisplayName": "iatvdtuQ", "userName": "xkVog4jG"}' \
+    --body '{"avatarUrl": "dy6Tgi8V", "country": "AvuNIYHp", "dateOfBirth": "Yt7s7d2o", "displayName": "3EbMeIf9", "languageTag": "xsfVK4Ym", "skipLoginQueue": false, "uniqueDisplayName": "RT3wMR0O", "userName": "c4Hk58EM"}' \
     > test.out 2>&1
-eval_tap $? 361 'AdminUpdateMyUserV4' test.out
+eval_tap $? 367 'AdminUpdateMyUserV4' test.out
 
-#- 362 AdminDisableMyAuthenticatorV4
+#- 368 AdminDisableMyAuthenticatorV4
 samples/cli/sample-apps Iam adminDisableMyAuthenticatorV4 \
-    --body '{"factor": "ELneErTM", "mfaToken": "3r04BRwr"}' \
+    --body '{"factor": "AuOEVGvc", "mfaToken": "GdPS53W0"}' \
     > test.out 2>&1
-eval_tap $? 362 'AdminDisableMyAuthenticatorV4' test.out
+eval_tap $? 368 'AdminDisableMyAuthenticatorV4' test.out
 
-#- 363 AdminEnableMyAuthenticatorV4
+#- 369 AdminEnableMyAuthenticatorV4
 samples/cli/sample-apps Iam adminEnableMyAuthenticatorV4 \
-    --code 'eJr8QlPZ' \
+    --code 'K89vCEYn' \
     > test.out 2>&1
-eval_tap $? 363 'AdminEnableMyAuthenticatorV4' test.out
+eval_tap $? 369 'AdminEnableMyAuthenticatorV4' test.out
 
-#- 364 AdminGenerateMyAuthenticatorKeyV4
+#- 370 AdminGenerateMyAuthenticatorKeyV4
 samples/cli/sample-apps Iam adminGenerateMyAuthenticatorKeyV4 \
     > test.out 2>&1
-eval_tap $? 364 'AdminGenerateMyAuthenticatorKeyV4' test.out
+eval_tap $? 370 'AdminGenerateMyAuthenticatorKeyV4' test.out
 
-#- 365 AdminGetMyBackupCodesV4
-eval_tap 0 365 'AdminGetMyBackupCodesV4 # SKIP deprecated' test.out
+#- 371 AdminGetMyBackupCodesV4
+eval_tap 0 371 'AdminGetMyBackupCodesV4 # SKIP deprecated' test.out
 
-#- 366 AdminGenerateMyBackupCodesV4
-eval_tap 0 366 'AdminGenerateMyBackupCodesV4 # SKIP deprecated' test.out
+#- 372 AdminGenerateMyBackupCodesV4
+eval_tap 0 372 'AdminGenerateMyBackupCodesV4 # SKIP deprecated' test.out
 
-#- 367 AdminDisableMyBackupCodesV4
+#- 373 AdminDisableMyBackupCodesV4
 samples/cli/sample-apps Iam adminDisableMyBackupCodesV4 \
-    --body '{"factor": "3v1vWEqS", "mfaToken": "mMSgLGYK"}' \
+    --body '{"factor": "JzF2NZwd", "mfaToken": "VzLlTppF"}' \
     > test.out 2>&1
-eval_tap $? 367 'AdminDisableMyBackupCodesV4' test.out
+eval_tap $? 373 'AdminDisableMyBackupCodesV4' test.out
 
-#- 368 AdminDownloadMyBackupCodesV4
-eval_tap 0 368 'AdminDownloadMyBackupCodesV4 # SKIP deprecated' test.out
+#- 374 AdminDownloadMyBackupCodesV4
+eval_tap 0 374 'AdminDownloadMyBackupCodesV4 # SKIP deprecated' test.out
 
-#- 369 AdminEnableMyBackupCodesV4
-eval_tap 0 369 'AdminEnableMyBackupCodesV4 # SKIP deprecated' test.out
+#- 375 AdminEnableMyBackupCodesV4
+eval_tap 0 375 'AdminEnableMyBackupCodesV4 # SKIP deprecated' test.out
 
-#- 370 AdminGetBackupCodesV4
+#- 376 AdminGetBackupCodesV4
 samples/cli/sample-apps Iam adminGetBackupCodesV4 \
-    --languageTag '9YjdrwYH' \
+    --languageTag 'ToMrQ1QC' \
     > test.out 2>&1
-eval_tap $? 370 'AdminGetBackupCodesV4' test.out
+eval_tap $? 376 'AdminGetBackupCodesV4' test.out
 
-#- 371 AdminGenerateBackupCodesV4
+#- 377 AdminGenerateBackupCodesV4
 samples/cli/sample-apps Iam adminGenerateBackupCodesV4 \
-    --languageTag 'y5Xiytxx' \
+    --languageTag '7sO1NHia' \
     > test.out 2>&1
-eval_tap $? 371 'AdminGenerateBackupCodesV4' test.out
+eval_tap $? 377 'AdminGenerateBackupCodesV4' test.out
 
-#- 372 AdminEnableBackupCodesV4
+#- 378 AdminEnableBackupCodesV4
 samples/cli/sample-apps Iam adminEnableBackupCodesV4 \
-    --languageTag 'IFidonXo' \
+    --languageTag 'q3PK1mOm' \
     > test.out 2>&1
-eval_tap $? 372 'AdminEnableBackupCodesV4' test.out
+eval_tap $? 378 'AdminEnableBackupCodesV4' test.out
 
-#- 373 AdminChallengeMyMFAV4
+#- 379 AdminChallengeMyMFAV4
 samples/cli/sample-apps Iam adminChallengeMyMFAV4 \
-    --code 'c1gHkGP6' \
-    --factor 'aKcfioZY' \
+    --code 'glVaUJw4' \
+    --factor 'Nvs7HGQp' \
     > test.out 2>&1
-eval_tap $? 373 'AdminChallengeMyMFAV4' test.out
+eval_tap $? 379 'AdminChallengeMyMFAV4' test.out
 
-#- 374 AdminSendMyMFAEmailCodeV4
+#- 380 AdminSendMyMFAEmailCodeV4
 samples/cli/sample-apps Iam adminSendMyMFAEmailCodeV4 \
-    --action 'vospPnlj' \
-    --languageTag 'fmWeLjrs' \
+    --action 'RHGVCDPW' \
+    --languageTag 'nhMsEPPv' \
     > test.out 2>&1
-eval_tap $? 374 'AdminSendMyMFAEmailCodeV4' test.out
+eval_tap $? 380 'AdminSendMyMFAEmailCodeV4' test.out
 
-#- 375 AdminDisableMyEmailV4
+#- 381 AdminDisableMyEmailV4
 samples/cli/sample-apps Iam adminDisableMyEmailV4 \
-    --body '{"factor": "5TiSLLxd", "mfaToken": "3rZD52YP"}' \
+    --body '{"factor": "QgQNNxMg", "mfaToken": "imJC3LU3"}' \
     > test.out 2>&1
-eval_tap $? 375 'AdminDisableMyEmailV4' test.out
+eval_tap $? 381 'AdminDisableMyEmailV4' test.out
 
-#- 376 AdminEnableMyEmailV4
+#- 382 AdminEnableMyEmailV4
 samples/cli/sample-apps Iam adminEnableMyEmailV4 \
-    --code 'f2Hmd7MB' \
+    --code 'dBTflOpx' \
     > test.out 2>&1
-eval_tap $? 376 'AdminEnableMyEmailV4' test.out
+eval_tap $? 382 'AdminEnableMyEmailV4' test.out
 
-#- 377 AdminGetMyEnabledFactorsV4
+#- 383 AdminGetMyEnabledFactorsV4
 samples/cli/sample-apps Iam adminGetMyEnabledFactorsV4 \
     > test.out 2>&1
-eval_tap $? 377 'AdminGetMyEnabledFactorsV4' test.out
+eval_tap $? 383 'AdminGetMyEnabledFactorsV4' test.out
 
-#- 378 AdminMakeFactorMyDefaultV4
+#- 384 AdminMakeFactorMyDefaultV4
 samples/cli/sample-apps Iam adminMakeFactorMyDefaultV4 \
-    --factor 'WjJwdoXi' \
+    --factor '5ECXRdMc' \
     > test.out 2>&1
-eval_tap $? 378 'AdminMakeFactorMyDefaultV4' test.out
+eval_tap $? 384 'AdminMakeFactorMyDefaultV4' test.out
 
-#- 379 AdminGetMyOwnMFAStatusV4
+#- 385 AdminGetMyOwnMFAStatusV4
 samples/cli/sample-apps Iam adminGetMyOwnMFAStatusV4 \
     > test.out 2>&1
-eval_tap $? 379 'AdminGetMyOwnMFAStatusV4' test.out
+eval_tap $? 385 'AdminGetMyOwnMFAStatusV4' test.out
 
-#- 380 AdminGetMyMFAStatusV4
-eval_tap 0 380 'AdminGetMyMFAStatusV4 # SKIP deprecated' test.out
+#- 386 AdminGetMyMFAStatusV4
+eval_tap 0 386 'AdminGetMyMFAStatusV4 # SKIP deprecated' test.out
 
-#- 381 AdminInviteUserV4
-eval_tap 0 381 'AdminInviteUserV4 # SKIP deprecated' test.out
+#- 387 AdminInviteUserV4
+eval_tap 0 387 'AdminInviteUserV4 # SKIP deprecated' test.out
 
-#- 382 AuthenticationWithPlatformLinkV4
+#- 388 AuthenticationWithPlatformLinkV4
 samples/cli/sample-apps Iam authenticationWithPlatformLinkV4 \
-    --extendExp 'true' \
-    --clientId 'ozShqEgg' \
-    --linkingToken 'OWFKhg1C' \
-    --password 'Bwz2XIlh' \
-    --username '6UXEPRv3' \
-    > test.out 2>&1
-eval_tap $? 382 'AuthenticationWithPlatformLinkV4' test.out
-
-#- 383 GenerateTokenByNewHeadlessAccountV4
-samples/cli/sample-apps Iam generateTokenByNewHeadlessAccountV4 \
-    --additionalData 'xFY6uPrB' \
     --extendExp 'false' \
-    --linkingToken 'BaliYrOu' \
+    --clientId 'yEkG8Qq1' \
+    --linkingToken 'Pd2ivFhd' \
+    --password 'DPNj0a31' \
+    --username 'NWHCXycV' \
     > test.out 2>&1
-eval_tap $? 383 'GenerateTokenByNewHeadlessAccountV4' test.out
+eval_tap $? 388 'AuthenticationWithPlatformLinkV4' test.out
 
-#- 384 Verify2faCodeV4
+#- 389 GenerateTokenByNewHeadlessAccountV4
+samples/cli/sample-apps Iam generateTokenByNewHeadlessAccountV4 \
+    --additionalData 'RMGsk6hB' \
+    --extendExp 'true' \
+    --linkingToken 'bXlUuYZF' \
+    > test.out 2>&1
+eval_tap $? 389 'GenerateTokenByNewHeadlessAccountV4' test.out
+
+#- 390 Verify2faCodeV4
 samples/cli/sample-apps Iam verify2faCodeV4 \
-    --code 'H57eoksX' \
-    --factor '2OGooXDa' \
-    --mfaToken 'f5vS4aGw' \
+    --code 'j9wX1rLH' \
+    --factor 'vSXxYpjT' \
+    --mfaToken 'EVZ4URZs' \
     --rememberDevice 'false' \
     > test.out 2>&1
-eval_tap $? 384 'Verify2faCodeV4' test.out
+eval_tap $? 390 'Verify2faCodeV4' test.out
 
-#- 385 PlatformTokenGrantV4
+#- 391 PlatformTokenGrantV4
 samples/cli/sample-apps Iam platformTokenGrantV4 \
-    --platformId 'JOX48WOO' \
-    --codeChallenge 'uiBg0sPi' \
-    --codeChallengeMethod 'S256' \
-    --additionalData 'WTbSnsH3' \
-    --clientId 'JGxoYYnz' \
-    --createHeadless 'true' \
-    --deviceId 'lisZeU3H' \
-    --macAddress 'UhoE10Bm' \
-    --platformToken 'sPJxL5Wg' \
-    --serviceLabel '0.8650244709241631' \
-    --skipSetCookie 'false' \
-    > test.out 2>&1
-eval_tap $? 385 'PlatformTokenGrantV4' test.out
-
-#- 386 SimultaneousLoginV4
-samples/cli/sample-apps Iam simultaneousLoginV4 \
-    --codeChallenge 'IZ6tsqfS' \
+    --platformId 'kfsyU76A' \
+    --codeChallenge 'fu0lUO0b' \
     --codeChallengeMethod 'plain' \
-    --simultaneousPlatform 'BTIEoN28' \
-    --simultaneousTicket 'ix0JMZ3L' \
-    --nativePlatform 'steam' \
-    --nativePlatformTicket 'Dp3MGr9x' \
+    --additionalData 'vELFu0wY' \
+    --clientId 'bDI6Q8hH' \
+    --createHeadless 'false' \
+    --deviceId 'wyfJwAIk' \
+    --macAddress 'oNVTzNfa' \
+    --platformToken 'Rjos8mhD' \
+    --serviceLabel '0.9987791443370164' \
+    --skipSetCookie 'true' \
     > test.out 2>&1
-eval_tap $? 386 'SimultaneousLoginV4' test.out
+eval_tap $? 391 'PlatformTokenGrantV4' test.out
 
-#- 387 TokenGrantV4
+#- 392 SimultaneousLoginV4
+samples/cli/sample-apps Iam simultaneousLoginV4 \
+    --codeChallenge 'ZE6dgOWd' \
+    --codeChallengeMethod 'plain' \
+    --simultaneousPlatform 'DF48QiDQ' \
+    --simultaneousTicket 'Sn0qM9IT' \
+    --nativePlatform 'epicgames' \
+    --nativePlatformTicket 'keFdQZy5' \
+    > test.out 2>&1
+eval_tap $? 392 'SimultaneousLoginV4' test.out
+
+#- 393 TokenGrantV4
 samples/cli/sample-apps Iam tokenGrantV4 \
-    --codeChallenge 'AtlXORBc' \
+    --codeChallenge '5GONi9Dg' \
     --codeChallengeMethod 'S256' \
-    --additionalData 'OYPzdXcy' \
-    --clientId 't35oSve0' \
-    --clientSecret 'GPEk10FK' \
-    --code 'lpK0tPMi' \
-    --codeVerifier 'BCjZMeVH' \
-    --extendNamespace 'iwTZuy65' \
-    --extendExp 'true' \
-    --loginQueueTicket 'VY43VejG' \
-    --password 'Jep5xHcS' \
-    --redirectUri 'a2oq0WNt' \
-    --refreshToken 'W3rPZnyc' \
-    --username '7gW1v2l2' \
-    --grantType 'password' \
+    --additionalData 'xsMazI22' \
+    --clientId 'hPiazCl2' \
+    --clientSecret 'a2FM9AZL' \
+    --code '6gNW55vC' \
+    --codeVerifier 'RqIDElnc' \
+    --extendNamespace 'pLJ9UVST' \
+    --extendExp 'false' \
+    --loginQueueTicket 'siUcAEH2' \
+    --password 'iQJNFheW' \
+    --redirectUri 'S3AgkiTM' \
+    --refreshToken 'rUAqf9rI' \
+    --username 'QHwdUcga' \
+    --grantType 'refresh_token' \
     > test.out 2>&1
-eval_tap $? 387 'TokenGrantV4' test.out
+eval_tap $? 393 'TokenGrantV4' test.out
 
-#- 388 RequestTargetTokenResponseV4
+#- 394 RequestTargetTokenResponseV4
 samples/cli/sample-apps Iam requestTargetTokenResponseV4 \
-    --additionalData 'T1WFzVHS' \
-    --code 'Qemvr2oZ' \
+    --additionalData 'eeF9EsbV' \
+    --code '1xN7bhQt' \
     > test.out 2>&1
-eval_tap $? 388 'RequestTargetTokenResponseV4' test.out
+eval_tap $? 394 'RequestTargetTokenResponseV4' test.out
 
-#- 389 PublicListUserIDByPlatformUserIDsV4
+#- 395 PublicListUserIDByPlatformUserIDsV4
 samples/cli/sample-apps Iam publicListUserIDByPlatformUserIDsV4 \
     --namespace $AB_NAMESPACE \
-    --platformId 'ySd8256r' \
-    --rawPUID 'true' \
-    --body '{"pidType": "zK8kfceG", "platformUserIds": ["4Qhh5QgD", "9Z3Vbi98", "iAr4nPBn"]}' \
+    --platformId 'o5NwH1MF' \
+    --rawPUID 'false' \
+    --body '{"pidType": "QdT1R1zs", "platformUserIds": ["3IaqYjJm", "4DHIMw8N", "QKuOwiZx"]}' \
     > test.out 2>&1
-eval_tap $? 389 'PublicListUserIDByPlatformUserIDsV4' test.out
+eval_tap $? 395 'PublicListUserIDByPlatformUserIDsV4' test.out
 
-#- 390 PublicCreateTestUserV4
+#- 396 PublicCreateTestUserV4
 samples/cli/sample-apps Iam publicCreateTestUserV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "Q0wc3NTp", "policyId": "i0JoZdHt", "policyVersionId": "ni9B3WWS"}, {"isAccepted": true, "localizedPolicyVersionId": "liDmGEIU", "policyId": "pNFb3OVD", "policyVersionId": "1y3AYj9Y"}, {"isAccepted": false, "localizedPolicyVersionId": "YC8fJ79o", "policyId": "j0PaWGdV", "policyVersionId": "dmwL8qPx"}], "authType": "EMAILPASSWD", "country": "MVUSRnzK", "dateOfBirth": "lhHp1CIg", "displayName": "1jUjuzsc", "emailAddress": "MQ1POayq", "password": "GBdNBKsq", "passwordMD5Sum": "qgB8dg4B", "uniqueDisplayName": "a6VzsDXt", "username": "unEgcF3b", "verified": false}' \
+    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "OMu8hF3a", "policyId": "2WAvdnZa", "policyVersionId": "QD7pF4sy"}, {"isAccepted": true, "localizedPolicyVersionId": "wU8reiHQ", "policyId": "a8HogOod", "policyVersionId": "0twfrQjj"}, {"isAccepted": true, "localizedPolicyVersionId": "UD4OEY96", "policyId": "u9zZN7gW", "policyVersionId": "avV0Vxpk"}], "authType": "EMAILPASSWD", "country": "j0rT6ucX", "dateOfBirth": "8MYTvkRX", "displayName": "HvKcnOMP", "emailAddress": "msaufqa5", "password": "56JbM2HS", "passwordMD5Sum": "Kxfgje24", "uniqueDisplayName": "AnKuGUQ7", "username": "6jExhPX6", "verified": false}' \
     > test.out 2>&1
-eval_tap $? 390 'PublicCreateTestUserV4' test.out
+eval_tap $? 396 'PublicCreateTestUserV4' test.out
 
-#- 391 PublicCreateUserV4
+#- 397 PublicCreateUserV4
 samples/cli/sample-apps Iam publicCreateUserV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "FsYWekIQ", "policyId": "wnDbQwwF", "policyVersionId": "6yJLU46K"}, {"isAccepted": true, "localizedPolicyVersionId": "01ye6zRS", "policyId": "ruIP0MEt", "policyVersionId": "9aVzjdlP"}, {"isAccepted": false, "localizedPolicyVersionId": "Dd5CsI1d", "policyId": "w67IwhcY", "policyVersionId": "dqcotpWz"}], "authType": "EMAILPASSWD", "code": "u1pSeDUH", "country": "x6HBpOUo", "dateOfBirth": "6kfQD2pI", "displayName": "JLstxWPK", "emailAddress": "Q1hdzwEn", "password": "dax7d4Ac", "passwordMD5Sum": "4R6HHXfD", "reachMinimumAge": false, "uniqueDisplayName": "t8t4oUbi", "username": "m0eRHMGO"}' \
+    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "10SfCwB2", "policyId": "iSAkwCQA", "policyVersionId": "qdf9W8P9"}, {"isAccepted": false, "localizedPolicyVersionId": "9LaLEp2F", "policyId": "t4Lja3UK", "policyVersionId": "fBxfhyf6"}, {"isAccepted": false, "localizedPolicyVersionId": "Avw38X2W", "policyId": "t11eHae5", "policyVersionId": "xgnf3r0o"}], "authType": "EMAILPASSWD", "code": "NrjrmcIj", "country": "Y0d9zhv4", "dateOfBirth": "1VxVrYW7", "displayName": "2kS1IxMt", "emailAddress": "2VcPWq7L", "password": "9yKntMnz", "passwordMD5Sum": "aDH0im8d", "reachMinimumAge": true, "uniqueDisplayName": "CLk7doCI", "username": "6h0IYZDT"}' \
     > test.out 2>&1
-eval_tap $? 391 'PublicCreateUserV4' test.out
+eval_tap $? 397 'PublicCreateUserV4' test.out
 
-#- 392 CreateUserFromInvitationV4
+#- 398 CreateUserFromInvitationV4
 samples/cli/sample-apps Iam createUserFromInvitationV4 \
-    --invitationId 'N27CXch3' \
+    --invitationId 'LhI1HBff' \
     --namespace $AB_NAMESPACE \
-    --body '{"acceptedPolicies": [{"isAccepted": false, "localizedPolicyVersionId": "2RMlefDb", "policyId": "OuerTOju", "policyVersionId": "kBqmBJxY"}, {"isAccepted": false, "localizedPolicyVersionId": "csWcqAHX", "policyId": "g491tpnD", "policyVersionId": "bqV8Ve6t"}, {"isAccepted": false, "localizedPolicyVersionId": "aSIrMIMF", "policyId": "eJ4fTsN0", "policyVersionId": "TBSRs7Ko"}], "authType": "EMAILPASSWD", "code": "frG1LFrB", "country": "NR9I86Rt", "dateOfBirth": "4rvGeaaW", "displayName": "yig3MrZD", "emailAddress": "gugro9om", "password": "0tc56LjJ", "passwordMD5Sum": "wA6ZB3fj", "reachMinimumAge": false, "uniqueDisplayName": "AuFeYD7R", "username": "8lQ95YSb"}' \
+    --body '{"acceptedPolicies": [{"isAccepted": true, "localizedPolicyVersionId": "XxAOILtZ", "policyId": "KmObcehH", "policyVersionId": "9vdttDJl"}, {"isAccepted": true, "localizedPolicyVersionId": "JFWDoq9E", "policyId": "FBJO66bD", "policyVersionId": "R3xpkuoH"}, {"isAccepted": false, "localizedPolicyVersionId": "dxGYS9G1", "policyId": "jlcH3GDx", "policyVersionId": "WJwGjarA"}], "authType": "EMAILPASSWD", "code": "Au7ixZS3", "country": "kPOS96sg", "dateOfBirth": "1ZFAkAGb", "displayName": "xuW9pBLy", "emailAddress": "CRSWVyb7", "password": "yuukqtd6", "passwordMD5Sum": "BsLa4gvn", "reachMinimumAge": true, "uniqueDisplayName": "2Yc1l9dv", "username": "cYJjuSS5"}' \
     > test.out 2>&1
-eval_tap $? 392 'CreateUserFromInvitationV4' test.out
+eval_tap $? 398 'CreateUserFromInvitationV4' test.out
 
-#- 393 PublicUpdateUserV4
+#- 399 PublicUpdateUserV4
 samples/cli/sample-apps Iam publicUpdateUserV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"avatarUrl": "LiYobfza", "country": "elrRsvcJ", "dateOfBirth": "9CKdE8pY", "displayName": "xK9pT675", "languageTag": "OXY42kAK", "uniqueDisplayName": "JyjXdmJv", "userName": "FzhJUh7w"}' \
+    --body '{"avatarUrl": "3Wq0YQLf", "country": "5SxLSK9l", "dateOfBirth": "t9F8mYVk", "displayName": "zqVaLBFl", "languageTag": "hcwG0yfl", "uniqueDisplayName": "cLC4XA6A", "userName": "9wqOe9Pj"}' \
     > test.out 2>&1
-eval_tap $? 393 'PublicUpdateUserV4' test.out
+eval_tap $? 399 'PublicUpdateUserV4' test.out
 
-#- 394 PublicUpdateUserEmailAddressV4
+#- 400 PublicUpdateUserEmailAddressV4
 samples/cli/sample-apps Iam publicUpdateUserEmailAddressV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"code": "6GNLNQrl", "emailAddress": "Pzl9FRtE"}' \
+    --body '{"code": "NM9ErUFG", "emailAddress": "mGL0a90y"}' \
     > test.out 2>&1
-eval_tap $? 394 'PublicUpdateUserEmailAddressV4' test.out
+eval_tap $? 400 'PublicUpdateUserEmailAddressV4' test.out
 
-#- 395 PublicUpgradeHeadlessAccountWithVerificationCodeV4
+#- 401 PublicUpgradeHeadlessAccountWithVerificationCodeV4
 samples/cli/sample-apps Iam publicUpgradeHeadlessAccountWithVerificationCodeV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"code": "cupTdrdB", "country": "qoAxKQiU", "dateOfBirth": "dClHMYhT", "displayName": "dfNVvVCY", "emailAddress": "nPe9gYdy", "password": "x7KLW8FS", "reachMinimumAge": true, "uniqueDisplayName": "ptc4I1zd", "username": "Z3NaD8lK", "validateOnly": true}' \
+    --body '{"code": "lP8kOEUH", "country": "YwME8Uje", "dateOfBirth": "FvQMlxU4", "displayName": "t0I3KTxy", "emailAddress": "8TVl1Jl2", "password": "v0qJWSEQ", "reachMinimumAge": true, "uniqueDisplayName": "ewmLqAfY", "username": "PgCaMzyZ", "validateOnly": false}' \
     > test.out 2>&1
-eval_tap $? 395 'PublicUpgradeHeadlessAccountWithVerificationCodeV4' test.out
+eval_tap $? 401 'PublicUpgradeHeadlessAccountWithVerificationCodeV4' test.out
 
-#- 396 PublicUpgradeHeadlessAccountV4
+#- 402 PublicUpgradeHeadlessAccountV4
 samples/cli/sample-apps Iam publicUpgradeHeadlessAccountV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"dateOfBirth": "vQG1xx8j", "displayName": "tOpJtAMS", "emailAddress": "ZAw2pVL3", "password": "tebyhzel", "uniqueDisplayName": "WiAk74In", "username": "2ZLUDLEl"}' \
+    --body '{"dateOfBirth": "h2UvUOX6", "displayName": "6bz8PMFk", "emailAddress": "JhkDBIPb", "password": "sobzCBbK", "uniqueDisplayName": "r1Xbk983", "username": "ZJywrHhm"}' \
     > test.out 2>&1
-eval_tap $? 396 'PublicUpgradeHeadlessAccountV4' test.out
+eval_tap $? 402 'PublicUpgradeHeadlessAccountV4' test.out
 
-#- 397 PublicDisableMyAuthenticatorV4
+#- 403 PublicDisableMyAuthenticatorV4
 samples/cli/sample-apps Iam publicDisableMyAuthenticatorV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"factor": "2caSEGpq", "mfaToken": "ecJMHO5g"}' \
+    --body '{"factor": "DTv2t7tY", "mfaToken": "O97QWrgG"}' \
     > test.out 2>&1
-eval_tap $? 397 'PublicDisableMyAuthenticatorV4' test.out
+eval_tap $? 403 'PublicDisableMyAuthenticatorV4' test.out
 
-#- 398 PublicEnableMyAuthenticatorV4
+#- 404 PublicEnableMyAuthenticatorV4
 samples/cli/sample-apps Iam publicEnableMyAuthenticatorV4 \
     --namespace $AB_NAMESPACE \
-    --code '466paFIu' \
+    --code 'AIIslCnc' \
     > test.out 2>&1
-eval_tap $? 398 'PublicEnableMyAuthenticatorV4' test.out
+eval_tap $? 404 'PublicEnableMyAuthenticatorV4' test.out
 
-#- 399 PublicGenerateMyAuthenticatorKeyV4
+#- 405 PublicGenerateMyAuthenticatorKeyV4
 samples/cli/sample-apps Iam publicGenerateMyAuthenticatorKeyV4 \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 399 'PublicGenerateMyAuthenticatorKeyV4' test.out
+eval_tap $? 405 'PublicGenerateMyAuthenticatorKeyV4' test.out
 
-#- 400 PublicGetMyBackupCodesV4
-eval_tap 0 400 'PublicGetMyBackupCodesV4 # SKIP deprecated' test.out
+#- 406 PublicGetMyBackupCodesV4
+eval_tap 0 406 'PublicGetMyBackupCodesV4 # SKIP deprecated' test.out
 
-#- 401 PublicGenerateMyBackupCodesV4
-eval_tap 0 401 'PublicGenerateMyBackupCodesV4 # SKIP deprecated' test.out
+#- 407 PublicGenerateMyBackupCodesV4
+eval_tap 0 407 'PublicGenerateMyBackupCodesV4 # SKIP deprecated' test.out
 
-#- 402 PublicDisableMyBackupCodesV4
+#- 408 PublicDisableMyBackupCodesV4
 samples/cli/sample-apps Iam publicDisableMyBackupCodesV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"factor": "jJec2aG0", "mfaToken": "hBgfCRrp"}' \
+    --body '{"factor": "fh1TVQF5", "mfaToken": "bof11v52"}' \
     > test.out 2>&1
-eval_tap $? 402 'PublicDisableMyBackupCodesV4' test.out
+eval_tap $? 408 'PublicDisableMyBackupCodesV4' test.out
 
-#- 403 PublicDownloadMyBackupCodesV4
-eval_tap 0 403 'PublicDownloadMyBackupCodesV4 # SKIP deprecated' test.out
+#- 409 PublicDownloadMyBackupCodesV4
+eval_tap 0 409 'PublicDownloadMyBackupCodesV4 # SKIP deprecated' test.out
 
-#- 404 PublicEnableMyBackupCodesV4
-eval_tap 0 404 'PublicEnableMyBackupCodesV4 # SKIP deprecated' test.out
+#- 410 PublicEnableMyBackupCodesV4
+eval_tap 0 410 'PublicEnableMyBackupCodesV4 # SKIP deprecated' test.out
 
-#- 405 PublicGetBackupCodesV4
+#- 411 PublicGetBackupCodesV4
 samples/cli/sample-apps Iam publicGetBackupCodesV4 \
     --namespace $AB_NAMESPACE \
-    --languageTag '0IbjbahA' \
+    --languageTag 'serdijuc' \
     > test.out 2>&1
-eval_tap $? 405 'PublicGetBackupCodesV4' test.out
+eval_tap $? 411 'PublicGetBackupCodesV4' test.out
 
-#- 406 PublicGenerateBackupCodesV4
+#- 412 PublicGenerateBackupCodesV4
 samples/cli/sample-apps Iam publicGenerateBackupCodesV4 \
     --namespace $AB_NAMESPACE \
-    --languageTag 'oOs5GBwa' \
+    --languageTag 'BsynWdIH' \
     > test.out 2>&1
-eval_tap $? 406 'PublicGenerateBackupCodesV4' test.out
+eval_tap $? 412 'PublicGenerateBackupCodesV4' test.out
 
-#- 407 PublicEnableBackupCodesV4
+#- 413 PublicEnableBackupCodesV4
 samples/cli/sample-apps Iam publicEnableBackupCodesV4 \
     --namespace $AB_NAMESPACE \
-    --languageTag '2D3YBDUY' \
+    --languageTag 'bASJBiyn' \
     > test.out 2>&1
-eval_tap $? 407 'PublicEnableBackupCodesV4' test.out
+eval_tap $? 413 'PublicEnableBackupCodesV4' test.out
 
-#- 408 PublicChallengeMyMFAV4
+#- 414 PublicChallengeMyMFAV4
 samples/cli/sample-apps Iam publicChallengeMyMFAV4 \
     --namespace $AB_NAMESPACE \
-    --code 'EofQyOXw' \
-    --factor 'aD0cKIWw' \
+    --code 'VQF6dTXp' \
+    --factor 'KXhWsPYl' \
     > test.out 2>&1
-eval_tap $? 408 'PublicChallengeMyMFAV4' test.out
+eval_tap $? 414 'PublicChallengeMyMFAV4' test.out
 
-#- 409 PublicRemoveTrustedDeviceV4
+#- 415 PublicRemoveTrustedDeviceV4
 samples/cli/sample-apps Iam publicRemoveTrustedDeviceV4 \
     --namespace $AB_NAMESPACE \
     --cookie 'device_token=foo' \
     > test.out 2>&1
-eval_tap $? 409 'PublicRemoveTrustedDeviceV4' test.out
+eval_tap $? 415 'PublicRemoveTrustedDeviceV4' test.out
 
-#- 410 PublicSendMyMFAEmailCodeV4
+#- 416 PublicSendMyMFAEmailCodeV4
 samples/cli/sample-apps Iam publicSendMyMFAEmailCodeV4 \
     --namespace $AB_NAMESPACE \
-    --action 'KToIjzf4' \
-    --languageTag 'OdPzXyzt' \
+    --action 'VkvAR506' \
+    --languageTag 'Ox7Yl3ko' \
     > test.out 2>&1
-eval_tap $? 410 'PublicSendMyMFAEmailCodeV4' test.out
+eval_tap $? 416 'PublicSendMyMFAEmailCodeV4' test.out
 
-#- 411 PublicDisableMyEmailV4
+#- 417 PublicDisableMyEmailV4
 samples/cli/sample-apps Iam publicDisableMyEmailV4 \
     --namespace $AB_NAMESPACE \
-    --body '{"factor": "1asW5q7p", "mfaToken": "SiYKuubI"}' \
+    --body '{"factor": "NTLCW5Mq", "mfaToken": "JEee8haP"}' \
     > test.out 2>&1
-eval_tap $? 411 'PublicDisableMyEmailV4' test.out
+eval_tap $? 417 'PublicDisableMyEmailV4' test.out
 
-#- 412 PublicEnableMyEmailV4
+#- 418 PublicEnableMyEmailV4
 samples/cli/sample-apps Iam publicEnableMyEmailV4 \
     --namespace $AB_NAMESPACE \
-    --code 'afVwJOpD' \
+    --code 'fwa8Bu5p' \
     > test.out 2>&1
-eval_tap $? 412 'PublicEnableMyEmailV4' test.out
+eval_tap $? 418 'PublicEnableMyEmailV4' test.out
 
-#- 413 PublicGetMyEnabledFactorsV4
+#- 419 PublicGetMyEnabledFactorsV4
 samples/cli/sample-apps Iam publicGetMyEnabledFactorsV4 \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 413 'PublicGetMyEnabledFactorsV4' test.out
+eval_tap $? 419 'PublicGetMyEnabledFactorsV4' test.out
 
-#- 414 PublicMakeFactorMyDefaultV4
+#- 420 PublicMakeFactorMyDefaultV4
 samples/cli/sample-apps Iam publicMakeFactorMyDefaultV4 \
     --namespace $AB_NAMESPACE \
-    --factor 'bXSf4w4G' \
+    --factor 'a7RQ2uEi' \
     > test.out 2>&1
-eval_tap $? 414 'PublicMakeFactorMyDefaultV4' test.out
+eval_tap $? 420 'PublicMakeFactorMyDefaultV4' test.out
 
-#- 415 PublicGetMyOwnMFAStatusV4
+#- 421 PublicGetMyOwnMFAStatusV4
 samples/cli/sample-apps Iam publicGetMyOwnMFAStatusV4 \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 415 'PublicGetMyOwnMFAStatusV4' test.out
+eval_tap $? 421 'PublicGetMyOwnMFAStatusV4' test.out
 
-#- 416 PublicGetMyMFAStatusV4
-eval_tap 0 416 'PublicGetMyMFAStatusV4 # SKIP deprecated' test.out
+#- 422 PublicGetMyMFAStatusV4
+eval_tap 0 422 'PublicGetMyMFAStatusV4 # SKIP deprecated' test.out
 
-#- 417 PublicGetUserPublicInfoByUserIdV4
+#- 423 PublicGetUserPublicInfoByUserIdV4
 samples/cli/sample-apps Iam publicGetUserPublicInfoByUserIdV4 \
     --namespace $AB_NAMESPACE \
-    --userId 'Tbjrguom' \
+    --userId 'gRYWFoYR' \
     > test.out 2>&1
-eval_tap $? 417 'PublicGetUserPublicInfoByUserIdV4' test.out
+eval_tap $? 423 'PublicGetUserPublicInfoByUserIdV4' test.out
 
-#- 418 PublicInviteUserV4
+#- 424 PublicInviteUserV4
 samples/cli/sample-apps Iam publicInviteUserV4 \
-    --body '{"additionalData": "KUEA6JlT", "emailAddress": "h4gapbEW", "languageTag": "ATKKKTue", "namespace": "7EpeoaAF", "namespaceDisplayName": "BO4G7bxY"}' \
+    --body '{"additionalData": "mUbw9iUH", "emailAddress": "Gu5bY0gP", "languageTag": "xcybSbyX", "namespace": "SK0acamV", "namespaceDisplayName": "RNmOkGvP"}' \
     > test.out 2>&1
-eval_tap $? 418 'PublicInviteUserV4' test.out
+eval_tap $? 424 'PublicInviteUserV4' test.out
+
+#- 425 PublicUpgradeHeadlessWithCodeV4Forward
+samples/cli/sample-apps Iam publicUpgradeHeadlessWithCodeV4Forward \
+    --body '{"code": "jWCxZB3W", "country": "mQIHGDMv", "dateOfBirth": "Vkt3UURU", "displayName": "aGXC80tX", "emailAddress": "iS86TEsG", "password": "YhMk0K3G", "reachMinimumAge": true, "uniqueDisplayName": "HJll14NC", "username": "wIXmNiP2", "validateOnly": true}' \
+    > test.out 2>&1
+eval_tap $? 425 'PublicUpgradeHeadlessWithCodeV4Forward' test.out
 
 
 rm -f "tmp.dat"

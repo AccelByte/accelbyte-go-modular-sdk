@@ -657,7 +657,7 @@ By default, DS requests are sent to DSMC, but if dsSource is set to "AMS":
 - The server will be chosen based on a set of claim keys, in order of preference, to match with fleets.
 - The claim key list is built build from the preferredClaimKeys, fallbackClaimKeys, and clientVersion as follows:
 [preferredClaimKeys.., clientVersion, fallbackClaimKeys...]
-for session override can follow guideline in here https://docs.accelbyte.io/gaming-services/services/extend/override-ags-feature/getting-started-with-session-customization/
+for session override can follow guideline in here https://docs.accelbyte.io/gaming-services/services/extend/override-ags-feature/getting-started-with-session-customization-server-dsm/
 */
 func (a *Client) CreateGameSessionShort(params *CreateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGameSessionResponse, error) {
 	// TODO: Validate the params before sending
@@ -2310,8 +2310,8 @@ func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParam
 }
 
 /*
-AppendTeamGameSessionShort append new member or team to session.
-Append new member or team to session
+AppendTeamGameSessionShort append new member or team to session. please use patchupdategamesession instead
+Append new member or team to session. Please use patchUpdateGameSession instead
 */
 func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AppendTeamGameSessionResponse, error) {
 	// TODO: Validate the params before sending

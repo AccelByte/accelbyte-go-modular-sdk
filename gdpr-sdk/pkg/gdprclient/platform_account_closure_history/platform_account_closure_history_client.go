@@ -42,7 +42,9 @@ Scope: account
 
 ------
 Supported platforms:
-* psn
+- psn
+- steamnetwork
+- xbox
 */
 func (a *Client) AdminGetUserPlatformAccountClosureHistoriesShort(params *AdminGetUserPlatformAccountClosureHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserPlatformAccountClosureHistoriesResponse, error) {
 	// TODO: Validate the params before sending

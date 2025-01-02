@@ -38,6 +38,7 @@ type ClientService interface {
 	SendMFAAuthenticationCodeShort(params *SendMFAAuthenticationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*SendMFAAuthenticationCodeResponse, error)
 	Change2FAMethodShort(params *Change2FAMethodParams, authInfo runtime.ClientAuthInfoWriter) (*Change2FAMethodResponse, error)
 	Verify2FACodeShort(params *Verify2FACodeParams, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeResponse, error)
+	Verify2FACodeForwardShort(params *Verify2FACodeForwardParams, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeForwardResponse, error)
 	RetrieveUserThirdPartyPlatformTokenV3Short(params *RetrieveUserThirdPartyPlatformTokenV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveUserThirdPartyPlatformTokenV3Response, error)
 	AuthCodeRequestV3Short(params *AuthCodeRequestV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthCodeRequestV3Response, error)
 	PlatformTokenGrantV3Short(params *PlatformTokenGrantV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenGrantV3Response, error)
@@ -658,6 +659,66 @@ func (a *Client) Verify2FACodeShort(params *Verify2FACodeParams, authInfo runtim
 		response.IsSuccess = false
 
 		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+Verify2FACodeForwardShort verify 2fa code
+This is a forward version for '/mfa/verify'. If there is any error, it will redirect to login website with error details.
+If success, it will forward to auth request redirect url
+If got error, it will forward to login website
+Verify 2FA code
+This endpoint is used for verifying 2FA code.
+## 2FA remember device
+To remember device for 2FA, should provide cookie: device_token or header: Device-Token
+*/
+func (a *Client) Verify2FACodeForwardShort(params *Verify2FACodeForwardParams, authInfo runtime.ClientAuthInfoWriter) (*Verify2FACodeForwardResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewVerify2FACodeForwardParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "Verify2FACodeForward",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/oauth/mfa/verify/forward",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &Verify2FACodeForwardReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *Verify2FACodeForwardFound:
+		response := &Verify2FACodeForwardResponse{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

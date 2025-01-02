@@ -32,6 +32,7 @@ type Client struct {
 type ClientService interface {
 	UserAuthenticationV3Short(params *UserAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*UserAuthenticationV3Response, error)
 	AuthenticationWithPlatformLinkV3Short(params *AuthenticationWithPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV3Response, error)
+	AuthenticateAndLinkForwardV3Short(params *AuthenticateAndLinkForwardV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticateAndLinkForwardV3Response, error)
 	GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenByNewHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV3Response, error)
 	RequestOneTimeLinkingCodeV3Short(params *RequestOneTimeLinkingCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestOneTimeLinkingCodeV3Response, error)
 	ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkingCodeV3Params) (*ValidateOneTimeLinkingCodeV3Response, error)
@@ -42,6 +43,7 @@ type ClientService interface {
 	PlatformAuthenticationV3Short(params *PlatformAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticationV3Response, error)
 	PlatformTokenRefreshV3Short(params *PlatformTokenRefreshV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRefreshV3Response, error)
 	RequestTargetTokenResponseV3Short(params *RequestTargetTokenResponseV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV3Response, error)
+	UpgradeAndAuthenticateForwardV3Short(params *UpgradeAndAuthenticateForwardV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpgradeAndAuthenticateForwardV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -193,6 +195,67 @@ func (a *Client) AuthenticationWithPlatformLinkV3Short(params *AuthenticationWit
 		response.IsSuccess = false
 
 		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AuthenticateAndLinkForwardV3Short authentication with platform link, the response will be a forward
+This endpoint is being used to authenticate a user account and perform platform link.
+It validates user's email / username and password.
+If user already enable 2FA, then invoke _/mfa/verify_ using **mfa_token** from this endpoint response.
+
+## Device Cookie Validation
+
+Device Cookie is used to protect the user account from brute force login attack, [more detail from OWASP](https://owasp.org/www-community/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies).
+This endpoint will read device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and set it into cookie when successfully authenticate.
+*/
+func (a *Client) AuthenticateAndLinkForwardV3Short(params *AuthenticateAndLinkForwardV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticateAndLinkForwardV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAuthenticateAndLinkForwardV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AuthenticateAndLinkForwardV3",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/authenticateWithLink/forward",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AuthenticateAndLinkForwardV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AuthenticateAndLinkForwardV3Found:
+		response := &AuthenticateAndLinkForwardV3Response{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -409,10 +472,9 @@ func (a *Client) ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkin
 }
 
 /*
-RequestTokenByOneTimeLinkCodeResponseV3Short generate publisher token by headless account's one time link code
+RequestTokenByOneTimeLinkCodeResponseV3Short generate token by headless account's one time link code
 This endpoint is being used to generate user's token by one time link code.
-It require publisher ClientID
-It required a code which can be generated from `/iam/v3/link/code/request`.
+It requires a code which can be generated from `/iam/v3/link/code/request` or `/iam/v3/public/users/me/link/forward`.
 
 This endpoint support creating transient token by utilizing **isTransient** param:
 **isTransient=true** will generate a transient token with a short Time Expiration and without a refresh token
@@ -853,6 +915,60 @@ func (a *Client) RequestTargetTokenResponseV3Short(params *RequestTargetTokenRes
 	case *RequestTargetTokenResponseV3OK:
 		response := &RequestTargetTokenResponseV3Response{}
 		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+UpgradeAndAuthenticateForwardV3Short handle the forward for account upgrade
+In login website based flow, after account upgraded, we need this API to handle the forward
+*/
+func (a *Client) UpgradeAndAuthenticateForwardV3Short(params *UpgradeAndAuthenticateForwardV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpgradeAndAuthenticateForwardV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpgradeAndAuthenticateForwardV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "UpgradeAndAuthenticateForwardV3",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/upgrade/forward",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpgradeAndAuthenticateForwardV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *UpgradeAndAuthenticateForwardV3Found:
+		response := &UpgradeAndAuthenticateForwardV3Response{}
+		response.Data = v.Location
 
 		response.IsSuccess = true
 

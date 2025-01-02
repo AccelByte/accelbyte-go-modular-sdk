@@ -38,10 +38,13 @@ type ClientService interface {
 
 /*
 GetPaymentCallbackConfigShort get payment callback configuration
- [Not supported yet in AGS Shared Cloud] Get payment callback configuration.
-Other detail info:
 
-  * Returns : Payment callback config
+
+### The endpoint is going to be deprecated
+
+[Not supported yet in AGS Shared Cloud] Get payment callback configuration.
+Other detail info:
+              * Returns : Payment callback config
 */
 func (a *Client) GetPaymentCallbackConfigShort(params *GetPaymentCallbackConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentCallbackConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -102,10 +105,13 @@ func (a *Client) GetPaymentCallbackConfigShort(params *GetPaymentCallbackConfigP
 
 /*
 UpdatePaymentCallbackConfigShort update payment callback configuration
- [Not supported yet in AGS Shared Cloud] Update payment callback configuration.
-Other detail info:
 
-  * Returns : Payment callback config
+
+### The endpoint is going to be deprecated
+
+[Not supported yet in AGS Shared Cloud] Update payment callback configuration.
+Other detail info:
+              * Returns : Payment callback config
 */
 func (a *Client) UpdatePaymentCallbackConfigShort(params *UpdatePaymentCallbackConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentCallbackConfigResponse, error) {
 	// TODO: Validate the params before sending

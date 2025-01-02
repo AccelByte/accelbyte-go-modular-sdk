@@ -234,6 +234,8 @@ var (
 	Error40171   = ApiError{Code: "40171", Message: "Subscription [{subscriptionId}] is not active"}
 	Error40172   = ApiError{Code: "40172", Message: "Subscription [{subscriptionId}] is charging, waiting for payment notification"}
 	Error40173   = ApiError{Code: "40173", Message: "Subscription [{subscriptionId}] current currency [{currentCurrency}] not match request currency [{requestCurrency}]"}
+	Error41171   = ApiError{Code: "41171", Message: "Request has different payload on previous call"}
+	Error41172   = ApiError{Code: "41172", Message: "Request has different user id on previous call"}
 	Error49147   = ApiError{Code: "49147", Message: "Published season does not exist"}
 	Error49183   = ApiError{Code: "49183", Message: "Pass item does not match published season pass"}
 	Error49184   = ApiError{Code: "49184", Message: "Tier item does not match published season tier"}

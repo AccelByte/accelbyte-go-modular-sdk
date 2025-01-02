@@ -98,6 +98,7 @@ type ClientService interface {
 	PublicGetMyMFAStatusV4Short(params *PublicGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyMFAStatusV4Response, error)
 	PublicGetUserPublicInfoByUserIDV4Short(params *PublicGetUserPublicInfoByUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPublicInfoByUserIDV4Response, error)
 	PublicInviteUserV4Short(params *PublicInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicInviteUserV4Response, error)
+	PublicUpgradeHeadlessWithCodeV4ForwardShort(params *PublicUpgradeHeadlessWithCodeV4ForwardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessWithCodeV4ForwardResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -6346,6 +6347,67 @@ func (a *Client) PublicInviteUserV4Short(params *PublicInviteUserV4Params, authI
 		response.IsSuccess = false
 
 		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicUpgradeHeadlessWithCodeV4ForwardShort upgrade the headless account and automatically verify the email address if the upgrade succeeds.
+This is a forward version for code verify.
+The endpoint upgrades a headless account by linking the headless account with the email address, username, and password.
+By upgrading the headless account into a full account, the user could use the email address, username, and password for using Justice IAM.
+
+The endpoint is a shortcut for upgrading a headless account and verifying the email address in one call.
+In order to get a verification code for the endpoint, please check the [send verification code endpoint](#operations-Users-PublicSendCodeForwardV3).
+
+This endpoint also have an ability to update user data (if the user data field is specified) right after the upgrade account process is done.
+*/
+func (a *Client) PublicUpgradeHeadlessWithCodeV4ForwardShort(params *PublicUpgradeHeadlessWithCodeV4ForwardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessWithCodeV4ForwardResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicUpgradeHeadlessWithCodeV4ForwardParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PublicUpgradeHeadlessWithCodeV4Forward",
+		Method:             "POST",
+		PathPattern:        "/iam/v4/public/users/me/headless/code/verify/forward",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicUpgradeHeadlessWithCodeV4ForwardReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicUpgradeHeadlessWithCodeV4ForwardFound:
+		response := &PublicUpgradeHeadlessWithCodeV4ForwardResponse{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

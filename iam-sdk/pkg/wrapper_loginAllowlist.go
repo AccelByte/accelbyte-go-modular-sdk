@@ -66,7 +66,7 @@ func (aaa *LoginAllowlistService) AdminGetLoginAllowlistV3Short(input *login_all
 	return ok, nil
 }
 
-func (aaa *LoginAllowlistService) AdminUpdateLoginAllowlistV3Short(input *login_allowlist.AdminUpdateLoginAllowlistV3Params) (*login_allowlist.AdminUpdateLoginAllowlistV3Response, error) {
+func (aaa *LoginAllowlistService) AdminUpdateLoginAllowlistV3Short(input *login_allowlist.AdminUpdateLoginAllowlistV3Params) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -88,10 +88,10 @@ func (aaa *LoginAllowlistService) AdminUpdateLoginAllowlistV3Short(input *login_
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	noContent, err := aaa.Client.LoginAllowlist.AdminUpdateLoginAllowlistV3Short(input, authInfoWriter)
+	_, err := aaa.Client.LoginAllowlist.AdminUpdateLoginAllowlistV3Short(input, authInfoWriter)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	return noContent, nil
+	return nil
 }

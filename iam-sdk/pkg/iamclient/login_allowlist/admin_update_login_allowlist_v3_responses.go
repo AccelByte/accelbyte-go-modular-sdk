@@ -21,7 +21,6 @@ import (
 
 type AdminUpdateLoginAllowlistV3Response struct {
 	iamclientmodels.ApiResponse
-	Data *iamclientmodels.ModelLoginAllowlistResponse
 
 	Error400 *iamclientmodels.RestErrorResponse
 	Error401 *iamclientmodels.RestErrorResponse
@@ -29,7 +28,7 @@ type AdminUpdateLoginAllowlistV3Response struct {
 	Error500 *iamclientmodels.RestErrorResponse
 }
 
-func (m *AdminUpdateLoginAllowlistV3Response) Unpack() (*iamclientmodels.ModelLoginAllowlistResponse, *iamclientmodels.ApiError) {
+func (m *AdminUpdateLoginAllowlistV3Response) Unpack() *iamclientmodels.ApiError {
 	if !m.IsSuccess {
 		var errCode int
 		errCode = m.StatusCode
@@ -42,7 +41,7 @@ func (m *AdminUpdateLoginAllowlistV3Response) Unpack() (*iamclientmodels.ModelLo
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		case 401:
 			e, err := m.Error401.TranslateToApiError()
@@ -50,7 +49,7 @@ func (m *AdminUpdateLoginAllowlistV3Response) Unpack() (*iamclientmodels.ModelLo
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		case 403:
 			e, err := m.Error403.TranslateToApiError()
@@ -58,7 +57,7 @@ func (m *AdminUpdateLoginAllowlistV3Response) Unpack() (*iamclientmodels.ModelLo
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		case 500:
 			e, err := m.Error500.TranslateToApiError()
@@ -66,14 +65,14 @@ func (m *AdminUpdateLoginAllowlistV3Response) Unpack() (*iamclientmodels.ModelLo
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		default:
-			return nil, &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+			return &iamclientmodels.ApiError{Code: "500", Message: "Unknown error"}
 		}
 	}
 
-	return m.Data, nil
+	return nil
 }
 
 // AdminUpdateLoginAllowlistV3Reader is a Reader for the AdminUpdateLoginAllowlistV3 structure.
@@ -135,30 +134,10 @@ func NewAdminUpdateLoginAllowlistV3NoContent() *AdminUpdateLoginAllowlistV3NoCon
   Operation succeeded
 */
 type AdminUpdateLoginAllowlistV3NoContent struct {
-	Payload *iamclientmodels.ModelLoginAllowlistResponse
 }
 
 func (o *AdminUpdateLoginAllowlistV3NoContent) Error() string {
-	return fmt.Sprintf("[PUT /iam/v3/admin/namespaces/{namespace}/loginAllowlist][%d] adminUpdateLoginAllowlistV3NoContent  %+v", 204, o.ToJSONString())
-}
-
-func (o *AdminUpdateLoginAllowlistV3NoContent) ToJSONString() string {
-	if o.Payload == nil {
-		return "{}"
-	}
-
-	b, err := json.Marshal(o.Payload)
-	if err != nil {
-		fmt.Println(err)
-
-		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
-	}
-
-	return fmt.Sprintf("%+v", string(b))
-}
-
-func (o *AdminUpdateLoginAllowlistV3NoContent) GetPayload() *iamclientmodels.ModelLoginAllowlistResponse {
-	return o.Payload
+	return fmt.Sprintf("[PUT /iam/v3/admin/namespaces/{namespace}/loginAllowlist][%d] adminUpdateLoginAllowlistV3NoContent ", 204)
 }
 
 func (o *AdminUpdateLoginAllowlistV3NoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -167,13 +146,6 @@ func (o *AdminUpdateLoginAllowlistV3NoContent) readResponse(response runtime.Cli
 	contentDisposition := response.GetHeader("Content-Disposition")
 	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
 		consumer = runtime.ByteStreamConsumer()
-	}
-
-	o.Payload = new(iamclientmodels.ModelLoginAllowlistResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
 	}
 
 	return nil

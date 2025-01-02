@@ -40,8 +40,7 @@ type ClientService interface {
 PublicGetPaymentAccountsShort get payment accounts
  [Not supported yet in AGS Shared Cloud] Get payment accounts.
 Other detail info:
-
-  * Returns : Payment account list
+            * Returns : Payment account list
 */
 func (a *Client) PublicGetPaymentAccountsShort(params *PublicGetPaymentAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPaymentAccountsResponse, error) {
 	// TODO: Validate the params before sending
@@ -97,8 +96,7 @@ func (a *Client) PublicGetPaymentAccountsShort(params *PublicGetPaymentAccountsP
 PublicDeletePaymentAccountShort delete payment account
  [Not supported yet in AGS Shared Cloud] Delete payment account.
 Other detail info:
-
-  * Returns :
+            * Returns :
 */
 func (a *Client) PublicDeletePaymentAccountShort(params *PublicDeletePaymentAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDeletePaymentAccountResponse, error) {
 	// TODO: Validate the params before sending

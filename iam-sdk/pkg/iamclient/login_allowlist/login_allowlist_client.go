@@ -156,7 +156,6 @@ func (a *Client) AdminUpdateLoginAllowlistV3Short(params *AdminUpdateLoginAllowl
 
 	case *AdminUpdateLoginAllowlistV3NoContent:
 		response := &AdminUpdateLoginAllowlistV3Response{}
-		response.Data = v.Payload
 
 		response.IsSuccess = true
 

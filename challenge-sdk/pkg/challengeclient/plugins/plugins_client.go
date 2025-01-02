@@ -40,8 +40,7 @@ type ClientService interface {
 
 /*
 AdminGetAssignmentPluginShort get assignment plugin
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [READ]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [READ]
 */
 func (a *Client) AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAssignmentPluginResponse, error) {
 	// TODO: Validate the params before sending
@@ -130,8 +129,7 @@ func (a *Client) AdminGetAssignmentPluginShort(params *AdminGetAssignmentPluginP
 
 /*
 AdminUpdateAssignmentPluginShort update assignment plugin
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [UPDATE]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [UPDATE]
 */
 func (a *Client) AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAssignmentPluginResponse, error) {
 	// TODO: Validate the params before sending
@@ -220,8 +218,7 @@ func (a *Client) AdminUpdateAssignmentPluginShort(params *AdminUpdateAssignmentP
 
 /*
 AdminCreateAssignmentPluginShort create assignment plugin
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [CREATE]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [CREATE]
 */
 func (a *Client) AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateAssignmentPluginResponse, error) {
 	// TODO: Validate the params before sending
@@ -303,8 +300,7 @@ func (a *Client) AdminCreateAssignmentPluginShort(params *AdminCreateAssignmentP
 
 /*
 AdminDeleteAssignmentPluginShort delete assignment plugin
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [DELETE]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [DELETE]
 */
 func (a *Client) AdminDeleteAssignmentPluginShort(params *AdminDeleteAssignmentPluginParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteAssignmentPluginResponse, error) {
 	// TODO: Validate the params before sending

@@ -110,6 +110,36 @@ func (aaa *OAuth20ExtensionService) AuthenticationWithPlatformLinkV3Short(input 
 	return ok, nil
 }
 
+func (aaa *OAuth20ExtensionService) AuthenticateAndLinkForwardV3Short(input *o_auth2_0_extension.AuthenticateAndLinkForwardV3Params) (string, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdOAuth20Extension != nil {
+		input.XFlightId = tempFlightIdOAuth20Extension
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	found, err := aaa.Client.OAuth20Extension.AuthenticateAndLinkForwardV3Short(input, authInfoWriter)
+	if err != nil {
+		return "", err
+	}
+
+	return found.Data, nil
+}
+
 func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3Short(input *o_auth2_0_extension.GenerateTokenByNewHeadlessAccountV3Params) (*o_auth2_0_extension.GenerateTokenByNewHeadlessAccountV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -394,4 +424,34 @@ func (aaa *OAuth20ExtensionService) RequestTargetTokenResponseV3Short(input *o_a
 	}
 
 	return ok, nil
+}
+
+func (aaa *OAuth20ExtensionService) UpgradeAndAuthenticateForwardV3Short(input *o_auth2_0_extension.UpgradeAndAuthenticateForwardV3Params) (string, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdOAuth20Extension != nil {
+		input.XFlightId = tempFlightIdOAuth20Extension
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	found, err := aaa.Client.OAuth20Extension.UpgradeAndAuthenticateForwardV3Short(input, authInfoWriter)
+	if err != nil {
+		return "", err
+	}
+
+	return found.Data, nil
 }

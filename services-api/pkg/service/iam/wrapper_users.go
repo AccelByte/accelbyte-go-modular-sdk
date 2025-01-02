@@ -5050,6 +5050,36 @@ func (aaa *UsersService) PublicGetMyUserV3Short(input *users.PublicGetMyUserV3Pa
 	return ok, nil
 }
 
+func (aaa *UsersService) PublicSendCodeForwardV3Short(input *users.PublicSendCodeForwardV3Params) (string, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsers != nil {
+		input.XFlightId = tempFlightIdUsers
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	found, err := aaa.Client.Users.PublicSendCodeForwardV3Short(input, authInfoWriter)
+	if err != nil {
+		return "", err
+	}
+
+	return found.Data, nil
+}
+
 func (aaa *UsersService) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(input *users.PublicGetLinkHeadlessAccountToMyAccountConflictV3Params) (*users.PublicGetLinkHeadlessAccountToMyAccountConflictV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -5110,6 +5140,36 @@ func (aaa *UsersService) LinkHeadlessAccountToMyAccountV3Short(input *users.Link
 	return nil
 }
 
+func (aaa *UsersService) PublicGetMyRedirectionAfterLinkV3Short(input *users.PublicGetMyRedirectionAfterLinkV3Params) (*users.PublicGetMyRedirectionAfterLinkV3Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsers != nil {
+		input.XFlightId = tempFlightIdUsers
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Users.PublicGetMyRedirectionAfterLinkV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *UsersService) PublicGetMyProfileAllowUpdateStatusV3Short(input *users.PublicGetMyProfileAllowUpdateStatusV3Params) (*users.PublicGetMyProfileAllowUpdateStatusV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -5168,6 +5228,36 @@ func (aaa *UsersService) PublicSendVerificationLinkV3Short(input *users.PublicSe
 	}
 
 	return nil
+}
+
+func (aaa *UsersService) PublicGetOpenidUserInfoV3Short(input *users.PublicGetOpenidUserInfoV3Params) (*users.PublicGetOpenidUserInfoV3Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsers != nil {
+		input.XFlightId = tempFlightIdUsers
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Users.PublicGetOpenidUserInfoV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicVerifyUserByLinkV3Short(input *users.PublicVerifyUserByLinkV3Params) (string, error) {

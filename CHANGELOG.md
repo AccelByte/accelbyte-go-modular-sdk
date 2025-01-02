@@ -1,3 +1,35 @@
+<a name="lobby-sdk//v0.1.0-alpha.8"></a>
+## [For AGS v0.1.0-alpha.8]
+### fix
+- **lobby:** remove auth token hard requirement
+
+
+<a name="services-api//v0.1.0-alpha.6"></a>
+## [For AGS v0.1.0-alpha.6]
+### test
+- **integration:** add lobby scheme
+- **integration:** add match2 option's name
+- **integration:** remove deprecated services
+### chore
+- **integration:** add player record cloudsave test
+
+
+<a name="ags//v3.80"></a>
+## [For AGS v3.80]
+### chore
+- **test:** integration - gametelemetry disable starter
+- **docs:** regenerate common use case
+- **:** regenerate sdk with the new error responses
+- **:** - samples - test - docs - manual code wrapper
+- **samples:** adjust the go mod temporarily
+- **test:** improvement regarding response error
+- **:** improvement response error
+- **:** update package to address vulnerability issues
+- **test:** integration - add display name on iam create user
+- **cli:** add root_generated.go
+- **makefile:** version_module target - remove logic to update services-api/go.mod
+
+
 <a name="lobby-sdk/v0.1.0-alpha.8"></a>
 ## [lobby-sdk/v0.1.0-alpha.8]
 ### fix

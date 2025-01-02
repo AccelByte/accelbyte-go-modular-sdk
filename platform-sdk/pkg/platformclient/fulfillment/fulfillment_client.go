@@ -41,6 +41,9 @@ type ClientService interface {
 	FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsResponse, error)
 	RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsResponse, error)
 	RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsResponse, error)
+	FulfillItemsV3Short(params *FulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsV3Response, error)
+	RetryFulfillItemsV3Short(params *RetryFulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsV3Response, error)
+	RevokeItemsV3Short(params *RevokeItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -631,11 +634,20 @@ func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo 
 
 /*
 FulfillItemsShort fulfill items by transactionid
- [Not supported yet in AGS Shared Cloud] Fulfill items by transactionId.
-Other detail info:
 
-  * Request body : storeId, region, language, and entitlementCollectionId can be ignored.
+
+### The endpoint is going to be deprecated
+
+Description: this endpoint is Not supported yet in AGS Shared Cloud and it's used to fulfill items by transaction id.
+
+  *  Request body : storeId, region, language, and entitlementCollectionId can be ignored.
   *  Returns : fulfillment v2 result, storeId field can be ignored.
+
+
+
+### Endpoint migration guide
+
+  *  Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId} [PUT]
 */
 func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -710,10 +722,17 @@ func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.
 
 /*
 RetryFulfillItemsShort retry fulfill items by transactionid
- [Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending the original payload.
-Other detail info:
 
-  * Returns : fulfillment v2 result, storeId field can be ignored.
+
+### The endpoint is going to be deprecated
+
+[Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending the original payload.
+Other detail info:
+      * Returns : fulfillment v2 result, storeId field can be ignored.
+
+### Endpoint migration guide
+
+      *  Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/retry [PUT]
 */
 func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -781,10 +800,17 @@ func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInf
 
 /*
 RevokeItemsShort revoke items by transactionid
- [Not supported yet in AGS Shared Cloud] Revoke items by transactionId.
-Other detail info:
 
-  * Returns : revoke fulfillment v2 result, storeId field can be ignored.
+
+### The endpoint is going to be deprecated
+
+[Not supported yet in AGS Shared Cloud] Revoke items by transactionId.
+Other detail info:
+          * Returns : revoke fulfillment v2 result, storeId field can be ignored.
+
+### Endpoint migration guide
+
+          *  Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/revoke [PUT]
 */
 func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -840,6 +866,203 @@ func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.Cl
 	case *RevokeItemsConflict:
 		response := &RevokeItemsResponse{}
 		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+FulfillItemsV3Short fulfill items by transactionid
+ [Not supported yet in AGS Shared Cloud] Fulfill items by transactionId.
+Other detail info:
+              * Request body : storeId, region, language, and entitlementCollectionId can be ignored.
+              *  Returns : fulfillment v2 result, storeId field can be ignored.
+*/
+func (a *Client) FulfillItemsV3Short(params *FulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewFulfillItemsV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "fulfillItemsV3",
+		Method:             "PUT",
+		PathPattern:        "/platform/v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &FulfillItemsV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *FulfillItemsV3OK:
+		response := &FulfillItemsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *FulfillItemsV3BadRequest:
+		response := &FulfillItemsV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *FulfillItemsV3NotFound:
+		response := &FulfillItemsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+RetryFulfillItemsV3Short retry fulfill items by transactionid
+ [Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending the original payload.
+Other detail info:
+              * Returns : fulfillment v2 result, storeId field can be ignored.
+*/
+func (a *Client) RetryFulfillItemsV3Short(params *RetryFulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRetryFulfillItemsV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "retryFulfillItemsV3",
+		Method:             "PUT",
+		PathPattern:        "/platform/v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/retry",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RetryFulfillItemsV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RetryFulfillItemsV3OK:
+		response := &RetryFulfillItemsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *RetryFulfillItemsV3NotFound:
+		response := &RetryFulfillItemsV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+RevokeItemsV3Short revoke items by transactionid
+ [Not supported yet in AGS Shared Cloud] Revoke items by transactionId.
+Other detail info:
+              * Returns : revoke fulfillment v2 result, storeId field can be ignored.
+*/
+func (a *Client) RevokeItemsV3Short(params *RevokeItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewRevokeItemsV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "revokeItemsV3",
+		Method:             "PUT",
+		PathPattern:        "/platform/v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/revoke",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &RevokeItemsV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *RevokeItemsV3OK:
+		response := &RevokeItemsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *RevokeItemsV3NotFound:
+		response := &RevokeItemsV3Response{}
+		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 

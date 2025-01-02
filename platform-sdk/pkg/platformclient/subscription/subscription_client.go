@@ -57,8 +57,7 @@ type ClientService interface {
 QuerySubscriptionsShort query subscriptions
 Query subscriptions.
 Other detail info:
-
-  * Returns : paginated subscriptions
+            * Returns : paginated subscriptions
 */
 func (a *Client) QuerySubscriptionsShort(params *QuerySubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySubscriptionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -114,8 +113,7 @@ func (a *Client) QuerySubscriptionsShort(params *QuerySubscriptionsParams, authI
 RecurringChargeSubscriptionShort recurring charge subscription
  [TEST FACILITY ONLY] Forbidden in live environment. Recurring charge subscription, it will trigger recurring charge if the USER subscription status is ACTIVE, nextBillingDate is before now and no fail recurring charge within X(default 12) hours.
 Other detail info:
-
-  * Returns : recurring charge result
+            * Returns : recurring charge result
 */
 func (a *Client) RecurringChargeSubscriptionShort(params *RecurringChargeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*RecurringChargeSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -171,8 +169,7 @@ func (a *Client) RecurringChargeSubscriptionShort(params *RecurringChargeSubscri
 QueryUserSubscriptionsShort query user subscriptions
 Query user subscriptions.
 Other detail info:
-
-  * Returns : paginated subscription
+            * Returns : paginated subscription
 */
 func (a *Client) QueryUserSubscriptionsShort(params *QueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserSubscriptionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -228,8 +225,7 @@ func (a *Client) QueryUserSubscriptionsShort(params *QueryUserSubscriptionsParam
 GetUserSubscriptionActivitiesShort get user subscription activity
 Get user subscription activity.
 Other detail info:
-
-  * Returns : paginated subscription activity
+            * Returns : paginated subscription activity
 */
 func (a *Client) GetUserSubscriptionActivitiesShort(params *GetUserSubscriptionActivitiesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionActivitiesResponse, error) {
 	// TODO: Validate the params before sending
@@ -285,8 +281,7 @@ func (a *Client) GetUserSubscriptionActivitiesShort(params *GetUserSubscriptionA
 PlatformSubscribeSubscriptionShort free subscribe by platform
 Free subscribe by platform, can used by other justice service to redeem/reward the subscription.
 Other detail info:
-
-  * Returns : result subscription
+            * Returns : result subscription
 */
 func (a *Client) PlatformSubscribeSubscriptionShort(params *PlatformSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformSubscribeSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -370,8 +365,7 @@ CheckUserSubscriptionSubscribableByItemIDShort check user subscription subscriba
 Check user subscription subscribable by itemId, ACTIVE USER subscription can't do subscribe again.
 
 Other detail info:
-
-  * Returns : subscribable info
+            * Returns : subscribable info
 */
 func (a *Client) CheckUserSubscriptionSubscribableByItemIDShort(params *CheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*CheckUserSubscriptionSubscribableByItemIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -427,8 +421,7 @@ func (a *Client) CheckUserSubscriptionSubscribableByItemIDShort(params *CheckUse
 GetUserSubscriptionShort get user subscription
 Get user subscription.
 Other detail info:
-
-  * Returns : subscription
+            * Returns : subscription
 */
 func (a *Client) GetUserSubscriptionShort(params *GetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -546,8 +539,7 @@ Cancel a subscription, only ACTIVE subscription can be cancelled. Ensure success
 Set immediate true, the subscription will be terminated immediately, otherwise till the end of current billing cycle.
 Set force true, will ignore the error if subscription is during recurring charging.
 Other detail info:
-
-  * Returns : cancelled subscription
+            * Returns : cancelled subscription
 */
 func (a *Client) CancelSubscriptionShort(params *CancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*CancelSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -618,8 +610,7 @@ GrantDaysToSubscriptionShort grant days to a subscription
 Grant days to a subscription, if grantDays is positive, it will add free days and push the next billing date by the amount of day.
 if the grantDays is negative or zero, it only apply to active/cancelled subscription, remove days will decrease current period end, and move the next billing date closer.
 Other detail info:
-
-  * Returns : updated subscription
+            * Returns : updated subscription
 */
 func (a *Client) GrantDaysToSubscriptionShort(params *GrantDaysToSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*GrantDaysToSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -682,8 +673,7 @@ func (a *Client) GrantDaysToSubscriptionShort(params *GrantDaysToSubscriptionPar
 GetUserSubscriptionBillingHistoriesShort get user subscription billing histories
 Get user subscription billing histories.
 Other detail info:
-
-  * Returns : paginated subscription billing history
+            * Returns : paginated subscription billing history
 */
 func (a *Client) GetUserSubscriptionBillingHistoriesShort(params *GetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSubscriptionBillingHistoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -739,8 +729,7 @@ func (a *Client) GetUserSubscriptionBillingHistoriesShort(params *GetUserSubscri
 ProcessUserSubscriptionNotificationShort web hook for payment notification
  [SERVICE COMMUNICATION ONLY] This API is used as a web hook for payment notification from justice payment service.
 Other detail info:
-
-  * Returns : Process result
+            * Returns : Process result
 */
 func (a *Client) ProcessUserSubscriptionNotificationShort(params *ProcessUserSubscriptionNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*ProcessUserSubscriptionNotificationResponse, error) {
 	// TODO: Validate the params before sending
@@ -801,8 +790,7 @@ func (a *Client) ProcessUserSubscriptionNotificationShort(params *ProcessUserSub
 PublicQueryUserSubscriptionsShort query user subscriptions
 Query user subscriptions.
 Other detail info:
-
-  * Returns : paginated subscription
+            * Returns : paginated subscription
 */
 func (a *Client) PublicQueryUserSubscriptionsShort(params *PublicQueryUserSubscriptionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserSubscriptionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -861,10 +849,9 @@ Subscribe a subscription. Support both real and virtual payment. Need go through
  The next billing date will be X(default 4) hours before the current period ends if correctly subscribed.
 User with permission SANDBOX will create sandbox subscription that not real paid.
 Other detail info:
-
-  * Optional permission(user with this permission will create sandbox subscription) : resource="SANDBOX", action=1 (CREATE)
-  * It will be forbidden while the user is banned: ORDER_INITIATE or ORDER_AND_PAYMENT
-  *  Returns : created subscription
+            * Optional permission(user with this permission will create sandbox subscription) : resource="SANDBOX", action=1 (CREATE)
+            * It will be forbidden while the user is banned: ORDER_INITIATE or ORDER_AND_PAYMENT
+            *  Returns : created subscription
 */
 func (a *Client) PublicSubscribeSubscriptionShort(params *PublicSubscribeSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSubscribeSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -955,8 +942,7 @@ PublicCheckUserSubscriptionSubscribableByItemIDShort check user subscription sub
 Check user subscription subscribable by itemId, ACTIVE USER subscription can't do subscribe again.
 
 Other detail info:
-
-  * Returns : subscribable info
+            * Returns : subscribable info
 */
 func (a *Client) PublicCheckUserSubscriptionSubscribableByItemIDShort(params *PublicCheckUserSubscriptionSubscribableByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCheckUserSubscriptionSubscribableByItemIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1012,8 +998,7 @@ func (a *Client) PublicCheckUserSubscriptionSubscribableByItemIDShort(params *Pu
 PublicGetUserSubscriptionShort get user subscription
 Get user subscription.
 Other detail info:
-
-  * Returns : subscription
+            * Returns : subscription
 */
 func (a *Client) PublicGetUserSubscriptionShort(params *PublicGetUserSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -1077,8 +1062,7 @@ PublicChangeSubscriptionBillingAccountShort request to change a subscription bil
 Request to change a subscription billing account, this will guide user to payment station. The actual change will happen at the 0 payment notification successfully handled.
 Only ACTIVE USER subscription with real currency billing account can be changed.
 Other detail info:
-
-  * Returns : updated subscription
+            * Returns : updated subscription
 */
 func (a *Client) PublicChangeSubscriptionBillingAccountShort(params *PublicChangeSubscriptionBillingAccountParams, authInfo runtime.ClientAuthInfoWriter) (*PublicChangeSubscriptionBillingAccountResponse, error) {
 	// TODO: Validate the params before sending
@@ -1156,8 +1140,7 @@ PublicCancelSubscriptionShort cancel a subscription
 Cancel a subscription, only ACTIVE subscription can be cancelled. Ensure successfully cancel, recommend at least 1 day before current period ends, otherwise it may be charging or charged.
 Set immediate true, the subscription will be terminated immediately, otherwise till the end of current billing cycle.
 Other detail info:
-
-  * Returns : cancelled subscription
+            * Returns : cancelled subscription
 */
 func (a *Client) PublicCancelSubscriptionShort(params *PublicCancelSubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCancelSubscriptionResponse, error) {
 	// TODO: Validate the params before sending
@@ -1227,8 +1210,7 @@ func (a *Client) PublicCancelSubscriptionShort(params *PublicCancelSubscriptionP
 PublicGetUserSubscriptionBillingHistoriesShort get user subscription billing histories
 Get user subscription billing histories.
 Other detail info:
-
-  * Returns : paginated subscription history
+            * Returns : paginated subscription history
 */
 func (a *Client) PublicGetUserSubscriptionBillingHistoriesShort(params *PublicGetUserSubscriptionBillingHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSubscriptionBillingHistoriesResponse, error) {
 	// TODO: Validate the params before sending

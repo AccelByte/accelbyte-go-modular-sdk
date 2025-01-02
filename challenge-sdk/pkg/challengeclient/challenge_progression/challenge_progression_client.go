@@ -41,9 +41,8 @@ type ClientService interface {
 
 /*
 AdminEvaluateProgressShort evaluate user's progressions
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
-    * Limited up to 10 users per request
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
+- Limited up to 10 users per request
 */
 func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams, authInfo runtime.ClientAuthInfoWriter) (*AdminEvaluateProgressResponse, error) {
 	// TODO: Validate the params before sending
@@ -131,8 +130,7 @@ func (a *Client) AdminEvaluateProgressShort(params *AdminEvaluateProgressParams,
 
 /*
 AdminGetUserProgressionShort list user's progressions
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
 */
 func (a *Client) AdminGetUserProgressionShort(params *AdminGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProgressionResponse, error) {
 	// TODO: Validate the params before sending
@@ -228,8 +226,7 @@ func (a *Client) AdminGetUserProgressionShort(params *AdminGetUserProgressionPar
 
 /*
 EvaluateMyProgressShort evaluate user's challenge progressions
-
-    * Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
+- Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
 */
 func (a *Client) EvaluateMyProgressShort(params *EvaluateMyProgressParams, authInfo runtime.ClientAuthInfoWriter) (*EvaluateMyProgressResponse, error) {
 	// TODO: Validate the params before sending
@@ -303,8 +300,7 @@ func (a *Client) EvaluateMyProgressShort(params *EvaluateMyProgressParams, authI
 
 /*
 PublicGetUserProgressionShort list user's progressions
-
-    * Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
+- Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
 */
 func (a *Client) PublicGetUserProgressionShort(params *PublicGetUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProgressionResponse, error) {
 	// TODO: Validate the params before sending
@@ -400,8 +396,7 @@ func (a *Client) PublicGetUserProgressionShort(params *PublicGetUserProgressionP
 
 /*
 PublicGetPastUserProgressionShort list user's progressions in the previous rotation.
-
-    * Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
+- Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
 */
 func (a *Client) PublicGetPastUserProgressionShort(params *PublicGetPastUserProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPastUserProgressionResponse, error) {
 	// TODO: Validate the params before sending

@@ -30,13 +30,108 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	AdminReadPartySessionStorageShort(params *AdminReadPartySessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadPartySessionStorageResponse, error)
 	AdminReadSessionStorageShort(params *AdminReadSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadSessionStorageResponse, error)
 	AdminDeleteUserSessionStorageShort(params *AdminDeleteUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserSessionStorageResponse, error)
 	AdminReadUserSessionStorageShort(params *AdminReadUserSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadUserSessionStorageResponse, error)
+	PublicReadPartySessionStorageShort(params *PublicReadPartySessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReadPartySessionStorageResponse, error)
+	PublicUpdateInsertPartySessionStorageReservedShort(params *PublicUpdateInsertPartySessionStorageReservedParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertPartySessionStorageReservedResponse, error)
 	PublicUpdateInsertSessionStorageLeaderShort(params *PublicUpdateInsertSessionStorageLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageLeaderResponse, error)
 	PublicUpdateInsertSessionStorageShort(params *PublicUpdateInsertSessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertSessionStorageResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+AdminReadPartySessionStorageShort read party session storage.
+Read Party Session Storage by partyID
+Party Storage example:
+```
+{
+"reserved": {
+"userID1": {"key": "value"},
+"userID2": {"key": "value"},
+...
+}
+}
+```
+*/
+func (a *Client) AdminReadPartySessionStorageShort(params *AdminReadPartySessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReadPartySessionStorageResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminReadPartySessionStorageParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminReadPartySessionStorage",
+		Method:             "GET",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/parties/{partyId}/storage",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminReadPartySessionStorageReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminReadPartySessionStorageOK:
+		response := &AdminReadPartySessionStorageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminReadPartySessionStorageBadRequest:
+		response := &AdminReadPartySessionStorageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminReadPartySessionStorageUnauthorized:
+		response := &AdminReadPartySessionStorageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminReadPartySessionStorageNotFound:
+		response := &AdminReadPartySessionStorageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminReadPartySessionStorageInternalServerError:
+		response := &AdminReadPartySessionStorageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
 }
 
 /*
@@ -279,6 +374,207 @@ func (a *Client) AdminReadUserSessionStorageShort(params *AdminReadUserSessionSt
 		return response, v
 	case *AdminReadUserSessionStorageInternalServerError:
 		response := &AdminReadUserSessionStorageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicReadPartySessionStorageShort read party session storage.
+Read Party Session Storage by partyID
+Party Storage example:
+```
+{
+"reserved": {
+"userID1": {"key": "value"},
+"userID2": {"key": "value"},
+...
+}
+}
+```
+*/
+func (a *Client) PublicReadPartySessionStorageShort(params *PublicReadPartySessionStorageParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReadPartySessionStorageResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicReadPartySessionStorageParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicReadPartySessionStorage",
+		Method:             "GET",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/storage",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicReadPartySessionStorageReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicReadPartySessionStorageOK:
+		response := &PublicReadPartySessionStorageResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicReadPartySessionStorageBadRequest:
+		response := &PublicReadPartySessionStorageResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicReadPartySessionStorageUnauthorized:
+		response := &PublicReadPartySessionStorageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicReadPartySessionStorageNotFound:
+		response := &PublicReadPartySessionStorageResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicReadPartySessionStorageInternalServerError:
+		response := &PublicReadPartySessionStorageResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicUpdateInsertPartySessionStorageReservedShort update insert party session storage user.
+**For Internal Use Only**
+Update Insert Party Session Reserved Storage User. User can only update or insert user party session storage data itself.
+can store generic json
+example json can store :
+```
+{
+"key": "value",
+"number": 123,
+}
+```
+The data will be stored on the "reserved" storage field
+example stored data :
+```
+{
+"reserved": {
+"userID1": {"key": "value"},
+"userID2": {"key": "value"},
+...
+}
+}
+```
+*/
+func (a *Client) PublicUpdateInsertPartySessionStorageReservedShort(params *PublicUpdateInsertPartySessionStorageReservedParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateInsertPartySessionStorageReservedResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicUpdateInsertPartySessionStorageReservedParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicUpdateInsertPartySessionStorageReserved",
+		Method:             "PATCH",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/storage/users/{userId}/reserved",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicUpdateInsertPartySessionStorageReservedReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicUpdateInsertPartySessionStorageReservedOK:
+		response := &PublicUpdateInsertPartySessionStorageReservedResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicUpdateInsertPartySessionStorageReservedBadRequest:
+		response := &PublicUpdateInsertPartySessionStorageReservedResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdateInsertPartySessionStorageReservedUnauthorized:
+		response := &PublicUpdateInsertPartySessionStorageReservedResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdateInsertPartySessionStorageReservedForbidden:
+		response := &PublicUpdateInsertPartySessionStorageReservedResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdateInsertPartySessionStorageReservedNotFound:
+		response := &PublicUpdateInsertPartySessionStorageReservedResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdateInsertPartySessionStorageReservedInternalServerError:
+		response := &PublicUpdateInsertPartySessionStorageReservedResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

@@ -45,8 +45,7 @@ ListViewsShort list all views
 This API is used to list all views.
 
 Other detail info:
-
-  * Returns : the list of views
+            * Returns : the list of views
 */
 func (a *Client) ListViewsShort(params *ListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*ListViewsResponse, error) {
 	// TODO: Validate the params before sending
@@ -117,10 +116,7 @@ CreateViewShort create a view
 This API is used to create a view.
 
 Other detail info:
-
-  * Returns : created a view
-
-
+            * Returns : created a view
 
 ## Restrictions for localization extension
 
@@ -128,15 +124,13 @@ Other detail info:
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
+                                        { "data.2": "value" }
 
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+                                        { "$data": "value" }
 */
 func (a *Client) CreateViewShort(params *CreateViewParams, authInfo runtime.ClientAuthInfoWriter) (*CreateViewResponse, error) {
 	// TODO: Validate the params before sending
@@ -221,8 +215,7 @@ GetViewShort get a view
 This API is used to get a view.
 
 Other detail info:
-
-  * Returns : view data
+            * Returns : view data
 */
 func (a *Client) GetViewShort(params *GetViewParams, authInfo runtime.ClientAuthInfoWriter) (*GetViewResponse, error) {
 	// TODO: Validate the params before sending
@@ -286,10 +279,7 @@ UpdateViewShort update a view
 This API is used to update a view.
 
 Other detail info:
-
-  * Returns : updated view data
-
-
+            * Returns : updated view data
 
 ## Restrictions for localization extension
 
@@ -297,15 +287,13 @@ Other detail info:
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
+                                        { "data.2": "value" }
 
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+                                        { "$data": "value" }
 */
 func (a *Client) UpdateViewShort(params *UpdateViewParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateViewResponse, error) {
 	// TODO: Validate the params before sending
@@ -457,10 +445,9 @@ PublicListViewsShort get all views
 This API is used to get all views.
 
 Other detail info:
-
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store views)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store views)
-  *  Returns : all views
+            * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store views)
+            *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store views)
+            *  Returns : all views
 */
 func (a *Client) PublicListViewsShort(params *PublicListViewsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListViewsResponse, error) {
 	// TODO: Validate the params before sending

@@ -46,8 +46,7 @@ QuerySectionsShort list sections
 This API is used to query sections.
 
 Other detail info:
-
-  * Returns : paginated sections
+            * Returns : paginated sections
 */
 func (a *Client) QuerySectionsShort(params *QuerySectionsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySectionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -118,10 +117,7 @@ CreateSectionShort create a section
 This API is used to create a section.
 
 Other detail info:
-
-  * Returns : created a section
-
-
+            * Returns : created a section
 
 ## Restrictions for section extension and localization extension
 
@@ -129,15 +125,13 @@ Other detail info:
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
+                                        { "data.2": "value" }
 
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+                                        { "$data": "value" }
 */
 func (a *Client) CreateSectionShort(params *CreateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSectionResponse, error) {
 	// TODO: Validate the params before sending
@@ -282,8 +276,7 @@ GetSectionShort get a section
 This API is used to get a section.
 
 Other detail info:
-
-  * Returns : section data
+            * Returns : section data
 */
 func (a *Client) GetSectionShort(params *GetSectionParams, authInfo runtime.ClientAuthInfoWriter) (*GetSectionResponse, error) {
 	// TODO: Validate the params before sending
@@ -347,10 +340,7 @@ UpdateSectionShort update s section
 This API is used to update s section.
 
 Other detail info:
-
-  * Returns : updated section data
-
-
+            * Returns : updated section data
 
 ## Restrictions for section extension and localization extension
 
@@ -358,15 +348,13 @@ Other detail info:
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
+                                        { "data.2": "value" }
 
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+                                        { "$data": "value" }
 */
 func (a *Client) UpdateSectionShort(params *UpdateSectionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionResponse, error) {
 	// TODO: Validate the params before sending
@@ -518,10 +506,9 @@ PublicListActiveSectionsShort list active section contents
 This API is used to list active section contents.
 
 Other detail info:
-
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store sections)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store sections)
-  *  Returns : active section contents
+            * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store sections)
+            *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store sections)
+            *  Returns : active section contents
 */
 func (a *Client) PublicListActiveSectionsShort(params *PublicListActiveSectionsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListActiveSectionsResponse, error) {
 	// TODO: Validate the params before sending

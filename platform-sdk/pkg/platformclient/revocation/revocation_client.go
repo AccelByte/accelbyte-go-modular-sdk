@@ -43,8 +43,7 @@ type ClientService interface {
 GetRevocationConfigShort get revocation configuration
 Get revocation configuration.
 Other detail info:
-
-  * Returns : Revocation config
+            * Returns : Revocation config
 */
 func (a *Client) GetRevocationConfigShort(params *GetRevocationConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -107,8 +106,7 @@ func (a *Client) GetRevocationConfigShort(params *GetRevocationConfigParams, aut
 UpdateRevocationConfigShort update revocation configuration
 Update revocation configuration.
 Other detail info:
-
-  * Returns : Revocation config
+            * Returns : Revocation config
 */
 func (a *Client) UpdateRevocationConfigShort(params *UpdateRevocationConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRevocationConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -217,8 +215,7 @@ func (a *Client) DeleteRevocationConfigShort(params *DeleteRevocationConfigParam
 QueryRevocationHistoriesShort query revocation histories
 Query revocation histories in a namespace.
 Other detail info:
-
-  * Returns : query revocation history
+            * Returns : query revocation history
 */
 func (a *Client) QueryRevocationHistoriesShort(params *QueryRevocationHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRevocationHistoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -274,8 +271,7 @@ func (a *Client) QueryRevocationHistoriesShort(params *QueryRevocationHistoriesP
 DoRevocationShort do revocation.
 Do revocation.
 Other detail info:
-
-  * Returns : revocation results
+            * Returns : revocation results
 */
 func (a *Client) DoRevocationShort(params *DoRevocationParams, authInfo runtime.ClientAuthInfoWriter) (*DoRevocationResponse, error) {
 	// TODO: Validate the params before sending
@@ -321,6 +317,13 @@ func (a *Client) DoRevocationShort(params *DoRevocationParams, authInfo runtime.
 		response.IsSuccess = true
 
 		return response, nil
+	case *DoRevocationConflict:
+		response := &DoRevocationResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

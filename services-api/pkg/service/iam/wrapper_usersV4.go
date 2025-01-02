@@ -2049,3 +2049,33 @@ func (aaa *UsersV4Service) PublicInviteUserV4Short(input *users_v4.PublicInviteU
 
 	return created, nil
 }
+
+func (aaa *UsersV4Service) PublicUpgradeHeadlessWithCodeV4ForwardShort(input *users_v4.PublicUpgradeHeadlessWithCodeV4ForwardParams) (string, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	found, err := aaa.Client.UsersV4.PublicUpgradeHeadlessWithCodeV4ForwardShort(input, authInfoWriter)
+	if err != nil {
+		return "", err
+	}
+
+	return found.Data, nil
+}

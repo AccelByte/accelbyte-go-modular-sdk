@@ -43,8 +43,7 @@ type ClientService interface {
 
 /*
 AdminClaimUsersRewardsShort claim  rewards of multiple users
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
 func (a *Client) AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUsersRewardsResponse, error) {
 	// TODO: Validate the params before sending
@@ -133,8 +132,7 @@ func (a *Client) AdminClaimUsersRewardsShort(params *AdminClaimUsersRewardsParam
 
 /*
 AdminClaimUserRewardsByGoalCodeShort claim rewards of a single user by goal code
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
 func (a *Client) AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsByGoalCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -230,8 +228,7 @@ func (a *Client) AdminClaimUserRewardsByGoalCodeShort(params *AdminClaimUserRewa
 
 /*
 AdminGetUserRewardsShort list user's rewards
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
 */
 func (a *Client) AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserRewardsResponse, error) {
 	// TODO: Validate the params before sending
@@ -306,8 +303,7 @@ func (a *Client) AdminGetUserRewardsShort(params *AdminGetUserRewardsParams, aut
 
 /*
 AdminClaimUserRewardsShort claim rewards of a single user
-
-    * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
 func (a *Client) AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminClaimUserRewardsResponse, error) {
 	// TODO: Validate the params before sending
@@ -396,8 +392,7 @@ func (a *Client) AdminClaimUserRewardsShort(params *AdminClaimUserRewardsParams,
 
 /*
 PublicClaimUserRewardsByGoalCodeShort claim user's rewards by goal code
-
-    * Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+- Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
 func (a *Client) PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRewardsByGoalCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsByGoalCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -493,8 +488,7 @@ func (a *Client) PublicClaimUserRewardsByGoalCodeShort(params *PublicClaimUserRe
 
 /*
 PublicGetUserRewardsShort list user's rewards
-
-    * Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
+- Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
 */
 func (a *Client) PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserRewardsResponse, error) {
 	// TODO: Validate the params before sending
@@ -569,8 +563,7 @@ func (a *Client) PublicGetUserRewardsShort(params *PublicGetUserRewardsParams, a
 
 /*
 PublicClaimUserRewardsShort claim user's rewards
-
-    * Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+- Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
 */
 func (a *Client) PublicClaimUserRewardsShort(params *PublicClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardsResponse, error) {
 	// TODO: Validate the params before sending

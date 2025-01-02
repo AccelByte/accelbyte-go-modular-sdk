@@ -38,8 +38,7 @@ type ClientService interface {
 
 /*
 GetChallengesShort list challenges
-
-    * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+- Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesResponse, error) {
 	// TODO: Validate the params before sending
@@ -114,8 +113,7 @@ func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtim
 
 /*
 PublicGetScheduledGoalsShort list goals of a challenge
-
-    * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+- Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
 func (a *Client) PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsResponse, error) {
 	// TODO: Validate the params before sending

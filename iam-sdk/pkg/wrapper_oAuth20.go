@@ -301,6 +301,36 @@ func (aaa *OAuth20Service) Verify2FACodeShort(input *o_auth2_0.Verify2FACodePara
 	return ok, nil
 }
 
+func (aaa *OAuth20Service) Verify2FACodeForwardShort(input *o_auth2_0.Verify2FACodeForwardParams) (string, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdOAuth20 != nil {
+		input.XFlightId = tempFlightIdOAuth20
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	found, err := aaa.Client.OAuth20.Verify2FACodeForwardShort(input, authInfoWriter)
+	if err != nil {
+		return "", err
+	}
+
+	return found.Data, nil
+}
+
 func (aaa *OAuth20Service) RetrieveUserThirdPartyPlatformTokenV3Short(input *o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3Params) (*o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

@@ -30,16 +30,209 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	AdminGetPlatformAccountClosureClientsShort(params *AdminGetPlatformAccountClosureClientsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureClientsResponse, error)
+	AdminValidateXboxBPCertFileShort(params *AdminValidateXboxBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*AdminValidateXboxBPCertFileResponse, error)
 	AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureClientResponse, error)
 	AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdatePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureClientResponse, error)
 	AdminDeletePlatformAccountClosureClientShort(params *AdminDeletePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformAccountClosureClientResponse, error)
+	AdminMockPlatformAccountClosureDataShort(params *AdminMockPlatformAccountClosureDataParams, authInfo runtime.ClientAuthInfoWriter) (*AdminMockPlatformAccountClosureDataResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
+AdminGetPlatformAccountClosureClientsShort get platform account closure configs
+Get platform account closure configs.
+------
+Platform:
+- steamnetwork
+- xbox
+- psn
+Scope: account
+*/
+func (a *Client) AdminGetPlatformAccountClosureClientsShort(params *AdminGetPlatformAccountClosureClientsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureClientsResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetPlatformAccountClosureClientsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetPlatformAccountClosureClients",
+		Method:             "GET",
+		PathPattern:        "/gdpr/admin/namespaces/{namespace}/platforms/closure/clients",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetPlatformAccountClosureClientsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetPlatformAccountClosureClientsOK:
+		response := &AdminGetPlatformAccountClosureClientsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminGetPlatformAccountClosureClientsBadRequest:
+		response := &AdminGetPlatformAccountClosureClientsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetPlatformAccountClosureClientsUnauthorized:
+		response := &AdminGetPlatformAccountClosureClientsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetPlatformAccountClosureClientsForbidden:
+		response := &AdminGetPlatformAccountClosureClientsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetPlatformAccountClosureClientsNotFound:
+		response := &AdminGetPlatformAccountClosureClientsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetPlatformAccountClosureClientsInternalServerError:
+		response := &AdminGetPlatformAccountClosureClientsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminValidateXboxBPCertFileShort validate xbox bp cert file
+Check xbox BP cert file whether it's expired and return expiration date
+*/
+func (a *Client) AdminValidateXboxBPCertFileShort(params *AdminValidateXboxBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*AdminValidateXboxBPCertFileResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminValidateXboxBPCertFileParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminValidateXboxBPCertFile",
+		Method:             "POST",
+		PathPattern:        "/gdpr/admin/namespaces/{namespace}/platforms/xbox/closure/cert/validation",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminValidateXboxBPCertFileReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminValidateXboxBPCertFileOK:
+		response := &AdminValidateXboxBPCertFileResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminValidateXboxBPCertFileBadRequest:
+		response := &AdminValidateXboxBPCertFileResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminValidateXboxBPCertFileUnauthorized:
+		response := &AdminValidateXboxBPCertFileResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminValidateXboxBPCertFileForbidden:
+		response := &AdminValidateXboxBPCertFileResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminValidateXboxBPCertFileNotFound:
+		response := &AdminValidateXboxBPCertFileResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminValidateXboxBPCertFileInternalServerError:
+		response := &AdminValidateXboxBPCertFileResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 AdminGetPlatformAccountClosureClientShort get platform account closure config
 Get platform account closure config.
+The namespace should be **publisher or studio namespace**
+----------
+Platform:
+- steamnetwork
+- xbox
+- psn
 Scope: account
 */
 func (a *Client) AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetPlatformAccountClosureClientResponse, error) {
@@ -130,6 +323,12 @@ func (a *Client) AdminGetPlatformAccountClosureClientShort(params *AdminGetPlatf
 /*
 AdminUpdatePlatformAccountClosureClientShort update platform account closure client
 Update platform account closure client.
+The namespace should be the **publisher or studio namespace**.
+------
+Platform:
+- steamnetwork
+- xbox
+- psn
 Scope: account
 */
 func (a *Client) AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdatePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdatePlatformAccountClosureClientResponse, error) {
@@ -212,6 +411,12 @@ func (a *Client) AdminUpdatePlatformAccountClosureClientShort(params *AdminUpdat
 /*
 AdminDeletePlatformAccountClosureClientShort delete platform account closure client
 Delete platform account closure client.
+The namespace should be **publisher or studio namespace**
+-------
+Platform:
+- steamnetwork
+- xbox
+- psn
 */
 func (a *Client) AdminDeletePlatformAccountClosureClientShort(params *AdminDeletePlatformAccountClosureClientParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformAccountClosureClientResponse, error) {
 	// TODO: Validate the params before sending
@@ -286,6 +491,94 @@ func (a *Client) AdminDeletePlatformAccountClosureClientShort(params *AdminDelet
 		return response, v
 	case *AdminDeletePlatformAccountClosureClientInternalServerError:
 		response := &AdminDeletePlatformAccountClosureClientResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminMockPlatformAccountClosureDataShort mock platform account closure data
+Mock platform account closure data.
+-----
+**This is only for testing**
+Platform:
+- steamnetwork
+- xbox
+- psn
+Scope: account
+*/
+func (a *Client) AdminMockPlatformAccountClosureDataShort(params *AdminMockPlatformAccountClosureDataParams, authInfo runtime.ClientAuthInfoWriter) (*AdminMockPlatformAccountClosureDataResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminMockPlatformAccountClosureDataParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminMockPlatformAccountClosureData",
+		Method:             "POST",
+		PathPattern:        "/gdpr/admin/namespaces/{namespace}/platforms/{platform}/closure/mock",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminMockPlatformAccountClosureDataReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminMockPlatformAccountClosureDataNoContent:
+		response := &AdminMockPlatformAccountClosureDataResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminMockPlatformAccountClosureDataBadRequest:
+		response := &AdminMockPlatformAccountClosureDataResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminMockPlatformAccountClosureDataUnauthorized:
+		response := &AdminMockPlatformAccountClosureDataResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminMockPlatformAccountClosureDataForbidden:
+		response := &AdminMockPlatformAccountClosureDataResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminMockPlatformAccountClosureDataInternalServerError:
+		response := &AdminMockPlatformAccountClosureDataResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
