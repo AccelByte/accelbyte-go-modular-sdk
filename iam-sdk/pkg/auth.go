@@ -543,7 +543,7 @@ func (o *OAuth20Service) initTokenValidator(value bool) {
 		PublicKeys:            make(map[string]*rsa.PublicKey),
 		LocalValidationActive: value,
 		RevokedUsers:          make(map[string]time.Time),
-		Roles:                 make(map[string]*iamclientmodels.ModelRoleResponseV3),
+		Roles:                 make(map[string]*iamclientmodels.ModelRolePermissionResponseV3),
 		NamespaceContexts:     make(map[string]*NamespaceContext),
 	}
 

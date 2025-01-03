@@ -31,7 +31,7 @@ type TokenValidator struct {
 	LocalValidationActive bool
 	PublicKeys            map[string]*rsa.PublicKey
 	RevokedUsers          map[string]time.Time
-	Roles                 map[string]*iamclientmodels.ModelRoleResponseV3
+	Roles                 map[string]*iamclientmodels.ModelRolePermissionResponseV3
 
 	impl iam.AuthTokenValidator
 }
@@ -66,6 +66,6 @@ func NewTokenValidator(authService iam.OAuth20Service, refreshInterval time.Dura
 		PublicKeys:            make(map[string]*rsa.PublicKey),
 		LocalValidationActive: false,
 		RevokedUsers:          make(map[string]time.Time),
-		Roles:                 make(map[string]*iamclientmodels.ModelRoleResponseV3),
+		Roles:                 make(map[string]*iamclientmodels.ModelRolePermissionResponseV3),
 	}
 }
