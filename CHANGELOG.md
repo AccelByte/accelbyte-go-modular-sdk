@@ -1,10 +1,9 @@
-<a name="lobby-sdk//v0.1.0-alpha.8"></a>
+<a name="lobby-sdk/v0.1.0-alpha.8"></a>
 ## [For AGS v0.1.0-alpha.8]
 ### fix
 - **lobby:** remove auth token hard requirement
 
-
-<a name="services-api//v0.1.0-alpha.6"></a>
+<a name="services-api/v0.1.0-alpha.6"></a>
 ## [For AGS v0.1.0-alpha.6]
 ### test
 - **integration:** add lobby scheme
@@ -13,9 +12,13 @@
 ### chore
 - **integration:** add player record cloudsave test
 
-
-<a name="ags//v3.80"></a>
+<a name="ags/v3.80"></a>
 ## [For AGS v3.80]
+
+### docs
+
+- **:** add migration guides
+- **:** update CHANGELOG.md
 ### chore
 - **test:** integration - gametelemetry disable starter
 - **docs:** regenerate common use case
