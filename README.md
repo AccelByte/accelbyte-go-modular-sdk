@@ -102,6 +102,31 @@ input.RetryPolicy = &utils.Retry{
 ok, err := OAuth20Service.TokenGrantV3Short(input) // call the wrapper
 ```
 
+### Working with Call Response
+
+Every operation in Go Modular SDK will returns a response object. Use this object to do check whether the call is
+success or not, get the response data or error object.
+
+- `response.IsSuccess` will be `true` if the call is success, otherwise `false`.
+- `response.Data` object is **optional** depending whether the endpoint has response or not.
+- `response.Error<status-code>` contains error object if call failed, otherwise null.
+- `response.Unpack` will return the all the responses given by the endpoint.
+- `response.StatusCode` will return the int status code responses given by the endpoint.
+
+Known errors are available in `errors.go` in each module. E.g
+`<module-name>-sdk/pkg/<module-name>clientmodels/errors.go`.
+
+```go
+response, err := userProfileService.GetMyProfileInfoShort(input)
+if response.Error400 != nil {
+    // do something
+} else {
+    ok := response.Data
+    // do something
+    response.Unpack // do something with the return value
+}
+```
+
 #### Automatic Token Refresh
 
 The Automatic Token Refresh is invoked by `auth.RefreshTokenScheduler` inside the `login` wrapper with the Default configuration and can be override.
