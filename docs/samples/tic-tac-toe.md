@@ -5,7 +5,7 @@ This tutorial will explain on how to use AccelByte Go Extend SDK to create simpl
 
 ## Prerequisites
 
-- [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/services/access/namespaces/) if you don't have one
+- [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/services/access/reference/namespaces/manage-your-namespaces/) if you don't have one
   yet.
   Be sure to keep the namespace's **ID** as you will need it later.
 - [Create and OAuth Client](https://docs.accelbyte.io/gaming-services/services/access/authorization/manage-access-control-for-applications/#manage-iam-clients)
