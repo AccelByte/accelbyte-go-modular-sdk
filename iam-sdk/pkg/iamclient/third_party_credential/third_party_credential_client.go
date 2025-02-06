@@ -38,6 +38,7 @@ type ClientService interface {
 	UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateThirdPartyLoginPlatformCredentialV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformCredentialV3Response, error)
 	UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformDomainV3Response, error)
 	DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformDomainV3Response, error)
+	PartialUpdateThirdPartyLoginPlatformDomainV3Short(params *PartialUpdateThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdateThirdPartyLoginPlatformDomainV3Response, error)
 	AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(params *AdminCheckThirdPartyLoginPlatformAvailabilityV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCheckThirdPartyLoginPlatformAvailabilityV3Response, error)
 	RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(params *RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response, error)
 	RetrieveActiveOIDCClientsPublicV3Short(params *RetrieveActiveOIDCClientsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveActiveOIDCClientsPublicV3Response, error)
@@ -588,6 +589,7 @@ func (a *Client) UpdateThirdPartyLoginPlatformCredentialV3Short(params *UpdateTh
 /*
 UpdateThirdPartyLoginPlatformDomainV3Short set third party platform credential's domain
 This is the API to set 3rd Platform domain.
+This API is a create-or-update behavior. If it is update, it is a replacement behavior.
 */
 func (a *Client) UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateThirdPartyLoginPlatformDomainV3Response, error) {
 	// TODO: Validate the params before sending
@@ -677,6 +679,7 @@ func (a *Client) UpdateThirdPartyLoginPlatformDomainV3Short(params *UpdateThirdP
 /*
 DeleteThirdPartyLoginPlatformDomainV3Short unregister third party platform credential's domain
 This is the API to unregister 3rd Platform domain.
+If there is a ssoGroups in request body, then this request wil only delete the sso group from the target domain, it will not delete domain.
 */
 func (a *Client) DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteThirdPartyLoginPlatformDomainV3Response, error) {
 	// TODO: Validate the params before sending
@@ -751,6 +754,96 @@ func (a *Client) DeleteThirdPartyLoginPlatformDomainV3Short(params *DeleteThirdP
 		return response, v
 	case *DeleteThirdPartyLoginPlatformDomainV3InternalServerError:
 		response := &DeleteThirdPartyLoginPlatformDomainV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PartialUpdateThirdPartyLoginPlatformDomainV3Short partial update third party platform credential's domain
+This is the API to patch update 3rd Platform domain.
+This API is a create or partial-update behavior. If it is update, it is a partial update behavior.
+*/
+func (a *Client) PartialUpdateThirdPartyLoginPlatformDomainV3Short(params *PartialUpdateThirdPartyLoginPlatformDomainV3Params, authInfo runtime.ClientAuthInfoWriter) (*PartialUpdateThirdPartyLoginPlatformDomainV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPartialUpdateThirdPartyLoginPlatformDomainV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PartialUpdateThirdPartyLoginPlatformDomainV3",
+		Method:             "PATCH",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/clients/domain",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PartialUpdateThirdPartyLoginPlatformDomainV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PartialUpdateThirdPartyLoginPlatformDomainV3OK:
+		response := &PartialUpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PartialUpdateThirdPartyLoginPlatformDomainV3BadRequest:
+		response := &PartialUpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PartialUpdateThirdPartyLoginPlatformDomainV3Unauthorized:
+		response := &PartialUpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PartialUpdateThirdPartyLoginPlatformDomainV3Forbidden:
+		response := &PartialUpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PartialUpdateThirdPartyLoginPlatformDomainV3NotFound:
+		response := &PartialUpdateThirdPartyLoginPlatformDomainV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PartialUpdateThirdPartyLoginPlatformDomainV3InternalServerError:
+		response := &PartialUpdateThirdPartyLoginPlatformDomainV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

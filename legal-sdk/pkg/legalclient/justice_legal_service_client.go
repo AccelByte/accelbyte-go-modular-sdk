@@ -27,6 +27,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/localized_policy_versions_with_namespace"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/policies"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/policies_with_namespace"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/policies_with_namespace_v2"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/policy_versions"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/policy_versions_with_namespace"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/user_info"
@@ -107,6 +108,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.LocalizedPolicyVersionsWithNamespace = localized_policy_versions_with_namespace.New(transport, formats)
 	cli.Policies = policies.New(transport, formats)
 	cli.PoliciesWithNamespace = policies_with_namespace.New(transport, formats)
+	cli.PoliciesWithNamespaceV2 = policies_with_namespace_v2.New(transport, formats)
 	cli.PolicyVersions = policy_versions.New(transport, formats)
 	cli.PolicyVersionsWithNamespace = policy_versions_with_namespace.New(transport, formats)
 	cli.UserInfo = user_info.New(transport, formats)
@@ -196,6 +198,8 @@ type JusticeLegalService struct {
 
 	PoliciesWithNamespace policies_with_namespace.ClientService
 
+	PoliciesWithNamespaceV2 policies_with_namespace_v2.ClientService
+
 	PolicyVersions policy_versions.ClientService
 
 	PolicyVersionsWithNamespace policy_versions_with_namespace.ClientService
@@ -223,6 +227,7 @@ func (c *JusticeLegalService) SetTransport(transport runtime.ClientTransport) {
 	c.LocalizedPolicyVersionsWithNamespace.SetTransport(transport)
 	c.Policies.SetTransport(transport)
 	c.PoliciesWithNamespace.SetTransport(transport)
+	c.PoliciesWithNamespaceV2.SetTransport(transport)
 	c.PolicyVersions.SetTransport(transport)
 	c.PolicyVersionsWithNamespace.SetTransport(transport)
 	c.UserInfo.SetTransport(transport)

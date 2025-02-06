@@ -34,6 +34,7 @@ type ClientService interface {
 	AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameSessionsByAttributesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsByAttributesResponse, error)
 	AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkGameSessionsResponse, error)
 	AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSetDSReadyResponse, error)
+	AdminUpdateDSInformationShort(params *AdminUpdateDSInformationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateDSInformationResponse, error)
 	AdminKickGameSessionMemberShort(params *AdminKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminKickGameSessionMemberResponse, error)
 	AdminUpdateGameSessionMemberShort(params *AdminUpdateGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGameSessionMemberResponse, error)
 	CreateGameSessionShort(params *CreateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGameSessionResponse, error)
@@ -408,6 +409,94 @@ func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo ru
 }
 
 /*
+AdminUpdateDSInformationShort update game session ds information for asynchronous process.
+Update Game Session DS Information for Asynchronous Process
+*/
+func (a *Client) AdminUpdateDSInformationShort(params *AdminUpdateDSInformationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateDSInformationResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminUpdateDSInformationParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminUpdateDSInformation",
+		Method:             "PUT",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/gamesessions/{sessionId}/dsinformation",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminUpdateDSInformationReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminUpdateDSInformationNoContent:
+		response := &AdminUpdateDSInformationResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminUpdateDSInformationBadRequest:
+		response := &AdminUpdateDSInformationResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminUpdateDSInformationUnauthorized:
+		response := &AdminUpdateDSInformationResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminUpdateDSInformationForbidden:
+		response := &AdminUpdateDSInformationResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminUpdateDSInformationNotFound:
+		response := &AdminUpdateDSInformationResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminUpdateDSInformationInternalServerError:
+		response := &AdminUpdateDSInformationResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 AdminKickGameSessionMemberShort kick member from a game session.
 Kick member from a game session.
 */
@@ -605,7 +694,6 @@ Session configuration "name" is mandatory, this API will refer following values 
 - textChat
 - autoJoin
 - requestedRegions
-- dsSource
 - preferredClaimKeys
 - fallbackClaimKeys
 - customURLGRPC

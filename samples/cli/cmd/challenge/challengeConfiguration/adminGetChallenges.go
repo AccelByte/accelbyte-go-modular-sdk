@@ -7,6 +7,8 @@
 package challengeConfiguration
 
 import (
+	"encoding/json"
+
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -25,16 +27,25 @@ var AdminGetChallengesCmd = &cobra.Command{
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
+		keyword, _ := cmd.Flags().GetString("keyword")
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		sortBy, _ := cmd.Flags().GetString("sortBy")
 		status, _ := cmd.Flags().GetString("status")
+		tagsString := cmd.Flag("tags").Value.String()
+		var tags []string
+		errTags := json.Unmarshal([]byte(tagsString), &tags)
+		if errTags != nil {
+			return errTags
+		}
 		input := &challenge_configuration.AdminGetChallengesParams{
 			Namespace: namespace,
+			Keyword:   &keyword,
 			Limit:     &limit,
 			Offset:    &offset,
 			SortBy:    &sortBy,
 			Status:    &status,
+			Tags:      tags,
 		}
 		ok, errOK := challengeConfigurationService.AdminGetChallengesShort(input)
 		if errOK != nil {
@@ -52,8 +63,10 @@ var AdminGetChallengesCmd = &cobra.Command{
 func init() {
 	AdminGetChallengesCmd.Flags().String("namespace", "", "Namespace")
 	_ = AdminGetChallengesCmd.MarkFlagRequired("namespace")
+	AdminGetChallengesCmd.Flags().String("keyword", "", "Keyword")
 	AdminGetChallengesCmd.Flags().Int64("limit", 20, "Limit")
 	AdminGetChallengesCmd.Flags().Int64("offset", 0, "Offset")
 	AdminGetChallengesCmd.Flags().String("sortBy", "", "Sort by")
 	AdminGetChallengesCmd.Flags().String("status", "", "Status")
+	AdminGetChallengesCmd.Flags().String("tags", "", "Tags")
 }

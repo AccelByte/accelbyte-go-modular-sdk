@@ -21,7 +21,6 @@ import (
 
 type AdminProfanityCreateBulkResponse struct {
 	chatclientmodels.ApiResponse
-	Data *chatclientmodels.ModelsDictionary
 
 	Error400 *chatclientmodels.RestapiErrorResponseBody
 	Error401 *chatclientmodels.RestapiErrorResponseBody
@@ -30,7 +29,7 @@ type AdminProfanityCreateBulkResponse struct {
 	Error500 *chatclientmodels.RestapiErrorResponseBody
 }
 
-func (m *AdminProfanityCreateBulkResponse) Unpack() (*chatclientmodels.ModelsDictionary, *chatclientmodels.ApiError) {
+func (m *AdminProfanityCreateBulkResponse) Unpack() *chatclientmodels.ApiError {
 	if !m.IsSuccess {
 		var errCode int
 		errCode = m.StatusCode
@@ -43,7 +42,7 @@ func (m *AdminProfanityCreateBulkResponse) Unpack() (*chatclientmodels.ModelsDic
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		case 401:
 			e, err := m.Error401.TranslateToApiError()
@@ -51,7 +50,7 @@ func (m *AdminProfanityCreateBulkResponse) Unpack() (*chatclientmodels.ModelsDic
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		case 403:
 			e, err := m.Error403.TranslateToApiError()
@@ -59,7 +58,7 @@ func (m *AdminProfanityCreateBulkResponse) Unpack() (*chatclientmodels.ModelsDic
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		case 404:
 			e, err := m.Error404.TranslateToApiError()
@@ -67,7 +66,7 @@ func (m *AdminProfanityCreateBulkResponse) Unpack() (*chatclientmodels.ModelsDic
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		case 500:
 			e, err := m.Error500.TranslateToApiError()
@@ -75,14 +74,14 @@ func (m *AdminProfanityCreateBulkResponse) Unpack() (*chatclientmodels.ModelsDic
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
 
-			return nil, e
+			return e
 
 		default:
-			return nil, &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
+			return &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
 		}
 	}
 
-	return m.Data, nil
+	return nil
 }
 
 // AdminProfanityCreateBulkReader is a Reader for the AdminProfanityCreateBulk structure.
@@ -150,30 +149,10 @@ func NewAdminProfanityCreateBulkNoContent() *AdminProfanityCreateBulkNoContent {
   No Content
 */
 type AdminProfanityCreateBulkNoContent struct {
-	Payload *chatclientmodels.ModelsDictionary
 }
 
 func (o *AdminProfanityCreateBulkNoContent) Error() string {
-	return fmt.Sprintf("[POST /chat/v1/admin/profanity/namespaces/{namespace}/dictionary/bulk][%d] adminProfanityCreateBulkNoContent  %+v", 204, o.ToJSONString())
-}
-
-func (o *AdminProfanityCreateBulkNoContent) ToJSONString() string {
-	if o.Payload == nil {
-		return "{}"
-	}
-
-	b, err := json.Marshal(o.Payload)
-	if err != nil {
-		fmt.Println(err)
-
-		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
-	}
-
-	return fmt.Sprintf("%+v", string(b))
-}
-
-func (o *AdminProfanityCreateBulkNoContent) GetPayload() *chatclientmodels.ModelsDictionary {
-	return o.Payload
+	return fmt.Sprintf("[POST /chat/v1/admin/profanity/namespaces/{namespace}/dictionary/bulk][%d] adminProfanityCreateBulkNoContent ", 204)
 }
 
 func (o *AdminProfanityCreateBulkNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -182,13 +161,6 @@ func (o *AdminProfanityCreateBulkNoContent) readResponse(response runtime.Client
 	contentDisposition := response.GetHeader("Content-Disposition")
 	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
 		consumer = runtime.ByteStreamConsumer()
-	}
-
-	o.Payload = new(chatclientmodels.ModelsDictionary)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
 	}
 
 	return nil

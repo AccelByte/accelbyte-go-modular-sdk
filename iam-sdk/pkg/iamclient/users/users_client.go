@@ -150,6 +150,7 @@ type ClientService interface {
 	AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveUserRoleV3Response, error)
 	AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV3Response, error)
 	AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRoleV3Response, error)
+	AdminGetUserStateByUserIDV3Short(params *AdminGetUserStateByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserStateByUserIDV3Response, error)
 	AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserStatusV3Response, error)
 	AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateUserIdentityParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTrustlyUpdateUserIdentityResponse, error)
 	AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVerifyUserWithoutVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyUserWithoutVerificationCodeV3Response, error)
@@ -11041,6 +11042,95 @@ func (a *Client) AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params,
 }
 
 /*
+AdminGetUserStateByUserIDV3Short admin get user state by user id
+Admin Get User State By User Id
+*/
+func (a *Client) AdminGetUserStateByUserIDV3Short(params *AdminGetUserStateByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserStateByUserIDV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetUserStateByUserIDV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminGetUserStateByUserIdV3",
+		Method:             "GET",
+		PathPattern:        "/iam/v3/admin/namespaces/{namespace}/users/{userId}/state",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetUserStateByUserIDV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetUserStateByUserIDV3OK:
+		response := &AdminGetUserStateByUserIDV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminGetUserStateByUserIDV3BadRequest:
+		response := &AdminGetUserStateByUserIDV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetUserStateByUserIDV3Unauthorized:
+		response := &AdminGetUserStateByUserIDV3Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetUserStateByUserIDV3Forbidden:
+		response := &AdminGetUserStateByUserIDV3Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetUserStateByUserIDV3NotFound:
+		response := &AdminGetUserStateByUserIDV3Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetUserStateByUserIDV3InternalServerError:
+		response := &AdminGetUserStateByUserIDV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 AdminUpdateUserStatusV3Short update user status
 This endpoint disable or enable user account. Set the enable status on the request body to true to enable user account or set to false to disable it.
 Disable user for **Account Disable** purpose fill the reason with:
@@ -11589,6 +11679,7 @@ Get User By Platform User ID.
 This endpoint return user information by given platform ID and platform user ID.
 Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
 example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
+**Note**: this is deprecated, substitute endpoint: /iam/v4/public/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]
 
 
 **Supported Platforms:**

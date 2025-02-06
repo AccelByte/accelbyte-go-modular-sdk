@@ -386,11 +386,14 @@ func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUser
 
 /*
 AdminGeneratePersonalDataURLShort generate personal data download url
-Generate personal data download url.
-Scope: account
 
-### Request Header:
-- **Content-Type: application/x-www-form-urlencoded**
+
+Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope `account`
+
+
+
+
+If admin request data for themselves, password is need to be set
 */
 func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGeneratePersonalDataURLResponse, error) {
 	// TODO: Validate the params before sending

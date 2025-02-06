@@ -92,6 +92,13 @@ func (a *Client) AdminGetChallengesShort(params *AdminGetChallengesParams, authI
 		response.IsSuccess = true
 
 		return response, nil
+	case *AdminGetChallengesBadRequest:
+		response := &AdminGetChallengesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *AdminGetChallengesUnauthorized:
 		response := &AdminGetChallengesResponse{}
 		response.Error401 = v.Payload
@@ -142,6 +149,7 @@ Challenge is a collection of goals that can be completed by players. Challenge c
 - randomizedPerRotation:
 - true: each goal will be randomly assigned to multiple periods
 - false: a goal will only be assigned to one period
+- tags: challenge's labels.
 */
 func (a *Client) AdminCreateChallengeShort(params *AdminCreateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateChallengeResponse, error) {
 	// TODO: Validate the params before sending
@@ -414,6 +422,7 @@ Request body:
 - randomizedPerRotation:
 - true: each goal will be randomly assigned to multiple periods
 - false: a goal will only be assigned to one period
+- tags: challenge's labels.
 */
 func (a *Client) AdminUpdateChallengeShort(params *AdminUpdateChallengeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateChallengeResponse, error) {
 	// TODO: Validate the params before sending

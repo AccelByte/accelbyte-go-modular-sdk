@@ -113,7 +113,7 @@ func (a *Client) InfoRegionsShort(params *InfoRegionsParams, authInfo runtime.Cl
 }
 
 /*
-InfoSupportedInstancesShort get a list of available vm configurations
+InfoSupportedInstancesShort get a list of available instance types for the current account
 Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA [READ]
 */
 func (a *Client) InfoSupportedInstancesShort(params *InfoSupportedInstancesParams, authInfo runtime.ClientAuthInfoWriter) (*InfoSupportedInstancesResponse, error) {

@@ -84,6 +84,13 @@ func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtim
 		response.IsSuccess = true
 
 		return response, nil
+	case *GetChallengesBadRequest:
+		response := &GetChallengesResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *GetChallengesUnauthorized:
 		response := &GetChallengesResponse{}
 		response.Error401 = v.Payload

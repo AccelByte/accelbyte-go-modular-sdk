@@ -675,14 +675,6 @@ Example
 
 
 
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
-
-
 ## Record Metadata
 
 Metadata allows user to define the behaviour of the record.
@@ -703,6 +695,14 @@ Indicate whether the player record is a public record or not.
 ...
 }
 ```
+
+## Recommended Request Body Size
+
+To ensure optimal performance and efficient resource utilization, it is recommended that the request body size for this endpoint does not exceed 250 KB.
+
+## Exceeding the recommended limit
+
+While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
 */
 func (a *Client) PutPlayerRecordHandlerV1Short(params *PutPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PutPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
@@ -819,14 +819,6 @@ Example 2
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
 
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
-
-
 ## Record Metadata
 
 Metadata allows user to define the behaviour of the record.
@@ -847,6 +839,14 @@ Indicate whether the player record is a public record or not.
 ...
 }
 ```
+
+## Recommended Request Body Size
+
+To ensure optimal performance and efficient resource utilization, it is recommended that the request body size for this endpoint does not exceed 250 KB.
+
+## Exceeding the recommended limit
+
+While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
 */
 func (a *Client) PostPlayerRecordHandlerV1Short(params *PostPlayerRecordHandlerV1Params, authInfo runtime.ClientAuthInfoWriter) (*PostPlayerRecordHandlerV1Response, error) {
 	// TODO: Validate the params before sending
@@ -1122,14 +1122,6 @@ Example
 
 
 
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
@@ -1259,14 +1251,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
-
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
 
 
 ## Reserved Word

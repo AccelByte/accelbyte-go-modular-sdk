@@ -36,6 +36,7 @@ type ClientService interface {
 	UpdateMatchPoolShort(params *UpdateMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchPoolResponse, error)
 	DeleteMatchPoolShort(params *DeleteMatchPoolParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchPoolResponse, error)
 	MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolMetricResponse, error)
+	PostMatchErrorMetricShort(params *PostMatchErrorMetricParams, authInfo runtime.ClientAuthInfoWriter) (*PostMatchErrorMetricResponse, error)
 	GetPlayerMetricShort(params *GetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayerMetricResponse, error)
 	AdminGetMatchPoolTicketsShort(params *AdminGetMatchPoolTicketsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMatchPoolTicketsResponse, error)
 	PublicGetPlayerMetricShort(params *PublicGetPlayerMetricParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerMetricResponse, error)
@@ -557,6 +558,94 @@ func (a *Client) MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo ru
 		return response, v
 	case *MatchPoolMetricInternalServerError:
 		response := &MatchPoolMetricResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PostMatchErrorMetricShort post metrics for external flow failure in a specific match pool
+Post metrics for external flow failure in a specific match pool
+*/
+func (a *Client) PostMatchErrorMetricShort(params *PostMatchErrorMetricParams, authInfo runtime.ClientAuthInfoWriter) (*PostMatchErrorMetricResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostMatchErrorMetricParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PostMatchErrorMetric",
+		Method:             "POST",
+		PathPattern:        "/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics/external-failure",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostMatchErrorMetricReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PostMatchErrorMetricNoContent:
+		response := &PostMatchErrorMetricResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PostMatchErrorMetricBadRequest:
+		response := &PostMatchErrorMetricResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PostMatchErrorMetricUnauthorized:
+		response := &PostMatchErrorMetricResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PostMatchErrorMetricForbidden:
+		response := &PostMatchErrorMetricResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PostMatchErrorMetricNotFound:
+		response := &PostMatchErrorMetricResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PostMatchErrorMetricInternalServerError:
+		response := &PostMatchErrorMetricResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

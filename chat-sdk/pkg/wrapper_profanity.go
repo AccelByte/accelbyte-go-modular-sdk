@@ -96,7 +96,7 @@ func (aaa *ProfanityService) AdminProfanityCreateShort(input *profanity.AdminPro
 	return ok, nil
 }
 
-func (aaa *ProfanityService) AdminProfanityCreateBulkShort(input *profanity.AdminProfanityCreateBulkParams) (*profanity.AdminProfanityCreateBulkResponse, error) {
+func (aaa *ProfanityService) AdminProfanityCreateBulkShort(input *profanity.AdminProfanityCreateBulkParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -118,12 +118,12 @@ func (aaa *ProfanityService) AdminProfanityCreateBulkShort(input *profanity.Admi
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	noContent, err := aaa.Client.Profanity.AdminProfanityCreateBulkShort(input, authInfoWriter)
+	_, err := aaa.Client.Profanity.AdminProfanityCreateBulkShort(input, authInfoWriter)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	return noContent, nil
+	return nil
 }
 
 func (aaa *ProfanityService) AdminProfanityExportShort(input *profanity.AdminProfanityExportParams) (*profanity.AdminProfanityExportResponse, error) {

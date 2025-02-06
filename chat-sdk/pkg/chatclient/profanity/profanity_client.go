@@ -263,7 +263,6 @@ func (a *Client) AdminProfanityCreateBulkShort(params *AdminProfanityCreateBulkP
 
 	case *AdminProfanityCreateBulkNoContent:
 		response := &AdminProfanityCreateBulkResponse{}
-		response.Data = v.Payload
 
 		response.IsSuccess = true
 

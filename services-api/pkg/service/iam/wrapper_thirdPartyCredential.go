@@ -278,6 +278,36 @@ func (aaa *ThirdPartyCredentialService) DeleteThirdPartyLoginPlatformDomainV3Sho
 	return nil
 }
 
+func (aaa *ThirdPartyCredentialService) PartialUpdateThirdPartyLoginPlatformDomainV3Short(input *third_party_credential.PartialUpdateThirdPartyLoginPlatformDomainV3Params) (*third_party_credential.PartialUpdateThirdPartyLoginPlatformDomainV3Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.ThirdPartyCredential.PartialUpdateThirdPartyLoginPlatformDomainV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *ThirdPartyCredentialService) AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(input *third_party_credential.AdminCheckThirdPartyLoginPlatformAvailabilityV3Params) (*third_party_credential.AdminCheckThirdPartyLoginPlatformAvailabilityV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

@@ -63,20 +63,21 @@ Example
 
 
 
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
+
+
+## Recommended Request Body Size
+
+To ensure optimal performance and efficient resource utilization, it is recommended that the request body size for this endpoint does not exceed 250 KB.
+
+## Exceeding the recommended limit
+
+While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
 
 
 ## Parameters Notes
@@ -209,20 +210,21 @@ Example
 
 
 
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
+
+
+## Recommended Request Body Size
+
+To ensure optimal performance and efficient resource utilization, it is recommended that the request body size for this endpoint does not exceed 250 KB.
+
+## Exceeding the recommended limit
+
+While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
 
 
 ## Parameters Notes
@@ -360,20 +362,21 @@ Example
 
 
 
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
+
+
+## Recommended Request Body Size
+
+To ensure optimal performance and efficient resource utilization, it is recommended that the request body size for this endpoint does not exceed 250 KB.
+
+## Exceeding the recommended limit
+
+While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
 
 
 ## Parameters Notes
@@ -514,20 +517,21 @@ Example
 
 
 
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
+
+
+## Recommended Request Body Size
+
+To ensure optimal performance and efficient resource utilization, it is recommended that the request body size for this endpoint does not exceed 250 KB.
+
+## Exceeding the recommended limit
+
+While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
 
 
 ## Parameters Notes
@@ -673,20 +677,21 @@ Example
 
 
 
-## Restriction
-This is the restriction of Key Naming for the record:
-1. Cannot use **"."** as the key name
-- `{ "data.2": "value" }`
-2. Cannot use **"$"** as the prefix in key names
-- `{ "$data": "value" }`
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
+
+
+## Recommended Request Body Size
+
+To ensure optimal performance and efficient resource utilization, it is recommended that the request body size for this endpoint does not exceed 250 KB.
+
+## Exceeding the recommended limit
+
+While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
 
 
 ## Parameters Notes

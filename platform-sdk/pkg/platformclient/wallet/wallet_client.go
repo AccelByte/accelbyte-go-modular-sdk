@@ -46,6 +46,8 @@ type ClientService interface {
 	DisableUserWalletShort(params *DisableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserWalletResponse, error)
 	EnableUserWalletShort(params *EnableUserWalletParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserWalletResponse, error)
 	ListUserWalletTransactionsShort(params *ListUserWalletTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*ListUserWalletTransactionsResponse, error)
+	GetWalletConfigShort(params *GetWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetWalletConfigResponse, error)
+	UpdateWalletConfigShort(params *UpdateWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWalletConfigResponse, error)
 	QueryWalletsShort(params *QueryWalletsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryWalletsResponse, error)
 	BulkCreditShort(params *BulkCreditParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreditResponse, error)
 	BulkDebitShort(params *BulkDebitParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDebitResponse, error)
@@ -1111,6 +1113,114 @@ func (a *Client) ListUserWalletTransactionsShort(params *ListUserWalletTransacti
 		response.IsSuccess = false
 
 		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+GetWalletConfigShort get wallet config of a namespace
+get wallet config
+*/
+func (a *Client) GetWalletConfigShort(params *GetWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetWalletConfigResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetWalletConfigParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWalletConfig",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/wallet/config",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWalletConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetWalletConfigOK:
+		response := &GetWalletConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+UpdateWalletConfigShort update wallet config
+Update wallet config of a namespace
+*/
+func (a *Client) UpdateWalletConfigShort(params *UpdateWalletConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWalletConfigResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateWalletConfigParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "updateWalletConfig",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/wallet/config",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateWalletConfigReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *UpdateWalletConfigOK:
+		response := &UpdateWalletConfigResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))

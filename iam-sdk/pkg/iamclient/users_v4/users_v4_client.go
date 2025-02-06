@@ -69,6 +69,7 @@ type ClientService interface {
 	AdminGetMyMFAStatusV4Short(params *AdminGetMyMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyMFAStatusV4Response, error)
 	AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV4Response, error)
 	PublicListUserIDByPlatformUserIDsV4Short(params *PublicListUserIDByPlatformUserIDsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicListUserIDByPlatformUserIDsV4Response, error)
+	PublicGetUserByPlatformUserIDV4Short(params *PublicGetUserByPlatformUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV4Response, error)
 	PublicCreateTestUserV4Short(params *PublicCreateTestUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateTestUserV4Response, error)
 	PublicCreateUserV4Short(params *PublicCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV4Response, error)
 	CreateUserFromInvitationV4Short(params *CreateUserFromInvitationV4Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV4Response, error)
@@ -3640,6 +3641,129 @@ func (a *Client) PublicListUserIDByPlatformUserIDsV4Short(params *PublicListUser
 		return response, v
 	case *PublicListUserIDByPlatformUserIDsV4InternalServerError:
 		response := &PublicListUserIDByPlatformUserIDsV4Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicGetUserByPlatformUserIDV4Short get user by platform user id
+Get User By Platform User ID.
+This endpoint return user information by given platform ID and platform user ID.
+Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
+example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
+If the target platform is not linked to the current user, will only return public information.
+----------
+
+**Supported Platforms:**
+- Steam group (steamnetwork):
+- steam
+- steamopenid
+- PSN group (psn):
+- ps4web
+- ps4
+- ps5
+- XBOX group(xbox):
+- live
+- xblweb
+- Oculus group (oculusgroup):
+- oculus
+- oculusweb
+- Google group (google):
+- google
+- googleplaygames:
+- epicgames
+- facebook
+- twitch
+- discord
+- android
+- ios
+- apple
+- device
+- nintendo
+- awscognito
+- amazon
+- netflix
+- snapchat
+- _oidc platform id_
+
+Note:
+- You can use either platform id or platform group as **platformId** parameter.
+- **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
+*/
+func (a *Client) PublicGetUserByPlatformUserIDV4Short(params *PublicGetUserByPlatformUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByPlatformUserIDV4Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicGetUserByPlatformUserIDV4Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PublicGetUserByPlatformUserIDV4",
+		Method:             "GET",
+		PathPattern:        "/iam/v4/public/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicGetUserByPlatformUserIDV4Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicGetUserByPlatformUserIDV4OK:
+		response := &PublicGetUserByPlatformUserIDV4Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicGetUserByPlatformUserIDV4Unauthorized:
+		response := &PublicGetUserByPlatformUserIDV4Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetUserByPlatformUserIDV4Forbidden:
+		response := &PublicGetUserByPlatformUserIDV4Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetUserByPlatformUserIDV4NotFound:
+		response := &PublicGetUserByPlatformUserIDV4Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetUserByPlatformUserIDV4InternalServerError:
+		response := &PublicGetUserByPlatformUserIDV4Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

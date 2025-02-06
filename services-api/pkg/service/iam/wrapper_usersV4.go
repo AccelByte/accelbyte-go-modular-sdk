@@ -1180,6 +1180,36 @@ func (aaa *UsersV4Service) PublicListUserIDByPlatformUserIDsV4Short(input *users
 	return ok, nil
 }
 
+func (aaa *UsersV4Service) PublicGetUserByPlatformUserIDV4Short(input *users_v4.PublicGetUserByPlatformUserIDV4Params) (*users_v4.PublicGetUserByPlatformUserIDV4Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsersV4 != nil {
+		input.XFlightId = tempFlightIdUsersV4
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.UsersV4.PublicGetUserByPlatformUserIDV4Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *UsersV4Service) PublicCreateTestUserV4Short(input *users_v4.PublicCreateTestUserV4Params) (*users_v4.PublicCreateTestUserV4Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

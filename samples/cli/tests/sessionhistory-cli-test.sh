@@ -65,167 +65,167 @@ eval_tap $? 4 'AdminGetLogConfig' test.out
 
 #- 5 AdminPatchUpdateLogConfig
 samples/cli/sample-apps Sessionhistory adminPatchUpdateLogConfig \
-    --body '{"logLevel": "info"}' \
+    --body '{"logLevel": "trace"}' \
     > test.out 2>&1
 eval_tap $? 5 'AdminPatchUpdateLogConfig' test.out
 
 #- 6 AdminQueryGameSessionDetail
 samples/cli/sample-apps Sessionhistory adminQueryGameSessionDetail \
     --namespace $AB_NAMESPACE \
-    --endDate 'ImDZCRU4' \
-    --gameSessionID 'kgBJ0lwL' \
-    --limit '63' \
-    --offset '78' \
-    --order '3rXentXn' \
-    --orderBy '99gascE9' \
-    --startDate 'PRB3Icsi' \
-    --userID 'YXXbAntA' \
+    --endDate '9r4Z4Ybr' \
+    --gameSessionID 'k9QZaLR8' \
+    --limit '0' \
+    --offset '62' \
+    --order 'gUZrJuQX' \
+    --orderBy 'volQj5Yn' \
+    --startDate 'gYRHQ3GQ' \
+    --userID 'R8EKmJaT' \
     > test.out 2>&1
 eval_tap $? 6 'AdminQueryGameSessionDetail' test.out
 
 #- 7 GetGameSessionDetail
 samples/cli/sample-apps Sessionhistory getGameSessionDetail \
     --namespace $AB_NAMESPACE \
-    --sessionId 'WWNP0Vnn' \
+    --sessionId 'LMsLyn2l' \
     > test.out 2>&1
 eval_tap $? 7 'GetGameSessionDetail' test.out
 
 #- 8 AdminQueryMatchmakingDetail
 samples/cli/sample-apps Sessionhistory adminQueryMatchmakingDetail \
     --namespace $AB_NAMESPACE \
-    --gameSessionID 'UjCZNztp' \
-    --limit '63' \
-    --offset '59' \
-    --order 'UUkeKJ7t' \
-    --orderBy 'eG9N6CdN' \
-    --ticketID 'jvl1SPbf' \
-    --userID 'hONEanY4' \
+    --gameSessionID 'amxsaNW9' \
+    --limit '41' \
+    --offset '57' \
+    --order 'eyb7kViY' \
+    --orderBy 'kxK4B1jj' \
+    --ticketID 'EfS76IPU' \
+    --userID 'L4V85LGH' \
     > test.out 2>&1
 eval_tap $? 8 'AdminQueryMatchmakingDetail' test.out
 
 #- 9 AdminGetMatchmakingDetailBySessionID
 samples/cli/sample-apps Sessionhistory adminGetMatchmakingDetailBySessionID \
     --namespace $AB_NAMESPACE \
-    --sessionId 'axTiaU8e' \
+    --sessionId 'nRXFW0g7' \
     > test.out 2>&1
 eval_tap $? 9 'AdminGetMatchmakingDetailBySessionID' test.out
 
 #- 10 AdminGetMatchmakingDetailByTicketID
 samples/cli/sample-apps Sessionhistory adminGetMatchmakingDetailByTicketID \
     --namespace $AB_NAMESPACE \
-    --ticketId 'fEUfkxER' \
+    --ticketId 'ektZNQCl' \
     > test.out 2>&1
 eval_tap $? 10 'AdminGetMatchmakingDetailByTicketID' test.out
 
 #- 11 AdminQueryPartyDetail
 samples/cli/sample-apps Sessionhistory adminQueryPartyDetail \
     --namespace $AB_NAMESPACE \
-    --limit '63' \
-    --offset '67' \
-    --order 'Cuhi03RX' \
-    --orderBy '7KHEfkom' \
-    --partyID 'UsdToMGm' \
-    --userID 'JQbaDf5e' \
+    --limit '6' \
+    --offset '78' \
+    --order '3XQceNtg' \
+    --orderBy 'wUSD7wDg' \
+    --partyID 'nqLRm3XX' \
+    --userID 'XfN8w51x' \
     > test.out 2>&1
 eval_tap $? 11 'AdminQueryPartyDetail' test.out
 
 #- 12 GetPartyDetail
 samples/cli/sample-apps Sessionhistory getPartyDetail \
     --namespace $AB_NAMESPACE \
-    --sessionId 'UuGv2QKw' \
+    --sessionId 'Jhgh08Kc' \
     > test.out 2>&1
 eval_tap $? 12 'GetPartyDetail' test.out
 
 #- 13 AdminQueryTicketDetail
 samples/cli/sample-apps Sessionhistory adminQueryTicketDetail \
     --namespace $AB_NAMESPACE \
-    --endDate 'LbO52R9f' \
-    --gameMode '2S2d9Q1u' \
-    --limit '78' \
-    --offset '86' \
-    --order 'QNb6KytL' \
-    --partyID '6q9fequP' \
-    --region 'BEWMAQtl' \
-    --startDate 'CPURPeWz' \
-    --userIDs 'JckhI9yv' \
+    --endDate 'zgBVMRDy' \
+    --gameMode 'KMbVG1YB' \
+    --limit '66' \
+    --offset '99' \
+    --order 'ScSYgHtG' \
+    --partyID 'fAjoQVkb' \
+    --region 'sbXc8PCO' \
+    --startDate 'AY7nsErk' \
+    --userIDs 'F3DkCp9O' \
     > test.out 2>&1
 eval_tap $? 13 'AdminQueryTicketDetail' test.out
 
 #- 14 AdminTicketDetailGetByTicketID
 samples/cli/sample-apps Sessionhistory adminTicketDetailGetByTicketID \
     --namespace $AB_NAMESPACE \
-    --ticketId 'HRU3Jh4H' \
+    --ticketId 'uAfmjGrv' \
     > test.out 2>&1
 eval_tap $? 14 'AdminTicketDetailGetByTicketID' test.out
 
 #- 15 PublicQueryGameSessionMe
 samples/cli/sample-apps Sessionhistory publicQueryGameSessionMe \
     --namespace $AB_NAMESPACE \
-    --limit '14' \
-    --offset '97' \
-    --order 'Jw9X4qRB' \
+    --limit '56' \
+    --offset '47' \
+    --order 'aUBRICk1' \
     > test.out 2>&1
 eval_tap $? 15 'PublicQueryGameSessionMe' test.out
 
 #- 16 QueryXrayMatchPool
 samples/cli/sample-apps Sessionhistory queryXrayMatchPool \
     --namespace $AB_NAMESPACE \
-    --poolName '["G5BEzY4Q", "Js7emKBt", "SBrttF1t"]' \
-    --endDate 'ZRX2njZV' \
-    --startDate 'RYzE7HUY' \
+    --poolName '["y19q5v2x", "jMshTOUy", "GZO6mut1"]' \
+    --endDate 'DE6KL6d9' \
+    --startDate 'XVRV71sJ' \
     > test.out 2>&1
 eval_tap $? 16 'QueryXrayMatchPool' test.out
 
 #- 17 QueryDetailTickMatchPool
 samples/cli/sample-apps Sessionhistory queryDetailTickMatchPool \
     --namespace $AB_NAMESPACE \
-    --podName 'sbxXIF7S' \
-    --poolName 'aO5B4KO1' \
-    --all 'true' \
-    --limit '66' \
-    --offset '57' \
-    --endDate '1DbONw6R' \
-    --startDate '9lohQDbT' \
+    --podName 'HWzq4gNw' \
+    --poolName '1mOuEd9H' \
+    --all 'false' \
+    --limit '47' \
+    --offset '23' \
+    --endDate 'CHrcEg4y' \
+    --startDate 'uaMCa2CV' \
     > test.out 2>&1
 eval_tap $? 17 'QueryDetailTickMatchPool' test.out
 
 #- 18 QueryDetailTickMatchPoolMatches
 samples/cli/sample-apps Sessionhistory queryDetailTickMatchPoolMatches \
     --namespace $AB_NAMESPACE \
-    --podName 'AumKYkrg' \
-    --poolName '1IlLhwRF' \
-    --tickId '4FtLWjlR' \
+    --podName '5DiwQ2t8' \
+    --poolName 'j4AE1QmL' \
+    --tickId 'VBPklAUZ' \
     > test.out 2>&1
 eval_tap $? 18 'QueryDetailTickMatchPoolMatches' test.out
 
 #- 19 QueryDetailTickMatchPoolTicket
 samples/cli/sample-apps Sessionhistory queryDetailTickMatchPoolTicket \
     --namespace $AB_NAMESPACE \
-    --podName 'DCIkysrn' \
-    --poolName 'HRSeZgL9' \
-    --tickId '7bRj1kWd' \
+    --podName 'GqSJbWrg' \
+    --poolName 'PWb1HCKc' \
+    --tickId 'hkswlrRL' \
     > test.out 2>&1
 eval_tap $? 19 'QueryDetailTickMatchPoolTicket' test.out
 
 #- 20 QueryMatchHistories
 samples/cli/sample-apps Sessionhistory queryMatchHistories \
-    --matchId 'n3B2AjZH' \
+    --matchId 'tBxVy5OB' \
     --namespace $AB_NAMESPACE \
-    --limit '94' \
-    --offset '10' \
+    --limit '60' \
+    --offset '3' \
     > test.out 2>&1
 eval_tap $? 20 'QueryMatchHistories' test.out
 
 #- 21 QueryMatchTicketHistories
 samples/cli/sample-apps Sessionhistory queryMatchTicketHistories \
-    --matchId 'E4v9TUQx' \
+    --matchId 'l3cpKj2p' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 21 'QueryMatchTicketHistories' test.out
 
 #- 22 QueryXrayMatch
 samples/cli/sample-apps Sessionhistory queryXrayMatch \
-    --matchId 'XL4GdGxN' \
+    --matchId 'yPAYaN1T' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 22 'QueryXrayMatch' test.out
@@ -233,136 +233,136 @@ eval_tap $? 22 'QueryXrayMatch' test.out
 #- 23 QueryAcquiringDS
 samples/cli/sample-apps Sessionhistory queryAcquiringDS \
     --namespace $AB_NAMESPACE \
-    --matchPool '["oGYNnvUM", "iNcUY1Ke", "tLMEn9C1"]' \
-    --endDate 'yk7PV8zq' \
-    --startDate '3j0RhmT2' \
+    --matchPool '["y0thmTXN", "QbswZ56X", "1sbwJTRK"]' \
+    --endDate '7UKXVSHB' \
+    --startDate 'AcVtBGWL' \
     > test.out 2>&1
 eval_tap $? 23 'QueryAcquiringDS' test.out
 
 #- 24 QueryAcquiringDSWaitTimeAvg
 samples/cli/sample-apps Sessionhistory queryAcquiringDSWaitTimeAvg \
     --namespace $AB_NAMESPACE \
-    --matchPool '["ViZkNbTW", "mWJDI1hO", "b8V9Khpl"]' \
-    --endDate '95ClTadL' \
-    --startDate 'JoaeBPXM' \
+    --matchPool '["UGvczr3s", "rsDtc9L8", "LMl0qC2z"]' \
+    --endDate '7dYyCnyn' \
+    --startDate '9q0A9W2p' \
     > test.out 2>&1
 eval_tap $? 24 'QueryAcquiringDSWaitTimeAvg' test.out
 
 #- 25 QueryMatchLengthDurationpAvg
 samples/cli/sample-apps Sessionhistory queryMatchLengthDurationpAvg \
     --namespace $AB_NAMESPACE \
-    --matchPool '["iX66Tmyy", "t0O5X5QZ", "DndyMkyu"]' \
-    --endDate 'kX24MPE3' \
-    --startDate '6tZpyMuR' \
+    --matchPool '["wfjwFHHL", "JtxixwLF", "CDFyuShf"]' \
+    --endDate 'TD3r8aun' \
+    --startDate 'oTUhdbgx' \
     > test.out 2>&1
 eval_tap $? 25 'QueryMatchLengthDurationpAvg' test.out
 
 #- 26 QueryMatchLengthDurationp99
 samples/cli/sample-apps Sessionhistory queryMatchLengthDurationp99 \
     --namespace $AB_NAMESPACE \
-    --matchPool '["Mn3nONdj", "Micz051J", "vkbb8eyX"]' \
-    --endDate 'jqiOh98o' \
-    --startDate 'HDkD83Zy' \
+    --matchPool '["UVsWlzx9", "lInLLOpX", "IilxATLl"]' \
+    --endDate '89bBCtG7' \
+    --startDate 'XkZatg6s' \
     > test.out 2>&1
 eval_tap $? 26 'QueryMatchLengthDurationp99' test.out
 
 #- 27 QueryTotalActiveSession
 samples/cli/sample-apps Sessionhistory queryTotalActiveSession \
     --namespace $AB_NAMESPACE \
-    --matchPool '["BOM7LBhD", "Ivw0YXU6", "OsjSbXBq"]' \
-    --region 'LDDLF7pd' \
-    --endDate 'MqHCNVow' \
-    --startDate 'PehgXdAI' \
+    --matchPool '["2JOGnSAE", "nJbPsH34", "fp0vUFAT"]' \
+    --region 'sSsUdGdU' \
+    --endDate 'iJh4cn7u' \
+    --startDate 'ZlYvvjCQ' \
     > test.out 2>&1
 eval_tap $? 27 'QueryTotalActiveSession' test.out
 
 #- 28 QueryTotalMatchmakingMatch
 samples/cli/sample-apps Sessionhistory queryTotalMatchmakingMatch \
     --namespace $AB_NAMESPACE \
-    --matchPool '["sVbVgR5p", "1hPbMXFv", "cPmMhXuI"]' \
-    --endDate 'zhA3mQ4A' \
-    --startDate 'G9tMNzw4' \
+    --matchPool '["cAVozeu6", "bNL8oogs", "xd3cDwrn"]' \
+    --endDate 'bkftzxJV' \
+    --startDate 'g13o2Yf7' \
     > test.out 2>&1
 eval_tap $? 28 'QueryTotalMatchmakingMatch' test.out
 
 #- 29 QueryTotalPlayerPersession
 samples/cli/sample-apps Sessionhistory queryTotalPlayerPersession \
     --namespace $AB_NAMESPACE \
-    --matchPool '["9JJhh3cN", "bVbIEl3T", "2fhQroFq"]' \
-    --endDate 'DKMBfI6o' \
-    --startDate '3G8XL8HO' \
+    --matchPool '["Gk5jnSYc", "BKTwiORh", "Quc9tgoZ"]' \
+    --endDate 'k2UmrO1c' \
+    --startDate 'R2wu8Y5k' \
     > test.out 2>&1
 eval_tap $? 29 'QueryTotalPlayerPersession' test.out
 
 #- 30 QueryTotalMatchmakingCanceled
 samples/cli/sample-apps Sessionhistory queryTotalMatchmakingCanceled \
     --namespace $AB_NAMESPACE \
-    --matchPool '["HgoWf4dT", "KIpadmTt", "N8bkIYj3"]' \
-    --endDate 'UxM03OOK' \
-    --startDate '1VipZ0qk' \
+    --matchPool '["qpUn3rmq", "RusVnC6c", "NpyHRHaJ"]' \
+    --endDate 'y0xGzfUo' \
+    --startDate 'Y9RQFp6V' \
     > test.out 2>&1
 eval_tap $? 30 'QueryTotalMatchmakingCanceled' test.out
 
 #- 31 QueryTotalMatchmakingCreated
 samples/cli/sample-apps Sessionhistory queryTotalMatchmakingCreated \
     --namespace $AB_NAMESPACE \
-    --matchPool '["G67rLSTz", "rlkvROIU", "wZzQUVfD"]' \
-    --endDate 'g2xmFCnV' \
-    --startDate 'DKxhGLeI' \
+    --matchPool '["KrIr0dZw", "vnzT678X", "KmZjkmqA"]' \
+    --endDate 'qybhWasE' \
+    --startDate 'i8vj06aT' \
     > test.out 2>&1
 eval_tap $? 31 'QueryTotalMatchmakingCreated' test.out
 
 #- 32 QueryTotalMatchmakingExpired
 samples/cli/sample-apps Sessionhistory queryTotalMatchmakingExpired \
     --namespace $AB_NAMESPACE \
-    --matchPool '["tzGtSmvY", "pUAdWwPr", "NpM6KEWz"]' \
-    --endDate 'VkGmsojH' \
-    --startDate 'Kypgya4f' \
+    --matchPool '["3fDgPGT5", "YpRIq1eM", "NFW0oHcU"]' \
+    --endDate 'jyVYzn5n' \
+    --startDate '5trx5s93' \
     > test.out 2>&1
 eval_tap $? 32 'QueryTotalMatchmakingExpired' test.out
 
 #- 33 QueryTotalMatchmakingMatchTicket
 samples/cli/sample-apps Sessionhistory queryTotalMatchmakingMatchTicket \
     --namespace $AB_NAMESPACE \
-    --matchPool '["nJKXvjWq", "0RHXpZ9G", "ldLB0t0Q"]' \
-    --endDate 'FaP9MA0B' \
-    --startDate 'N7VytxWE' \
+    --matchPool '["dyhcov9K", "RBHiYBd9", "bGJ4zfvY"]' \
+    --endDate 'LnOcZDWx' \
+    --startDate 'Y8lZ2Ra2' \
     > test.out 2>&1
 eval_tap $? 33 'QueryTotalMatchmakingMatchTicket' test.out
 
 #- 34 CreateXrayTicketObservability
 samples/cli/sample-apps Sessionhistory createXrayTicketObservability \
     --namespace $AB_NAMESPACE \
-    --body '{"action": "6bO652VG", "activeAllianceRule": {"max_number": 77, "min_number": 53, "player_max_number": 32, "player_min_number": 52}, "activeMatchingRule": [{"attribute": "q15IqVRG", "criteria": "1PAV1awE", "reference": 0.592051069472029}, {"attribute": "yHOMgkaJ", "criteria": "6twA0Ev0", "reference": 0.11492332139083139}, {"attribute": "yoHM2X7h", "criteria": "bCASbVCl", "reference": 0.7406119663259678}], "function": "mjYb2ZJQ", "gameMode": "3Gdl8zZ5", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 88, "matchID": "6otL5CBJ", "namespace": "b406UKjH", "remainingPlayersPerTicket": [88, 94, 76], "remainingTickets": 56, "sessionTickID": "r8ji1a46", "tickID": 94, "ticketID": "eoEUlXDI", "timeToMatchSec": 0.5078909950529145, "timestamp": "1976-12-27T00:00:00Z", "unbackfillReason": "Cr5aZ2Jt", "unmatchReason": "uV03ZuRV"}' \
+    --body '{"action": "InwI4jVV", "activeAllianceRule": {"max_number": 0, "min_number": 62, "player_max_number": 0, "player_min_number": 78}, "activeMatchingRule": [{"attribute": "SJuJkPDA", "criteria": "9IGgzi1i", "reference": 0.8323421291580921}, {"attribute": "QrqwISKI", "criteria": "ekMVlARx", "reference": 0.6612187219816061}, {"attribute": "3Mzh4yRM", "criteria": "rwClCr0O", "reference": 0.7266087610879186}], "function": "OSpz4Dqi", "gameMode": "lByk3WYL", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 90, "matchID": "BKgDPW1u", "namespace": "gDyPNLzC", "remainingPlayersPerTicket": [40, 10, 31], "remainingTickets": 64, "sessionTickID": "oc3ALtI6", "tickID": 77, "ticketID": "jlXMpvc4", "timeToMatchSec": 0.47063533462407803, "timestamp": "1995-03-02T00:00:00Z", "unbackfillReason": "0U7Mzc3y", "unmatchReason": "6cq2L6TN"}' \
     > test.out 2>&1
 eval_tap $? 34 'CreateXrayTicketObservability' test.out
 
 #- 35 CreateXrayBulkTicketObservability
 samples/cli/sample-apps Sessionhistory createXrayBulkTicketObservability \
     --namespace $AB_NAMESPACE \
-    --body '{"ticketObservabilities": [{"action": "9M45AoKv", "activeAllianceRule": {"max_number": 5, "min_number": 77, "player_max_number": 76, "player_min_number": 86}, "activeMatchingRule": [{"attribute": "AoC0gvlH", "criteria": "HVbDR9Sx", "reference": 0.4329630658428384}, {"attribute": "OSWt8XD5", "criteria": "6FBRVcGK", "reference": 0.10948550289852044}, {"attribute": "TXRVCtiv", "criteria": "B5PQ5BEt", "reference": 0.9664374945797861}], "function": "Ql0SXGvi", "gameMode": "sVzZJ9QT", "isBackfillMatch": false, "isRuleSetFlexed": false, "iteration": 100, "matchID": "YtRZSp5y", "namespace": "Yg2drdws", "remainingPlayersPerTicket": [92, 55, 77], "remainingTickets": 39, "sessionTickID": "QjLrGV6l", "tickID": 50, "ticketID": "MGLuCeFI", "timeToMatchSec": 0.5512623161190816, "timestamp": "1983-10-10T00:00:00Z", "unbackfillReason": "7TAonWSo", "unmatchReason": "W28MRkUO"}, {"action": "PKcdmFSw", "activeAllianceRule": {"max_number": 45, "min_number": 91, "player_max_number": 63, "player_min_number": 18}, "activeMatchingRule": [{"attribute": "KrPjwh95", "criteria": "FknSTX3r", "reference": 0.7773062639221864}, {"attribute": "hpSimssr", "criteria": "6W3MeQL7", "reference": 0.02165023695382029}, {"attribute": "hhaZCzgc", "criteria": "XUoktAEn", "reference": 0.9020371252132483}], "function": "wuZf9uCJ", "gameMode": "ljpp2Phy", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 8, "matchID": "7BBOiV44", "namespace": "ZtYbzPvl", "remainingPlayersPerTicket": [5, 98, 84], "remainingTickets": 76, "sessionTickID": "Cb8wUxvH", "tickID": 71, "ticketID": "OMmwFQRA", "timeToMatchSec": 0.18972200502880565, "timestamp": "1997-05-17T00:00:00Z", "unbackfillReason": "jaQg8guP", "unmatchReason": "ab7zHkf5"}, {"action": "LAJ915O2", "activeAllianceRule": {"max_number": 39, "min_number": 25, "player_max_number": 0, "player_min_number": 27}, "activeMatchingRule": [{"attribute": "i3THbr60", "criteria": "oFPESkzO", "reference": 0.38909953332074165}, {"attribute": "SGOPxiZ4", "criteria": "Utxrxpft", "reference": 0.9063607443048676}, {"attribute": "0pnIvULd", "criteria": "ksNSbItH", "reference": 0.37575898464779267}], "function": "toXDdq2t", "gameMode": "vVHqidLM", "isBackfillMatch": false, "isRuleSetFlexed": false, "iteration": 18, "matchID": "j8tEQtiI", "namespace": "PboSbYjT", "remainingPlayersPerTicket": [76, 4, 47], "remainingTickets": 64, "sessionTickID": "6FrNuA8G", "tickID": 65, "ticketID": "YFxqlGJL", "timeToMatchSec": 0.8632420059567427, "timestamp": "1986-11-25T00:00:00Z", "unbackfillReason": "DjKXBS8V", "unmatchReason": "wWJ8pEFX"}]}' \
+    --body '{"ticketObservabilities": [{"action": "jpd1RRgs", "activeAllianceRule": {"max_number": 84, "min_number": 69, "player_max_number": 17, "player_min_number": 1}, "activeMatchingRule": [{"attribute": "xqYGjSC4", "criteria": "mJD4uCFq", "reference": 0.7217803122012343}, {"attribute": "PHfGI7Ay", "criteria": "rCbSjv57", "reference": 0.04695575776813099}, {"attribute": "TrMNSEmP", "criteria": "hnueZqeg", "reference": 0.7055580564085392}], "function": "tMDI2dWn", "gameMode": "5sn9r9M5", "isBackfillMatch": true, "isRuleSetFlexed": true, "iteration": 93, "matchID": "nUm1YBGc", "namespace": "2dcZA3fo", "remainingPlayersPerTicket": [39, 83, 25], "remainingTickets": 18, "sessionTickID": "8zV9jnL1", "tickID": 52, "ticketID": "BzDQb8TI", "timeToMatchSec": 0.9319026767689734, "timestamp": "1975-08-24T00:00:00Z", "unbackfillReason": "Y1YDgzDp", "unmatchReason": "hOXqAsUd"}, {"action": "6m3oe03I", "activeAllianceRule": {"max_number": 66, "min_number": 4, "player_max_number": 40, "player_min_number": 57}, "activeMatchingRule": [{"attribute": "VjfEycpl", "criteria": "DDw4RZyR", "reference": 0.9785874495257555}, {"attribute": "bUc7ReC3", "criteria": "dyTCEZ2m", "reference": 0.8164500214485092}, {"attribute": "lSWOxjnr", "criteria": "tWOBLnbK", "reference": 0.2626211537897891}], "function": "58thoCjg", "gameMode": "g494Ufto", "isBackfillMatch": true, "isRuleSetFlexed": true, "iteration": 51, "matchID": "ruX2HRyL", "namespace": "VGlSatLO", "remainingPlayersPerTicket": [52, 86, 68], "remainingTickets": 75, "sessionTickID": "OSXigyAs", "tickID": 61, "ticketID": "FPeZHtDR", "timeToMatchSec": 0.4385116359080189, "timestamp": "1991-07-29T00:00:00Z", "unbackfillReason": "gOZMHtyx", "unmatchReason": "0bNQ798z"}, {"action": "clULMy79", "activeAllianceRule": {"max_number": 89, "min_number": 71, "player_max_number": 82, "player_min_number": 22}, "activeMatchingRule": [{"attribute": "d8f8fE0S", "criteria": "vwQ7RrXi", "reference": 0.8760056276181276}, {"attribute": "OMlO1VqY", "criteria": "UNBQ1fhV", "reference": 0.8344685390414621}, {"attribute": "2hIrXVIV", "criteria": "bR24Tkva", "reference": 0.7524202125089168}], "function": "nUs0TZHi", "gameMode": "r321g9ZN", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 94, "matchID": "hBDbPh5s", "namespace": "GRjL6LXC", "remainingPlayersPerTicket": [28, 6, 70], "remainingTickets": 11, "sessionTickID": "Ku0CvszZ", "tickID": 66, "ticketID": "qom0XmKB", "timeToMatchSec": 0.8948576395943155, "timestamp": "1975-04-09T00:00:00Z", "unbackfillReason": "6IixVJOn", "unmatchReason": "h2wNQVr1"}]}' \
     > test.out 2>&1
 eval_tap $? 35 'CreateXrayBulkTicketObservability' test.out
 
 #- 36 QueryXrayTimelineByTicketID
 samples/cli/sample-apps Sessionhistory queryXrayTimelineByTicketID \
     --namespace $AB_NAMESPACE \
-    --ticketId '9M6ZZtSb' \
-    --limit '42' \
-    --offset '36' \
-    --endDate 'eMvqzI6Y' \
-    --startDate 'AXuWlqoE' \
+    --ticketId 'qwGPgCnY' \
+    --limit '63' \
+    --offset '73' \
+    --endDate 'm7NSXnms' \
+    --startDate 'EOE7esqt' \
     > test.out 2>&1
 eval_tap $? 36 'QueryXrayTimelineByTicketID' test.out
 
 #- 37 QueryXrayTimelineByUserID
 samples/cli/sample-apps Sessionhistory queryXrayTimelineByUserID \
     --namespace $AB_NAMESPACE \
-    --userId 'B0VfLmLi' \
-    --limit '6' \
-    --offset '94' \
-    --endDate 'GQQZ02eE' \
-    --startDate 'YOvipg3c' \
+    --userId '1ltraOTw' \
+    --limit '51' \
+    --offset '22' \
+    --endDate '8Fgg7pLv' \
+    --startDate 'oDvKf2lR' \
     > test.out 2>&1
 eval_tap $? 37 'QueryXrayTimelineByUserID' test.out
 

@@ -216,6 +216,36 @@ func (aaa *MatchPoolsService) MatchPoolMetricShort(input *match_pools.MatchPoolM
 	return ok, nil
 }
 
+func (aaa *MatchPoolsService) PostMatchErrorMetricShort(input *match_pools.PostMatchErrorMetricParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdMatchPools != nil {
+		input.XFlightId = tempFlightIdMatchPools
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.MatchPools.PostMatchErrorMetricShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *MatchPoolsService) GetPlayerMetricShort(input *match_pools.GetPlayerMetricParams) (*match_pools.GetPlayerMetricResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
