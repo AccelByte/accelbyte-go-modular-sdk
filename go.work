@@ -29,6 +29,7 @@ use (
 	social-sdk
 	ugc-sdk
 	seasonpass-sdk
+	loginqueue-sdk
 
 	// samples
 	samples/aws-lambda-example/UserStatsFunction
@@ -74,6 +75,7 @@ use (
 	services-api/pkg/service/ugc
 	services-api/pkg/service/dsartifact
 	services-api/pkg/service/challenge
+	services-api/pkg/service/loginqueue
 
 	// tests
 	services-api/pkg/tests

@@ -22,6 +22,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk => ../../leaderboard-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk => ../../legal-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../lobby-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/loginqueue-sdk => ../../loginqueue-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk => ../../match2-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk => ../../matchmaking-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk => ../../platform-sdk
