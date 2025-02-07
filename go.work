@@ -52,6 +52,7 @@ use (
 	services-api/pkg/service/basic
 	services-api/pkg/service/chat
 	services-api/pkg/service/cloudsave
+	services-api/pkg/service/csm
 	services-api/pkg/service/dslogmanager
 	services-api/pkg/service/dsmc
 	services-api/pkg/service/gametelemetry
