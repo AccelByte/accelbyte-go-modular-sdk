@@ -88,7 +88,7 @@ var (
 		Code:        &goalCode,
 		Name:        &goalName,
 		Description: "",
-		Schedule: &challengeclientmodels.ModelGoalSchedule{
+		Schedule: &challengeclientmodels.ModelGoalScheduleRequest{
 			StartTime: aStartTime,
 			Order:     &scheduleOrder,
 		},
