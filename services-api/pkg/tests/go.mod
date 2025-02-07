@@ -53,6 +53,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/loginqueue-sdk v0.0.0-20250206045624-e2ce678e877a
 	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0-alpha.1
