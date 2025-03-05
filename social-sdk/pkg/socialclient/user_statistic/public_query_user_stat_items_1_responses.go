@@ -21,30 +21,20 @@ import (
 
 type PublicQueryUserStatItems1Response struct {
 	socialclientmodels.ApiResponse
-	Data []*socialclientmodels.ADTOObjectForUserStatItemValue
+	Data *socialclientmodels.UserStatItemPagingSlicedResult
 
-	Error400 *socialclientmodels.ErrorEntity
 	Error401 *socialclientmodels.ErrorEntity
 	Error403 *socialclientmodels.ErrorEntity
-	Error404 *socialclientmodels.ErrorEntity
 	Error422 *socialclientmodels.ValidationErrorEntity
 	Error500 *socialclientmodels.ErrorEntity
 }
 
-func (m *PublicQueryUserStatItems1Response) Unpack() ([]*socialclientmodels.ADTOObjectForUserStatItemValue, *socialclientmodels.ApiError) {
+func (m *PublicQueryUserStatItems1Response) Unpack() (*socialclientmodels.UserStatItemPagingSlicedResult, *socialclientmodels.ApiError) {
 	if !m.IsSuccess {
 		var errCode int
 		errCode = m.StatusCode
 
 		switch errCode {
-
-		case 400:
-			e, err := m.Error400.TranslateToApiError()
-			if err != nil {
-				_ = fmt.Errorf("failed to translate error. %v", err)
-			}
-
-			return nil, e
 
 		case 401:
 			e, err := m.Error401.TranslateToApiError()
@@ -56,14 +46,6 @@ func (m *PublicQueryUserStatItems1Response) Unpack() ([]*socialclientmodels.ADTO
 
 		case 403:
 			e, err := m.Error403.TranslateToApiError()
-			if err != nil {
-				_ = fmt.Errorf("failed to translate error. %v", err)
-			}
-
-			return nil, e
-
-		case 404:
-			e, err := m.Error404.TranslateToApiError()
 			if err != nil {
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
@@ -108,12 +90,6 @@ func (o *PublicQueryUserStatItems1Reader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return result, nil
-	case 400:
-		result := NewPublicQueryUserStatItems1BadRequest()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return result, nil
 	case 401:
 		result := NewPublicQueryUserStatItems1Unauthorized()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -122,12 +98,6 @@ func (o *PublicQueryUserStatItems1Reader) ReadResponse(response runtime.ClientRe
 		return result, nil
 	case 403:
 		result := NewPublicQueryUserStatItems1Forbidden()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case 404:
-		result := NewPublicQueryUserStatItems1NotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -151,7 +121,7 @@ func (o *PublicQueryUserStatItems1Reader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 
-		return nil, fmt.Errorf("Requested GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk returns an error %d: %s", response.Code(), string(data))
+		return nil, fmt.Errorf("Requested GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems returns an error %d: %s", response.Code(), string(data))
 	}
 }
 
@@ -165,11 +135,11 @@ func NewPublicQueryUserStatItems1OK() *PublicQueryUserStatItems1OK {
   successful operation
 */
 type PublicQueryUserStatItems1OK struct {
-	Payload []*socialclientmodels.ADTOObjectForUserStatItemValue
+	Payload *socialclientmodels.UserStatItemPagingSlicedResult
 }
 
 func (o *PublicQueryUserStatItems1OK) Error() string {
-	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk][%d] publicQueryUserStatItems1OK  %+v", 200, o.ToJSONString())
+	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems][%d] publicQueryUserStatItems1OK  %+v", 200, o.ToJSONString())
 }
 
 func (o *PublicQueryUserStatItems1OK) ToJSONString() string {
@@ -187,7 +157,7 @@ func (o *PublicQueryUserStatItems1OK) ToJSONString() string {
 	return fmt.Sprintf("%+v", string(b))
 }
 
-func (o *PublicQueryUserStatItems1OK) GetPayload() []*socialclientmodels.ADTOObjectForUserStatItemValue {
+func (o *PublicQueryUserStatItems1OK) GetPayload() *socialclientmodels.UserStatItemPagingSlicedResult {
 	return o.Payload
 }
 
@@ -199,59 +169,7 @@ func (o *PublicQueryUserStatItems1OK) readResponse(response runtime.ClientRespon
 		consumer = runtime.ByteStreamConsumer()
 	}
 
-	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewPublicQueryUserStatItems1BadRequest creates a PublicQueryUserStatItems1BadRequest with default headers values
-func NewPublicQueryUserStatItems1BadRequest() *PublicQueryUserStatItems1BadRequest {
-	return &PublicQueryUserStatItems1BadRequest{}
-}
-
-/*PublicQueryUserStatItems1BadRequest handles this case with default header values.
-
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12223</td><td>Invalid stat codes in namespace [{namespace}]: [{statCodes}]</td></tr></table>
-*/
-type PublicQueryUserStatItems1BadRequest struct {
-	Payload *socialclientmodels.ErrorEntity
-}
-
-func (o *PublicQueryUserStatItems1BadRequest) Error() string {
-	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk][%d] publicQueryUserStatItems1BadRequest  %+v", 400, o.ToJSONString())
-}
-
-func (o *PublicQueryUserStatItems1BadRequest) ToJSONString() string {
-	if o.Payload == nil {
-		return "{}"
-	}
-
-	b, err := json.Marshal(o.Payload)
-	if err != nil {
-		fmt.Println(err)
-
-		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
-	}
-
-	return fmt.Sprintf("%+v", string(b))
-}
-
-func (o *PublicQueryUserStatItems1BadRequest) GetPayload() *socialclientmodels.ErrorEntity {
-	return o.Payload
-}
-
-func (o *PublicQueryUserStatItems1BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// handle file responses
-	contentDisposition := response.GetHeader("Content-Disposition")
-	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
-		consumer = runtime.ByteStreamConsumer()
-	}
-
-	o.Payload = new(socialclientmodels.ErrorEntity)
+	o.Payload = new(socialclientmodels.UserStatItemPagingSlicedResult)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -275,7 +193,7 @@ type PublicQueryUserStatItems1Unauthorized struct {
 }
 
 func (o *PublicQueryUserStatItems1Unauthorized) Error() string {
-	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk][%d] publicQueryUserStatItems1Unauthorized  %+v", 401, o.ToJSONString())
+	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems][%d] publicQueryUserStatItems1Unauthorized  %+v", 401, o.ToJSONString())
 }
 
 func (o *PublicQueryUserStatItems1Unauthorized) ToJSONString() string {
@@ -329,7 +247,7 @@ type PublicQueryUserStatItems1Forbidden struct {
 }
 
 func (o *PublicQueryUserStatItems1Forbidden) Error() string {
-	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk][%d] publicQueryUserStatItems1Forbidden  %+v", 403, o.ToJSONString())
+	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems][%d] publicQueryUserStatItems1Forbidden  %+v", 403, o.ToJSONString())
 }
 
 func (o *PublicQueryUserStatItems1Forbidden) ToJSONString() string {
@@ -369,60 +287,6 @@ func (o *PublicQueryUserStatItems1Forbidden) readResponse(response runtime.Clien
 	return nil
 }
 
-// NewPublicQueryUserStatItems1NotFound creates a PublicQueryUserStatItems1NotFound with default headers values
-func NewPublicQueryUserStatItems1NotFound() *PublicQueryUserStatItems1NotFound {
-	return &PublicQueryUserStatItems1NotFound{}
-}
-
-/*PublicQueryUserStatItems1NotFound handles this case with default header values.
-
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12243</td><td>Stats cannot be found in namespace [{namespace}]</td></tr></table>
-*/
-type PublicQueryUserStatItems1NotFound struct {
-	Payload *socialclientmodels.ErrorEntity
-}
-
-func (o *PublicQueryUserStatItems1NotFound) Error() string {
-	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk][%d] publicQueryUserStatItems1NotFound  %+v", 404, o.ToJSONString())
-}
-
-func (o *PublicQueryUserStatItems1NotFound) ToJSONString() string {
-	if o.Payload == nil {
-		return "{}"
-	}
-
-	b, err := json.Marshal(o.Payload)
-	if err != nil {
-		fmt.Println(err)
-
-		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
-	}
-
-	return fmt.Sprintf("%+v", string(b))
-}
-
-func (o *PublicQueryUserStatItems1NotFound) GetPayload() *socialclientmodels.ErrorEntity {
-	return o.Payload
-}
-
-func (o *PublicQueryUserStatItems1NotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// handle file responses
-	contentDisposition := response.GetHeader("Content-Disposition")
-	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
-		consumer = runtime.ByteStreamConsumer()
-	}
-
-	o.Payload = new(socialclientmodels.ErrorEntity)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
 // NewPublicQueryUserStatItems1UnprocessableEntity creates a PublicQueryUserStatItems1UnprocessableEntity with default headers values
 func NewPublicQueryUserStatItems1UnprocessableEntity() *PublicQueryUserStatItems1UnprocessableEntity {
 	return &PublicQueryUserStatItems1UnprocessableEntity{}
@@ -430,14 +294,14 @@ func NewPublicQueryUserStatItems1UnprocessableEntity() *PublicQueryUserStatItems
 
 /*PublicQueryUserStatItems1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicQueryUserStatItems1UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
 }
 
 func (o *PublicQueryUserStatItems1UnprocessableEntity) Error() string {
-	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk][%d] publicQueryUserStatItems1UnprocessableEntity  %+v", 422, o.ToJSONString())
+	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems][%d] publicQueryUserStatItems1UnprocessableEntity  %+v", 422, o.ToJSONString())
 }
 
 func (o *PublicQueryUserStatItems1UnprocessableEntity) ToJSONString() string {
@@ -491,7 +355,7 @@ type PublicQueryUserStatItems1InternalServerError struct {
 }
 
 func (o *PublicQueryUserStatItems1InternalServerError) Error() string {
-	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk][%d] publicQueryUserStatItems1InternalServerError  %+v", 500, o.ToJSONString())
+	return fmt.Sprintf("[GET /social/v1/public/namespaces/{namespace}/users/{userId}/statitems][%d] publicQueryUserStatItems1InternalServerError  %+v", 500, o.ToJSONString())
 }
 
 func (o *PublicQueryUserStatItems1InternalServerError) ToJSONString() string {

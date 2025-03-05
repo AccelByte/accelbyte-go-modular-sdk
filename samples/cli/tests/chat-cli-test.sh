@@ -52,23 +52,23 @@ touch "tmp.dat"
 samples/cli/sample-apps Chat adminFilterChatMessage \
     --namespace $AB_NAMESPACE \
     --detail 'true' \
-    --body '{"message": "jOzpOv31", "timestamp": 94, "topicId": "C19YhRN3", "topicType": "GROUP", "userId": "wPGyof2F"}' \
+    --body '{"message": "V95oaPCc", "timestamp": 19, "topicId": "S3E7GTqn", "topicType": "PERSONAL", "userId": "dzFDyRuk"}' \
     > test.out 2>&1
 eval_tap $? 2 'AdminFilterChatMessage' test.out
 
 #- 3 AdminChatHistory
 samples/cli/sample-apps Chat adminChatHistory \
     --namespace $AB_NAMESPACE \
-    --chatId '["XbNMlxBn", "lUZwfKcD", "s5HX8zJ9"]' \
-    --endCreatedAt '39' \
-    --keyword 'ObYmhIEO' \
-    --limit '50' \
-    --offset '20' \
-    --order 'yaPoOfKE' \
-    --senderUserId '8uru5OC1' \
-    --shardId 'Jxs4Ced8' \
-    --startCreatedAt '59' \
-    --topic '["rSo0gl33", "btUMKyh3", "HUatEb0h"]' \
+    --chatId '["6NBHhhPZ", "0XaybnRz", "RLEogx6Z"]' \
+    --endCreatedAt '7' \
+    --keyword 'jweBpfhq' \
+    --limit '75' \
+    --offset '57' \
+    --order 'ezLL0QwH' \
+    --senderUserId 'TAqElRDR' \
+    --shardId '5zb4pYJr' \
+    --startCreatedAt '7' \
+    --topic '["yeuaWnsa", "9h0YWWtT", "HcTMcj3d"]' \
     --unfiltered 'true' \
     > test.out 2>&1
 eval_tap $? 3 'AdminChatHistory' test.out
@@ -76,32 +76,32 @@ eval_tap $? 3 'AdminChatHistory' test.out
 #- 4 AdminCreateNamespaceTopic
 samples/cli/sample-apps Chat adminCreateNamespaceTopic \
     --namespace $AB_NAMESPACE \
-    --body '{"description": "ZBXEBMJn", "name": "pvlMXA8z"}' \
+    --body '{"description": "yreJJQzt", "name": "Z2GHt9X2"}' \
     > test.out 2>&1
 eval_tap $? 4 'AdminCreateNamespaceTopic' test.out
 
 #- 5 AdminTopicList
 samples/cli/sample-apps Chat adminTopicList \
     --namespace $AB_NAMESPACE \
-    --limit '69' \
-    --offset '92' \
-    --topicType 'NF9Ii9l9' \
+    --limit '73' \
+    --offset '6' \
+    --topicType 'XTiXgIpb' \
     > test.out 2>&1
 eval_tap $? 5 'AdminTopicList' test.out
 
 #- 6 AdminCreateTopic
 samples/cli/sample-apps Chat adminCreateTopic \
     --namespace $AB_NAMESPACE \
-    --body '{"admins": ["dvGLAfho", "WQJf4YO8", "qFdSRNXf"], "description": "kbArrTnk", "isChannel": false, "isJoinable": false, "members": ["dCj25MI3", "LgYUrzCA", "ttpf8GYe"], "name": "ulHoHINj", "shardLimit": 38, "type": "HYI1mq1O"}' \
+    --body '{"admins": ["0QfGJq3n", "5tCFclFV", "EpVHQD9B"], "description": "DDVPfHEO", "isChannel": true, "isJoinable": true, "members": ["ZlzcEQgy", "sq4PAblO", "KnT6F2MY"], "name": "yPzIVkUD", "shardLimit": 19, "type": "mAuHZB1a"}' \
     > test.out 2>&1
 eval_tap $? 6 'AdminCreateTopic' test.out
 
 #- 7 AdminChannelTopicList
 samples/cli/sample-apps Chat adminChannelTopicList \
     --namespace $AB_NAMESPACE \
-    --limit '38' \
-    --offset '100' \
-    --topicName 'AvK7NotA' \
+    --limit '22' \
+    --offset '11' \
+    --topicName '5D60Hsk9' \
     > test.out 2>&1
 eval_tap $? 7 'AdminChannelTopicList' test.out
 
@@ -114,44 +114,44 @@ eval_tap $? 8 'AdminChannelTopicSummary' test.out
 #- 9 AdminQueryTopicLog
 samples/cli/sample-apps Chat adminQueryTopicLog \
     --namespace $AB_NAMESPACE \
-    --endCreatedAt '81' \
-    --limit '73' \
-    --offset '84' \
-    --senderUserId 'EQB9cush' \
-    --startCreatedAt '85' \
-    --topicId 'HK75bKia' \
-    --topicIds '["aMzXl12L", "rq8nrAGG", "1QpebWuf"]' \
-    --userId 'vEsGqWDt' \
+    --endCreatedAt '97' \
+    --limit '96' \
+    --offset '59' \
+    --senderUserId 'qSI8SsHu' \
+    --startCreatedAt '12' \
+    --topicId 'pHTukjHG' \
+    --topicIds '["olMbr6uJ", "mgHsrp02", "Lm5XcqZZ"]' \
+    --userId '3k2Zwxdo' \
     > test.out 2>&1
 eval_tap $? 9 'AdminQueryTopicLog' test.out
 
 #- 10 AdminUpdateTopic
 samples/cli/sample-apps Chat adminUpdateTopic \
     --namespace $AB_NAMESPACE \
-    --topic 'Rohowe0d' \
-    --body '{"description": "Afz6Ax0X", "isJoinable": true, "name": "0jdg34aF"}' \
+    --topic 'r09xnXuV' \
+    --body '{"description": "Nb8dzXVx", "isJoinable": false, "name": "KXgbM4UK"}' \
     > test.out 2>&1
 eval_tap $? 10 'AdminUpdateTopic' test.out
 
 #- 11 AdminDeleteTopic
 samples/cli/sample-apps Chat adminDeleteTopic \
     --namespace $AB_NAMESPACE \
-    --topic 'zTf6GFnl' \
+    --topic 'tl0z18w9' \
     > test.out 2>&1
 eval_tap $? 11 'AdminDeleteTopic' test.out
 
 #- 12 AdminBanTopicMembers
 samples/cli/sample-apps Chat adminBanTopicMembers \
     --namespace $AB_NAMESPACE \
-    --topic 'UAPe1G1H' \
-    --body '{"userIds": ["FqSvl4mA", "EH1zbAJR", "b6KUM8pc"]}' \
+    --topic 'KA9c9qIN' \
+    --body '{"userIds": ["QqfJkpFJ", "MRGeTvw2", "GBTB2Hqx"]}' \
     > test.out 2>&1
 eval_tap $? 12 'AdminBanTopicMembers' test.out
 
 #- 13 AdminChannelTopicInfo
 samples/cli/sample-apps Chat adminChannelTopicInfo \
     --namespace $AB_NAMESPACE \
-    --topic 'nBeuR5p0' \
+    --topic 'Ys8ZMDEk' \
     > test.out 2>&1
 eval_tap $? 13 'AdminChannelTopicInfo' test.out
 
@@ -161,87 +161,87 @@ eval_tap 0 14 'AdminTopicChatHistory # SKIP deprecated' test.out
 #- 15 AdminSendChat
 samples/cli/sample-apps Chat adminSendChat \
     --namespace $AB_NAMESPACE \
-    --topic 'DK33qe5s' \
-    --body '{"message": "VFbnOi7f"}' \
+    --topic 'cej6fvfJ' \
+    --body '{"message": "3wPFRmgl"}' \
     > test.out 2>&1
 eval_tap $? 15 'AdminSendChat' test.out
 
 #- 16 AdminDeleteChat
 samples/cli/sample-apps Chat adminDeleteChat \
-    --chatId 'Uklorlj4' \
+    --chatId '72kJLueb' \
     --namespace $AB_NAMESPACE \
-    --topic 'QrmmQWD3' \
+    --topic 'bMgdnnFl' \
     > test.out 2>&1
 eval_tap $? 16 'AdminDeleteChat' test.out
 
 #- 17 AdminTopicMembers
 samples/cli/sample-apps Chat adminTopicMembers \
     --namespace $AB_NAMESPACE \
-    --topic 'PYB88kXG' \
-    --isBanned 'true' \
-    --isModerator 'true' \
-    --limit '50' \
-    --offset '94' \
-    --shardId 'VusnUpsa' \
+    --topic '4dEzfEgA' \
+    --isBanned 'false' \
+    --isModerator 'false' \
+    --limit '71' \
+    --offset '73' \
+    --shardId 'NsGguKkO' \
     > test.out 2>&1
 eval_tap $? 17 'AdminTopicMembers' test.out
 
 #- 18 AdminTopicShards
 samples/cli/sample-apps Chat adminTopicShards \
     --namespace $AB_NAMESPACE \
-    --topic 'aUesQFCv' \
+    --topic 'mVZmjhEc' \
     > test.out 2>&1
 eval_tap $? 18 'AdminTopicShards' test.out
 
 #- 19 AdminUnbanTopicMembers
 samples/cli/sample-apps Chat adminUnbanTopicMembers \
     --namespace $AB_NAMESPACE \
-    --topic 'gTSSlbQO' \
-    --body '{"userIds": ["d6jliG5N", "pAaqSbvL", "Zwm3qdFp"]}' \
+    --topic 'Y0JuuPVi' \
+    --body '{"userIds": ["GdD2VTyZ", "9cDArQOh", "jwAPiOvL"]}' \
     > test.out 2>&1
 eval_tap $? 19 'AdminUnbanTopicMembers' test.out
 
 #- 20 AdminAddTopicMember
 samples/cli/sample-apps Chat adminAddTopicMember \
     --namespace $AB_NAMESPACE \
-    --topic '1pFNnQoK' \
-    --userId 'licLwfek' \
-    --body '{"isAdmin": false}' \
+    --topic 'YvV3t4up' \
+    --userId 'KsEzlpJI' \
+    --body '{"isAdmin": true}' \
     > test.out 2>&1
 eval_tap $? 20 'AdminAddTopicMember' test.out
 
 #- 21 AdminRemoveTopicMember
 samples/cli/sample-apps Chat adminRemoveTopicMember \
     --namespace $AB_NAMESPACE \
-    --topic 'KQAJ62ks' \
-    --userId 'vaU3crh0' \
+    --topic 'tlEuHB8g' \
+    --userId 'vcXaRNU0' \
     > test.out 2>&1
 eval_tap $? 21 'AdminRemoveTopicMember' test.out
 
 #- 22 AdminQueryTopic
 samples/cli/sample-apps Chat adminQueryTopic \
     --namespace $AB_NAMESPACE \
-    --includeMembers 'true' \
+    --includeMembers 'false' \
     --includePastMembers 'false' \
     --includePastTopics 'true' \
-    --limit '97' \
-    --offset '86' \
-    --topic '["kNC8xHet", "igLxnreY", "96BUtZSJ"]' \
+    --limit '24' \
+    --offset '35' \
+    --topic '["EzePRCZy", "5AcLATwO", "AI5cah3x"]' \
     --topicSubType 'SESSION' \
-    --topicType 'GROUP' \
-    --userId '7EY9vFWZ' \
+    --topicType 'PERSONAL' \
+    --userId 'uRPliMLj' \
     > test.out 2>&1
 eval_tap $? 22 'AdminQueryTopic' test.out
 
 #- 23 AdminQueryUsersTopic
 samples/cli/sample-apps Chat adminQueryUsersTopic \
     --namespace $AB_NAMESPACE \
-    --userId 'cpw7gUaA' \
-    --includePastTopics 'false' \
-    --limit '91' \
-    --offset '11' \
-    --topicSubType 'SESSION' \
-    --topicType 'PERSONAL' \
+    --userId 'YKhuxO3d' \
+    --includePastTopics 'true' \
+    --limit '65' \
+    --offset '89' \
+    --topicSubType 'NAMESPACE' \
+    --topicType 'GROUP' \
     > test.out 2>&1
 eval_tap $? 23 'AdminQueryUsersTopic' test.out
 
@@ -254,59 +254,59 @@ eval_tap $? 24 'PublicGetMutedTopics' test.out
 #- 25 PublicTopicList
 samples/cli/sample-apps Chat publicTopicList \
     --namespace $AB_NAMESPACE \
-    --limit '28' \
-    --offset '58' \
-    --topicType 'WMu6nfmr' \
+    --limit '85' \
+    --offset '1' \
+    --topicType '5xXZDkNx' \
     > test.out 2>&1
 eval_tap $? 25 'PublicTopicList' test.out
 
 #- 26 PublicBanTopicMembers
 samples/cli/sample-apps Chat publicBanTopicMembers \
     --namespace $AB_NAMESPACE \
-    --topic 'YuPIBPvZ' \
-    --body '{"userIDs": ["0cjM76Bx", "HmPWWUKY", "E9D6TSd1"]}' \
+    --topic 'Hx1YrGwJ' \
+    --body '{"userIDs": ["D4kNzXL7", "ObWO8KYq", "RonKZjCN"]}' \
     > test.out 2>&1
 eval_tap $? 26 'PublicBanTopicMembers' test.out
 
 #- 27 PublicChatHistory
 samples/cli/sample-apps Chat publicChatHistory \
     --namespace $AB_NAMESPACE \
-    --topic 'w4nD5oAS' \
-    --limit '49' \
-    --order 'kdgrC9ng' \
-    --startCreatedAt '80' \
+    --topic 'DoAOIRRI' \
+    --limit '88' \
+    --order 'D6oZmcUL' \
+    --startCreatedAt '52' \
     > test.out 2>&1
 eval_tap $? 27 'PublicChatHistory' test.out
 
 #- 28 PublicDeleteChat
 samples/cli/sample-apps Chat publicDeleteChat \
-    --chatId '2fKsIDWs' \
+    --chatId 'jztNCnBU' \
     --namespace $AB_NAMESPACE \
-    --topic '9fl6Q1lB' \
+    --topic 'EnEsp65m' \
     > test.out 2>&1
 eval_tap $? 28 'PublicDeleteChat' test.out
 
 #- 29 PublicMuteUser
 samples/cli/sample-apps Chat publicMuteUser \
     --namespace $AB_NAMESPACE \
-    --topic 'wwgAaz5J' \
-    --body '{"duration": 72, "userId": "2kjpsW7d"}' \
+    --topic 'Fn35QV0c' \
+    --body '{"duration": 21, "userId": "bHslVIPQ"}' \
     > test.out 2>&1
 eval_tap $? 29 'PublicMuteUser' test.out
 
 #- 30 PublicUnbanTopicMembers
 samples/cli/sample-apps Chat publicUnbanTopicMembers \
     --namespace $AB_NAMESPACE \
-    --topic 'kTYyNOKr' \
-    --body '{"userIDs": ["ddfMZ6OP", "rEUHvliW", "YRHmQ3TK"]}' \
+    --topic 'ygCc1uEh' \
+    --body '{"userIDs": ["d3trH5IV", "YDjS6WtB", "SEa4TDj3"]}' \
     > test.out 2>&1
 eval_tap $? 30 'PublicUnbanTopicMembers' test.out
 
 #- 31 PublicUnmuteUser
 samples/cli/sample-apps Chat publicUnmuteUser \
     --namespace $AB_NAMESPACE \
-    --topic '3YffLW9V' \
-    --body '{"userId": "coK6QTBx"}' \
+    --topic 'aHUHSA0f' \
+    --body '{"userId": "QOKDncg9"}' \
     > test.out 2>&1
 eval_tap $? 31 'PublicUnmuteUser' test.out
 
@@ -322,7 +322,7 @@ eval_tap $? 33 'AdminGetLogConfig' test.out
 
 #- 34 AdminPatchUpdateLogConfig
 samples/cli/sample-apps Chat adminPatchUpdateLogConfig \
-    --body '{"internalAccessLogEnabled": false, "logLevel": "panic", "logLevelDB": "warning", "slowQueryThreshold": 51, "socketLogEnabled": false}' \
+    --body '{"internalAccessLogEnabled": true, "logLevel": "debug", "logLevelDB": "error", "slowQueryThreshold": 15, "socketLogEnabled": false}' \
     > test.out 2>&1
 eval_tap $? 34 'AdminPatchUpdateLogConfig' test.out
 
@@ -335,7 +335,7 @@ eval_tap $? 35 'AdminGetConfigV1' test.out
 #- 36 AdminUpdateConfigV1
 samples/cli/sample-apps Chat adminUpdateConfigV1 \
     --namespace $AB_NAMESPACE \
-    --body '{"chatRateLimitBurst": 20, "chatRateLimitDuration": 66, "concurrentUsersLimit": 56, "enableClanChat": true, "enableManualTopicCreation": true, "enablePmSendPlatformId": true, "enableProfanityFilter": false, "filterAppName": "97goYRI7", "filterParam": "eC3gedbA", "filterType": "v6VbxzI4", "generalRateLimitBurst": 24, "generalRateLimitDuration": 18, "maxChatMessageLength": 51, "shardCapacityLimit": 20, "shardDefaultLimit": 34, "shardHardLimit": 11, "spamChatBurst": 58, "spamChatDuration": 48, "spamMuteDuration": 98}' \
+    --body '{"chatRateLimitBurst": 5, "chatRateLimitDuration": 65, "concurrentUsersLimit": 62, "enableClanChat": true, "enableManualTopicCreation": false, "enablePmSendPlatformId": false, "enableProfanityFilter": false, "filterAppName": "BDcLlA9R", "filterParam": "qYqbLGzg", "filterType": "vGfffIq4", "generalRateLimitBurst": 11, "generalRateLimitDuration": 22, "maxChatMessageLength": 90, "shardCapacityLimit": 56, "shardDefaultLimit": 65, "shardHardLimit": 77, "spamChatBurst": 42, "spamChatDuration": 61, "spamMuteDuration": 80}' \
     > test.out 2>&1
 eval_tap $? 36 'AdminUpdateConfigV1' test.out
 
@@ -361,35 +361,35 @@ eval_tap $? 39 'AdminGetInboxCategories' test.out
 #- 40 AdminAddInboxCategory
 samples/cli/sample-apps Chat adminAddInboxCategory \
     --namespace $AB_NAMESPACE \
-    --body '{"enabled": true, "expiresIn": 6, "hook": {"driver": "Lnt6VOXX", "params": {"clbmk1tC": {}, "TdGTEsFx": {}, "ssoInRC1": {}}}, "jsonSchema": {"LCYKjwHv": {}, "usdCXYCH": {}, "IAgzTIYq": {}}, "name": "ZrNupM9Z", "saveInbox": false, "sendNotification": false}' \
+    --body '{"enabled": true, "expiresIn": 37, "hook": {"driver": "SPQxetA7", "params": {"IC2l3Atr": {}, "mwu59LfM": {}, "Y6FyUrZU": {}}}, "jsonSchema": {"odOU2xRw": {}, "QmVaU53F": {}, "mAEwvUp3": {}}, "name": "XIbiygbJ", "saveInbox": true, "sendNotification": true}' \
     > test.out 2>&1
 eval_tap $? 40 'AdminAddInboxCategory' test.out
 
 #- 41 AdminDeleteInboxCategory
 samples/cli/sample-apps Chat adminDeleteInboxCategory \
-    --category 'YD8tPq4D' \
+    --category 'rmLltPVX' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 41 'AdminDeleteInboxCategory' test.out
 
 #- 42 AdminUpdateInboxCategory
 samples/cli/sample-apps Chat adminUpdateInboxCategory \
-    --category 'k07LLNhH' \
+    --category '7XSmLWCt' \
     --namespace $AB_NAMESPACE \
-    --body '{"enabled": true, "expiresIn": 56, "hook": {"driver": "f9APZoSp", "params": {"oy9M9Kjm": {}, "uT6RDxvU": {}, "7Q7IKmIb": {}}}, "jsonSchema": {"dnIsASTh": {}, "aH8Lrb4O": {}, "IEqNzRBB": {}}, "saveInbox": false, "sendNotification": true}' \
+    --body '{"enabled": false, "expiresIn": 47, "hook": {"driver": "YUYlPTLe", "params": {"pcdMjRdJ": {}, "KEbCagnY": {}, "EPzwdDIQ": {}}}, "jsonSchema": {"s2QiJT1A": {}, "yxSrr7l7": {}, "GB3pbemP": {}}, "saveInbox": true, "sendNotification": true}' \
     > test.out 2>&1
 eval_tap $? 42 'AdminUpdateInboxCategory' test.out
 
 #- 43 AdminGetCategorySchema
 samples/cli/sample-apps Chat adminGetCategorySchema \
-    --category 'NmUlOUbx' \
+    --category 'EfLVR7oV' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 43 'AdminGetCategorySchema' test.out
 
 #- 44 AdminDeleteInboxMessage
 samples/cli/sample-apps Chat adminDeleteInboxMessage \
-    --messageId 'EzSg2vwb' \
+    --messageId 'wEuuTl85' \
     --namespace $AB_NAMESPACE \
     --force 'true' \
     > test.out 2>&1
@@ -398,56 +398,56 @@ eval_tap $? 44 'AdminDeleteInboxMessage' test.out
 #- 45 AdminGetInboxMessages
 samples/cli/sample-apps Chat adminGetInboxMessages \
     --namespace $AB_NAMESPACE \
-    --activeOnly 'true' \
-    --endCreatedAt '52' \
-    --limit '81' \
-    --messageId '["xMeWhuBF", "YEq8kQ3w", "EekFXMdh"]' \
-    --offset '26' \
-    --order 'pieh5GkW' \
-    --scope 'USER' \
-    --startCreatedAt '46' \
+    --activeOnly 'false' \
+    --endCreatedAt '19' \
+    --limit '93' \
+    --messageId '["cHwct5ni", "2TAEOnDj", "ReWfK26V"]' \
+    --offset '57' \
+    --order 'jfr7iKo0' \
+    --scope 'NAMESPACE' \
+    --startCreatedAt '20' \
     --status 'DRAFT' \
-    --transient 'true' \
+    --transient 'false' \
     > test.out 2>&1
 eval_tap $? 45 'AdminGetInboxMessages' test.out
 
 #- 46 AdminSaveInboxMessage
 samples/cli/sample-apps Chat adminSaveInboxMessage \
     --namespace $AB_NAMESPACE \
-    --body '{"category": "DeOEIq65", "expiredAt": 48, "message": {"37HtsIPX": {}, "XNjfdOgG": {}, "VnPIReOg": {}}, "scope": "NAMESPACE", "status": "SENT", "userIds": ["tg0J69O1", "VmYV8wS5", "eGsU5Ye2"]}' \
+    --body '{"category": "nLTdbFR8", "expiredAt": 57, "message": {"CMWrltPQ": {}, "JYCq22Gd": {}, "4BmarOAS": {}}, "scope": "NAMESPACE", "status": "DRAFT", "userIds": ["a6ore1xg", "7WsRSmyz", "QCTiVD2v"]}' \
     > test.out 2>&1
 eval_tap $? 46 'AdminSaveInboxMessage' test.out
 
 #- 47 AdminUnsendInboxMessage
 samples/cli/sample-apps Chat adminUnsendInboxMessage \
-    --inbox 'iGB5u7AD' \
+    --inbox 'vFJQDhDp' \
     --namespace $AB_NAMESPACE \
-    --body '{"userIds": ["YATsNg7l", "UjyoLyyy", "uyuDxC4j"]}' \
+    --body '{"userIds": ["dNmfo3ER", "S5k91HTI", "1yirTBaK"]}' \
     > test.out 2>&1
 eval_tap $? 47 'AdminUnsendInboxMessage' test.out
 
 #- 48 AdminGetInboxUsers
 samples/cli/sample-apps Chat adminGetInboxUsers \
-    --inbox '15eQpbuZ' \
+    --inbox 'FdbdiJVf' \
     --namespace $AB_NAMESPACE \
-    --limit '19' \
-    --offset '56' \
-    --status 'UNREAD' \
-    --userId 'ivPEyJR3' \
+    --limit '35' \
+    --offset '59' \
+    --status 'READ' \
+    --userId 'pDPRaoOe' \
     > test.out 2>&1
 eval_tap $? 48 'AdminGetInboxUsers' test.out
 
 #- 49 AdminUpdateInboxMessage
 samples/cli/sample-apps Chat adminUpdateInboxMessage \
-    --messageId 'SQ7TeCeH' \
+    --messageId 'l3aSZiqG' \
     --namespace $AB_NAMESPACE \
-    --body '{"expiredAt": 38, "message": {"YA5ptztr": {}, "w4jikYsV": {}, "hHaVAfQw": {}}, "scope": "USER", "userIds": ["x1OmZpBT", "LtLtLpXU", "8knNBrjU"]}' \
+    --body '{"expiredAt": 37, "message": {"c6T5XWwy": {}, "Y5RmE9jW": {}, "ANGUy3r4": {}}, "scope": "NAMESPACE", "userIds": ["OHZTejIC", "AxxZ7slc", "Y5kFCKVQ"]}' \
     > test.out 2>&1
 eval_tap $? 49 'AdminUpdateInboxMessage' test.out
 
 #- 50 AdminSendInboxMessage
 samples/cli/sample-apps Chat adminSendInboxMessage \
-    --messageId 'ElYYKy8f' \
+    --messageId 'wO3GJAnW' \
     --namespace $AB_NAMESPACE \
     --body '{}' \
     > test.out 2>&1
@@ -456,20 +456,20 @@ eval_tap $? 50 'AdminSendInboxMessage' test.out
 #- 51 AdminGetInboxStats
 samples/cli/sample-apps Chat adminGetInboxStats \
     --namespace $AB_NAMESPACE \
-    --messageId '["RroREALE", "8AGCjMqB", "NbGOeSTs"]' \
+    --messageId '["dWO3E0LV", "dz4JeHcS", "GSjz6H0c"]' \
     > test.out 2>&1
 eval_tap $? 51 'AdminGetInboxStats' test.out
 
 #- 52 AdminGetChatSnapshot
 samples/cli/sample-apps Chat adminGetChatSnapshot \
-    --chatId 'VjYLDVeA' \
+    --chatId 'O1zBXs3E' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 52 'AdminGetChatSnapshot' test.out
 
 #- 53 AdminDeleteChatSnapshot
 samples/cli/sample-apps Chat adminDeleteChatSnapshot \
-    --chatId '9b064f9f' \
+    --chatId 'h6O4FdDU' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 53 'AdminDeleteChatSnapshot' test.out
@@ -477,27 +477,27 @@ eval_tap $? 53 'AdminDeleteChatSnapshot' test.out
 #- 54 AdminProfanityQuery
 samples/cli/sample-apps Chat adminProfanityQuery \
     --namespace $AB_NAMESPACE \
-    --filterMask '5Xi4CUpQ' \
-    --includeChildren 'true' \
-    --limit '62' \
-    --offset '37' \
-    --parentId '1rpsYvSt' \
-    --startWith 'ro2AEg9A' \
-    --wordType 'CUFtnRbw' \
+    --filterMask '4qGTzfUO' \
+    --includeChildren 'false' \
+    --limit '92' \
+    --offset '62' \
+    --parentId '0SJ4qLbB' \
+    --startWith 'IalWLOvG' \
+    --wordType 'CfsklgFP' \
     > test.out 2>&1
 eval_tap $? 54 'AdminProfanityQuery' test.out
 
 #- 55 AdminProfanityCreate
 samples/cli/sample-apps Chat adminProfanityCreate \
     --namespace $AB_NAMESPACE \
-    --body '{"falseNegative": ["4mnAEDkT", "Z5PWv7yi", "Sbc6Ea3w"], "falsePositive": ["0iNdiQ0H", "eNwnodvf", "YDk0X0aq"], "word": "V34UZj5M", "wordType": "LbP5CdII"}' \
+    --body '{"falseNegative": ["T0mzw2aJ", "9QFgBhhz", "NeMzmZ7W"], "falsePositive": ["XOL4UWpU", "VetKdDcW", "TROGGv1Q"], "word": "V2tQWUq6", "wordType": "sVCQdLMd"}' \
     > test.out 2>&1
 eval_tap $? 55 'AdminProfanityCreate' test.out
 
 #- 56 AdminProfanityCreateBulk
 samples/cli/sample-apps Chat adminProfanityCreateBulk \
     --namespace $AB_NAMESPACE \
-    --body '{"dictionaries": [{"falseNegative": ["c4rvLt0F", "FayGbcmU", "GgVg7biI"], "falsePositive": ["TrePLih7", "M4Pur1ok", "ZCH97lAN"], "word": "OPlHogRC", "wordType": "VWLdImhv"}, {"falseNegative": ["Nu5w1pYs", "she8Vj2l", "slA0uYa0"], "falsePositive": ["qZB4ArTr", "LVs9VLk3", "1xWQZ301"], "word": "bNSurmAG", "wordType": "wiidPZWn"}, {"falseNegative": ["QA5EGtR1", "2T3OdlAA", "EbNs9mSs"], "falsePositive": ["9nFGtnfI", "t9hKy0mf", "PKPCJNpb"], "word": "MqHjs46U", "wordType": "A4zbeiWM"}]}' \
+    --body '{"dictionaries": [{"falseNegative": ["HGeJkecU", "0rMMqEyI", "cj6CmMyh"], "falsePositive": ["JcPNbrri", "J3xV9Q5M", "AMTMCKhm"], "word": "VXEJLusx", "wordType": "t2THYtH0"}, {"falseNegative": ["AFL57iRU", "dtIJY9TA", "01W3AbeQ"], "falsePositive": ["GYXtFTye", "Oqa23AFv", "bJXKqOwn"], "word": "GXEdKQpj", "wordType": "BK6N5pzP"}, {"falseNegative": ["pmsUTxNU", "iylKeLJg", "ihwg6P98"], "falsePositive": ["FacXIxRY", "DNxqnM2u", "ra2PGzhK"], "word": "9f1wayNd", "wordType": "eabfhkCf"}]}' \
     > test.out 2>&1
 eval_tap $? 56 'AdminProfanityCreateBulk' test.out
 
@@ -510,8 +510,8 @@ eval_tap $? 57 'AdminProfanityExport' test.out
 #- 58 AdminProfanityGroup
 samples/cli/sample-apps Chat adminProfanityGroup \
     --namespace $AB_NAMESPACE \
-    --limit '80' \
-    --offset '39' \
+    --limit '81' \
+    --offset '63' \
     > test.out 2>&1
 eval_tap $? 58 'AdminProfanityGroup' test.out
 
@@ -526,15 +526,15 @@ eval_tap $? 59 'AdminProfanityImport' test.out
 
 #- 60 AdminProfanityUpdate
 samples/cli/sample-apps Chat adminProfanityUpdate \
-    --id 'I6nMTIsS' \
+    --id 'uwebCpu0' \
     --namespace $AB_NAMESPACE \
-    --body '{"falseNegative": ["AugzYlQJ", "bNd2pozW", "ZIa8JZwT"], "falsePositive": ["xloKv0IG", "kAwoWVqO", "d6pwcgft"], "word": "qSurA9fX", "wordType": "y19j5aDN"}' \
+    --body '{"falseNegative": ["x0soNWO9", "Vu38g88k", "T327Dh2c"], "falsePositive": ["R8bLdnpE", "l2lKH82D", "9R6mTNqL"], "word": "txYT4RlR", "wordType": "QpJnlesG"}' \
     > test.out 2>&1
 eval_tap $? 60 'AdminProfanityUpdate' test.out
 
 #- 61 AdminProfanityDelete
 samples/cli/sample-apps Chat adminProfanityDelete \
-    --id 'tzZuzGdO' \
+    --id 'ihvkvNPv' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 61 'AdminProfanityDelete' test.out
@@ -552,9 +552,9 @@ eval_tap $? 63 'PublicGetConfigV1' test.out
 
 #- 64 PublicGetChatSnapshot
 samples/cli/sample-apps Chat publicGetChatSnapshot \
-    --chatId '2X0VPOPT' \
+    --chatId 'EPPKwW2R' \
     --namespace $AB_NAMESPACE \
-    --topic 'Xmw2ZoDz' \
+    --topic 'Ohqyyrx8' \
     > test.out 2>&1
 eval_tap $? 64 'PublicGetChatSnapshot' test.out
 

@@ -167,6 +167,13 @@ func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, aut
 		response.IsSuccess = false
 
 		return response, v
+	case *UpdateDLCItemConfigNotFound:
+		response := &UpdateDLCItemConfigResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *UpdateDLCItemConfigConflict:
 		response := &UpdateDLCItemConfigResponse{}
 		response.Error409 = v.Payload

@@ -7,8 +7,6 @@
 package userStatistic
 
 import (
-	"encoding/json"
-
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/user_statistic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -28,25 +26,19 @@ var PublicQueryUserStatItems1Cmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
-		additionalKey, _ := cmd.Flags().GetString("additionalKey")
-		statCodesString := cmd.Flag("statCodes").Value.String()
-		var statCodes []string
-		errStatCodes := json.Unmarshal([]byte(statCodesString), &statCodes)
-		if errStatCodes != nil {
-			return errStatCodes
-		}
-		tagsString := cmd.Flag("tags").Value.String()
-		var tags []string
-		errTags := json.Unmarshal([]byte(tagsString), &tags)
-		if errTags != nil {
-			return errTags
-		}
+		limit, _ := cmd.Flags().GetInt32("limit")
+		offset, _ := cmd.Flags().GetInt32("offset")
+		sortBy, _ := cmd.Flags().GetString("sortBy")
+		statCodes, _ := cmd.Flags().GetString("statCodes")
+		tags, _ := cmd.Flags().GetString("tags")
 		input := &user_statistic.PublicQueryUserStatItems1Params{
-			Namespace:     namespace,
-			UserID:        userId,
-			AdditionalKey: &additionalKey,
-			StatCodes:     statCodes,
-			Tags:          tags,
+			Namespace: namespace,
+			UserID:    userId,
+			Limit:     &limit,
+			Offset:    &offset,
+			SortBy:    &sortBy,
+			StatCodes: &statCodes,
+			Tags:      &tags,
 		}
 		ok, errOK := userStatisticService.PublicQueryUserStatItems1Short(input)
 		if errOK != nil {
@@ -66,7 +58,9 @@ func init() {
 	_ = PublicQueryUserStatItems1Cmd.MarkFlagRequired("namespace")
 	PublicQueryUserStatItems1Cmd.Flags().String("userId", "", "User id")
 	_ = PublicQueryUserStatItems1Cmd.MarkFlagRequired("userId")
-	PublicQueryUserStatItems1Cmd.Flags().String("additionalKey", "", "Additional key")
+	PublicQueryUserStatItems1Cmd.Flags().Int32("limit", 20, "Limit")
+	PublicQueryUserStatItems1Cmd.Flags().Int32("offset", 0, "Offset")
+	PublicQueryUserStatItems1Cmd.Flags().String("sortBy", "", "Sort by")
 	PublicQueryUserStatItems1Cmd.Flags().String("statCodes", "", "Stat codes")
 	PublicQueryUserStatItems1Cmd.Flags().String("tags", "", "Tags")
 }

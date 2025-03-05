@@ -410,7 +410,7 @@ func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo ru
 
 /*
 AdminUpdateDSInformationShort update game session ds information for asynchronous process.
-Update Game Session DS Information for Asynchronous Process
+This API is used for create custom DS asynchronously flow and is expected to be called after the service receives response from the Async RPC.
 */
 func (a *Client) AdminUpdateDSInformationShort(params *AdminUpdateDSInformationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateDSInformationResponse, error) {
 	// TODO: Validate the params before sending
@@ -745,6 +745,7 @@ By default, DS requests are sent to DSMC, but if dsSource is set to "AMS":
 - The server will be chosen based on a set of claim keys, in order of preference, to match with fleets.
 - The claim key list is built build from the preferredClaimKeys, fallbackClaimKeys, and clientVersion as follows:
 [preferredClaimKeys.., clientVersion, fallbackClaimKeys...]
+- ttlHours is how long the session will active, only non persistent can use this, max value is 168 hours
 for session override can follow guideline in here https://docs.accelbyte.io/gaming-services/services/extend/override-ags-feature/getting-started-with-session-customization-server-dsm/
 */
 func (a *Client) CreateGameSessionShort(params *CreateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateGameSessionResponse, error) {
@@ -1224,7 +1225,7 @@ Updates a game session, this endpoint will override stored gamesession data.
 To update only specified fields, please use following endpoint:
 method : PATCH
 API : /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}
-
+- ttlHours is how long the session will active, only non persistent can use this, max value is 168 hours
 To update DS attributes (clientVersion, deployment, requestedRegions) it will only be applied only as long as no DS has been requested, otherwise ignored.
 */
 func (a *Client) UpdateGameSessionShort(params *UpdateGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGameSessionResponse, error) {

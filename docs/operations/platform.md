@@ -54,6 +54,7 @@
 | `/platform/admin/namespaces/{namespace}/items/{itemId}/features/{feature}` | DELETE | DefeatureItemShort | [DefeatureItemShort](../../platform-sdk/pkg/platformclient/item/item_client.go) | [DefeatureItemShort](../../platform-sdk/pkg/wrapper_item.go) | [DefeatureItemShort](../../samples/cli/cmd/platform/item/defeatureItem.go) |
 | `/platform/admin/namespaces/{namespace}/items/{itemId}/locale` | GET | GetLocaleItemShort | [GetLocaleItemShort](../../platform-sdk/pkg/platformclient/item/item_client.go) | [GetLocaleItemShort](../../platform-sdk/pkg/wrapper_item.go) | [GetLocaleItemShort](../../samples/cli/cmd/platform/item/getLocaleItem.go) |
 | `/platform/admin/namespaces/{namespace}/items/{itemId}/purchase/condition` | PUT | UpdateItemPurchaseConditionShort | [UpdateItemPurchaseConditionShort](../../platform-sdk/pkg/platformclient/item/item_client.go) | [UpdateItemPurchaseConditionShort](../../platform-sdk/pkg/wrapper_item.go) | [UpdateItemPurchaseConditionShort](../../samples/cli/cmd/platform/item/updateItemPurchaseCondition.go) |
+| `/platform/admin/namespaces/{namespace}/items/{itemId}/references` | GET | QueryItemReferencesShort | [QueryItemReferencesShort](../../platform-sdk/pkg/platformclient/item/item_client.go) | [QueryItemReferencesShort](../../platform-sdk/pkg/wrapper_item.go) | [QueryItemReferencesShort](../../samples/cli/cmd/platform/item/queryItemReferences.go) |
 | `/platform/admin/namespaces/{namespace}/items/{itemId}/return` | PUT | ReturnItemShort | [ReturnItemShort](../../platform-sdk/pkg/platformclient/item/item_client.go) | [ReturnItemShort](../../platform-sdk/pkg/wrapper_item.go) | [ReturnItemShort](../../samples/cli/cmd/platform/item/returnItem.go) |
 | `/platform/public/namespaces/{namespace}/items/byAppId` | GET | PublicGetItemByAppIdShort | [PublicGetItemByAppIdShort](../../platform-sdk/pkg/platformclient/item/item_client.go) | [PublicGetItemByAppIdShort](../../platform-sdk/pkg/wrapper_item.go) | [PublicGetItemByAppIdShort](../../samples/cli/cmd/platform/item/publicGetItemByAppId.go) |
 | `/platform/public/namespaces/{namespace}/items/byCriteria` | GET | PublicQueryItemsShort | [PublicQueryItemsShort](../../platform-sdk/pkg/platformclient/item/item_client.go) | [PublicQueryItemsShort](../../platform-sdk/pkg/wrapper_item.go) | [PublicQueryItemsShort](../../samples/cli/cmd/platform/item/publicQueryItems.go) |
@@ -304,11 +305,19 @@
 | `/platform/admin/namespaces/{namespace}/iap/config/xbl` | PUT | UpdateXblIAPConfigShort | [UpdateXblIAPConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [UpdateXblIAPConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [UpdateXblIAPConfigShort](../../samples/cli/cmd/platform/iap/updateXblIAPConfig.go) |
 | `/platform/admin/namespaces/{namespace}/iap/config/xbl` | DELETE | DeleteXblAPConfigShort | [DeleteXblAPConfigShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [DeleteXblAPConfigShort](../../platform-sdk/pkg/wrapper_iap.go) | [DeleteXblAPConfigShort](../../samples/cli/cmd/platform/iap/deleteXblAPConfig.go) |
 | `/platform/admin/namespaces/{namespace}/iap/config/xbl/cert` | PUT | UpdateXblBPCertFileShort | [UpdateXblBPCertFileShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [UpdateXblBPCertFileShort](../../platform-sdk/pkg/wrapper_iap.go) | [UpdateXblBPCertFileShort](../../samples/cli/cmd/platform/iap/updateXblBPCertFile.go) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/abnormal_transactions` | GET | QueryAbnormalTransactionsShort | [QueryAbnormalTransactionsShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [QueryAbnormalTransactionsShort](../../platform-sdk/pkg/wrapper_iap.go) | [QueryAbnormalTransactionsShort](../../samples/cli/cmd/platform/iap/queryAbnormalTransactions.go) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/job` | GET | AdminGetSteamJobInfoShort | [AdminGetSteamJobInfoShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [AdminGetSteamJobInfoShort](../../platform-sdk/pkg/wrapper_iap.go) | [AdminGetSteamJobInfoShort](../../samples/cli/cmd/platform/iap/adminGetSteamJobInfo.go) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/job/reset` | PUT | AdminResetSteamJobTimeShort | [AdminResetSteamJobTimeShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [AdminResetSteamJobTimeShort](../../platform-sdk/pkg/wrapper_iap.go) | [AdminResetSteamJobTimeShort](../../samples/cli/cmd/platform/iap/adminResetSteamJobTime.go) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/orders/{iapOrderNo}/refund` | PUT | AdminRefundIAPOrderShort | [AdminRefundIAPOrderShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [AdminRefundIAPOrderShort](../../platform-sdk/pkg/wrapper_iap.go) | [AdminRefundIAPOrderShort](../../samples/cli/cmd/platform/iap/adminRefundIAPOrder.go) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/report/histories` | GET | QuerySteamReportHistoriesShort | [QuerySteamReportHistoriesShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [QuerySteamReportHistoriesShort](../../platform-sdk/pkg/wrapper_iap.go) | [QuerySteamReportHistoriesShort](../../samples/cli/cmd/platform/iap/querySteamReportHistories.go) |
 | `/platform/admin/namespaces/{namespace}/iap/{iapOrderNo}/consumedetails` | GET | GetIAPOrderConsumeDetailsShort | [GetIAPOrderConsumeDetailsShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [GetIAPOrderConsumeDetailsShort](../../platform-sdk/pkg/wrapper_iap.go) | [GetIAPOrderConsumeDetailsShort](../../samples/cli/cmd/platform/iap/getIAPOrderConsumeDetails.go) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap` | GET | QueryUserIAPOrdersShort | [QueryUserIAPOrdersShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [QueryUserIAPOrdersShort](../../platform-sdk/pkg/wrapper_iap.go) | [QueryUserIAPOrdersShort](../../samples/cli/cmd/platform/iap/queryUserIAPOrders.go) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/all` | GET | QueryAllUserIAPOrdersShort | [QueryAllUserIAPOrdersShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [QueryAllUserIAPOrdersShort](../../platform-sdk/pkg/wrapper_iap.go) | [QueryAllUserIAPOrdersShort](../../samples/cli/cmd/platform/iap/queryAllUserIAPOrders.go) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/consume/history` | GET | QueryUserIAPConsumeHistoryShort | [QueryUserIAPConsumeHistoryShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [QueryUserIAPConsumeHistoryShort](../../platform-sdk/pkg/wrapper_iap.go) | [QueryUserIAPConsumeHistoryShort](../../samples/cli/cmd/platform/iap/queryUserIAPConsumeHistory.go) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/mock/receipt` | PUT | MockFulfillIAPItemShort | [MockFulfillIAPItemShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [MockFulfillIAPItemShort](../../platform-sdk/pkg/wrapper_iap.go) | [MockFulfillIAPItemShort](../../samples/cli/cmd/platform/iap/mockFulfillIAPItem.go) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/iap/orders/{iapOrderNo}/line_items` | GET | AdminGetIAPOrderLineItemsShort | [AdminGetIAPOrderLineItemsShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [AdminGetIAPOrderLineItemsShort](../../platform-sdk/pkg/wrapper_iap.go) | [AdminGetIAPOrderLineItemsShort](../../samples/cli/cmd/platform/iap/adminGetIAPOrderLineItems.go) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/iap/steam/syncAbnormalTransaction` | PUT | AdminSyncSteamAbnormalTransactionShort | [AdminSyncSteamAbnormalTransactionShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [AdminSyncSteamAbnormalTransactionShort](../../platform-sdk/pkg/wrapper_iap.go) | [AdminSyncSteamAbnormalTransactionShort](../../samples/cli/cmd/platform/iap/adminSyncSteamAbnormalTransaction.go) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/iap/steam/syncByTransaction` | PUT | AdminSyncSteamIAPByTransactionShort | [AdminSyncSteamIAPByTransactionShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [AdminSyncSteamIAPByTransactionShort](../../platform-sdk/pkg/wrapper_iap.go) | [AdminSyncSteamIAPByTransactionShort](../../samples/cli/cmd/platform/iap/adminSyncSteamIAPByTransaction.go) |
 | `/platform/public/namespaces/{namespace}/iap/apple/config/version` | GET | GetAppleConfigVersionShort | [GetAppleConfigVersionShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [GetAppleConfigVersionShort](../../platform-sdk/pkg/wrapper_iap.go) | [GetAppleConfigVersionShort](../../samples/cli/cmd/platform/iap/getAppleConfigVersion.go) |
 | `/platform/public/namespaces/{namespace}/iap/item/mapping` | GET | GetIAPItemMappingShort | [GetIAPItemMappingShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [GetIAPItemMappingShort](../../platform-sdk/pkg/wrapper_iap.go) | [GetIAPItemMappingShort](../../samples/cli/cmd/platform/iap/getIAPItemMapping.go) |
 | `/platform/public/namespaces/{namespace}/users/me/iap/twitch/sync` | PUT | SyncTwitchDropsEntitlementShort | [SyncTwitchDropsEntitlementShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncTwitchDropsEntitlementShort](../../platform-sdk/pkg/wrapper_iap.go) | [SyncTwitchDropsEntitlementShort](../../samples/cli/cmd/platform/iap/syncTwitchDropsEntitlement.go) |
@@ -319,6 +328,8 @@
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync` | PUT | PublicReconcilePlayStationStoreShort | [PublicReconcilePlayStationStoreShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [PublicReconcilePlayStationStoreShort](../../platform-sdk/pkg/wrapper_iap.go) | [PublicReconcilePlayStationStoreShort](../../samples/cli/cmd/platform/iap/publicReconcilePlayStationStore.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync/multiServiceLabels` | PUT | PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort | [PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort](../../platform-sdk/pkg/wrapper_iap.go) | [PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort](../../samples/cli/cmd/platform/iap/publicReconcilePlayStationStoreWithMultipleServiceLabels.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/sync` | PUT | SyncSteamInventoryShort | [SyncSteamInventoryShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncSteamInventoryShort](../../platform-sdk/pkg/wrapper_iap.go) | [SyncSteamInventoryShort](../../samples/cli/cmd/platform/iap/syncSteamInventory.go) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/syncAbnormalTransaction` | PUT | SyncSteamAbnormalTransactionShort | [SyncSteamAbnormalTransactionShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncSteamAbnormalTransactionShort](../../platform-sdk/pkg/wrapper_iap.go) | [SyncSteamAbnormalTransactionShort](../../samples/cli/cmd/platform/iap/syncSteamAbnormalTransaction.go) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/syncByTransaction` | PUT | SyncSteamIAPByTransactionShort | [SyncSteamIAPByTransactionShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncSteamIAPByTransactionShort](../../platform-sdk/pkg/wrapper_iap.go) | [SyncSteamIAPByTransactionShort](../../samples/cli/cmd/platform/iap/syncSteamIAPByTransaction.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/twitch/sync` | PUT | SyncTwitchDropsEntitlement1Short | [SyncTwitchDropsEntitlement1Short](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncTwitchDropsEntitlement1Short](../../platform-sdk/pkg/wrapper_iap.go) | [SyncTwitchDropsEntitlement1Short](../../samples/cli/cmd/platform/iap/syncTwitchDropsEntitlement1.go) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/xbl/sync` | PUT | SyncXboxInventoryShort | [SyncXboxInventoryShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [SyncXboxInventoryShort](../../platform-sdk/pkg/wrapper_iap.go) | [SyncXboxInventoryShort](../../samples/cli/cmd/platform/iap/syncXboxInventory.go) |
 | `/platform/v2/public/namespaces/{namespace}/users/{userId}/iap/apple/receipt` | PUT | V2PublicFulfillAppleIAPItemShort | [V2PublicFulfillAppleIAPItemShort](../../platform-sdk/pkg/platformclient/iap/iap_client.go) | [V2PublicFulfillAppleIAPItemShort](../../platform-sdk/pkg/wrapper_iap.go) | [V2PublicFulfillAppleIAPItemShort](../../samples/cli/cmd/platform/iap/v2PublicFulfillAppleIAPItem.go) |
@@ -711,6 +722,7 @@
 | `CategoryCreate` | [CategoryCreate ](../../platform-sdk/pkg/platformclientmodels/category_create.go) |
 | `CategoryInfo` | [CategoryInfo ](../../platform-sdk/pkg/platformclientmodels/category_info.go) |
 | `CategoryUpdate` | [CategoryUpdate ](../../platform-sdk/pkg/platformclientmodels/category_update.go) |
+| `ChangeStatusItemRequest` | [ChangeStatusItemRequest ](../../platform-sdk/pkg/platformclientmodels/change_status_item_request.go) |
 | `CheckoutConfig` | [CheckoutConfig ](../../platform-sdk/pkg/platformclientmodels/checkout_config.go) |
 | `ClawbackInfo` | [ClawbackInfo ](../../platform-sdk/pkg/platformclientmodels/clawback_info.go) |
 | `ClientRequestParameter` | [ClientRequestParameter ](../../platform-sdk/pkg/platformclientmodels/client_request_parameter.go) |
@@ -795,6 +807,7 @@
 | `ExportStoreToCSVRequest` | [ExportStoreToCSVRequest ](../../platform-sdk/pkg/platformclientmodels/export_store_to_c_s_v_request.go) |
 | `ExtensionFulfillmentSummary` | [ExtensionFulfillmentSummary ](../../platform-sdk/pkg/platformclientmodels/extension_fulfillment_summary.go) |
 | `ExternalPaymentOrderCreate` | [ExternalPaymentOrderCreate ](../../platform-sdk/pkg/platformclientmodels/external_payment_order_create.go) |
+| `FeatureReference` | [FeatureReference ](../../platform-sdk/pkg/platformclientmodels/feature_reference.go) |
 | `FieldValidationError` | [FieldValidationError ](../../platform-sdk/pkg/platformclientmodels/field_validation_error.go) |
 | `FixedPeriodRotationConfig` | [FixedPeriodRotationConfig ](../../platform-sdk/pkg/platformclientmodels/fixed_period_rotation_config.go) |
 | `FulFillItemPayload` | [FulFillItemPayload ](../../platform-sdk/pkg/platformclientmodels/ful_fill_item_payload.go) |
@@ -841,7 +854,9 @@
 | `IAPItemMappingInfo` | [IAPItemMappingInfo ](../../platform-sdk/pkg/platformclientmodels/iap_item_mapping_info.go) |
 | `IAPOrderConsumeDetailInfo` | [IAPOrderConsumeDetailInfo ](../../platform-sdk/pkg/platformclientmodels/iap_order_consume_detail_info.go) |
 | `IAPOrderInfo` | [IAPOrderInfo ](../../platform-sdk/pkg/platformclientmodels/iap_order_info.go) |
+| `IAPOrderLineItemInfo` | [IAPOrderLineItemInfo ](../../platform-sdk/pkg/platformclientmodels/iap_order_line_item_info.go) |
 | `IAPOrderPagingSlicedResult` | [IAPOrderPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/iap_order_paging_sliced_result.go) |
+| `IAPOrderShortInfo` | [IAPOrderShortInfo ](../../platform-sdk/pkg/platformclientmodels/iap_order_short_info.go) |
 | `Image` | [Image ](../../platform-sdk/pkg/platformclientmodels/image.go) |
 | `ImportErrorDetails` | [ImportErrorDetails ](../../platform-sdk/pkg/platformclientmodels/import_error_details.go) |
 | `ImportStoreAppInfo` | [ImportStoreAppInfo ](../../platform-sdk/pkg/platformclientmodels/import_store_app_info.go) |
@@ -860,6 +875,7 @@
 | `ItemAcquireRequest` | [ItemAcquireRequest ](../../platform-sdk/pkg/platformclientmodels/item_acquire_request.go) |
 | `ItemAcquireResult` | [ItemAcquireResult ](../../platform-sdk/pkg/platformclientmodels/item_acquire_result.go) |
 | `ItemCreate` | [ItemCreate ](../../platform-sdk/pkg/platformclientmodels/item_create.go) |
+| `ItemDependency` | [ItemDependency ](../../platform-sdk/pkg/platformclientmodels/item_dependency.go) |
 | `ItemDynamicDataInfo` | [ItemDynamicDataInfo ](../../platform-sdk/pkg/platformclientmodels/item_dynamic_data_info.go) |
 | `ItemId` | [ItemId ](../../platform-sdk/pkg/platformclientmodels/item_id.go) |
 | `ItemInfo` | [ItemInfo ](../../platform-sdk/pkg/platformclientmodels/item_info.go) |
@@ -867,6 +883,7 @@
 | `ItemPagingSlicedResult` | [ItemPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/item_paging_sliced_result.go) |
 | `ItemPurchaseConditionValidateRequest` | [ItemPurchaseConditionValidateRequest ](../../platform-sdk/pkg/platformclientmodels/item_purchase_condition_validate_request.go) |
 | `ItemPurchaseConditionValidateResult` | [ItemPurchaseConditionValidateResult ](../../platform-sdk/pkg/platformclientmodels/item_purchase_condition_validate_result.go) |
+| `ItemReference` | [ItemReference ](../../platform-sdk/pkg/platformclientmodels/item_reference.go) |
 | `ItemReturnRequest` | [ItemReturnRequest ](../../platform-sdk/pkg/platformclientmodels/item_return_request.go) |
 | `ItemRevocation` | [ItemRevocation ](../../platform-sdk/pkg/platformclientmodels/item_revocation.go) |
 | `ItemSnapshot` | [ItemSnapshot ](../../platform-sdk/pkg/platformclientmodels/item_snapshot.go) |
@@ -888,6 +905,7 @@
 | `LootBoxPluginConfigUpdate` | [LootBoxPluginConfigUpdate ](../../platform-sdk/pkg/platformclientmodels/loot_box_plugin_config_update.go) |
 | `LootBoxReward` | [LootBoxReward ](../../platform-sdk/pkg/platformclientmodels/loot_box_reward.go) |
 | `MockIAPReceipt` | [MockIAPReceipt ](../../platform-sdk/pkg/platformclientmodels/mock_iap_receipt.go) |
+| `ModuleReference` | [ModuleReference ](../../platform-sdk/pkg/platformclientmodels/module_reference.go) |
 | `NeonPayConfig` | [NeonPayConfig ](../../platform-sdk/pkg/platformclientmodels/neon_pay_config.go) |
 | `NotificationPagingSlicedResult` | [NotificationPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/notification_paging_sliced_result.go) |
 | `NotificationProcessResult` | [NotificationProcessResult ](../../platform-sdk/pkg/platformclientmodels/notification_process_result.go) |
@@ -995,6 +1013,7 @@
 | `RegionDataItemDTO` | [RegionDataItemDTO ](../../platform-sdk/pkg/platformclientmodels/region_data_item_dto.go) |
 | `RequestHistory` | [RequestHistory ](../../platform-sdk/pkg/platformclientmodels/request_history.go) |
 | `Requirement` | [Requirement ](../../platform-sdk/pkg/platformclientmodels/requirement.go) |
+| `ResetJobRequest` | [ResetJobRequest ](../../platform-sdk/pkg/platformclientmodels/reset_job_request.go) |
 | `RevocationConfigInfo` | [RevocationConfigInfo ](../../platform-sdk/pkg/platformclientmodels/revocation_config_info.go) |
 | `RevocationConfigUpdate` | [RevocationConfigUpdate ](../../platform-sdk/pkg/platformclientmodels/revocation_config_update.go) |
 | `RevocationError` | [RevocationError ](../../platform-sdk/pkg/platformclientmodels/revocation_error.go) |
@@ -1039,12 +1058,16 @@
 | `SimpleWallet` | [SimpleWallet ](../../platform-sdk/pkg/platformclientmodels/simple_wallet.go) |
 | `Slide` | [Slide ](../../platform-sdk/pkg/platformclientmodels/slide.go) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo ](../../platform-sdk/pkg/platformclientmodels/stackable_entitlement_info.go) |
+| `SteamAbnormalTransactionPagingSlicedResult` | [SteamAbnormalTransactionPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/steam_abnormal_transaction_paging_sliced_result.go) |
 | `SteamAchievement` | [SteamAchievement ](../../platform-sdk/pkg/platformclientmodels/steam_achievement.go) |
 | `SteamAchievementUpdateRequest` | [SteamAchievementUpdateRequest ](../../platform-sdk/pkg/platformclientmodels/steam_achievement_update_request.go) |
 | `SteamDLCSyncRequest` | [SteamDLCSyncRequest ](../../platform-sdk/pkg/platformclientmodels/steam_dlc_sync_request.go) |
 | `SteamIAPConfig` | [SteamIAPConfig ](../../platform-sdk/pkg/platformclientmodels/steam_iap_config.go) |
 | `SteamIAPConfigInfo` | [SteamIAPConfigInfo ](../../platform-sdk/pkg/platformclientmodels/steam_iap_config_info.go) |
 | `SteamIAPConfigRequest` | [SteamIAPConfigRequest ](../../platform-sdk/pkg/platformclientmodels/steam_iap_config_request.go) |
+| `SteamReportInfoPagingSlicedResult` | [SteamReportInfoPagingSlicedResult ](../../platform-sdk/pkg/platformclientmodels/steam_report_info_paging_sliced_result.go) |
+| `SteamReportJobInfo` | [SteamReportJobInfo ](../../platform-sdk/pkg/platformclientmodels/steam_report_job_info.go) |
+| `SteamSyncByTransactionRequest` | [SteamSyncByTransactionRequest ](../../platform-sdk/pkg/platformclientmodels/steam_sync_by_transaction_request.go) |
 | `SteamSyncRequest` | [SteamSyncRequest ](../../platform-sdk/pkg/platformclientmodels/steam_sync_request.go) |
 | `StoreBackupInfo` | [StoreBackupInfo ](../../platform-sdk/pkg/platformclientmodels/store_backup_info.go) |
 | `StoreCreate` | [StoreCreate ](../../platform-sdk/pkg/platformclientmodels/store_create.go) |

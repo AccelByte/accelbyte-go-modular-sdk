@@ -20,6 +20,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/reward"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/season"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/tier"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/utilities"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 )
 
@@ -89,6 +90,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.Reward = reward.New(transport, formats)
 	cli.Season = season.New(transport, formats)
 	cli.Tier = tier.New(transport, formats)
+	cli.Utilities = utilities.New(transport, formats)
 
 	return cli
 }
@@ -160,6 +162,8 @@ type JusticeSeasonpassService struct {
 
 	Tier tier.ClientService
 
+	Utilities utilities.ClientService
+
 	Runtime   *httptransport.Runtime
 	Transport runtime.ClientTransport
 }
@@ -172,4 +176,5 @@ func (c *JusticeSeasonpassService) SetTransport(transport runtime.ClientTranspor
 	c.Reward.SetTransport(transport)
 	c.Season.SetTransport(transport)
 	c.Tier.SetTransport(transport)
+	c.Utilities.SetTransport(transport)
 }

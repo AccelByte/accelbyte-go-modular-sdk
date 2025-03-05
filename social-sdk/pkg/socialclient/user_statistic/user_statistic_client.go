@@ -51,9 +51,9 @@ type ClientService interface {
 	BulkResetUserStatItem2Short(params *BulkResetUserStatItem2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkResetUserStatItem2Response, error)
 	PublicListMyStatItemsShort(params *PublicListMyStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatItemsResponse, error)
 	PublicListAllMyStatItemsShort(params *PublicListAllMyStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListAllMyStatItemsResponse, error)
-	PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItemsResponse, error)
-	PublicBulkCreateUserStatItemsShort(params *PublicBulkCreateUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkCreateUserStatItemsResponse, error)
 	PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems1Response, error)
+	PublicBulkCreateUserStatItemsShort(params *PublicBulkCreateUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkCreateUserStatItemsResponse, error)
+	PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItemsResponse, error)
 	PublicBulkIncUserStatItem1Short(params *PublicBulkIncUserStatItem1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItem1Response, error)
 	BulkIncUserStatItemValue2Short(params *BulkIncUserStatItemValue2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValue2Response, error)
 	BulkResetUserStatItem3Short(params *BulkResetUserStatItem3Params, authInfo runtime.ClientAuthInfoWriter) (*BulkResetUserStatItem3Response, error)
@@ -1975,15 +1975,15 @@ func (a *Client) PublicListAllMyStatItemsShort(params *PublicListAllMyStatItemsP
 }
 
 /*
-PublicQueryUserStatItemsShort public list user's statitems
+PublicQueryUserStatItems1Short public list user's statitems
 Public list all statItems by pagination.
 Other detail info:
           *  Returns : stat items
 */
-func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItemsResponse, error) {
+func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems1Response, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPublicQueryUserStatItemsParams()
+		params = NewPublicQueryUserStatItems1Params()
 	}
 
 	if params.Context == nil {
@@ -1999,14 +1999,14 @@ func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsP
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicQueryUserStatItems",
+		ID:                 "publicQueryUserStatItems_1",
 		Method:             "GET",
 		PathPattern:        "/social/v1/public/namespaces/{namespace}/users/{userId}/statitems",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PublicQueryUserStatItemsReader{formats: a.formats},
+		Reader:             &PublicQueryUserStatItems1Reader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -2017,36 +2017,36 @@ func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsP
 
 	switch v := result.(type) {
 
-	case *PublicQueryUserStatItemsOK:
-		response := &PublicQueryUserStatItemsResponse{}
+	case *PublicQueryUserStatItems1OK:
+		response := &PublicQueryUserStatItems1Response{}
 		response.Data = v.Payload
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *PublicQueryUserStatItemsUnauthorized:
-		response := &PublicQueryUserStatItemsResponse{}
+	case *PublicQueryUserStatItems1Unauthorized:
+		response := &PublicQueryUserStatItems1Response{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PublicQueryUserStatItemsForbidden:
-		response := &PublicQueryUserStatItemsResponse{}
+	case *PublicQueryUserStatItems1Forbidden:
+		response := &PublicQueryUserStatItems1Response{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PublicQueryUserStatItemsUnprocessableEntity:
-		response := &PublicQueryUserStatItemsResponse{}
+	case *PublicQueryUserStatItems1UnprocessableEntity:
+		response := &PublicQueryUserStatItems1Response{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PublicQueryUserStatItemsInternalServerError:
-		response := &PublicQueryUserStatItemsResponse{}
+	case *PublicQueryUserStatItems1InternalServerError:
+		response := &PublicQueryUserStatItems1Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false
@@ -2150,7 +2150,7 @@ func (a *Client) PublicBulkCreateUserStatItemsShort(params *PublicBulkCreateUser
 }
 
 /*
-PublicQueryUserStatItems1Short public list user's statitems
+PublicQueryUserStatItemsShort public list user's statitems
 Public list all statItems of user.
 NOTE:
         * If stat code does not exist, will ignore this stat code.
@@ -2158,10 +2158,10 @@ NOTE:
 Other detail info:
         *  Returns : stat items
 */
-func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems1Response, error) {
+func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItemsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPublicQueryUserStatItems1Params()
+		params = NewPublicQueryUserStatItemsParams()
 	}
 
 	if params.Context == nil {
@@ -2177,14 +2177,14 @@ func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "publicQueryUserStatItems_1",
+		ID:                 "publicQueryUserStatItems",
 		Method:             "GET",
 		PathPattern:        "/social/v1/public/namespaces/{namespace}/users/{userId}/statitems/value/bulk",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PublicQueryUserStatItems1Reader{formats: a.formats},
+		Reader:             &PublicQueryUserStatItemsReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -2195,50 +2195,50 @@ func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems
 
 	switch v := result.(type) {
 
-	case *PublicQueryUserStatItems1OK:
-		response := &PublicQueryUserStatItems1Response{}
+	case *PublicQueryUserStatItemsOK:
+		response := &PublicQueryUserStatItemsResponse{}
 		response.Data = v.Payload
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *PublicQueryUserStatItems1BadRequest:
-		response := &PublicQueryUserStatItems1Response{}
+	case *PublicQueryUserStatItemsBadRequest:
+		response := &PublicQueryUserStatItemsResponse{}
 		response.Error400 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PublicQueryUserStatItems1Unauthorized:
-		response := &PublicQueryUserStatItems1Response{}
+	case *PublicQueryUserStatItemsUnauthorized:
+		response := &PublicQueryUserStatItemsResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PublicQueryUserStatItems1Forbidden:
-		response := &PublicQueryUserStatItems1Response{}
+	case *PublicQueryUserStatItemsForbidden:
+		response := &PublicQueryUserStatItemsResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PublicQueryUserStatItems1NotFound:
-		response := &PublicQueryUserStatItems1Response{}
+	case *PublicQueryUserStatItemsNotFound:
+		response := &PublicQueryUserStatItemsResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PublicQueryUserStatItems1UnprocessableEntity:
-		response := &PublicQueryUserStatItems1Response{}
+	case *PublicQueryUserStatItemsUnprocessableEntity:
+		response := &PublicQueryUserStatItemsResponse{}
 		response.Error422 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PublicQueryUserStatItems1InternalServerError:
-		response := &PublicQueryUserStatItems1Response{}
+	case *PublicQueryUserStatItemsInternalServerError:
+		response := &PublicQueryUserStatItemsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

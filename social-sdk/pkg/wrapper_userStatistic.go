@@ -666,7 +666,7 @@ func (aaa *UserStatisticService) PublicListAllMyStatItemsShort(input *user_stati
 	return ok, nil
 }
 
-func (aaa *UserStatisticService) PublicQueryUserStatItemsShort(input *user_statistic.PublicQueryUserStatItemsParams) (*user_statistic.PublicQueryUserStatItemsResponse, error) {
+func (aaa *UserStatisticService) PublicQueryUserStatItems1Short(input *user_statistic.PublicQueryUserStatItems1Params) (*user_statistic.PublicQueryUserStatItems1Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -688,7 +688,7 @@ func (aaa *UserStatisticService) PublicQueryUserStatItemsShort(input *user_stati
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.UserStatistic.PublicQueryUserStatItemsShort(input, authInfoWriter)
+	ok, err := aaa.Client.UserStatistic.PublicQueryUserStatItems1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -726,7 +726,7 @@ func (aaa *UserStatisticService) PublicBulkCreateUserStatItemsShort(input *user_
 	return ok, nil
 }
 
-func (aaa *UserStatisticService) PublicQueryUserStatItems1Short(input *user_statistic.PublicQueryUserStatItems1Params) (*user_statistic.PublicQueryUserStatItems1Response, error) {
+func (aaa *UserStatisticService) PublicQueryUserStatItemsShort(input *user_statistic.PublicQueryUserStatItemsParams) (*user_statistic.PublicQueryUserStatItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -748,7 +748,7 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems1Short(input *user_stat
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.UserStatistic.PublicQueryUserStatItems1Short(input, authInfoWriter)
+	ok, err := aaa.Client.UserStatistic.PublicQueryUserStatItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

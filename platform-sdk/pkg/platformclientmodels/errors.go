@@ -76,6 +76,8 @@ var (
 	Error30381   = ApiError{Code: "30381", Message: "Currency [{currency}] is not set for bundle Item [{itemId}] in region [{region}]"}
 	Error30382   = ApiError{Code: "30382", Message: "Duplicated Item sku [{sku}]"}
 	Error30383   = ApiError{Code: "30383", Message: "Item app id [{appId}] already exists in namespace [{namespace}] item [{itemId}]"}
+	Error30386   = ApiError{Code: "30386", Message: "The item [{itemId}] is currently associated and cannot be deleted in namespace [{namespace}], Feature {featureName}, Module {moduleName}, and Reference ID {referenceId} are using this item ID"}
+	Error30387   = ApiError{Code: "30387", Message: "The item [{itemId}] is currently associated and cannot be disabled in namespace [{namespace}], Feature {featureName}, Module {moduleName}, and Reference ID {referenceId} are using this item ID"}
 	Error30541   = ApiError{Code: "30541", Message: "Item type config [{id}] doesn't exist"}
 	Error30641   = ApiError{Code: "30641", Message: "View [{viewId}] does not exist in namespace [{namespace}]"}
 	Error30741   = ApiError{Code: "30741", Message: "Section [{sectionId}] does not exist in namespace [{namespace}]"}
@@ -213,11 +215,15 @@ var (
 	Error39148   = ApiError{Code: "39148", Message: "Google IAP config not found in namespace [{namespace}]."}
 	Error39149   = ApiError{Code: "39149", Message: "Third Party Subscription Transaction [{id}] not found for user [{userId}] in the namespace [{namespace}]."}
 	Error39150   = ApiError{Code: "39150", Message: "Third Party User Subscription [{id}] not found for user [{userId}] in the namespace [{namespace}].."}
+	Error39151   = ApiError{Code: "39151", Message: "IAP order no [{iapOrderNo}] not found in namespace [{namespace}]."}
 	Error39171   = ApiError{Code: "39171", Message: "The bundle id in namespace [{namespace}] expect [{expected}] but was [{actual}]"}
 	Error39172   = ApiError{Code: "39172", Message: "The order id in namespace [{namespace}] expect [{expected}] but was [{actual}]"}
 	Error39173   = ApiError{Code: "39173", Message: "The purchase status of google play order [{orderId}] in namespace [{namespace}] expect [{expected}] but was [{actual}]"}
 	Error39174   = ApiError{Code: "39174", Message: "The google iap purchase time of order [{orderId}] in namespace [{namespace}] expect [{expected}] but was [{actual}]"}
 	Error39175   = ApiError{Code: "39175", Message: "Duplicate IAP item mapping, IAPType: [{iapType}] and id: [{iapId}]"}
+	Error39183   = ApiError{Code: "39183", Message: "Steam transaction [{orderId}] is still pending or failed, status [{status}], please try it later"}
+	Error39184   = ApiError{Code: "39184", Message: "Steam api exception with error code [{errorCode}] and error message [{message}]"}
+	Error39185   = ApiError{Code: "39185", Message: "This endpoint only works on sync mode [{workSyncMode}], but current steam iap config sync mode is [{currentSyncMode}] under namespace [{namespace}]"}
 	Error39221   = ApiError{Code: "39221", Message: "Invalid Xbox Business Partner Certificate or password: [{message}]"}
 	Error39244   = ApiError{Code: "39244", Message: "Steam config does not exist"}
 	Error39245   = ApiError{Code: "39245", Message: "Steam app id does not exist"}
@@ -226,6 +232,7 @@ var (
 	Error39441   = ApiError{Code: "39441", Message: "Platform dlc config cannot be found in namespace [{namespace}]"}
 	Error39442   = ApiError{Code: "39442", Message: "DLC item config cannot be found in namespace [{namespace}]"}
 	Error39471   = ApiError{Code: "39471", Message: "Duplicated dlc reward id [{dlcRewardId}] in namespace [{namespace}] "}
+	Error39621   = ApiError{Code: "39621", Message: "Steam api common exception with status code [statusCode] details: [details]"}
 	Error40121   = ApiError{Code: "40121", Message: "Item type [{itemType}] does not support"}
 	Error40122   = ApiError{Code: "40122", Message: "Subscription already been subscribed by user"}
 	Error40123   = ApiError{Code: "40123", Message: "Currency [{currencyCode}] does not support"}

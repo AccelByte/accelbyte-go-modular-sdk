@@ -36,6 +36,36 @@ func (aaa *BackfillService) GetAuthSession() auth.Session {
 	}
 }
 
+func (aaa *BackfillService) AdminQueryBackfillShort(input *backfill.AdminQueryBackfillParams) (*backfill.AdminQueryBackfillResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdBackfill != nil {
+		input.XFlightId = tempFlightIdBackfill
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Backfill.AdminQueryBackfillShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *BackfillService) CreateBackfillShort(input *backfill.CreateBackfillParams) (*backfill.CreateBackfillResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

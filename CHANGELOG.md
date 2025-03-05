@@ -1,3 +1,41 @@
+<a name="lobby-sdk//v0.1.1"></a>
+## [For AGS v0.1.1]
+### fix
+- **lobby:** remove auth token hard requirement
+
+
+<a name="services-api//v0.1.1"></a>
+## [For AGS v0.1.1]
+### test
+- **integration:** add lobby scheme
+- **integration:** add match2 option's name
+- **integration:** remove deprecated services
+### chore
+- **integration:** add player record cloudsave test
+- **integration:** fix the challenge test
+
+
+<a name="ags//v2025.2"></a>
+## [For AGS v2025.2]
+### chore
+- **:** add readme for response error
+- **loginqueue:** add spec for login queue service
+- **loginqueue:** regenerate sdk, cli, docs
+- **sdk:** generated from openapi spec commit: 79683a20ff945862cdc0c4aef8d903a0f30bf2f5
+- **integration:** fix the challenge test
+- **docs:** add migration guide for ags 2025.1
+- **sdk:** update version for 2025.1
+- **:** update go work for csm
+- **:** version bump
+- **:** go mod tidy
+- **docs:** update CHANGELOG
+### docs
+- **readme:** update doc links
+### feat
+- **loginqueue:** add, version, gowork, cli gomod
+- **loginqueue:** integration - add login queue test
+
+
 <a name="loginqueue-sdk/v0.1.0"></a>
 ## [For AGS v0.1.1]
 ### chore

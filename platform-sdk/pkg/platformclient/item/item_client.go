@@ -66,6 +66,7 @@ type ClientService interface {
 	DefeatureItemShort(params *DefeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*DefeatureItemResponse, error)
 	GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemResponse, error)
 	UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseConditionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemPurchaseConditionResponse, error)
+	QueryItemReferencesShort(params *QueryItemReferencesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemReferencesResponse, error)
 	ReturnItemShort(params *ReturnItemParams, authInfo runtime.ClientAuthInfoWriter) (*ReturnItemResponse, error)
 	PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemByAppIDResponse, error)
 	PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryItemsResponse, error)
@@ -2312,6 +2313,13 @@ func (a *Client) DeleteItemShort(params *DeleteItemParams, authInfo runtime.Clie
 		response.IsSuccess = false
 
 		return response, v
+	case *DeleteItemConflict:
+		response := &DeleteItemResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -3091,6 +3099,67 @@ func (a *Client) UpdateItemPurchaseConditionShort(params *UpdateItemPurchaseCond
 	case *UpdateItemPurchaseConditionUnprocessableEntity:
 		response := &UpdateItemPurchaseConditionResponse{}
 		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+QueryItemReferencesShort get item references
+This API is used to get references for an item
+*/
+func (a *Client) QueryItemReferencesShort(params *QueryItemReferencesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemReferencesResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewQueryItemReferencesParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "queryItemReferences",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/items/{itemId}/references",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &QueryItemReferencesReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *QueryItemReferencesOK:
+		response := &QueryItemReferencesResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *QueryItemReferencesNotFound:
+		response := &QueryItemReferencesResponse{}
+		response.Error404 = v.Payload
 
 		response.IsSuccess = false
 
