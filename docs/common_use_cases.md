@@ -16,7 +16,7 @@ created, errCreate := achievementsService.AdminCreateNewAchievementShort(inputCr
 if errCreate != nil {
 	assert.FailNow(t, errCreate.Error())
 }
-t.Logf("AchievementCode: %v created", *created.AchievementCode)
+t.Logf("AchievementCode: %v created", *created.Data.AchievementCode)
 ```
 
 ### Retrieve an achievement by its code
@@ -130,7 +130,7 @@ if errCreated != nil {
 
 ```go
 inputGet := &fleets.FleetGetParams{
-	FleetID:   *created.ID,
+	FleetID:   *created.Data.ID,
 	Namespace: integration.NamespaceTest,
 }
 get, errGet := fleetService.FleetGetShort(inputGet)
@@ -154,7 +154,7 @@ inputUpdate := &fleets.FleetUpdateParams{
 		Name:    &fleetNameUpdate,
 		Regions: fleetRegions,
 	},
-	FleetID:   *created.ID,
+	FleetID:   *created.Data.ID,
 	Namespace: integration.NamespaceTest,
 }
 errUpdated := fleetService.FleetUpdateShort(inputUpdate)
@@ -169,7 +169,7 @@ if errUpdated != nil {
 
 ```go
 inputDelete := &fleets.FleetDeleteParams{
-	FleetID:   *created.ID,
+	FleetID:   *created.Data.ID,
 	Namespace: integration.NamespaceTest,
 }
 errDelete := fleetService.FleetDeleteShort(inputDelete)
@@ -223,7 +223,7 @@ created, errCreate := userProfileService.CreateMyProfileShort(inputCreate)
 if errCreate != nil {
 	assert.FailNow(t, errCreate.Error())
 }
-t.Logf("Profile: %v created", created.UserID)
+t.Logf("Profile: %v created", created.Data.UserID)
 ```
 
 ### Get a profile
@@ -231,7 +231,7 @@ t.Logf("Profile: %v created", created.UserID)
 ```go
 inputGet := &user_profile.PublicGetUserProfileInfoParams{
 	Namespace: integration.NamespaceTest,
-	UserID:    created.UserID,
+	UserID:    created.Data.UserID,
 }
 
 get, errGet := userProfileService.PublicGetUserProfileInfoShort(inputGet)
@@ -246,7 +246,7 @@ if errGet != nil {
 inputUpdate := &user_profile.PublicUpdateUserProfileParams{
 	Body:      bodyBasicUpdate,
 	Namespace: integration.NamespaceTest,
-	UserID:    created.UserID,
+	UserID:    created.Data.UserID,
 }
 
 updated, errUpdate := userProfileService.PublicUpdateUserProfileShort(inputUpdate)
@@ -260,7 +260,7 @@ if errUpdate != nil {
 ```go
 inputDelete := &user_profile.DeleteUserProfileParams{
 	Namespace: integration.NamespaceTest,
-	UserID:    created.UserID,
+	UserID:    created.Data.UserID,
 }
 
 deleted, errDelete := userProfileService.DeleteUserProfileShort(inputDelete)
@@ -304,7 +304,7 @@ update, errUpdate := profanityOperationsService.AdminProfanityUpdateShort(&profa
 		WordType: &profanityWordType,
 	},
 	Namespace: integration.NamespaceTest,
-	ID:        *create.ID,
+	ID:        *create.Data.ID,
 })
 ```
 
@@ -337,7 +337,7 @@ save, errSave := inboxOperationsService.AdminSaveInboxMessageShort(&inbox.AdminS
 ```go
 create, errCreate := inboxOperationsService.AdminSendInboxMessageShort(&inbox.AdminSendInboxMessageParams{
 	Body:      dataMessage,
-	MessageID: *save.ID,
+	MessageID: *save.Data.ID,
 	Namespace: integration.NamespaceTest,
 })
 ```
@@ -361,7 +361,7 @@ errUpdate := inboxOperationsService.AdminUpdateInboxMessageShort(&inbox.AdminUpd
 		UserIds:   userIds,
 	},
 	Namespace: integration.NamespaceTest,
-	MessageID: *save.ID,
+	MessageID: *save.Data.ID,
 })
 ```
 
@@ -501,9 +501,9 @@ inputRecord := &public_player_record.GetPlayerPublicRecordHandlerV1Params{
 	UserID:    userID,
 }
 
-ok, errOk := publicPlayerRecordService.GetPlayerPublicRecordHandlerV1Short(inputRecord)
-if errOk != nil {
-	assert.FailNow(t, errOk.Error())
+okGet, errGet := publicPlayerRecordService.GetPlayerPublicRecordHandlerV1Short(inputRecord)
+if errGet != nil {
+	assert.FailNow(t, errGet.Error())
 }
 ```
 
@@ -581,56 +581,6 @@ input := &gametelemetry_operations.ProtectedSaveEventsGameTelemetryV1ProtectedEv
 err := gameTelemetryOperationsService.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostShort(input)
 if err != nil {
 	assert.FailNow(t, err.Error())
-}
-```
-
-### Protected Get Playtime
-
-```go
-input := &gametelemetry_operations.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetParams{
-	SteamID: steamId,
-}
-
-ok, err := gameTelemetryOperationsService.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetShort(input)
-if err != nil {
-	assert.FailNow(t, err.Error())
-}
-```
-
-### Protected Get Playtime with retry
-
-```go
-input := &gametelemetry_operations.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetParams{
-	SteamID: "falseSteamId",
-}
-input.RetryPolicy = &utils.Retry{
-	Transport: gameTelemetryOperationsService.Client.Runtime.Transport,
-	MaxTries:  utils.MaxTries,
-	Backoff:   utils.NewConstantBackoff(0),
-	RetryCodes: map[int]bool{
-		422: true, // fail on purpose
-	},
-}
-
-get, err := gameTelemetryOperationsService.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetShort(input)
-if err != nil {
-	assert.NotNil(t, err.Error(), "fail on purpose")
-}
-```
-
-### Protected Update Playtime
-
-```go
-input := &gametelemetry_operations.ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutParams{
-	Playtime: "4",
-	SteamID:  steamId,
-}
-
-resp, err := gameTelemetryOperationsService.ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutShort(input)
-if err != nil {
-	assert.Contains(t, err.Error(), "user not found")
-
-	t.Skip("User was not found.")
 }
 ```
 ## GDPR
@@ -722,7 +672,7 @@ created, errCreate := configurationService.CreateGroupConfigurationAdminV1Short(
 if errCreate != nil {
 	assert.FailNow(t, errCreate.Error())
 } else {
-	groupConfigName := *created.Name
+	groupConfigName := *created.Data.Name
 	t.Logf("GroupConfig: %v created", groupConfigName)
 }
 ```
@@ -740,7 +690,7 @@ created, errCreate := groupService.CreateNewGroupPublicV1Short(inputCreate)
 if errCreate != nil {
 	assert.FailNow(t, errCreate.Error())
 }
-groupID := *created.GroupID
+groupID := *created.Data.GroupID
 t.Logf("GroupID: %v created", groupID)
 ```
 
@@ -756,7 +706,7 @@ get, errGet := groupService.GetSingleGroupPublicV1Short(inputGet)
 if errGet != nil {
 	assert.FailNow(t, errGet.Error())
 }
-t.Logf("GroupID: %v get with name: %v", groupID, *created.GroupName)
+t.Logf("GroupID: %v get with name: %v", groupID, *created.Data.GroupName)
 ```
 
 ### Update a group
@@ -848,6 +798,8 @@ inputTokenGrant := &o_auth2_0.TokenGrantV3Params{
 	GrantType:    o_auth2_0.TokenGrantV3AuthorizationCodeConstant,
 }
 
+oAuth20Service.TokenRepository.RemoveToken()
+
 expected, errExpected := oAuth20Service.TokenGrantV3Short(inputTokenGrant)
 if errExpected != nil {
 	assert.FailNow(t, errExpected.Error())
@@ -890,7 +842,7 @@ user, err := userV4Service.PublicCreateUserV4Short(input)
 if err != nil {
 	assert.FailNow(t, err.Error())
 }
-t.Logf("userId: %v", *user.UserID)
+t.Logf("userId: %v", *user.Data.UserID)
 ```
 
 ### Update a user
@@ -899,7 +851,7 @@ t.Logf("userId: %v", *user.UserID)
 inputUpdate := &users.AdminUpdateUserV3Params{
 	Body:      updateUserBody,
 	Namespace: integration.NamespaceTest,
-	UserID:    *user.UserID,
+	UserID:    *user.Data.UserID,
 }
 
 update, errUpdate := userService.AdminUpdateUserV3Short(inputUpdate)
@@ -913,7 +865,7 @@ if errUpdate != nil {
 ```go
 inputGet := &users.AdminGetUserByUserIDV3Params{
 	Namespace: integration.NamespaceTest,
-	UserID:    *user.UserID,
+	UserID:    *user.Data.UserID,
 }
 
 get, errGet := userService.AdminGetUserByUserIDV3Short(inputGet)
@@ -927,7 +879,7 @@ if errGet != nil {
 ```go
 inputDelete := &users.AdminDeleteUserInformationV3Params{
 	Namespace: integration.NamespaceTest,
-	UserID:    *user.UserID,
+	UserID:    *user.Data.UserID,
 }
 
 errDelete := userService.AdminDeleteUserInformationV3Short(inputDelete)
@@ -951,7 +903,7 @@ created, errCreate := leaderboardConfigurationService.CreateLeaderboardConfigura
 if errCreate != nil {
 	assert.FailNow(t, errCreate.Error())
 }
-t.Logf("Leaderboard Code: %v created", *created.LeaderboardCode)
+t.Logf("Leaderboard Code: %v created", *created.Data.LeaderboardCode)
 ```
 
 ### Get a single leaderboard
@@ -1125,6 +1077,28 @@ export, err := lobbyConfigSvc.AdminExportConfigV1Short(&config.AdminExportConfig
 	Namespace: integration.NamespaceTest,
 }, writer)
 ```
+## LoginQueue
+
+Source: [loginqueue_test.go](../services-api/pkg/tests/integration/loginqueue_test.go)
+
+### Admin Get Configuration
+
+```go
+get, errGet := loginQueueAdminV1Service.AdminGetConfigurationShort(&admin_v1.AdminGetConfigurationParams{
+	Namespace: integration.NamespaceTest,
+})
+```
+
+### Admin Update Configuration
+
+```go
+update, errUpdate := loginQueueAdminV1Service.AdminUpdateConfigurationShort(&admin_v1.AdminUpdateConfigurationParams{
+	Body: &loginqueueclientmodels.ApimodelsConfigurationRequest{
+		MaxLoginRate: &updateMaxLoginRate,
+	},
+	Namespace: integration.NamespaceTest,
+})
+```
 ## MatchmakingV2
 
 Source: [match2_test.go](../services-api/pkg/tests/integration/match2_test.go)
@@ -1231,7 +1205,7 @@ if errCreatedTicket != nil {
 ```go
 inputDeleteTicket := &match_tickets.DeleteMatchTicketParams{
 	Namespace: integration.NamespaceTest,
-	Ticketid:  *createdTicket.MatchTicketID,
+	Ticketid:  *createdTicket.Data.MatchTicketID,
 }
 errDeletedTicket := matchTicketService.DeleteMatchTicketShort(inputDeleteTicket)
 if errDeletedTicket != nil {
@@ -1317,7 +1291,7 @@ created, errCreate := storeService.CreateStoreShort(inputCreate)
 if errCreate != nil {
 	assert.FailNow(t, errCreate.Error())
 }
-storeID := *created.StoreID
+storeID := *created.Data.StoreID
 t.Logf("Store: %v created", storeID)
 ```
 
@@ -1626,7 +1600,7 @@ if errCreated != nil {
 inputUpdate := &configuration_template.AdminUpdateConfigurationTemplateV1Params{
 	Body:      bodyTemplateUpdate,
 	Namespace: integration.NamespaceTest,
-	Name:      *created.Name,
+	Name:      *created.Data.Name,
 }
 updated, errUpdated := configService.AdminUpdateConfigurationTemplateV1Short(inputUpdate)
 if errUpdated != nil {
@@ -1640,7 +1614,7 @@ if errUpdated != nil {
 
 ```go
 inputDelete := &configuration_template.AdminDeleteConfigurationTemplateV1Params{
-	Name:      *created.Name,
+	Name:      *created.Data.Name,
 	Namespace: integration.NamespaceTest,
 }
 errDeleted := configService.AdminDeleteConfigurationTemplateV1Short(inputDelete)
@@ -1671,7 +1645,7 @@ if errCreated != nil {
 ```go
 inputJoin := &game_session.JoinGameSessionParams{
 	Namespace: integration.NamespaceTest,
-	SessionID: *created.ID,
+	SessionID: *created.Data.ID,
 }
 joined, errJoined := gameSessionServiceFor2ndPlayer.JoinGameSessionShort(inputJoin)
 if errJoined != nil {
@@ -1686,7 +1660,7 @@ if errJoined != nil {
 ```go
 inputLeave := &game_session.LeaveGameSessionParams{
 	Namespace: integration.NamespaceTest,
-	SessionID: *created.ID,
+	SessionID: *created.Data.ID,
 }
 errLeave := gameSessionService.LeaveGameSessionShort(inputLeave)
 if errLeave != nil {
@@ -1699,7 +1673,7 @@ if errLeave != nil {
 ### Delete Game Session
 
 ```go
-ids := []string{*created.ID}
+ids := []string{*created.Data.ID}
 inputDelete := &game_session.AdminDeleteBulkGameSessionsParams{
 	Body:      &sessionclientmodels.ApimodelsDeleteBulkGameSessionRequest{Ids: ids},
 	Namespace: integration.NamespaceTest,
@@ -1747,7 +1721,7 @@ if errCreated != nil {
 
 ```go
 inputJoined := &partySession.PublicPartyJoinCodeParams{
-	Body:      &sessionclientmodels.ApimodelsJoinByCodeRequest{Code: created.Code},
+	Body:      &sessionclientmodels.ApimodelsJoinByCodeRequest{Code: created.Data.Code},
 	Namespace: integration.NamespaceTest,
 }
 joined, errJoined := partyServiceFor2ndPlayer.PublicPartyJoinCodeShort(inputJoined)
@@ -1763,7 +1737,7 @@ if errJoined != nil {
 ```go
 inputGet := &partySession.PublicGetPartyParams{
 	Namespace: integration.NamespaceTest,
-	PartyID:   *joined.ID,
+	PartyID:   *joined.Data.ID,
 }
 get, errGet := partyService.PublicGetPartyShort(inputGet)
 if errGet != nil {
@@ -1778,7 +1752,7 @@ if errGet != nil {
 ```go
 inputLeave := &partySession.PublicPartyLeaveParams{
 	Namespace: integration.NamespaceTest,
-	PartyID:   *joined.ID,
+	PartyID:   *joined.Data.ID,
 }
 errLeave := partyService.PublicPartyLeaveShort(inputLeave)
 if errGet != nil {
@@ -1910,7 +1884,7 @@ okImport, errImport := statConfigurationService.ImportStatsShort(inputImportStat
 inputCreate := &user_statistic.CreateUserStatItemParams{
 	Namespace: integration.NamespaceTest,
 	StatCode:  statCodeSocial,
-	UserID:    *user.UserID,
+	UserID:    *user.Data.UserID,
 }
 
 errCreate := userStatisticService.CreateUserStatItemShort(inputCreate)
@@ -1921,7 +1895,7 @@ errCreate := userStatisticService.CreateUserStatItemShort(inputCreate)
 ```go
 inputGet := &user_statistic.GetUserStatItemsParams{
 	Namespace: integration.NamespaceTest,
-	UserID:    *user.UserID,
+	UserID:    *user.Data.UserID,
 	StatCodes: &statCodeSocial,
 }
 
@@ -1935,7 +1909,7 @@ inputInc := &user_statistic.IncUserStatItemValueParams{
 	Body:      &socialclientmodels.StatItemInc{Inc: float64(4)},
 	Namespace: integration.NamespaceTest,
 	StatCode:  statCodeSocial,
-	UserID:    *user.UserID,
+	UserID:    *user.Data.UserID,
 }
 
 inc, errInc := userStatisticService.IncUserStatItemValueShort(inputInc)
@@ -1947,7 +1921,7 @@ inc, errInc := userStatisticService.IncUserStatItemValueShort(inputInc)
 inputDelete := &user_statistic.DeleteUserStatItemsParams{
 	Namespace: integration.NamespaceTest,
 	StatCode:  statCodeSocial,
-	UserID:    *user.UserID,
+	UserID:    *user.Data.UserID,
 }
 
 errDelete := userStatisticService.DeleteUserStatItemsShort(inputDelete)
@@ -1968,7 +1942,7 @@ created, errCreate := adminTagService.AdminCreateTagShort(inputCreate)
 if errCreate != nil {
 	assert.FailNow(t, errCreate.Error())
 }
-tagID := *created.ID
+tagID := *created.Data.ID
 t.Logf("TagId: %v created", tagID)
 ```
 
@@ -2015,146 +1989,4 @@ errDelete := adminTagService.AdminDeleteTagShort(inputDelete)
 if errDelete != nil {
 	assert.FailNow(t, errDelete.Error())
 }
-```
-## CSM
-
-Source: [csm_test.go](../services-api/pkg/tests/integration/csm_test.go)
-
-### Create extend app
-
-```go
-input := &app_v2.CreateAppV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-	Body: &csmclientmodels.ApimodelCreateAppV2Request{
-		CPU: &csmclientmodels.ApimodelCPURequest{
-			RequestCPU: &cpu,
-		},
-		Description: "test integration create extend app for extend sdk",
-		Memory: &csmclientmodels.ApimodelMemoryRequest{
-			RequestMemory: 100,
-		},
-		Scenario: &scenario,
-	},
-}
-ok, err := csmAppService.CreateAppV2Short(input)
-```
-
-### Get extend app detail
-
-```go
-app, err := csmAppService.GetAppV2Short(&app_v2.GetAppV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-})
-```
-
-### Save extend app secret
-
-```go
-input := &configuration_v2.SaveSecretV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-	Body: &csmclientmodels.ApimodelSaveConfigurationV2Request{
-		ApplyMask:  true,
-		ConfigName: &secretName,
-		Value:      &secretValue,
-		Source:     &configSource,
-	},
-}
-
-secret, err := csmConfigService.SaveSecretV2Short(input)
-```
-
-### Get extend app secrets list
-
-```go
-secrets, err := csmConfigService.GetListOfSecretsV2Short(&configuration_v2.GetListOfSecretsV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-})
-```
-
-### Update extend app secret
-
-```go
-updatedSecret, err := csmConfigService.UpdateSecretV2Short(&configuration_v2.UpdateSecretV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-	ConfigID:  *secret.ConfigID,
-	Body: &csmclientmodels.ApimodelUpdateConfigurationV2Request{
-		ApplyMask: true,
-		Value:     &updatedSecretValue,
-	},
-})
-```
-
-### Save extend app environment variable
-
-```go
-input := &configuration_v2.SaveVariableV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-	Body: &csmclientmodels.ApimodelSaveConfigurationV2Request{
-		ApplyMask:  true,
-		ConfigName: &envVarName,
-		Value:      &envVarValue,
-		Source:     &configSource,
-	},
-}
-
-envVar, err := csmConfigService.SaveVariableV2Short(input)
-```
-
-### Get extend app environment variables list
-
-```go
-envVars, err := csmConfigService.GetListOfVariablesV2Short(&configuration_v2.GetListOfVariablesV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-})
-```
-
-### Update extend app environment variable
-
-```go
-updatedVariable, err := csmConfigService.UpdateVariableV2Short(&configuration_v2.UpdateVariableV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-	ConfigID:  *envVar.ConfigID,
-	Body: &csmclientmodels.ApimodelUpdateConfigurationV2Request{
-		ApplyMask: true,
-		Value:     &updatedEnvVarValue,
-	},
-})
-```
-
-### Delete extend app secret
-
-```go
-err := csmConfigService.DeleteSecretV2Short(&configuration_v2.DeleteSecretV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-	ConfigID:  secretConfigID,
-})
-```
-
-### Delete extend app environment variable
-
-```go
-err = csmConfigService.DeleteVariableV2Short(&configuration_v2.DeleteVariableV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-	ConfigID:  envVarConfigID,
-})
-```
-
-### Delete extend app
-
-```go
-err = csmAppService.DeleteAppV2Short(&app_v2.DeleteAppV2Params{
-	Namespace: namespace,
-	App:       extendAppName,
-	Forced:    &forced,
-})
 ```
