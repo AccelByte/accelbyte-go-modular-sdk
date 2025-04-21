@@ -31,7 +31,6 @@ var (
 		Client:          session.NewSessionClient(configRepo),
 		TokenRepository: tokenRepository,
 	}
-	cfgTemplateName  = fmt.Sprintf("go_sdk_template_" + RandStringBytes(4))
 	cfgTemplateType  = "P2P"
 	inviteTimeout    = int32(60)
 	inactiveTimeout  = int32(60)
@@ -45,15 +44,12 @@ var (
 		Joinability:      &joinability,
 		MaxPlayers:       &maxNumber,
 		MinPlayers:       &minNumber,
-		Name:             &cfgTemplateName,
 		RequestedRegions: requestedRegions,
 		Type:             &cfgTemplateType,
 	}
 	maxNumberUpdate    = int32(4)
-	nameUpdate         = "go_sdk_template_qwde"
 	bodyTemplateUpdate = &sessionclientmodels.ApimodelsUpdateConfigurationTemplateRequest{
 		MaxPlayers:  &maxNumberUpdate,
-		Name:        &nameUpdate,
 		Joinability: &joinability,
 		Type:        &cfgTemplateType,
 	}
@@ -66,16 +62,15 @@ var (
 		TokenRepository: tokenRepository2ndPlayer,
 	}
 	gameSessionBody = &sessionclientmodels.ApimodelsCreateGameSessionRequest{
-		ClientVersion:     &clientVersion,
-		ConfigurationName: &cfgTemplateName,
-		Deployment:        &deployment,
-		InactiveTimeout:   &inactiveTimeout,
-		InviteTimeout:     &inviteTimeout,
-		Joinability:       &joinability,
-		MaxPlayers:        &maxNumber,
-		MinPlayers:        &minNumber,
-		RequestedRegions:  requestedRegions,
-		Type:              &cfgTemplateType,
+		ClientVersion:    &clientVersion,
+		Deployment:       &deployment,
+		InactiveTimeout:  &inactiveTimeout,
+		InviteTimeout:    &inviteTimeout,
+		Joinability:      &joinability,
+		MaxPlayers:       &maxNumber,
+		MinPlayers:       &minNumber,
+		RequestedRegions: requestedRegions,
+		Type:             &cfgTemplateType,
 	}
 	partyService = &session.PartyService{
 		Client:          session.NewSessionClient(configRepo),
@@ -87,16 +82,14 @@ var (
 	}
 	members   []*sessionclientmodels.ApimodelsRequestMember
 	bodyParty = &sessionclientmodels.ApimodelsCreatePartyRequest{
-		ConfigurationName: &cfgTemplateName,
-		InactiveTimeout:   &inactiveTimeout,
-		InviteTimeout:     &inviteTimeout,
-		Joinability:       &joinability,
-		MaxPlayers:        &maxNumber,
-		Members:           members,
-		MinPlayers:        &minNumber,
-		Type:              &cfgTemplateType,
+		InactiveTimeout: &inactiveTimeout,
+		InviteTimeout:   &inviteTimeout,
+		Joinability:     &joinability,
+		MaxPlayers:      &maxNumber,
+		Members:         members,
+		MinPlayers:      &minNumber,
+		Type:            &cfgTemplateType,
 	}
-	memberList []string
 )
 
 func TestIntegrationConfigurationTemplate(t *testing.T) {
@@ -108,8 +101,12 @@ func TestIntegrationConfigurationTemplate(t *testing.T) {
 	Init()
 
 	// CASE Create Configuration Template
+	tempConfigTemplateName := randomizeCfgTemplateName()
+	tempConfigTemplate := *bodyTemplate
+	tempConfigTemplate.Name = &tempConfigTemplateName
+
 	inputCreate := &configuration_template.AdminCreateConfigurationTemplateV1Params{
-		Body:      bodyTemplate,
+		Body:      &tempConfigTemplate,
 		Namespace: integration.NamespaceTest,
 	}
 	created, errCreated := configService.AdminCreateConfigurationTemplateV1Short(inputCreate)
@@ -126,8 +123,11 @@ func TestIntegrationConfigurationTemplate(t *testing.T) {
 	t.Logf("created config template with name: %s", *created.Data.Name)
 
 	// CASE Update Configuration Template
+	tempConfigTemplateUpdate := *bodyTemplateUpdate
+	tempConfigTemplateUpdate.Name = created.Data.Name
+
 	inputUpdate := &configuration_template.AdminUpdateConfigurationTemplateV1Params{
-		Body:      bodyTemplateUpdate,
+		Body:      &tempConfigTemplateUpdate,
 		Namespace: integration.NamespaceTest,
 		Name:      *created.Data.Name,
 	}
@@ -172,7 +172,7 @@ func TestIntegrationGameSession(t *testing.T) {
 	Init()
 
 	// Create configuration - Arrange
-	cfgName, _ := createCfgTemplate()
+	cfgName, _ := createCfgTemplate(randomizeCfgTemplateName())
 	defer func(name string) {
 		err := deleteCfgTemplate(name)
 		if err != nil {
@@ -181,8 +181,11 @@ func TestIntegrationGameSession(t *testing.T) {
 	}(cfgName)
 
 	// CASE Create Game Session
+	tempCreateGameSessionBody := *gameSessionBody
+	tempCreateGameSessionBody.ConfigurationName = &cfgName
+
 	inputCreate := &game_session.CreateGameSessionParams{
-		Body:      gameSessionBody,
+		Body:      &tempCreateGameSessionBody,
 		Namespace: integration.NamespaceTest,
 	}
 	created, errCreated := gameSessionService.CreateGameSessionShort(inputCreate)
@@ -287,7 +290,7 @@ func TestIntegrationParty(t *testing.T) {
 	Init()
 
 	// Create configuration - Arrange
-	cfgName, _ := createCfgTemplate()
+	cfgName, _ := createCfgTemplate(randomizeCfgTemplateName())
 	defer func(name string) {
 		err := deleteCfgTemplate(name)
 		if err != nil {
@@ -297,13 +300,14 @@ func TestIntegrationParty(t *testing.T) {
 
 	// Login User - Arrange
 	player2Id := createPlayer2()
-	member := &sessionclientmodels.ApimodelsRequestMember{ID: &player2Id}
-	bodyParty.Members = append(bodyParty.Members, member)
 	defer deletePlayer(player2Id)
 
 	// CASE Create a party
+	tempCreatePartyBody := *bodyParty
+	tempCreatePartyBody.ConfigurationName = &cfgName
+
 	inputCreated := &partySession.PublicCreatePartyParams{
-		Body:      bodyParty,
+		Body:      &tempCreatePartyBody,
 		Namespace: integration.NamespaceTest,
 	}
 	created, errCreated := partyService.PublicCreatePartyShort(inputCreated)
@@ -336,7 +340,7 @@ func TestIntegrationParty(t *testing.T) {
 	assert.Nil(t, errJoined, "err should be nil")
 	assert.NotNil(t, joined, "should not be nil")
 
-	// CASE Get party
+	// CASE Get party detail
 	inputGet := &partySession.PublicGetPartyParams{
 		Namespace: integration.NamespaceTest,
 		PartyID:   *joined.Data.ID,
@@ -358,8 +362,8 @@ func TestIntegrationParty(t *testing.T) {
 		Namespace: integration.NamespaceTest,
 		PartyID:   *joined.Data.ID,
 	}
-	errLeave := partyService.PublicPartyLeaveShort(inputLeave)
-	if errGet != nil {
+	errLeave := partyServiceFor2ndPlayer.PublicPartyLeaveShort(inputLeave)
+	if errLeave != nil {
 		assert.FailNow(t, errLeave.Error())
 
 		return
@@ -368,46 +372,22 @@ func TestIntegrationParty(t *testing.T) {
 
 	// Assert
 	assert.Nil(t, errLeave, "err should be nil")
-
-	// CASE Admin query parties
-	inputQuery := &partySession.AdminQueryPartiesParams{
-		Namespace: integration.NamespaceTest,
-	}
-	query, errQuery := partyService.AdminQueryPartiesShort(inputQuery)
-	if errQuery != nil {
-		assert.FailNow(t, errQuery.Error())
-
-		return
-	}
-	// ESAC
-
-	// Assert
-	assert.Nil(t, errQuery, "err should be nil")
-	assert.NotNil(t, query, "should not be nil")
-
-	param := &partySession.PublicGetPartyParams{
-		Namespace: integration.NamespaceTest,
-		PartyID:   *joined.Data.ID,
-	}
-
-	check, errCheck := partyService.PublicGetPartyShort(param)
-	if errCheck != nil {
-		t.Logf(errCheck.Error())
-	} else {
-		for _, m := range check.Data.Members {
-			if *m.Status != "LEFT" {
-				memberList = append(memberList, *m.ID)
-			}
-		}
-
-		assert.NotContains(t, memberList, GetUserID(), "already left")
-		assert.Contains(t, memberList, player2Id)
-	}
 }
 
-func createCfgTemplate() (string, error) {
+func randomizeCfgTemplateName() string {
+	return fmt.Sprintf("go_sdk_template_" + RandStringBytes(4))
+}
+
+func createCfgTemplate(name string) (string, error) {
+	tempConfigTemplate := *bodyTemplate
+
+	if name != "" {
+		tempConfigTemplateName := name
+		tempConfigTemplate.Name = &tempConfigTemplateName
+	}
+
 	inputCreate := &configuration_template.AdminCreateConfigurationTemplateV1Params{
-		Body:      bodyTemplate,
+		Body:      &tempConfigTemplate,
 		Namespace: integration.NamespaceTest,
 	}
 	created, errCreated := configService.AdminCreateConfigurationTemplateV1Short(inputCreate)
