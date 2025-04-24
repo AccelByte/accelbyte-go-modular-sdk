@@ -60,13 +60,13 @@ type TokenValidator struct {
 
 func (v *TokenValidator) Initialize() {
 	if err := v.fetchAll(); err != nil {
-		panic(err)
+		panic(fmt.Errorf("error initialize validator: %v", err))
 	}
 	go func() {
 		for {
 			time.Sleep(v.RefreshInterval)
 			if err := v.fetchClientToken(); err != nil {
-				panic(err)
+				panic(fmt.Errorf("error fetching client token: %v", err))
 			}
 		}
 	}()
@@ -75,7 +75,7 @@ func (v *TokenValidator) Initialize() {
 		for {
 			time.Sleep(v.RefreshInterval)
 			if err := v.fetchJWKSet(); err != nil {
-				panic(err)
+				panic(fmt.Errorf("error fetching JWK set: %v", err))
 			}
 		}
 	}()
@@ -84,7 +84,7 @@ func (v *TokenValidator) Initialize() {
 		for {
 			time.Sleep(v.RefreshInterval)
 			if err := v.fetchRevocationList(); err != nil {
-				panic(err)
+				panic(fmt.Errorf("error fetching revocation list: %v", err))
 			}
 		}
 	}()
@@ -106,6 +106,10 @@ func (v *TokenValidator) Validate(token string, permission *Permission, namespac
 	}
 
 	publicKey := v.PublicKeys[kid]
+	if publicKey == nil {
+		return fmt.Errorf("public key not found")
+	}
+
 	err = jsonWebToken.Claims(publicKey, &v.JwtClaims)
 	if err != nil {
 		return err
@@ -364,11 +368,9 @@ func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permi
 		allRoleNamespacePermissions := make([]Permission, 0)
 		for _, namespaceRole := range namespaceRoles {
 			roleNamespacePermissions, err := v.getRolePermissions3(namespaceRole, &claimsUserId, false)
-			if err != nil {
-				panic(err)
+			if err == nil {
+				allRoleNamespacePermissions = append(allRoleNamespacePermissions, roleNamespacePermissions...)
 			}
-
-			allRoleNamespacePermissions = append(allRoleNamespacePermissions, roleNamespacePermissions...)
 		}
 		if len(allRoleNamespacePermissions) > 0 &&
 			v.validatePermissions(allRoleNamespacePermissions, modifiedResource, permission.Action) {
@@ -381,11 +383,9 @@ func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permi
 		allRolePermissions := make([]Permission, 0)
 		for _, roleId := range claimsRoles {
 			rolePermissions, err := v.getRolePermissions2(roleId, tokenNamespace, userId, false)
-			if err != nil {
-				panic(err)
+			if err == nil {
+				allRolePermissions = append(allRolePermissions, rolePermissions...)
 			}
-
-			allRolePermissions = append(allRolePermissions, rolePermissions...)
 		}
 		if len(allRolePermissions) > 0 &&
 			v.validatePermissions(allRolePermissions, modifiedResource, permission.Action) {
@@ -397,6 +397,10 @@ func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permi
 }
 
 func (v *TokenValidator) isTokenRevoked(token string) bool {
+	if v.Filter == nil {
+		return false
+	}
+
 	return v.Filter.MightContain([]byte(token))
 }
 
