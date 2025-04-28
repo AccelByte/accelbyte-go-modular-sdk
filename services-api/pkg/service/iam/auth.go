@@ -10,7 +10,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -514,7 +513,7 @@ func (o *OAuth20Service) ParseAccessToken(accessToken string, validate bool) (*i
 		}
 		errValidate := o.tokenValidation.Validate(accessToken, perm, tokenResponseV3.Namespace, nil)
 		if errValidate != nil {
-			log.Fatalf("token validation failed: %s", errValidate.Error())
+			return nil, fmt.Errorf("token validation failed: %v", errValidate)
 		}
 	}
 
