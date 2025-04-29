@@ -63,6 +63,7 @@ linters:
     - funlen
     - gci
     - godot
+    - godox
     - gofumpt
     - paralleltest
     - tagliatelle
