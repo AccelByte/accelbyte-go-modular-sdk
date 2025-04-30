@@ -37,7 +37,7 @@ type ClientService interface {
 
 /*
 AdminGetDSMCConfigurationDefaultShort get dsmc default configuration.
-Get dsmc default configuration.
+Get the DSMC default configuration from this service
 */
 func (a *Client) AdminGetDSMCConfigurationDefaultShort(params *AdminGetDSMCConfigurationDefaultParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDSMCConfigurationDefaultResponse, error) {
 	// TODO: Validate the params before sending

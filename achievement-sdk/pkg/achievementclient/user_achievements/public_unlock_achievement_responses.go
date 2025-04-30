@@ -24,6 +24,7 @@ type PublicUnlockAchievementResponse struct {
 
 	Error400 *achievementclientmodels.ResponseError
 	Error401 *achievementclientmodels.ResponseError
+	Error404 *achievementclientmodels.ResponseError
 	Error422 *achievementclientmodels.ResponseError
 	Error500 *achievementclientmodels.ResponseError
 }
@@ -45,6 +46,14 @@ func (m *PublicUnlockAchievementResponse) Unpack() *achievementclientmodels.ApiE
 
 		case 401:
 			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
 			if err != nil {
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
@@ -97,6 +106,12 @@ func (o *PublicUnlockAchievementReader) ReadResponse(response runtime.ClientResp
 		return result, nil
 	case 401:
 		result := NewPublicUnlockAchievementUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 404:
+		result := NewPublicUnlockAchievementNotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -242,6 +257,60 @@ func (o *PublicUnlockAchievementUnauthorized) GetPayload() *achievementclientmod
 }
 
 func (o *PublicUnlockAchievementUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(achievementclientmodels.ResponseError)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPublicUnlockAchievementNotFound creates a PublicUnlockAchievementNotFound with default headers values
+func NewPublicUnlockAchievementNotFound() *PublicUnlockAchievementNotFound {
+	return &PublicUnlockAchievementNotFound{}
+}
+
+/*PublicUnlockAchievementNotFound handles this case with default header values.
+
+  Not Found
+*/
+type PublicUnlockAchievementNotFound struct {
+	Payload *achievementclientmodels.ResponseError
+}
+
+func (o *PublicUnlockAchievementNotFound) Error() string {
+	return fmt.Sprintf("[PUT /achievement/v1/public/namespaces/{namespace}/users/{userId}/achievements/{achievementCode}/unlock][%d] publicUnlockAchievementNotFound  %+v", 404, o.ToJSONString())
+}
+
+func (o *PublicUnlockAchievementNotFound) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *PublicUnlockAchievementNotFound) GetPayload() *achievementclientmodels.ResponseError {
+	return o.Payload
+}
+
+func (o *PublicUnlockAchievementNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// handle file responses
 	contentDisposition := response.GetHeader("Content-Disposition")

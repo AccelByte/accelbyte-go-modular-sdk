@@ -31,6 +31,7 @@ type Client struct {
 // ClientService is the interface for Client methods
 type ClientService interface {
 	AdminGetConfigValueV3Short(params *AdminGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetConfigValueV3Response, error)
+	PublicGetSystemConfigV3Short(params *PublicGetSystemConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetSystemConfigV3Response, error)
 	PublicGetConfigValueV3Short(params *PublicGetConfigValueV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetConfigValueV3Response, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -98,6 +99,66 @@ func (a *Client) AdminGetConfigValueV3Short(params *AdminGetConfigValueV3Params,
 		return response, v
 	case *AdminGetConfigValueV3InternalServerError:
 		response := &AdminGetConfigValueV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicGetSystemConfigV3Short get public system config value
+*/
+func (a *Client) PublicGetSystemConfigV3Short(params *PublicGetSystemConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetSystemConfigV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicGetSystemConfigV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PublicGetSystemConfigV3",
+		Method:             "GET",
+		PathPattern:        "/iam/v3/config/public",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicGetSystemConfigV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicGetSystemConfigV3OK:
+		response := &PublicGetSystemConfigV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicGetSystemConfigV3InternalServerError:
+		response := &PublicGetSystemConfigV3Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

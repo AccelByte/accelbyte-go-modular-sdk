@@ -32,6 +32,7 @@ type Client struct {
 type ClientService interface {
 	MatchFunctionListShort(params *MatchFunctionListParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionListResponse, error)
 	CreateMatchFunctionShort(params *CreateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMatchFunctionResponse, error)
+	MatchFunctionGetShort(params *MatchFunctionGetParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionGetResponse, error)
 	UpdateMatchFunctionShort(params *UpdateMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMatchFunctionResponse, error)
 	DeleteMatchFunctionShort(params *DeleteMatchFunctionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteMatchFunctionResponse, error)
 
@@ -190,6 +191,88 @@ func (a *Client) CreateMatchFunctionShort(params *CreateMatchFunctionParams, aut
 		return response, v
 	case *CreateMatchFunctionInternalServerError:
 		response := &CreateMatchFunctionResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+MatchFunctionGetShort get custom match function by name
+Get custom match function by name.
+*/
+func (a *Client) MatchFunctionGetShort(params *MatchFunctionGetParams, authInfo runtime.ClientAuthInfoWriter) (*MatchFunctionGetResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewMatchFunctionGetParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "MatchFunctionGet",
+		Method:             "GET",
+		PathPattern:        "/match2/v1/namespaces/{namespace}/match-functions/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &MatchFunctionGetReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *MatchFunctionGetOK:
+		response := &MatchFunctionGetResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *MatchFunctionGetUnauthorized:
+		response := &MatchFunctionGetResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *MatchFunctionGetForbidden:
+		response := &MatchFunctionGetResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *MatchFunctionGetNotFound:
+		response := &MatchFunctionGetResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *MatchFunctionGetInternalServerError:
+		response := &MatchFunctionGetResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

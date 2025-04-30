@@ -98,6 +98,36 @@ func (aaa *MatchFunctionsService) CreateMatchFunctionShort(input *match_function
 	return nil
 }
 
+func (aaa *MatchFunctionsService) MatchFunctionGetShort(input *match_functions.MatchFunctionGetParams) (*match_functions.MatchFunctionGetResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdMatchFunctions != nil {
+		input.XFlightId = tempFlightIdMatchFunctions
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.MatchFunctions.MatchFunctionGetShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *MatchFunctionsService) UpdateMatchFunctionShort(input *match_functions.UpdateMatchFunctionParams) (*match_functions.UpdateMatchFunctionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

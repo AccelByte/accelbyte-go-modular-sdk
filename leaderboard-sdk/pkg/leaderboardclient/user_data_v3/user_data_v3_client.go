@@ -85,6 +85,13 @@ func (a *Client) GetUserLeaderboardRankingsAdminV3Short(params *GetUserLeaderboa
 		response.IsSuccess = true
 
 		return response, nil
+	case *GetUserLeaderboardRankingsAdminV3BadRequest:
+		response := &GetUserLeaderboardRankingsAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *GetUserLeaderboardRankingsAdminV3Unauthorized:
 		response := &GetUserLeaderboardRankingsAdminV3Response{}
 		response.Error401 = v.Payload

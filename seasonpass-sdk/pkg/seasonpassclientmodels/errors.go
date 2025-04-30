@@ -9,6 +9,7 @@ package seasonpassclientmodels
 import "fmt"
 
 var (
+	Error20001 = ApiError{Code: "20001", Message: "Unauthorized"}
 	Error20002 = ApiError{Code: "20002", Message: "validation error"}
 	Error20026 = ApiError{Code: "20026", Message: "publisher namespace not allowed"}
 	Error30141 = ApiError{Code: "30141", Message: "Store [{storeId}] does not exist in namespace [{namespace}]"}

@@ -2348,6 +2348,36 @@ func (aaa *UsersService) AdminBulkGetUsersPlatformShort(input *users.AdminBulkGe
 	return ok, nil
 }
 
+func (aaa *UsersService) AdminCursorGetUserV3Short(input *users.AdminCursorGetUserV3Params) (*users.AdminCursorGetUserV3Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsers != nil {
+		input.XFlightId = tempFlightIdUsers
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Users.AdminCursorGetUserV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *UsersService) AdminInviteUserV3Short(input *users.AdminInviteUserV3Params) (*users.AdminInviteUserV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -5046,6 +5076,36 @@ func (aaa *UsersService) PublicValidateUserByUserIDAndPasswordV3Short(input *use
 	}
 
 	return nil
+}
+
+func (aaa *UsersService) PublicForgotPasswordWithoutNamespaceV3Short(input *users.PublicForgotPasswordWithoutNamespaceV3Params) (*users.PublicForgotPasswordWithoutNamespaceV3Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsers != nil {
+		input.XFlightId = tempFlightIdUsers
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Users.PublicForgotPasswordWithoutNamespaceV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
 }
 
 func (aaa *UsersService) PublicGetMyUserV3Short(input *users.PublicGetMyUserV3Params) (*users.PublicGetMyUserV3Response, error) {

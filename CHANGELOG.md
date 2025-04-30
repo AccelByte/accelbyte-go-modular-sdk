@@ -10,6 +10,62 @@
 - **integration:** add lobby scheme
 - **integration:** add match2 option's name
 - **integration:** remove deprecated services
+- **integration:** gametelemetry - remove deprecated endpoints
+- **integration:** fix configuration template shared name randomization
+### chore
+- **integration:** add player record cloudsave test
+- **integration:** fix the challenge test
+
+
+<a name="ags//v2025.3"></a>
+## [For AGS v2025.3]
+### chore
+- **:** add readme for response error
+- **loginqueue:** add spec for login queue service
+- **loginqueue:** regenerate sdk, cli, docs
+- **sdk:** generated from openapi spec commit: 79683a20ff945862cdc0c4aef8d903a0f30bf2f5
+- **integration:** fix the challenge test
+- **docs:** add migration guide for ags 2025.1
+- **sdk:** update version for 2025.1
+- **:** version bump
+- **:** update go work for csm
+- **:** go mod tidy
+- **docs:** update CHANGELOG
+- **sdk:** generated from openapi spec commit: c9a1cf2c1d884560ad92b44673ca85cd10c2b23a
+- **sdk:** update version for 2025.2
+- **docs:** add migration guide for ags 2025.2
+- **:** version bump
+- **makefile:** test_broken_link - update docs portal url
+- **samples:** getting started - update iam-sdk dependency
+- **sdk:** add a clearer message for error in token validation
+### docs
+- **readme:** update doc links
+- **common use cases:** update
+### feat
+- **loginqueue:** add, version, gowork, cli gomod
+- **loginqueue:** integration - add login queue test
+### test
+- **integration:** gametelemetry - remove deprecated endpoints
+- **integration:** fix configuration template shared name randomization
+### fix
+- **token-validation:** remove log.Fatal in token validation
+- **:** - tag other usages that will need changing function signature with todo
+### ci
+- **lint:** disable godox linter
+
+
+<a name="lobby-sdk//v0.1.1"></a>
+## [For AGS v0.1.1]
+### fix
+- **lobby:** remove auth token hard requirement
+
+
+<a name="services-api//v0.1.1"></a>
+## [For AGS v0.1.1]
+### test
+- **integration:** add lobby scheme
+- **integration:** add match2 option's name
+- **integration:** remove deprecated services
 ### chore
 - **integration:** add player record cloudsave test
 - **integration:** fix the challenge test

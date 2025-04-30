@@ -539,6 +539,13 @@ func (a *Client) GetUserRankingAdminV3Short(params *GetUserRankingAdminV3Params,
 		response.IsSuccess = true
 
 		return response, nil
+	case *GetUserRankingAdminV3BadRequest:
+		response := &GetUserRankingAdminV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *GetUserRankingAdminV3Unauthorized:
 		response := &GetUserRankingAdminV3Response{}
 		response.Error401 = v.Payload
@@ -1029,6 +1036,13 @@ func (a *Client) GetUserRankingPublicV3Short(params *GetUserRankingPublicV3Param
 		response.IsSuccess = true
 
 		return response, nil
+	case *GetUserRankingPublicV3BadRequest:
+		response := &GetUserRankingPublicV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *GetUserRankingPublicV3Unauthorized:
 		response := &GetUserRankingPublicV3Response{}
 		response.Error401 = v.Payload

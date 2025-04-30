@@ -186,6 +186,36 @@ func (aaa *InboxService) AdminGetCategorySchemaShort(input *inbox.AdminGetCatego
 	return ok, nil
 }
 
+func (aaa *InboxService) AdminListKafkaTopicShort(input *inbox.AdminListKafkaTopicParams) (*inbox.AdminListKafkaTopicResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdInbox != nil {
+		input.XFlightId = tempFlightIdInbox
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Inbox.AdminListKafkaTopicShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *InboxService) AdminDeleteInboxMessageShort(input *inbox.AdminDeleteInboxMessageParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

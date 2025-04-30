@@ -639,6 +639,13 @@ func (aaa *SeasonService) GetUserSeasonShort(input *season.GetUserSeasonParams) 
 }
 
 func (aaa *SeasonService) PublicGetCurrentSeasonShort(input *season.PublicGetCurrentSeasonParams) (*season.PublicGetCurrentSeasonResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -653,7 +660,7 @@ func (aaa *SeasonService) PublicGetCurrentSeasonShort(input *season.PublicGetCur
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.Season.PublicGetCurrentSeasonShort(input)
+	ok, err := aaa.Client.Season.PublicGetCurrentSeasonShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

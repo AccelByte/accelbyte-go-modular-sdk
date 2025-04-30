@@ -35,6 +35,7 @@ type ClientService interface {
 	AdminDeleteInboxCategoryShort(params *AdminDeleteInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxCategoryResponse, error)
 	AdminUpdateInboxCategoryShort(params *AdminUpdateInboxCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateInboxCategoryResponse, error)
 	AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCategorySchemaResponse, error)
+	AdminListKafkaTopicShort(params *AdminListKafkaTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListKafkaTopicResponse, error)
 	AdminDeleteInboxMessageShort(params *AdminDeleteInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteInboxMessageResponse, error)
 	AdminGetInboxMessagesShort(params *AdminGetInboxMessagesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetInboxMessagesResponse, error)
 	AdminSaveInboxMessageShort(params *AdminSaveInboxMessageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveInboxMessageResponse, error)
@@ -451,6 +452,81 @@ func (a *Client) AdminGetCategorySchemaShort(params *AdminGetCategorySchemaParam
 		return response, v
 	case *AdminGetCategorySchemaInternalServerError:
 		response := &AdminGetCategorySchemaResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminListKafkaTopicShort admin get list kafka topic
+Get list kafka topic. example result chat,sessionNotification
+*/
+func (a *Client) AdminListKafkaTopicShort(params *AdminListKafkaTopicParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListKafkaTopicResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminListKafkaTopicParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminListKafkaTopic",
+		Method:             "GET",
+		PathPattern:        "/chat/v1/admin/inbox/namespaces/{namespace}/list/topic/kafka",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminListKafkaTopicReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminListKafkaTopicOK:
+		response := &AdminListKafkaTopicResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminListKafkaTopicUnauthorized:
+		response := &AdminListKafkaTopicResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminListKafkaTopicForbidden:
+		response := &AdminListKafkaTopicResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminListKafkaTopicInternalServerError:
+		response := &AdminListKafkaTopicResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

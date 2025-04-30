@@ -287,6 +287,13 @@ func (a *Client) MatchPoolDetailsShort(params *MatchPoolDetailsParams, authInfo 
 		response.IsSuccess = false
 
 		return response, v
+	case *MatchPoolDetailsNotFound:
+		response := &MatchPoolDetailsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *MatchPoolDetailsInternalServerError:
 		response := &MatchPoolDetailsResponse{}
 		response.Error500 = v.Payload

@@ -50,7 +50,7 @@ type ClientService interface {
 	QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryResponse, error)
 	QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHistoryTagParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryTagResponse, error)
 	GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSeasonResponse, error)
-	PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams) (*PublicGetCurrentSeasonResponse, error)
+	PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentSeasonResponse, error)
 	PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentUserSeasonResponse, error)
 	PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSeasonResponse, error)
 
@@ -1513,7 +1513,7 @@ Other detail info:
 
   * Returns : localized season data
 */
-func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams) (*PublicGetCurrentSeasonResponse, error) {
+func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentSeasonResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetCurrentSeasonParams()
@@ -1540,6 +1540,7 @@ func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParam
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &PublicGetCurrentSeasonReader{formats: a.formats},
+		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -1559,6 +1560,13 @@ func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParam
 	case *PublicGetCurrentSeasonBadRequest:
 		response := &PublicGetCurrentSeasonResponse{}
 		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetCurrentSeasonUnauthorized:
+		response := &PublicGetCurrentSeasonResponse{}
+		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
