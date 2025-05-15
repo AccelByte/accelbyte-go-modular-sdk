@@ -37,7 +37,7 @@ var (
 	incremental     = false
 	lockedIcons     []*achievementclientmodels.ModelsIcon
 	name            = make(map[string]string)
-	statCode        = "STAT-CODE-GO"
+	statCode        = "go-sdk-test-1"
 	tags            []string
 	unlockedIcons   []*achievementclientmodels.ModelsIcon
 	bodyAchievement = &achievementclientmodels.ModelsAchievementRequest{
