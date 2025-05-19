@@ -12,7 +12,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"math/big"
 	"net/http"
 	"strings"
@@ -29,7 +28,7 @@ import (
 )
 
 type AuthTokenValidator interface {
-	Initialize()
+	Initialize() error
 	Validate(token string, permission *Permission, namespace *string, userId *string) error
 }
 
@@ -51,17 +50,15 @@ type TokenValidator struct {
 	namespaceContextsCache *cache.Cache
 }
 
-func (v *TokenValidator) Initialize() {
+func (v *TokenValidator) Initialize() error {
 	if err := v.fetchAll(); err != nil {
-		// TODO: change function signature to accommodate error
-		log.Fatalf("Error initialize validator: %v", err)
+		return fmt.Errorf("error initializing validator: %v", err)
 	}
 	go func() {
 		for {
 			time.Sleep(v.RefreshInterval)
 			if err := v.fetchClientToken(); err != nil {
-				// TODO: change function signature to accommodate error
-				log.Fatalf("Error fetching client token: %v", err)
+				fmt.Println(fmt.Errorf("error fetching client token: %v", err).Error())
 			}
 		}
 	}()
@@ -70,8 +67,7 @@ func (v *TokenValidator) Initialize() {
 		for {
 			time.Sleep(v.RefreshInterval)
 			if err := v.fetchJWKSet(); err != nil {
-				// TODO: change function signature to accommodate error
-				log.Fatalf("Error fetching JWK set: %v", err)
+				fmt.Println(fmt.Errorf("error fetching JWK set: %v", err).Error())
 			}
 		}
 	}()
@@ -80,11 +76,12 @@ func (v *TokenValidator) Initialize() {
 		for {
 			time.Sleep(v.RefreshInterval)
 			if err := v.fetchRevocationList(); err != nil {
-				// TODO: change function signature to accommodate error
-				log.Fatalf("Error fetching revocation list: %v", err)
+				fmt.Println(fmt.Errorf("error fetching revocation list: %v", err))
 			}
 		}
 	}()
+
+	return nil
 }
 
 func (v *TokenValidator) Validate(token string, permission *Permission, namespace *string, userId *string) error {

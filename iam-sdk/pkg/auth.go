@@ -466,7 +466,10 @@ func (o *OAuth20Service) ParseAccessToken(accessToken string, validate bool) (*i
 
 	// Check if token validation is already exist
 	if o.tokenValidation == nil {
-		o.initTokenValidator(false)
+		err = o.initTokenValidator(false)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	// Get the public key from the JWKS based on the Key ID (kid) from the token's header
@@ -522,15 +525,19 @@ func (o *OAuth20Service) ParseAccessToken(accessToken string, validate bool) (*i
 	return tokenResponseV3, nil
 }
 
-func (o *OAuth20Service) SetLocalValidation(value bool) {
+func (o *OAuth20Service) SetLocalValidation(value bool) error {
 	if o.tokenValidation == nil {
-		o.initTokenValidator(value)
+		if err := o.initTokenValidator(value); err != nil {
+			return err
+		}
 	}
 
 	o.tokenValidation.LocalValidationActive = value
+
+	return nil
 }
 
-func (o *OAuth20Service) initTokenValidator(value bool) {
+func (o *OAuth20Service) initTokenValidator(value bool) error {
 	o.tokenValidation = &TokenValidator{
 		AuthService:     *o,
 		RefreshInterval: time.Hour,
@@ -547,5 +554,5 @@ func (o *OAuth20Service) initTokenValidator(value bool) {
 	}
 
 	// Initiate
-	o.tokenValidation.Initialize()
+	return o.tokenValidation.Initialize()
 }

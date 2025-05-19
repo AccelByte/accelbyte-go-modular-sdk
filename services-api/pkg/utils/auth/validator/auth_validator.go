@@ -16,7 +16,7 @@ import (
 )
 
 type AuthTokenValidator interface {
-	Initialize()
+	Initialize() error
 	Validate(token string, permission *Permission, namespace *string, userId *string) error
 }
 
@@ -42,9 +42,10 @@ func (v *TokenValidator) initImpl() {
 	}
 }
 
-func (v *TokenValidator) Initialize() {
+func (v *TokenValidator) Initialize() error {
 	v.initImpl()
-	v.impl.Initialize()
+
+	return v.impl.Initialize()
 }
 
 func (v *TokenValidator) Validate(token string, permission *Permission, namespace *string, userId *string) error {
