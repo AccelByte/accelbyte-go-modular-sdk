@@ -20,14 +20,12 @@ These are available AccelByte Services SDK modules to use
 | github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk | v0.1.0-alpha.1 |
 
@@ -55,14 +53,12 @@ Therefore these modules are marked as *DEPRECATED* and client code should be mig
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/leaderboard | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/legal | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/lobby | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/matchmaking | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/match2 | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/qosm | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/reporting | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/session | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/sessionbrowser | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/social | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ugc | v0.1.0-alpha.1 |
 

@@ -23,15 +23,12 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk => ../../../legal-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobby-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk => ../../../match2-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk => ../../../matchmaking-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk => ../../../platform-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk => ../../../qosm-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk => ../../../reporting-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk => ../../../seasonpass-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk => ../../../session-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk => ../../../sessionbrowser-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk => ../../../sessionhistory-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../social-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk => ../../../ugc-sdk
 )
@@ -57,15 +54,12 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.7
 	github.com/AccelByte/accelbyte-go-modular-sdk/loginqueue-sdk v0.0.0-20250206045624-e2ce678e877a
 	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.4.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/matchmaking-sdk v0.1.0-alpha.7
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.2.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0-alpha.2
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.4.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/sessionbrowser-sdk v0.1.0-alpha.5
-	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.1.0-alpha.11
 )

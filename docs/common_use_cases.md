@@ -1536,45 +1536,6 @@ inputDeleteSeason := season.DeleteSeasonParams{
 
 errDeleteSeason := seasonService.DeleteSeasonShort(&inputDeleteSeason)
 ```
-## SessionHistory
-
-Source: [sessionhistory_test.go](../services-api/pkg/tests/integration/sessionhistory_test.go)
-
-### Query a game session detail
-
-```go
-param := game_session_detail.NewAdminQueryGameSessionDetailParams()
-param.SetNamespace(integration.NamespaceTest)
-
-resp, err := sessionHistoryService.AdminQueryGameSessionDetailShort(param)
-```
-
-### Query a matchmaking detail
-
-```go
-param := game_session_detail.NewAdminQueryMatchmakingDetailParams()
-param.SetNamespace(integration.NamespaceTest)
-
-resp, err := sessionHistoryService.AdminQueryMatchmakingDetailShort(param)
-```
-
-### Query a party detail
-
-```go
-param := game_session_detail.NewAdminQueryPartyDetailParams()
-param.SetNamespace(integration.NamespaceTest)
-
-resp, err := sessionHistoryService.AdminQueryPartyDetailShort(param)
-```
-
-### Query a party detail
-
-```go
-param := game_session_detail.NewAdminQueryPartyDetailParams()
-param.SetNamespace(integration.NamespaceTest)
-
-resp, err := sessionHistoryService.AdminQueryPartyDetailShort(param)
-```
 ## Session
 
 Source: [session_test.go](../services-api/pkg/tests/integration/session_test.go)

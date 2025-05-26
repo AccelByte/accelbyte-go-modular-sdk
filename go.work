@@ -18,14 +18,12 @@ use (
 	legal-sdk
 	lobby-sdk
 	match2-sdk
-	matchmaking-sdk
 	platform-sdk
 	qosm-sdk
 	reporting-sdk
 	inventory-sdk
 	dsartifact-sdk
 	session-sdk
-	sessionbrowser-sdk
 	social-sdk
 	ugc-sdk
 	seasonpass-sdk
@@ -64,14 +62,11 @@ use (
 	services-api/pkg/service/legal
 	services-api/pkg/service/lobby
 	services-api/pkg/service/match2
-	services-api/pkg/service/matchmaking
 	services-api/pkg/service/platform
 	services-api/pkg/service/qosm
 	services-api/pkg/service/reporting
 	services-api/pkg/service/seasonpass
 	services-api/pkg/service/session
-	services-api/pkg/service/sessionbrowser
-	services-api/pkg/service/sessionhistory
 	services-api/pkg/service/social
 	services-api/pkg/service/ugc
 	services-api/pkg/service/dsartifact
@@ -82,6 +77,5 @@ use (
 	services-api/pkg/tests
 	services-api/pkg/utils/auth/validator
 	samples/ws-client-refresh-token
-	sessionhistory-sdk
 	csm-sdk
 )
