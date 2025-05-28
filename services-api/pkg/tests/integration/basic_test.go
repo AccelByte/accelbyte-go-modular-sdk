@@ -37,7 +37,7 @@ var (
 		Language:  basicLanguange,
 		LastName:  "sdkUpdate",
 		TimeZone:  timezone,
-		ZipCode:   emptyString,
+		ZipCode:   integration.EmptyString,
 	}
 )
 

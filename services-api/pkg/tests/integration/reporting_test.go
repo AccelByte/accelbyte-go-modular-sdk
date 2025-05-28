@@ -14,6 +14,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_reasons"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/public_reports"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
@@ -93,7 +94,7 @@ func TestIntegrationSubmitReport(t *testing.T) {
 	// CASE Submit Report
 	inputReport := &public_reports.SubmitReportParams{
 		Body: &reportingclientmodels.RestapiSubmitReportRequest{
-			AdditionalInfo:    emptyInterface,
+			AdditionalInfo:    integration.EmptyInterface,
 			Category:          &categoryUGC,
 			Comment:           reasonTitle,
 			ExtensionCategory: categoryUGC,
