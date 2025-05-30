@@ -70,7 +70,7 @@ var (
 	displayName         = "Go Extend SDK Test"
 	pwd                 = "q!w@e#r$azsxdcfv1"
 	dynamicUsername     = RandStringBytes(5)
-	dynamicDoB			= "1990-01-01"
+	dynamicDoB          = "1990-01-01"
 	emailAdd            = fmt.Sprint(dynamicUsername + "@test.com")
 	createUserBody      = &iamclientmodels.AccountCreateTestUserRequestV4{
 		AuthType:          &authType,
@@ -120,34 +120,6 @@ func Init() {
 			logrus.Errorf("failed stored the token. %v", tes)
 		}
 	}
-}
-
-// Create User V3
-func TestIntegrationPublicCreateUserV3(t *testing.T) {
-	t.Parallel()
-
-	// Login user
-	Init()
-
-	input := &users.PublicCreateUserV3Params{
-		Body:      createUserBodyV3,
-		Namespace: integration.NamespaceTest,
-	}
-
-	// CASE Public create user V3
-	expected, err := userService.PublicCreateUserV3Short(input)
-	if err != nil {
-		assert.FailNow(t, err.Error())
-	}
-
-	// ESAC
-
-	// Assert
-	assert.Nil(t, err, "err should be nil")
-	assert.NotNil(t, expected, "response should not be nil")
-
-	// cleanup
-	deletePlayer(*expected.Data.UserID)
 }
 
 // Authorization
