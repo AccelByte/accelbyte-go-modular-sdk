@@ -4,13 +4,13 @@
 
 // Code generated. DO NOT EDIT.
 
-package accountIdenfifierTag
+package accountIdentifierTag
 
 import (
 	"encoding/json"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_idenfifier_tag"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
@@ -23,7 +23,7 @@ var AdminUpdateTagV3Cmd = &cobra.Command{
 	Short: "Admin update tag V3",
 	Long:  `Admin update tag V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		accountIdenfifierTagService := &iam.AccountIdenfifierTagService{
+		accountIdentifierTagService := &iam.AccountIdentifierTagService{
 			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
@@ -35,12 +35,12 @@ var AdminUpdateTagV3Cmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		tagId, _ := cmd.Flags().GetString("tagId")
-		input := &account_idenfifier_tag.AdminUpdateTagV3Params{
+		input := &account_identifier_tag.AdminUpdateTagV3Params{
 			Body:      body,
 			Namespace: namespace,
 			TagID:     tagId,
 		}
-		ok, errOK := accountIdenfifierTagService.AdminUpdateTagV3Short(input)
+		ok, errOK := accountIdentifierTagService.AdminUpdateTagV3Short(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 

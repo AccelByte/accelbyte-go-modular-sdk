@@ -4,11 +4,11 @@
 
 // Code generated. DO NOT EDIT.
 
-package accountIdenfifierTag
+package accountIdentifierTag
 
 import (
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_idenfifier_tag"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -20,7 +20,7 @@ var AdminQueryTagV3Cmd = &cobra.Command{
 	Short: "Admin query tag V3",
 	Long:  `Admin query tag V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		accountIdenfifierTagService := &iam.AccountIdenfifierTagService{
+		accountIdentifierTagService := &iam.AccountIdentifierTagService{
 			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
@@ -28,13 +28,13 @@ var AdminQueryTagV3Cmd = &cobra.Command{
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		tagName, _ := cmd.Flags().GetString("tagName")
-		input := &account_idenfifier_tag.AdminQueryTagV3Params{
+		input := &account_identifier_tag.AdminQueryTagV3Params{
 			Namespace: namespace,
 			Limit:     &limit,
 			Offset:    &offset,
 			TagName:   &tagName,
 		}
-		ok, errOK := accountIdenfifierTagService.AdminQueryTagV3Short(input)
+		ok, errOK := accountIdentifierTagService.AdminQueryTagV3Short(input)
 		if errOK != nil {
 			logrus.Error(errOK)
 

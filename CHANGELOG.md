@@ -1,20 +1,14 @@
-<a name="lobby-sdk//v0.1.1"></a>
-## [For AGS v0.1.1]
-### fix
-- **lobby:** remove auth token hard requirement
-
-
-<a name="services-api//v0.1.1"></a>
-## [For AGS v0.1.1]
-### test
-- **integration:** add lobby scheme
-- **integration:** add match2 option's name
-- **integration:** remove deprecated services
-- **integration:** gametelemetry - remove deprecated endpoints
-- **integration:** fix configuration template shared name randomization
+<a name="ags//v2025.4"></a>
+## [For AGS v2025.4]
 ### chore
-- **integration:** add player record cloudsave test
-- **integration:** fix the challenge test
+- **!:** remove matchmaking, session browser and history services (breaking)
+- **:** revert empty variables, create new file for empty variables
+### test
+- **integration:** change achievement stat code
+- **integration:** remove create user v3 test
+### fix
+- **test:** use create test user endpoint for integration test
+- **sdk!:** change return type of AuthTokenValidator.Initialize to return an error
 
 
 <a name="ags//v2025.3"></a>
@@ -52,23 +46,6 @@
 - **:** - tag other usages that will need changing function signature with todo
 ### ci
 - **lint:** disable godox linter
-
-
-<a name="lobby-sdk//v0.1.1"></a>
-## [For AGS v0.1.1]
-### fix
-- **lobby:** remove auth token hard requirement
-
-
-<a name="services-api//v0.1.1"></a>
-## [For AGS v0.1.1]
-### test
-- **integration:** add lobby scheme
-- **integration:** add match2 option's name
-- **integration:** remove deprecated services
-### chore
-- **integration:** add player record cloudsave test
-- **integration:** fix the challenge test
 
 
 <a name="ags//v2025.2"></a>

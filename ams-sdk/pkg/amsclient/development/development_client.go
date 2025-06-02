@@ -34,6 +34,7 @@ type ClientService interface {
 	DevelopmentServerConfigurationCreateShort(params *DevelopmentServerConfigurationCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationCreateResponse, error)
 	DevelopmentServerConfigurationGetShort(params *DevelopmentServerConfigurationGetParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationGetResponse, error)
 	DevelopmentServerConfigurationDeleteShort(params *DevelopmentServerConfigurationDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationDeleteResponse, error)
+	DevelopmentServerConfigurationPatchShort(params *DevelopmentServerConfigurationPatchParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationPatchResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -349,6 +350,87 @@ func (a *Client) DevelopmentServerConfigurationDeleteShort(params *DevelopmentSe
 		return response, v
 	case *DevelopmentServerConfigurationDeleteInternalServerError:
 		response := &DevelopmentServerConfigurationDeleteResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+DevelopmentServerConfigurationPatchShort patch a development server configuration
+Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [UPDATE]
+*/
+func (a *Client) DevelopmentServerConfigurationPatchShort(params *DevelopmentServerConfigurationPatchParams, authInfo runtime.ClientAuthInfoWriter) (*DevelopmentServerConfigurationPatchResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDevelopmentServerConfigurationPatchParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "DevelopmentServerConfigurationPatch",
+		Method:             "PATCH",
+		PathPattern:        "/ams/v1/admin/namespaces/{namespace}/development/server-configurations/{developmentServerConfigID}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DevelopmentServerConfigurationPatchReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *DevelopmentServerConfigurationPatchNoContent:
+		response := &DevelopmentServerConfigurationPatchResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *DevelopmentServerConfigurationPatchUnauthorized:
+		response := &DevelopmentServerConfigurationPatchResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *DevelopmentServerConfigurationPatchForbidden:
+		response := &DevelopmentServerConfigurationPatchResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *DevelopmentServerConfigurationPatchNotFound:
+		response := &DevelopmentServerConfigurationPatchResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *DevelopmentServerConfigurationPatchInternalServerError:
+		response := &DevelopmentServerConfigurationPatchResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

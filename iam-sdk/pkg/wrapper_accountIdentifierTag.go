@@ -8,13 +8,13 @@ package iam
 
 import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_idenfifier_tag"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
 
-type AccountIdenfifierTagService struct {
+type AccountIdentifierTagService struct {
 	Client           *iamclient.JusticeIamService
 	ConfigRepository repository.ConfigRepository
 	TokenRepository  repository.TokenRepository
@@ -22,13 +22,13 @@ type AccountIdenfifierTagService struct {
 	FlightIdRepository *utils.FlightIdContainer
 }
 
-var tempFlightIdAccountIdenfifierTag *string
+var tempFlightIdAccountIdentifierTag *string
 
-func (aaa *AccountIdenfifierTagService) UpdateFlightId(flightId string) {
-	tempFlightIdAccountIdenfifierTag = &flightId
+func (aaa *AccountIdentifierTagService) UpdateFlightId(flightId string) {
+	tempFlightIdAccountIdentifierTag = &flightId
 }
 
-func (aaa *AccountIdenfifierTagService) GetAuthSession() auth.Session {
+func (aaa *AccountIdentifierTagService) GetAuthSession() auth.Session {
 	return auth.Session{
 		aaa.TokenRepository,
 		aaa.ConfigRepository,
@@ -36,7 +36,7 @@ func (aaa *AccountIdenfifierTagService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *AccountIdenfifierTagService) AdminQueryTagV3Short(input *account_idenfifier_tag.AdminQueryTagV3Params) (*account_idenfifier_tag.AdminQueryTagV3Response, error) {
+func (aaa *AccountIdentifierTagService) AdminQueryTagV3Short(input *account_identifier_tag.AdminQueryTagV3Params) (*account_identifier_tag.AdminQueryTagV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -52,13 +52,13 @@ func (aaa *AccountIdenfifierTagService) AdminQueryTagV3Short(input *account_iden
 			RetryCodes: utils.RetryCodes,
 		}
 	}
-	if tempFlightIdAccountIdenfifierTag != nil {
-		input.XFlightId = tempFlightIdAccountIdenfifierTag
+	if tempFlightIdAccountIdentifierTag != nil {
+		input.XFlightId = tempFlightIdAccountIdentifierTag
 	} else if aaa.FlightIdRepository != nil {
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.AccountIdenfifierTag.AdminQueryTagV3Short(input, authInfoWriter)
+	ok, err := aaa.Client.AccountIdentifierTag.AdminQueryTagV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (aaa *AccountIdenfifierTagService) AdminQueryTagV3Short(input *account_iden
 	return ok, nil
 }
 
-func (aaa *AccountIdenfifierTagService) AdminCreateTagV3Short(input *account_idenfifier_tag.AdminCreateTagV3Params) (*account_idenfifier_tag.AdminCreateTagV3Response, error) {
+func (aaa *AccountIdentifierTagService) AdminCreateTagV3Short(input *account_identifier_tag.AdminCreateTagV3Params) (*account_identifier_tag.AdminCreateTagV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -82,13 +82,13 @@ func (aaa *AccountIdenfifierTagService) AdminCreateTagV3Short(input *account_ide
 			RetryCodes: utils.RetryCodes,
 		}
 	}
-	if tempFlightIdAccountIdenfifierTag != nil {
-		input.XFlightId = tempFlightIdAccountIdenfifierTag
+	if tempFlightIdAccountIdentifierTag != nil {
+		input.XFlightId = tempFlightIdAccountIdentifierTag
 	} else if aaa.FlightIdRepository != nil {
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	created, err := aaa.Client.AccountIdenfifierTag.AdminCreateTagV3Short(input, authInfoWriter)
+	created, err := aaa.Client.AccountIdentifierTag.AdminCreateTagV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +96,7 @@ func (aaa *AccountIdenfifierTagService) AdminCreateTagV3Short(input *account_ide
 	return created, nil
 }
 
-func (aaa *AccountIdenfifierTagService) AdminUpdateTagV3Short(input *account_idenfifier_tag.AdminUpdateTagV3Params) (*account_idenfifier_tag.AdminUpdateTagV3Response, error) {
+func (aaa *AccountIdentifierTagService) AdminUpdateTagV3Short(input *account_identifier_tag.AdminUpdateTagV3Params) (*account_identifier_tag.AdminUpdateTagV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -112,13 +112,13 @@ func (aaa *AccountIdenfifierTagService) AdminUpdateTagV3Short(input *account_ide
 			RetryCodes: utils.RetryCodes,
 		}
 	}
-	if tempFlightIdAccountIdenfifierTag != nil {
-		input.XFlightId = tempFlightIdAccountIdenfifierTag
+	if tempFlightIdAccountIdentifierTag != nil {
+		input.XFlightId = tempFlightIdAccountIdentifierTag
 	} else if aaa.FlightIdRepository != nil {
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.AccountIdenfifierTag.AdminUpdateTagV3Short(input, authInfoWriter)
+	ok, err := aaa.Client.AccountIdentifierTag.AdminUpdateTagV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -126,7 +126,7 @@ func (aaa *AccountIdenfifierTagService) AdminUpdateTagV3Short(input *account_ide
 	return ok, nil
 }
 
-func (aaa *AccountIdenfifierTagService) AdminDeleteTagV3Short(input *account_idenfifier_tag.AdminDeleteTagV3Params) error {
+func (aaa *AccountIdentifierTagService) AdminDeleteTagV3Short(input *account_identifier_tag.AdminDeleteTagV3Params) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -142,13 +142,13 @@ func (aaa *AccountIdenfifierTagService) AdminDeleteTagV3Short(input *account_ide
 			RetryCodes: utils.RetryCodes,
 		}
 	}
-	if tempFlightIdAccountIdenfifierTag != nil {
-		input.XFlightId = tempFlightIdAccountIdenfifierTag
+	if tempFlightIdAccountIdentifierTag != nil {
+		input.XFlightId = tempFlightIdAccountIdentifierTag
 	} else if aaa.FlightIdRepository != nil {
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	_, err := aaa.Client.AccountIdenfifierTag.AdminDeleteTagV3Short(input, authInfoWriter)
+	_, err := aaa.Client.AccountIdentifierTag.AdminDeleteTagV3Short(input, authInfoWriter)
 	if err != nil {
 		return err
 	}

@@ -32,7 +32,7 @@ eval_tap() {
 }
 
 echo "TAP version 13"
-echo "1..41"
+echo "1..44"
 
 #- 1 Login
 samples/cli/sample-apps login \
@@ -65,277 +65,296 @@ eval_tap $? 4 'AdminGetLogConfig' test.out
 
 #- 5 AdminPatchUpdateLogConfig
 samples/cli/sample-apps Match2 adminPatchUpdateLogConfig \
-    --body '{"logLevel": "error"}' \
+    --body '{"logLevel": "info"}' \
     > test.out 2>&1
 eval_tap $? 5 'AdminPatchUpdateLogConfig' test.out
 
-#- 6 AdminGetAllConfigV1
+#- 6 AdminGetPlayFeatureFlag
+samples/cli/sample-apps Match2 adminGetPlayFeatureFlag \
+    --namespace $AB_NAMESPACE \
+    > test.out 2>&1
+eval_tap $? 6 'AdminGetPlayFeatureFlag' test.out
+
+#- 7 AdminUpsertPlayFeatureFlag
+samples/cli/sample-apps Match2 adminUpsertPlayFeatureFlag \
+    --namespace $AB_NAMESPACE \
+    --body '{"ENABLE_AUTO_CANCEL_MATCH_USER_DISCONNECT": false, "ENABLE_AUTO_CANCEL_MATCH_USER_LEAVE": true}' \
+    > test.out 2>&1
+eval_tap $? 7 'AdminUpsertPlayFeatureFlag' test.out
+
+#- 8 AdminDeletePlayFeatureFlag
+samples/cli/sample-apps Match2 adminDeletePlayFeatureFlag \
+    --namespace $AB_NAMESPACE \
+    > test.out 2>&1
+eval_tap $? 8 'AdminDeletePlayFeatureFlag' test.out
+
+#- 9 AdminGetAllConfigV1
 samples/cli/sample-apps Match2 adminGetAllConfigV1 \
     > test.out 2>&1
-eval_tap $? 6 'AdminGetAllConfigV1' test.out
+eval_tap $? 9 'AdminGetAllConfigV1' test.out
 
-#- 7 AdminGetConfigV1
+#- 10 AdminGetConfigV1
 samples/cli/sample-apps Match2 adminGetConfigV1 \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 7 'AdminGetConfigV1' test.out
+eval_tap $? 10 'AdminGetConfigV1' test.out
 
-#- 8 AdminPatchConfigV1
+#- 11 AdminPatchConfigV1
 samples/cli/sample-apps Match2 adminPatchConfigV1 \
     --namespace $AB_NAMESPACE \
-    --body '{"crossPlatformNoCurrentPlatform": false, "extraPlatforms": ["v9upunKN", "5n625f9r", "3CODCd8v"], "matchAnyCommon": true, "platformGroup": {"9cIkLjhu": ["V0HDQjyt", "VpeYpuvI", "pTX8pBHi"], "SyscQ6yN": ["G5rDhf1M", "6bLycbQl", "Gfy1EuCc"], "NNueDIEo": ["hQJERorH", "mwPbPqui", "0X5Jq5JQ"]}}' \
+    --body '{"crossPlatformNoCurrentPlatform": false, "extraPlatforms": ["gOCqxM9n", "RFgKdSsv", "XllweRsF"], "matchAnyCommon": true, "platformGroup": {"JVCF9KqB": ["2jpgK9E4", "N0dSmHh0", "r2aiNrb4"], "vv2DpM2y": ["jICbdNKn", "EerJTxNf", "WVOdtkuX"], "QmPmbHij": ["9FJ6sIf9", "dBaGigTw", "2nflG7vO"]}}' \
     > test.out 2>&1
-eval_tap $? 8 'AdminPatchConfigV1' test.out
+eval_tap $? 11 'AdminPatchConfigV1' test.out
 
-#- 9 EnvironmentVariableList
+#- 12 EnvironmentVariableList
 samples/cli/sample-apps Match2 environmentVariableList \
     > test.out 2>&1
-eval_tap $? 9 'EnvironmentVariableList' test.out
+eval_tap $? 12 'EnvironmentVariableList' test.out
 
-#- 10 AdminQueryBackfill
+#- 13 AdminQueryBackfill
 samples/cli/sample-apps Match2 adminQueryBackfill \
     --namespace $AB_NAMESPACE \
-    --fromTime '1972-03-22T00:00:00Z' \
-    --isActive 'false' \
-    --limit '79' \
-    --matchPool 'QgDmt636' \
-    --offset '99' \
-    --playerID 'BvQ7AiPr' \
-    --region 'klrSjVsO' \
-    --sessionID 'OdOUnCDj' \
-    --toTime '1972-08-23T00:00:00Z' \
+    --fromTime '1996-04-10T00:00:00Z' \
+    --isActive 'true' \
+    --limit '42' \
+    --matchPool 'P1MUbCi8' \
+    --offset '31' \
+    --playerID 'thW2Xuwp' \
+    --region 'e2Z6ouYw' \
+    --sessionID 'UNYHrKZr' \
+    --toTime '1997-03-09T00:00:00Z' \
     > test.out 2>&1
-eval_tap $? 10 'AdminQueryBackfill' test.out
+eval_tap $? 13 'AdminQueryBackfill' test.out
 
-#- 11 CreateBackfill
+#- 14 CreateBackfill
 samples/cli/sample-apps Match2 createBackfill \
     --namespace $AB_NAMESPACE \
-    --body '{"matchPool": "L9TWNcgh", "sessionId": "k342utFv"}' \
+    --body '{"matchPool": "2jUzGTZk", "sessionId": "9UUz6DUh"}' \
     > test.out 2>&1
-eval_tap $? 11 'CreateBackfill' test.out
+eval_tap $? 14 'CreateBackfill' test.out
 
-#- 12 GetBackfillProposal
+#- 15 GetBackfillProposal
 samples/cli/sample-apps Match2 getBackfillProposal \
     --namespace $AB_NAMESPACE \
-    --sessionID 'FxuEjgAP' \
+    --sessionID 'xUYqxxtX' \
     > test.out 2>&1
-eval_tap $? 12 'GetBackfillProposal' test.out
+eval_tap $? 15 'GetBackfillProposal' test.out
 
-#- 13 GetBackfill
+#- 16 GetBackfill
 samples/cli/sample-apps Match2 getBackfill \
-    --backfillID 'qHFgyOwR' \
+    --backfillID 'WxMAUDNn' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 13 'GetBackfill' test.out
+eval_tap $? 16 'GetBackfill' test.out
 
-#- 14 DeleteBackfill
+#- 17 DeleteBackfill
 samples/cli/sample-apps Match2 deleteBackfill \
-    --backfillID 'dcNbVFcZ' \
+    --backfillID '2wRSntXZ' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 14 'DeleteBackfill' test.out
+eval_tap $? 17 'DeleteBackfill' test.out
 
-#- 15 AcceptBackfill
+#- 18 AcceptBackfill
 samples/cli/sample-apps Match2 acceptBackfill \
-    --backfillID 'RxGuoI6E' \
+    --backfillID '94DAfjKI' \
     --namespace $AB_NAMESPACE \
-    --body '{"acceptedTicketIds": ["Y416jlDj", "JWsUK82I", "5GjpvP64"], "proposalId": "PVlFcpvd", "stop": true}' \
+    --body '{"acceptedTicketIds": ["bdlir6Dr", "mAnurWGc", "N6dJ9GPR"], "proposalId": "AuvCYjLD", "stop": false}' \
     > test.out 2>&1
-eval_tap $? 15 'AcceptBackfill' test.out
+eval_tap $? 18 'AcceptBackfill' test.out
 
-#- 16 RejectBackfill
+#- 19 RejectBackfill
 samples/cli/sample-apps Match2 rejectBackfill \
-    --backfillID 'OsYgDOFM' \
+    --backfillID 'mh9BYKgq' \
     --namespace $AB_NAMESPACE \
-    --body '{"proposalId": "geta1DJG", "stop": true}' \
+    --body '{"proposalId": "3s4iDIKM", "stop": true}' \
     > test.out 2>&1
-eval_tap $? 16 'RejectBackfill' test.out
+eval_tap $? 19 'RejectBackfill' test.out
 
-#- 17 MatchFunctionList
+#- 20 MatchFunctionList
 samples/cli/sample-apps Match2 matchFunctionList \
     --namespace $AB_NAMESPACE \
-    --limit '31' \
-    --offset '92' \
+    --limit '57' \
+    --offset '47' \
     > test.out 2>&1
-eval_tap $? 17 'MatchFunctionList' test.out
+eval_tap $? 20 'MatchFunctionList' test.out
 
-#- 18 CreateMatchFunction
+#- 21 CreateMatchFunction
 samples/cli/sample-apps Match2 createMatchFunction \
     --namespace $AB_NAMESPACE \
-    --body '{"match_function": "RDVVZKb5", "serviceAppName": "Kf4AQyVm", "url": "kK1EtZKy"}' \
+    --body '{"match_function": "PzhkCq64", "serviceAppName": "FX8s959i", "url": "C43ZyNDi"}' \
     > test.out 2>&1
-eval_tap $? 18 'CreateMatchFunction' test.out
+eval_tap $? 21 'CreateMatchFunction' test.out
 
-#- 19 MatchFunctionGet
+#- 22 MatchFunctionGet
 samples/cli/sample-apps Match2 matchFunctionGet \
-    --name 'kWXGUTf8' \
+    --name 'amGjOyzx' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 19 'MatchFunctionGet' test.out
+eval_tap $? 22 'MatchFunctionGet' test.out
 
-#- 20 UpdateMatchFunction
+#- 23 UpdateMatchFunction
 samples/cli/sample-apps Match2 updateMatchFunction \
-    --name '2gwZFxaO' \
+    --name 'vrGM10SU' \
     --namespace $AB_NAMESPACE \
-    --body '{"match_function": "wBVuTGNR", "serviceAppName": "zj0yQGYZ", "url": "LlMPRxkc"}' \
+    --body '{"match_function": "NI13nkyX", "serviceAppName": "2jA4L5Fz", "url": "LfNwXEFs"}' \
     > test.out 2>&1
-eval_tap $? 20 'UpdateMatchFunction' test.out
+eval_tap $? 23 'UpdateMatchFunction' test.out
 
-#- 21 DeleteMatchFunction
+#- 24 DeleteMatchFunction
 samples/cli/sample-apps Match2 deleteMatchFunction \
-    --name 'SLmhGLK9' \
+    --name 'Nz1LzxRH' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
-eval_tap $? 21 'DeleteMatchFunction' test.out
+eval_tap $? 24 'DeleteMatchFunction' test.out
 
-#- 22 MatchPoolList
+#- 25 MatchPoolList
 samples/cli/sample-apps Match2 matchPoolList \
     --namespace $AB_NAMESPACE \
-    --limit '26' \
-    --name 'wLkjlHQM' \
-    --offset '62' \
+    --limit '92' \
+    --name 'FSC34yLe' \
+    --offset '4' \
     > test.out 2>&1
-eval_tap $? 22 'MatchPoolList' test.out
+eval_tap $? 25 'MatchPoolList' test.out
 
-#- 23 CreateMatchPool
+#- 26 CreateMatchPool
 samples/cli/sample-apps Match2 createMatchPool \
     --namespace $AB_NAMESPACE \
-    --body '{"auto_accept_backfill_proposal": false, "backfill_proposal_expiration_seconds": 11, "backfill_ticket_expiration_seconds": 5, "best_latency_calculation_method": "zzMpOrwP", "crossplay_disabled": false, "match_function": "0GQHJnXe", "match_function_override": {"backfill_matches": "kLESvtNy", "enrichment": ["EbNLmnvx", "26CrhHCf", "jIuSOsUj"], "make_matches": "5RpJaR7c", "stat_codes": ["Ivw9lmWz", "84GK7I9U", "mMwgdFDp"], "validation": ["cAbs9ygC", "ANpRbS1U", "nuKnfBxB"]}, "name": "hZ6ruOG1", "platform_group_enabled": false, "rule_set": "Pn9RGnt4", "session_template": "LP1fCutn", "ticket_expiration_seconds": 93}' \
+    --body '{"auto_accept_backfill_proposal": false, "backfill_proposal_expiration_seconds": 12, "backfill_ticket_expiration_seconds": 19, "best_latency_calculation_method": "8U7hEyuS", "crossplay_disabled": false, "match_function": "h2n0dejb", "match_function_override": {"backfill_matches": "LXJMhFUX", "enrichment": ["ANzLWP3w", "zaHADUkJ", "cCaj5xSd"], "make_matches": "wXCoq34E", "stat_codes": ["i8fimPyL", "METENHZ6", "rRX5et94"], "validation": ["y8W47KzY", "Pai5js1l", "bMQ35qCa"]}, "name": "D3S8UUEQ", "platform_group_enabled": true, "rule_set": "K8UmoVkf", "session_template": "PvaAQY4a", "ticket_expiration_seconds": 36}' \
     > test.out 2>&1
-eval_tap $? 23 'CreateMatchPool' test.out
+eval_tap $? 26 'CreateMatchPool' test.out
 
-#- 24 MatchPoolDetails
+#- 27 MatchPoolDetails
 samples/cli/sample-apps Match2 matchPoolDetails \
     --namespace $AB_NAMESPACE \
-    --pool 'n4UA5y9c' \
+    --pool 'j2XBXfib' \
     > test.out 2>&1
-eval_tap $? 24 'MatchPoolDetails' test.out
+eval_tap $? 27 'MatchPoolDetails' test.out
 
-#- 25 UpdateMatchPool
+#- 28 UpdateMatchPool
 samples/cli/sample-apps Match2 updateMatchPool \
     --namespace $AB_NAMESPACE \
-    --pool 'kdNetQJA' \
-    --body '{"auto_accept_backfill_proposal": false, "backfill_proposal_expiration_seconds": 78, "backfill_ticket_expiration_seconds": 21, "best_latency_calculation_method": "LjfCdQGb", "crossplay_disabled": true, "match_function": "MG1DSx16", "match_function_override": {"backfill_matches": "p5zR8FMN", "enrichment": ["FJwYcXi9", "NHYeWcq2", "7azmtywK"], "make_matches": "YUPQVfCM", "stat_codes": ["YCG11aa2", "HnsaJcaG", "0XumpqwS"], "validation": ["OX3PfdnZ", "dhoF6388", "0Lbgpgpp"]}, "platform_group_enabled": false, "rule_set": "wq2wkLt4", "session_template": "qe6aFn31", "ticket_expiration_seconds": 62}' \
+    --pool 'eGmZAEKA' \
+    --body '{"auto_accept_backfill_proposal": true, "backfill_proposal_expiration_seconds": 15, "backfill_ticket_expiration_seconds": 19, "best_latency_calculation_method": "HH0QxQ0C", "crossplay_disabled": false, "match_function": "be7oPkyA", "match_function_override": {"backfill_matches": "8LYnmza3", "enrichment": ["1CGkX0Hj", "dv1gqMMx", "4SpVhatg"], "make_matches": "bp3jaiVl", "stat_codes": ["SnHkVeS6", "sVSUwqjU", "Uz61Ijru"], "validation": ["akNRPlW1", "XmqsESTr", "JX9C0aKr"]}, "platform_group_enabled": false, "rule_set": "wBcxFbmc", "session_template": "IoX1TLbW", "ticket_expiration_seconds": 3}' \
     > test.out 2>&1
-eval_tap $? 25 'UpdateMatchPool' test.out
+eval_tap $? 28 'UpdateMatchPool' test.out
 
-#- 26 DeleteMatchPool
+#- 29 DeleteMatchPool
 samples/cli/sample-apps Match2 deleteMatchPool \
     --namespace $AB_NAMESPACE \
-    --pool 'tSXEujDg' \
+    --pool 'HbSIxEay' \
     > test.out 2>&1
-eval_tap $? 26 'DeleteMatchPool' test.out
+eval_tap $? 29 'DeleteMatchPool' test.out
 
-#- 27 MatchPoolMetric
+#- 30 MatchPoolMetric
 samples/cli/sample-apps Match2 matchPoolMetric \
     --namespace $AB_NAMESPACE \
-    --pool 'ydMqrd6Y' \
+    --pool 'hxqMZk7t' \
     > test.out 2>&1
-eval_tap $? 27 'MatchPoolMetric' test.out
+eval_tap $? 30 'MatchPoolMetric' test.out
 
-#- 28 PostMatchErrorMetric
+#- 31 PostMatchErrorMetric
 samples/cli/sample-apps Match2 postMatchErrorMetric \
     --namespace $AB_NAMESPACE \
-    --pool 'rCIysqIX' \
+    --pool 'VwqSocsJ' \
     --body '{"type": "connectDS"}' \
     > test.out 2>&1
-eval_tap $? 28 'PostMatchErrorMetric' test.out
+eval_tap $? 31 'PostMatchErrorMetric' test.out
 
-#- 29 GetPlayerMetric
+#- 32 GetPlayerMetric
 samples/cli/sample-apps Match2 getPlayerMetric \
     --namespace $AB_NAMESPACE \
-    --pool 'VKhOmvWB' \
+    --pool 'vMUnMWYk' \
     > test.out 2>&1
-eval_tap $? 29 'GetPlayerMetric' test.out
+eval_tap $? 32 'GetPlayerMetric' test.out
 
-#- 30 AdminGetMatchPoolTickets
+#- 33 AdminGetMatchPoolTickets
 samples/cli/sample-apps Match2 adminGetMatchPoolTickets \
     --namespace $AB_NAMESPACE \
-    --pool 'YLBusUfF' \
-    --limit '99' \
-    --offset '69' \
+    --pool 'bo3jvyRm' \
+    --limit '19' \
+    --offset '52' \
     > test.out 2>&1
-eval_tap $? 30 'AdminGetMatchPoolTickets' test.out
+eval_tap $? 33 'AdminGetMatchPoolTickets' test.out
 
-#- 31 CreateMatchTicket
+#- 34 CreateMatchTicket
 samples/cli/sample-apps Match2 createMatchTicket \
     --namespace $AB_NAMESPACE \
-    --body '{"attributes": {"eGv49FfV": {}, "JWTq8ncm": {}, "5I6YcFgT": {}}, "excludedSessions": ["gBtIjDU2", "XVx1uad6", "hgMePc7d"], "latencies": {"MtfapzHq": 98, "cyysSteY": 14, "PhFyMTHh": 11}, "matchPool": "kARqLVeq", "sessionID": "JayETaL9", "storage": {"AJtbfxrT": {}, "WbZO9IgC": {}, "iW3Uz37t": {}}}' \
+    --body '{"attributes": {"1HCP2Tak": {}, "VYCNOcsb": {}, "jOxJqU5x": {}}, "excludedSessions": ["Qt5Uqwg2", "ogm7YMHp", "ETWWXqnH"], "latencies": {"fFWcBle0": 41, "CVBdjL25": 8, "w2KZdCwx": 76}, "matchPool": "MszCxkTJ", "sessionID": "Q2bhSL2N", "storage": {"Z5Ht3TKG": {}, "v3HC2JVU": {}, "XIB11WG4": {}}}' \
     > test.out 2>&1
-eval_tap $? 31 'CreateMatchTicket' test.out
+eval_tap $? 34 'CreateMatchTicket' test.out
 
-#- 32 GetMyMatchTickets
+#- 35 GetMyMatchTickets
 samples/cli/sample-apps Match2 getMyMatchTickets \
     --namespace $AB_NAMESPACE \
-    --limit '13' \
-    --matchPool 'ZnD2cDoY' \
-    --offset '80' \
+    --limit '7' \
+    --matchPool 'zjIpaOad' \
+    --offset '47' \
     > test.out 2>&1
-eval_tap $? 32 'GetMyMatchTickets' test.out
+eval_tap $? 35 'GetMyMatchTickets' test.out
 
-#- 33 MatchTicketDetails
+#- 36 MatchTicketDetails
 samples/cli/sample-apps Match2 matchTicketDetails \
     --namespace $AB_NAMESPACE \
-    --ticketid '4tA5rn3P' \
+    --ticketid 'v99eL3Gx' \
     > test.out 2>&1
-eval_tap $? 33 'MatchTicketDetails' test.out
+eval_tap $? 36 'MatchTicketDetails' test.out
 
-#- 34 DeleteMatchTicket
+#- 37 DeleteMatchTicket
 samples/cli/sample-apps Match2 deleteMatchTicket \
     --namespace $AB_NAMESPACE \
-    --ticketid '1OCft8Oj' \
+    --ticketid 'ECjSXNUc' \
     > test.out 2>&1
-eval_tap $? 34 'DeleteMatchTicket' test.out
+eval_tap $? 37 'DeleteMatchTicket' test.out
 
-#- 35 RuleSetList
+#- 38 RuleSetList
 samples/cli/sample-apps Match2 ruleSetList \
     --namespace $AB_NAMESPACE \
-    --limit '88' \
-    --name 'aK88tBHy' \
-    --offset '17' \
+    --limit '41' \
+    --name 'YpcYUjm5' \
+    --offset '18' \
     > test.out 2>&1
-eval_tap $? 35 'RuleSetList' test.out
+eval_tap $? 38 'RuleSetList' test.out
 
-#- 36 CreateRuleSet
+#- 39 CreateRuleSet
 samples/cli/sample-apps Match2 createRuleSet \
     --namespace $AB_NAMESPACE \
-    --body '{"data": {"Vd4SCXgp": {}, "cXVt8Ysd": {}, "oFJJseus": {}}, "enable_custom_match_function": false, "name": "PFJpGbZ3"}' \
+    --body '{"data": {"UfuggnJw": {}, "wLXEG5Uu": {}, "pLZ83fQg": {}}, "enable_custom_match_function": true, "name": "r49HQ6Fd"}' \
     > test.out 2>&1
-eval_tap $? 36 'CreateRuleSet' test.out
+eval_tap $? 39 'CreateRuleSet' test.out
 
-#- 37 RuleSetDetails
+#- 40 RuleSetDetails
 samples/cli/sample-apps Match2 ruleSetDetails \
     --namespace $AB_NAMESPACE \
-    --ruleset '1wGyvsz3' \
+    --ruleset 'Us6MWSxW' \
     > test.out 2>&1
-eval_tap $? 37 'RuleSetDetails' test.out
+eval_tap $? 40 'RuleSetDetails' test.out
 
-#- 38 UpdateRuleSet
+#- 41 UpdateRuleSet
 samples/cli/sample-apps Match2 updateRuleSet \
     --namespace $AB_NAMESPACE \
-    --ruleset 'srarTo21' \
-    --body '{"data": {"ujnA0pgA": {}, "sJsReXxh": {}, "Whap3J0p": {}}, "enable_custom_match_function": true, "name": "6F0D8YaH"}' \
+    --ruleset 'z7p53KdJ' \
+    --body '{"data": {"WUU4yTf8": {}, "o4autMWJ": {}, "5KsSVFQl": {}}, "enable_custom_match_function": true, "name": "eCCM2LCt"}' \
     > test.out 2>&1
-eval_tap $? 38 'UpdateRuleSet' test.out
+eval_tap $? 41 'UpdateRuleSet' test.out
 
-#- 39 DeleteRuleSet
+#- 42 DeleteRuleSet
 samples/cli/sample-apps Match2 deleteRuleSet \
     --namespace $AB_NAMESPACE \
-    --ruleset '3xC5zo2f' \
+    --ruleset 'SEGuyFgo' \
     > test.out 2>&1
-eval_tap $? 39 'DeleteRuleSet' test.out
+eval_tap $? 42 'DeleteRuleSet' test.out
 
-#- 40 PublicGetPlayerMetric
+#- 43 PublicGetPlayerMetric
 samples/cli/sample-apps Match2 publicGetPlayerMetric \
     --namespace $AB_NAMESPACE \
-    --pool 'NHIMdUYR' \
+    --pool 'TvpWjNY3' \
     > test.out 2>&1
-eval_tap $? 40 'PublicGetPlayerMetric' test.out
+eval_tap $? 43 'PublicGetPlayerMetric' test.out
 
-#- 41 VersionCheckHandler
+#- 44 VersionCheckHandler
 samples/cli/sample-apps Match2 versionCheckHandler \
     > test.out 2>&1
-eval_tap $? 41 'VersionCheckHandler' test.out
+eval_tap $? 44 'VersionCheckHandler' test.out
 
 
 rm -f "tmp.dat"
