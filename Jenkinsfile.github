@@ -104,7 +104,7 @@ def pushGitTag(selectedTag, isPrerelease, releaseNote, agsVersion) {
 
 pipeline {
   agent {
-    label "extend-builder-batch && linux-amd64"
+    label "extend-builder-ci && linux-amd64"
   }
   stages {
     stage('Prepare') {
