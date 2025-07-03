@@ -11,9 +11,6 @@ These are available AccelByte Services SDK modules to use
 | github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk | v0.1.0-alpha.1 |
@@ -22,7 +19,6 @@ These are available AccelByte Services SDK modules to use
 | github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk | v0.1.0-alpha.1 |
@@ -44,8 +40,6 @@ Therefore these modules are marked as *DEPRECATED* and client code should be mig
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ams | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/basic | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/cloudsave | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/dslogmanager | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/dsmc | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/gametelemetry | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/gdpr | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/group | v0.1.0-alpha.1 |
@@ -55,7 +49,6 @@ Therefore these modules are marked as *DEPRECATED* and client code should be mig
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/lobby | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/match2 | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform | v0.1.0-alpha.1 |
-| github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/qosm | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/reporting | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass | v0.1.0-alpha.1 |
 | github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/session | v0.1.0-alpha.1 |

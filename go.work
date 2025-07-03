@@ -7,8 +7,6 @@ use (
 	chat-sdk
 	challenge-sdk
 	cloudsave-sdk
-	dslogmanager-sdk
-	dsmc-sdk
 	gametelemetry-sdk
 	gdpr-sdk
 	group-sdk
@@ -19,10 +17,8 @@ use (
 	lobby-sdk
 	match2-sdk
 	platform-sdk
-	qosm-sdk
 	reporting-sdk
 	inventory-sdk
-	dsartifact-sdk
 	session-sdk
 	social-sdk
 	ugc-sdk
@@ -51,8 +47,6 @@ use (
 	services-api/pkg/service/chat
 	services-api/pkg/service/cloudsave
 	services-api/pkg/service/csm
-	services-api/pkg/service/dslogmanager
-	services-api/pkg/service/dsmc
 	services-api/pkg/service/gametelemetry
 	services-api/pkg/service/gdpr
 	services-api/pkg/service/group
@@ -63,13 +57,11 @@ use (
 	services-api/pkg/service/lobby
 	services-api/pkg/service/match2
 	services-api/pkg/service/platform
-	services-api/pkg/service/qosm
 	services-api/pkg/service/reporting
 	services-api/pkg/service/seasonpass
 	services-api/pkg/service/session
 	services-api/pkg/service/social
 	services-api/pkg/service/ugc
-	services-api/pkg/service/dsartifact
 	services-api/pkg/service/challenge
 	services-api/pkg/service/loginqueue
 

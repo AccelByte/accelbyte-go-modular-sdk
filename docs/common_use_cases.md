@@ -538,34 +538,6 @@ if errDelete != nil {
 	assert.FailNow(t, errDelete.Error())
 }
 ```
-## DSArtifact
-
-Source: [dsartifact_test.go](../services-api/pkg/tests/integration/dsartifact_test.go)
-
-### List all queue
-
-```go
-input := &artifact_upload_process_queue.ListAllQueueParams{
-	Namespace: namespace,
-	Limit:     &limit,
-}
-ok, err := artifactUploadProcessQueueService.ListAllQueueShort(input)
-if err != nil {
-	t.Skipf("temporarily disabled") // Armada is deprecated
-}
-```
-
-### List terminated servers
-
-```go
-input := &all_terminated_servers.ListTerminatedServersParams{
-	Limit: &limit,
-}
-ok, err := allTerminatedServersService.ListTerminatedServersShort(input)
-if err != nil {
-	t.Skipf("temporarily disabled") // Armada is deprecated
-}
-```
 ## GameTelemetry
 
 Source: [gametelemetry_test.go](../services-api/pkg/tests/integration/gametelemetry_test.go)

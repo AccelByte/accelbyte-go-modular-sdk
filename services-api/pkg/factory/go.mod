@@ -11,9 +11,6 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk => ../../../chat-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk => ../../../cloudsave-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk => ../../../csm-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk => ../../../dsartifact-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk => ../../../dslogmanager-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk => ../../../dsmc-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk => ../../../gametelemetry-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk => ../../../gdpr-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk => ../../../group-sdk
@@ -24,7 +21,6 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobby-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk => ../../../match2-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk => ../../../platform-sdk
-	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk => ../../../qosm-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk => ../../../reporting-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk => ../../../seasonpass-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
@@ -41,9 +37,6 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.11
 	github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk v0.3.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/dsartifact-sdk v0.1.0-alpha.2
-	github.com/AccelByte/accelbyte-go-modular-sdk/dslogmanager-sdk v0.1.0-alpha.2
-	github.com/AccelByte/accelbyte-go-modular-sdk/dsmc-sdk v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0-alpha.7
 	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.2.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0-alpha.4
@@ -55,7 +48,6 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/loginqueue-sdk v0.0.0-20250206045624-e2ce678e877a
 	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.5.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.3.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/qosm-sdk v0.1.0-alpha.2
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
