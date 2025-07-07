@@ -231,13 +231,26 @@ if err != nil {
 ### Login Using OAuth Client (Public or Private)
 
 ```go
-err := oAuth20Service.GrantTokenCredentials("", "")
+err := oAuth20Service.LoginClient(clientId, clientSecret)
+if err != nil {
+    return err
+}
+```
+
+It’s possible to pass a context created or derived from another method into LoginClientWithContext(ctx, ...), allowing you to carry tracing information or other context-related data through the login process.
+
+```go
+ctx := context.Background()
+
+err := oAuth20Service.LoginClientWihContext(ctx, clientId, clientSecret)
 if err != nil {
     return err
 }
 ```
 
 :bulb: The use of a Public OAuth Client is highly discouraged! Please ensure that you both set the Client ID and Client Secret.
+
+:bulb: There are other `WithContext` variants of the `LoginX` functions in case you want to use a specific context.
 
 ## Parse Access Token
 Functionality to parse the access token is available in `v0.50.0`.
