@@ -207,6 +207,23 @@ func (o *OAuth20Service) Login(username, password string) error {
 	return o.LoginWithScope(username, password, scope)
 }
 
+// LoginOrRefresh is a custom wrapper that performs user authentication with automatic token refresh.
+// Unlike the basic Login method, this method checks if an existing token is present and valid.
+// If the token has expired but the refresh token is still valid, it refreshes the token automatically.
+// If no token exists or the refresh token has expired, it performs a fresh login using the provided credentials.
+//
+// Example:
+//
+//	oAuth20Service := &iam.OAuth20Service{
+//		Client:           factory.NewIamClient(auth.DefaultConfigRepositoryImpl()),
+//		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
+//		TokenRepository:  auth.DefaultTokenRepositoryImpl(),
+//		RefreshTokenRepository: &auth.RefreshTokenImpl{
+//			RefreshRate: 0.5,
+//			AutoRefresh: false, // must be set to false for on demand refresh token
+//		},
+//	}
+//	err := oAuth20Service.LoginOrRefresh("username", "password")
 func (o *OAuth20Service) LoginOrRefresh(username, password string) error {
 	scope := "commerce account social publishing analytics"
 
@@ -256,6 +273,17 @@ func (o *OAuth20Service) LoginWithScope(username, password, scope string) error 
 	return nil
 }
 
+// LoginOrRefreshWithScope is a custom wrapper that performs user authentication with automatic token refresh for a specific scope.
+// This method provides the same functionality as LoginOrRefresh but allows specifying custom OAuth scopes.
+// It checks if an existing token is present and valid, refreshes expired tokens automatically,
+// and performs fresh login when no token exists or refresh token has expired.
+//
+// Parameters:
+//   - username: User's login username/client ID
+//   - password: User's login password/client secret
+//   - scope: OAuth scope string (e.g., "commerce account social publishing analytics")
+//
+// Note: Requires AutoRefresh to be set to false in RefreshTokenRepository for proper on-demand token management.
 func (o *OAuth20Service) LoginOrRefreshWithScope(username, password, scope string) error {
 	session := o.GetAuthSession()
 	getToken, err := session.Token.GetToken()
@@ -282,6 +310,16 @@ func (o *OAuth20Service) LoginOrRefreshWithScope(username, password, scope strin
 	return nil
 }
 
+// LoginOrRefreshClient is a custom wrapper that performs client authentication with automatic token refresh.
+// This method is designed for client credentials flow and checks if an existing client token is present and valid.
+// If the token has expired, it performs a fresh client login using the provided client credentials.
+// Unlike user authentication, client tokens typically don't support refresh tokens, so expired tokens require re-authentication.
+//
+// Parameters:
+//   - clientId: OAuth client ID (can be nil to use default from config)
+//   - clientSecret: OAuth client secret (can be nil to use default from config)
+//
+// Note: Uses thread-safe atomic operations to prevent concurrent login attempts.
 func (o *OAuth20Service) LoginOrRefreshClient(clientId, clientSecret *string) error {
 	session := o.GetAuthSession()
 	getToken, err := session.Token.GetToken()
