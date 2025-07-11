@@ -60,6 +60,7 @@ use (
 	services-api/pkg/service/reporting
 	services-api/pkg/service/seasonpass
 	services-api/pkg/service/session
+	services-api/pkg/service/sessionhistory
 	services-api/pkg/service/social
 	services-api/pkg/service/ugc
 	services-api/pkg/service/challenge
@@ -69,5 +70,6 @@ use (
 	services-api/pkg/tests
 	services-api/pkg/utils/auth/validator
 	samples/ws-client-refresh-token
+	sessionhistory-sdk
 	csm-sdk
 )

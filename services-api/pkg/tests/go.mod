@@ -23,6 +23,7 @@ replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk => ../../../seasonpass-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../../../services-api
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk => ../../../session-sdk
+	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk => ../../../sessionhistory-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../social-sdk
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk => ../../../ugc-sdk
 )
@@ -50,6 +51,7 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.1.0-alpha.1
 	github.com/go-openapi/errors v0.20.2
