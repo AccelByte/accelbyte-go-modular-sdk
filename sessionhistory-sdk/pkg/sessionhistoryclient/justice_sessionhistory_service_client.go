@@ -16,9 +16,6 @@ import (
 	"github.com/go-openapi/strfmt"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/game_session_detail"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/x_ray"
 )
 
@@ -83,10 +80,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli := new(JusticeSessionhistoryService)
 	cli.Transport = transport
 	cli.Runtime = runtime
-	cli.Config = config.New(transport, formats)
-	cli.GameSessionDetail = game_session_detail.New(transport, formats)
 	cli.XRay = x_ray.New(transport, formats)
-	cli.Operations = operations.New(transport, formats)
 
 	return cli
 }
@@ -148,13 +142,7 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // JusticeSessionhistoryService is a client for justice sessionhistory service
 type JusticeSessionhistoryService struct {
-	Config config.ClientService
-
-	GameSessionDetail game_session_detail.ClientService
-
 	XRay x_ray.ClientService
-
-	Operations operations.ClientService
 
 	Runtime   *httptransport.Runtime
 	Transport runtime.ClientTransport
@@ -163,8 +151,5 @@ type JusticeSessionhistoryService struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *JusticeSessionhistoryService) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
-	c.Config.SetTransport(transport)
-	c.GameSessionDetail.SetTransport(transport)
 	c.XRay.SetTransport(transport)
-	c.Operations.SetTransport(transport)
 }

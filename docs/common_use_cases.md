@@ -733,7 +733,7 @@ input := &o_auth2_0.AuthorizeV3Params{
 	RedirectURI:         &redirectURI,
 	Scope:               &scope,
 	ClientID:            clientID,
-	ResponseType:        o_auth2_0.AuthorizeV3CodeConstant,
+	ResponseType:        o_auth2_0.AuthorizeV3ResponseTypeCodeConstant,
 	HTTPClient:          httpClient,
 }
 
@@ -767,7 +767,7 @@ codeVerifier := codeVerifierGenerator.String()
 inputTokenGrant := &o_auth2_0.TokenGrantV3Params{
 	Code:         &code,
 	CodeVerifier: &codeVerifier,
-	GrantType:    o_auth2_0.TokenGrantV3AuthorizationCodeConstant,
+	GrantType:    o_auth2_0.TokenGrantV3GrantTypeAuthorizationCodeConstant,
 }
 
 oAuth20Service.TokenRepository.RemoveToken()

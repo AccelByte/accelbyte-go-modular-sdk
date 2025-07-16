@@ -54,7 +54,7 @@ func (o *OAuth20Service) GrantTokenCredentials(code, codeVerifier string) error 
 	param := &o_auth2_0.TokenGrantV3Params{
 		Code:         &code,
 		CodeVerifier: &codeVerifier,
-		GrantType:    o_auth2_0.TokenGrantV3ClientCredentialsConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeClientCredentialsConstant,
 	}
 	accessToken, err :=
 		o.Client.OAuth20.TokenGrantV3Short(param, client.BasicAuth(clientID, clientSecret))
@@ -81,7 +81,7 @@ func (o *OAuth20Service) GrantTokenRefreshToken(code, codeVerifier, refreshToken
 	param := &o_auth2_0.TokenGrantV3Params{
 		Code:         &code,
 		CodeVerifier: &codeVerifier,
-		GrantType:    o_auth2_0.TokenGrantV3RefreshTokenConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeRefreshTokenConstant,
 		RefreshToken: &refreshToken,
 	}
 	accessToken, err := o.Client.OAuth20.TokenGrantV3Short(param, client.BasicAuth(clientID, clientSecret))
@@ -108,7 +108,7 @@ func (o *OAuth20Service) GrantTokenAuthorizationCode(code, codeVerifier, redirec
 	param := &o_auth2_0.TokenGrantV3Params{
 		Code:         &code,
 		CodeVerifier: &codeVerifier,
-		GrantType:    o_auth2_0.TokenGrantV3AuthorizationCodeConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeAuthorizationCodeConstant,
 		RedirectURI:  &redirectURI,
 	}
 
@@ -136,7 +136,7 @@ func (o *OAuth20Service) GrantTokenAuthorizationCodeWithContext(ctx context.Cont
 	param := &o_auth2_0.TokenGrantV3Params{
 		Code:         &code,
 		CodeVerifier: &codeVerifier,
-		GrantType:    o_auth2_0.TokenGrantV3AuthorizationCodeConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeAuthorizationCodeConstant,
 		RedirectURI:  &redirectURI,
 		Context:      ctx,
 	}
@@ -191,7 +191,7 @@ func (o *OAuth20Service) Authenticate(requestID, username, password string) (str
 	if errorDescParam != nil {
 		return "", errors.New(errorDescParam[0])
 	}
-	code := query[o_auth2_0.AuthorizeV3CodeConstant][0]
+	code := query[o_auth2_0.AuthorizeV3ResponseTypeCodeConstant][0]
 
 	return code, nil
 }
@@ -232,7 +232,7 @@ func (o *OAuth20Service) AuthenticateWithContext(ctx context.Context, requestID,
 	if errorDescParam != nil {
 		return "", errors.New(errorDescParam[0])
 	}
-	code := query[o_auth2_0.AuthorizeV3CodeConstant][0]
+	code := query[o_auth2_0.AuthorizeV3ResponseTypeCodeConstant][0]
 
 	return code, nil
 }
@@ -254,7 +254,7 @@ func (o *OAuth20Service) Authorize(scope, challenge, challengeMethod string) (st
 		ClientID:            clientID,
 		CodeChallenge:       &challenge,
 		CodeChallengeMethod: &challengeMethod,
-		ResponseType:        o_auth2_0.AuthorizeV3CodeConstant,
+		ResponseType:        o_auth2_0.AuthorizeV3ResponseTypeCodeConstant,
 		Scope:               &scope,
 		HTTPClient:          httpClient,
 	}
@@ -292,7 +292,7 @@ func (o *OAuth20Service) AuthorizeWithContext(ctx context.Context, scope, challe
 		ClientID:            clientID,
 		CodeChallenge:       &challenge,
 		CodeChallengeMethod: &challengeMethod,
-		ResponseType:        o_auth2_0.AuthorizeV3CodeConstant,
+		ResponseType:        o_auth2_0.AuthorizeV3ResponseTypeCodeConstant,
 		Scope:               &scope,
 		HTTPClient:          httpClient,
 		Context:             ctx,
@@ -353,7 +353,7 @@ func (o *OAuth20Service) LoginWithScope(username, password, scope string) error 
 	}
 	codeVerifier := codeVerifierGenerator.String()
 	challenge := codeVerifierGenerator.CodeChallengeS256()
-	challengeMethod := o_auth2_0.AuthorizeV3S256Constant
+	challengeMethod := o_auth2_0.AuthorizeV3CodeChallengeMethodS256Constant
 	requestID, err := o.Authorize(scope, challenge, challengeMethod)
 	if err != nil {
 		return err
@@ -396,7 +396,7 @@ func (o *OAuth20Service) LoginWithContextAndScope(ctx context.Context, username,
 	}
 	codeVerifier := codeVerifierGenerator.String()
 	challenge := codeVerifierGenerator.CodeChallengeS256()
-	challengeMethod := o_auth2_0.AuthorizeV3S256Constant
+	challengeMethod := o_auth2_0.AuthorizeV3CodeChallengeMethodS256Constant
 	requestID, err := o.AuthorizeWithContext(ctx, scope, challenge, challengeMethod)
 	if err != nil {
 		return err
@@ -522,7 +522,7 @@ func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 		logrus.Warningln("The use of a Public OAuth Client is highly discouraged!")
 	}
 	param := &o_auth2_0.TokenGrantV3Params{
-		GrantType: o_auth2_0.TokenGrantV3ClientCredentialsConstant,
+		GrantType: o_auth2_0.TokenGrantV3GrantTypeClientCredentialsConstant,
 	}
 	accessToken, err :=
 		o.Client.OAuth20.TokenGrantV3Short(param, client.BasicAuth(*clientId, *clientSecret))
@@ -582,7 +582,7 @@ func (o *OAuth20Service) LoginClientWithContext(ctx context.Context, clientId, c
 	}
 	param := &o_auth2_0.TokenGrantV3Params{
 		Context:   ctx,
-		GrantType: o_auth2_0.TokenGrantV3ClientCredentialsConstant,
+		GrantType: o_auth2_0.TokenGrantV3GrantTypeClientCredentialsConstant,
 	}
 	accessToken, err :=
 		o.Client.OAuth20.TokenGrantV3Short(param, client.BasicAuth(*clientId, *clientSecret))

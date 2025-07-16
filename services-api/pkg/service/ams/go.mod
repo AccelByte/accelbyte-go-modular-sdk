@@ -8,7 +8,7 @@ go 1.18
 replace github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk => ../../../../ams-sdk
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.4.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.5.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
 )
 

@@ -63,7 +63,7 @@ var (
 		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
 		TokenRepository:  tokenRepository,
 	}
-	codeChallengeMethod = o_auth2_0.AuthorizeV3S256Constant
+	codeChallengeMethod = o_auth2_0.AuthorizeV3CodeChallengeMethodS256Constant
 	redirectURI         string
 	scope               = "commerce account social publishing analytics"
 	username            = os.Getenv("AB_USERNAME")
@@ -139,7 +139,7 @@ func TestIntegrationAuthorizeV3(t *testing.T) {
 		RedirectURI:         &redirectURI,
 		Scope:               &scope,
 		ClientID:            clientID,
-		ResponseType:        o_auth2_0.AuthorizeV3CodeConstant,
+		ResponseType:        o_auth2_0.AuthorizeV3ResponseTypeCodeConstant,
 		HTTPClient:          httpClient,
 	}
 	expected, err := oAuth20Service.AuthorizeV3Short(input)
@@ -165,7 +165,7 @@ func TestIntegrationAuthenticate(t *testing.T) {
 		RedirectURI:         &redirectURI,
 		Scope:               &scope,
 		ClientID:            oAuth20Service.ConfigRepository.GetClientId(),
-		ResponseType:        o_auth2_0.AuthorizeV3CodeConstant,
+		ResponseType:        o_auth2_0.AuthorizeV3ResponseTypeCodeConstant,
 		HTTPClient:          httpClient,
 	}
 	requestID, err := oAuth20Service.AuthorizeV3Short(input)
@@ -203,7 +203,7 @@ func TestIntegrationGrantTokenAuthorizationCode(t *testing.T) {
 		RedirectURI:         &redirectURI,
 		Scope:               &scope,
 		ClientID:            clientID,
-		ResponseType:        o_auth2_0.AuthorizeV3CodeConstant,
+		ResponseType:        o_auth2_0.AuthorizeV3ResponseTypeCodeConstant,
 		HTTPClient:          httpClient,
 	}
 
@@ -241,7 +241,7 @@ func TestIntegrationGrantTokenAuthorizationCode(t *testing.T) {
 	inputTokenGrant := &o_auth2_0.TokenGrantV3Params{
 		Code:         &code,
 		CodeVerifier: &codeVerifier,
-		GrantType:    o_auth2_0.TokenGrantV3AuthorizationCodeConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeAuthorizationCodeConstant,
 	}
 
 	oAuth20Service.TokenRepository.RemoveToken()

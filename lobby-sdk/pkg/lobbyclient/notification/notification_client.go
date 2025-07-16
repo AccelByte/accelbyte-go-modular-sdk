@@ -51,6 +51,7 @@ type ClientService interface {
 	SendSpecificUserFreeformNotificationV1AdminShort(params *SendSpecificUserFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserFreeformNotificationV1AdminResponse, error)
 	SendSpecificUserTemplatedNotificationV1AdminShort(params *SendSpecificUserTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserTemplatedNotificationV1AdminResponse, error)
 	GetMyNotificationsShort(params *GetMyNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyNotificationsResponse, error)
+	GetMyOfflineNotificationsShort(params *GetMyOfflineNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyOfflineNotificationsResponse, error)
 	GetTopicByNamespaceShort(params *GetTopicByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByNamespaceResponse, error)
 	CreateTopicShort(params *CreateTopicParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTopicResponse, error)
 	GetTopicByTopicNameShort(params *GetTopicByTopicNameParams, authInfo runtime.ClientAuthInfoWriter) (*GetTopicByTopicNameResponse, error)
@@ -1843,6 +1844,95 @@ func (a *Client) GetMyNotificationsShort(params *GetMyNotificationsParams, authI
 		return response, v
 	case *GetMyNotificationsInternalServerError:
 		response := &GetMyNotificationsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+GetMyOfflineNotificationsShort get list of offline notifications
+Get list of user's offline notifications in a namespace.
+*/
+func (a *Client) GetMyOfflineNotificationsShort(params *GetMyOfflineNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyOfflineNotificationsResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetMyOfflineNotificationsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getMyOfflineNotifications",
+		Method:             "GET",
+		PathPattern:        "/notification/namespaces/{namespace}/notification/offline/me",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetMyOfflineNotificationsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *GetMyOfflineNotificationsOK:
+		response := &GetMyOfflineNotificationsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *GetMyOfflineNotificationsBadRequest:
+		response := &GetMyOfflineNotificationsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *GetMyOfflineNotificationsUnauthorized:
+		response := &GetMyOfflineNotificationsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *GetMyOfflineNotificationsForbidden:
+		response := &GetMyOfflineNotificationsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *GetMyOfflineNotificationsNotFound:
+		response := &GetMyOfflineNotificationsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *GetMyOfflineNotificationsInternalServerError:
+		response := &GetMyOfflineNotificationsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

@@ -668,6 +668,36 @@ func (aaa *NotificationService) GetMyNotificationsShort(input *notification.GetM
 	return ok, nil
 }
 
+func (aaa *NotificationService) GetMyOfflineNotificationsShort(input *notification.GetMyOfflineNotificationsParams) (*notification.GetMyOfflineNotificationsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdNotification != nil {
+		input.XFlightId = tempFlightIdNotification
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Notification.GetMyOfflineNotificationsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *NotificationService) GetTopicByNamespaceShort(input *notification.GetTopicByNamespaceParams) (*notification.GetTopicByNamespaceResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

@@ -134,10 +134,10 @@ func (a *Client) GetNotificationSubscriberListV2Short(params *GetNotificationSub
 }
 
 /*
-BulkSaveSubscriptionAppNotificationV2Short bulk update the subscription of the users
+BulkSaveSubscriptionAppNotificationV2Short bulk update of users subscribed to an app's notifications
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [UPDATE]`
 
-Update the subscription the user(s) is an app notification.
+Bulk update of users subscribed to an app's notifications.
 
 Request body:
 - notificationType : type of the app notification to be subscribed - Required.
@@ -402,10 +402,10 @@ func (a *Client) GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerP
 }
 
 /*
-SubscribeV2HandlerShort subscribe to app down notification
+SubscribeV2HandlerShort subscribe to app notification
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRIPTION [CREATE]`
 
-Subscribe to app down notification
+Subscribe to app notification
 Request body:
 - notificationType : type of the app notification to be subscribed - Required.
 - values:
@@ -491,10 +491,10 @@ func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authI
 }
 
 /*
-UnsubscribeV2HandlerShort unsubscribe to app down notification
+UnsubscribeV2HandlerShort unsubscribe to app notification
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRIPTION [DELETE]`
 
-Unsubscribe to app down notification
+Unsubscribe to app notification
 */
 func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerResponse, error) {
 	// TODO: Validate the params before sending

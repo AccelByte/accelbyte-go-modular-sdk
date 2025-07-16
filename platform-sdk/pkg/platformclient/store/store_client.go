@@ -1231,7 +1231,7 @@ func (a *Client) QueryImportHistoryShort(params *QueryImportHistoryParams, authI
 
 /*
 ImportStoreByCSVShort import store using csv format
-This API is used to import a store by CSV format.
+This API is used to import a store by CSV format, You must select at least one of item/section/display/category for uploading
 */
 func (a *Client) ImportStoreByCSVShort(params *ImportStoreByCSVParams, authInfo runtime.ClientAuthInfoWriter) (*ImportStoreByCSVResponse, error) {
 	// TODO: Validate the params before sending

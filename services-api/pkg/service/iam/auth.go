@@ -107,7 +107,7 @@ func (o *OAuth20Service) GrantTokenAuthorizationCode(code, codeVerifier, redirec
 	param := &o_auth2_0.TokenGrantV3Params{
 		Code:         &code,
 		CodeVerifier: &codeVerifier,
-		GrantType:    o_auth2_0.TokenGrantV3AuthorizationCodeConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeAuthorizationCodeConstant,
 		RedirectURI:  &redirectURI,
 	}
 
@@ -161,7 +161,7 @@ func (o *OAuth20Service) Authenticate(requestID, username, password string) (str
 	if errorDescParam != nil {
 		return "", errors.New(errorDescParam[0])
 	}
-	code := query[o_auth2_0.AuthorizeV3CodeConstant][0]
+	code := query[o_auth2_0.AuthorizeV3ResponseTypeCodeConstant][0]
 
 	return code, nil
 }
@@ -183,7 +183,7 @@ func (o *OAuth20Service) Authorize(scope, challenge, challengeMethod string) (st
 		ClientID:            clientID,
 		CodeChallenge:       &challenge,
 		CodeChallengeMethod: &challengeMethod,
-		ResponseType:        o_auth2_0.AuthorizeV3CodeConstant,
+		ResponseType:        o_auth2_0.AuthorizeV3ResponseTypeCodeConstant,
 		Scope:               &scope,
 		HTTPClient:          httpClient,
 	}
@@ -221,7 +221,7 @@ func (o *OAuth20Service) Login(username, password string) error {
 	}
 	codeVerifier := codeVerifierGenerator.String()
 	challenge := codeVerifierGenerator.CodeChallengeS256()
-	challengeMethod := o_auth2_0.AuthorizeV3S256Constant
+	challengeMethod := o_auth2_0.AuthorizeV3CodeChallengeMethodS256Constant
 	requestID, err := o.Authorize(scope, challenge, challengeMethod)
 	if err != nil {
 		return err
