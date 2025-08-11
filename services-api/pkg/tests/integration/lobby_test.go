@@ -14,22 +14,22 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
-	service "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
-	lobbyAdminNotification "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/notification"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
 )
 
 var (
-	connMgr             *integration.ConnectionManagerImpl
+	connMgr             wsm.ConnectionManager
 	msgType             string
-	notificationService = &service.NotificationServiceWebsocket{
+	notificationService = &lobby.NotificationServiceWebsocket{
 		ConfigRepository:  oAuth20Service.ConfigRepository,
 		TokenRepository:   oAuth20Service.TokenRepository,
 		ConnectionManager: connMgr,
@@ -78,12 +78,12 @@ func TestIntegrationNotification(t *testing.T) {
 
 	// Login User - Arrange
 	Init()
-	connMgr = &integration.ConnectionManagerImpl{}
-	connection, err := connectionutils.NewWSConnection(
+	connMgr = &wsm.DefaultConnectionManagerImpl{}
+	connection, err := wsm.NewWSConnection(
 		oAuth20Service.ConfigRepository,
 		oAuth20Service.TokenRepository,
-		connectionutils.WithScheme(scheme),
-		connectionutils.WithMessageHandler(lobbyMessageHandler))
+		wsm.WithScheme(scheme),
+		wsm.WithMessageHandler(lobbyMessageHandler))
 	assert.Nil(t, err, "err should be nil")
 
 	lobbyClient := connectionutils.NewLobbyWebSocketClient(connection)
@@ -124,7 +124,7 @@ func TestIntegrationLobbyFreeFormNotification(t *testing.T) {
 	message := "This is a Go Extend SDK integration test"
 
 	// CASE Lobby free form notification
-	err := lobbyAdminSvc.FreeFormNotificationShort(&lobbyAdminNotification.FreeFormNotificationParams{
+	err := lobbyAdminSvc.FreeFormNotificationShort(&admin.FreeFormNotificationParams{
 		Body: &lobbyclientmodels.ModelFreeFormNotificationRequest{
 			Message: &message,
 			Topic:   &topic,
@@ -148,12 +148,12 @@ func TestIntegrationLobbyService(t *testing.T) {
 
 	// Login User - Arrange
 	Init()
-	connMgr = &integration.ConnectionManagerImpl{}
-	connection, err := connectionutils.NewWSConnection(
+	connMgr = &wsm.DefaultConnectionManagerImpl{}
+	connection, err := wsm.NewWSConnection(
 		oAuth20Service.ConfigRepository,
 		oAuth20Service.TokenRepository,
-		connectionutils.WithScheme(scheme),
-		connectionutils.WithMessageHandler(lobbyMessageHandler))
+		wsm.WithScheme(scheme),
+		wsm.WithMessageHandler(lobbyMessageHandler))
 	assert.Nil(t, err, "err should be nil")
 
 	lobbyClient := connectionutils.NewLobbyWebSocketClient(connection)

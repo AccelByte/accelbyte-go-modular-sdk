@@ -10,20 +10,22 @@ import (
 	"strings"
 	"time"
 
-	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	"github.com/sirupsen/logrus"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/sirupsen/logrus"
 )
 
 var (
 	// use the default config and token implementation
 	configRepo          = *auth.DefaultConfigRepositoryImpl()
 	tokenRepo           = *auth.DefaultTokenRepositoryImpl()
-	connMgr             *ConnectionManagerImpl
+	connMgr             wsm.ConnectionManager
 	lobbyMessageHandler = func(dataByte []byte) {
 
 		msg := decodeWSMessage(string(dataByte))
@@ -58,13 +60,15 @@ func main() {
 		fmt.Println("successful login")
 	}
 
+	connMgr = &wsm.DefaultConnectionManagerImpl{}
+
 	// prepare the Websocket lobby service
 	lobbyService := &lobby.LobbyServiceWebsocket{
 		ConfigRepository:  &configRepo,
 		TokenRepository:   &tokenRepo,
 		ConnectionManager: connMgr,
 	}
-	connection, errConn := connectionutils.NewWSConnection(&configRepo, &tokenRepo, connectionutils.WithMessageHandler(lobbyMessageHandler))
+	connection, errConn := wsm.NewWSConnection(&configRepo, &tokenRepo, wsm.WithMessageHandler(lobbyMessageHandler))
 	if errConn != nil {
 		fmt.Println("failed to make websocket connection")
 	}
@@ -108,27 +112,6 @@ func main() {
 		}
 		time.Sleep(5 * time.Second)
 	}
-}
-
-type ConnectionManagerImpl struct {
-}
-
-var wsConn *connectionutils.WSConnection
-
-func (connManager *ConnectionManagerImpl) Save(conn *connectionutils.WSConnection) {
-	wsConn = conn
-}
-
-func (connManager *ConnectionManagerImpl) Get() *connectionutils.WSConnection {
-	return wsConn
-}
-
-func (connManager *ConnectionManagerImpl) Close() error {
-	if wsConn == nil {
-		return fmt.Errorf("no websocket connection can be closed")
-	}
-
-	return wsConn.Conn.Close()
 }
 
 func decodeWSMessage(msg string) map[string]string {

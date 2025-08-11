@@ -4,6 +4,8 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk
 
 go 1.18
 
+replace github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../services-api
+
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
 	github.com/go-openapi/errors v0.20.2
@@ -11,7 +13,7 @@ require (
 	github.com/go-openapi/strfmt v0.21.1
 	github.com/go-openapi/swag v0.21.1
 	github.com/go-openapi/validate v0.21.0
-	github.com/gorilla/websocket v1.5.0
+	github.com/gorilla/websocket v1.5.3
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.2
 	tideland.dev/go/wait v0.2.0

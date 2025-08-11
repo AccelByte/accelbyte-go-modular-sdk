@@ -15,6 +15,8 @@ import (
 
 	"github.com/gorilla/websocket"
 	"github.com/sirupsen/logrus"
+
+	baseWsm "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 )
 
 const (
@@ -25,12 +27,12 @@ const (
 
 // LobbyWebSocketClient is the extended implementation of ConnectionManagerImpl
 type LobbyWebSocketClient struct {
-	WSConn *WSConnection
+	WSConn *baseWsm.WSConnection
 
 	done chan struct{}
 }
 
-func NewLobbyWebSocketClient(wsConn *WSConnection) *LobbyWebSocketClient {
+func NewLobbyWebSocketClient(wsConn *baseWsm.WSConnection) *LobbyWebSocketClient {
 	return &LobbyWebSocketClient{
 		WSConn: wsConn,
 	}
@@ -159,11 +161,11 @@ func (c *LobbyWebSocketClient) reconnect(code int, reason string) bool {
 	return didReconnect
 }
 
-func (c *LobbyWebSocketClient) Save(conn *WSConnection) {
+func (c *LobbyWebSocketClient) Save(conn *baseWsm.WSConnection) {
 	c.WSConn = conn
 }
 
-func (c *LobbyWebSocketClient) Get() *WSConnection {
+func (c *LobbyWebSocketClient) Get() *baseWsm.WSConnection {
 	return c.WSConn
 }
 

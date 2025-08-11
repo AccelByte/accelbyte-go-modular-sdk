@@ -5,11 +5,9 @@
 package integration
 
 import (
-	"fmt"
 	"os"
 	"time"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
@@ -22,24 +20,6 @@ var (
 )
 
 type ConnectionManagerImpl struct {
-}
-
-var wsConn *connectionutils.WSConnection
-
-func (connManager *ConnectionManagerImpl) Save(conn *connectionutils.WSConnection) {
-	wsConn = conn
-}
-
-func (connManager *ConnectionManagerImpl) Get() *connectionutils.WSConnection {
-	return wsConn
-}
-
-func (connManager *ConnectionManagerImpl) Close() error {
-	if wsConn == nil {
-		return fmt.Errorf("no websocket connection can be closed")
-	}
-
-	return wsConn.Conn.Close()
 }
 
 // ------------------------------------- section for phantauth token repo -----------------------------------

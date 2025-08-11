@@ -14,15 +14,18 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/sirupsen/logrus"
+
 	"client/pkg/models"
 	"client/pkg/utils"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/parser"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-	"github.com/sirupsen/logrus"
 )
 
 const (
@@ -55,7 +58,7 @@ var (
 		ConfigRepository: &configImpl,
 		TokenRepository:  &tokenImpl,
 	}
-	connMgr *utils.ConnectionManagerImpl
+	connMgr *wsm.DefaultConnectionManagerImpl
 )
 
 func main() {
@@ -227,11 +230,11 @@ func login() {
 
 	// listening message from lobby using AccelByte Go SDK
 	logrus.Info("Enter websocket mode")
-	connMgr = &utils.ConnectionManagerImpl{}
-	connection, err := connectionutils.NewWSConnection(
+	connMgr = &wsm.DefaultConnectionManagerImpl{}
+	connection, err := wsm.NewWSConnection(
 		oauthService.ConfigRepository,
 		oauthService.TokenRepository,
-		connectionutils.WithMessageHandler(websocketMessageHandler))
+		wsm.WithMessageHandler(websocketMessageHandler))
 	if err != nil {
 		panic(err)
 	}

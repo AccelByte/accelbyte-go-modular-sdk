@@ -10,17 +10,17 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/sirupsen/logrus"
 
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
-
-	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
+
+	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
 )
 
 type NotificationServiceWebsocket struct {
 	ConfigRepository  repository.ConfigRepository
 	TokenRepository   repository.TokenRepository
-	ConnectionManager connectionutils.ConnectionManager
+	ConnectionManager wsm.ConnectionManager
 }
 
 func (notificationService *NotificationServiceWebsocket) GetNotificationMessage() error {

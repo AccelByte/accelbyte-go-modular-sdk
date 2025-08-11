@@ -30,7 +30,7 @@ sample-apps <ServiceName-command> <methodName-command> -h
 To enter WebSocket mode (WebSocket endpoints):
 
 ```
-sample-apps --wsMode
+sample-apps --ws
 ```
 
 Most commands will require you to login as either a `client` or as a `user`.<br />
@@ -115,5 +115,5 @@ Example:
 sample-apps login -u admin+omega@accelbyte.net -p S8i9wfIQrV8oQ7gRSQokh2Xn1g7bOhoP
 
 ## Enter ws mode, if successfully connected, menu option will appears and sample-apps will listen for user input.
-sample-apps --wsMode
+sample-apps --ws
 ```

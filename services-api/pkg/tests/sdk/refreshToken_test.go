@@ -13,13 +13,14 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
+
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
 
 var (
@@ -151,7 +152,7 @@ func TestAuthInfoWriterRefreshAsync_withMockServer(t *testing.T) {
 }
 
 var (
-	connMgr             *integration.ConnectionManagerImpl
+	connMgr             wsm.ConnectionManager
 	lobbyMessageHandler = func(dataByte []byte) {
 
 		msg := decodeWSMessage(string(dataByte))
@@ -179,6 +180,8 @@ func TestWebsocketRefresh_withMockServer(t *testing.T) {
 
 	oAuth20Service.RefreshTokenRepository = &auth.RefreshTokenImpl{AutoRefresh: true, RefreshRate: 0.01} // Force refresh with shorter time span
 
+	connMgr = &wsm.DefaultConnectionManagerImpl{}
+
 	// 2. call websocket endpoint
 	lobbyService := &lobby.LobbyServiceWebsocket{
 		ConfigRepository:  configRepoObs,
@@ -186,10 +189,10 @@ func TestWebsocketRefresh_withMockServer(t *testing.T) {
 		ConnectionManager: connMgr,
 	}
 
-	connection, err := connectionutils.NewWSConnection(
+	connection, err := wsm.NewWSConnection(
 		configRepoObs, tokenRepoObs,
-		connectionutils.WithScheme("ws"),
-		connectionutils.WithMessageHandler(lobbyMessageHandler),
+		wsm.WithScheme("ws"),
+		wsm.WithMessageHandler(lobbyMessageHandler),
 	)
 
 	assert.Nil(t, err, "err should be nil")

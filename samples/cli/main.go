@@ -5,11 +5,9 @@
 package main
 
 import (
-	"bufio"
 	"encoding/json"
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/gorilla/websocket"
 	"github.com/sirupsen/logrus"
@@ -17,22 +15,15 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
 	lobbyUtils "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
+
 	"github.com/AccelByte/sample-apps/cmd"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/AccelByte/sample-apps/pkg/utils"
 )
 
 var (
-	reader                        *bufio.Reader
-	connMgr                       *utils.ConnectionManagerImpl
+	connMgr                       wsm.ConnectionManager
 	unifiedMessageFromMapRegistry = wsm.NewMessageFromMap{}
 )
-
-type LegacyCommand struct {
-	Name  string
-	Alias string
-	Short string
-}
 
 func main() {
 	args := os.Args
@@ -43,20 +34,20 @@ func main() {
 	case "--ws", "--wsModeStandalone":
 	default:
 		cmd.Execute()
+
 		return
 	}
 
-	reader = bufio.NewReader(os.Stdin)
-	connMgr = &utils.ConnectionManagerImpl{}
+	connMgr = &wsm.DefaultConnectionManagerImpl{}
 
 	configRepo := &repository.ConfigRepositoryImpl{}
 	tokenRepo := &repository.TokenRepositoryImpl{}
 
-	wsConn, err := lobbyUtils.NewWSConnection(
+	wsConn, err := wsm.NewWSConnection(
 		configRepo,
 		tokenRepo,
-		lobbyUtils.WithScheme("ws"),
-		lobbyUtils.WithMessageHandler(onMessageCallback),
+		wsm.WithScheme("ws"),
+		wsm.WithMessageHandler(onMessageCallback),
 	)
 	if err != nil {
 		panic(err)
@@ -76,7 +67,7 @@ func main() {
 		wsServe()
 	}
 
-	defer func(connMgr *utils.ConnectionManagerImpl) { _ = connMgr.Close() }(connMgr)
+	defer func(connMgr wsm.ConnectionManager) { _ = connMgr.Close() }(connMgr)
 
 	logrus.Info("done")
 }
@@ -131,19 +122,6 @@ func getMessage(s string) (wsm.Message, error) {
 	return message, nil
 }
 
-func readInput() string {
-	text, err := reader.ReadString('\n')
-	if err != nil {
-		return ""
-	}
-
-	// convert CRLF to LF
-	text = strings.Replace(text, "\n", "", -1)
-	text = strings.Replace(text, "\r", "", -1)
-
-	return text
-}
-
 func sendMessage(text string) error {
 	return connMgr.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 }
@@ -166,5 +144,5 @@ func onMessageCallback(data []byte) {
 		return
 	}
 
-	logrus.Info("Message Content: %s", string(j))
+	logrus.Infof("Message Content: %s", string(j))
 }

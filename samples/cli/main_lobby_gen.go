@@ -8,6 +8,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/wsm"
 )
 
