@@ -89,6 +89,16 @@ linters:
     - nestif # TODO: enable in tic-tac-toe
     - interfacer # TODO: enable in aws-lambda
     - gochecknoinits # TODO: enable in cli
+    - ireturn      # new in 1.43
+    - tenv         # new in 1.43
+    - varnamelen   # new in 1.43
+    - containedctx # new in 1.44
+    - errchkjson   # new in 1.44
+    - ifshort      # new in 1.44
+    - maintidx     # new in 1.44
+    - errcheck     # new in 1.46
+    - execinquery  # new in 1.46
+    - exhaustruct  # new in 1.46
 
   fast: false
 
