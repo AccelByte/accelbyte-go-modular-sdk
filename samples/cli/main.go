@@ -40,8 +40,7 @@ func main() {
 	mode := args[1]
 
 	switch mode {
-	case "--wsMode":
-	case "--wsModeStandalone":
+	case "--ws", "--wsModeStandalone":
 	default:
 		cmd.Execute()
 		return
@@ -73,10 +72,7 @@ func main() {
 	logrus.Info("starting...")
 
 	switch mode {
-	case "--wsMode":
-		lobbyWsLegacyInit(configRepo, tokenRepo)
-		lobbyWsLegacyServe()
-	case "--wsModeStandalone":
+	case "--ws", "--wsModeStandalone":
 		wsServe()
 	}
 
