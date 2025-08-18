@@ -11,13 +11,17 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/gorilla/websocket"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
+	lobbyWsm "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/wsm"
+
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
@@ -29,13 +33,7 @@ import (
 var (
 	connMgr             wsm.ConnectionManager
 	msgType             string
-	notificationService = &lobby.NotificationServiceWebsocket{
-		ConfigRepository:  oAuth20Service.ConfigRepository,
-		TokenRepository:   oAuth20Service.TokenRepository,
-		ConnectionManager: connMgr,
-	}
 	lobbyMessageHandler = func(dataByte []byte) {
-
 		msg := decodeWSMessage(string(dataByte))
 
 		if v, ok := msg["type"]; ok {
@@ -96,14 +94,20 @@ func TestIntegrationNotification(t *testing.T) {
 	connMgr.Save(connection)
 
 	// CASE Lobby get a notification
-	err = notificationService.GetNotificationMessage()
+	messageNotif := lobbyWsm.MessageNotif{
+		ID: utils.GenerateMessageID(),
+	}
+	err = connection.Conn.WriteMessage(websocket.TextMessage, []byte(messageNotif.String()))
 	// ESAC
 
 	// Assert
 	assert.Nil(t, err, "err should be nil")
 
 	// CASE Lobby get offline notification
-	err = notificationService.GetOfflineNotification()
+	offlineNotificationRequest := lobbyWsm.OfflineNotificationRequest{
+		ID: utils.Ptr(utils.GenerateMessageID()),
+	}
+	err = connection.Conn.WriteMessage(websocket.TextMessage, []byte(offlineNotificationRequest.String()))
 	// ESAC
 
 	// Assert
@@ -165,17 +169,11 @@ func TestIntegrationLobbyService(t *testing.T) {
 
 	connMgr.Save(connection)
 
-	lobbyWebsocketSvc := &lobby.LobbyServiceWebsocket{
-		ConfigRepository:  oAuth20Service.ConfigRepository,
-		TokenRepository:   oAuth20Service.TokenRepository,
-		ConnectionManager: connMgr,
-	}
-
-	id := ""
-
 	// CASE Lobby party create request
-	err = lobbyWebsocketSvc.PartyCreateRequest(&id)
-
+	partyCreateRequest := lobbyWsm.PartyCreateRequest{
+		ID: utils.Ptr(utils.GenerateMessageID()),
+	}
+	err = connection.Conn.WriteMessage(websocket.TextMessage, []byte(partyCreateRequest.String()))
 	// ESAC
 
 	// Assert
